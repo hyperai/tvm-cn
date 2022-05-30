@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hybrid Frontend Language Reference &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hybrid-frontend-language-reference">
+<span id="hybrid-langref-label"></span><h1>Hybrid Frontend Language Reference<a class="headerlink" href="#hybrid-frontend-language-reference" title="永久链接至标题">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<p>This hybrid frontend allows users to write preliminary versions of some idioms that yet have
+been supported by TVM officially.</p>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="永久链接至标题">¶</a></h2>
+<div class="section" id="software-emulation">
+<h3>Software Emulation<a class="headerlink" href="#software-emulation" title="永久链接至标题">¶</a></h3>
+<p>Both software emulation and compilation are supported. To define a function,
+you need to use <code class="docutils literal notranslate"><span class="pre">tvm.te.hybrid.script</span></code> decorator to indicate this is a hybrid function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tvm</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">hybrid</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">outer_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">output_tensor</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">),</span> <span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">c</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">outer_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This decorator will import <a class="reference internal" href="#keywords">Keywords</a> required spontaneously when software emulation.
+After software emulation is done, the imported keywords will be cleaned up. Users do not need
+worry about keyword conflict and pollution.</p>
+<p>Every element passed for software emulation in the argument list is either a python variable
+or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> numeric type.</p>
+</div>
+<div class="section" id="backend-compilation">
+<h3>Backend Compilation<a class="headerlink" href="#backend-compilation" title="永久链接至标题">¶</a></h3>
+<p>This function is not encouraged to use, users are encouraged to use the second interface.
+The current parse interface looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">placeholder</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">placeholder</span><span class="p">((</span><span class="mi">99</span><span class="p">,</span> <span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">hybrid</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">outer_product</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span> <span class="c1"># return the parser of this function</span>
+</pre></div>
+</div>
+<p>If we pass these tvm data structures, like <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">Var</span></code>, <code class="docutils literal notranslate"><span class="pre">Expr.*Imm</span></code>,
+or <code class="docutils literal notranslate"><span class="pre">tvm.container.Array</span></code>, to this function, it returns a op node:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">placeholder</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">placeholder</span><span class="p">((</span><span class="mi">99</span><span class="p">,</span> <span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">outer_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># return the output tensor(s) of the operator</span>
+</pre></div>
+</div>
+<p>You can use any methods that can be applied on a TVM <code class="docutils literal notranslate"><span class="pre">OpNode</span></code>, like create_schedule, although
+so far, the functionality of schedule is as limited as <code class="docutils literal notranslate"><span class="pre">ExternOpNode</span></code>. At least, it can be built
+to LLVM module.</p>
+</div>
+<div class="section" id="tuning">
+<h3>Tuning<a class="headerlink" href="#tuning" title="永久链接至标题">¶</a></h3>
+<p>Follow up the example above, you can use some tvm like interfaces to tune the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">axis</span>
+<span class="n">sch</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">create_schedule</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
+<span class="n">jo</span><span class="p">,</span> <span class="n">ji</span> <span class="o">=</span> <span class="n">sch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">sch</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">ji</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For now, you can use loop annotations (<code class="docutils literal notranslate"><span class="pre">unroll</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, <code class="docutils literal notranslate"><span class="pre">vectorize</span></code>, and <code class="docutils literal notranslate"><span class="pre">bind</span></code>),
+loop manipulation (<code class="docutils literal notranslate"><span class="pre">split</span></code> and <code class="docutils literal notranslate"><span class="pre">fuse</span></code>), and <code class="docutils literal notranslate"><span class="pre">reorder</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>This is a preliminary function, so users should be in charge of the correctness
+of the functionality after tuning. Specifically, users should be careful when
+fusing and reorderding imperfect loops.</p>
+</div>
+</div>
+<div class="section" id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="永久链接至标题">¶</a></h3>
+<p>In HalideIR, loops have in total 4 types: <code class="docutils literal notranslate"><span class="pre">serial</span></code>, <code class="docutils literal notranslate"><span class="pre">unrolled</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, and <code class="docutils literal notranslate"><span class="pre">vectorized</span></code>.</p>
+<p>Here we use <code class="docutils literal notranslate"><span class="pre">range</span></code> aka <code class="docutils literal notranslate"><span class="pre">serial</span></code>, <code class="docutils literal notranslate"><span class="pre">unroll</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, and <code class="docutils literal notranslate"><span class="pre">vectorize</span></code>,
+these <strong>4</strong> keywords to annotate the corresponding types of for loops.
+The the usage is roughly the same as Python standard <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+<p>Besides all the loop types supported in Halide, <code class="docutils literal notranslate"><span class="pre">const_range</span></code> is supported for some specific conditions.
+Sometimes, <code class="docutils literal notranslate"><span class="pre">tvm.container.Array</span></code> is desired to pass as an argument, but in TVM-HalideIR, there is no
+such support that converts <code class="docutils literal notranslate"><span class="pre">tvm.container.Array</span></code> to an <code class="docutils literal notranslate"><span class="pre">Expr</span></code>. Thus, a limited feature is supported.
+Users can access containers by either constants or constants loops annotated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tvm</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">hybrid</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="c1"># b is a tvm.container.Array</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">output_tensor</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">const_range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span> <span class="c1"># because you have b access, i should be explicitly annotated as const_range</span>
+        <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="永久链接至标题">¶</a></h3>
+<p>All the mutable variables will be lowered to an array with size 1.
+It regards the first store of a variable as its declaration.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Unlike conventional Python, in hybrid script, the declared variable
+can only be used in the scope level it is declared.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Currently, you can ONLY use basic-typed variables, i.e. the type of the
+variable should be either <code class="docutils literal notranslate"><span class="pre">float32</span></code>, or <code class="docutils literal notranslate"><span class="pre">int32</span></code>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># declaration, this s will be a 1-array in lowered IR</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+      <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="c1"># do something with s</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="c1"># you can still use s in this level</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="c1"># you CANNOT use s here, even though it is allowed in conventional Python</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="永久链接至标题">¶</a></h3>
+<p>So far, ONLY tensors’ <code class="docutils literal notranslate"><span class="pre">shape</span></code> and <code class="docutils literal notranslate"><span class="pre">dtype</span></code> attribute are supported!
+The <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute is essentially a tuple, so you MUST access it as an array.
+Currently, only constant-indexed access is supported.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># OK!</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="c1"># BAD! i is not a constant!</span>
+       <span class="c1"># do something</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conditional-statement-and-expression">
+<h3>Conditional Statement and Expression<a class="headerlink" href="#conditional-statement-and-expression" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition1</span> <span class="ow">and</span> <span class="n">condition2</span> <span class="ow">and</span> <span class="n">condition3</span><span class="p">:</span>
+    <span class="c1"># do something</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># do something else</span>
+<span class="c1"># Select</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>However, NO <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> keyword supported yet.</p>
+</div>
+<div class="section" id="math-intrinsics">
+<h3>Math Intrinsics<a class="headerlink" href="#math-intrinsics" title="永久链接至标题">¶</a></h3>
+<p>So far, these math intrinsics, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tanh</span></code>, <code class="docutils literal notranslate"><span class="pre">power</span></code>, and <code class="docutils literal notranslate"><span class="pre">popcount</span></code>, are supported.
+No import is required, just as it is mentioned in <a class="reference internal" href="#software-emulation">Software Emulation</a>, just use it!</p>
+</div>
+<div class="section" id="array-allocation">
+<h3>Array Allocation<a class="headerlink" href="#array-allocation" title="永久链接至标题">¶</a></h3>
+<p><strong>Under construction, this function will be supported later!</strong></p>
+<p>Use a function call <code class="docutils literal notranslate"><span class="pre">allocation(shape,</span> <span class="pre">type,</span> <span class="pre">share/local)</span></code> to declare an array buffer.
+The basic usage is roughly the same as a normal <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>, and you should access
+high-dim array in <code class="docutils literal notranslate"><span class="pre">a[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> fashion instead of <code class="docutils literal notranslate"><span class="pre">a[i][j][k]</span></code>,
+even for <code class="docutils literal notranslate"><span class="pre">tvm.container.Array</span></code> for compilation.</p>
+</div>
+<div class="section" id="thread-bind">
+<h3>Thread Bind<a class="headerlink" href="#thread-bind" title="永久链接至标题">¶</a></h3>
+<p>You can also do loop-thread bind by writing code like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">tx</span> <span class="ow">in</span> <span class="n">bind</span><span class="p">(</span><span class="s2">&quot;threadIdx.x&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">tx</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">tx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assert-statement">
+<h3>Assert Statement<a class="headerlink" href="#assert-statement" title="永久链接至标题">¶</a></h3>
+<p>Assert statement is supported, you can simply use it as it is in standard Python.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">cond</span><span class="p">,</span> <span class="n">mesg</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">Assert</span></code> is NOT a function call. Users are encouraged to use assert in the way
+presented above — condition followed by message. It fits both Python AST and HalideIR.</p>
+</div>
+</div>
+<div class="section" id="keywords">
+<h3>Keywords<a class="headerlink" href="#keywords" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>For keywords: <code class="docutils literal notranslate"><span class="pre">serial</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">unroll</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, <code class="docutils literal notranslate"><span class="pre">vectorize</span></code>, <code class="docutils literal notranslate"><span class="pre">bind</span></code>, <code class="docutils literal notranslate"><span class="pre">const_range</span></code></p></li>
+<li><p>Math keywords: <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">rsqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code>, <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, <code class="docutils literal notranslate"><span class="pre">power</span></code>, <code class="docutils literal notranslate"><span class="pre">popcount</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil_div</span></code></p></li>
+<li><p>Allocate keywords: <code class="docutils literal notranslate"><span class="pre">allocate</span></code>, <code class="docutils literal notranslate"><span class="pre">output_tensor</span></code></p></li>
+<li><p>Data type keywords: <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">float16</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code></p></li>
+<li><p>Others: <code class="docutils literal notranslate"><span class="pre">max_num_threads</span></code></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/reference/langref/hybrid_script.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

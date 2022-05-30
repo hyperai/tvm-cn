@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit a Pull Request &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Code Reviews" href="code_review.html" />
+    <link rel="prev" title="TVM Community Guidelines" href="community.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="submit-a-pull-request">
+<h1>Submit a Pull Request<a class="headerlink" href="#submit-a-pull-request" title="永久链接至标题">¶</a></h1>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#guidelines" id="id2">Guidelines</a></p></li>
+<li><p><a class="reference internal" href="#ci-environment" id="id3">CI Environment</a></p></li>
+<li><p><a class="reference internal" href="#testing" id="id4">Testing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#docker-recommended" id="id5">Docker (recommended)</a></p></li>
+<li><p><a class="reference internal" href="#c-local" id="id6">C++ (local)</a></p></li>
+<li><p><a class="reference internal" href="#python-local" id="id7">Python (local)</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="guidelines">
+<h2><a class="toc-backref" href="#id2">Guidelines</a><a class="headerlink" href="#guidelines" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>We recommend authors send well scoped PRs that are easy to review and revert in case there is a problem. As such, authors should avoid merging multiple unrelated changes into a single PR</p></li>
+<li><p>Before you submit a PR, please rebase your code on the most recent version of <code class="docutils literal notranslate"><span class="pre">main</span></code>, you can do it by
+running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream <span class="o">[</span>url to tvm repo<span class="o">]</span>
+git fetch upstream
+git rebase upstream/main
+</pre></div>
+</div>
+</li>
+<li><p>Make sure code passes lint checks</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># While the lint commands used should be identical to those run in CI, this command reproduces</span>
+<span class="c1"># the CI lint procedure exactly (typically helpful for debugging lint script errors or</span>
+<span class="c1"># to avoid installing tools manually)</span>
+python tests/scripts/ci.py lint
+
+<span class="c1"># Run all lint steps.</span>
+docker/lint.sh
+
+<span class="c1"># To run steps individually, specify their step names on the command-line. An incorrectly</span>
+<span class="c1"># spelled step name causes the tool to print all available steps.</span>
+docker/lint.sh &lt;step_name&gt; ...
+</pre></div>
+</div>
+<p>If the clang-format lint check fails, run git-clang-format as follows to automatically reformat
+your code:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run clang-format check for all the files that changed since upstream/main</span>
+docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh upstream/main
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add test-cases to cover the new features or bugfix the patch introduces.</p></li>
+<li><p>Document the code you wrote, see more at <a class="reference internal" href="document.html#doc-guide"><span class="std std-ref">Documentation</span></a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">Create a pull request</a> and fix the problems reported by CI checks.</p></li>
+<li><p>Request code reviews from other contributors and improve your patch according to their reviews by <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>-ing them in your pull request. Tags in PR titles will automatically tag subscribed users, so make sure to put relevant topics in your PR titles (e.g. <code class="docutils literal notranslate"><span class="pre">[microTVM]</span> <span class="pre">a</span> <span class="pre">cool</span> <span class="pre">change</span></code> and not <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">cool</span> <span class="pre">change</span> <span class="pre">for</span> <span class="pre">microTVM</span></code>).</p>
+<ul class="simple">
+<li><p>To get your code reviewed quickly, we encourage you to help review others’ code so they can do the favor in return.</p></li>
+<li><p>Code review is a shepherding process that helps to improve contributor’s code quality.
+We should treat it proactively, to improve the code as much as possible before the review.
+We highly value patches that can get in without extensive reviews.</p></li>
+<li><p>The detailed guidelines and summarizes useful lessons.</p></li>
+</ul>
+</li>
+<li><p>The PR can be merged after the reviewers approve the pull request.</p></li>
+</ul>
+</div>
+<div class="section" id="ci-environment">
+<h2><a class="toc-backref" href="#id3">CI Environment</a><a class="headerlink" href="#ci-environment" title="永久链接至标题">¶</a></h2>
+<p>We use Docker images to create stable CI environments that can be deployed to multiple machines.
+Follow the steps in <a class="reference external" href="https://github.com/apache/tvm/issues/new?assignees=&amp;labels=&amp;template=ci-image.md&amp;title=%5BCI+Image%5D+">this issue template</a>
+to update a CI Docker image.</p>
+</div>
+<div class="section" id="testing">
+<span id="pr-testing"></span><h2><a class="toc-backref" href="#id4">Testing</a><a class="headerlink" href="#testing" title="永久链接至标题">¶</a></h2>
+<p>Even though we have hooks to run unit tests automatically for each pull request, it’s always recommended to run unit tests
+locally beforehand to reduce reviewers’ burden and speedup review process.</p>
+<div class="section" id="docker-recommended">
+<h3><a class="toc-backref" href="#id5">Docker (recommended)</a><a class="headerlink" href="#docker-recommended" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tests/scripts/ci.py</span></code> replicates the CI environment locally and provides a user-friendly interface.
+The same Docker images and scripts used in CI are used directly to run tests. It also deposits builds
+in different folders so you can maintain multiple test environments without rebuilding from scratch
+each time (e.g. you can test a change in CPU and i386 while retaining incremental rebuilds).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># see all available platforms</span>
+python tests/scripts/ci.py --help
+python tests/scripts/ci.py cpu --help
+
+<span class="c1"># run the CPU build in the ci_cpu docker container (build will be left in</span>
+<span class="c1"># the build-cpu/ folder)</span>
+<span class="c1"># note: the CPU and GPU Docker images are quite large and may take some</span>
+<span class="c1"># time to download on their first use</span>
+python tests/scripts/ci.py cpu
+
+<span class="c1"># run the CPU build in the ci_cpu docker container and then run unittests</span>
+python tests/scripts/ci.py cpu --unittest
+
+<span class="c1"># quickly iterate by running a specific test and skipping the rebuild each time</span>
+python tests/scripts/ci.py cpu --skip-build --tests tests/python/unittest/test_tir_transform_inject_rolling_buffer.py::test_upscale
+
+<span class="c1"># run the CPU build and drop into a shell in the container</span>
+python tests/scripts/ci.py cpu --interactive
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-local">
+<h3><a class="toc-backref" href="#id6">C++ (local)</a><a class="headerlink" href="#c-local" title="永久链接至标题">¶</a></h3>
+<p>Running the C++ tests requires installation of gtest, following the instructions in
+<a class="reference internal" href="../install/from_source.html#install-from-source-cpp-tests"><span class="std std-ref">Enable C++ Tests</span></a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># assume you are in tvm source root</span>
+<span class="nv">TVM_ROOT</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+
+./tests/scripts/task_cpp_unittest.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-local">
+<h3><a class="toc-backref" href="#id7">Python (local)</a><a class="headerlink" href="#python-local" title="永久链接至标题">¶</a></h3>
+<p>Necessary dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --user pytest Cython synr
+</pre></div>
+</div>
+<p>If you want to run all tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># build tvm</span>
+make
+
+./tests/scripts/task_python_unittest.sh
+</pre></div>
+</div>
+<p>If you want to run a single test:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># build tvm</span>
+make
+
+<span class="c1"># let python know where to find tvm related libraries</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>python
+rm -rf python/tvm/*.pyc python/tvm/*/*.pyc python/tvm/*/*/*.pyc
+
+<span class="nv">TVM_FFI</span><span class="o">=</span>ctypes python -m pytest -v tests/python/unittest/test_pass_storage_rewrite.py
+
+<span class="c1"># Additionally if you want to run a single test, for example test_all_elemwise inside a file.</span>
+<span class="nv">TVM_FFI</span><span class="o">=</span>ctypes python -m pytest -v -k <span class="s2">&quot;test_all_elemwise&quot;</span> tests/python/frontend/tflite/test_forward.py
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Contributor Guide</a><ul>
+      <li>Previous: <a href="community.html" title="上一章">TVM Community Guidelines</a></li>
+      <li>Next: <a href="code_review.html" title="下一章">Code Reviews</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/contribute/pull_request.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

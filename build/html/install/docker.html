@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker Images &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="TLCPack" href="tlcpack.html" />
+    <link rel="prev" title="NNPACK Contrib Installation" href="nnpack.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="docker-images">
+<span id="id1"></span><h1>Docker Images<a class="headerlink" href="#docker-images" title="永久链接至标题">¶</a></h1>
+<p>We provide docker utility scripts to help developers to setup development environment.
+They are also helpful run through TVM demo and tutorials.
+We need <a class="reference external" href="https://docs.docker.com/engine/installation/">docker</a> and
+<a class="reference external" href="https://github.com/NVIDIA/nvidia-docker/">nvidia-docker</a> if we want to use cuda.</p>
+<p>Get a tvm source distribution or clone the github repo to get the auxiliary scripts</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/apache/tvm tvm
+</pre></div>
+</div>
+<p>We can then use the following command to launch a docker image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/tvm/docker/bash.sh &lt;image-name&gt;
+</pre></div>
+</div>
+<p>Here the image-name can be a local docker image name, e.g. <cite>tvm.ci_cpu</cite> after you have done the local build.</p>
+<p>This auxiliary script does the following things:</p>
+<ul class="simple">
+<li><p>Mount current directory to /workspace</p></li>
+<li><p>Switch user to be the same user that calls the bash.sh (so you can read/write host system)</p></li>
+<li><p>Use the host-side network on Linux. Use the bridge network and expose port 8888 on macOS,
+because host networking driver isn’t supported. (so you can use jupyter notebook)</p></li>
+</ul>
+<p>Then you can start a jupyter notebook by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p>You might see an error <code class="docutils literal notranslate"><span class="pre">OSError:</span> <span class="pre">[Errno</span> <span class="pre">99]</span> <span class="pre">Cannot</span> <span class="pre">assign</span> <span class="pre">requested</span> <span class="pre">address</span></code> when starting
+a jupyter notebook on macOS. You can change the binding IP address by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0
+</pre></div>
+</div>
+<p>Note that on macOS, because we use bridge network, jupyter notebook will be reportedly running
+at an URL like <code class="docutils literal notranslate"><span class="pre">http://{container_hostname}:8888/?token=...</span></code>. You should replace the <code class="docutils literal notranslate"><span class="pre">container_hostname</span></code>
+with <code class="docutils literal notranslate"><span class="pre">localhost</span></code> when pasting it into browser.</p>
+<div class="section" id="docker-source">
+<h2>Docker Source<a class="headerlink" href="#docker-source" title="永久链接至标题">¶</a></h2>
+<p>Check out <a class="reference external" href="https://github.com/apache/tvm/tree/main/docker">The docker source</a> if you are interested in
+building your own docker images.</p>
+<p>Run the following command to build the docker image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/tvm/docker/build.sh &lt;image-name&gt;
+</pre></div>
+</div>
+<p>You can find some un-official thirdparty prebuilt images.
+These images are used for test purposes and are NOT of the ASF release.</p>
+<p><a class="reference external" href="https://hub.docker.com/r/tlcpack/">https://hub.docker.com/r/tlcpack/</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installing TVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Installing TVM</a><ul>
+      <li>Previous: <a href="nnpack.html" title="上一章">NNPACK Contrib Installation</a></li>
+      <li>Next: <a href="tlcpack.html" title="下一章">TLCPack</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/install/docker.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

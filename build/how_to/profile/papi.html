@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting Started With PAPI &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Developer Tutorial" href="../../dev/tutorial/index.html" />
+    <link rel="prev" title="Profile Models" href="index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-with-papi">
+<h1>Getting Started With PAPI<a class="headerlink" href="#getting-started-with-papi" title="永久链接至标题">¶</a></h1>
+<p>The Performance Application Programming Interface (PAPI) is a library that
+provides performance counters on a variety of platforms. Performance counters
+provide accurate low-level information about processors behavior during a given
+execution run. This information can contain simple metrics like total cycle
+count, cache misses, and instructions executed as well as more high level
+information like total FLOPS and warp occupancy. PAPI makes these metrics
+available while profiling.</p>
+<div class="section" id="installing-papi">
+<h2>Installing PAPI<a class="headerlink" href="#installing-papi" title="永久链接至标题">¶</a></h2>
+<p>PAPI can either be installed using your package manager (<code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libpapi-dev</span></code>
+on Ubuntu), or from source here:
+<a class="reference external" href="https://bitbucket.org/icl/papi/src/master/">https://bitbucket.org/icl/papi/src/master/</a>.</p>
+</div>
+<div class="section" id="building-tvm-with-papi">
+<h2>Building TVM With PAPI<a class="headerlink" href="#building-tvm-with-papi" title="永久链接至标题">¶</a></h2>
+<p>To include PAPI in your build of TVM, set the following line in you <code class="docutils literal notranslate"><span class="pre">config.cmake</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">USE_PAPI</span> <span class="n">ON</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If PAPI is installed in a non-standard place, you can specify where it is like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">USE_PAPI</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">papi</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-papi-while-profiling">
+<h2>Using PAPI While Profiling<a class="headerlink" href="#using-papi-while-profiling" title="永久链接至标题">¶</a></h2>
+<p>If TVM has been built with PAPI (see above), then you can pass a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">tvm.runtime.profiling.PAPIMetricCollector</span></code> to
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">tvm.runtime.GraphModule.profile()</span></code> to collect performance metrics. Here
+is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;llvm&quot;</span>
+<span class="n">dev</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span class="n">mod</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">get_workload</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">exe</span> <span class="o">=</span> <span class="n">relay</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="n">vm</span> <span class="o">=</span> <span class="n">profiler_vm</span><span class="o">.</span><span class="n">VirtualMachineProfiler</span><span class="p">(</span><span class="n">exe</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data</span><span class="p">],</span>
+    <span class="n">func_name</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+    <span class="n">collectors</span><span class="o">=</span><span class="p">[</span><span class="n">tvm</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">profiling</span><span class="o">.</span><span class="n">PAPIMetricCollector</span><span class="p">()],</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>                                    <span class="n">perf</span><span class="p">::</span><span class="n">CACHE</span><span class="o">-</span><span class="n">MISSES</span>   <span class="n">perf</span><span class="p">::</span><span class="n">CYCLES</span>  <span class="n">perf</span><span class="p">::</span><span class="n">STALLED</span><span class="o">-</span><span class="n">CYCLES</span><span class="o">-</span><span class="n">BACKEND</span>  <span class="n">perf</span><span class="p">::</span><span class="n">INSTRUCTIONS</span>  <span class="n">perf</span><span class="p">::</span><span class="n">STALLED</span><span class="o">-</span><span class="n">CYCLES</span><span class="o">-</span><span class="n">FRONTEND</span>
+<span class="n">fused_nn_dense_nn_bias_add_nn_relu</span>                   <span class="mi">2</span><span class="p">,</span><span class="mi">494</span>      <span class="mi">1</span><span class="p">,</span><span class="mi">570</span><span class="p">,</span><span class="mi">698</span>                        <span class="mi">85</span><span class="p">,</span><span class="mi">608</span>             <span class="mi">675</span><span class="p">,</span><span class="mi">564</span>                         <span class="mi">39</span><span class="p">,</span><span class="mi">583</span>
+<span class="n">fused_nn_dense_nn_bias_add_nn_relu_1</span>                 <span class="mi">1</span><span class="p">,</span><span class="mi">149</span>        <span class="mi">655</span><span class="p">,</span><span class="mi">101</span>                        <span class="mi">13</span><span class="p">,</span><span class="mi">278</span>             <span class="mi">202</span><span class="p">,</span><span class="mi">297</span>                         <span class="mi">21</span><span class="p">,</span><span class="mi">380</span>
+<span class="n">fused_nn_dense_nn_bias_add</span>                             <span class="mi">288</span>        <span class="mi">600</span><span class="p">,</span><span class="mi">184</span>                         <span class="mi">8</span><span class="p">,</span><span class="mi">321</span>             <span class="mi">163</span><span class="p">,</span><span class="mi">446</span>                         <span class="mi">19</span><span class="p">,</span><span class="mi">513</span>
+<span class="n">fused_nn_batch_flatten</span>                                 <span class="mi">301</span>        <span class="mi">587</span><span class="p">,</span><span class="mi">049</span>                         <span class="mi">4</span><span class="p">,</span><span class="mi">636</span>             <span class="mi">158</span><span class="p">,</span><span class="mi">636</span>                         <span class="mi">18</span><span class="p">,</span><span class="mi">565</span>
+<span class="n">fused_nn_softmax</span>                                       <span class="mi">154</span>        <span class="mi">575</span><span class="p">,</span><span class="mi">143</span>                         <span class="mi">8</span><span class="p">,</span><span class="mi">018</span>             <span class="mi">160</span><span class="p">,</span><span class="mi">738</span>                         <span class="mi">18</span><span class="p">,</span><span class="mi">995</span>
+<span class="o">----------</span>
+<span class="n">Sum</span>                                                  <span class="mi">4</span><span class="p">,</span><span class="mi">386</span>      <span class="mi">3</span><span class="p">,</span><span class="mi">988</span><span class="p">,</span><span class="mi">175</span>                       <span class="mi">119</span><span class="p">,</span><span class="mi">861</span>           <span class="mi">1</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span><span class="mi">681</span>                        <span class="mi">118</span><span class="p">,</span><span class="mi">036</span>
+<span class="n">Total</span>                                               <span class="mi">10</span><span class="p">,</span><span class="mi">644</span>      <span class="mi">8</span><span class="p">,</span><span class="mi">327</span><span class="p">,</span><span class="mi">360</span>                       <span class="mi">179</span><span class="p">,</span><span class="mi">310</span>           <span class="mi">2</span><span class="p">,</span><span class="mi">660</span><span class="p">,</span><span class="mi">569</span>                        <span class="mi">270</span><span class="p">,</span><span class="mi">044</span>
+</pre></div>
+</div>
+<p>You can also change which metrics are collected:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">report</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data</span><span class="p">],</span>
+    <span class="n">func_name</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+    <span class="n">collectors</span><span class="o">=</span><span class="p">[</span><span class="n">tvm</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">profiling</span><span class="o">.</span><span class="n">PAPIMetricCollector</span><span class="p">({</span><span class="n">dev</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;PAPI_FP_OPS&quot;</span><span class="p">])],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>                                  <span class="n">PAPI_FP_OPS</span>
+<span class="n">fused_nn_dense_nn_bias_add_nn_relu</span>        <span class="mi">200</span><span class="p">,</span><span class="mi">832</span>
+<span class="n">fused_nn_dense_nn_bias_add_nn_relu_1</span>       <span class="mi">16</span><span class="p">,</span><span class="mi">448</span>
+<span class="n">fused_nn_dense_nn_bias_add</span>                  <span class="mi">1</span><span class="p">,</span><span class="mi">548</span>
+<span class="n">fused_nn_softmax</span>                              <span class="mi">160</span>
+<span class="n">fused_nn_batch_flatten</span>                          <span class="mi">0</span>
+<span class="o">----------</span>
+<span class="n">Sum</span>                                       <span class="mi">218</span><span class="p">,</span><span class="mi">988</span>
+<span class="n">Total</span>                                     <span class="mi">218</span><span class="p">,</span><span class="mi">988</span>
+</pre></div>
+</div>
+<p>You can find a list of available metrics by running the <code class="docutils literal notranslate"><span class="pre">papi_avail</span></code> and
+<code class="docutils literal notranslate"><span class="pre">papi_native_avail</span></code> commands.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">How To Guides</a><ul>
+  <li><a href="index.html">Profile Models</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">Profile Models</a></li>
+      <li>Next: <a href="../../dev/tutorial/index.html" title="下一章">Developer Tutorial</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/how_to/profile/papi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

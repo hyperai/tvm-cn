@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relay BNNS Integration &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Profile Models" href="../profile/index.html" />
+    <link rel="prev" title="Vitis AI Integration" href="vitis_ai.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="relay-bnns-integration">
+<h1>Relay BNNS Integration<a class="headerlink" href="#relay-bnns-integration" title="永久链接至标题">¶</a></h1>
+<p><strong>Author</strong>: <a class="reference external" href="https://github.com/echuraev">Egor Churaev</a></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
+<p>Apple BNNS library is a collection of functions that can be used to construct neural networks
+for inference (and train). It’s supported in macOS, iOS, tvOS, and watchOS. BNNS provides
+primitives executed on all CPU supported on those platforms and optimized for high performance
+and low-energy consumption. This integration will offload as many operators as possible from Relay to BNNS.</p>
+<p>BNNS runtime is a part of platform API and available on all modern Apple operating systems.
+Application using BNNS will not depends on any additional external dependencies.</p>
+<p>BNNS functions uses Apple private hardware capabilities which are not exposed yet by Apple. Example
+of such capabilities can be AMX Apple cpu extension.</p>
+<p>This guide will demonstrate how to build TVM with BNNS codegen and runtime enabled. It will also provide example
+code to compile and run models using BNNS runtime. Finally, we document the supported operators.</p>
+</div>
+<div class="section" id="building-tvm-with-bnns-support">
+<h2>Building TVM with BNNS support<a class="headerlink" href="#building-tvm-with-bnns-support" title="永久链接至标题">¶</a></h2>
+<p>To turn on TVM BNNS codegen and TVM BNNS runtime you need to turn on the only USE_BNNS flag</p>
+<ul class="simple">
+<li><p>USE_BNNS=ON/OFF - This flag will enable compiling a network with offloading subgraphs to BNNS primitives
+and will link tvm library to the BNNS runtime module.</p></li>
+</ul>
+<p>Enabling of this flag will cause to search the default Accelerate Frameworks on current target SDK.
+The minimal versions of required SDK is macOS 11.0, iOS 14.0, tvOS 14.0 and watchOS 7.0.</p>
+<p>Example setting in config.cmake file:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">USE_BNNS</span> <span class="s">ON</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bnns-partitioning-of-relay-graph">
+<h2>BNNS partitioning of Relay graph<a class="headerlink" href="#bnns-partitioning-of-relay-graph" title="永久链接至标题">¶</a></h2>
+<p>Operations to be offloaded on BNNS execution must be annotated before passing of module for compilation.
+All ops annotated by <cite>partition_for_bnns</cite> will be offloaded for BNNS execution. The rest of the ops
+will go through the LLVM compilation and code generation.</p>
+<p>Important note: BNNS support primitives only with constant weights. To satisfy this requirements we have
+to map constants to related tensor abstraction in relay representation. To freeze tensors and operate
+with them as constants you may need to call ONNX importer with special flag “freeze_params=True”
+or performer binding manually. In general cases all relay importers don’t do that by default.
+For your convenience “partition_for_bnns” can do this for you if params dictionary is passed as the argument.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tvm.relay.op.contrib.bnns</span> <span class="kn">import</span> <span class="n">partition_for_bnns</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">partition_for_bnns</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="input-data-layout-for-operations-to-be-offloaded-to-bnns-execution">
+<h2>Input data layout for operations to be offloaded to BNNS execution<a class="headerlink" href="#input-data-layout-for-operations-to-be-offloaded-to-bnns-execution" title="永久链接至标题">¶</a></h2>
+<p>BNNS kernels support only planar format of input data. The partitioner will require to have NCHW input
+layout for conv2d input.</p>
+<p>To use BNNS integration for models with interleave input layout, they should be converted before
+passing of module to <cite>partition_for_bnns</cite>. The layout conversion will happen only for explicitly
+enumerated types of ops. It might happen that depending on topology there might be regular data reorder
+around conv2d to interleave and planar layout. This will be reflected in performance penalties and affect
+execution time. It is recommended to analyze the whole topology and extend below list to convert all
+intermediate tensors to NCHW data layout.</p>
+<p>Example of input layouts change:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For models with NHWC input layout</span>
+<span class="k">with</span> <span class="n">tvm</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">PassContext</span><span class="p">(</span><span class="n">opt_level</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">relay</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">InferType</span><span class="p">()(</span><span class="n">mod</span><span class="p">)</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">relay</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">ConvertLayout</span><span class="p">({</span><span class="s2">&quot;nn.conv2d&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NCHW&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">],</span>
+                                        <span class="s2">&quot;nn.bias_add&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NCHW&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">],</span>
+                                        <span class="s2">&quot;nn.relu&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NCHW&quot;</span><span class="p">]})(</span><span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-build-and-deploy-mobilenet-v2-1-0-with-bnns">
+<h2>Example: Build and Deploy Mobilenet v2 1.0 with BNNS<a class="headerlink" href="#example-build-and-deploy-mobilenet-v2-1-0-with-bnns" title="永久链接至标题">¶</a></h2>
+<p>Create a Relay graph from a MXNet Mobilenet v2 1.0 model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tvm</span>
+<span class="kn">from</span> <span class="nn">tvm</span> <span class="kn">import</span> <span class="n">relay</span>
+<span class="kn">import</span> <span class="nn">mxnet</span>
+<span class="kn">from</span> <span class="nn">mxnet.gluon.model_zoo.vision</span> <span class="kn">import</span> <span class="n">get_model</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;float32&quot;</span>
+<span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+<span class="n">block</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">(</span><span class="s1">&#39;mobilenetv2_1.0&#39;</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">module</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">relay</span><span class="o">.</span><span class="n">frontend</span><span class="o">.</span><span class="n">from_mxnet</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">input_shape</span><span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Markup the parts of graphs to be offloaded to BNNS primitives. All ops which are supported by the BNNS
+integration will be handled by BNNS invocations, the rest of the ops will go through the
+regular TVM llvm compilation and code generation.</p>
+<p>After that you need to compile new module with target corresponding to required Apple platform</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tvm.relay.op.contrib.bnns</span> <span class="kn">import</span> <span class="n">partition_for_bnns</span>
+
+<span class="c1"># target for macOS Big Sur 11.1:</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;llvm -mtriple=x86_64-apple-darwin20.2.0&quot;</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">partition_for_bnns</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>  <span class="c1"># to markup operations to be offloaded to BNNS</span>
+<span class="k">with</span> <span class="n">tvm</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">PassContext</span><span class="p">(</span><span class="n">opt_level</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">lib</span> <span class="o">=</span> <span class="n">relay</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Export the module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lib</span><span class="o">.</span><span class="n">export_library</span><span class="p">(</span><span class="s1">&#39;compiled.dylib&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Load module and run inference on the target machine with TVM  built with <code class="docutils literal notranslate"><span class="pre">USE_BNNS</span></code> enabled</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tvm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tvm.contrib</span> <span class="kn">import</span> <span class="n">graph_executor</span>
+
+<span class="n">dev</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">loaded_lib</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">load_module</span><span class="p">(</span><span class="s1">&#39;compiled.dylib&#39;</span><span class="p">)</span>
+<span class="n">gen_module</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">graph_executor</span><span class="o">.</span><span class="n">GraphModule</span><span class="p">(</span><span class="n">loaded_lib</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">](</span><span class="n">dev</span><span class="p">))</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;float32&quot;</span>
+<span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">gen_module</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">input_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operator-support">
+<h2>Operator support<a class="headerlink" href="#operator-support" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Relay Node</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>nn.conv2d</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>nn.batch_norm</p></td>
+<td><p>Supported by BNNS integration only in nn.conv2d-batch_norm pattern</p></td>
+</tr>
+<tr class="row-even"><td><p>nn.dense</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>nn.batch_matmul</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>nn.bias_add</p></td>
+<td><p>Supported by BNNS integration only as a bias part of nn.conv2d or nn.dense
+fusion</p></td>
+</tr>
+<tr class="row-odd"><td><p>add</p></td>
+<td><p>Supported by BNNS integration only as a bias part of nn.conv2d or nn.dense
+fusion</p></td>
+</tr>
+<tr class="row-even"><td><p>nn.relu</p></td>
+<td><p>Supported by BNNS integration only as a part of nn.conv2d or nn.dense fusion</p></td>
+</tr>
+<tr class="row-odd"><td><p>nn.gelu</p></td>
+<td><p>Supported by BNNS integration only as a part of nn.conv2d or nn.dense fusion</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">How To Guides</a><ul>
+  <li><a href="index.html">Deploy Models and Integrate TVM</a><ul>
+      <li>Previous: <a href="vitis_ai.html" title="上一章">Vitis AI Integration</a></li>
+      <li>Next: <a href="../profile/index.html" title="下一章">Profile Models</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/how_to/deploy/bnns.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

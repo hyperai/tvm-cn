@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vulkan Runtime &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Debugger" href="../debugger.html" />
+    <link rel="prev" title="TVM Runtime System" href="../runtime.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="vulkan-runtime">
+<span id="tvm-runtime-vulkan"></span><h1>Vulkan Runtime<a class="headerlink" href="#vulkan-runtime" title="永久链接至标题">¶</a></h1>
+<p>TVM supports using Vulkan compute shaders to execute queries.  Each
+computational kernel is compiled into a SPIR-V shader, which can then
+be called using the TVM interface.</p>
+<div class="section" id="vulkan-features-limits">
+<span id="tvm-runtime-vulkan-features"></span><h2>Vulkan Features, Limits<a class="headerlink" href="#vulkan-features-limits" title="永久链接至标题">¶</a></h2>
+<p>Since different Vulkan implementations may enable different optional
+features or have different physical limits, the code generation must
+know which features are available to use.  These correspond to
+specific Vulkan capabilities/limits as in
+<a class="reference internal" href="#tvm-table-vulkan-capabilities"><span class="std std-ref">Vulkan Capabilities Table</span></a>.
+If unspecified, TVM assumes that a capability is not available, or
+that a limit is the minimum guaranteed by the Vulkan spec in the
+<a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#limits-minmax">Required Limits</a> section.</p>
+<p>These parameters can be either explicitly specific when defining a
+<a class="reference internal" href="../device_target_interactions.html#tvm-target-specific-target"><span class="std std-ref">Target</span></a>, or can be queried from a
+device.  To query from a device, the special parameter
+<code class="docutils literal notranslate"><span class="pre">-from_device=N</span></code> can be used to query all vulkan device parameters
+from device id <code class="docutils literal notranslate"><span class="pre">N</span></code>.  Any additional parameters explicitly specified
+will override the parameters queried from the device.</p>
+<table class="docutils align-default" id="tvm-runtime-table-vulkan-capabilities">
+<caption><span class="caption-text">Vulkan Capabilities</span><a class="headerlink" href="#tvm-runtime-table-vulkan-capabilities" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Target Parameter</p></th>
+<th class="head"><p>Required Vulkan Version/Extension</p></th>
+<th class="head"><p>Parameter Queried</p></th>
+<th class="head"><p>Default Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supported_subgroup_operations</span></code></p></td>
+<td><p>Vulkan 1.1+</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceSubgroupProperties::supportedOperations</span></code></p></td>
+<td><p>0 (interpreted as <a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VkSubgroupFeatureFlagBits.html">VkSubgroupFeatureFlagBits</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_push_constants_size</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceLimits::maxPushConstantsSize</span></code></p></td>
+<td><p>128 bytes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_uniform_buffer_range</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceLimits::maxUniformBufferRange</span></code></p></td>
+<td><p>16384 bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_storage_buffer_range</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceLimits::maxStorageBufferRange</span></code></p></td>
+<td><p>2<sup>27</sup>bytes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_per_stage_descriptor_storage_buffer</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceLimits::maxPerStageDescriptorStorageBuffers</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_storage_buffer_storage_class</span></code></p></td>
+<td><p>VK_KHR_storage_buffer_storage_class</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_storage_buffer_8bit_access</span></code></p></td>
+<td><p>VK_KHR_8bit_storage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDevice8BitStorageFeaturesKHR::storageBuffer8BitAccess</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_storage_buffer_16bit_access</span></code></p></td>
+<td><p>VK_KHR_16bit_storage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDevice16BitStorageFeaturesKHR::storageBuffer16BitAccess</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_float16</span></code></p></td>
+<td><p>VK_KHR_shader_float16_int8</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceShaderFloat16Int8FeaturesKHR::shaderFloat16</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_float64</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceFeatures::shaderFloat64</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_int8</span></code></p></td>
+<td><p>VK_KHR_shader_float16_int8</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceShaderFloat16Int8FeaturesKHR::shaderInt8</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_int16</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceFeatures::shaderInt16</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_int64</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VkPhysicalDeviceFeatures::shaderInt64</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+</tbody>
+</table>
+<p>As of May 2021, not all Vulkan implementations are supported.  For
+example, support for 64-bit integers is required.  If a Vulkan target
+is not supported, an error message should be issued during SPIR-V code
+generation.  Efforts are also underway to remove these requirements
+and support additional Vulkan implementations.</p>
+</div>
+<div class="section" id="spir-v-capabilities">
+<span id="tvm-runtime-vulkan-spirv-capabilities"></span><h2>SPIR-V Capabilities<a class="headerlink" href="#spir-v-capabilities" title="永久链接至标题">¶</a></h2>
+<p>Some of the device-specific capabilities also correspond to SPIR-V
+capabilities or extensions that must be declared in the shader, or a
+minimum SPIR-V version required in order to use a feature.  The
+TVM-generated shaders will declare the minimum set of
+extensions/capabilities and the minimum allowed version of SPIR-V
+that are needed to execute the compiled graph.</p>
+<p>If the shader generation requires a capability or extension that is
+not enabled in the <code class="docutils literal notranslate"><span class="pre">Target</span></code>, an exception will be raised.</p>
+<table class="docutils align-default" id="tvm-table-vulkan-capabilities">
+<caption><span class="caption-text">Vulkan Capabilities</span><a class="headerlink" href="#tvm-table-vulkan-capabilities" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Target Parameter</p></th>
+<th class="head"><p>Required SPIR-V Version/Extension</p></th>
+<th class="head"><p>Declared Capability</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supported_subgroup_operations</span></code></p></td>
+<td><p>SPIR-V 1.3+</p></td>
+<td><p>Varies, see <a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VkSubgroupFeatureFlagBits.html">VkSubgroupFeatureFlagBits</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_storage_buffer_storage_class</span></code></p></td>
+<td><p>SPV_KHR_storage_buffer_storage_class</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_storage_buffer_8bit_access</span></code></p></td>
+<td><p>SPV_KHR_8bit_storage</p></td>
+<td><p>StorageBuffer8BitAccess</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_storage_buffer_16bit_access</span></code></p></td>
+<td><p>SPV_KHR_16bit_storage</p></td>
+<td><p>StorageBuffer16BitAccess</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_float16</span></code></p></td>
+<td></td>
+<td><p>Float16</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_float64</span></code></p></td>
+<td></td>
+<td><p>Float64</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_int8</span></code></p></td>
+<td></td>
+<td><p>Int8</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supports_int16</span></code></p></td>
+<td></td>
+<td><p>Int16</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supports_int64</span></code></p></td>
+<td></td>
+<td><p>Int64</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vulkan-specific-environment-variables">
+<h2>Vulkan-Specific Environment Variables<a class="headerlink" href="#vulkan-specific-environment-variables" title="永久链接至标题">¶</a></h2>
+<p>Both the SPIR-V code generation and the Vulkan runtime have
+environment variables that can modify some of the runtime behavior.
+These are intended for debugging purposes, both to more easily test
+specific code paths, and to output more information as needed.  All
+boolean flags are true if the environment variable is set to a
+non-zero integer.  An unset variable, the integer zero, or an empty
+string are all false boolean flags.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TVM_VULKAN_DISABLE_PUSH_DESCRIPTOR</span></code> - A boolean flag.  If true,
+TVM will explicitly allocate descriptors, and will not use the
+<a class="reference external" href="https://khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VK_KHR_push_descriptor.html">VK_KHR_push_descriptor</a> or <a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VK_KHR_descriptor_update_template.html">VK_KHR_descriptor_update_template</a>
+extensions.  If false, TVM will decide whether to use these
+extensions based on their availability.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TVM_VULKAN_DISABLE_DEDICATED_ALLOCATION</span></code> - A boolean flag.  If
+true, TVM will not mark memory allocations as being dedicated
+allocations, and will not use the <a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VK_KHR_dedicated_allocation.html">VK_KHR_dedicated_allocation</a>
+extension.  If false, TVM will decide whether memory allocations
+should be marked as dedicated based on the
+<a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VkMemoryDedicatedRequirements.html">VkMemoryDedicatedRequirements</a> for that buffer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TVM_VULKAN_ENABLE_VALIDATION_LAYERS</span></code> - A boolean flag.  If true,
+TVM will enable <a class="reference external" href="https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers/blob/master/layers/README.md">Vulkan validation layers</a> that the device
+supports.  If false, no validation layers are enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TVM_VULKAN_DISABLE_SHADER_VALIDATION</span></code> - A boolean flag.  If true,
+the SPIR-V shader validation done with <a class="reference external" href="https://github.com/KhronosGroup/SPIRV-Tools#validator">spvValidate</a> is skipped.
+If false (default), all SPIR-V shaders generated by TVM are
+validated with <a class="reference external" href="https://github.com/KhronosGroup/SPIRV-Tools#validator">spvValidate</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TVM_VULKAN_DEBUG_SHADER_SAVEPATH</span></code> - A path to a directory.  If
+set to a non-empty string, the Vulkan codegen will save tir, binary
+SPIR-V, and disassembled SPIR-V shaders to this directory, to be
+used for debugging purposes.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Design and Architecture</a><ul>
+  <li><a href="../runtime.html">TVM Runtime System</a><ul>
+      <li>Previous: <a href="../runtime.html" title="上一章">TVM Runtime System</a></li>
+      <li>Next: <a href="../debugger.html" title="下一章">Debugger</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/arch/runtimes/vulkan.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

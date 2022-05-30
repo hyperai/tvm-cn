@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Models and Integrate TVM &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Deploy TVM Module using C++ API" href="cpp_deploy.html" />
+    <link rel="prev" title="How To Guides" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="deploy-models-and-integrate-tvm">
+<span id="deploy-and-integration"></span><h1>Deploy Models and Integrate TVM<a class="headerlink" href="#deploy-models-and-integrate-tvm" title="永久链接至标题">¶</a></h1>
+<p>This page contains guidelines on how to deploy TVM to various platforms
+as well as how to integrate it with your project.</p>
+<img alt="https://tvm.apache.org/images/release/tvm_flexible.png" src="https://tvm.apache.org/images/release/tvm_flexible.png" />
+<div class="section" id="build-the-tvm-runtime-library">
+<h2>Build the TVM runtime library<a class="headerlink" href="#build-the-tvm-runtime-library" title="永久链接至标题">¶</a></h2>
+<p id="build-tvm-runtime-on-target-device">Unlike traditional deep learning frameworks. TVM stack is divided into two major components:</p>
+<ul class="simple">
+<li><p>TVM compiler, which does all the compilation and optimizations of the model</p></li>
+<li><p>TVM runtime, which runs on the target devices.</p></li>
+</ul>
+<p>In order to integrate the compiled module, we <strong>do not</strong> need to build entire
+TVM on the target device. You only need to build the TVM compiler stack on your
+desktop and use that to cross-compile modules that are deployed on the target device.</p>
+<p>We only need to use a light-weight runtime API that can be integrated into various platforms.</p>
+<p>For example, you can run the following commands to build the runtime API
+on a Linux based embedded system such as Raspberry Pi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/apache/tvm tvm
+<span class="nb">cd</span> tvm
+mkdir build
+cp cmake/config.cmake build
+<span class="nb">cd</span> build
+cmake ..
+make runtime
+</pre></div>
+</div>
+<p>Note that we type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">runtime</span></code> to only build the runtime library.</p>
+<p>It is also possible to cross compile the runtime. Cross compiling
+the runtime library should not be confused with cross compiling models
+for embedded devices.</p>
+<p>If you want to include additional runtime such as OpenCL,
+you can modify <code class="docutils literal notranslate"><span class="pre">config.cmake</span></code> to enable these options.
+After you get the TVM runtime library, you can link the compiled library</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg"><img alt="https://raw.githubusercontent.com/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg" src="https://raw.githubusercontent.com/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg" width="85%" /></a>
+</div>
+<p>A model (optimized or not by TVM) can be cross compiled by TVM for
+different architectures such as <code class="docutils literal notranslate"><span class="pre">aarch64</span></code> on a <code class="docutils literal notranslate"><span class="pre">x64_64</span></code> host. Once the model
+is cross compiled it is neccessary to have a runtime compatible with the target
+architecture to be able to run the cross compiled model.</p>
+</div>
+<div class="section" id="cross-compile-the-tvm-runtime-for-other-architectures">
+<h2>Cross compile the TVM runtime for other architectures<a class="headerlink" href="#cross-compile-the-tvm-runtime-for-other-architectures" title="永久链接至标题">¶</a></h2>
+<p>In the example <a class="reference internal" href="#build-tvm-runtime-on-target-device"><span class="std std-ref">above</span></a> the runtime library was
+compiled on a Raspberry Pi. Producing the runtime library can be done much faster on
+hosts that have high performace processors with ample resources (such as laptops, workstation)
+compared to a target devices such as a Raspberry Pi. In-order to cross compile the runtime the toolchain
+for the target device must be installed. After installing the correct toolchain,
+the main difference compared to compiling natively is to pass some additional command
+line argument to cmake that specify a toolchain to be used. For reference
+building the TVM runtime library on a modern laptop (using 8 threads) for <code class="docutils literal notranslate"><span class="pre">aarch64</span></code>
+takes around 20 seconds vs ~10 min to build the runtime on a Raspberry Pi 4.</p>
+<div class="section" id="cross-compile-for-aarch64">
+<h3>cross-compile for aarch64<a class="headerlink" href="#cross-compile-for-aarch64" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake .. <span class="se">\</span>
+    -DCMAKE_SYSTEM_NAME<span class="o">=</span>Linux <span class="se">\</span>
+    -DCMAKE_SYSTEM_VERSION<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
+    -DCMAKE_C_COMPILER<span class="o">=</span>/usr/bin/aarch64-linux-gnu-gcc <span class="se">\</span>
+    -DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/bin/aarch64-linux-gnu-g++ <span class="se">\</span>
+    -DCMAKE_FIND_ROOT_PATH<span class="o">=</span>/usr/aarch64-linux-gnu <span class="se">\</span>
+    -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM<span class="o">=</span>NEVER <span class="se">\</span>
+    -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY<span class="o">=</span>ONLY <span class="se">\</span>
+    -DMACHINE_NAME<span class="o">=</span>aarch64-linux-gnu
+
+make -j<span class="k">$(</span>nproc<span class="k">)</span> runtime
+</pre></div>
+</div>
+<p>For bare metal ARM devices the following toolchain is quite handy to install instead of gcc-aarch64-linux-*</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gcc-multilib-arm-linux-gnueabihf g++-multilib-arm-linux-gnueabihf
+</pre></div>
+</div>
+</div>
+<div class="section" id="cross-compile-for-risc-v">
+<h3>cross-compile for RISC-V<a class="headerlink" href="#cross-compile-for-risc-v" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install gcc-riscv64-linux-gnu g++-riscv64-linux-gnu
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake .. <span class="se">\</span>
+    -DCMAKE_SYSTEM_NAME<span class="o">=</span>Linux <span class="se">\</span>
+    -DCMAKE_SYSTEM_VERSION<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
+    -DCMAKE_C_COMPILER<span class="o">=</span>/usr/bin/riscv64-linux-gnu-gcc <span class="se">\</span>
+    -DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/bin/riscv64-linux-gnu-g++ <span class="se">\</span>
+    -DCMAKE_FIND_ROOT_PATH<span class="o">=</span>/usr/riscv64-linux-gnu <span class="se">\</span>
+    -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM<span class="o">=</span>NEVER <span class="se">\</span>
+    -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY<span class="o">=</span>ONLY <span class="se">\</span>
+    -DMACHINE_NAME<span class="o">=</span>riscv64-linux-gnu
+
+make -j<span class="k">$(</span>nproc<span class="k">)</span> runtime
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">file</span></code> command can be used to query the architecture of the produced runtime.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>file libtvm_runtime.so
+libtvm_runtime.so: ELF <span class="m">64</span>-bit LSB shared object, UCB RISC-V, version <span class="m">1</span> <span class="o">(</span>GNU/Linux<span class="o">)</span>, dynamically linked, BuildID<span class="o">[</span>sha1<span class="o">]=</span>e9ak845b3d7f2c126dab53632aea8e012d89477e, not stripped
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="optimize-and-tune-models-for-target-devices">
+<h2>Optimize and tune models for target devices<a class="headerlink" href="#optimize-and-tune-models-for-target-devices" title="永久链接至标题">¶</a></h2>
+<p>The easiest and recommended way to test, tune and benchmark TVM kernels on
+embedded devices is through TVM’s RPC API.
+Here are the links to the related tutorials.</p>
+<ul class="simple">
+<li><p><span class="xref std std-ref">tutorial-cross-compilation-and-rpc</span></p></li>
+<li><p><span class="xref std std-ref">tutorial-deploy-model-on-rasp</span></p></li>
+</ul>
+</div>
+<div class="section" id="deploy-optimized-model-on-target-devices">
+<h2>Deploy optimized model on target devices<a class="headerlink" href="#deploy-optimized-model-on-target-devices" title="永久链接至标题">¶</a></h2>
+<p>After you finished tuning and benchmarking, you might need to deploy the model on the
+target device without relying on RPC. See the following resources on how to do so.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cpp_deploy.html">Deploy TVM Module using C++ API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp_deploy.html#get-tvm-runtime-library">Get TVM Runtime Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp_deploy.html#dynamic-library-vs-system-module">Dynamic Library vs. System Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Deploy to Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android.html#build-model-for-android-target">Build model for Android Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#tvm-runtime-for-android-target">TVM Runtime for Android Target</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integrate.html">Integrate TVM into Your Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integrate.html#dlpack-support">DLPack Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrate.html#integrate-user-defined-c-array">Integrate User Defined C++ Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrate.html#integrate-user-defined-python-array">Integrate User Defined Python Array</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hls.html">HLS Backend Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hls.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hls.html#emulation">Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hls.html#synthesis">Synthesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hls.html#run">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="arm_compute_lib.html">Relay Arm<sup>®</sup> Compute Library Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#installing-arm-compute-library">Installing Arm Compute Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#building-with-acl-support">Building with ACL support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#more-examples">More examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#operator-support">Operator support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm_compute_lib.html#adding-a-new-operator">Adding a new operator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tensorrt.html">Relay TensorRT Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#installing-tensorrt">Installing TensorRT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#building-tvm-with-tensorrt-support">Building TVM with TensorRT support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#build-and-deploy-resnet-18-with-tensorrt">Build and Deploy ResNet-18 with TensorRT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#partitioning-and-compilation-settings">Partitioning and Compilation Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#runtime-settings">Runtime Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#operator-support">Operator support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensorrt.html#adding-a-new-operator">Adding a new operator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vitis_ai.html">Vitis AI Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vitis_ai.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vitis_ai.html#setup-instructions">Setup instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vitis_ai.html#compiling-a-model">Compiling a Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vitis_ai.html#inference">Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bnns.html">Relay BNNS Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bnns.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bnns.html#building-tvm-with-bnns-support">Building TVM with BNNS support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bnns.html#bnns-partitioning-of-relay-graph">BNNS partitioning of Relay graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bnns.html#input-data-layout-for-operations-to-be-offloaded-to-bnns-execution">Input data layout for operations to be offloaded to BNNS execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bnns.html#example-build-and-deploy-mobilenet-v2-1-0-with-bnns">Example: Build and Deploy Mobilenet v2 1.0 with BNNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bnns.html#operator-support">Operator support</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-deployment-how-tos">
+<h2>Additional Deployment How-Tos<a class="headerlink" href="#additional-deployment-how-tos" title="永久链接至标题">¶</a></h2>
+<p>We have also developed a number of how-tos targeting specific devices, with
+working Python code that can be viewed in a Jupyter notebook. These how-tos
+describe how to prepare and deploy models to many of the supported backends.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">How To Guides</a><ul>
+      <li>Previous: <a href="../index.html" title="上一章">How To Guides</a></li>
+      <li>Next: <a href="cpp_deploy.html" title="下一章">Deploy TVM Module using C++ API</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/how_to/deploy/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

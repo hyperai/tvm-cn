@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Committer Guide &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Documentation" href="document.html" />
+    <link rel="prev" title="Code Reviews" href="code_review.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="committer-guide">
+<span id="id1"></span><h1>Committer Guide<a class="headerlink" href="#committer-guide" title="永久链接至标题">¶</a></h1>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#community-first" id="id3">Community First</a></p></li>
+<li><p><a class="reference internal" href="#public-archive-principle" id="id4">Public Archive Principle</a></p></li>
+<li><p><a class="reference internal" href="#shepherd-a-pull-request" id="id5">Shepherd a Pull Request</a></p></li>
+<li><p><a class="reference internal" href="#time-management" id="id6">Time Management</a></p></li>
+<li><p><a class="reference internal" href="#broad-collaboration" id="id7">Broad Collaboration</a></p></li>
+</ul>
+</div>
+<p>This is an evolving document to provide some helpful tips for committers.
+Most of them are lessons learned during development.
+We welcome every committer to contribute to this document.
+See the <a class="reference internal" href="community.html#community-guide"><span class="std std-ref">TVM Community Guidelines</span></a> for an overview of
+the committership and the general development process.</p>
+<div class="section" id="community-first">
+<h2><a class="toc-backref" href="#id3">Community First</a><a class="headerlink" href="#community-first" title="永久链接至标题">¶</a></h2>
+<p>The collective effort of the community moves the project forward and
+makes the project awesome for everyone.
+When we make a decision, it is always helpful to keep the community in mind.
+Here are some example questions that we can ask:</p>
+<ul class="simple">
+<li><p>How can I encourage new contributors to get more involved in the project?</p></li>
+<li><p>Can I help to save my fellow committers’ time?</p></li>
+<li><p>Have I enabled the rest of the community to participate the
+design proposals?</p></li>
+</ul>
+</div>
+<div class="section" id="public-archive-principle">
+<h2><a class="toc-backref" href="#id4">Public Archive Principle</a><a class="headerlink" href="#public-archive-principle" title="永久链接至标题">¶</a></h2>
+<p>While private channels such as face to face discussion are useful for development,
+they also create barriers for the broader community’s participation.
+The Apache way of development requires all decisions
+to be made in public channels, which are archived and accessible to everyone.
+As a result, any contributor can keep up with the development by watching the
+archives and join the development anytime.</p>
+<p>While this principle applies to every contributor,
+it is especially important for committers.
+Here are some example applications of this principle:</p>
+<ul class="simple">
+<li><p>When getting a project-related question from a personal channel,
+encourage the person to open a public thread in the discuss forum,
+so others in the community can benefit from the answer.</p></li>
+<li><p>After an in-person discussion, send a summary to public channels
+(as an RFC or a discuss thread).</p></li>
+</ul>
+</div>
+<div class="section" id="shepherd-a-pull-request">
+<h2><a class="toc-backref" href="#id5">Shepherd a Pull Request</a><a class="headerlink" href="#shepherd-a-pull-request" title="永久链接至标题">¶</a></h2>
+<p>Here are some tips to shepherd a pull request.
+You can also take a look at the <a class="reference internal" href="code_review.html#code-review-guide"><span class="std std-ref">Code Reviews</span></a>.</p>
+<ul class="simple">
+<li><p>Assign the PR to yourself, so that other committers
+know that the PR has already been tended to.</p></li>
+<li><p>Make use of the status label to indicate the current status.</p></li>
+<li><p>Check if an RFC needs to be sent.</p></li>
+<li><p>If the contributor has not requested a reviewer, kindly
+ask the contributor to do so.
+If the PR comes from a new contributor,
+help the contributor to request reviewers
+and ask the contributor to do so next time.</p></li>
+<li><p>Moderate the reviews, ask reviewers to approve explicitly.</p></li>
+<li><p>Mark the PR as accepted and acknowledge the contributor/reviewers.</p></li>
+<li><p>Merge the PR :)</p></li>
+</ul>
+</div>
+<div class="section" id="time-management">
+<h2><a class="toc-backref" href="#id6">Time Management</a><a class="headerlink" href="#time-management" title="永久链接至标题">¶</a></h2>
+<p>There are many things that a committer can do, such as
+moderating discussions, pull request reviews and
+code contributions.</p>
+<p>Working on an open source project can be rewarding,
+but also be a bit overwhelming sometimes.
+A little bit of time management might be helpful to alleviate the problem.
+For example, some committers have a “community day” in a week
+when they actively manage outstanding PRs,
+but watch the community less frequently in the rest of the time.</p>
+<p>Remember that your merit will never go away, so please
+take your time and pace when contributing to the project :)</p>
+</div>
+<div class="section" id="broad-collaboration">
+<h2><a class="toc-backref" href="#id7">Broad Collaboration</a><a class="headerlink" href="#broad-collaboration" title="永久链接至标题">¶</a></h2>
+<p>Sometimes, we tend to only interact with people we know.
+However, broad collaborations are necessary to the success of the project.
+Try to keep that in mind, shepherd PRs for, and request code reviews from
+community members who you do not interact physically.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Contributor Guide</a><ul>
+      <li>Previous: <a href="code_review.html" title="上一章">Code Reviews</a></li>
+      <li>Next: <a href="document.html" title="下一章">Documentation</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/contribute/committer_guide.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

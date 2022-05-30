@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Reviews &#8212; tvm-cn 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Committer Guide" href="committer_guide.html" />
+    <link rel="prev" title="Submit a Pull Request" href="pull_request.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="code-reviews">
+<span id="code-review-guide"></span><h1>Code Reviews<a class="headerlink" href="#code-reviews" title="永久链接至标题">¶</a></h1>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#building-trust" id="id2">Building Trust</a></p></li>
+<li><p><a class="reference internal" href="#community-participation" id="id3">Community Participation</a></p></li>
+<li><p><a class="reference internal" href="#read-the-code-carefully" id="id4">Read the code carefully</a></p></li>
+<li><p><a class="reference internal" href="#be-respectful" id="id5">Be Respectful</a></p></li>
+<li><p><a class="reference internal" href="#factors-to-consider-about-code-quality" id="id6">Factors to Consider about Code Quality</a></p></li>
+<li><p><a class="reference internal" href="#consensus-building" id="id7">Consensus Building</a></p></li>
+<li><p><a class="reference internal" href="#consistency" id="id8">Consistency</a></p></li>
+<li><p><a class="reference internal" href="#additional-recommendations" id="id9">Additional Recommendations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#deliberate-on-api-and-data-structures" id="id10">Deliberate on API and Data Structures</a></p></li>
+<li><p><a class="reference internal" href="#minimize-dependencies" id="id11">Minimize Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#concise-implementation" id="id12">Concise Implementation</a></p></li>
+<li><p><a class="reference internal" href="#document-lessons-in-code-reviews" id="id13">Document Lessons in Code Reviews</a></p></li>
+<li><p><a class="reference internal" href="#learn-from-other-code-reviews" id="id14">Learn from other Code Reviews</a></p></li>
+<li><p><a class="reference internal" href="#approve-and-request-changes-explicitly" id="id15">Approve and Request Changes Explicitly</a></p></li>
+<li><p><a class="reference internal" href="#reviewers" id="id16">Reviewers</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Open source code is maintained by a community with diverse backgrounds, interests, and goals.
+Hence it is important to provide clear, documented and maintainable code and processes. Code reviews are a
+shepherding process used to collectively spot potential problems, improve quality of the code, and educate both contributors
+and reviewers about the code base and its assumptions. It is also one mechanism to ensure there are multiple people who can
+maintain a related piece of code together. Contributors are encouraged to polish the code to a reviewable
+state before requesting reviews. This is especially important for committer candidates, as committers are expected
+to participate in not only writing code but also reviewing it.</p>
+<p>This document is a living guideline for code review in open source. Please also take sometime to read
+<a class="reference internal" href="community.html#community-guide"><span class="std std-ref">TVM Community Guidelines</span></a> about the general development process.</p>
+<div class="section" id="building-trust">
+<h2><a class="toc-backref" href="#id2">Building Trust</a><a class="headerlink" href="#building-trust" title="永久链接至标题">¶</a></h2>
+<p>First and foremost, we are building a community that based on trust, which takes time
+and effort to both build and maintain.  We expect our community members to work together in a
+constructive way and work together with common sense. Although we all have different sets of backgrounds,
+interests and goals we must work together to find solutions that work for the larger community.
+Trust-based collaboration is also a key tenant of the Apache way and an important factor to consider in growing the community,
+and promoting members to official roles.</p>
+</div>
+<div class="section" id="community-participation">
+<h2><a class="toc-backref" href="#id3">Community Participation</a><a class="headerlink" href="#community-participation" title="永久链接至标题">¶</a></h2>
+<p>Everyone is welcomed to comment on PRs. We encourage committers to wait for some period of time(e.g. three days)
+before merging PR that contains a major architecture change. The goal is to give people time to speak up and
+express interest in reviewing and participate.</p>
+<p>Remembering that we are all coming from different backgrounds is important here. For example some community members
+work in different time zones, only work on open source during work hours, or may be traveling or having other events
+going on in their lives. An important part of working in a large project is ensuring there is collective understanding,
+so no one person is a bottleneck. While it is important to allow time for participation in code review we also can not
+block all changes on all reviewers. Remember that helping people land PRs is a great way to encourage broader
+participation, especially for those who volunteer their time to contribute.</p>
+<p>Part of this is trusting and communicating with fellow maintainers that if changes need to be applied in the future
+that PR authors will later follow through on their promises. It is the responsibility of committers to listen to all
+feedback whether from PMC members or new contributors and consider what actions need to be taken.</p>
+</div>
+<div class="section" id="read-the-code-carefully">
+<h2><a class="toc-backref" href="#id4">Read the code carefully</a><a class="headerlink" href="#read-the-code-carefully" title="永久链接至标题">¶</a></h2>
+<p>Sometimes we may quickly read through the code and only pick up on a selective aspects of the code. These type of comments
+are usually helpful and should be welcomed in the community. However,  they are only part of performing code review and
+should be part of more comprehensive feedback. A good and careful code review is a large time investment and sometimes
+can be longer than writing the actual contribution.</p>
+<p>For example receiving only highly critical feedback on minor aspects of your PR rarely feels good, and it can be discouraging
+if your time and effort was not reciprocated during review. Practicing empathy when acting both as a contributor and committer
+is important and can help make you a more effective code reviewer and contributor.</p>
+<p>We expect that all committers carefully read and understand the code before signing off. There is a lot of trust involved when
+a committer hits the merge button. In the meantime, we acknowledge that sometimes problems slip through, in that case, the
+merger is responsible for ensuring the correct follow up actions are taken.</p>
+</div>
+<div class="section" id="be-respectful">
+<h2><a class="toc-backref" href="#id5">Be Respectful</a><a class="headerlink" href="#be-respectful" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>To everyone who are making comments: making constructive comment will help new contributors to land their PRs
+timely and help us welcome new members to the community.</p></li>
+<li><p>To authors: reviewers should spend significant time reading the code, and a careful review could be as time intensive
+as writing the code from scratch. Respectfully address review comments and reciprocate the review by helping review
+others changes in the future.</p></li>
+</ul>
+<p>Most importantly focus on having a constructive conversation, and try to assume best intentions when interacting as a reviewer.
+If there is something in the process not working, consider getting some face time with the other contributors and discussing
+how to improve the process or communication.</p>
+</div>
+<div class="section" id="factors-to-consider-about-code-quality">
+<h2><a class="toc-backref" href="#id6">Factors to Consider about Code Quality</a><a class="headerlink" href="#factors-to-consider-about-code-quality" title="永久链接至标题">¶</a></h2>
+<p>High quality code is critical to the long term success of the project. There are many factors of code quality to consider
+during a code review:</p>
+<ul class="simple">
+<li><p>F0: Overall architecture. This includes the definition of public modules, key data structures and public interfaces.
+Good architectural choices are critical to the success of the project in the long run.</p></li>
+<li><p>F1: Architectural consistency. There are usually multiple ways to implement a new feature. We must ensure new
+features are consistent with previous overall architectural choices and interact well with the existing code.
+Every new feature increases the complexity of the project, and a consistent design ideally minimizes the increase
+in complexity bought by a new feature, making it easier to maintain code in the long run.</p></li>
+<li><p>F2: Code robustness and test coverage. Ensure code runs correctly in all possible settings(platforms), ensure
+test coverage of the new feature. Clear error messages for user facing errors.</p></li>
+<li><p>F3: User facing API documentation: documentation of public user facing APIs and key module interfaces are mandatory.
+This includes the API, data structures that appears in the public interface (i.e., <cite>include/tvm</cite> and user facing python APIs).
+We generally encourage well documented code and include some form of documentations for internal APIs that are used in
+multiple places, see also F4.</p></li>
+<li><p>F4: Code readability. Readability involves multiple aspects: instructive and consistent function names, clear implementation
+of the overall flow, descriptive comments for complex code logic and internal functions. Readable code is easier to maintain.</p></li>
+</ul>
+<p>Architectural design and consistency are the most important factors since they are likely to introduce the most long term technical debt.
+As a result, committers should most carefully consider these factors before merging the code.</p>
+<p>Test coverage and API documentation are expected for code contributions.</p>
+<p>Code readability is relatively a subjective matter compared to the other ones.
+Different people have different thoughts on how to best write code. Reviewers should make constructive and actionable comments.
+In the meantime, code review should not be used as a way to get others to write code exactly the way you would.
+Conversely you should also consider that what you may easily understand, or find acceptable might not work for the larger
+community or other members. Use your judgment on what is appropriate based on the content and the scope of the contribution
+and where the contributor is coming from.</p>
+<p>We follow common <a class="reference internal" href="code_guide.html#code-guide"><span class="std std-ref">Code Guide and Tips</span></a> when writing code. Style guides help ensure that code is readable and maintainable by others,
+long after the original author has moved on. Style guides are more than about code formatting — they also pertain
+to the correct way to document code, variable naming, and other conventions that are not enforced by automatic formatters.</p>
+</div>
+<div class="section" id="consensus-building">
+<h2><a class="toc-backref" href="#id7">Consensus Building</a><a class="headerlink" href="#consensus-building" title="永久链接至标题">¶</a></h2>
+<p>Disagreements can happen during code reviews. We encourage building consensus among the people involved. We are working together
+and building trust with each other in OSS. The nature of OSS means sometimes we make compromises on less significant issues to
+make steady progress and welcome broader participation in the community. Compromise unfortunately means sometimes the world will
+not be exactly as we would like, this true even for leaders of the community.</p>
+<ul class="simple">
+<li><p>Be civil and build consensus through constructive technical-based conversations.</p></li>
+<li><p>A committer who owns the area can serve as a shepherd to drive the discussion by taking all the conversations into consideration,
+and suggest a resolution with to move forward.</p></li>
+<li><p>Because a lot of trust is involved on the committer(shepherd), they should read the PR carefully before sign off. Additionally,
+the merger should also take the responsibility to followup in case there are problems caused by the merge.</p></li>
+</ul>
+</div>
+<div class="section" id="consistency">
+<h2><a class="toc-backref" href="#id8">Consistency</a><a class="headerlink" href="#consistency" title="永久链接至标题">¶</a></h2>
+<p>A final remark is that we are all human and its hard to always be perfectly consistent. If contributors feel that you didn’t apply these guidelines
+in a consistent way it is important to listen and hear folks out. We will constantly have to iterate on processes and guidelines as we evolve as a community.
+Our goal is to strive to be consistent and objective but all of us are unfortunately human and imperfect and will need to adjust and learn.</p>
+</div>
+<div class="section" id="additional-recommendations">
+<h2><a class="toc-backref" href="#id9">Additional Recommendations</a><a class="headerlink" href="#additional-recommendations" title="永久链接至标题">¶</a></h2>
+<div class="section" id="deliberate-on-api-and-data-structures">
+<h3><a class="toc-backref" href="#id10">Deliberate on API and Data Structures</a><a class="headerlink" href="#deliberate-on-api-and-data-structures" title="永久链接至标题">¶</a></h3>
+<p>A minimum and stable API is critical to the project’s life. A good API makes a huge difference. Always think very carefully about all the aspects including naming, argument definitions and behavior.</p>
+<p>When possible, pay more attention still to the proposed API design during code reviews.
+Remember, it is easier to improve code implementation, but it is extremely hard to change an API once accepted.
+We should treat data structures that are shared across modules(e.g. AST) in the same way.
+If/when uncertain, start a conversation with more developers before committing.</p>
+<p>Here are some useful principles for designing APIs:</p>
+<ul class="simple">
+<li><p>Be consistent with existing well-known package’s APIs if the features overlap.
+For example, tensor operation APIs should always be consistent with the numpy API.</p></li>
+<li><p>Be consistent with existing APIs in the same project.
+For example, we should use the same argument ordering across all the optimization passes,
+so there is no “surprise” when using them.</p></li>
+<li><p>Think about whether the API will change in the future.
+For example, we will have more options like loop_unrolling and device placement policy
+as we add more optimizations in build. We can package optimization knobs into a build
+configuration object. In this way, the build API is stable over time, even though it may be enriched.</p></li>
+<li><p>Write documentation. Documentation is mandatory for APIs and sometimes writing documents helps
+us to think further about the design as well as whether we need to add further clarifications.</p></li>
+<li><p>Minimum. Think about how many lines of code a user has to write to use the API.
+Remove layers of abstraction when possible.</p></li>
+</ul>
+</div>
+<div class="section" id="minimize-dependencies">
+<h3><a class="toc-backref" href="#id11">Minimize Dependencies</a><a class="headerlink" href="#minimize-dependencies" title="永久链接至标题">¶</a></h3>
+<p>Always be cautious in introducing dependencies. While it is important to reuse code and avoid reinventing the wheel,
+dependencies can increase burden of users in deployment. A good design principle is that a feature or function
+should only have a dependency if/when a user actually use it.</p>
+</div>
+<div class="section" id="concise-implementation">
+<h3><a class="toc-backref" href="#id12">Concise Implementation</a><a class="headerlink" href="#concise-implementation" title="永久链接至标题">¶</a></h3>
+<p>Some basic principles applied here: favor vectorized array code over loops, use existing APIs that solve the problem.</p>
+</div>
+<div class="section" id="document-lessons-in-code-reviews">
+<h3><a class="toc-backref" href="#id13">Document Lessons in Code Reviews</a><a class="headerlink" href="#document-lessons-in-code-reviews" title="永久链接至标题">¶</a></h3>
+<p>When you find there are some common or recurring lessons that can be summarized,
+add it to the <a class="reference internal" href="code_guide.html#code-guide"><span class="std std-ref">Code Guide and Tips</span></a>.
+It is always good to refer to the guideline document when requesting changes,
+so the lessons can be shared to all the community.</p>
+</div>
+<div class="section" id="learn-from-other-code-reviews">
+<h3><a class="toc-backref" href="#id14">Learn from other Code Reviews</a><a class="headerlink" href="#learn-from-other-code-reviews" title="永久链接至标题">¶</a></h3>
+<p>There can be multiple reviewers reviewing the same changes. Many times other reviewers
+may spot things you did not find. Try to learn from other code reviews, when possible, document these lessons.</p>
+</div>
+<div class="section" id="approve-and-request-changes-explicitly">
+<h3><a class="toc-backref" href="#id15">Approve and Request Changes Explicitly</a><a class="headerlink" href="#approve-and-request-changes-explicitly" title="永久链接至标题">¶</a></h3>
+<p>The contributor and code owner can request code reviews from multiple reviewers.
+Remember to approve changes when your comments are addressed in a code review.
+To do so – please click on changes tab in the pull request, then select approve,
+or comment on the code and click request changes.
+Code owner can decide if the code can be merged in case by case if some of the reviewers
+did not respond in time(e.g. a week) and existing reviews are sufficient.</p>
+</div>
+<div class="section" id="reviewers">
+<h3><a class="toc-backref" href="#id16">Reviewers</a><a class="headerlink" href="#reviewers" title="永久链接至标题">¶</a></h3>
+<p>Reviewers should strive to leave timely feedback on pull requests for which their
+review was requested. Reviewing code is an important part of the project’s health
+and should be considered a regular responsibility for contributors. Automated
+tooling helps out in this regard, as PRs with no activity for a set amount of
+time will get a bot comment pinging the relevant parties.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">tvm-cn</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installing TVM</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributor Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How To Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/tutorial/index.html">Developer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/how_to/how_to.html">Developer How-To Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../arch/index.html">Design and Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topic Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../topic/microtvm/index.html">microTVM: TVM on bare-metal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic/vta/index.html">VTA: Versatile Tensor Accelerator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Contributor Guide</a><ul>
+      <li>Previous: <a href="pull_request.html" title="上一章">Submit a Pull Request</a></li>
+      <li>Next: <a href="committer_guide.html" title="下一章">Committer Guide</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HyperAI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/contribute/code_review.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
