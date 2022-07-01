@@ -20,5 +20,4 @@
 TLCPack
 =======
 
-TLCPack is a third-party conda and pip packaging based on TVM.
-Checkout more information on `TLCPack site <https://tlcpack.ai>`_.
+TLCPack 是一个基于 TVM 的第三方 conda 和 pip 封装。请在 `TLCPack网站 <https://tlcpack.ai>`_ 上查看更多信息。
