@@ -4,16 +4,17 @@
   --fontstack-prefix: "sofia-pro",;
 
   // Tweak colors
-  --link-color-h: 270;
+  --link-color-h: 235;
+  --link-color-s: 60%;
   --code-color-h: 40;
   --code-color-s: 60%;
   --code-color-l: 50%;
 }
 
 html[data-theme="dark"] {
-  --link-color-h: 262;
+  --link-color-h: 210;
   --link-color-s: 100%;
-  --link-color-l: 75%;
+  --link-color-l: 70%;
 }
 
 /* openbayes custom */
