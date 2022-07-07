@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/error",
+  "id": "reference/api/python/error",
+  "title": "tvm.error",
+  "description": "tvm.error",
+  "source": "@site/docs/reference/api/python/error.md",
+  "sourceDirName": "reference/api/python",
+  "slug": "/reference/api/python/error",
+  "permalink": "/docs/reference/api/python/error",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.error"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.driver",
+    "permalink": "/docs/reference/api/python/driver"
+  },
+  "next": {
+    "title": "tvm.contrib.graph_executor",
+    "permalink": "/docs/reference/api/python/graph_executor"
+  }
+}

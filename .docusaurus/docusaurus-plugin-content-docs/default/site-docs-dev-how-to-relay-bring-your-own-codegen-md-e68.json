@@ -1,0 +1,25 @@
+{
+  "unversionedId": "dev/how_to/relay_bring_your_own_codegen",
+  "id": "dev/how_to/relay_bring_your_own_codegen",
+  "title": "Bring Your Own Codegen To TVM",
+  "description": "As the number of hardware devices targeted by deep learning workloads",
+  "source": "@site/docs/dev/how_to/relay_bring_your_own_codegen.md",
+  "sourceDirName": "dev/how_to",
+  "slug": "/dev/how_to/relay_bring_your_own_codegen",
+  "permalink": "/docs/dev/how_to/relay_bring_your_own_codegen",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Bring Your Own Codegen To TVM"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Adding a Compiler Pass to Relay",
+    "permalink": "/docs/dev/how_to/relay_add_pass"
+  },
+  "next": {
+    "title": "Developer Tutorial",
+    "permalink": "/docs/dev/tutorial/"
+  }
+}

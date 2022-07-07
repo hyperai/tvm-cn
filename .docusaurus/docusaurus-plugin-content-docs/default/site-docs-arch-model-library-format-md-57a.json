@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/model_library_format",
+  "id": "arch/model_library_format",
+  "title": "Model Library Format",
+  "description": "TVM traditionally exports generated libraries as Dynamic Shared Objects",
+  "source": "@site/docs/arch/model_library_format.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/model_library_format",
+  "permalink": "/docs/arch/model_library_format",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Model Library Format"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "microTVM Project API",
+    "permalink": "/docs/arch/microtvm_project_api"
+  },
+  "next": {
+    "title": "Pass Infrastructure",
+    "permalink": "/docs/arch/pass_infra"
+  }
+}

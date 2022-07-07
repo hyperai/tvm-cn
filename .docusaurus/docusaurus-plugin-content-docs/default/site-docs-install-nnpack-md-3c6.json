@@ -1,0 +1,25 @@
+{
+  "unversionedId": "install/nnpack",
+  "id": "install/nnpack",
+  "title": "NNPACK Contrib Installation",
+  "description": "NNPACK is an acceleration",
+  "source": "@site/docs/install/nnpack.md",
+  "sourceDirName": "install",
+  "slug": "/install/nnpack",
+  "permalink": "/docs/install/nnpack",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "NNPACK Contrib Installation"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "从源码安装",
+    "permalink": "/docs/install/from_source"
+  },
+  "next": {
+    "title": "TLCPack",
+    "permalink": "/docs/install/tlcpack"
+  }
+}

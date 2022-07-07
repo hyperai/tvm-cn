@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/langref/relay_type",
+  "id": "reference/langref/relay_type",
+  "title": "Relay\\'s Type System",
+  "description": "We briefly introduced types while detailing Relay\\'s expression",
+  "source": "@site/docs/reference/langref/relay_type.md",
+  "sourceDirName": "reference/langref",
+  "slug": "/reference/langref/relay_type",
+  "permalink": "/docs/reference/langref/relay_type",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Relay\\'s Type System"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Pattern Matching in Relay",
+    "permalink": "/docs/reference/langref/relay_pattern"
+  },
+  "next": {
+    "title": "Publications",
+    "permalink": "/docs/reference/publications"
+  }
+}

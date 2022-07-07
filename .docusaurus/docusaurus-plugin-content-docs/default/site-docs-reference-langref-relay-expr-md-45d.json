@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/langref/relay_expr",
+  "id": "reference/langref/relay_expr",
+  "title": "Expressions in Relay",
+  "description": "The Relay IR is a pure, expression-oriented language. The below sections",
+  "source": "@site/docs/reference/langref/relay_expr.md",
+  "sourceDirName": "reference/langref",
+  "slug": "/reference/langref/relay_expr",
+  "permalink": "/docs/reference/langref/relay_expr",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Expressions in Relay"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Algebraic Data Types in Relay",
+    "permalink": "/docs/reference/langref/relay_adt"
+  },
+  "next": {
+    "title": "Relay Core Tensor Operators",
+    "permalink": "/docs/reference/langref/relay_op"
+  }
+}

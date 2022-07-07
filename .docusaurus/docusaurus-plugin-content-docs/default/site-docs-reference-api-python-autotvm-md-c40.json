@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/autotvm",
+  "id": "reference/api/python/autotvm",
+  "title": "tvm.autotvm",
+  "description": "tvm.autotvm",
+  "source": "@site/docs/reference/api/python/autotvm.md",
+  "sourceDirName": "reference/api/python",
+  "slug": "/reference/api/python/autotvm",
+  "permalink": "/docs/reference/api/python/autotvm",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.autotvm"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.auto_scheduler",
+    "permalink": "/docs/reference/api/python/auto_scheduler"
+  },
+  "next": {
+    "title": "tvm.contrib",
+    "permalink": "/docs/reference/api/python/contrib"
+  }
+}

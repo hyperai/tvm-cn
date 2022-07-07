@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/pass_infra",
+  "id": "arch/pass_infra",
+  "title": "Pass Infrastructure",
+  "description": "Both Relay and TVM IR contain a series of optimization passes which",
+  "source": "@site/docs/arch/pass_infra.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/pass_infra",
+  "permalink": "/docs/arch/pass_infra",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Pass Infrastructure"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Model Library Format",
+    "permalink": "/docs/arch/model_library_format"
+  },
+  "next": {
+    "title": "Introduction to Relay IR",
+    "permalink": "/docs/arch/relay_intro"
+  }
+}

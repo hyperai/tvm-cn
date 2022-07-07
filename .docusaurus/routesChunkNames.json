@@ -1,0 +1,478 @@
+{
+  "/__docusaurus/debug-ab7": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    }
+  },
+  "/__docusaurus/debug/config-bf2": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    }
+  },
+  "/__docusaurus/debug/content-f86": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    },
+    "allContent": "allContent---docusaurus-debug-content-246-9aa"
+  },
+  "/__docusaurus/debug/globalData-1cc": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    }
+  },
+  "/__docusaurus/debug/metadata-120": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    }
+  },
+  "/__docusaurus/debug/registry-42d": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    }
+  },
+  "/__docusaurus/debug/routes-ca1": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-0-f-103"
+    }
+  },
+  "/enterprise-8d4": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---enterprisef-04-212"
+    },
+    "content": "content---enterprise-058-e51"
+  },
+  "/markdown-page-2b0": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---enterprisef-04-212"
+    },
+    "content": "content---markdown-page-393-028"
+  },
+  "/search-a5b": {
+    "__comp": "__comp---theme-search-page-1-a-4-d6f",
+    "__context": {
+      "plugin": "plugin---search-6-f-6-dbb"
+    }
+  },
+  "/updates-e14": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---enterprisef-04-212"
+    },
+    "content": "content---updates-192-687"
+  },
+  "/docs-26c": {
+    "__comp": "__comp---theme-doc-page-1-be-9be",
+    "__context": {
+      "plugin": "plugin---docs-112-601"
+    },
+    "versionMetadata": "versionMetadata---docs-935-398"
+  },
+  "/docs/-a8c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-c-37-4d0"
+  },
+  "/docs/arch/-c08": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-aba-154"
+  },
+  "/docs/arch/benchmark-eb5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-benchmark-7-e-6-1f2"
+  },
+  "/docs/arch/convert_layout-4a8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-convert-layout-5-a-1-ef9"
+  },
+  "/docs/arch/debugger-1f0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-debugger-758-582"
+  },
+  "/docs/arch/device_target_interactions-0db": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-device-target-interactions-703-228"
+  },
+  "/docs/arch/frontend/tensorflow-c79": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-frontend-tensorflow-423-7c6"
+  },
+  "/docs/arch/hybrid_script-938": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-hybrid-script-8-cf-b0f"
+  },
+  "/docs/arch/inferbound-489": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-inferbound-3-a-4-cdc"
+  },
+  "/docs/arch/introduction_to_module_serialization-17a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-introduction-to-module-serializationb-4-c-089"
+  },
+  "/docs/arch/microtvm_design-9e8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-microtvm-design-831-8a2"
+  },
+  "/docs/arch/microtvm_project_api-418": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-microtvm-project-api-7-d-5-625"
+  },
+  "/docs/arch/model_library_format-add": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-model-library-format-57-a-05f"
+  },
+  "/docs/arch/pass_infra-725": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-pass-infra-97-d-f49"
+  },
+  "/docs/arch/relay_intro-c18": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-relay-intro-2-da-e64"
+  },
+  "/docs/arch/relay_op_strategy-750": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-relay-op-strategy-8-a-9-713"
+  },
+  "/docs/arch/runtime-1bf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-runtime-485-247"
+  },
+  "/docs/arch/runtimes/vulkan-0de": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-runtimes-vulkancfe-ff6"
+  },
+  "/docs/arch/security-4bb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-securityc-7-e-e3b"
+  },
+  "/docs/arch/virtual_machine-b1e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-arch-virtual-machine-289-f3c"
+  },
+  "/docs/contribute/-81a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-833-2ca"
+  },
+  "/docs/contribute/ci-cdc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-cie-9-f-865"
+  },
+  "/docs/contribute/code_guide-1c6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-code-guide-75-f-90d"
+  },
+  "/docs/contribute/code_review-0c0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-code-review-0-e-5-f95"
+  },
+  "/docs/contribute/committer_guide-d33": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-committer-guide-56-a-4d7"
+  },
+  "/docs/contribute/community-2de": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-community-2-ec-c99"
+  },
+  "/docs/contribute/document-d2b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-documentcee-a9e"
+  },
+  "/docs/contribute/error_handling-31e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-error-handlingd-4-c-b86"
+  },
+  "/docs/contribute/git_howto-e57": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-git-howtoc-21-6b7"
+  },
+  "/docs/contribute/pull_request-d31": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-pull-request-4-e-7-43a"
+  },
+  "/docs/contribute/release_process-860": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contribute-release-processd-84-f82"
+  },
+  "/docs/dev/how_to/-e45": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-how-to-300-e46"
+  },
+  "/docs/dev/how_to/debugging_tvm-beb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-how-to-debugging-tvm-5-ea-763"
+  },
+  "/docs/dev/how_to/pytest_target_parametrization-341": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-how-to-pytest-target-parametrization-0-af-c84"
+  },
+  "/docs/dev/how_to/relay_add_op-0d3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-how-to-relay-add-opb-36-d11"
+  },
+  "/docs/dev/how_to/relay_add_pass-b53": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-how-to-relay-add-pass-24-d-70e"
+  },
+  "/docs/dev/how_to/relay_bring_your_own_codegen-b14": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-how-to-relay-bring-your-own-codegene-68-0a7"
+  },
+  "/docs/dev/tutorial/-2fc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-tutorial-ec-2-a18"
+  },
+  "/docs/dev/tutorial/codebase_walkthrough-88c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-dev-tutorial-codebase-walkthrough-53-a-e88"
+  },
+  "/docs/how_to/-980": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-1-e-3-de5"
+  },
+  "/docs/how_to/deploy/-1cb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-516-b87"
+  },
+  "/docs/how_to/deploy/android-1d0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-androidfc-6-93e"
+  },
+  "/docs/how_to/deploy/arm_compute_lib-475": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-arm-compute-lib-936-39c"
+  },
+  "/docs/how_to/deploy/bnns-471": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-bnns-143-f8a"
+  },
+  "/docs/how_to/deploy/cpp_deploy-6ff": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-cpp-deploy-29-e-bc2"
+  },
+  "/docs/how_to/deploy/hls-67c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-hls-470-9ca"
+  },
+  "/docs/how_to/deploy/integrate-061": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-integrate-7-ea-90a"
+  },
+  "/docs/how_to/deploy/tensorrt-b38": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-tensorrtfbe-246"
+  },
+  "/docs/how_to/deploy/vitis_ai-25b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-deploy-vitis-ai-7-ad-f39"
+  },
+  "/docs/how_to/profile/-ae4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-profile-484-005"
+  },
+  "/docs/how_to/profile/papi-3c3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-profile-papib-9-f-6a7"
+  },
+  "/docs/install/-26c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-install-c-19-e40"
+  },
+  "/docs/install/docker-73b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-install-docker-599-d26"
+  },
+  "/docs/install/from_source-ba5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-install-from-sourcec-4-c-bdd"
+  },
+  "/docs/install/nnpack-5f4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-install-nnpack-3-c-6-ec5"
+  },
+  "/docs/install/tlcpack-44d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-install-tlcpack-211-ccd"
+  },
+  "/docs/reference/api/links-b3b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-links-80-e-b61"
+  },
+  "/docs/reference/api/python/-c9d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-0-c-8-34d"
+  },
+  "/docs/reference/api/python/auto_scheduler-3ec": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-auto-scheduler-27-a-512"
+  },
+  "/docs/reference/api/python/autotvm-6e3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-autotvmc-40-4f8"
+  },
+  "/docs/reference/api/python/contrib-acf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-contrib-758-d3f"
+  },
+  "/docs/reference/api/python/driver-c2e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-driver-1-cb-a52"
+  },
+  "/docs/reference/api/python/error-eae": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-errorf-65-aab"
+  },
+  "/docs/reference/api/python/graph_executor-4b7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-graph-executor-12-d-457"
+  },
+  "/docs/reference/api/python/ir-d71": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-irbcb-5f6"
+  },
+  "/docs/reference/api/python/micro-560": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-micro-35-a-5df"
+  },
+  "/docs/reference/api/python/ndarray-376": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-ndarray-912-844"
+  },
+  "/docs/reference/api/python/relay/-d24": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-bd-4-e1b"
+  },
+  "/docs/reference/api/python/relay/analysis-7f4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-analysis-26-a-aab"
+  },
+  "/docs/reference/api/python/relay/backend-b5d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-backend-022-b37"
+  },
+  "/docs/reference/api/python/relay/dataflow_pattern-4bd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-dataflow-pattern-92-a-751"
+  },
+  "/docs/reference/api/python/relay/frontend-562": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-frontend-09-e-53a"
+  },
+  "/docs/reference/api/python/relay/image-29a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-imagebb-3-683"
+  },
+  "/docs/reference/api/python/relay/nn-4a3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-nn-8-d-4-260"
+  },
+  "/docs/reference/api/python/relay/testing-f83": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-testing-18-e-3f5"
+  },
+  "/docs/reference/api/python/relay/transform-1e6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-transform-76-a-e9c"
+  },
+  "/docs/reference/api/python/relay/vision-9fb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-relay-visiona-09-9ff"
+  },
+  "/docs/reference/api/python/rpc-2ab": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-rpc-20-f-ffd"
+  },
+  "/docs/reference/api/python/runtime-d5a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-runtime-60-c-307"
+  },
+  "/docs/reference/api/python/target-154": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-targeta-79-135"
+  },
+  "/docs/reference/api/python/te-667": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-tecb-5-cfd"
+  },
+  "/docs/reference/api/python/tir-5a7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-tir-8-fd-deb"
+  },
+  "/docs/reference/api/python/topi-9f3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-topi-08-b-b55"
+  },
+  "/docs/reference/api/python/vta/-a67": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-api-python-vta-cd-8-2e7"
+  },
+  "/docs/reference/langref/-5c3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-601-bf4"
+  },
+  "/docs/reference/langref/hybrid_script-f54": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-hybrid-script-6-a-8-a05"
+  },
+  "/docs/reference/langref/relay_adt-b68": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-relay-adtef-3-b03"
+  },
+  "/docs/reference/langref/relay_expr-2f6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-relay-expr-45-d-ef4"
+  },
+  "/docs/reference/langref/relay_op-440": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-relay-op-38-a-85a"
+  },
+  "/docs/reference/langref/relay_pattern-cc5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-relay-pattern-978-879"
+  },
+  "/docs/reference/langref/relay_type-167": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-langref-relay-typeb-61-e5c"
+  },
+  "/docs/reference/publications-1ee": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-publications-2-aa-cf2"
+  },
+  "/docs/topic/microtvm/-8a5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-topic-microtvm-d-85-a11"
+  },
+  "/docs/topic/vta/-4ef": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-topic-vta-d-02-efe"
+  },
+  "/docs/topic/vta/dev/-42d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-topic-vta-dev-126-db3"
+  },
+  "/docs/topic/vta/dev/config-0ea": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-topic-vta-dev-config-369-f1b"
+  },
+  "/docs/topic/vta/dev/hardware-75c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-topic-vta-dev-hardware-1-c-6-406"
+  },
+  "/docs/topic/vta/install-de8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-topic-vta-installff-8-1ff"
+  },
+  "/-c65": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---enterprisef-04-212"
+    },
+    "config": "config---5-e-9-4f3"
+  }
+}

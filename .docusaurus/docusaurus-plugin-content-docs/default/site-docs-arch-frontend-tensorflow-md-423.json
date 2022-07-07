@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/frontend/tensorflow",
+  "id": "arch/frontend/tensorflow",
+  "title": "TensorFlow Frontend",
+  "description": "The TensorFlow frontend helps in importing TensorFlow models into TVM.",
+  "source": "@site/docs/arch/frontend/tensorflow.md",
+  "sourceDirName": "arch/frontend",
+  "slug": "/arch/frontend/tensorflow",
+  "permalink": "/docs/arch/frontend/tensorflow",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "TensorFlow Frontend"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Device/Target Interactions",
+    "permalink": "/docs/arch/device_target_interactions"
+  },
+  "next": {
+    "title": "Hybrid Frontend Developer Guide",
+    "permalink": "/docs/arch/hybrid_script"
+  }
+}

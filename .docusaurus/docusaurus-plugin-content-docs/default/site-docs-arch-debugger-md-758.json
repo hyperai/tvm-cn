@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/debugger",
+  "id": "arch/debugger",
+  "title": "Debugger",
+  "description": "TVM Debugger is an interface for debugging TVM\\'s computation graph",
+  "source": "@site/docs/arch/debugger.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/debugger",
+  "permalink": "/docs/arch/debugger",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Debugger"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Convert Layout Pass",
+    "permalink": "/docs/arch/convert_layout"
+  },
+  "next": {
+    "title": "Device/Target Interactions",
+    "permalink": "/docs/arch/device_target_interactions"
+  }
+}

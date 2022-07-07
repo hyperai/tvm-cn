@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/micro",
+  "id": "reference/api/python/micro",
+  "title": "tvm.micro",
+  "description": "tvm.micro",
+  "source": "@site/docs/reference/api/python/micro.md",
+  "sourceDirName": "reference/api/python",
+  "slug": "/reference/api/python/micro",
+  "permalink": "/docs/reference/api/python/micro",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.micro"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.ir",
+    "permalink": "/docs/reference/api/python/ir"
+  },
+  "next": {
+    "title": "tvm.runtime.ndarray",
+    "permalink": "/docs/reference/api/python/ndarray"
+  }
+}

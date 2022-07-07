@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/relay/backend",
+  "id": "reference/api/python/relay/backend",
+  "title": "tvm.relay.backend",
+  "description": "tvm.relay.backend",
+  "source": "@site/docs/reference/api/python/relay/backend.md",
+  "sourceDirName": "reference/api/python/relay",
+  "slug": "/reference/api/python/relay/backend",
+  "permalink": "/docs/reference/api/python/relay/backend",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.relay.backend"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.relay.analysis",
+    "permalink": "/docs/reference/api/python/relay/analysis"
+  },
+  "next": {
+    "title": "tvm.relay.dataflow_pattern",
+    "permalink": "/docs/reference/api/python/relay/dataflow_pattern"
+  }
+}

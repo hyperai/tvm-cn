@@ -1,0 +1,25 @@
+{
+  "unversionedId": "how_to/deploy/cpp_deploy",
+  "id": "how_to/deploy/cpp_deploy",
+  "title": "Deploy TVM Module using C++ API",
+  "description": "We provide an example on how to deploy TVM modules in",
+  "source": "@site/docs/how_to/deploy/cpp_deploy.md",
+  "sourceDirName": "how_to/deploy",
+  "slug": "/how_to/deploy/cpp_deploy",
+  "permalink": "/docs/how_to/deploy/cpp_deploy",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Deploy TVM Module using C++ API"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Relay BNNS Integration",
+    "permalink": "/docs/how_to/deploy/bnns"
+  },
+  "next": {
+    "title": "HLS Backend Example",
+    "permalink": "/docs/how_to/deploy/hls"
+  }
+}

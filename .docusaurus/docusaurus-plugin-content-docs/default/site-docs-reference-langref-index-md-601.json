@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/langref/index",
+  "id": "reference/langref/index",
+  "title": "Language Reference",
+  "description": "This document provides references to embedded languages and IRs in the",
+  "source": "@site/docs/reference/langref/index.md",
+  "sourceDirName": "reference/langref",
+  "slug": "/reference/langref/",
+  "permalink": "/docs/reference/langref/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Language Reference"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "vta",
+    "permalink": "/docs/reference/api/python/vta/"
+  },
+  "next": {
+    "title": "Hybrid Frontend Language Reference",
+    "permalink": "/docs/reference/langref/hybrid_script"
+  }
+}

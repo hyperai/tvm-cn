@@ -1,0 +1,89 @@
+// Tippy.js
+.tooltip {
+  outline: none;
+}
+
+.tippy-box {
+  font-size: 1rem;
+
+  // Matches `light-theme` and `light-left-theme`
+  &[data-theme^="light"] {
+    color: var(--text-color);
+    box-shadow: 0 0 0 1px var(--border-color), 0 10px 20px 4px var(--link-color-10);
+    background-color: var(--bg-color);
+
+    .tippy-backdrop {
+      background-color: var(--bg-color);
+    }
+
+    .tippy-svg-arrow {
+      fill: var(--bg-color);
+    }
+
+    &[data-placement^=top] .tippy-svg-arrow {
+      filter: drop-shadow(0 1px 0 var(--border-color));
+    }
+
+    &[data-placement^=bottom] .tippy-svg-arrow {
+      filter: drop-shadow(0 -1px 0 var(--border-color));
+    }
+
+    &[data-placement^=left] .tippy-svg-arrow {
+      filter: drop-shadow(1px 0 0 var(--border-color));
+    }
+
+    &[data-placement^=right] .tippy-svg-arrow {
+      filter: drop-shadow(-1px 0 0 var(--border-color));
+    }
+
+    &[data-placement^=top] .tippy-arrow::before {
+      border-top: 8px solid var(--bg-color);
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+    }
+
+    &[data-placement^=bottom] .tippy-arrow::before {
+      border-bottom: 8px solid var(--bg-color);
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+    }
+
+    &[data-placement^=left] .tippy-arrow::before {
+      border-left: 8px solid var(--bg-color);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+
+    &[data-placement^=right] .tippy-arrow::before {
+      border-right: 8px solid var(--bg-color);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+
+    &[data-animatefill] {
+      background-color: transparent;
+    }
+
+    .tippy-content {
+
+      > *:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        color: var(--link-color);
+      }
+
+      hr {
+        margin: 6px -9px;
+      }
+    }
+  }
+
+  &.light-left-theme {
+
+    .tippy-content {
+      text-align: left;
+    }
+  }
+}

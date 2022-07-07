@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/committer_guide",
+  "id": "contribute/committer_guide",
+  "title": "Committer Guide",
+  "description": "This is an evolving document to provide some helpful tips for",
+  "source": "@site/docs/contribute/committer_guide.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/committer_guide",
+  "permalink": "/docs/contribute/committer_guide",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Committer Guide"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Code Reviews",
+    "permalink": "/docs/contribute/code_review"
+  },
+  "next": {
+    "title": "TVM Community Guidelines",
+    "permalink": "/docs/contribute/community"
+  }
+}

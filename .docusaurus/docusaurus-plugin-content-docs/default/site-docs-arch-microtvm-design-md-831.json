@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/microtvm_design",
+  "id": "arch/microtvm_design",
+  "title": "microTVM Design Document",
+  "description": "Table of Contents",
+  "source": "@site/docs/arch/microtvm_design.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/microtvm_design",
+  "permalink": "/docs/arch/microtvm_design",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "microTVM Design Document"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction to Module Serialization",
+    "permalink": "/docs/arch/introduction_to_module_serialization"
+  },
+  "next": {
+    "title": "microTVM Project API",
+    "permalink": "/docs/arch/microtvm_project_api"
+  }
+}

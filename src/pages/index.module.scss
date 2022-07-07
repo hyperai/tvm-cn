@@ -1,0 +1,51 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - var(--ifm-navbar-height) * 2);
+  background-image: url('https://experiments.sparanoid.net/i0.wp.com/sparanoid.blog/wp-content/uploads/2021/10/yEt6JSa.gif');
+  // background-image: url('https://i.imgur.com/FvqR9KL.gif?noredirect');
+  background-size: cover;
+  background-position: center;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+    background-color: var(--link-color-20);
+  }
+
+  :global .container {
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 5rem;
+
+    @media screen and (max-width: 966px) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.credit {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  margin: 0;
+  font-size: .8rem;
+  color: var(--white-80);
+
+  a {
+    color: var(--white);
+  }
+}

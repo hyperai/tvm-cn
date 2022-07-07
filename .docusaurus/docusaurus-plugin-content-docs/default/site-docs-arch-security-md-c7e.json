@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/security",
+  "id": "arch/security",
+  "title": "Security Guide",
+  "description": "The Apache Software Foundation takes a very active stance in eliminating",
+  "source": "@site/docs/arch/security.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/security",
+  "permalink": "/docs/arch/security",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Security Guide"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Vulkan Runtime",
+    "permalink": "/docs/arch/runtimes/vulkan"
+  },
+  "next": {
+    "title": "Putting the VM in TVM: The Relay Virtual Machine",
+    "permalink": "/docs/arch/virtual_machine"
+  }
+}

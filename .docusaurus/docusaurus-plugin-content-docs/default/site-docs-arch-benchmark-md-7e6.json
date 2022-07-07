@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/benchmark",
+  "id": "arch/benchmark",
+  "title": "Benchmark Performance Log Format",
+  "description": "This page details schema v0.1 for a unified benchmark log format. This",
+  "source": "@site/docs/arch/benchmark.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/benchmark",
+  "permalink": "/docs/arch/benchmark",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Benchmark Performance Log Format"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Design and Architecture",
+    "permalink": "/docs/arch/"
+  },
+  "next": {
+    "title": "Convert Layout Pass",
+    "permalink": "/docs/arch/convert_layout"
+  }
+}

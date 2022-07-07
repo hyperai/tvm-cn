@@ -1,0 +1,25 @@
+{
+  "unversionedId": "how_to/deploy/arm_compute_lib",
+  "id": "how_to/deploy/arm_compute_lib",
+  "title": "Relay Arm^®^ Compute Library Integration",
+  "description": "Author: Luke Hutton",
+  "source": "@site/docs/how_to/deploy/arm_compute_lib.md",
+  "sourceDirName": "how_to/deploy",
+  "slug": "/how_to/deploy/arm_compute_lib",
+  "permalink": "/docs/how_to/deploy/arm_compute_lib",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Relay Arm^®^ Compute Library Integration"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Deploy to Android",
+    "permalink": "/docs/how_to/deploy/android"
+  },
+  "next": {
+    "title": "Relay BNNS Integration",
+    "permalink": "/docs/how_to/deploy/bnns"
+  }
+}

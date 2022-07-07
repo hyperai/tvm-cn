@@ -1,0 +1,3064 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "label": "Next",
+          "banner": null,
+          "badge": false,
+          "className": "docs-version-current",
+          "path": "/docs",
+          "tagsPath": "/docs/tags",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/sparanoid/Git/tvm-cn/sidebars.js",
+          "contentPath": "/Users/sparanoid/Git/tvm-cn/docs",
+          "contentPathLocalized": "/Users/sparanoid/Git/tvm-cn/i18n/en/docusaurus-plugin-content-docs/current",
+          "docs": [
+            {
+              "unversionedId": "arch/benchmark",
+              "id": "arch/benchmark",
+              "title": "Benchmark Performance Log Format",
+              "description": "This page details schema v0.1 for a unified benchmark log format. This",
+              "source": "@site/docs/arch/benchmark.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/benchmark",
+              "permalink": "/docs/arch/benchmark",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Benchmark Performance Log Format"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Design and Architecture",
+                "permalink": "/docs/arch/"
+              },
+              "next": {
+                "title": "Convert Layout Pass",
+                "permalink": "/docs/arch/convert_layout"
+              }
+            },
+            {
+              "unversionedId": "arch/convert_layout",
+              "id": "arch/convert_layout",
+              "title": "Convert Layout Pass",
+              "description": "Author: Animesh Jain",
+              "source": "@site/docs/arch/convert_layout.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/convert_layout",
+              "permalink": "/docs/arch/convert_layout",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Convert Layout Pass"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Benchmark Performance Log Format",
+                "permalink": "/docs/arch/benchmark"
+              },
+              "next": {
+                "title": "Debugger",
+                "permalink": "/docs/arch/debugger"
+              }
+            },
+            {
+              "unversionedId": "arch/debugger",
+              "id": "arch/debugger",
+              "title": "Debugger",
+              "description": "TVM Debugger is an interface for debugging TVM\\'s computation graph",
+              "source": "@site/docs/arch/debugger.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/debugger",
+              "permalink": "/docs/arch/debugger",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Debugger"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Convert Layout Pass",
+                "permalink": "/docs/arch/convert_layout"
+              },
+              "next": {
+                "title": "Device/Target Interactions",
+                "permalink": "/docs/arch/device_target_interactions"
+              }
+            },
+            {
+              "unversionedId": "arch/device_target_interactions",
+              "id": "arch/device_target_interactions",
+              "title": "Device/Target Interactions",
+              "description": "This documented is intended for developers interested in understanding",
+              "source": "@site/docs/arch/device_target_interactions.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/device_target_interactions",
+              "permalink": "/docs/arch/device_target_interactions",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Device/Target Interactions"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Debugger",
+                "permalink": "/docs/arch/debugger"
+              },
+              "next": {
+                "title": "TensorFlow Frontend",
+                "permalink": "/docs/arch/frontend/tensorflow"
+              }
+            },
+            {
+              "unversionedId": "arch/frontend/tensorflow",
+              "id": "arch/frontend/tensorflow",
+              "title": "TensorFlow Frontend",
+              "description": "The TensorFlow frontend helps in importing TensorFlow models into TVM.",
+              "source": "@site/docs/arch/frontend/tensorflow.md",
+              "sourceDirName": "arch/frontend",
+              "slug": "/arch/frontend/tensorflow",
+              "permalink": "/docs/arch/frontend/tensorflow",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "TensorFlow Frontend"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Device/Target Interactions",
+                "permalink": "/docs/arch/device_target_interactions"
+              },
+              "next": {
+                "title": "Hybrid Frontend Developer Guide",
+                "permalink": "/docs/arch/hybrid_script"
+              }
+            },
+            {
+              "unversionedId": "arch/hybrid_script",
+              "id": "arch/hybrid_script",
+              "title": "Hybrid Frontend Developer Guide",
+              "description": "If you are a developer:",
+              "source": "@site/docs/arch/hybrid_script.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/hybrid_script",
+              "permalink": "/docs/arch/hybrid_script",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Hybrid Frontend Developer Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "TensorFlow Frontend",
+                "permalink": "/docs/arch/frontend/tensorflow"
+              },
+              "next": {
+                "title": "InferBound Pass",
+                "permalink": "/docs/arch/inferbound"
+              }
+            },
+            {
+              "unversionedId": "arch/index",
+              "id": "arch/index",
+              "title": "Design and Architecture",
+              "description": "This document is intended for developers who want to understand the",
+              "source": "@site/docs/arch/index.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/",
+              "permalink": "/docs/arch/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Design and Architecture"
+              },
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "Benchmark Performance Log Format",
+                "permalink": "/docs/arch/benchmark"
+              }
+            },
+            {
+              "unversionedId": "arch/inferbound",
+              "id": "arch/inferbound",
+              "title": "InferBound Pass",
+              "description": "The InferBound pass is run after normalize, and before ScheduleOps",
+              "source": "@site/docs/arch/inferbound.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/inferbound",
+              "permalink": "/docs/arch/inferbound",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "InferBound Pass"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Hybrid Frontend Developer Guide",
+                "permalink": "/docs/arch/hybrid_script"
+              },
+              "next": {
+                "title": "Introduction to Module Serialization",
+                "permalink": "/docs/arch/introduction_to_module_serialization"
+              }
+            },
+            {
+              "unversionedId": "arch/introduction_to_module_serialization",
+              "id": "arch/introduction_to_module_serialization",
+              "title": "Introduction to Module Serialization",
+              "description": "When to deploy TVM runtime module, no matter whether it is CPU or GPU,",
+              "source": "@site/docs/arch/introduction_to_module_serialization.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/introduction_to_module_serialization",
+              "permalink": "/docs/arch/introduction_to_module_serialization",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Introduction to Module Serialization"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "InferBound Pass",
+                "permalink": "/docs/arch/inferbound"
+              },
+              "next": {
+                "title": "microTVM Design Document",
+                "permalink": "/docs/arch/microtvm_design"
+              }
+            },
+            {
+              "unversionedId": "arch/microtvm_design",
+              "id": "arch/microtvm_design",
+              "title": "microTVM Design Document",
+              "description": "Table of Contents",
+              "source": "@site/docs/arch/microtvm_design.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/microtvm_design",
+              "permalink": "/docs/arch/microtvm_design",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "microTVM Design Document"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction to Module Serialization",
+                "permalink": "/docs/arch/introduction_to_module_serialization"
+              },
+              "next": {
+                "title": "microTVM Project API",
+                "permalink": "/docs/arch/microtvm_project_api"
+              }
+            },
+            {
+              "unversionedId": "arch/microtvm_project_api",
+              "id": "arch/microtvm_project_api",
+              "title": "microTVM Project API",
+              "description": "The microTVM Project API allows TVM to automatically run models on",
+              "source": "@site/docs/arch/microtvm_project_api.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/microtvm_project_api",
+              "permalink": "/docs/arch/microtvm_project_api",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "microTVM Project API"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "microTVM Design Document",
+                "permalink": "/docs/arch/microtvm_design"
+              },
+              "next": {
+                "title": "Model Library Format",
+                "permalink": "/docs/arch/model_library_format"
+              }
+            },
+            {
+              "unversionedId": "arch/model_library_format",
+              "id": "arch/model_library_format",
+              "title": "Model Library Format",
+              "description": "TVM traditionally exports generated libraries as Dynamic Shared Objects",
+              "source": "@site/docs/arch/model_library_format.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/model_library_format",
+              "permalink": "/docs/arch/model_library_format",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Model Library Format"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "microTVM Project API",
+                "permalink": "/docs/arch/microtvm_project_api"
+              },
+              "next": {
+                "title": "Pass Infrastructure",
+                "permalink": "/docs/arch/pass_infra"
+              }
+            },
+            {
+              "unversionedId": "arch/pass_infra",
+              "id": "arch/pass_infra",
+              "title": "Pass Infrastructure",
+              "description": "Both Relay and TVM IR contain a series of optimization passes which",
+              "source": "@site/docs/arch/pass_infra.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/pass_infra",
+              "permalink": "/docs/arch/pass_infra",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Pass Infrastructure"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Model Library Format",
+                "permalink": "/docs/arch/model_library_format"
+              },
+              "next": {
+                "title": "Introduction to Relay IR",
+                "permalink": "/docs/arch/relay_intro"
+              }
+            },
+            {
+              "unversionedId": "arch/relay_intro",
+              "id": "arch/relay_intro",
+              "title": "Introduction to Relay IR",
+              "description": "This article introduces Relay IR \\-- the second generation of NNVM. We",
+              "source": "@site/docs/arch/relay_intro.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/relay_intro",
+              "permalink": "/docs/arch/relay_intro",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Introduction to Relay IR"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Pass Infrastructure",
+                "permalink": "/docs/arch/pass_infra"
+              },
+              "next": {
+                "title": "Relay Operator Strategy",
+                "permalink": "/docs/arch/relay_op_strategy"
+              }
+            },
+            {
+              "unversionedId": "arch/relay_op_strategy",
+              "id": "arch/relay_op_strategy",
+              "title": "Relay Operator Strategy",
+              "description": "In order to lower Relay operators to the implementations defined in TOPI",
+              "source": "@site/docs/arch/relay_op_strategy.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/relay_op_strategy",
+              "permalink": "/docs/arch/relay_op_strategy",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Relay Operator Strategy"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction to Relay IR",
+                "permalink": "/docs/arch/relay_intro"
+              },
+              "next": {
+                "title": "TVM Runtime System",
+                "permalink": "/docs/arch/runtime"
+              }
+            },
+            {
+              "unversionedId": "arch/runtime",
+              "id": "arch/runtime",
+              "title": "TVM Runtime System",
+              "description": "TVM supports multiple programming languages for the compiler stack",
+              "source": "@site/docs/arch/runtime.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/runtime",
+              "permalink": "/docs/arch/runtime",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Relay Operator Strategy",
+                "permalink": "/docs/arch/relay_op_strategy"
+              },
+              "next": {
+                "title": "Vulkan Runtime",
+                "permalink": "/docs/arch/runtimes/vulkan"
+              }
+            },
+            {
+              "unversionedId": "arch/runtimes/vulkan",
+              "id": "arch/runtimes/vulkan",
+              "title": "Vulkan Runtime",
+              "description": "TVM supports using Vulkan compute shaders to execute queries. Each",
+              "source": "@site/docs/arch/runtimes/vulkan.md",
+              "sourceDirName": "arch/runtimes",
+              "slug": "/arch/runtimes/vulkan",
+              "permalink": "/docs/arch/runtimes/vulkan",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Vulkan Runtime"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "TVM Runtime System",
+                "permalink": "/docs/arch/runtime"
+              },
+              "next": {
+                "title": "Security Guide",
+                "permalink": "/docs/arch/security"
+              }
+            },
+            {
+              "unversionedId": "arch/security",
+              "id": "arch/security",
+              "title": "Security Guide",
+              "description": "The Apache Software Foundation takes a very active stance in eliminating",
+              "source": "@site/docs/arch/security.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/security",
+              "permalink": "/docs/arch/security",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Security Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Vulkan Runtime",
+                "permalink": "/docs/arch/runtimes/vulkan"
+              },
+              "next": {
+                "title": "Putting the VM in TVM: The Relay Virtual Machine",
+                "permalink": "/docs/arch/virtual_machine"
+              }
+            },
+            {
+              "unversionedId": "arch/virtual_machine",
+              "id": "arch/virtual_machine",
+              "title": "Putting the VM in TVM: The Relay Virtual Machine",
+              "description": "Relay, a new program representation, has enabled the representation and",
+              "source": "@site/docs/arch/virtual_machine.md",
+              "sourceDirName": "arch",
+              "slug": "/arch/virtual_machine",
+              "permalink": "/docs/arch/virtual_machine",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Putting the VM in TVM: The Relay Virtual Machine"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Security Guide",
+                "permalink": "/docs/arch/security"
+              },
+              "next": {
+                "title": "Contributor Guide",
+                "permalink": "/docs/contribute/"
+              }
+            },
+            {
+              "unversionedId": "contribute/ci",
+              "id": "contribute/ci",
+              "title": "Using TVM\\'s CI",
+              "description": "TVM uses Jenkins for running Linux continuous integration (CI) tests on",
+              "source": "@site/docs/contribute/ci.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/ci",
+              "permalink": "/docs/contribute/ci",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Using TVM\\'s CI"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Contributor Guide",
+                "permalink": "/docs/contribute/"
+              },
+              "next": {
+                "title": "Code Guide and Tips",
+                "permalink": "/docs/contribute/code_guide"
+              }
+            },
+            {
+              "unversionedId": "contribute/code_guide",
+              "id": "contribute/code_guide",
+              "title": "Code Guide and Tips",
+              "description": "This is a document used to record tips in TVM codebase for reviewers and",
+              "source": "@site/docs/contribute/code_guide.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/code_guide",
+              "permalink": "/docs/contribute/code_guide",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Code Guide and Tips"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Using TVM\\'s CI",
+                "permalink": "/docs/contribute/ci"
+              },
+              "next": {
+                "title": "Code Reviews",
+                "permalink": "/docs/contribute/code_review"
+              }
+            },
+            {
+              "unversionedId": "contribute/code_review",
+              "id": "contribute/code_review",
+              "title": "Code Reviews",
+              "description": "Open source code is maintained by a community with diverse backgrounds,",
+              "source": "@site/docs/contribute/code_review.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/code_review",
+              "permalink": "/docs/contribute/code_review",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Code Reviews"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Code Guide and Tips",
+                "permalink": "/docs/contribute/code_guide"
+              },
+              "next": {
+                "title": "Committer Guide",
+                "permalink": "/docs/contribute/committer_guide"
+              }
+            },
+            {
+              "unversionedId": "contribute/committer_guide",
+              "id": "contribute/committer_guide",
+              "title": "Committer Guide",
+              "description": "This is an evolving document to provide some helpful tips for",
+              "source": "@site/docs/contribute/committer_guide.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/committer_guide",
+              "permalink": "/docs/contribute/committer_guide",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Committer Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Code Reviews",
+                "permalink": "/docs/contribute/code_review"
+              },
+              "next": {
+                "title": "TVM Community Guidelines",
+                "permalink": "/docs/contribute/community"
+              }
+            },
+            {
+              "unversionedId": "contribute/community",
+              "id": "contribute/community",
+              "title": "TVM Community Guidelines",
+              "description": "TVM adopts the Apache style model and governs by merit. We believe that",
+              "source": "@site/docs/contribute/community.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/community",
+              "permalink": "/docs/contribute/community",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "TVM Community Guidelines"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Committer Guide",
+                "permalink": "/docs/contribute/committer_guide"
+              },
+              "next": {
+                "title": "Documentation",
+                "permalink": "/docs/contribute/document"
+              }
+            },
+            {
+              "unversionedId": "contribute/document",
+              "id": "contribute/document",
+              "title": "Documentation",
+              "description": "TVM documentation loosely follows the [formal documentation style",
+              "source": "@site/docs/contribute/document.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/document",
+              "permalink": "/docs/contribute/document",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Documentation"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "TVM Community Guidelines",
+                "permalink": "/docs/contribute/community"
+              },
+              "next": {
+                "title": "Error Handling Guide",
+                "permalink": "/docs/contribute/error_handling"
+              }
+            },
+            {
+              "unversionedId": "contribute/error_handling",
+              "id": "contribute/error_handling",
+              "title": "Error Handling Guide",
+              "description": "TVM contains structured error classes to indicate specific types of",
+              "source": "@site/docs/contribute/error_handling.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/error_handling",
+              "permalink": "/docs/contribute/error_handling",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Error Handling Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Documentation",
+                "permalink": "/docs/contribute/document"
+              },
+              "next": {
+                "title": "Git Usage Tips",
+                "permalink": "/docs/contribute/git_howto"
+              }
+            },
+            {
+              "unversionedId": "contribute/git_howto",
+              "id": "contribute/git_howto",
+              "title": "Git Usage Tips",
+              "description": "Here are some tips for git workflow.",
+              "source": "@site/docs/contribute/git_howto.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/git_howto",
+              "permalink": "/docs/contribute/git_howto",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Git Usage Tips"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Error Handling Guide",
+                "permalink": "/docs/contribute/error_handling"
+              },
+              "next": {
+                "title": "Submit a Pull Request",
+                "permalink": "/docs/contribute/pull_request"
+              }
+            },
+            {
+              "unversionedId": "contribute/index",
+              "id": "contribute/index",
+              "title": "Contributor Guide",
+              "description": "TVM has been developed by community members. Everyone is welcomed to",
+              "source": "@site/docs/contribute/index.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/",
+              "permalink": "/docs/contribute/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Contributor Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Putting the VM in TVM: The Relay Virtual Machine",
+                "permalink": "/docs/arch/virtual_machine"
+              },
+              "next": {
+                "title": "Using TVM\\'s CI",
+                "permalink": "/docs/contribute/ci"
+              }
+            },
+            {
+              "unversionedId": "contribute/pull_request",
+              "id": "contribute/pull_request",
+              "title": "Submit a Pull Request",
+              "description": "-   We recommend authors send well scoped PRs that are easy to review",
+              "source": "@site/docs/contribute/pull_request.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/pull_request",
+              "permalink": "/docs/contribute/pull_request",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Submit a Pull Request"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Git Usage Tips",
+                "permalink": "/docs/contribute/git_howto"
+              },
+              "next": {
+                "title": "Release Process",
+                "permalink": "/docs/contribute/release_process"
+              }
+            },
+            {
+              "unversionedId": "contribute/release_process",
+              "id": "contribute/release_process",
+              "title": "Release Process",
+              "description": "The release manager role in TVM means you are responsible for a few",
+              "source": "@site/docs/contribute/release_process.md",
+              "sourceDirName": "contribute",
+              "slug": "/contribute/release_process",
+              "permalink": "/docs/contribute/release_process",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Release Process"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Submit a Pull Request",
+                "permalink": "/docs/contribute/pull_request"
+              },
+              "next": {
+                "title": "Developer How-To Guide",
+                "permalink": "/docs/dev/how_to/"
+              }
+            },
+            {
+              "unversionedId": "dev/how_to/debugging_tvm",
+              "id": "dev/how_to/debugging_tvm",
+              "title": "Debuggging TVM",
+              "description": "NOTE: This page is a work in-progress. Everyone is welcomed to add",
+              "source": "@site/docs/dev/how_to/debugging_tvm.md",
+              "sourceDirName": "dev/how_to",
+              "slug": "/dev/how_to/debugging_tvm",
+              "permalink": "/docs/dev/how_to/debugging_tvm",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Debuggging TVM"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Developer How-To Guide",
+                "permalink": "/docs/dev/how_to/"
+              },
+              "next": {
+                "title": "Python Target Parametrization",
+                "permalink": "/docs/dev/how_to/pytest_target_parametrization"
+              }
+            },
+            {
+              "unversionedId": "dev/how_to/how_to",
+              "id": "dev/how_to/how_to",
+              "title": "Developer How-To Guide",
+              "description": "This section contains a collection of tips about how to work on various",
+              "source": "@site/docs/dev/how_to/how_to.md",
+              "sourceDirName": "dev/how_to",
+              "slug": "/dev/how_to/",
+              "permalink": "/docs/dev/how_to/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Developer How-To Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Release Process",
+                "permalink": "/docs/contribute/release_process"
+              },
+              "next": {
+                "title": "Debuggging TVM",
+                "permalink": "/docs/dev/how_to/debugging_tvm"
+              }
+            },
+            {
+              "unversionedId": "dev/how_to/pytest_target_parametrization",
+              "id": "dev/how_to/pytest_target_parametrization",
+              "title": "Python Target Parametrization",
+              "description": "For any supported runtime, TVM should produce numerically correct",
+              "source": "@site/docs/dev/how_to/pytest_target_parametrization.md",
+              "sourceDirName": "dev/how_to",
+              "slug": "/dev/how_to/pytest_target_parametrization",
+              "permalink": "/docs/dev/how_to/pytest_target_parametrization",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Python Target Parametrization"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Debuggging TVM",
+                "permalink": "/docs/dev/how_to/debugging_tvm"
+              },
+              "next": {
+                "title": "Adding an Operator to Relay",
+                "permalink": "/docs/dev/how_to/relay_add_op"
+              }
+            },
+            {
+              "unversionedId": "dev/how_to/relay_add_op",
+              "id": "dev/how_to/relay_add_op",
+              "title": "Adding an Operator to Relay",
+              "description": "In this document we will go over the steps needed to register a new TVM",
+              "source": "@site/docs/dev/how_to/relay_add_op.md",
+              "sourceDirName": "dev/how_to",
+              "slug": "/dev/how_to/relay_add_op",
+              "permalink": "/docs/dev/how_to/relay_add_op",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Adding an Operator to Relay"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Python Target Parametrization",
+                "permalink": "/docs/dev/how_to/pytest_target_parametrization"
+              },
+              "next": {
+                "title": "Adding a Compiler Pass to Relay",
+                "permalink": "/docs/dev/how_to/relay_add_pass"
+              }
+            },
+            {
+              "unversionedId": "dev/how_to/relay_add_pass",
+              "id": "dev/how_to/relay_add_pass",
+              "title": "Adding a Compiler Pass to Relay",
+              "description": "Compiler passes are the primary interface for both extending Relay\\'s",
+              "source": "@site/docs/dev/how_to/relay_add_pass.md",
+              "sourceDirName": "dev/how_to",
+              "slug": "/dev/how_to/relay_add_pass",
+              "permalink": "/docs/dev/how_to/relay_add_pass",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Adding a Compiler Pass to Relay"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Adding an Operator to Relay",
+                "permalink": "/docs/dev/how_to/relay_add_op"
+              },
+              "next": {
+                "title": "Bring Your Own Codegen To TVM",
+                "permalink": "/docs/dev/how_to/relay_bring_your_own_codegen"
+              }
+            },
+            {
+              "unversionedId": "dev/how_to/relay_bring_your_own_codegen",
+              "id": "dev/how_to/relay_bring_your_own_codegen",
+              "title": "Bring Your Own Codegen To TVM",
+              "description": "As the number of hardware devices targeted by deep learning workloads",
+              "source": "@site/docs/dev/how_to/relay_bring_your_own_codegen.md",
+              "sourceDirName": "dev/how_to",
+              "slug": "/dev/how_to/relay_bring_your_own_codegen",
+              "permalink": "/docs/dev/how_to/relay_bring_your_own_codegen",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Bring Your Own Codegen To TVM"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Adding a Compiler Pass to Relay",
+                "permalink": "/docs/dev/how_to/relay_add_pass"
+              },
+              "next": {
+                "title": "Developer Tutorial",
+                "permalink": "/docs/dev/tutorial/"
+              }
+            },
+            {
+              "unversionedId": "dev/tutorial/codebase_walkthrough",
+              "id": "dev/tutorial/codebase_walkthrough",
+              "title": "TVM Codebase Walkthrough by Example",
+              "description": "Getting to know a new codebase can be a challenge. This is especially",
+              "source": "@site/docs/dev/tutorial/codebase_walkthrough.md",
+              "sourceDirName": "dev/tutorial",
+              "slug": "/dev/tutorial/codebase_walkthrough",
+              "permalink": "/docs/dev/tutorial/codebase_walkthrough",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "TVM Codebase Walkthrough by Example"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Developer Tutorial",
+                "permalink": "/docs/dev/tutorial/"
+              },
+              "next": {
+                "title": "How To Guides",
+                "permalink": "/docs/how_to/"
+              }
+            },
+            {
+              "unversionedId": "dev/tutorial/index",
+              "id": "dev/tutorial/index",
+              "title": "Developer Tutorial",
+              "description": "This section is a guide to the TVM codebase, and an introduction on how",
+              "source": "@site/docs/dev/tutorial/index.md",
+              "sourceDirName": "dev/tutorial",
+              "slug": "/dev/tutorial/",
+              "permalink": "/docs/dev/tutorial/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Developer Tutorial"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Bring Your Own Codegen To TVM",
+                "permalink": "/docs/dev/how_to/relay_bring_your_own_codegen"
+              },
+              "next": {
+                "title": "TVM Codebase Walkthrough by Example",
+                "permalink": "/docs/dev/tutorial/codebase_walkthrough"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/android",
+              "id": "how_to/deploy/android",
+              "title": "Deploy to Android",
+              "description": "Relay compilation of model for android target could follow same approach",
+              "source": "@site/docs/how_to/deploy/android.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/android",
+              "permalink": "/docs/how_to/deploy/android",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Deploy to Android"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Deploy Models and Integrate TVM",
+                "permalink": "/docs/how_to/deploy/"
+              },
+              "next": {
+                "title": "Relay Arm^®^ Compute Library Integration",
+                "permalink": "/docs/how_to/deploy/arm_compute_lib"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/arm_compute_lib",
+              "id": "how_to/deploy/arm_compute_lib",
+              "title": "Relay Arm^®^ Compute Library Integration",
+              "description": "Author: Luke Hutton",
+              "source": "@site/docs/how_to/deploy/arm_compute_lib.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/arm_compute_lib",
+              "permalink": "/docs/how_to/deploy/arm_compute_lib",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Relay Arm^®^ Compute Library Integration"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Deploy to Android",
+                "permalink": "/docs/how_to/deploy/android"
+              },
+              "next": {
+                "title": "Relay BNNS Integration",
+                "permalink": "/docs/how_to/deploy/bnns"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/bnns",
+              "id": "how_to/deploy/bnns",
+              "title": "Relay BNNS Integration",
+              "description": "Author: Egor Churaev",
+              "source": "@site/docs/how_to/deploy/bnns.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/bnns",
+              "permalink": "/docs/how_to/deploy/bnns",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Relay BNNS Integration"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Relay Arm^®^ Compute Library Integration",
+                "permalink": "/docs/how_to/deploy/arm_compute_lib"
+              },
+              "next": {
+                "title": "Deploy TVM Module using C++ API",
+                "permalink": "/docs/how_to/deploy/cpp_deploy"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/cpp_deploy",
+              "id": "how_to/deploy/cpp_deploy",
+              "title": "Deploy TVM Module using C++ API",
+              "description": "We provide an example on how to deploy TVM modules in",
+              "source": "@site/docs/how_to/deploy/cpp_deploy.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/cpp_deploy",
+              "permalink": "/docs/how_to/deploy/cpp_deploy",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Deploy TVM Module using C++ API"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Relay BNNS Integration",
+                "permalink": "/docs/how_to/deploy/bnns"
+              },
+              "next": {
+                "title": "HLS Backend Example",
+                "permalink": "/docs/how_to/deploy/hls"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/hls",
+              "id": "how_to/deploy/hls",
+              "title": "HLS Backend Example",
+              "description": "TVM supports Xilinx FPGA board with SDAccel. Here is a tutorial for how",
+              "source": "@site/docs/how_to/deploy/hls.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/hls",
+              "permalink": "/docs/how_to/deploy/hls",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "HLS Backend Example"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Deploy TVM Module using C++ API",
+                "permalink": "/docs/how_to/deploy/cpp_deploy"
+              },
+              "next": {
+                "title": "Integrate TVM into Your Project",
+                "permalink": "/docs/how_to/deploy/integrate"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/index",
+              "id": "how_to/deploy/index",
+              "title": "Deploy Models and Integrate TVM",
+              "description": "This page contains guidelines on how to deploy TVM to various platforms",
+              "source": "@site/docs/how_to/deploy/index.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/",
+              "permalink": "/docs/how_to/deploy/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Deploy Models and Integrate TVM"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "How To Guides",
+                "permalink": "/docs/how_to/"
+              },
+              "next": {
+                "title": "Deploy to Android",
+                "permalink": "/docs/how_to/deploy/android"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/integrate",
+              "id": "how_to/deploy/integrate",
+              "title": "Integrate TVM into Your Project",
+              "description": "TVM\\'s runtime is designed to be lightweight and portable. There are",
+              "source": "@site/docs/how_to/deploy/integrate.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/integrate",
+              "permalink": "/docs/how_to/deploy/integrate",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Integrate TVM into Your Project"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "HLS Backend Example",
+                "permalink": "/docs/how_to/deploy/hls"
+              },
+              "next": {
+                "title": "Relay TensorRT Integration",
+                "permalink": "/docs/how_to/deploy/tensorrt"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/tensorrt",
+              "id": "how_to/deploy/tensorrt",
+              "title": "Relay TensorRT Integration",
+              "description": "Author: Trevor Morris",
+              "source": "@site/docs/how_to/deploy/tensorrt.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/tensorrt",
+              "permalink": "/docs/how_to/deploy/tensorrt",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Relay TensorRT Integration"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Integrate TVM into Your Project",
+                "permalink": "/docs/how_to/deploy/integrate"
+              },
+              "next": {
+                "title": "Vitis AI Integration",
+                "permalink": "/docs/how_to/deploy/vitis_ai"
+              }
+            },
+            {
+              "unversionedId": "how_to/deploy/vitis_ai",
+              "id": "how_to/deploy/vitis_ai",
+              "title": "Vitis AI Integration",
+              "description": "Vitis AI is Xilinx\\'s development",
+              "source": "@site/docs/how_to/deploy/vitis_ai.md",
+              "sourceDirName": "how_to/deploy",
+              "slug": "/how_to/deploy/vitis_ai",
+              "permalink": "/docs/how_to/deploy/vitis_ai",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Vitis AI Integration"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Relay TensorRT Integration",
+                "permalink": "/docs/how_to/deploy/tensorrt"
+              },
+              "next": {
+                "title": "Profile Models",
+                "permalink": "/docs/how_to/profile/"
+              }
+            },
+            {
+              "unversionedId": "how_to/index",
+              "id": "how_to/index",
+              "title": "How To Guides",
+              "description": "These user-focused \\\"how to\\\" guides are designed to help you find",
+              "source": "@site/docs/how_to/index.md",
+              "sourceDirName": "how_to",
+              "slug": "/how_to/",
+              "permalink": "/docs/how_to/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "How To Guides"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "TVM Codebase Walkthrough by Example",
+                "permalink": "/docs/dev/tutorial/codebase_walkthrough"
+              },
+              "next": {
+                "title": "Deploy Models and Integrate TVM",
+                "permalink": "/docs/how_to/deploy/"
+              }
+            },
+            {
+              "unversionedId": "how_to/profile/index",
+              "id": "how_to/profile/index",
+              "title": "Profile Models",
+              "description": "papi",
+              "source": "@site/docs/how_to/profile/index.md",
+              "sourceDirName": "how_to/profile",
+              "slug": "/how_to/profile/",
+              "permalink": "/docs/how_to/profile/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Profile Models"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Vitis AI Integration",
+                "permalink": "/docs/how_to/deploy/vitis_ai"
+              },
+              "next": {
+                "title": "Getting Started With PAPI",
+                "permalink": "/docs/how_to/profile/papi"
+              }
+            },
+            {
+              "unversionedId": "how_to/profile/papi",
+              "id": "how_to/profile/papi",
+              "title": "Getting Started With PAPI",
+              "description": "The Performance Application Programming Interface (PAPI) is a library",
+              "source": "@site/docs/how_to/profile/papi.md",
+              "sourceDirName": "how_to/profile",
+              "slug": "/how_to/profile/papi",
+              "permalink": "/docs/how_to/profile/papi",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Getting Started With PAPI"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Profile Models",
+                "permalink": "/docs/how_to/profile/"
+              },
+              "next": {
+                "title": "Welcome to tvm-cn\\'s documentation!",
+                "permalink": "/docs/"
+              }
+            },
+            {
+              "unversionedId": "index",
+              "id": "index",
+              "title": "Welcome to tvm-cn\\'s documentation!",
+              "description": "install/index contribute/index",
+              "source": "@site/docs/index.md",
+              "sourceDirName": ".",
+              "slug": "/",
+              "permalink": "/docs/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Getting Started With PAPI",
+                "permalink": "/docs/how_to/profile/papi"
+              },
+              "next": {
+                "title": "安装 TVM",
+                "permalink": "/docs/install/"
+              }
+            },
+            {
+              "unversionedId": "install/docker",
+              "id": "install/docker",
+              "title": "Docker 镜像",
+              "description": "开发者可以利用 Docker 工具脚本，建立开发环境。这也有助于运行 TVM Demo",
+              "source": "@site/docs/install/docker.md",
+              "sourceDirName": "install",
+              "slug": "/install/docker",
+              "permalink": "/docs/install/docker",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Docker 镜像"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "安装 TVM",
+                "permalink": "/docs/install/"
+              },
+              "next": {
+                "title": "从源码安装",
+                "permalink": "/docs/install/from_source"
+              }
+            },
+            {
+              "unversionedId": "install/from_source",
+              "id": "install/from_source",
+              "title": "从源码安装",
+              "description": "在各种系统中从 0 到 1 构建和安装 TVM 软件包包括两个步骤：",
+              "source": "@site/docs/install/from_source.md",
+              "sourceDirName": "install",
+              "slug": "/install/from_source",
+              "permalink": "/docs/install/from_source",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "从源码安装"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Docker 镜像",
+                "permalink": "/docs/install/docker"
+              },
+              "next": {
+                "title": "NNPACK Contrib Installation",
+                "permalink": "/docs/install/nnpack"
+              }
+            },
+            {
+              "unversionedId": "install/index",
+              "id": "install/index",
+              "title": "安装 TVM",
+              "description": "查看 install TVM from source {.interpreted-text",
+              "source": "@site/docs/install/index.md",
+              "sourceDirName": "install",
+              "slug": "/install/",
+              "permalink": "/docs/install/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "安装 TVM"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Welcome to tvm-cn\\'s documentation!",
+                "permalink": "/docs/"
+              },
+              "next": {
+                "title": "Docker 镜像",
+                "permalink": "/docs/install/docker"
+              }
+            },
+            {
+              "unversionedId": "install/nnpack",
+              "id": "install/nnpack",
+              "title": "NNPACK Contrib Installation",
+              "description": "NNPACK is an acceleration",
+              "source": "@site/docs/install/nnpack.md",
+              "sourceDirName": "install",
+              "slug": "/install/nnpack",
+              "permalink": "/docs/install/nnpack",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "NNPACK Contrib Installation"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "从源码安装",
+                "permalink": "/docs/install/from_source"
+              },
+              "next": {
+                "title": "TLCPack",
+                "permalink": "/docs/install/tlcpack"
+              }
+            },
+            {
+              "unversionedId": "install/tlcpack",
+              "id": "install/tlcpack",
+              "title": "TLCPack",
+              "description": "TLCPack 是一个基于 TVM 的第三方 conda 和 pip 封装。请在",
+              "source": "@site/docs/install/tlcpack.md",
+              "sourceDirName": "install",
+              "slug": "/install/tlcpack",
+              "permalink": "/docs/install/tlcpack",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "TLCPack"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "NNPACK Contrib Installation",
+                "permalink": "/docs/install/nnpack"
+              },
+              "next": {
+                "title": "Other APIs",
+                "permalink": "/docs/reference/api/links"
+              }
+            },
+            {
+              "unversionedId": "reference/api/links",
+              "id": "reference/api/links",
+              "title": "Other APIs",
+              "description": "This page contains links to API references that are built with different",
+              "source": "@site/docs/reference/api/links.md",
+              "sourceDirName": "reference/api",
+              "slug": "/reference/api/links",
+              "permalink": "/docs/reference/api/links",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Other APIs"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "TLCPack",
+                "permalink": "/docs/install/tlcpack"
+              },
+              "next": {
+                "title": "Python API",
+                "permalink": "/docs/reference/api/python/"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/auto_scheduler",
+              "id": "reference/api/python/auto_scheduler",
+              "title": "tvm.auto_scheduler",
+              "description": "tvm.auto_scheduler",
+              "source": "@site/docs/reference/api/python/auto_scheduler.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/auto_scheduler",
+              "permalink": "/docs/reference/api/python/auto_scheduler",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.auto_scheduler"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Python API",
+                "permalink": "/docs/reference/api/python/"
+              },
+              "next": {
+                "title": "tvm.autotvm",
+                "permalink": "/docs/reference/api/python/autotvm"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/autotvm",
+              "id": "reference/api/python/autotvm",
+              "title": "tvm.autotvm",
+              "description": "tvm.autotvm",
+              "source": "@site/docs/reference/api/python/autotvm.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/autotvm",
+              "permalink": "/docs/reference/api/python/autotvm",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.autotvm"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.auto_scheduler",
+                "permalink": "/docs/reference/api/python/auto_scheduler"
+              },
+              "next": {
+                "title": "tvm.contrib",
+                "permalink": "/docs/reference/api/python/contrib"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/contrib",
+              "id": "reference/api/python/contrib",
+              "title": "tvm.contrib",
+              "description": "tvm.contrib",
+              "source": "@site/docs/reference/api/python/contrib.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/contrib",
+              "permalink": "/docs/reference/api/python/contrib",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.contrib"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.autotvm",
+                "permalink": "/docs/reference/api/python/autotvm"
+              },
+              "next": {
+                "title": "tvm.driver",
+                "permalink": "/docs/reference/api/python/driver"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/driver",
+              "id": "reference/api/python/driver",
+              "title": "tvm.driver",
+              "description": "tvm.driver",
+              "source": "@site/docs/reference/api/python/driver.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/driver",
+              "permalink": "/docs/reference/api/python/driver",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.driver"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.contrib",
+                "permalink": "/docs/reference/api/python/contrib"
+              },
+              "next": {
+                "title": "tvm.error",
+                "permalink": "/docs/reference/api/python/error"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/error",
+              "id": "reference/api/python/error",
+              "title": "tvm.error",
+              "description": "tvm.error",
+              "source": "@site/docs/reference/api/python/error.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/error",
+              "permalink": "/docs/reference/api/python/error",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.error"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.driver",
+                "permalink": "/docs/reference/api/python/driver"
+              },
+              "next": {
+                "title": "tvm.contrib.graph_executor",
+                "permalink": "/docs/reference/api/python/graph_executor"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/graph_executor",
+              "id": "reference/api/python/graph_executor",
+              "title": "tvm.contrib.graph_executor",
+              "description": "tvm.contrib.graph_executor",
+              "source": "@site/docs/reference/api/python/graph_executor.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/graph_executor",
+              "permalink": "/docs/reference/api/python/graph_executor",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.contrib.graph_executor"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.error",
+                "permalink": "/docs/reference/api/python/error"
+              },
+              "next": {
+                "title": "tvm.ir",
+                "permalink": "/docs/reference/api/python/ir"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/index",
+              "id": "reference/api/python/index",
+              "title": "Python API",
+              "description": "runtime ndarray error ir target tir te driver relay/index relay/frontend",
+              "source": "@site/docs/reference/api/python/index.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/",
+              "permalink": "/docs/reference/api/python/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Python API"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Other APIs",
+                "permalink": "/docs/reference/api/links"
+              },
+              "next": {
+                "title": "tvm.auto_scheduler",
+                "permalink": "/docs/reference/api/python/auto_scheduler"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/ir",
+              "id": "reference/api/python/ir",
+              "title": "tvm.ir",
+              "description": "tvm.ir",
+              "source": "@site/docs/reference/api/python/ir.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/ir",
+              "permalink": "/docs/reference/api/python/ir",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.contrib.graph_executor",
+                "permalink": "/docs/reference/api/python/graph_executor"
+              },
+              "next": {
+                "title": "tvm.micro",
+                "permalink": "/docs/reference/api/python/micro"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/micro",
+              "id": "reference/api/python/micro",
+              "title": "tvm.micro",
+              "description": "tvm.micro",
+              "source": "@site/docs/reference/api/python/micro.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/micro",
+              "permalink": "/docs/reference/api/python/micro",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.micro"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.ir",
+                "permalink": "/docs/reference/api/python/ir"
+              },
+              "next": {
+                "title": "tvm.runtime.ndarray",
+                "permalink": "/docs/reference/api/python/ndarray"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/ndarray",
+              "id": "reference/api/python/ndarray",
+              "title": "tvm.runtime.ndarray",
+              "description": "tvm.runtime.ndarray",
+              "source": "@site/docs/reference/api/python/ndarray.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/ndarray",
+              "permalink": "/docs/reference/api/python/ndarray",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.runtime.ndarray"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.micro",
+                "permalink": "/docs/reference/api/python/micro"
+              },
+              "next": {
+                "title": "tvm.relay",
+                "permalink": "/docs/reference/api/python/relay/"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/analysis",
+              "id": "reference/api/python/relay/analysis",
+              "title": "tvm.relay.analysis",
+              "description": "tvm.relay.analysis",
+              "source": "@site/docs/reference/api/python/relay/analysis.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/analysis",
+              "permalink": "/docs/reference/api/python/relay/analysis",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.analysis"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay",
+                "permalink": "/docs/reference/api/python/relay/"
+              },
+              "next": {
+                "title": "tvm.relay.backend",
+                "permalink": "/docs/reference/api/python/relay/backend"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/backend",
+              "id": "reference/api/python/relay/backend",
+              "title": "tvm.relay.backend",
+              "description": "tvm.relay.backend",
+              "source": "@site/docs/reference/api/python/relay/backend.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/backend",
+              "permalink": "/docs/reference/api/python/relay/backend",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.backend"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.analysis",
+                "permalink": "/docs/reference/api/python/relay/analysis"
+              },
+              "next": {
+                "title": "tvm.relay.dataflow_pattern",
+                "permalink": "/docs/reference/api/python/relay/dataflow_pattern"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/dataflow_pattern",
+              "id": "reference/api/python/relay/dataflow_pattern",
+              "title": "tvm.relay.dataflow_pattern",
+              "description": "tvm.relay.dataflow_pattern",
+              "source": "@site/docs/reference/api/python/relay/dataflow_pattern.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/dataflow_pattern",
+              "permalink": "/docs/reference/api/python/relay/dataflow_pattern",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.dataflow_pattern"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.backend",
+                "permalink": "/docs/reference/api/python/relay/backend"
+              },
+              "next": {
+                "title": "tvm.relay.frontend",
+                "permalink": "/docs/reference/api/python/relay/frontend"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/frontend",
+              "id": "reference/api/python/relay/frontend",
+              "title": "tvm.relay.frontend",
+              "description": "tvm.relay.frontend",
+              "source": "@site/docs/reference/api/python/relay/frontend.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/frontend",
+              "permalink": "/docs/reference/api/python/relay/frontend",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.frontend"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.dataflow_pattern",
+                "permalink": "/docs/reference/api/python/relay/dataflow_pattern"
+              },
+              "next": {
+                "title": "tvm.relay.image",
+                "permalink": "/docs/reference/api/python/relay/image"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/image",
+              "id": "reference/api/python/relay/image",
+              "title": "tvm.relay.image",
+              "description": "tvm.relay.image",
+              "source": "@site/docs/reference/api/python/relay/image.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/image",
+              "permalink": "/docs/reference/api/python/relay/image",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.image"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.frontend",
+                "permalink": "/docs/reference/api/python/relay/frontend"
+              },
+              "next": {
+                "title": "tvm.relay.nn",
+                "permalink": "/docs/reference/api/python/relay/nn"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/index",
+              "id": "reference/api/python/relay/index",
+              "title": "tvm.relay",
+              "description": "Type, TypeKind,",
+              "source": "@site/docs/reference/api/python/relay/index.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/",
+              "permalink": "/docs/reference/api/python/relay/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.runtime.ndarray",
+                "permalink": "/docs/reference/api/python/ndarray"
+              },
+              "next": {
+                "title": "tvm.relay.analysis",
+                "permalink": "/docs/reference/api/python/relay/analysis"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/nn",
+              "id": "reference/api/python/relay/nn",
+              "title": "tvm.relay.nn",
+              "description": "tvm.relay.nn",
+              "source": "@site/docs/reference/api/python/relay/nn.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/nn",
+              "permalink": "/docs/reference/api/python/relay/nn",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.nn"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.image",
+                "permalink": "/docs/reference/api/python/relay/image"
+              },
+              "next": {
+                "title": "tvm.relay.testing",
+                "permalink": "/docs/reference/api/python/relay/testing"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/testing",
+              "id": "reference/api/python/relay/testing",
+              "title": "tvm.relay.testing",
+              "description": "tvm.relay.testing",
+              "source": "@site/docs/reference/api/python/relay/testing.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/testing",
+              "permalink": "/docs/reference/api/python/relay/testing",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.testing"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.nn",
+                "permalink": "/docs/reference/api/python/relay/nn"
+              },
+              "next": {
+                "title": "tvm.relay.transform",
+                "permalink": "/docs/reference/api/python/relay/transform"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/transform",
+              "id": "reference/api/python/relay/transform",
+              "title": "tvm.relay.transform",
+              "description": "tvm.relay.transform",
+              "source": "@site/docs/reference/api/python/relay/transform.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/transform",
+              "permalink": "/docs/reference/api/python/relay/transform",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.transform"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.testing",
+                "permalink": "/docs/reference/api/python/relay/testing"
+              },
+              "next": {
+                "title": "tvm.relay.vision",
+                "permalink": "/docs/reference/api/python/relay/vision"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/relay/vision",
+              "id": "reference/api/python/relay/vision",
+              "title": "tvm.relay.vision",
+              "description": "tvm.relay.vision",
+              "source": "@site/docs/reference/api/python/relay/vision.md",
+              "sourceDirName": "reference/api/python/relay",
+              "slug": "/reference/api/python/relay/vision",
+              "permalink": "/docs/reference/api/python/relay/vision",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.relay.vision"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.transform",
+                "permalink": "/docs/reference/api/python/relay/transform"
+              },
+              "next": {
+                "title": "tvm.rpc",
+                "permalink": "/docs/reference/api/python/rpc"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/rpc",
+              "id": "reference/api/python/rpc",
+              "title": "tvm.rpc",
+              "description": "tvm.rpc",
+              "source": "@site/docs/reference/api/python/rpc.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/rpc",
+              "permalink": "/docs/reference/api/python/rpc",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.rpc"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.relay.vision",
+                "permalink": "/docs/reference/api/python/relay/vision"
+              },
+              "next": {
+                "title": "tvm.runtime",
+                "permalink": "/docs/reference/api/python/runtime"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/runtime",
+              "id": "reference/api/python/runtime",
+              "title": "tvm.runtime",
+              "description": "tvm.runtime",
+              "source": "@site/docs/reference/api/python/runtime.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/runtime",
+              "permalink": "/docs/reference/api/python/runtime",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.runtime"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.rpc",
+                "permalink": "/docs/reference/api/python/rpc"
+              },
+              "next": {
+                "title": "tvm.target",
+                "permalink": "/docs/reference/api/python/target"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/target",
+              "id": "reference/api/python/target",
+              "title": "tvm.target",
+              "description": "tvm.target",
+              "source": "@site/docs/reference/api/python/target.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/target",
+              "permalink": "/docs/reference/api/python/target",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.target"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.runtime",
+                "permalink": "/docs/reference/api/python/runtime"
+              },
+              "next": {
+                "title": "tvm.te",
+                "permalink": "/docs/reference/api/python/te"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/te",
+              "id": "reference/api/python/te",
+              "title": "tvm.te",
+              "description": "tvm.te",
+              "source": "@site/docs/reference/api/python/te.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/te",
+              "permalink": "/docs/reference/api/python/te",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.target",
+                "permalink": "/docs/reference/api/python/target"
+              },
+              "next": {
+                "title": "tvm.tir",
+                "permalink": "/docs/reference/api/python/tir"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/tir",
+              "id": "reference/api/python/tir",
+              "title": "tvm.tir",
+              "description": "api-python-tir}",
+              "source": "@site/docs/reference/api/python/tir.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/tir",
+              "permalink": "/docs/reference/api/python/tir",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.te",
+                "permalink": "/docs/reference/api/python/te"
+              },
+              "next": {
+                "title": "tvm.topi",
+                "permalink": "/docs/reference/api/python/topi"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/topi",
+              "id": "reference/api/python/topi",
+              "title": "tvm.topi",
+              "description": "tvm.topi",
+              "source": "@site/docs/reference/api/python/topi.md",
+              "sourceDirName": "reference/api/python",
+              "slug": "/reference/api/python/topi",
+              "permalink": "/docs/reference/api/python/topi",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "tvm.topi"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.tir",
+                "permalink": "/docs/reference/api/python/tir"
+              },
+              "next": {
+                "title": "vta",
+                "permalink": "/docs/reference/api/python/vta/"
+              }
+            },
+            {
+              "unversionedId": "reference/api/python/vta/index",
+              "id": "reference/api/python/vta/index",
+              "title": "vta",
+              "description": "This document contains the python API to VTA compiler toolchain.",
+              "source": "@site/docs/reference/api/python/vta/index.md",
+              "sourceDirName": "reference/api/python/vta",
+              "slug": "/reference/api/python/vta/",
+              "permalink": "/docs/reference/api/python/vta/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "vta"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tvm.topi",
+                "permalink": "/docs/reference/api/python/topi"
+              },
+              "next": {
+                "title": "Language Reference",
+                "permalink": "/docs/reference/langref/"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/hybrid_script",
+              "id": "reference/langref/hybrid_script",
+              "title": "Hybrid Frontend Language Reference",
+              "description": "This hybrid frontend allows users to write preliminary versions of some",
+              "source": "@site/docs/reference/langref/hybrid_script.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/hybrid_script",
+              "permalink": "/docs/reference/langref/hybrid_script",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Hybrid Frontend Language Reference"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Language Reference",
+                "permalink": "/docs/reference/langref/"
+              },
+              "next": {
+                "title": "Algebraic Data Types in Relay",
+                "permalink": "/docs/reference/langref/relay_adt"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/index",
+              "id": "reference/langref/index",
+              "title": "Language Reference",
+              "description": "This document provides references to embedded languages and IRs in the",
+              "source": "@site/docs/reference/langref/index.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/",
+              "permalink": "/docs/reference/langref/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Language Reference"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "vta",
+                "permalink": "/docs/reference/api/python/vta/"
+              },
+              "next": {
+                "title": "Hybrid Frontend Language Reference",
+                "permalink": "/docs/reference/langref/hybrid_script"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/relay_adt",
+              "id": "reference/langref/relay_adt",
+              "title": "Algebraic Data Types in Relay",
+              "description": "Algebraic data types (ADTs) are a staple feature of functional",
+              "source": "@site/docs/reference/langref/relay_adt.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/relay_adt",
+              "permalink": "/docs/reference/langref/relay_adt",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Algebraic Data Types in Relay"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Hybrid Frontend Language Reference",
+                "permalink": "/docs/reference/langref/hybrid_script"
+              },
+              "next": {
+                "title": "Expressions in Relay",
+                "permalink": "/docs/reference/langref/relay_expr"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/relay_expr",
+              "id": "reference/langref/relay_expr",
+              "title": "Expressions in Relay",
+              "description": "The Relay IR is a pure, expression-oriented language. The below sections",
+              "source": "@site/docs/reference/langref/relay_expr.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/relay_expr",
+              "permalink": "/docs/reference/langref/relay_expr",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Expressions in Relay"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Algebraic Data Types in Relay",
+                "permalink": "/docs/reference/langref/relay_adt"
+              },
+              "next": {
+                "title": "Relay Core Tensor Operators",
+                "permalink": "/docs/reference/langref/relay_op"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/relay_op",
+              "id": "reference/langref/relay_op",
+              "title": "Relay Core Tensor Operators",
+              "description": "This page contains the list of core tensor operator primitives",
+              "source": "@site/docs/reference/langref/relay_op.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/relay_op",
+              "permalink": "/docs/reference/langref/relay_op",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Relay Core Tensor Operators"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Expressions in Relay",
+                "permalink": "/docs/reference/langref/relay_expr"
+              },
+              "next": {
+                "title": "Pattern Matching in Relay",
+                "permalink": "/docs/reference/langref/relay_pattern"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/relay_pattern",
+              "id": "reference/langref/relay_pattern",
+              "title": "Pattern Matching in Relay",
+              "description": "There are many places in TVM where we identify pure data-flow sub-graphs",
+              "source": "@site/docs/reference/langref/relay_pattern.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/relay_pattern",
+              "permalink": "/docs/reference/langref/relay_pattern",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Pattern Matching in Relay"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Relay Core Tensor Operators",
+                "permalink": "/docs/reference/langref/relay_op"
+              },
+              "next": {
+                "title": "Relay\\'s Type System",
+                "permalink": "/docs/reference/langref/relay_type"
+              }
+            },
+            {
+              "unversionedId": "reference/langref/relay_type",
+              "id": "reference/langref/relay_type",
+              "title": "Relay\\'s Type System",
+              "description": "We briefly introduced types while detailing Relay\\'s expression",
+              "source": "@site/docs/reference/langref/relay_type.md",
+              "sourceDirName": "reference/langref",
+              "slug": "/reference/langref/relay_type",
+              "permalink": "/docs/reference/langref/relay_type",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Relay\\'s Type System"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Pattern Matching in Relay",
+                "permalink": "/docs/reference/langref/relay_pattern"
+              },
+              "next": {
+                "title": "Publications",
+                "permalink": "/docs/reference/publications"
+              }
+            },
+            {
+              "unversionedId": "reference/publications",
+              "id": "reference/publications",
+              "title": "Publications",
+              "description": "TVM is developed as part of peer-reviewed research in machine learning",
+              "source": "@site/docs/reference/publications.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/publications",
+              "permalink": "/docs/reference/publications",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Publications"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Relay\\'s Type System",
+                "permalink": "/docs/reference/langref/relay_type"
+              },
+              "next": {
+                "title": "microTVM: TVM on bare-metal",
+                "permalink": "/docs/topic/microtvm/"
+              }
+            },
+            {
+              "unversionedId": "topic/microtvm/index",
+              "id": "topic/microtvm/index",
+              "title": "microTVM: TVM on bare-metal",
+              "description": "microTVM runs TVM models on bare-metal (i.e. IoT) devices. microTVM",
+              "source": "@site/docs/topic/microtvm/index.md",
+              "sourceDirName": "topic/microtvm",
+              "slug": "/topic/microtvm/",
+              "permalink": "/docs/topic/microtvm/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "microTVM: TVM on bare-metal"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Publications",
+                "permalink": "/docs/reference/publications"
+              },
+              "next": {
+                "title": "VTA: Versatile Tensor Accelerator",
+                "permalink": "/docs/topic/vta/"
+              }
+            },
+            {
+              "unversionedId": "topic/vta/dev/config",
+              "id": "topic/vta/dev/config",
+              "title": "VTA Configuration",
+              "description": "The VTA stack incorporates both a hardware accelerator stack and a TVM",
+              "source": "@site/docs/topic/vta/dev/config.md",
+              "sourceDirName": "topic/vta/dev",
+              "slug": "/topic/vta/dev/config",
+              "permalink": "/docs/topic/vta/dev/config",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "VTA Configuration"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "VTA Design and Developer Guide",
+                "permalink": "/docs/topic/vta/dev/"
+              },
+              "next": {
+                "title": "VTA Hardware Guide",
+                "permalink": "/docs/topic/vta/dev/hardware"
+              }
+            },
+            {
+              "unversionedId": "topic/vta/dev/hardware",
+              "id": "topic/vta/dev/hardware",
+              "title": "VTA Hardware Guide",
+              "description": "We present a top-down overview of the VTA hardware design. This hardware",
+              "source": "@site/docs/topic/vta/dev/hardware.md",
+              "sourceDirName": "topic/vta/dev",
+              "slug": "/topic/vta/dev/hardware",
+              "permalink": "/docs/topic/vta/dev/hardware",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "VTA Hardware Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "VTA Configuration",
+                "permalink": "/docs/topic/vta/dev/config"
+              },
+              "next": {
+                "title": "VTA Installation Guide",
+                "permalink": "/docs/topic/vta/install"
+              }
+            },
+            {
+              "unversionedId": "topic/vta/dev/index",
+              "id": "topic/vta/dev/index",
+              "title": "VTA Design and Developer Guide",
+              "description": "This developer guide details the complete VTA-TVM hardware-software",
+              "source": "@site/docs/topic/vta/dev/index.md",
+              "sourceDirName": "topic/vta/dev",
+              "slug": "/topic/vta/dev/",
+              "permalink": "/docs/topic/vta/dev/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "VTA Design and Developer Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "VTA: Versatile Tensor Accelerator",
+                "permalink": "/docs/topic/vta/"
+              },
+              "next": {
+                "title": "VTA Configuration",
+                "permalink": "/docs/topic/vta/dev/config"
+              }
+            },
+            {
+              "unversionedId": "topic/vta/index",
+              "id": "topic/vta/index",
+              "title": "VTA: Versatile Tensor Accelerator",
+              "description": "The Versatile Tensor Accelerator (VTA) is an open, generic, and",
+              "source": "@site/docs/topic/vta/index.md",
+              "sourceDirName": "topic/vta",
+              "slug": "/topic/vta/",
+              "permalink": "/docs/topic/vta/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "VTA: Versatile Tensor Accelerator"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "microTVM: TVM on bare-metal",
+                "permalink": "/docs/topic/microtvm/"
+              },
+              "next": {
+                "title": "VTA Design and Developer Guide",
+                "permalink": "/docs/topic/vta/dev/"
+              }
+            },
+            {
+              "unversionedId": "topic/vta/install",
+              "id": "topic/vta/install",
+              "title": "VTA Installation Guide",
+              "description": "We present three installation guides, each extending on the previous",
+              "source": "@site/docs/topic/vta/install.md",
+              "sourceDirName": "topic/vta",
+              "slug": "/topic/vta/install",
+              "permalink": "/docs/topic/vta/install",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "VTA Installation Guide"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "VTA Hardware Guide",
+                "permalink": "/docs/topic/vta/dev/hardware"
+              }
+            }
+          ],
+          "drafts": [],
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "category",
+                "label": "Design and Architecture",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "arch/benchmark"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/convert_layout"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/debugger"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/device_target_interactions"
+                  },
+                  {
+                    "type": "category",
+                    "label": "frontend",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "arch/frontend/tensorflow"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/hybrid_script"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/inferbound"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/introduction_to_module_serialization"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/microtvm_design"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/microtvm_project_api"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/model_library_format"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/pass_infra"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/relay_intro"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/relay_op_strategy"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/runtime"
+                  },
+                  {
+                    "type": "category",
+                    "label": "runtimes",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "arch/runtimes/vulkan"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/security"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "arch/virtual_machine"
+                  }
+                ],
+                "link": {
+                  "type": "doc",
+                  "id": "arch/index"
+                }
+              },
+              {
+                "type": "category",
+                "label": "Contributor Guide",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "contribute/ci"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/code_guide"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/code_review"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/committer_guide"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/community"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/document"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/error_handling"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/git_howto"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/pull_request"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/release_process"
+                  }
+                ],
+                "link": {
+                  "type": "doc",
+                  "id": "contribute/index"
+                }
+              },
+              {
+                "type": "category",
+                "label": "dev",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "category",
+                    "label": "Developer How-To Guide",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "dev/how_to/debugging_tvm"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/how_to/pytest_target_parametrization"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/how_to/relay_add_op"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/how_to/relay_add_pass"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/how_to/relay_bring_your_own_codegen"
+                      }
+                    ],
+                    "link": {
+                      "type": "doc",
+                      "id": "dev/how_to/how_to"
+                    }
+                  },
+                  {
+                    "type": "category",
+                    "label": "Developer Tutorial",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "dev/tutorial/codebase_walkthrough"
+                      }
+                    ],
+                    "link": {
+                      "type": "doc",
+                      "id": "dev/tutorial/index"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "How To Guides",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "category",
+                    "label": "Deploy Models and Integrate TVM",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/android"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/arm_compute_lib"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/bnns"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/cpp_deploy"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/hls"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/integrate"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/tensorrt"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "how_to/deploy/vitis_ai"
+                      }
+                    ],
+                    "link": {
+                      "type": "doc",
+                      "id": "how_to/deploy/index"
+                    }
+                  },
+                  {
+                    "type": "category",
+                    "label": "Profile Models",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "how_to/profile/papi"
+                      }
+                    ],
+                    "link": {
+                      "type": "doc",
+                      "id": "how_to/profile/index"
+                    }
+                  }
+                ],
+                "link": {
+                  "type": "doc",
+                  "id": "how_to/index"
+                }
+              },
+              {
+                "type": "doc",
+                "id": "index"
+              },
+              {
+                "type": "category",
+                "label": "安装 TVM",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "install/docker"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "install/from_source"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "install/nnpack"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "install/tlcpack"
+                  }
+                ],
+                "link": {
+                  "type": "doc",
+                  "id": "install/index"
+                }
+              },
+              {
+                "type": "category",
+                "label": "reference",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "category",
+                    "label": "api",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "reference/api/links"
+                      },
+                      {
+                        "type": "category",
+                        "label": "Python API",
+                        "collapsible": true,
+                        "collapsed": true,
+                        "items": [
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/auto_scheduler"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/autotvm"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/contrib"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/driver"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/error"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/graph_executor"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/ir"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/micro"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/ndarray"
+                          },
+                          {
+                            "type": "category",
+                            "label": "tvm.relay",
+                            "collapsible": true,
+                            "collapsed": true,
+                            "items": [
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/analysis"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/backend"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/dataflow_pattern"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/frontend"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/image"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/nn"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/testing"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/transform"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "reference/api/python/relay/vision"
+                              }
+                            ],
+                            "link": {
+                              "type": "doc",
+                              "id": "reference/api/python/relay/index"
+                            }
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/rpc"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/runtime"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/target"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/te"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/tir"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "reference/api/python/topi"
+                          },
+                          {
+                            "type": "doc",
+                            "label": "vta",
+                            "id": "reference/api/python/vta/index"
+                          }
+                        ],
+                        "link": {
+                          "type": "doc",
+                          "id": "reference/api/python/index"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "category",
+                    "label": "Language Reference",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "reference/langref/hybrid_script"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "reference/langref/relay_adt"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "reference/langref/relay_expr"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "reference/langref/relay_op"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "reference/langref/relay_pattern"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "reference/langref/relay_type"
+                      }
+                    ],
+                    "link": {
+                      "type": "doc",
+                      "id": "reference/langref/index"
+                    }
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/publications"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "topic",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "label": "microTVM: TVM on bare-metal",
+                    "id": "topic/microtvm/index"
+                  },
+                  {
+                    "type": "category",
+                    "label": "VTA: Versatile Tensor Accelerator",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "category",
+                        "label": "VTA Design and Developer Guide",
+                        "collapsible": true,
+                        "collapsed": true,
+                        "items": [
+                          {
+                            "type": "doc",
+                            "id": "topic/vta/dev/config"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "topic/vta/dev/hardware"
+                          }
+                        ],
+                        "link": {
+                          "type": "doc",
+                          "id": "topic/vta/dev/index"
+                        }
+                      },
+                      {
+                        "type": "doc",
+                        "id": "topic/vta/install"
+                      }
+                    ],
+                    "link": {
+                      "type": "doc",
+                      "id": "topic/vta/index"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogSidebarTitle": "Recent posts",
+      "blogPosts": [],
+      "blogListPaginated": [],
+      "blogTags": {},
+      "blogTagsListPath": "/blog/tags",
+      "blogTagsPaginated": []
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "mdx",
+        "permalink": "/enterprise",
+        "source": "@site/src/pages/enterprise.md",
+        "title": "Enterprise",
+        "description": "I can provide enterprise-class service with custom SLA and contract billing. Here're some custom services I currently provided:",
+        "frontMatter": {
+          "title": "Enterprise"
+        }
+      },
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/markdown-page",
+        "source": "@site/src/pages/markdown-page.md",
+        "title": "Markdown page example",
+        "description": "You don't need React to write simple standalone pages.",
+        "frontMatter": {
+          "title": "Markdown page example"
+        }
+      },
+      {
+        "type": "mdx",
+        "permalink": "/updates",
+        "source": "@site/src/pages/updates.md",
+        "title": "Updates",
+        "description": "Jun 2, 2022",
+        "frontMatter": {
+          "title": "Updates"
+        }
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {},
+  "docusaurus-theme-classic": {},
+  "docusaurus-theme-search-algolia": {},
+  "docusaurus-plugin-sass": {},
+  "typekit-docusaurus-plugin": {},
+  "docusaurus-theme-live-codeblock": {},
+  "docusaurus-bootstrap-plugin": {},
+  "docusaurus-mdx-fallback-plugin": {}
+}

@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/links",
+  "id": "reference/api/links",
+  "title": "Other APIs",
+  "description": "This page contains links to API references that are built with different",
+  "source": "@site/docs/reference/api/links.md",
+  "sourceDirName": "reference/api",
+  "slug": "/reference/api/links",
+  "permalink": "/docs/reference/api/links",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Other APIs"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TLCPack",
+    "permalink": "/docs/install/tlcpack"
+  },
+  "next": {
+    "title": "Python API",
+    "permalink": "/docs/reference/api/python/"
+  }
+}

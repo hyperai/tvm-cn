@@ -1,0 +1,25 @@
+{
+  "unversionedId": "topic/vta/index",
+  "id": "topic/vta/index",
+  "title": "VTA: Versatile Tensor Accelerator",
+  "description": "The Versatile Tensor Accelerator (VTA) is an open, generic, and",
+  "source": "@site/docs/topic/vta/index.md",
+  "sourceDirName": "topic/vta",
+  "slug": "/topic/vta/",
+  "permalink": "/docs/topic/vta/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "VTA: Versatile Tensor Accelerator"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "microTVM: TVM on bare-metal",
+    "permalink": "/docs/topic/microtvm/"
+  },
+  "next": {
+    "title": "VTA Design and Developer Guide",
+    "permalink": "/docs/topic/vta/dev/"
+  }
+}

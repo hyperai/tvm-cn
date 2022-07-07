@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/vta/index",
+  "id": "reference/api/python/vta/index",
+  "title": "vta",
+  "description": "This document contains the python API to VTA compiler toolchain.",
+  "source": "@site/docs/reference/api/python/vta/index.md",
+  "sourceDirName": "reference/api/python/vta",
+  "slug": "/reference/api/python/vta/",
+  "permalink": "/docs/reference/api/python/vta/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "vta"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.topi",
+    "permalink": "/docs/reference/api/python/topi"
+  },
+  "next": {
+    "title": "Language Reference",
+    "permalink": "/docs/reference/langref/"
+  }
+}

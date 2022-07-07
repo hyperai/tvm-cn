@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/relay/index",
+  "id": "reference/api/python/relay/index",
+  "title": "tvm.relay",
+  "description": "Type, TypeKind,",
+  "source": "@site/docs/reference/api/python/relay/index.md",
+  "sourceDirName": "reference/api/python/relay",
+  "slug": "/reference/api/python/relay/",
+  "permalink": "/docs/reference/api/python/relay/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.relay"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.runtime.ndarray",
+    "permalink": "/docs/reference/api/python/ndarray"
+  },
+  "next": {
+    "title": "tvm.relay.analysis",
+    "permalink": "/docs/reference/api/python/relay/analysis"
+  }
+}

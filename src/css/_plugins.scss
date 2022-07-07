@@ -1,0 +1,5 @@
+// force hiding videospeed chrome extension
+// https://github.com/igrigorik/videospeed
+.vsc-controller {
+  display: none !important;
+}

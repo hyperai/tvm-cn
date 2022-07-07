@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/community",
+  "id": "contribute/community",
+  "title": "TVM Community Guidelines",
+  "description": "TVM adopts the Apache style model and governs by merit. We believe that",
+  "source": "@site/docs/contribute/community.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/community",
+  "permalink": "/docs/contribute/community",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "TVM Community Guidelines"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Committer Guide",
+    "permalink": "/docs/contribute/committer_guide"
+  },
+  "next": {
+    "title": "Documentation",
+    "permalink": "/docs/contribute/document"
+  }
+}

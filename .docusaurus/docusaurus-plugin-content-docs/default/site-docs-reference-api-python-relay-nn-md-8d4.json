@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/relay/nn",
+  "id": "reference/api/python/relay/nn",
+  "title": "tvm.relay.nn",
+  "description": "tvm.relay.nn",
+  "source": "@site/docs/reference/api/python/relay/nn.md",
+  "sourceDirName": "reference/api/python/relay",
+  "slug": "/reference/api/python/relay/nn",
+  "permalink": "/docs/reference/api/python/relay/nn",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.relay.nn"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.relay.image",
+    "permalink": "/docs/reference/api/python/relay/image"
+  },
+  "next": {
+    "title": "tvm.relay.testing",
+    "permalink": "/docs/reference/api/python/relay/testing"
+  }
+}

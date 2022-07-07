@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/publications",
+  "id": "reference/publications",
+  "title": "Publications",
+  "description": "TVM is developed as part of peer-reviewed research in machine learning",
+  "source": "@site/docs/reference/publications.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/publications",
+  "permalink": "/docs/reference/publications",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Publications"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Relay\\'s Type System",
+    "permalink": "/docs/reference/langref/relay_type"
+  },
+  "next": {
+    "title": "microTVM: TVM on bare-metal",
+    "permalink": "/docs/topic/microtvm/"
+  }
+}

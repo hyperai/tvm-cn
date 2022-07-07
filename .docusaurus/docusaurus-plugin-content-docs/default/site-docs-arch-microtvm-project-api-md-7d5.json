@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/microtvm_project_api",
+  "id": "arch/microtvm_project_api",
+  "title": "microTVM Project API",
+  "description": "The microTVM Project API allows TVM to automatically run models on",
+  "source": "@site/docs/arch/microtvm_project_api.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/microtvm_project_api",
+  "permalink": "/docs/arch/microtvm_project_api",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "microTVM Project API"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "microTVM Design Document",
+    "permalink": "/docs/arch/microtvm_design"
+  },
+  "next": {
+    "title": "Model Library Format",
+    "permalink": "/docs/arch/model_library_format"
+  }
+}

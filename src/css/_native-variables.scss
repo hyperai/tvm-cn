@@ -1,0 +1,24 @@
+:root {
+  /* kladenets customs */
+  // Load from TypeKit
+  --fontstack-prefix: "sofia-pro",;
+
+  // Tweak colors
+  --link-color-h: 270;
+  --code-color-h: 40;
+  --code-color-s: 60%;
+  --code-color-l: 50%;
+}
+
+html[data-theme="dark"] {
+  --link-color-h: 262;
+  --link-color-s: 100%;
+  --link-color-l: 75%;
+}
+
+/* openbayes custom */
+html,
+html[data-theme="light"],
+html[data-theme="dark"] {
+
+}

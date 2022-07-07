@@ -3,5 +3,5 @@
 生成 HTML 文件
 
 ```bash
-sphinx-build -b html source build
+sphinx-build -b html docs build
 ```

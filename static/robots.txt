@@ -1,0 +1,4 @@
+Sitemap: https://experiments.sparanoid.net/sitemap.xml
+
+User-agent: Baiduspider
+Disallow: /

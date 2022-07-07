@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/langref/relay_adt",
+  "id": "reference/langref/relay_adt",
+  "title": "Algebraic Data Types in Relay",
+  "description": "Algebraic data types (ADTs) are a staple feature of functional",
+  "source": "@site/docs/reference/langref/relay_adt.md",
+  "sourceDirName": "reference/langref",
+  "slug": "/reference/langref/relay_adt",
+  "permalink": "/docs/reference/langref/relay_adt",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Algebraic Data Types in Relay"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Hybrid Frontend Language Reference",
+    "permalink": "/docs/reference/langref/hybrid_script"
+  },
+  "next": {
+    "title": "Expressions in Relay",
+    "permalink": "/docs/reference/langref/relay_expr"
+  }
+}

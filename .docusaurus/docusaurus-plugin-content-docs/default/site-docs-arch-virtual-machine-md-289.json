@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/virtual_machine",
+  "id": "arch/virtual_machine",
+  "title": "Putting the VM in TVM: The Relay Virtual Machine",
+  "description": "Relay, a new program representation, has enabled the representation and",
+  "source": "@site/docs/arch/virtual_machine.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/virtual_machine",
+  "permalink": "/docs/arch/virtual_machine",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Putting the VM in TVM: The Relay Virtual Machine"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Security Guide",
+    "permalink": "/docs/arch/security"
+  },
+  "next": {
+    "title": "Contributor Guide",
+    "permalink": "/docs/contribute/"
+  }
+}

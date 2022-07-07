@@ -1,0 +1,25 @@
+{
+  "unversionedId": "how_to/deploy/android",
+  "id": "how_to/deploy/android",
+  "title": "Deploy to Android",
+  "description": "Relay compilation of model for android target could follow same approach",
+  "source": "@site/docs/how_to/deploy/android.md",
+  "sourceDirName": "how_to/deploy",
+  "slug": "/how_to/deploy/android",
+  "permalink": "/docs/how_to/deploy/android",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Deploy to Android"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Deploy Models and Integrate TVM",
+    "permalink": "/docs/how_to/deploy/"
+  },
+  "next": {
+    "title": "Relay Arm^®^ Compute Library Integration",
+    "permalink": "/docs/how_to/deploy/arm_compute_lib"
+  }
+}

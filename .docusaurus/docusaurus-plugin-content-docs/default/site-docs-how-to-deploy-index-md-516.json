@@ -1,0 +1,25 @@
+{
+  "unversionedId": "how_to/deploy/index",
+  "id": "how_to/deploy/index",
+  "title": "Deploy Models and Integrate TVM",
+  "description": "This page contains guidelines on how to deploy TVM to various platforms",
+  "source": "@site/docs/how_to/deploy/index.md",
+  "sourceDirName": "how_to/deploy",
+  "slug": "/how_to/deploy/",
+  "permalink": "/docs/how_to/deploy/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Deploy Models and Integrate TVM"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "How To Guides",
+    "permalink": "/docs/how_to/"
+  },
+  "next": {
+    "title": "Deploy to Android",
+    "permalink": "/docs/how_to/deploy/android"
+  }
+}

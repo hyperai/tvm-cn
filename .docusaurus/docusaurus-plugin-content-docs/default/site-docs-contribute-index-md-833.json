@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/index",
+  "id": "contribute/index",
+  "title": "Contributor Guide",
+  "description": "TVM has been developed by community members. Everyone is welcomed to",
+  "source": "@site/docs/contribute/index.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/",
+  "permalink": "/docs/contribute/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Contributor Guide"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Putting the VM in TVM: The Relay Virtual Machine",
+    "permalink": "/docs/arch/virtual_machine"
+  },
+  "next": {
+    "title": "Using TVM\\'s CI",
+    "permalink": "/docs/contribute/ci"
+  }
+}

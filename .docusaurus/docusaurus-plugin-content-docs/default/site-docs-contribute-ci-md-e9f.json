@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/ci",
+  "id": "contribute/ci",
+  "title": "Using TVM\\'s CI",
+  "description": "TVM uses Jenkins for running Linux continuous integration (CI) tests on",
+  "source": "@site/docs/contribute/ci.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/ci",
+  "permalink": "/docs/contribute/ci",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Using TVM\\'s CI"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Contributor Guide",
+    "permalink": "/docs/contribute/"
+  },
+  "next": {
+    "title": "Code Guide and Tips",
+    "permalink": "/docs/contribute/code_guide"
+  }
+}

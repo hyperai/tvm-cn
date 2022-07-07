@@ -1,0 +1,25 @@
+{
+  "unversionedId": "dev/tutorial/codebase_walkthrough",
+  "id": "dev/tutorial/codebase_walkthrough",
+  "title": "TVM Codebase Walkthrough by Example",
+  "description": "Getting to know a new codebase can be a challenge. This is especially",
+  "source": "@site/docs/dev/tutorial/codebase_walkthrough.md",
+  "sourceDirName": "dev/tutorial",
+  "slug": "/dev/tutorial/codebase_walkthrough",
+  "permalink": "/docs/dev/tutorial/codebase_walkthrough",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "TVM Codebase Walkthrough by Example"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Developer Tutorial",
+    "permalink": "/docs/dev/tutorial/"
+  },
+  "next": {
+    "title": "How To Guides",
+    "permalink": "/docs/how_to/"
+  }
+}

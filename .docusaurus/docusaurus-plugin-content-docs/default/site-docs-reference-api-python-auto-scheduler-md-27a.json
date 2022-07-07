@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/auto_scheduler",
+  "id": "reference/api/python/auto_scheduler",
+  "title": "tvm.auto_scheduler",
+  "description": "tvm.auto_scheduler",
+  "source": "@site/docs/reference/api/python/auto_scheduler.md",
+  "sourceDirName": "reference/api/python",
+  "slug": "/reference/api/python/auto_scheduler",
+  "permalink": "/docs/reference/api/python/auto_scheduler",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.auto_scheduler"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Python API",
+    "permalink": "/docs/reference/api/python/"
+  },
+  "next": {
+    "title": "tvm.autotvm",
+    "permalink": "/docs/reference/api/python/autotvm"
+  }
+}

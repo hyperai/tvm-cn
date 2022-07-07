@@ -1,0 +1,23 @@
+{
+  "unversionedId": "index",
+  "id": "index",
+  "title": "Welcome to tvm-cn\\'s documentation!",
+  "description": "install/index contribute/index",
+  "source": "@site/docs/index.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting Started With PAPI",
+    "permalink": "/docs/how_to/profile/papi"
+  },
+  "next": {
+    "title": "安装 TVM",
+    "permalink": "/docs/install/"
+  }
+}

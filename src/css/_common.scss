@@ -1,0 +1,19 @@
+// Footer
+.footer {
+  border-top: 1px solid var(--text-color-10);
+
+  // Fixed footer height
+  display: flex;
+  align-items: center;
+  height: var(--ifm-navbar-height);
+  padding: 0;
+}
+
+
+// BEGIN Experiments by Sparanoid overrides
+
+// Sofia Pro font baseline is a lil bit of default typefaces so switch back to system default
+.badge,
+div[class*="toggle"] {
+  font-family: var(--fontstack-sans-serif);
+}

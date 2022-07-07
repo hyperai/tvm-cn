@@ -1,0 +1,21 @@
+{
+  "unversionedId": "arch/index",
+  "id": "arch/index",
+  "title": "Design and Architecture",
+  "description": "This document is intended for developers who want to understand the",
+  "source": "@site/docs/arch/index.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/",
+  "permalink": "/docs/arch/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Design and Architecture"
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Benchmark Performance Log Format",
+    "permalink": "/docs/arch/benchmark"
+  }
+}

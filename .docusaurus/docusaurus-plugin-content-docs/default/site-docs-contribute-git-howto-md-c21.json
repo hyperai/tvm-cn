@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/git_howto",
+  "id": "contribute/git_howto",
+  "title": "Git Usage Tips",
+  "description": "Here are some tips for git workflow.",
+  "source": "@site/docs/contribute/git_howto.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/git_howto",
+  "permalink": "/docs/contribute/git_howto",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Git Usage Tips"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Error Handling Guide",
+    "permalink": "/docs/contribute/error_handling"
+  },
+  "next": {
+    "title": "Submit a Pull Request",
+    "permalink": "/docs/contribute/pull_request"
+  }
+}

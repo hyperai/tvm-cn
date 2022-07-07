@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/error_handling",
+  "id": "contribute/error_handling",
+  "title": "Error Handling Guide",
+  "description": "TVM contains structured error classes to indicate specific types of",
+  "source": "@site/docs/contribute/error_handling.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/error_handling",
+  "permalink": "/docs/contribute/error_handling",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Error Handling Guide"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Documentation",
+    "permalink": "/docs/contribute/document"
+  },
+  "next": {
+    "title": "Git Usage Tips",
+    "permalink": "/docs/contribute/git_howto"
+  }
+}

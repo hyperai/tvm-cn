@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/runtimes/vulkan",
+  "id": "arch/runtimes/vulkan",
+  "title": "Vulkan Runtime",
+  "description": "TVM supports using Vulkan compute shaders to execute queries. Each",
+  "source": "@site/docs/arch/runtimes/vulkan.md",
+  "sourceDirName": "arch/runtimes",
+  "slug": "/arch/runtimes/vulkan",
+  "permalink": "/docs/arch/runtimes/vulkan",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Vulkan Runtime"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TVM Runtime System",
+    "permalink": "/docs/arch/runtime"
+  },
+  "next": {
+    "title": "Security Guide",
+    "permalink": "/docs/arch/security"
+  }
+}

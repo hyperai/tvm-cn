@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/device_target_interactions",
+  "id": "arch/device_target_interactions",
+  "title": "Device/Target Interactions",
+  "description": "This documented is intended for developers interested in understanding",
+  "source": "@site/docs/arch/device_target_interactions.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/device_target_interactions",
+  "permalink": "/docs/arch/device_target_interactions",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Device/Target Interactions"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Debugger",
+    "permalink": "/docs/arch/debugger"
+  },
+  "next": {
+    "title": "TensorFlow Frontend",
+    "permalink": "/docs/arch/frontend/tensorflow"
+  }
+}

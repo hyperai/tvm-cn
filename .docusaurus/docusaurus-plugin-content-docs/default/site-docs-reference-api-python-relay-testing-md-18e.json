@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/relay/testing",
+  "id": "reference/api/python/relay/testing",
+  "title": "tvm.relay.testing",
+  "description": "tvm.relay.testing",
+  "source": "@site/docs/reference/api/python/relay/testing.md",
+  "sourceDirName": "reference/api/python/relay",
+  "slug": "/reference/api/python/relay/testing",
+  "permalink": "/docs/reference/api/python/relay/testing",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.relay.testing"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.relay.nn",
+    "permalink": "/docs/reference/api/python/relay/nn"
+  },
+  "next": {
+    "title": "tvm.relay.transform",
+    "permalink": "/docs/reference/api/python/relay/transform"
+  }
+}

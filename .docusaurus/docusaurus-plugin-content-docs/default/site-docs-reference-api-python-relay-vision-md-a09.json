@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/relay/vision",
+  "id": "reference/api/python/relay/vision",
+  "title": "tvm.relay.vision",
+  "description": "tvm.relay.vision",
+  "source": "@site/docs/reference/api/python/relay/vision.md",
+  "sourceDirName": "reference/api/python/relay",
+  "slug": "/reference/api/python/relay/vision",
+  "permalink": "/docs/reference/api/python/relay/vision",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.relay.vision"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.relay.transform",
+    "permalink": "/docs/reference/api/python/relay/transform"
+  },
+  "next": {
+    "title": "tvm.rpc",
+    "permalink": "/docs/reference/api/python/rpc"
+  }
+}

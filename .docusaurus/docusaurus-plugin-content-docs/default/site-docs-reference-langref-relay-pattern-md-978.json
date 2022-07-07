@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/langref/relay_pattern",
+  "id": "reference/langref/relay_pattern",
+  "title": "Pattern Matching in Relay",
+  "description": "There are many places in TVM where we identify pure data-flow sub-graphs",
+  "source": "@site/docs/reference/langref/relay_pattern.md",
+  "sourceDirName": "reference/langref",
+  "slug": "/reference/langref/relay_pattern",
+  "permalink": "/docs/reference/langref/relay_pattern",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Pattern Matching in Relay"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Relay Core Tensor Operators",
+    "permalink": "/docs/reference/langref/relay_op"
+  },
+  "next": {
+    "title": "Relay\\'s Type System",
+    "permalink": "/docs/reference/langref/relay_type"
+  }
+}

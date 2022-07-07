@@ -1,0 +1,25 @@
+{
+  "unversionedId": "arch/relay_op_strategy",
+  "id": "arch/relay_op_strategy",
+  "title": "Relay Operator Strategy",
+  "description": "In order to lower Relay operators to the implementations defined in TOPI",
+  "source": "@site/docs/arch/relay_op_strategy.md",
+  "sourceDirName": "arch",
+  "slug": "/arch/relay_op_strategy",
+  "permalink": "/docs/arch/relay_op_strategy",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Relay Operator Strategy"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction to Relay IR",
+    "permalink": "/docs/arch/relay_intro"
+  },
+  "next": {
+    "title": "TVM Runtime System",
+    "permalink": "/docs/arch/runtime"
+  }
+}

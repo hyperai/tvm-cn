@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/api/python/relay/dataflow_pattern",
+  "id": "reference/api/python/relay/dataflow_pattern",
+  "title": "tvm.relay.dataflow_pattern",
+  "description": "tvm.relay.dataflow_pattern",
+  "source": "@site/docs/reference/api/python/relay/dataflow_pattern.md",
+  "sourceDirName": "reference/api/python/relay",
+  "slug": "/reference/api/python/relay/dataflow_pattern",
+  "permalink": "/docs/reference/api/python/relay/dataflow_pattern",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "tvm.relay.dataflow_pattern"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tvm.relay.backend",
+    "permalink": "/docs/reference/api/python/relay/backend"
+  },
+  "next": {
+    "title": "tvm.relay.frontend",
+    "permalink": "/docs/reference/api/python/relay/frontend"
+  }
+}

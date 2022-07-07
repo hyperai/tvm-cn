@@ -1,0 +1,25 @@
+{
+  "unversionedId": "how_to/index",
+  "id": "how_to/index",
+  "title": "How To Guides",
+  "description": "These user-focused \\\"how to\\\" guides are designed to help you find",
+  "source": "@site/docs/how_to/index.md",
+  "sourceDirName": "how_to",
+  "slug": "/how_to/",
+  "permalink": "/docs/how_to/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "How To Guides"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TVM Codebase Walkthrough by Example",
+    "permalink": "/docs/dev/tutorial/codebase_walkthrough"
+  },
+  "next": {
+    "title": "Deploy Models and Integrate TVM",
+    "permalink": "/docs/how_to/deploy/"
+  }
+}

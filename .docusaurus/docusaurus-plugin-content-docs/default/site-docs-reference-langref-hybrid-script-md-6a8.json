@@ -1,0 +1,25 @@
+{
+  "unversionedId": "reference/langref/hybrid_script",
+  "id": "reference/langref/hybrid_script",
+  "title": "Hybrid Frontend Language Reference",
+  "description": "This hybrid frontend allows users to write preliminary versions of some",
+  "source": "@site/docs/reference/langref/hybrid_script.md",
+  "sourceDirName": "reference/langref",
+  "slug": "/reference/langref/hybrid_script",
+  "permalink": "/docs/reference/langref/hybrid_script",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Hybrid Frontend Language Reference"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Language Reference",
+    "permalink": "/docs/reference/langref/"
+  },
+  "next": {
+    "title": "Algebraic Data Types in Relay",
+    "permalink": "/docs/reference/langref/relay_adt"
+  }
+}

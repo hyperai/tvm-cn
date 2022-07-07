@@ -1,0 +1,25 @@
+{
+  "unversionedId": "contribute/release_process",
+  "id": "contribute/release_process",
+  "title": "Release Process",
+  "description": "The release manager role in TVM means you are responsible for a few",
+  "source": "@site/docs/contribute/release_process.md",
+  "sourceDirName": "contribute",
+  "slug": "/contribute/release_process",
+  "permalink": "/docs/contribute/release_process",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Release Process"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Submit a Pull Request",
+    "permalink": "/docs/contribute/pull_request"
+  },
+  "next": {
+    "title": "Developer How-To Guide",
+    "permalink": "/docs/dev/how_to/"
+  }
+}

@@ -1,0 +1,11 @@
+.codeOutput {
+  margin-bottom: 0 !important;
+
+  pre[class*="codeBlock"] {
+    background-color: transparent !important;
+  }
+
+  code[class*="codeBlockLines"] {
+    padding: 0;
+  }
+}
