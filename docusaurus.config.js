@@ -7,14 +7,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Apache TVM 中文文档',
-  tagline: 'API proxies and random tools for general XaaS',
-  url: 'https://experiments.sparanoid.net',
+  tagline: 'An End to End Machine Learning Compiler Framework for CPUs, GPUs and accelerators',
+  url: 'https://tvm.hyper.ai',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-  organizationName: 'sparanoid', // Usually your GitHub org/user name.
-  projectName: 'experiments.sparanoid.net', // Usually your repo name.
+  organizationName: 'hyperai', // Usually your GitHub org/user name.
+  projectName: 'tvm-cn', // Usually your repo name.
 
   // https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor
   themes: ['@docusaurus/theme-live-codeblock'],
@@ -65,15 +65,14 @@ const config = {
           //   position: 'left',
           //   label: 'Services',
           // },
-          {to: '/enterprise', label: 'Enterprise', position: 'left'},
-          {to: '/updates', label: 'Updates', position: 'left'},
+          {to: '/docs', label: 'Docs', position: 'left'},
         ],
       },
       footer: {
         style: 'light',
         links: [
         ],
-        copyright: `© ${new Date().getFullYear()} <a href="https://sparanoid.com/">Sparanoid, Inc.</a>`,
+        copyright: `© ${new Date().getFullYear()} Apache Software Foundation and Hyper.AI for Chinese Simplified translation`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -109,7 +108,7 @@ const config = {
       src: 'https://get.sparanoid.net/app.js',
       async: true,
       defer: true,
-      'data-website-id': '168941ae-ead0-4456-a7fa-dfb129555c54'
+      'data-website-id': 'ba968118-b7e7-42b6-a445-977dad89216c'
     }
   ],
 

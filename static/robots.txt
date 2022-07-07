@@ -1,4 +1,4 @@
-Sitemap: https://experiments.sparanoid.net/sitemap.xml
+Sitemap: https://tvm.hyper.ai/sitemap.xml
 
 User-agent: Baiduspider
 Disallow: /
