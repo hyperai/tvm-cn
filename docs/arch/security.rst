@@ -30,7 +30,7 @@ Please note that the security mailing list should only be used for reporting und
 Questions about: if a vulnerability applies to your particular application obtaining further information on a published vulnerability availability of patches
 and/or new releases should be addressed to to the user discuss forum.
 
-The private security mailing address is: `security@apache.org <security@apache.org>`_.
+The private security mailing address is: `security@apache.org <mailto:security@apache.org>`_.
 Feel free to consult the `Apache Security guide <https://www.apache.org/security/>`_.
 
 

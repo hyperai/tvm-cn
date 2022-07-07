@@ -20,7 +20,7 @@ availability of patches and/or new releases should be addressed to to
 the user discuss forum.
 
 The private security mailing address is:
-[security@apache.org](security@apache.org). Feel free to consult the
+[security@apache.org](mailto:security@apache.org). Feel free to consult the
 [Apache Security guide](https://www.apache.org/security/).
 
 # Considerations

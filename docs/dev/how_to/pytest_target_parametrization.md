@@ -96,7 +96,7 @@ appropriate `@tvm.testing.requires_RUNTIME` mark applied to them.
 ```
 
 The parametrization functionality is implemented on top of pytest marks.
-Each test function can be decorated with [pytest marks](pytest-marks) to
+Each test function can be decorated with [pytest marks](https://docs.pytest.org/en/6.2.x/mark.html) to
 include metadata. The most frequently applied marks are as follows.
 
 -   `@pytest.mark.gpu` - Tags a function as using GPU capabilities. This
@@ -150,7 +150,7 @@ def test_function():
 To run the python unit-tests locally, use the command `pytest` in the
 `${TVM_HOME}` directory.
 
--   
+-
 
     Environment variables
 
