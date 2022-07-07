@@ -80,14 +80,14 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       algolia: {
-        apiKey: '4c79bcac69eb355e75986be320a047f2',
+        apiKey: 'f36b719e2245a23ecd89c7e9a41937f2',
         indexName: 'docs',
 
         // Optional: see doc section below
         contextualSearch: true,
 
         // Optional: see doc section below
-        appId: 'P21ECHP46V',
+        appId: 'KU6TD2KAGA',
 
         // Optional: Algolia search parameters
         searchParameters: {
