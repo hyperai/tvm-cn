@@ -66,6 +66,7 @@ const config = {
           //   label: 'Services',
           // },
           {to: '/docs', label: '查看文档', position: 'left'},
+          {to: '/about', label: '关于', position: 'left'},
         ],
       },
       footer: {
