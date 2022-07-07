@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Experiments by Sparanoid',
+  title: 'Apache TVM 中文文档',
   tagline: 'API proxies and random tools for general XaaS',
   url: 'https://experiments.sparanoid.net',
   baseUrl: '/',
@@ -51,12 +51,12 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Experiments by Sparanoid',
+        title: 'TVM 中文文档',
         hideOnScroll: false,
         logo: {
-          alt: 'Experiments by Sparanoid Logo',
-          src: 'img/favicon.svg',
-          srcDark: 'img/favicon-white.svg',
+          alt: 'TVM Logo',
+          src: 'img/favicon-dark.svg',
+          srcDark: 'img/favicon.svg',
         },
         items: [
           // {
