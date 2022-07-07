@@ -24,6 +24,17 @@
 
   :global .container {
     z-index: 1;
+
+    .button {
+      font-size: 1.6rem;
+      color: var(--link-color);
+      background-color: var(--bg-color);
+      border-color: transparent;
+
+      @media screen and (max-width: 966px) {
+        font-size: 1.2rem;
+      }
+    }
   }
 
   h1 {

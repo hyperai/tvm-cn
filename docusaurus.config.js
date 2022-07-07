@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Apache TVM 中文文档',
-  tagline: 'An End to End Machine Learning Compiler Framework for CPUs, GPUs and accelerators',
+  tagline: '一个用于 CPU、GPU 和加速器的端到端机器学习编译器框架',
   url: 'https://tvm.hyper.ai',
   baseUrl: '/',
   onBrokenLinks: 'throw',

@@ -12,6 +12,11 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.indexCtas}>
+          <Link className="button button--lg button--primary" to="/docs">
+            查看文档
+          </Link>
+        </div>
       </div>
     </header>
   );
