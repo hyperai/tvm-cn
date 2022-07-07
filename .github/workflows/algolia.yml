@@ -1,0 +1,42 @@
+name: Algolia
+
+concurrency:
+  # NOTE: This ensure no more than one push is running at the same time
+  group: algolia-${{ github.event_name }}
+  cancel-in-progress: true
+
+on:
+  # This event is triggered when Netlify successfully deploys a new version by
+  # sending a webhoook via Pipedream. See webhook configs:
+  # https://app.netlify.com/sites/tvm-cn/settings/deploys#deploy-notifications
+  repository_dispatch:
+    types:
+      - webhook
+  workflow_dispatch:
+
+jobs:
+  algolia:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+
+    - name: Get list of changed files from last commit
+      id: git
+      run: |
+        echo "$(git show --name-only --format=format: | grep -E '^(algolia|blog|docs)')"
+        echo "::set-output name=docs_changes::$(git show --name-only --format=format: | grep -E '^(algolia|blog|docs)')"
+
+    - name: Get the content of algolia.json as config
+      id: algolia_config
+      run: echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
+
+    - name: Push indices to Algolia
+      # Only push Algolia if there are changes in `docs/` or manual run
+      if: ${{ steps.git.outputs.docs_changes || github.event_name == 'workflow_dispatch' }}
+      uses: signcl/docsearch-scraper-action@master
+      env:
+        APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        CONFIG: ${{ steps.algolia_config.outputs.config }}

@@ -3,39 +3,28 @@ name: Build
 on:
   push:
     branches:
-      - 'master'
+      - '**'
     tags:
-      - 'v*'
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches:
-      - 'master'
+      - '**'
 
 jobs:
-  build:
-
+  build-n-deploy:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
-        python-version: "3.10"
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
+        node-version: '16'
+        cache: 'yarn'
 
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: true
-        installer-parallel: true
+    - name: Install Node.js dependencies
+      run: yarn --frozen-lockfile
 
-    - name: Install dependencies
-      run: poetry install --no-interaction --no-root
-
-    - name: Build test
-      run: |
-        source .venv/bin/activate
-        make html
+    - name: Build Docusaurus
+      run: yarn build
