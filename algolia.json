@@ -15,7 +15,7 @@
       "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'dropdown__link--active')]/text())[last()]",
       "type": "xpath",
       "global": true,
-      "default_value": "Documentation"
+      "default_value": "文档"
     },
     "lvl1": "header h1",
     "lvl2": "article h2",
