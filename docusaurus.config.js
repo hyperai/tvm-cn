@@ -65,7 +65,7 @@ const config = {
           //   position: 'left',
           //   label: 'Services',
           // },
-          {to: '/docs', label: 'Docs', position: 'left'},
+          {to: '/docs', label: '查看文档', position: 'left'},
         ],
       },
       footer: {
