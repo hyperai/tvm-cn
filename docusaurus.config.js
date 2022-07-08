@@ -100,6 +100,14 @@ const config = {
       },
     }),
 
+  i18n: {
+    defaultLocale: 'zh-Hans',
+    locales: [
+      'zh-Hans',
+      // 'en'
+    ],
+  },
+
   plugins: [
     'docusaurus-plugin-sass',
     require.resolve('./src/plugins/typekit/'),
