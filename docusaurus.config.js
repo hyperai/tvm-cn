@@ -59,13 +59,13 @@ const config = {
           srcDark: 'img/favicon.svg',
         },
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'intro',
-          //   position: 'left',
-          //   label: 'Services',
-          // },
-          {to: '/docs', label: '查看文档', position: 'left'},
+          {
+            type: 'doc',
+            docId: 'index',
+            position: 'left',
+            label: '查看文档',
+          },
+          // {to: '/docs', label: '查看文档', position: 'left'},
           {to: '/about', label: '关于', position: 'left'},
         ],
       },

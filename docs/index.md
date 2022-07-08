@@ -1,4 +1,7 @@
-# Welcome to tvm-cn\'s documentation!
+---
+title: Welcome to tvm-cn's documentation!
+sidebar_position: 0
+---
 
 ::: {.toctree maxdepth="1" caption="Getting Started"}
 install/index contribute/index
