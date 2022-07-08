@@ -22,8 +22,10 @@ _main() {
     local filename_md=$(echo $file | sed "s/\.rst$/\.md/g")
     local filename_orig=$(echo $file | sed "s|$pwd|.|g")
     echo "Converting $filename_orig"
-    `pandoc -s -o "${filename_md}" ${file}`
-    # uncomment this line to delete the source file.
+    pandoc ${file} --from rst --to markdown --standalone --eol lf \
+      --output "${filename_md}"
+
+    # Uncomment this line to delete the source file.
     # rm "${file}"
   done
 }
@@ -38,11 +40,3 @@ main() {
 }
 
 main $@
-
-# do
-#   filename="${f%.*}"
-#   echo "Converting $f to $filename.md"
-#   `pandoc -s -o $filename.md $f`
-#   # uncomment this line to delete the source file.
-#   # rm $f
-# done
