@@ -4,7 +4,7 @@ title: Relay Arm^®^ Compute Library Integration
 
 **Author**: [Luke Hutton](https://github.com/lhutton1)
 
-# Introduction
+## Introduction
 
 Arm Compute Library (ACL) is an open source project that provides
 accelerated kernels for Arm CPU\'s and GPU\'s. Currently the integration
@@ -12,7 +12,7 @@ offloads operators to ACL to use hand-crafted assembler routines in the
 library. By offloading select operators from a relay graph to ACL we can
 achieve a performance boost on such devices.
 
-# Installing Arm Compute Library
+## Installing Arm Compute Library
 
 Before installing Arm Compute Library, it is important to know what
 architecture to build for. One way to determine this is to use
@@ -47,7 +47,7 @@ the path where the ACL package is located. CMake will look in
 required binaries. See the section below for more information on how to
 use these configuration options.
 
-# Building with ACL support
+## Building with ACL support
 
 The current implementation has two separate build options in CMake. The
 reason for this split is because ACL cannot be used on an x86 machine.
@@ -81,7 +81,7 @@ set(USE_ARM_COMPUTE_LIB ON)
 set(USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR /path/to/acl)
 ```
 
-# Usage
+## Usage
 
 ::: note
 ::: title
@@ -153,7 +153,7 @@ gen_module.set_input(**map_inputs)
 gen_module.run()
 ```
 
-# More examples
+## More examples
 
 The example above only shows a basic example of how ACL can be used for
 offloading a single Maxpool2D. If you would like to see more examples
@@ -185,7 +185,7 @@ An example configuration for \`test_config.json\`:
 }
 ```
 
-# Operator support
+## Operator support
 
 +----------------+-----------------------------------------------------+
 | Relay Node     | Remarks                                             |
@@ -268,7 +268,7 @@ optional operator in the series of operators that make up a composite
 operator.
 :::
 
-# Adding a new operator
+## Adding a new operator
 
 Adding a new operator requires changes to a series of places. This
 section will give a hint on what needs to be changed and where, it will

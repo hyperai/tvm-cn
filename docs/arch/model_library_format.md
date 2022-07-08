@@ -2,7 +2,7 @@
 title: Model Library Format
 ---
 
-# About Model Library Format
+## About Model Library Format
 
 TVM traditionally exports generated libraries as Dynamic Shared Objects
 (e.g. DLLs (Windows) or .so (linux)). Inferences can be performed using
@@ -19,12 +19,12 @@ Format), it could be used as a general-purpose TVM export format. Model
 Library Format is a tarball containing a file for each piece of the TVM
 compiler output.
 
-# What can be Exported?
+## What can be Exported?
 
 At the time of writing, export is limited to full models built with
 `tvm.relay.build`.
 
-# Directory Layout
+## Directory Layout
 
 Model Library Format is contained within a tarball. All paths are
 relative to the root of the tarball:
@@ -45,9 +45,9 @@ relative to the root of the tarball:
     -   `src/` - Root directory for all source code consumed by TVM
         -   `relay.txt` - Relay source code for the generated model
 
-# Description of Sub-directories
+## Description of Sub-directories
 
-## `codegen` {#subdir_codegen}
+### `codegen` {#subdir_codegen}
 
 All TVM-generated code is placed in this directory. At the time of
 writing, there is 1 file per Module in the generated Module tree, though
@@ -79,7 +79,7 @@ An example directory tree for a CPU-only model is shown below:
             -   `lib0.c` - C module (if `c` target is used)
             -   `lib1.c` - C CRT Metadata module (if `c` target is used)
 
-## `executor-config`
+### `executor-config`
 
 Contains machine-parsable configuration for executors which can drive
 model inference. Currently, only the GraphExecutor produces
@@ -87,7 +87,7 @@ configuration for this directory, in `graph/graph.json`. This file
 should be read in and the resulting string supplied to the
 `GraphExecutor()` constructor for parsing.
 
-## `parameters`
+### `parameters`
 
 Contains machine-parseable parameters. A variety of formats may be
 provided, but at present, only the format produced by
@@ -95,12 +95,12 @@ provided, but at present, only the format produced by
 `tvm.relay.build`, the `name` parameter is considered to be the model
 name. A single file is created in this directory `<model_name>.json`.
 
-## `src`
+### `src`
 
 Contains source code parsed by TVM. Currently, just the Relay source
 code is created in `src/relay.txt`.
 
-# Metadata
+## Metadata
 
 Machine-parseable metadata is placed in a file `metadata.json` at the
 root of the tarball. Metadata is a dictionary with these keys:
@@ -123,7 +123,7 @@ root of the tarball. Metadata is a dictionary with these keys:
     metadata structure or on-disk structure changes. This document
     reflects version `5`.
 
-## Memory Usage Summary
+### Memory Usage Summary
 
 A dictionary with these sub-keys:
 

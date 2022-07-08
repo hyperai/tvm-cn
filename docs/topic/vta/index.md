@@ -29,7 +29,7 @@ This page contains links to all the resources related to VTA:
 install dev/index tutorials/index
 :::
 
-# Literature
+## Literature
 
 -   Read the VTA [release blog
     post](https://tvm.apache.org/2018/07/12/vta-release-announcement).

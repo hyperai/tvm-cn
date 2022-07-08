@@ -55,7 +55,7 @@ pass infra include:
     example, we allow users to implement a pass in Python and let the
     pass infra manipulate its execution.
 
-# The Design
+## The Design
 
 We focus on ease of extension for users, making it possible for users to
 quickly add new passes without loss of backward compatibility. The
@@ -64,7 +64,7 @@ the main logic of the pass infra. The latter provides simple APIs for
 users to interact with, i.e., allowing users to quickly create their own
 optimization pipelines.
 
-## C++ Backend
+### C++ Backend
 
 We provide a `PassInfo` object to contain the basic information needed
 by a pass. `name` is the pass name, `opt_level` indicates at which
@@ -87,7 +87,7 @@ class PassInfoNode : public Object {
 };
 ```
 
-### PassContext
+#### PassContext
 
 `PassContext` carries useful information for an optimization pass. For
 example, it contains the error reporting system so optimization authors
@@ -157,7 +157,7 @@ typedef dmlc::ThreadLocalStore<PassContextThreadLocalEntry>
      PassContextThreadLocalStore;
 ```
 
-### Pass Constructs
+#### Pass Constructs
 
 The pass infra is designed in a hierarchical manner, and it could work
 at different granularities of Relay/tir programs. A pure virtual class
@@ -190,7 +190,7 @@ definition of them can be found in
 and
 [src/ir/transform.cc](https://github.com/apache/tvm/blob/main/src/ir/transform.cc).
 
-### Module-Level Passes
+#### Module-Level Passes
 
 Module level passes are geared mainly for global and inter-procedural
 optimizations (IPO), which are similar to the module pass used in LLVM.
@@ -216,7 +216,7 @@ remove the dead code including the unused functions in the module. Note
 that this field is designed as a packed function, which enables the
 implementation of the optimization in both C++ and Python.
 
-### Function-Level Passes
+#### Function-Level Passes
 
 Function-level passes are used to implement various intra-function level
 optimizations for a given Relay/tir module. It fetches one function at a
@@ -246,7 +246,7 @@ class FunctionPassNode : PassNode {
 we may use it for reporting errors. A function could be annotated with
 \"SkipOptimization\" so that it will be ignored during optimization.
 
-### Sequential Passes
+#### Sequential Passes
 
 `SequentialPass` is similar to Pytorch `nn.Sequential` that contains a
 host of passes for execution.
@@ -341,7 +341,7 @@ Pass CreateModulePass(
 Pass Sequential(tvm::Array<Pass> passes, PassInfo pass_info);
 ```
 
-### Pass Registration
+#### Pass Registration
 
 We\'ve covered the concept of different level of passes and the context
 used for compilation. It would be interesting to see how easily users
@@ -396,7 +396,7 @@ as the following:
 TVM_DLL Pass FoldConstant();
 ```
 
-### Pass Instrument {#pass_instrument_cpp_backend}
+#### Pass Instrument {#pass_instrument_cpp_backend}
 
 Pass Instrument is a mechanism to analyze the pass itself. For example,
 we can use the infrastructure to know how much time and memory a pass
@@ -529,7 +529,7 @@ for more details.
         class([include/tvm/support/with.h](https://github.com/apache/tvm/blob/main/include/tvm/support/with.h))
         to exit `PassContext` safely
 
-### Built-in Instrument
+#### Built-in Instrument
 
 There are several built-in instruments. Those marked with *TODO* are not
 implemented yet.
@@ -546,7 +546,7 @@ implemented yet.
 -   PrintAfter(TODO)
     -   Print the IR module after the pass transforms it.
 
-## Python Frontend
+### Python Frontend
 
 Only some simple APIs are needed for the frontend side. For example, we
 can provide users the following APIs to create and execute a pass (full
@@ -557,7 +557,7 @@ and
 The backend receives the information and decides which function it
 should use to create a Pass object.
 
-### PassContext
+#### PassContext
 
 Python frontend provides a wrapper for the `PassContext` to enable the
 `with` syntax by overriding `__enter__` and `__exit__`. A `current`
@@ -596,7 +596,7 @@ Please refer to
 [src/tir/transforms/unroll_loop.cc](https://github.com/apache/tvm/blob/main/src/tir/transforms/unroll_loop.cc)
 for more details.
 
-### Pass Objects
+#### Pass Objects
 
 `Pass` is the base class of all pass objects. All methods here are just
 simple wrappers that were implemented in the backend. They are defined
@@ -690,7 +690,7 @@ refer to the [use pass
 infra](https://github.com/apache/tvm/blob/main/tutorials/dev/use_pass_infra.py)
 tutorial.
 
-### Pass Instrument {#pass_instrument_py_frontend}
+#### Pass Instrument {#pass_instrument_py_frontend}
 
 One can implement a `PassInstrument` by using the `pass_instrument`
 decorator([python/tvm/ir/instrument.py](https://github.com/apache/tvm/blob/main/python/tvm/ir/instrument.py))
@@ -720,7 +720,7 @@ instrument](https://github.com/apache/tvm/blob/main/tutorials/dev/use_pass_instr
 tutorial provides examples for how to implement `PassInstrument` with
 Python APIs.
 
-### Override Instruments in Current PassContext {#pass_instrument_overriden}
+#### Override Instruments in Current PassContext {#pass_instrument_overriden}
 
 `override_instruments` method is provided to override the `instruments`
 of current `PassContext`. For example, if passes are run without

@@ -48,7 +48,7 @@ jupyter notebook --ip=0.0.0.0
 URL 上运行。 在浏览器中粘贴时，需把 container_hostname 替换为
 `localhost`。
 
-# Docker 源代码
+## Docker 源代码
 
 查看 [Docker
 源代码](https://github.com/apache/tvm/tree/main/docker)，构建自己的

@@ -21,7 +21,7 @@ Please refer to :py`tvm.error`{.interpreted-text role="mod"} for the
 list of errors.
 :::
 
-# Raise a Specific Error in C++
+## Raise a Specific Error in C++
 
 You can add `<ErrorType>:` prefix to your error message to raise an
 error of the corresponding type. Note that you do not have to add a new
@@ -78,7 +78,7 @@ As you can see in the above example, TVM\'s ffi system combines both the
 python and c++\'s stacktrace into a single message, and generate the
 corresponding error class automatically.
 
-# How to choose an Error Type
+## How to choose an Error Type
 
 You can go through the error types are listed below, try to use common
 sense and also refer to the choices in the existing code. We try to keep

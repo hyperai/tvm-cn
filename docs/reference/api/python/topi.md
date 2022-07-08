@@ -6,19 +6,19 @@ title: tvm.topi
 tvm.topi
 :::
 
-# tvm.topi.nn
+## tvm.topi.nn
 
 ::: {.automodule members="" imported-members="" autosummary=""}
 tvm.topi.nn
 :::
 
-# tvm.topi.image
+## tvm.topi.image
 
 ::: {.automodule members="" imported-members="" autosummary=""}
 tvm.topi.image
 :::
 
-# tvm.topi.sparse
+## tvm.topi.sparse
 
 ::: {.automodule members="" imported-members="" autosummary=""}
 tvm.topi.sparse

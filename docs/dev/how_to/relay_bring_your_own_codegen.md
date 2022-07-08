@@ -50,7 +50,7 @@ customers annotate their models with your customized tag to make use of
 them. The tutorial for end-users to annotate and launch a specific
 codegen is **here (TBA)**.
 
-# Implement a C Codegen
+## Implement a C Codegen
 
 In this part, we demonstrate how to implement a codegen that generates C
 code with pre-implemented operator functions. To simplify, our example
@@ -191,7 +191,7 @@ because it provides many useful utilities to ease the code generation
 implementation. The following sections will implement these two classes
 in the bottom-up order.
 
-## Implement CodegenC
+### Implement CodegenC
 
 In `src/relay/backend/contrib/codegen_c/codegen.cc`, we first create a
 codegen class skeleton under the namespace of `tvm.relay.contrib`:
@@ -247,7 +247,7 @@ provides abilities and utilities to generate wrapper functions such as
 `gcc_0` in the above example. As can be seen, we only need to implement
 three functions in this codegen class to make it work.
 
-### Code Generation for Operators
+#### Code Generation for Operators
 
 We first implement `VisitExpr_(const CallNode* call)`. This function
 visits all call nodes when traversing the subgraph. Each call node
@@ -411,7 +411,7 @@ Congratulations! we have finished the most difficult function in this
 class. In the next two sections, we just need to make up some minor
 missing parts in this function.
 
-### Code Generation for Input Variables
+#### Code Generation for Input Variables
 
 Recall that we collected the input buffer information by visiting the
 arguments of a call node (2nd step in the previous section), and handled
@@ -438,7 +438,7 @@ only call nodes and variable nodes. If your subgraphs contain other
 types of nodes, such as `TupleNode`, then you also need to visit them
 and bypass the output buffer information.
 
-### Code Emitting
+#### Code Emitting
 
 The final part in this codegen class is a `JIT` function that emits a C
 function for the subgraph and uses the C code we just generated as the
@@ -485,7 +485,7 @@ std::string JIT() {
 All variables (`ext_func_id`, etc) we passed are class variables and
 were filled when we traversed the subgraph.
 
-## Implement CSourceCodegen
+### Implement CSourceCodegen
 
 Again, let\'s create a class skeleton and implement the required
 functions. Note that it inherits `CSourceModuleCodegenBase`
@@ -504,7 +504,7 @@ class CSourceCodegen : public CSourceModuleCodegenBase {
 };
 ```
 
-### Implement GenCFunc
+#### Implement GenCFunc
 
 `GenCFunc` simply uses the `CodegenC` we just implemented to traverse a
 Relay function (subgraph) and obtains the generated C code. The builtin
@@ -525,7 +525,7 @@ void GenCFunc(const Function& func) {
 }
 ```
 
-### Implement CreateCSourceModule
+#### Implement CreateCSourceModule
 
 This function creates a runtime module for the external library. In this
 example, we create a CSourceModule that can be directly compiled and
@@ -586,7 +586,7 @@ runtime::Module CreateCSourceModule(const NodeRef& ref) override {
 }
 ```
 
-## Register Your Codegen
+### Register Your Codegen
 
 The last step is registering your codegen to TVM backend. We first
 implement a simple function to invoke our codegen and generate a runtime
@@ -627,7 +627,7 @@ configuring TVM using `config.cmake`:
 set(USE_CODEGENC ON)
 ```
 
-# Implement a Codegen for Your Representation
+## Implement a Codegen for Your Representation
 
 Although we have demonstrated how to implement a C codegen, your
 hardware may require other forms of graph representation, such as JSON.
@@ -693,7 +693,7 @@ In the following sections, we are going to introduce 1) how to implement
 `ExampleJsonCodeGen` and 2) how to implement and register
 `examplejson_module_create`.
 
-## Implement ExampleJsonCodeGen
+### Implement ExampleJsonCodeGen
 
 Similar to the C codegen, we also derive `ExampleJsonCodeGen` from
 `ExprVisitor` to make use of visitor patterns for subgraph traversing.
@@ -758,7 +758,7 @@ prefer.
 The next step is to implement a customized runtime to make use of the
 output of `ExampleJsonCodeGen`.
 
-## Implement a Customized Runtime
+### Implement a Customized Runtime
 
 In this section, we will implement a customized TVM runtime step-by-step
 and register it to TVM runtime modules. The customized runtime should be
@@ -850,7 +850,7 @@ we must implement in `ExampleJsonModule`:
 Other functions and class variables will be introduced along with the
 implementation of above must-have functions.
 
-### Implement Constructor
+#### Implement Constructor
 
 ``` c++
 explicit ExampleJsonModule(std::string graph_json) {
@@ -933,7 +933,7 @@ ID in runtime.
 from a subgraph node ID to a tensor data placeholder. We will put inputs
 and outputs to the corresponding data entry in runtime.
 
-### Implement GetFunction
+#### Implement GetFunction
 
 After the construction, we should have the above class variables ready.
 We then implement `GetFunction` to provide executable subgraph functions
@@ -991,7 +991,7 @@ results to another data entry. The third part copies the results from
 the output data entry back to the corresponding TVM runtime argument for
 output.
 
-### Implement Run
+#### Implement Run
 
 Now let\'s implement `Run` function. This function accepts 1) a subgraph
 ID, 2) a list of input data entry indexs, and 3) an output data entry
@@ -1050,7 +1050,7 @@ TVM_REGISTER_GLOBAL("module.examplejson_module_create")
 });
 ```
 
-### Implement SaveToBinary and LoadFromBinary
+#### Implement SaveToBinary and LoadFromBinary
 
 So far we have implemented the main features of a customized runtime so
 that it can be used as other TVM runtimes. However, when users want to
@@ -1132,7 +1132,7 @@ Python API
 `tvm.runtime.load_module("mysubgraph.examplejson", "examplejson")` to
 construct a customized module.
 
-# Summary
+## Summary
 
 In summary, here is a checklist for you to refer:
 

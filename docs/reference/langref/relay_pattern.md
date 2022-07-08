@@ -27,7 +27,7 @@ level API using bring your own code generation. This API takes set of
 patterns describing your hardware capabilities and an external compiler,
 providing a relatively smooth heterogeneous experience out of the box.
 
-# Pattern Examples
+## Pattern Examples
 
 There are quite a few properties of operators that are worth matching.
 Below we examine how to match tree properties, and expand on some use
@@ -46,7 +46,7 @@ node you want, you are welcome to raise an issue or submit a PR to add
 it.
 :::
 
-## Matching One of Two Ops
+### Matching One of Two Ops
 
 The first example is a simple case where we want to match one operator
 with a single input OR another operator with a single input:
@@ -58,7 +58,7 @@ def test_match_op_or():
     assert is_add_or_sub.match(relay.op.op.get("subtract"))
 ```
 
-## Matching an Op with Attributes
+### Matching an Op with Attributes
 
 The next example is a dense operation with any operator that is marked
 element-wise:
@@ -92,7 +92,7 @@ def test_match_kernel_size():
     assert is_conv2d.match(relay.op.nn.conv2d(x, y, kernel_size=[3, 3]))
 ```
 
-## Matching an Optional Op
+### Matching an Optional Op
 
 The next example is matching a pattern with one optional operator. In
 this pattern, we can match the graph of conv2d+bias_add+relu or the
@@ -114,7 +114,7 @@ def test_match_optional():
     assert pat.match(relu)
 ```
 
-## Matching Types
+### Matching Types
 
 In addition to matching ops with attributes, we can also make a pattern
 to match their types, in interms of the shape and data type. Here are
@@ -143,7 +143,7 @@ def test_match_type():
     assert pat3.match(relu)
 ```
 
-## Matching Non-Call Nodes
+### Matching Non-Call Nodes
 
 Sometimes we may also want to match a pattern that includes Tuple or
 TupleGetItem nodes. Since there are not call nodes, we need to use
@@ -278,7 +278,7 @@ def test_match_let():
     assert pat.match(relay.expr.Let(lv, cond, lv))
 ```
 
-## Matching Diamonds and Post-Dominator Graphs
+### Matching Diamonds and Post-Dominator Graphs
 
 The next example is matching a diamond with two inputs at the top of the
 diamond:
@@ -325,7 +325,7 @@ by a conv2d:
         # Check
         assert diamond.match(out)
 
-# Matching Fuzzy Patterns
+## Matching Fuzzy Patterns
 
 The Dominator analysis above lets one match a subgraph of Relay AST that
 doesn\'t correspond to a set of patterns nodes exactly 1-to-1. There are
@@ -350,7 +350,7 @@ y)]{.title-ref}, but it will also match [relay.Function(\[x, y\], x \*
 x + y)]{.title-ref}. In the second case, the pattern doesn\'t perfectly
 constrain the body of the function, so the resulting match is fuzzy.
 
-# Pattern Language Design
+## Pattern Language Design
 
 The pattern language proposed is designed to be a mirror of Relay\'s IR
 with additional support for common scenarios. The goal of the pattern
@@ -383,69 +383,69 @@ The above language then provides a matching interface with both can
 select sub-graphs as well as verify that the graph does match the
 pattern.
 
-## Expression Pattern
+### Expression Pattern
 
 Match a literal expression.
 
-## Wildcard
+### Wildcard
 
 Match any expression.
 
-## Type Pattern
+### Type Pattern
 
 Check that the expression matched by the nested pattern has a particular
 type.
 
-## DType Pattern
+### DType Pattern
 
 Check that the expression matched by the nested pattern has a particular
 data type.
 
-## Shape Pattern
+### Shape Pattern
 
 Check that the expression matched by the nested pattern has a particular
 output shape.
 
-## Attribute Pattern
+### Attribute Pattern
 
 Check that the operator matched by the pattern has an attribute with a
 particular value.
 
-## Variable Pattern
+### Variable Pattern
 
 Check that the expression is a relay Variable, and optional provide a
 name to match to the Variable name.
 
-## Alternate
+### Alternate
 
 Either match the first pattern or the second pattern.
 
-## Domination
+### Domination
 
 Match child pattern, find a match for the parent pattern, insuring that
 the child ultimately dominates the parent (i.e., no nodes outside the
 pattern use outputs of the parent), and that ever node between the child
 and the pattern matches the path pattern.
 
-## Function Pattern
+### Function Pattern
 
 Match a Function with a body and parameters
 
-## If Pattern
+### If Pattern
 
 Match an If with condition, true branch, and false branch
 
-## Let Pattern
+### Let Pattern
 
 Match a Let with a variable, value, and body
 
-# Applications
+## Applications
 
 The pattern language provides not only the pattern matching but also
 pattern processing. Here we introduce two pattern processing approaches
 and provide some examples.
 
-## Pattern Rewriting
+### Pattern Rewriting
 
 If you would like to replace the matched pattern with another subgraph,
 you can leverage the `rewrite` transformation. Here is an example of
@@ -499,7 +499,7 @@ matches any part of the graph that the callback returned, the rewriter
 will run in a loop. If you want to avoid multiple rewrites, you can pass
 a `rewrite_once=True` parameter to the constructor.
 
-## Pattern Partitioning
+### Pattern Partitioning
 
 If you would like to perform a more complex processing for matched
 subgraphs and you are not satisfied with `rewrite`, you may consider

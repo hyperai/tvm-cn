@@ -8,7 +8,7 @@ this page is to centralize the commonly-used techniques being used to
 debug TVM and to spread awareness to the community. To that end, we may
 seek to promote more broadly-used techniques to the top of this doc.
 
-# VLOGging
+## VLOGging
 
 TVM provides a verbose-logging facility that allows you to commit
 trace-level debugging messages without impacting the binary size or

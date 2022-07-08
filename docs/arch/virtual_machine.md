@@ -67,7 +67,7 @@ execution works. A virtual machine for Relay is a natural choice.
 The rest of this document provides a high-level overview of the Relay
 virtual machine design and its instruction set.
 
-# Design
+## Design
 
 The VM\'s design is focused on simplicity without sacrificing
 performance. In order to accomplish this we have focused on designing a
@@ -77,7 +77,7 @@ In the tensor VM setting, we optimize for cheap "allocation" of objects
 (by trying to avoid real allocation), reuse of static fragments, and the
 ability to do dynamic shape (i.e jagged tensors).
 
-## Instruction Set
+### Instruction Set
 
 The choices of an instruction set and instruction representation are the
 most critical design decisions for a VM. The current representation of
@@ -90,7 +90,7 @@ variable-length due to the inclusion of the shape as part of the
 instruction. The current instruction set is very high-level and
 corresponds roughly to high-level operations in Relay.
 
-### Ret
+#### Ret
 
 **Arguments**: :
 
@@ -99,7 +99,7 @@ corresponds roughly to high-level operations in Relay.
 
 Returns the object in register `result` to caller\'s register `dst`.
 
-### InvokePacked
+#### InvokePacked
 
 **Arguments**: :
 
@@ -114,7 +114,7 @@ expect. `packed_args` stores the list of argument registers. Note
 `Index` is an alias of `int64_t`, and it will be used in other
 instructions as well.
 
-### AllocTensor
+#### AllocTensor
 
 **Arguments**: :
 
@@ -128,7 +128,7 @@ Allocate a tensor value of using constant shape (stored in `shape`) and
 `dtype` from the given storage block, `storage`. The result is saved to
 register `dst`.
 
-### AllocTensorReg
+#### AllocTensorReg
 
 **Arguments**: :
 
@@ -141,7 +141,7 @@ Allocate a tensor value of the appropriate shape (stored in
 `shape_register`) and `dtype` from the given storage block (stored in
 `storage`). The result is saved to register `dst`.
 
-### AllocStorage
+#### AllocStorage
 
 **Arguments**: :
 
@@ -154,7 +154,7 @@ Allocate a storage block with the given `size`, `alignment` and data
 type, `dtype_hint`. The allocated storage block is stored in register
 `dst`.
 
-### AllocADT
+#### AllocADT
 
 **Arguments**: :
 
@@ -166,7 +166,7 @@ type, `dtype_hint`. The allocated storage block is stored in register
 Allocate a data type with the tag `tag` using the `num_fields` entries
 from registers `datatype_fields`. The result is saved to register `dst`.
 
-### AllocClosure
+#### AllocClosure
 
 **Arguments**: :
 
@@ -179,7 +179,7 @@ Allocate a closure with the VMFunction at `clo_index` as its code, and
 the `num_freevar` entries from registers in `free_vars`. The result is
 saved to register `dst`.
 
-### GetField
+#### GetField
 
 **Arguments**: :
 
@@ -190,7 +190,7 @@ saved to register `dst`.
 Get the field value with index `field_index` from `object`. And saves
 the result to register `dst`.
 
-### If
+#### If
 
 **Arguments**: :
 
@@ -202,7 +202,7 @@ the result to register `dst`.
 Check if the object at register `test` is equal to `target`. If equal,
 relative jump by `true_offset`, else relative jump by `false_offset`.
 
-### GetTag
+#### GetTag
 
 **Arguments**: :
 
@@ -212,11 +212,11 @@ relative jump by `true_offset`, else relative jump by `false_offset`.
 Get the object tag for ADT object in register `object`. And saves the
 reult to register `dst`.
 
-### Fatal
+#### Fatal
 
 Fail the virtual machine execution.
 
-### Goto
+#### Goto
 
 **Arguments**: :
 
@@ -224,7 +224,7 @@ Fail the virtual machine execution.
 
 Relative unconditional jump by `pc_offset`.
 
-### Invoke
+#### Invoke
 
 **Arguments**: :
 
@@ -233,7 +233,7 @@ Relative unconditional jump by `pc_offset`.
 Invoke function at `func_index`, consumes the number of arguments
 contained in the VMFunction\'s arity field.
 
-### InvokeClosure
+#### InvokeClosure
 
 **Arguments**: :
 
@@ -244,7 +244,7 @@ contained in the VMFunction\'s arity field.
 Invokes `closure`, consuming the number of arguments declared in the
 closure\'s VMFunction.
 
-### LoadConst
+#### LoadConst
 
 **Arguments**: :
 
@@ -254,7 +254,7 @@ closure\'s VMFunction.
 Load the constant at `const_index` from the constant pool. The result is
 saved to register `dst`.
 
-### LoadConsti
+#### LoadConsti
 
 **Arguments**: :
 
@@ -264,7 +264,7 @@ saved to register `dst`.
 Load the constant integer `val` to register `dst`. The result is a
 0-rank tensor.
 
-## Object Representation
+### Object Representation
 
 We leverage the object protocol to represent the objects that are used
 by the VM.
@@ -278,7 +278,7 @@ and
 [include/tvm/runtime/container.h](https://github.com/apache/tvm/blob/main/include/tvm/runtime/container.h),
 respectively.
 
-## Stack and State
+### Stack and State
 
 The Relay VM maintains a stack frame, which contains information about
 how to resume the previous call. Registers are allocated in a continuous
@@ -303,7 +303,7 @@ struct VirtualMachine {
 };
 ```
 
-## Dispatch Loop
+### Dispatch Loop
 
 A critical piece of a VM is the dispatch loop. The dispatch loop usually
 dominates the execution time of a virtual machine, but we have
@@ -313,7 +313,7 @@ based on instruction op code.
 
 This loop is implemented by `VirtualMachine::Run()`.
 
-## VM Compiler
+### VM Compiler
 
 An important part of this infrastructure is a compiler from Relay\'s
 full IR into a sequence of bytecode. The VM compiler transforms a
@@ -328,7 +328,7 @@ data structures, please see
 and
 [include/tvm/runtime/vm/vm.h](https://github.com/apache/tvm/blob/main/include/tvm/runtime/vm/vm.h).
 
-## Optimizations
+### Optimizations
 
 There are quite a few optimizations required by the VM compiler. Each of
 them is implemented as a pass which is managed by the Relay pass
@@ -346,7 +346,7 @@ Optimizations marked with [TODO]{.title-ref} are not implemented yet.
 -   Tail Call Optimization (TODO)
 -   Liveness Analysis (TODO)
 
-## Serialization
+### Serialization
 
 Serializing and deserializing the executable generated by the Relay VM
 compiler is a must as we may want to save the model to the disk and
@@ -388,22 +388,22 @@ to the
 [test_vm_serialization.py](https://github.com/apache/tvm/blob/main/tests/python/relay/test_vm_serialization.py)
 file for more examples.
 
-## Unresolved Questions
+### Unresolved Questions
 
-### How do we handle dynamic shapes?
+#### How do we handle dynamic shapes?
 
 Dynamic shape support is ongoing work in TVM as we upgrade Relay, TVM\'s
 compiler. For the most recent updates on dynamic shape support, we
 recommend following updates in TVM\'s Discuss forum
 (<https://discuss.tvm.apache.org/>).
 
-### How can we modify the VM to support JIT compilation of certain code paths?
+#### How can we modify the VM to support JIT compilation of certain code paths?
 
 In the code generation space there are still many tradeoffs to be
 analyzed and the VM is designed to be very flexible so we can modify it
 for future experiments.
 
-### How do we support heterogenous execution?
+#### How do we support heterogenous execution?
 
 Heterogenous execution should work out of the box assuming we have
 annotated the appropriate device copies. In order to do this properly we

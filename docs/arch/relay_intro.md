@@ -15,7 +15,7 @@ points in the later part of the article.
     featured differentiable language.
 -   Being able to allow the user to mix the two programming styles.
 
-# Build a Computational Graph with Relay
+## Build a Computational Graph with Relay
 
 Traditional deep learning frameworks use computational graphs as their
 intermediate representation. A computational graph (or dataflow graph),
@@ -61,7 +61,7 @@ program in the text format, we print one CallNode per line and assign a
 temporary id `(%1, %2)` to each CallNode so each common node can be
 referenced in later parts of the program.
 
-# Module: Support Multiple Functions (Graphs)
+## Module: Support Multiple Functions (Graphs)
 
 So far we have introduced how can we build a dataflow graph as a
 function. One might naturally ask: Can we support multiple functions and
@@ -128,7 +128,7 @@ over NNVMv1:
     structure can be visited in Python, which allows quick prototyping
     of optimizations in Python and mixing them with C++ code.
 
-# Let Binding and Scopes
+## Let Binding and Scopes
 
 So far, we have introduced how to build a computational graph in the
 good old way used in deep learning frameworks. This section will talk
@@ -170,7 +170,7 @@ bindings? Your PL friends will always tell you that let is important \--
 as PL is a quite established field, there must be some wisdom behind
 that.
 
-# Why We Might Need Let Binding
+## Why We Might Need Let Binding
 
 One key usage of let binding is that it specifies the scope of
 computation. Let us take a look at the following example, which does not
@@ -221,7 +221,7 @@ explicitly specify where the scope of computation should happen when we
 are using sub-functions and closures. Let-binding can be used to solve
 this problem in later stage execution specific optimizations.
 
-# Implication on IR Transformations
+## Implication on IR Transformations
 
 Hopefully, by now you are familiar with the two kinds of
 representations. Most functional programming languages do their analysis

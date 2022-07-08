@@ -11,7 +11,7 @@ welcome every committer to contribute to this document. See the
 `community_guide`{.interpreted-text role="ref"} for an overview of the
 committership and the general development process.
 
-# Community First
+## Community First
 
 The collective effort of the community moves the project forward and
 makes the project awesome for everyone. When we make a decision, it is
@@ -24,7 +24,7 @@ questions that we can ask:
 -   Have I enabled the rest of the community to participate the design
     proposals?
 
-# Public Archive Principle
+## Public Archive Principle
 
 While private channels such as face to face discussion are useful for
 development, they also create barriers for the broader community\'s
@@ -43,7 +43,7 @@ principle:
 -   After an in-person discussion, send a summary to public channels (as
     an RFC or a discuss thread).
 
-# Shepherd a Pull Request
+## Shepherd a Pull Request
 
 Here are some tips to shepherd a pull request. You can also take a look
 at the `code_review_guide`{.interpreted-text role="ref"}.
@@ -60,7 +60,7 @@ at the `code_review_guide`{.interpreted-text role="ref"}.
 -   Mark the PR as accepted and acknowledge the contributor/reviewers.
 -   Merge the PR :)
 
-# Time Management
+## Time Management
 
 There are many things that a committer can do, such as moderating
 discussions, pull request reviews and code contributions.
@@ -74,7 +74,7 @@ but watch the community less frequently in the rest of the time.
 Remember that your merit will never go away, so please take your time
 and pace when contributing to the project :)
 
-# Broad Collaboration
+## Broad Collaboration
 
 Sometimes, we tend to only interact with people we know. However, broad
 collaborations are necessary to the success of the project. Try to keep

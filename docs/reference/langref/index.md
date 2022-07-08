@@ -5,7 +5,7 @@ title: Language Reference
 This document provides references to embedded languages and IRs in the
 TVM stack.
 
-# Introduction to Relay
+## Introduction to Relay
 
 Relay is a functional, differentiable programming language designed to
 be an expressive intermediate representation for machine learning
@@ -26,7 +26,7 @@ and operators in Relay, respectively.
 relay_expr relay_type relay_adt relay_op relay_pattern
 :::
 
-# Hybrid Script
+## Hybrid Script
 
 The below page describes the TVM hybrid script front-end, which uses
 software emulation to support some constructs not officially supported

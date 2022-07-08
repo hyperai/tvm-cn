@@ -29,7 +29,7 @@ compiler. Then we will review the logical modules of the codebase and
 their relationship. This part provides a static overarching view of the
 design.
 
-# Example Compilation Flow
+## Example Compilation Flow
 
 In this guide, we will study an example compilation flow in the
 compiler. The figure below shows the flow. At a high-level, it contains
@@ -54,7 +54,7 @@ several steps:
 ![](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg){.align-center
 width="85.0%"}
 
-## Key data structures
+### Key data structures
 
 One of the best ways to design and understand a complex system is to
 identify the key data structures and APIs that manipulate (transform)
@@ -82,7 +82,7 @@ During the compilation, a relay function may be lowered to multiple
 tir::PrimFunc functions and a top-level function that calls into those
 tir::PrimFunc functions.
 
-## Transformations
+### Transformations
 
 Now that we have covered the key data structures, let us talk about the
 transformations. Each transformation could serve one of the following
@@ -136,7 +136,7 @@ LLVM, CUDA C, and other target compilers. As a result, we leave
 low-level optimizations such as register allocation to the downstream
 compilers and only focus on optimizations that are not covered by them.
 
-## Search-space and Learning-based Transformations
+### Search-space and Learning-based Transformations
 
 The transformation passes we described so far are deterministic and
 rule-based. One design goal of the TVM stack is to support
@@ -168,7 +168,7 @@ generation problem. This part of the module is called
 AutoTVM(auto_scheduler). We expect to expand the learning-based
 transformations to more areas as we continue to develop the TVM stack.
 
-## Target Translation
+### Target Translation
 
 The target translation phase transforms an IRModule to the corresponding
 target executable format. For backends such as x86 and ARM, we use the
@@ -185,7 +185,7 @@ The transformations before the target translation phase can also be
 affected by the target --- for example, a target\'s vector length would
 change the vectorization behavior.
 
-## Runtime Execution
+### Runtime Execution
 
 The main goal of TVM\'s runtime is to provide a minimal API for loading
 and executing the compiled artifact in a language of their choice,
@@ -245,7 +245,7 @@ The main take away is that runtime.Module and runtime.PackedFunc are
 sufficient to encapsulate both operator level programs (such as addone),
 as well as the end-to-end models.
 
-## Summary and Discussions
+### Summary and Discussions
 
 In summary, the key data structures in the compilation flows are:
 
@@ -270,7 +270,7 @@ numpy.ndarray to tvm.IRModule. Here are some example use-cases:
     quantization).
 -   Manipulate the IR directly using TVM\'s python API.
 
-# Logical Architecture Components
+## Logical Architecture Components
 
 ![TVM Architecture
 Diagram](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_static_overview.svg){.align-center
@@ -280,12 +280,12 @@ The above figure shows the major logical components in the project.
 Please read the following sections for information about the components
 and their relations.
 
-# tvm/support
+## tvm/support
 
 The support module contains the most common utilities for the
 infrastructure, such as generic arena allocator, socket, and logging.
 
-# tvm/runtime
+## tvm/runtime
 
 The runtime serves as the foundation of the TVM stack. It provides the
 mechanism to load and execute compiled artifacts. The runtime defines a
@@ -325,7 +325,7 @@ debugger virtual_machine introduction_to_module_serialization
 device_target_interactions
 :::
 
-# tvm/node
+## tvm/node
 
 The node module adds additional features on top of the
 [runtime::Object]{.title-ref} for IR data structures. The main features
@@ -346,7 +346,7 @@ We can also serialize arbitrary IR node into a JSON format, and load
 them back. The ability to save/store, and inspect an IR node provides a
 foundation for making the compiler more accessible.
 
-# tvm/ir
+## tvm/ir
 
 The [tvm/ir]{.title-ref} folder contains the unified data structure and
 interfaces across for all IR function variants. The components in
@@ -385,7 +385,7 @@ additional attributes(e.g. whether the Op is elementwise) to the system.
 pass_infra
 :::
 
-# tvm/target
+## tvm/target
 
 The target module contains all the code generators that translate an
 IRModule to a target runtime.Module. It also provides a common
@@ -399,7 +399,7 @@ registered to each target id(cuda, opencl).
 device_target_interactions
 :::
 
-# tvm/tir
+## tvm/tir
 
 TIR contains the definition of the low-level program representations. We
 use [tir::PrimFunc]{.title-ref} to represent functions that can be
@@ -408,7 +408,7 @@ module also defines a set of builtin intrinsics and their attributes via
 the common Op registry, as well as transformation passes in
 [tir/transform]{.title-ref}.
 
-# tvm/arith
+## tvm/arith
 
 This module is closely tied to the TIR. One of the key problems in the
 low-level code generation is the analysis of the indices\' arithmetic
@@ -417,7 +417,7 @@ that describes the iterator space. arith module provides a collection of
 tools that do (primarily integer) analysis. A TIR pass can use these
 analyses to simplify and optimize the code.
 
-# tvm/te
+## tvm/te
 
 The name te stands for \"tensor expression\". This is a domain-specific
 language module that allows us to construct [tir::PrimFunc]{.title-ref}
@@ -435,7 +435,7 @@ itself.
 inferbound hybrid_script
 :::
 
-# tvm/topi
+## tvm/topi
 
 While possible to construct operators directly via TIR or tensor
 expressions (TE) for each use case it is tedious to do so.
@@ -445,7 +445,7 @@ common deep learning workloads. We also provide a collection of common
 schedule templates to obtain performant implementations across different
 target platforms.
 
-# tvm/relay
+## tvm/relay
 
 Relay is the high-level functional IR used to represent full models.
 Various optimizations are defined in [relay.transform]{.title-ref}. The
@@ -458,7 +458,7 @@ machine), memory(for memory optimization).
 relay_intro relay_op_strategy convert_layout
 :::
 
-# tvm/autotvm
+## tvm/autotvm
 
 AutoTVM and AutoScheduler are both components which automate search
 based program optimization. This is rapidly evolving and primarily
@@ -479,7 +479,7 @@ from the Python binding.
 benchmark
 :::
 
-# Frontends
+## Frontends
 
 Frontends ingest models from different frameworks into the TVM stack.
 :py`tvm.relay.frontend`{.interpreted-text role="mod"} is the namespace
@@ -489,13 +489,13 @@ for model ingestion APIs.
 frontend/tensorflow
 :::
 
-# Security
+## Security
 
 ::: {.toctree maxdepth="1"}
 security
 :::
 
-# microTVM
+## microTVM
 
 ::: {.toctree maxdepth="1"}
 microtvm_design microtvm_project_api model_library_format

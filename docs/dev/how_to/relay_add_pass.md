@@ -20,7 +20,7 @@ To begin, we\'ll give an overview of the key mechanisms for writing a
 compiler pass. Then, we\'ll walk through a concrete example of the
 constant-folding pass in Relay.
 
-# AST Traversers
+## AST Traversers
 
 The base class used to traverse Relay programs is `ExprFunctor`. The
 public interface it provides is a `VisitExpr` method that takes an
@@ -56,7 +56,7 @@ overriding implementations for the expression types where we want
 different behavior. We describe each subclass on its own in the
 following sections.
 
-## Expression Visitors
+### Expression Visitors
 
 `ExprVisitor` is for passes that don\'t modify the program and instead
 perform program analyses and collect information. With this class,
@@ -105,7 +105,7 @@ We could of course further wrap the API by making a standalone procedure
 that creates a `CallChecker` instance and calls `Check` on it, but the
 takeaway is that we\'ve achieved our goal with very little effort.
 
-## Expression Mutators
+### Expression Mutators
 
 `ExprMutator` is for passes that transform the program in some way. With
 this class, `VisitExpr` and its private counterparts return `Expr`. The
@@ -161,7 +161,7 @@ With this mutator, we didn\'t need to do any bookkeeping, but we still
 want to follow the convention of having a descriptive method as the
 interface.
 
-# Example: Constant Folding
+## Example: Constant Folding
 
 In order to better understand the process of writing a pass, we will
 look at the constant folding pass (found in
@@ -176,7 +176,7 @@ the computations that we can. To achieve this, the constant folding pass
 makes use of a visitor (`ConstantChecker`) and a mutator
 (`ConstantFolder`).
 
-## The `ConstantChecker` Visitor
+### The `ConstantChecker` Visitor
 
 This visitor is used to check if an expression is constant. In Relay, we
 define an expression to be constant if it is a `ConstantNode` or it is a
@@ -221,7 +221,7 @@ modify `memo_` when the encountered node could potentially be constant.
 Then we rely on the default value being false when `memo_` doesn\'t
 contain `expr`.
 
-## The `ConstantFolder` Mutator
+### The `ConstantFolder` Mutator
 
 This mutator performs the bulk of the constant folding pass and
 internally uses `ConstantChecker`. In Relay, there are three node types
@@ -316,7 +316,7 @@ and uses a `ConstantFolder` instance (the full definition can be found
 in
 [src/relay/transforms/fold_constant.cc](https://github.com/apache/tvm/blob/main/src/relay/transforms/fold_constant.cc)).
 
-## Registering a Pass with the Pass Manager
+### Registering a Pass with the Pass Manager
 
 *Note: please see the documentation on the :ref:\`pass-infra\` for more
 specific detail on this subject.*

@@ -68,7 +68,7 @@ On this page you will find information on how to
 Model](#compiling-a-model) and executing on different platforms:
 [Inference](#inference).
 
-# System Requirements
+## System Requirements
 
 The [Vitis AI System Requirements
 page](https://github.com/Xilinx/Vitis-AI/blob/master/docs/learn/system_requirements.md)
@@ -78,7 +78,7 @@ models requires a host machine for compiling models using the TVM with
 Vitis AI flow, and an edge device for running the compiled models. The
 host system requirements are the same as specified in the link above.
 
-# Setup instructions
+## Setup instructions
 
 This section provide the instructions for setting up the TVM with Vitis
 AI flow for both cloud and edge. TVM with Vitis AI support is provided
@@ -129,7 +129,7 @@ To setup your Zynq or Versal VCK190 evaluation board for inference,
 please follow the [Zynq](#zynq-setup) respectively [Versal
 VCK190](#versal-vck190-setup) instructions.
 
-## Alveo Setup
+### Alveo Setup
 
 Check out following page for setup information: [Alveo
 Setup](https://github.com/Xilinx/Vitis-AI/blob/v1.4/setup/alveo/README.md).
@@ -147,7 +147,7 @@ source setup.sh [DPU-IDENTIFIER]
 The DPU identifier for this can be found in the second column of the DPU
 Targets table at the top of this page.
 
-## Versal VCK5000 Setup
+### Versal VCK5000 Setup
 
 Check out following page for setup information: [VCK5000
 Setup](https://github.com/Xilinx/Vitis-AI/blob/v1.4/setup/vck5000/README.md).
@@ -162,7 +162,7 @@ cd Vitis-AI/setup/vck5000
 source setup.sh
 ```
 
-## Zynq Setup
+### Zynq Setup
 
 For the Zynq target (DPUCZDX8G) the compilation stage will run inside
 the docker on a host machine. This doesn\'t require any specific setup
@@ -260,14 +260,14 @@ You might see a warning about the \'cpu-tf\' runtime not being found.
 This warning is expected on the board and can be ignored.
 :::
 
-## Versal VCK190 Setup
+### Versal VCK190 Setup
 
 For the Versal VCK190 setup, please follow the instructions for [Zynq
 Setup](#zynq-setup), but now use the [VCK190
 image](https://www.xilinx.com/member/forms/download/design-license-xef.html?filename=xilinx-vck190-dpu-v2020.2-v1.4.0.img.gz)
 in step 1. The other steps are the same.
 
-# Compiling a Model
+## Compiling a Model
 
 The TVM with Vitis AI flow contains two stages: Compilation and
 Inference. During the compilation a user can choose a model to compile
@@ -417,7 +417,7 @@ This concludes the tutorial to compile a model using TVM with Vitis AI.
 For instructions on how to run a compiled model please refer to the next
 section.
 
-# Inference
+## Inference
 
 The TVM with Vitis AI flow contains two stages: Compilation and
 Inference. During the compilation a user can choose to compile a model
@@ -430,7 +430,7 @@ VCK5000](#running-on-alveo-and-vck5000) and [Running on Zynq and
 VCK190](#running-on-zynq-and-vck190) sections for doing inference on
 cloud accelerator cards respectively edge boards.
 
-## Running on Alveo and VCK5000
+### Running on Alveo and VCK5000
 
 After having followed the steps in the [Compiling a
 Model](#compiling-a-model) section, you can continue running on new
@@ -462,7 +462,7 @@ module.set_input(input_name, input_data)
 module.run()
 ```
 
-## Running on Zynq and VCK190
+### Running on Zynq and VCK190
 
 Before proceeding, please follow the [Zynq](#zynq-setup) or [Versal
 VCK190](#versal-vck190-setup) setup instructions.

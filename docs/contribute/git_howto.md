@@ -7,7 +7,7 @@ title: Git Usage Tips
 
 Here are some tips for git workflow.
 
-# How to resolve a conflict with `main`
+## How to resolve a conflict with `main`
 
 -   First rebase to most recent main
 
@@ -41,7 +41,7 @@ Here are some tips for git workflow.
     git push --force
     ```
 
-# How to combine multiple commits into one
+## How to combine multiple commits into one
 
 Sometimes we want to combine multiple commits, especially when later
 commits are only fixes to previous ones, to create a PR with set of
@@ -72,7 +72,7 @@ meaningful commits. You can do it by following steps.
     git push --force
     ```
 
-# Reset to the most recent main branch
+## Reset to the most recent main branch
 
 You can always use git reset to reset your version to the most recent
 main. Note that **all your local changes will get lost**. So only do it
@@ -84,7 +84,7 @@ git fetch origin main
 git reset --hard FETCH_HEAD
 ```
 
-# Recover a Previous Commit after Reset
+## Recover a Previous Commit after Reset
 
 Sometimes we could mistakenly reset a branch to a wrong commit. When
 that happens, you can use the following command to show the list of
@@ -97,7 +97,7 @@ git reflog
 Once you get the right hashtag, you can use git reset again to change
 the head to the right commit.
 
-# Apply only k-Latest Commits on to the main
+## Apply only k-Latest Commits on to the main
 
 Sometimes it is useful to only apply your k-latest changes on top of the
 main. This usually happens when you have other m-commits that are
@@ -116,7 +116,7 @@ git rebase --onto upstream/main HEAD~k
 You can then force push to the main. Note that the above command will
 discard all the commits before tha last k ones.
 
-# What is the consequence of force push
+## What is the consequence of force push
 
 The previous two tips requires force push, this is because we altered
 the path of the commits. It is fine to force push to your own fork, as

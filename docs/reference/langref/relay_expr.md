@@ -6,7 +6,7 @@ The Relay IR is a pure, expression-oriented language. The below sections
 describe the different expressions in Relay and give details of their
 semantics.
 
-# Dataflow and Control Fragments
+## Dataflow and Control Fragments
 
 For the purposes of comparing Relay to traditional computational
 graph-based IRs, it can be useful to consider Relay expressions in terms
@@ -42,7 +42,7 @@ is in the dataflow fragment; conversely, if the function\'s body
 contains control flow, a call to that function is not part of the
 dataflow fragment.
 
-# Variables
+## Variables
 
 Inspired by LLVM, Relay explicitly distinguishes between local and
 global variables both in the AST and in the text format. In the text
@@ -54,7 +54,7 @@ This explicit distinction makes certain optimizations easier to
 implement. For example, inlining a global definition requires no
 analysis: simply substituting the definition suffices.
 
-## Global Variable
+### Global Variable
 
 Global identifiers are prefixed by the `@` sigil, such as \"`@global`\".
 A global identifier always references a globally visible definition
@@ -65,7 +65,7 @@ unique.
 See :py`~tvm.relay.expr.GlobalVar`{.interpreted-text role="class"} for
 its implementation and documentation.
 
-## Local Variable
+### Local Variable
 
 Local identifiers are prefixed by the `%` sigil, such as \"`%local`\". A
 local identifier always references a function argument or a variable
@@ -97,7 +97,7 @@ site.)
 See :py`~tvm.relay.expr.Var`{.interpreted-text role="class"} for its
 implementation and documentation.
 
-# Functions
+## Functions
 
 Functions in Relay act similarly to procedures or functions in other
 programming languages and serve to generalize the concept of a named
@@ -113,7 +113,7 @@ subsection), which are values like tensors and tuples.
 See :py`~tvm.relay.function.Function`{.interpreted-text role="class"}
 for the definition and documentation of function nodes.
 
-## Syntax
+### Syntax
 
 A definition minimally consists of the keyword `fn`, an empty set of
 parameters, and a body expression
@@ -170,7 +170,7 @@ let %fact = fn(%x : Tensor[(10, 10), float32]) -> Tensor[(10, 10), float32] {
 %fact(Constant(10, (10, 10), float32))
 ```
 
-## Closures
+### Closures
 
 A function expression evaluates to a closure. Closures are values that
 are represented as a pair of a local environment (storing the values for
@@ -194,7 +194,7 @@ let %x = Constant(1, (10, 10), float32);
 %f(%x) // evaluates to Constant(0, (10, 10), float32)
 ```
 
-## Polymorphism and Type Relations
+### Polymorphism and Type Relations
 
 *Note: type parameter syntax is not yet supported in the text format.*
 
@@ -255,7 +255,7 @@ implementations, please see
 `their section in the documentation on Relay's type system <type-relation>`{.interpreted-text
 role="ref"}.
 
-# Operators
+## Operators
 
 An operator is a primitive operation, such as `add` or `conv2d`, not
 defined in the Relay language. Operators are declared in the global
@@ -294,7 +294,7 @@ generating a call to various pre-registered operators. The
 `tutorial on adding operators to Relay <relay-add-op>`{.interpreted-text
 role="ref"} shows how to add further operators into the language.
 
-# ADT Constructors
+## ADT Constructors
 
 Algebraic data types (ADTs) in Relay are described in detail in a
 `separate overview<adt-overview>`{.interpreted-text role="ref"} and
@@ -329,7 +329,7 @@ Matching](#adt-matching).
 See :py`~tvm.relay.adt.Constructor`{.interpreted-text role="class"} for
 the definition and documentation.
 
-# Call
+## Call
 
 Expressions with function types in Relay are \"callable,\" meaning that
 they can be invoked via a function call. These consist of any expression
@@ -389,7 +389,7 @@ let %x : Tensor[(100, 100, 100), float32] = %f(%a, %b);
 See :py`~tvm.relay.expr.Call`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# Module and Global Functions {#module-description}
+## Module and Global Functions {#module-description}
 
 Relay keeps a global data structure known as a \"module\" (often called
 an \"environment\" in other functional programming languages) to keep
@@ -430,7 +430,7 @@ the function definition as needed.
 See :py`~tvm.IRModule`{.interpreted-text role="class"} for the
 definition and documentation of a module.
 
-# Constant
+## Constant
 
 This node represents a constant tensor value (see
 :py`~tvm.relay.Value`{.interpreted-text role="mod"} for more details). A
@@ -446,9 +446,9 @@ rank-zero shape.
 See :py`~tvm.relay.expr.Constant`{.interpreted-text role="class"} for
 its definition and documentation.
 
-# Tuples
+## Tuples
 
-## Construction
+### Construction
 
 The tuple node builds a finite (that is, of statically known size)
 sequence of heterogeneous data. These tuples match Python\'s closely,
@@ -464,7 +464,7 @@ fn(%a : Tensor[(10, 10), float32], %b : float32, %c : Tensor[(100, 100), float32
 See :py`~tvm.relay.expr.Tuple`{.interpreted-text role="class"} for its
 definition and documentation.
 
-## Projection
+### Projection
 
 A tuple must be indexed by an integer constant in order to extract a
 particular member of the tuple. Projections are 0-indexed.
@@ -478,7 +478,7 @@ For example, the below projection evaluates to `%b`:
 See :py`~tvm.relay.expr.TupleGetItem`{.interpreted-text role="class"}
 for its definition and documentation.
 
-# Let Bindings
+## Let Bindings
 
 A `let` binding is an immutable local variable binding, allowing the
 user to bind an expression to a name.
@@ -520,7 +520,7 @@ let %y = %c + %d;
 See :py`~tvm.relay.expr.Let`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# Graph Bindings
+## Graph Bindings
 
 A `let` binding creates a named variable that is bound to the given
 value and scoped to the subsequent expression. By contrast, a graph
@@ -572,7 +572,7 @@ many compiler optimizations from the functional programming community
 Might](http://matt.might.net/articles/a-normalization/) for an
 introduction to A-normal form).
 
-# If-Then-Else
+## If-Then-Else
 
 Relay has a simple if-then-else expression that allows programs to
 branch on a single value of type `bool`, i.e., a zero-rank tensor of
@@ -596,7 +596,7 @@ the condition value evaluates to `False`.
 See :py`~tvm.relay.expr.If`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# ADT Matching
+## ADT Matching
 
 Instances of algebraic data types (ADTs), as discussed in the
 `ADT overview<adt-overview>`{.interpreted-text role="ref"}, are
@@ -673,7 +673,7 @@ fn(%v : Nat[]) -> Nat[] {
 See :py`~tvm.relay.adt.Match`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# TempExprs
+## TempExprs
 
 Program transformations (passes) in Relay may require inserting
 temporary state into the program AST to guide further transformations.

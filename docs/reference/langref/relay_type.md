@@ -44,7 +44,7 @@ the complexity of its type system.
 Below we detail the language of types in Relay and how they are assigned
 to Relay expressions.
 
-# Type
+## Type
 
 The base type for all Relay types. All Relay types are sub-classes of
 this base type.
@@ -52,7 +52,7 @@ this base type.
 See :py`~tvm.relay.ty.Type`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# Tensor Type
+## Tensor Type
 
 A concrete tensor type in Relay.
 
@@ -78,7 +78,7 @@ Tensor[(10, 10), float32]
 See :py`~tvm.relay.ty.TensorType`{.interpreted-text role="class"} for
 its definition and documentation.
 
-# Tuple Type
+## Tuple Type
 
 A type of a tuple in Relay.
 
@@ -102,7 +102,7 @@ let %c = %t.1;
 See :py`~tvm.relay.ty.TupleType`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# Type Parameter
+## Type Parameter
 
 Type parameters represent placeholder types used for polymorphism in
 functions. Type parameters are specified according to *kind*,
@@ -135,7 +135,7 @@ plus<(10, 10)>(%a, %b)
 See :py`~tvm.relay.ty.TypeVar`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# Type Constraint
+## Type Constraint
 
 This is an abstract class representing a type constraint, to be
 elaborated upon in further releases. Currently, type relations are the
@@ -144,7 +144,7 @@ only type constraints provided; they are discussed below.
 See :py`~tvm.relay.ty.TypeConstraint`{.interpreted-text role="class"}
 for its definition and documentation.
 
-# Function Type
+## Function Type
 
 A function type in Relay, see [tvm/relay/type.h]{.title-ref} for more
 details.
@@ -165,7 +165,7 @@ arguments, but may take a subset instead.
 See :py`~tvm.relay.ty.FuncType`{.interpreted-text role="class"} for its
 definition and documentation.
 
-# Type Relation
+## Type Relation
 
 A type relation is the most complex type system feature in Relay. It
 allows users to extend type inference with new rules. We use type
@@ -237,7 +237,7 @@ C++.
 See :py`~tvm.relay.ty.TypeRelation`{.interpreted-text role="class"} for
 its definition and documentation.
 
-# Incomplete Type
+## Incomplete Type
 
 An incomplete type is a type or portion of a type that is not yet known.
 This is only used during type inference. Any omitted type annotation is
@@ -255,7 +255,7 @@ inference.
 See :py`~tvm.relay.ty.IncompleteType`{.interpreted-text role="class"}
 for its definition and documentation.
 
-# Algebraic Data Types {#adt-typing}
+## Algebraic Data Types {#adt-typing}
 
 *Note: ADTs are not currently supported in the text format.*
 
@@ -281,7 +281,7 @@ instance of that ADT, thus an ADT like a tree or list can be inductively
 built up). The representation of ADTs in the type system must be able to
 accommodate these facts, as the below sections will detail.
 
-## Global Type Variable
+### Global Type Variable
 
 To represent ADTs compactly and easily allow for recursive ADT
 definitions, an ADT definition is given a handle in the form of a global
@@ -301,7 +301,7 @@ global function: the constructor can simply reference the ADT handle
 See :py`~tvm.relay.ty.GlobalTypeVar`{.interpreted-text role="class"} for
 its definition and documentation.
 
-## Definitions (Type Data)
+### Definitions (Type Data)
 
 Besides a name, an ADT needs to store the constructors that are used to
 define it and any type parameters used within them. These are stored in
@@ -319,7 +319,7 @@ assigned the correct types.
 See :py`~tvm.relay.adt.TypeData`{.interpreted-text role="class"} for its
 definition and documentation.
 
-## Type Call
+### Type Call
 
 Because an ADT definition can take type parameters, Relay\'s type system
 considers an ADT definition to be a *type-level function* (in that the
@@ -343,7 +343,7 @@ arguments passed to the type call).
 See :py`~tvm.relay.ty.TypeCall`{.interpreted-text role="class"} for its
 definition and documentation.
 
-## Example: List ADT
+### Example: List ADT
 
 This subsection uses the simple list ADT (included as a default ADT in
 Relay) to illustrate the constructs described in the previous sections.

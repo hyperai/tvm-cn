@@ -2,7 +2,7 @@
 title: Python Target Parametrization
 ---
 
-# Summary
+## Summary
 
 For any supported runtime, TVM should produce numerically correct
 results. Therefore, when writing unit tests that validate the numeric
@@ -27,7 +27,7 @@ order for a test to be run, all of the following must be true.
     build configuration in [config.cmake]{.title-ref} must enable the
     corresponding runtime.
 
-# Unit-Test File Contents
+## Unit-Test File Contents
 
 The recommended method to run a test on multiple targets is by
 parametrizing the test. This can be done explicitly for a fixed list of
@@ -145,12 +145,12 @@ def test_function():
         # Test code goes here
 ```
 
-# Running locally
+## Running locally
 
 To run the python unit-tests locally, use the command `pytest` in the
 `${TVM_HOME}` directory.
 
--
+-   
 
     Environment variables
 
@@ -187,7 +187,7 @@ To run the python unit-tests locally, use the command `pytest` in the
     >     Even if `-m gpu` is specified, if `TVM_TEST_TARGETS` does not
     >     contain GPU targets, no GPU tests will be run.
 
-# Running in local docker container
+## Running in local docker container
 
 The `docker/bash.sh` script can be used to run unit tests inside the
 same docker image as is used by the CI. The first argument should
@@ -210,7 +210,7 @@ directories as the local config. One solution is to maintain separate
 `build_local` and `build_docker` directories, and make a symlink from
 `build` to the appropriate folder when entering/exiting docker.
 
-# Running in CI
+## Running in CI
 
 Everything in the CI starts from the task definitions present in the
 Jenkinsfile. This includes defining which docker image gets used, what

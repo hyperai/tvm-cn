@@ -9,7 +9,7 @@ This is a document used to record tips in TVM codebase for reviewers and
 contributors. Most of them are summarized through lessons during the
 contributing and process.
 
-# C++ Code Styles
+## C++ Code Styles
 
 -   Use the Google C/C++ style.
 -   The public facing functions are documented in doxygen format.
@@ -55,14 +55,14 @@ macro like normal function styles.
 >
 > }
 
-# Python Code Styles
+## Python Code Styles
 
 -   The functions and classes are documented in
     [numpydoc](https://numpydoc.readthedocs.io/en/latest/) format.
 -   Check your code style using `python tests/scripts/ci.py lint`
 -   Stick to language features in `python 3.7`
 
-# Writing Python Tests
+## Writing Python Tests
 
 We use [pytest](https://docs.pytest.org/en/stable/) for all python
 testing. `tests/python` contains all the tests.
@@ -85,7 +85,7 @@ to test on a single target, use the associated decorator from
 :py`tvm.testing`{.interpreted-text role="func"}. For example, CUDA tests
 use the `@tvm.testing.requires_cuda` decorator.
 
-# Handle Integer Constant Expression
+## Handle Integer Constant Expression
 
 We often need to handle constant integer expressions in TVM. Before we
 do so, the first question we want to ask is that is it really necessary

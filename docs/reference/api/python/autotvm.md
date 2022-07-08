@@ -10,7 +10,7 @@ tvm.autotvm
 tvm.autotvm.apply_history_best
 :::
 
-# tvm.autotvm.measure
+## tvm.autotvm.measure
 
 ::: automodule
 tvm.autotvm.measure.measure
@@ -44,7 +44,7 @@ tvm.autotvm.measure.measure_methods.RPCRunner
 tvm.autotvm.measure.measure_methods.LocalRunner
 :::
 
-# tvm.autotvm.tuner
+## tvm.autotvm.tuner
 
 ::: {.automodule members=""}
 tvm.autotvm.tuner
@@ -74,7 +74,7 @@ tvm.autotvm.tuner.XGBTuner
 tvm.autotvm.tuner.callback
 :::
 
-# tvm.autotvm.task
+## tvm.autotvm.task
 
 ::: {.automodule members=""}
 tvm.autotvm.task
@@ -96,7 +96,7 @@ tvm.autotvm.task.dispatcher
 tvm.autotvm.task.topi_integration
 :::
 
-# tvm.autotvm.record
+## tvm.autotvm.record
 
 ::: {.automodule members=""}
 tvm.autotvm.record

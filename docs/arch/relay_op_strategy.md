@@ -10,7 +10,7 @@ may have multiple algorithms and implementations available. To deal with
 the complexity, we introduce operator strategy to allow developers to
 define a flexible lowering strategy for each operator and target.
 
-# Operator Strategy Design
+## Operator Strategy Design
 
 The basic element in operator strategy is an `OpImplementation`. It
 includes the a pair of compute and schedule function, the name of the
@@ -41,7 +41,7 @@ OpStrategy(const Attrs& attrs, const Array<Tensor>& inputs, const Type& out_type
 that the function returns an `OpStrategy` given the op attributes, input
 tensors, output types, and target to compile to.
 
-# Write A Strategy Function
+## Write A Strategy Function
 
 We recommend developers to write strategy function in Python as most
 TOPI compute and schedule functions are written in Python. In python, we
@@ -161,7 +161,7 @@ def dense_strategy(attrs, inputs, out_type, target):
     return strategy
 ```
 
-# Register Strategy Function to An Operator
+## Register Strategy Function to An Operator
 
 After we define the strategy function for an operator, we can now
 register the strategy function to this operator with
@@ -212,7 +212,7 @@ strategy using `register_schedule`:
 register_schedule("nn.max_pool2d", strategy.schedule_pool)
 ```
 
-# Register Strategies for A New Target
+## Register Strategies for A New Target
 
 There are two ways to register strategies for a new target. The more
 straightforward one is adding a new target file in the directory
@@ -231,7 +231,7 @@ def conv2d_strategy_mytarget(attrs, inputs, out_type, target):
     ...
 ```
 
-# Select Implementation from Op Strategy
+## Select Implementation from Op Strategy
 
 During the compilation, Relay compile engine needs to determine which
 implementation to use for an operator when there are multiple. The

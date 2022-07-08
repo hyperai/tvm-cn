@@ -10,7 +10,7 @@ design guide covers VTA hardware at two levels:
 > -   A micro-architectural overview of the VTA hardware modules, and
 >     the micro-code specification for the compute core.
 
-# VTA Overview
+## VTA Overview
 
 VTA is a generic deep learning accelerator built for fast and efficient
 dense linear algebra. VTA incorporates a simple RISC-like processor that
@@ -42,7 +42,7 @@ task-level pipeline parallelism:
 -   The store module stores results produced by the compute core back to
     DRAM.
 
-# HLS Hardware Source Organization
+## HLS Hardware Source Organization
 
 The VTA design is currently specified in Vivado HLS C++, which is only
 supported by Xilinx toolchains. The VTA hardware sources are contained
@@ -63,7 +63,7 @@ used by the makefile in order to set those high-level parameters in both
 the HLS hardware synthesis compiler, and the C++ compiler that builds
 the VTA runtime.
 
-## HLS Module Example
+### HLS Module Example
 
 We show a definition of one of the VTA modules defined in C++:
 
@@ -166,9 +166,9 @@ A few observations on HLS coding:
     the Xilinx 2018.2 toolchains.
     :::
 
-# Architectural Overview
+## Architectural Overview
 
-## Instruction Set Architecture
+### Instruction Set Architecture
 
 VTA\'s instruction set architecture (ISA) is composed of 4 CISC
 instructions that have a variable execution latency, two of which
@@ -214,7 +214,7 @@ philosophy adopted by the VTA stack which embraces fluidity of the
 hardware-software interface.
 :::
 
-## Dataflow Execution
+### Dataflow Execution
 
 VTA relies on dependence FIFO queues between hardware modules to
 synchronize the execution of concurrent tasks. The figure below shows
@@ -247,7 +247,7 @@ This is because the instructions executed by each module cannot be
 reordered by design, as they arrive in FIFO order.
 :::
 
-## Pipeline Expandability
+### Pipeline Expandability
 
 The default VTA design is composed of four modules that describe a
 3-stage `load-compute-store` task pipeline. Following the dataflow
@@ -259,13 +259,13 @@ which closely reflects the TPU design. Adding more stages has a cost
 however: it can add storage and extra logic overhead, which is why we
 opted for a default 3-stage pipeline.
 
-# Microarchitectural Overview {#vta-uarch}
+## Microarchitectural Overview {#vta-uarch}
 
 We describe the modules that compose the VTA design. The module
 definitions are contained in
 `3rdparty/vta-hw/hardware/xilinx/sources/vta.cc`.
 
-## Fetch Module
+### Fetch Module
 
 VTA is programmed by a linear instruction stream. The fetch module is
 the entry point of VTA to the CPU and is programmed via three memory
@@ -307,7 +307,7 @@ to be deep enough to allow for a wide execution window, and allow
 multiple tasks to be in flight concurrently across the
 `load-compute-store` pipeline.
 
-## Compute Module
+### Compute Module
 
 VTA\'s compute module acts as a RISC processor that performs computation
 on tensor registers rather than scalar registers. Two functional units
@@ -369,7 +369,7 @@ with the GEMM core, a tensor-tensor operation is by default performed
 via vector-vector operations over multiple cycles.
 :::
 
-## Load and Store Modules
+### Load and Store Modules
 
 ![image](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/2d_dma.png){.align-center
 width="100.0%"}

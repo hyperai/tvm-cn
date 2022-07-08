@@ -2,7 +2,7 @@
 title: Deploy to Android
 ---
 
-# Build model for Android Target
+## Build model for Android Target
 
 Relay compilation of model for android target could follow same approach
 like android_rpc. The code below will save the compilation output which
@@ -19,7 +19,7 @@ with open("deploy_param.params", "wb") as fo:
 deploy_lib.so, deploy_graph.json, deploy_param.params will go to android
 target.
 
-# TVM Runtime for Android Target
+## TVM Runtime for Android Target
 
 Refer
 [here](https://github.com/apache/tvm/blob/main/apps/android_deploy/README.md#build-and-installation)

@@ -23,7 +23,7 @@ different things:
     -   Finalizing release notes
     -   Announcing the release
 
-# Prepare the Release Notes
+## Prepare the Release Notes
 
 Release note contains new features, improvement, bug fixes, known issues
 and deprecation, etc. TVM provides [monthly dev
@@ -34,7 +34,7 @@ writes the release notes.
 It is recommended to open a Github issue to collect feedbacks for the
 release note draft before cutting the release branch.
 
-# Prepare the GPG Key
+## Prepare the GPG Key
 
 You can skip this section if you have already uploaded your key.
 
@@ -61,7 +61,7 @@ svn rm --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.o
 svn cp --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.org/repos/dist/dev/tvm/KEYS https://dist.apache.org/repos/dist/release/tvm/ -m "Update KEYS"
 ```
 
-# Cut a Release Candidate
+## Cut a Release Candidate
 
 To cut a release candidate, one needs to first cut a branch using
 selected version string, e.g.,
@@ -127,7 +127,7 @@ gpg --armor --output apache-tvm-src-v0.6.0.rc0.tar.gz.asc --detach-sig apache-tv
 shasum -a 512 apache-tvm-src-v0.6.0.rc0.tar.gz > apache-tvm-src-v0.6.0.rc0.tar.gz.sha512
 ```
 
-# Upload the Release Candidate
+## Upload the Release Candidate
 
 Edit the release page on Github and upload the artifacts created by the
 previous steps.
@@ -144,7 +144,7 @@ svn add tvm-0.6.0-rc0
 svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m "Add RC"
 ```
 
-# Call a Vote on the Release Candidate
+## Call a Vote on the Release Candidate
 
 The first voting takes place on the Apache TVM developers list
 (<dev@tvm.apache.org>). To get more attention, one can create a github
@@ -169,7 +169,7 @@ If the voting fails, the community needs to modified the release
 accordingly, create a new release candidate and re-run the voting
 process.
 
-# Post the Release
+## Post the Release
 
 After the vote passes, to upload the binaries to Apache mirrors, you
 move the binaries from dev directory (this should be where they are
@@ -195,13 +195,13 @@ remove the pre-release candidate TAG.
 > git push --delete origin v0.6.0.rc2
 > ```
 
-# Update the TVM Website
+## Update the TVM Website
 
 The website repository is located at
 <https://github.com/apache/tvm-site>. Modify the download page to
 include the release artifacts as well as the GPG signature and SHA hash.
 
-# Post the Announcement
+## Post the Announcement
 
 Send out an announcement email to <announce@apache.org>, and
 <dev@tvm.apache.org>. The announcement should include the link to

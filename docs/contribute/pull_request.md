@@ -5,7 +5,7 @@ title: Submit a Pull Request
 ::: {.contents depth="2" local=""}
 :::
 
-# Guidelines
+## Guidelines
 
 -   We recommend authors send well scoped PRs that are easy to review
     and revert in case there is a problem. As such, authors should avoid
@@ -70,20 +70,20 @@ title: Submit a Pull Request
 
 -   The PR can be merged after the reviewers approve the pull request.
 
-# CI Environment
+## CI Environment
 
 We use Docker images to create stable CI environments that can be
 deployed to multiple machines. Follow the steps in [this issue
 template](https://github.com/apache/tvm/issues/new?assignees=&labels=&template=ci-image.md&title=%5BCI+Image%5D+)
 to update a CI Docker image.
 
-# Testing {#pr-testing}
+## Testing {#pr-testing}
 
 Even though we have hooks to run unit tests automatically for each pull
 request, it\'s always recommended to run unit tests locally beforehand
 to reduce reviewers\' burden and speedup review process.
 
-## Docker (recommended)
+### Docker (recommended)
 
 `tests/scripts/ci.py` replicates the CI environment locally and provides
 a user-friendly interface. The same Docker images and scripts used in CI
@@ -113,7 +113,7 @@ python tests/scripts/ci.py cpu --skip-build --tests tests/python/unittest/test_t
 python tests/scripts/ci.py cpu --interactive
 ```
 
-## C++ (local)
+### C++ (local)
 
 Running the C++ tests requires installation of gtest, following the
 instructions in `install-from-source-cpp-tests`{.interpreted-text
@@ -126,7 +126,7 @@ TVM_ROOT=`pwd`
 ./tests/scripts/task_cpp_unittest.sh
 ```
 
-## Python (local)
+### Python (local)
 
 Necessary dependencies:
 

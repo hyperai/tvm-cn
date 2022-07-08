@@ -4,7 +4,7 @@ title: Relay BNNS Integration
 
 **Author**: [Egor Churaev](https://github.com/echuraev)
 
-# Introduction
+## Introduction
 
 Apple BNNS library is a collection of functions that can be used to
 construct neural networks for inference (and train). It's supported in
@@ -25,7 +25,7 @@ This guide will demonstrate how to build TVM with BNNS codegen and
 runtime enabled. It will also provide example code to compile and run
 models using BNNS runtime. Finally, we document the supported operators.
 
-# Building TVM with BNNS support
+## Building TVM with BNNS support
 
 To turn on TVM BNNS codegen and TVM BNNS runtime you need to turn on the
 only USE_BNNS flag
@@ -44,7 +44,7 @@ Example setting in config.cmake file:
 set(USE_BNNS ON)
 ```
 
-# BNNS partitioning of Relay graph
+## BNNS partitioning of Relay graph
 
 Operations to be offloaded on BNNS execution must be annotated before
 passing of module for compilation. All ops annotated by
@@ -66,7 +66,7 @@ from tvm.relay.op.contrib.bnns import partition_for_bnns
 model = partition_for_bnns(model, params=params)
 ```
 
-# Input data layout for operations to be offloaded to BNNS execution
+## Input data layout for operations to be offloaded to BNNS execution
 
 BNNS kernels support only planar format of input data. The partitioner
 will require to have NCHW input layout for conv2d input.
@@ -92,7 +92,7 @@ with tvm.transform.PassContext(opt_level=3):
                                         "nn.relu": ["NCHW"]})(mod)
 ```
 
-# Example: Build and Deploy Mobilenet v2 1.0 with BNNS
+## Example: Build and Deploy Mobilenet v2 1.0 with BNNS
 
 Create a Relay graph from a MXNet Mobilenet v2 1.0 model.
 
@@ -151,7 +151,7 @@ input_data = np.random.uniform(0, 1, input_shape).astype(dtype)
 gen_module.run(data=input_data)
 ```
 
-# Operator support
+## Operator support
 
   -----------------------------------------------------------------------
   Relay Node        Remarks

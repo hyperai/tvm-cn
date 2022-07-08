@@ -2,7 +2,7 @@
 title: microTVM Project API
 ---
 
-# About microTVM Project API
+## About microTVM Project API
 
 The microTVM Project API allows TVM to automatically run models on
 unconventional or embedded platforms. It allows platforms to define a
@@ -30,14 +30,14 @@ to build firmware using your platform\'s build tool:
     you to create Continuous Integration Tests which verify model
     correctness and performance on your platform.
 
-# API Definition
+## API Definition
 
 The full API is the `abstractmethod` defined on `ProjectAPIHandler` in
 [python/tvm/micro/project_api/server.py](https://github.com/apache/tvm/blob/main/python/tvm/micro/project_api/server.py).
 Rather than duplicate the documentation here, we simply refer you to
 that class.
 
-# How TVM uses Project API
+## How TVM uses Project API
 
 This section explains how the Project API should be used with TVM.
 Project API is defined around the *Project* as the buildable unit of
@@ -75,7 +75,7 @@ The typical usage flow is as follows:
     `close_transport` is sent.
 9.  Terminate Project API server.
 
-# Disk Layout of the Project
+## Disk Layout of the Project
 
 In the root directory of a project (template or generated), one of the
 following two files must exist:
@@ -93,7 +93,7 @@ following two files must exist:
 Aside from these two files, no other restrictions are made on the
 layout.
 
-# Communication between TVM and Project API Server
+## Communication between TVM and Project API Server
 
 TVM communicates with the Project API server using [JSON-RPC
 2.0](https://www.jsonrpc.org/specification). TVM always launches API
@@ -105,7 +105,7 @@ Commands are sent from TVM to the server over the file descriptor given
 by `--read-fd` and replies are received by TVM from the server over the
 file descriptor given by `--write-fd`.
 
-# Helpers for Implementing the API server in Python
+## Helpers for Implementing the API server in Python
 
 TVM provides helper utilities that make it easy to implement the server
 in Python. To implement the server in Python, create
@@ -128,7 +128,7 @@ Finally, invoke the helper `main()`:
     if __name__ == "__main__":
         server.main(Handler())
 
-# Using Project API from `tvmc`
+## Using Project API from `tvmc`
 
 Each major Project API command is available through the `tvmc micro`
 sub-command to make debugging interactions simple. Invoke

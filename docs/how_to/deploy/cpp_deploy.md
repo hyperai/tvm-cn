@@ -12,7 +12,7 @@ cd apps/howto_deploy
 ./run_example.sh
 ```
 
-# Get TVM Runtime Library
+## Get TVM Runtime Library
 
 The only thing we need is to link to a TVM runtime in your target
 platform. TVM provides a minimum runtime, which costs around 300K to
@@ -29,7 +29,7 @@ You can also checkout
 [apps](https://github.com/apache/tvm/tree/main/apps/) for example
 applications build with TVM on iOS, Android and others.
 
-# Dynamic Library vs. System Module
+## Dynamic Library vs. System Module
 
 TVM provides two ways to use the compiled library. You can checkout
 [prepare_test_libs.py](https://github.com/apache/tvm/tree/main/apps/howto_deploy/prepare_test_libs.py)

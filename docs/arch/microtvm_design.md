@@ -6,7 +6,7 @@ title: microTVM Design Document
 Table of Contents
 :::
 
-# Background
+## Background
 
 TVM is a model deployment framework that has demonstrated good
 performance across a wide range of models on traditional operating
@@ -28,7 +28,7 @@ such devices, the runtime cannot depend on:
 Such changes require a different approach from the TVM C++ runtime
 typically used on traditional Operating Systems.
 
-# Typical Use
+## Typical Use
 
 This section discusses our vision of the \"typical\" microTVM use case.
 Each component used to achieve this typical use case is intended to be
@@ -58,7 +58,7 @@ The parts of this process are described below:
     by TVM using an on-device RPC server, or on the device using the
     on-device Graph Executor.
 
-# Design Goals
+## Design Goals
 
 microTVM aims to achieve these design goals:
 
@@ -70,13 +70,13 @@ microTVM aims to achieve these design goals:
     first-class output mechanism so that it is easier for a firmware
     engineer to understand and tweak.
 
-# Overview
+## Overview
 
 microTVM requires changes at all levels of the TVM compiler stack. The
 following sub-sections enumerate these changes at a high level, and
 follow-on sections discuss the specifics in more detail.
 
-## Modeling Target Platforms
+### Modeling Target Platforms
 
 TVM\'s search-based optimization approach allows it to largely avoid
 system-level modeling of targets in favor of experimental results.
@@ -105,7 +105,7 @@ At this time, TVM does not intend to model:
 -   Size, type, or relationship of caches, with the exception of
     prefetching or cache flushing.
 
-## TVM Targets for microTVM
+### TVM Targets for microTVM
 
 A central data structure in the compilation process is the
 `tvm::target::Target` class. TVM uses Target to decide which TIR
@@ -127,7 +127,7 @@ The relevant parts to microTVM are:
 >     output as a comment to help identify the code and configure the
 >     downstream C compiler.
 
-## Runtime and Executor configuration for microTVM
+### Runtime and Executor configuration for microTVM
 
 When using microTVM, it\'s important to use the C Runtime
 (`Runtime('crt')`), which is the runtime that works best on micro
@@ -147,7 +147,7 @@ are two executors which you could use in combination with the C runtime:
 These are specified when building a runtime module:
 `relay.build(..., runtime=..., executor=...)`.
 
-## Writing Schedules for microTVM
+### Writing Schedules for microTVM
 
 For operations scheduled on the CPU, microTVM initially plans to make
 use of specialized instructions and extern (i.e. hand-optimized)
@@ -198,7 +198,7 @@ inline assembly. However, it may be more complex to call external C
 functions, and helper functions are of course not easy to use from LLVM
 bitcode.
 
-## Executing Models
+### Executing Models
 
 The TVM compiler traditionally outputs three pieces:
 
@@ -223,7 +223,7 @@ Host-Driven is designed for experimenting with models on-device and,
 like AutoTVM, uses the RPC server to drive computation on-device.
 Standalone is intended for deployment.
 
-### Host-Driven Execution
+#### Host-Driven Execution
 
 In Host-Driven execution, the firmware binary is the following:
 
@@ -240,14 +240,14 @@ sending RPC commands over a UART:
 ![](https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_host_driven.svg){.align-center
 width="85.0%"}
 
-### Standalone Execution
+#### Standalone Execution
 
 In Standalone execution, the GraphExecutor is instantiated on device:
 
 ![](https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_standalone.svg){.align-center
 width="85.0%"}
 
-## microTVM Firmware
+### microTVM Firmware
 
 We can now discuss how microTVM firmware should behave. An important
 task common to both model execution strategies is configuring the SoC to
@@ -274,7 +274,7 @@ When configuring for standalone deployment, the firmware needs to:
 3.  Configure parameters and inputs as needed.
 4.  Run the model.
 
-## Parts of a microTVM Binary
+### Parts of a microTVM Binary
 
 To summarize, a microTVM firwmare binary image must contain these parts:
 
@@ -293,7 +293,7 @@ For Standalone model execution, firmware also needs:
 5.  The remaining compiler outputs (Simplified Parameters and Graph
     JSON).
 
-## The Automated Build Flow
+### The Automated Build Flow
 
 Once code generation is complete, `tvm.relay.build` returns a
 `tvm.runtime.Module` and the user can save the generated C source or
@@ -329,7 +329,7 @@ tighter build integration with TVM, the performance gains are likely not
 worth it. A future design will consolidate the build tasks into a single
 step and narrow the interface to provide a better integration.
 
-## Measuring operator performance
+### Measuring operator performance
 
 The TVM C runtime depends on user-supplied functions to measure time
 on-device. Users should implement `TVMPlatformTimerStart` and
@@ -350,9 +350,9 @@ so there are some pitfalls in implementing these functions:
     characterization of the platform timer by, e.g., measuring the
     internal oscillator against a reference such as an external crystal.
 
-# Future Work
+## Future Work
 
-## Ahead-of-Time Runtime
+### Ahead-of-Time Runtime
 
 A limitation of the Graph Executor is the amount of memory overhead
 required in parsing the JSON. The current implementation contributes
@@ -362,7 +362,7 @@ parsing and improve inference speed by generating C code to call the
 generated operator implementations directly rather than relying on a
 data-driven approach with the Graph Executor.
 
-## Memory Planning
+### Memory Planning
 
 The current memory planner attempts to limit the number of
 `TVMBackendDeviceAlloc()` calls issued for intermediate tensors only.
@@ -370,11 +370,11 @@ Because scratchpads can vary widely, and because the planner coalesces
 memory allocations within 16x of each other, this strategy typically
 results in high peak memory usage.
 
-## Heterogeneous Execution
+### Heterogeneous Execution
 
 Newer Cortex-M SoCs can contain multiple CPUs and onboard ML
 accelerators.
 
-## Autotuning Target
+### Autotuning Target
 
 As discussed previously,

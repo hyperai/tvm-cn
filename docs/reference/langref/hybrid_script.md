@@ -2,14 +2,14 @@
 title: Hybrid Frontend Language Reference
 ---
 
-# Overview
+## Overview
 
 This hybrid frontend allows users to write preliminary versions of some
 idioms that yet have been supported by TVM officially.
 
-# Features
+## Features
 
-## Software Emulation
+### Software Emulation
 
 Both software emulation and compilation are supported. To define a
 function, you need to use `tvm.te.hybrid.script` decorator to indicate
@@ -36,7 +36,7 @@ conflict and pollution.
 Every element passed for software emulation in the argument list is
 either a python variable or `numpy` numeric type.
 
-## Backend Compilation
+### Backend Compilation
 
 This function is not encouraged to use, users are encouraged to use the
 second interface. The current parse interface looks like:
@@ -60,7 +60,7 @@ You can use any methods that can be applied on a TVM `OpNode`, like
 create_schedule, although so far, the functionality of schedule is as
 limited as `ExternOpNode`. At least, it can be built to LLVM module.
 
-## Tuning
+### Tuning
 
 Follow up the example above, you can use some tvm like interfaces to
 tune the code:
@@ -86,7 +86,7 @@ correctness of the functionality after tuning. Specifically, users
 should be careful when fusing and reorderding imperfect loops.
 :::
 
-## Loops
+### Loops
 
 In HalideIR, loops have in total 4 types: `serial`, `unrolled`,
 `parallel`, and `vectorized`.
@@ -111,7 +111,7 @@ def foo(a, b): # b is a tvm.container.Array
     return c
 ```
 
-## Variables
+### Variables
 
 All the mutable variables will be lowered to an array with size 1. It
 regards the first store of a variable as its declaration.
@@ -143,7 +143,7 @@ for i in range(5):
 a[0] = s # you CANNOT use s here, even though it is allowed in conventional Python
 ```
 
-## Attributes
+### Attributes
 
 So far, ONLY tensors\' `shape` and `dtype` attribute are supported! The
 `shape` attribute is essentially a tuple, so you MUST access it as an
@@ -156,7 +156,7 @@ for i in range(3):
        # do something
 ```
 
-## Conditional Statement and Expression
+### Conditional Statement and Expression
 
 ``` python
 if condition1 and condition2 and condition3:
@@ -169,13 +169,13 @@ a = b if condition else c
 
 However, NO `True` and `False` keyword supported yet.
 
-## Math Intrinsics
+### Math Intrinsics
 
 So far, these math intrinsics, `log`, `exp`, `sigmoid`, `tanh`, `power`,
 and `popcount`, are supported. No import is required, just as it is
 mentioned in [Software Emulation](#software-emulation), just use it!
 
-## Array Allocation
+### Array Allocation
 
 **Under construction, this function will be supported later!**
 
@@ -185,7 +185,7 @@ array buffer. The basic usage is roughly the same as a normal
 fashion instead of `a[i][j][k]`, even for `tvm.container.Array` for
 compilation.
 
-## Thread Bind
+### Thread Bind
 
 You can also do loop-thread bind by writing code like this:
 
@@ -194,7 +194,7 @@ for tx in bind("threadIdx.x", 100):
     a[tx] = b[tx]
 ```
 
-## Assert Statement
+### Assert Statement
 
 Assert statement is supported, you can simply use it as it is in
 standard Python.
@@ -213,7 +213,7 @@ the way presented above \-\-- condition followed by message. It fits
 both Python AST and HalideIR.
 :::
 
-## Keywords
+### Keywords
 
 -   For keywords: `serial`, `range`, `unroll`, `parallel`, `vectorize`,
     `bind`, `const_range`

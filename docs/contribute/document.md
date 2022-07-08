@@ -16,9 +16,9 @@ to write new documentation. See
 [docs/README.md](https://github.com/apache/tvm/tree/main/docs#build-locally)
 for instructions on building the docs.
 
-# The Four Document Types
+## The Four Document Types
 
-## Introductory Tutorials
+### Introductory Tutorials
 
 These are step by step guides to introduce new users to a project. An
 introductory tutorial is designed to get a user engaged with the
@@ -37,7 +37,7 @@ experience would ask.
 Tutorials need to be repeatable and reliable, because the lack of
 success means a user will look for other solutions.
 
-## How-to Guides
+### How-to Guides
 
 These are step by step guides on how to solve particular problems. The
 user can ask meaningful questions, and the documents provide answers. An
@@ -56,7 +56,7 @@ helps to on-board and assumes no prior knowledge. A how-to assumes
 minimum knowledge, and is meant to guide someone to accomplish a
 specific task.
 
-## Reference
+### Reference
 
 Reference documentation describes how the software is configured and
 operated. APIs, key functions, commands, and interfaces are all
@@ -68,7 +68,7 @@ for specific answers to specific questions. Ideally, the reference
 documentation should have the same structure as the code base and be
 generated automatically as much as possible.
 
-## Architecture Guides
+### Architecture Guides
 
 Architecture Guides are explanations are background material on a topic.
 These documents help to illuminate and understand the application
@@ -86,7 +86,7 @@ developers to have a deeper understanding of why the software works the
 way it does, and how to contribute to it in ways that are consistent
 with the underlying design principles.
 
-## Special considerations for TVM
+### Special considerations for TVM
 
 The TVM community has some special considerations that require deviation
 from the simple docs style outlined by Divio. The first consideration is
@@ -108,7 +108,7 @@ To facilitate newcomers, a special \"Getting Started\" section with
 installation instructions, a overview of why to use TVM, and other
 first-experience documents will be produced.
 
-# Technical Details
+## Technical Details
 
 We use the [Sphinx](http://sphinx-doc.org) for the main documentation.
 Sphinx supports both reStructuredText and markdown. When possible, we
@@ -120,7 +120,7 @@ See
 [docs/README.md](https://github.com/apache/tvm/tree/main/docs#build-locally)
 for instructions on building the docs.
 
-## Python Reference Documentation
+### Python Reference Documentation
 
 We use the [numpydoc](https://numpydoc.readthedocs.io/en/latest/) format
 to document the function and classes. The following snippet gives an
@@ -168,7 +168,7 @@ rules to
 You can refer to the existing files under this folder on how to add the
 functions.
 
-## C++ Reference Documentation
+### C++ Reference Documentation
 
 We use the doxygen format to document c++ functions. The following
 snippet shows an example of c++ docstring.
@@ -188,7 +188,7 @@ int myfunction(int arg1, int arg2) {
 Besides documenting function usages, we also highly recommend
 contributors to add comments about code logics to improve readability.
 
-## Sphinx Gallery How-Tos
+### Sphinx Gallery How-Tos
 
 We use [sphinx-gallery](https://sphinx-gallery.github.io/) to build many
 Python how-tos. You can find the source code under
@@ -209,7 +209,7 @@ references to
 [how-to
 index](https://github.com/apache/tvm/tree/main/docs/how-to/index.rst)
 
-## Refer to Another Location in the Document
+### Refer to Another Location in the Document
 
 Please use sphinx\'s `:ref:` markup to refer to another location in the
 same doc.
@@ -223,7 +223,7 @@ My Section
 You can use :ref:`document-my-section-tag` to refer to My Section.
 ```
 
-## Documents with Images / Figures
+### Documents with Images / Figures
 
 reStructuredText\'s
 [figure](https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure)

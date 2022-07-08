@@ -23,7 +23,7 @@ _main() {
     local filename_orig=$(echo $file | sed "s|$pwd|.|g")
     echo "Converting $filename_orig"
     pandoc ${file} --from rst --to markdown --standalone --eol lf \
-      --output "${filename_md}"
+      --shift-heading-level-by=1 --output "${filename_md}"
 
     # Uncomment this line to delete the source file.
     # rm "${file}"

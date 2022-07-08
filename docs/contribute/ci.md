@@ -22,12 +22,12 @@ failing step to see the output logs.
 
 ![The Jenkins UI for a CI run](https://github.com/tlc-pack/web-data/raw/main/images/contribute/ci.png){width="800px"}
 
-# Debugging Failures
+## Debugging Failures
 
 When CI fails for some reason, there are several methods to diagnose the
 issue.
 
-## Jenkins Logs
+### Jenkins Logs
 
 The first place to look for a failure is in the CI logs, follow the red
 Xs on the failing job to view the logs. Note:
@@ -38,12 +38,12 @@ Xs on the failing job to view the logs. Note:
 -   `pytest`\_ failures are summarized at the bottom of the log but you
     will likely need to scroll up to view the actual failure.
 
-## Reproduce Failures
+### Reproduce Failures
 
 Most TVM Python tests run under `pytest`\_ and can be run as described
 in `pr-testing`{.interpreted-text role="ref"}.
 
-# Keeping CI Green
+## Keeping CI Green
 
 Developers rely on the TVM CI to get signal on their PRs before merging.
 Occasionally breakages slip through and break `main`, which in turn
@@ -57,7 +57,7 @@ or submit a forward fix to address the issue. It is up to the committer
 and commit author which option to choose, keeping in mind that a broken
 CI affects all TVM developers and should be fixed as soon as possible.
 
-## Skip CI for Reverts
+### Skip CI for Reverts
 
 For reverts and trivial forward fixes, adding `[skip ci]` to the
 revert\'s PR title will cause CI to shortcut and only run lint.
@@ -82,7 +82,7 @@ git commit --allow-empty --message "[skip ci] Trigger skipped CI"
 git push my_repo
 ```
 
-# Handling Flaky Failures
+## Handling Flaky Failures
 
 If you notice a failure on your PR that seems unrelated to your change,
 you should search [recent GitHub issues related to flaky
@@ -100,7 +100,7 @@ def test_something_flaky():
     pass
 ```
 
-# `ci-docker-staging`
+## `ci-docker-staging`
 
 The
 [ci-docker-staging](https://github.com/apache/tvm/tree/ci-docker-staging)
@@ -114,7 +114,7 @@ changes. If your PR makes changes to the `Jenkinsfile`, make sure to @ a
 [committer](https://github.com/apache/tvm/blob/main/CONTRIBUTORS.md) and
 ask them to push your PR as a branch to test the changes.
 
-# Docker Images {#docker_images}
+## Docker Images {#docker_images}
 
 Each CI job runs most of its work inside a Docker container, built from
 files in the [docker/](https://github.com/apache/tvm/tree/main/docker)
@@ -144,7 +144,7 @@ $ ./tests/scripts/task_config_build_cpu.sh
 $ ./tests/scripts/task_build.sh build -j32
 ```
 
-# Reporting Issues
+## Reporting Issues
 
 Issues with CI should be [reported on
 GitHub](https://github.com/apache/tvm/issues/new?assignees=&labels=&template=ci-problem.md&title=%5BCI+Problem%5D+)

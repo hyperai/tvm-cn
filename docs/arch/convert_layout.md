@@ -4,7 +4,7 @@ title: Convert Layout Pass
 
 **Author**: [Animesh Jain](https://github.com/anijain2305)
 
-# 1. Background
+## 1. Background
 
 Data layout format describes how the data is laid out in the memory. For
 example, Tensorflow framework default data layout for convolution
@@ -27,7 +27,7 @@ reduce some of the complications that arise due to layout handling.
 If you directly want to understand the usage of ConvertLayout Pass,
 directly jump to Section 4 - Usage.
 
-# 2. Motivation and Overview
+## 2. Motivation and Overview
 
 Let\'s look at a simple scenario to understand the complications that
 arise due to different layouts - Suppose we want to compile a Tensorflow
@@ -79,7 +79,7 @@ fn (%x: Tensor[(1, 56, 56, 64), float32], %weight1: Tensor[(3, 3, 64, 32), float
 }
 ```
 
-# 3. Design
+## 3. Design
 
 Before delving into ConvertLayout pass, let\'s categorize the operators
 into 3 categories based on their sensitivity to data layouts. This
@@ -292,7 +292,7 @@ Array<Array<Layout>> BatchNormInferCorrectLayout(const Attrs& attrs,
 }
 ```
 
-# 4. Usage
+## 4. Usage
 
 ::: {#convert-layout-usage}
 ConvertLayout pass is extremely easy to use. The pass is not a part of

@@ -22,7 +22,7 @@ TVM supports NNPACK for forward propagation (inference only) in
 convolution, max-pooling, and fully-connected layers. In this document,
 we give a high level overview of how to use NNPACK with TVM.
 
-# Conditions
+## Conditions
 
 The underlying implementation of NNPACK utilizes several acceleration
 methods, including fft and winograd. These algorithms work better on
@@ -35,7 +35,7 @@ not met,
 NNPACK only supports Linux and OS X systems. Windows is not supported at
 present.
 
-# Build/Install NNPACK
+## Build/Install NNPACK
 
 If the trained model meets some conditions of using NNPACK, you can
 build TVM with NNPACK support. Follow these simple steps:
@@ -46,7 +46,7 @@ NNPACK dynamically.
 Note: The following NNPACK installation instructions have been tested on
 Ubuntu 16.04.
 
-## Build Ninja
+### Build Ninja
 
 NNPACK need a recent version of Ninja. So we need to install ninja from
 source.
@@ -65,7 +65,7 @@ executable. For example, assume we cloned ninja on the home directory
 export PATH="${PATH}:~/ninja"
 ```
 
-## Build NNPACK
+### Build NNPACK
 
 The new CMAKE version of NNPACK download
 [Peach](https://github.com/Maratyszcza/PeachPy) and other dependencies
@@ -95,7 +95,7 @@ echo "/usr/local/lib" > /etc/ld.so.conf.d/nnpack.conf
 sudo ldconfig
 ```
 
-# Build TVM with NNPACK support
+## Build TVM with NNPACK support
 
 ``` bash
 git clone --recursive https://github.com/apache/tvm tvm

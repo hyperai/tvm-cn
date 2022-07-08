@@ -21,7 +21,7 @@ This document is a living guideline for code review in open source.
 Please also take sometime to read `community_guide`{.interpreted-text
 role="ref"} about the general development process.
 
-# Building Trust
+## Building Trust
 
 First and foremost, we are building a community that based on trust,
 which takes time and effort to both build and maintain. We expect our
@@ -32,7 +32,7 @@ that work for the larger community. Trust-based collaboration is also a
 key tenant of the Apache way and an important factor to consider in
 growing the community, and promoting members to official roles.
 
-# Community Participation
+## Community Participation
 
 Everyone is welcomed to comment on PRs. We encourage committers to wait
 for some period of time(e.g. three days) before merging PR that contains
@@ -56,7 +56,7 @@ follow through on their promises. It is the responsibility of committers
 to listen to all feedback whether from PMC members or new contributors
 and consider what actions need to be taken.
 
-# Read the code carefully
+## Read the code carefully
 
 Sometimes we may quickly read through the code and only pick up on a
 selective aspects of the code. These type of comments are usually
@@ -77,7 +77,7 @@ hits the merge button. In the meantime, we acknowledge that sometimes
 problems slip through, in that case, the merger is responsible for
 ensuring the correct follow up actions are taken.
 
-# Be Respectful
+## Be Respectful
 
 -   To everyone who are making comments: making constructive comment
     will help new contributors to land their PRs timely and help us
@@ -94,7 +94,7 @@ something in the process not working, consider getting some face time
 with the other contributors and discussing how to improve the process or
 communication.
 
-# Factors to Consider about Code Quality
+## Factors to Consider about Code Quality
 
 High quality code is critical to the long term success of the project.
 There are many factors of code quality to consider during a code review:
@@ -149,7 +149,7 @@ more than about code formatting --- they also pertain to the correct way
 to document code, variable naming, and other conventions that are not
 enforced by automatic formatters.
 
-# Consensus Building
+## Consensus Building
 
 Disagreements can happen during code reviews. We encourage building
 consensus among the people involved. We are working together and
@@ -169,7 +169,7 @@ like, this true even for leaders of the community.
     merger should also take the responsibility to followup in case there
     are problems caused by the merge.
 
-# Consistency
+## Consistency
 
 A final remark is that we are all human and its hard to always be
 perfectly consistent. If contributors feel that you didn\'t apply these
@@ -179,9 +179,9 @@ we evolve as a community. Our goal is to strive to be consistent and
 objective but all of us are unfortunately human and imperfect and will
 need to adjust and learn.
 
-# Additional Recommendations
+## Additional Recommendations
 
-## Deliberate on API and Data Structures
+### Deliberate on API and Data Structures
 
 A minimum and stable API is critical to the project's life. A good API
 makes a huge difference. Always think very carefully about all the
@@ -213,7 +213,7 @@ Here are some useful principles for designing APIs:
 -   Minimum. Think about how many lines of code a user has to write to
     use the API. Remove layers of abstraction when possible.
 
-## Minimize Dependencies
+### Minimize Dependencies
 
 Always be cautious in introducing dependencies. While it is important to
 reuse code and avoid reinventing the wheel, dependencies can increase
@@ -221,25 +221,25 @@ burden of users in deployment. A good design principle is that a feature
 or function should only have a dependency if/when a user actually use
 it.
 
-## Concise Implementation
+### Concise Implementation
 
 Some basic principles applied here: favor vectorized array code over
 loops, use existing APIs that solve the problem.
 
-## Document Lessons in Code Reviews
+### Document Lessons in Code Reviews
 
 When you find there are some common or recurring lessons that can be
 summarized, add it to the `code_guide`{.interpreted-text role="ref"}. It
 is always good to refer to the guideline document when requesting
 changes, so the lessons can be shared to all the community.
 
-## Learn from other Code Reviews
+### Learn from other Code Reviews
 
 There can be multiple reviewers reviewing the same changes. Many times
 other reviewers may spot things you did not find. Try to learn from
 other code reviews, when possible, document these lessons.
 
-## Approve and Request Changes Explicitly
+### Approve and Request Changes Explicitly
 
 The contributor and code owner can request code reviews from multiple
 reviewers. Remember to approve changes when your comments are addressed
@@ -249,7 +249,7 @@ changes. Code owner can decide if the code can be merged in case by case
 if some of the reviewers did not respond in time(e.g. a week) and
 existing reviews are sufficient.
 
-## Reviewers
+### Reviewers
 
 Reviewers should strive to leave timely feedback on pull requests for
 which their review was requested. Reviewing code is an important part of

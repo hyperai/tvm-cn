@@ -185,7 +185,7 @@ The remainder of the document dives into the details of InferRootBound
 and PassDownDomain. Since PassDownDomain is simpler to describe, we will
 cover it first.
 
-# IterVar Hyper-graph {#IterVarHyperGraph}
+## IterVar Hyper-graph {#IterVarHyperGraph}
 
 The InferBound pass traverses the stage graph, as described above.
 However, within each stage is another graph, whose nodes are IterVars.
@@ -212,7 +212,7 @@ in the DAG (\"PassUp\"), or from the parent to its children
 the diagram above, shows that PassDownDomain sends messages from the
 root IterVar `i` to its children `i.outer` and `i.inner`.
 
-# PassDownDomain {#PassDownDomain}
+## PassDownDomain {#PassDownDomain}
 
 The purpose of PassDownDomain is to take the Ranges produced by
 InferRootBound for the root_iter_vars, and set the Ranges of all other
@@ -248,7 +248,7 @@ known Ranges of the inner and outer IterVars, as follows:
 rmap[fuse->fused] = Range::FromMinExtent(0, rmap[fuse->outer]->extent * rmap[fuse->inner]->extent)
 ```
 
-# InferRootBound
+## InferRootBound
 
 Recall that InferBound calls InferRootBound, followed by
 `PassDownDomain`{.interpreted-text role="ref"} on each stage in the
@@ -288,7 +288,7 @@ are required by each consumer.
 
 ![image](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/inferbound_phases.png){.align-center}
 
-## IntSets
+### IntSets
 
 During InferRootBound, Ranges are converted to IntSets, and message
 passing is performed over IntSets. Therefore, it is important to
@@ -314,7 +314,7 @@ requiring modification to users of IntSet.
 Therefore, we first explain InferBound for schedules that do not contain
 compute_at.*
 
-## Phase 1: Initialize IntSets for consumer\'s leaf_iter_vars {#Phase1}
+### Phase 1: Initialize IntSets for consumer\'s leaf_iter_vars {#Phase1}
 
 ``` cpp
 /*
@@ -342,7 +342,7 @@ this case, Case 2 is only relevant if the schedule contains compute_at.
 Please refer to the section `InferBoundCA`{.interpreted-text
 role="ref"}, for further explanation.
 
-## Phase 2: Propagate IntSets from consumer\'s leaves to consumer\'s roots {#Phase2}
+### Phase 2: Propagate IntSets from consumer\'s leaves to consumer\'s roots {#Phase2}
 
 ``` cpp
 /*
@@ -387,7 +387,7 @@ actually unnecessary. dom_map can be built directly from the known
 Ranges in rmap. Ranges simply need to be converted to IntSets, which
 involves no loss of information.
 
-## Phase 3: Propagate IntSets to consumer\'s input tensors {#Phase3}
+### Phase 3: Propagate IntSets to consumer\'s input tensors {#Phase3}
 
 ``` cpp
 /*
@@ -429,7 +429,7 @@ for (size_t j = 0; j < t.ndim(); ++j) {
 }
 ```
 
-## Phase 4: Consolidate across all consumers {#Phase4}
+### Phase 4: Consolidate across all consumers {#Phase4}
 
 ``` cpp
 /*
@@ -485,12 +485,12 @@ elements will ever be used.
 
 ![image](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/gatherbound_problem.png){.align-center}
 
-# InferBound with compute_at {#InferBoundCA}
+## InferBound with compute_at {#InferBoundCA}
 
 If the schedule contains compute_at, Phases 1-2 of InferRootBound become
 more complex.
 
-## Motivation
+### Motivation
 
 **Ex. 1**
 
@@ -540,7 +540,7 @@ Based on the above examples, it is clear that InferBound should give
 different answers for stage C depending on where in its consumer D it is
 \"attached\".
 
-## Attach Paths {#AttachPaths}
+### Attach Paths {#AttachPaths}
 
 If stage C is computed at axis j of stage D, we say that C is *attached*
 to axis j of stage D. This is reflected in the Stage object by setting
@@ -640,7 +640,7 @@ The IR in this case looks like:
                 C[0] = 5
                 D[i, j_outer*8 + j_inner] = C[0]*2
 
-## Building an Attach Path
+### Building an Attach Path
 
 We continue to refer to stages C and D, as introduced in the previous
 section. The CreateAttachPath algorithm builds the attach path of a
@@ -691,7 +691,7 @@ ej, ei}, and the attach path of D is {ej, ei}:
       }
     }
 
-## InferBound with compute_at
+### InferBound with compute_at
 
 Now that the concept of an attach path has been introduced, we return to
 how InferBound differs if the schedule contains compute_at. The only
@@ -709,7 +709,7 @@ However, if the stage is actually inside the scope of one of the
 consumer\'s variables j, then only a single point within the Range of j
 is needed at a time.
 
-## Phase 1: Initialize IntSets for consumer\'s leaf_iter_vars {#Phase1CA}
+### Phase 1: Initialize IntSets for consumer\'s leaf_iter_vars {#Phase1CA}
 
 ``` cpp
 /*
@@ -738,7 +738,7 @@ consumer, Case 2 will be applied. This ensures that only a single point
 within the Range of the leaf variable will be requested, if C is inside
 the leaf variable\'s scope.
 
-## Phase 2: Propagate IntSets from consumer\'s leaves to consumer\'s roots {#Phase2CA}
+### Phase 2: Propagate IntSets from consumer\'s leaves to consumer\'s roots {#Phase2CA}
 
 ``` cpp
 /*
@@ -791,7 +791,7 @@ much of C must be computed.
             D[0] = C[ei, ej]*2
             E[ei, ej] = D[0]*4
 
-## Limitations of PassUpDomain
+### Limitations of PassUpDomain
 
 This section describes known limitations of PassUpDomain. These
 limitations affect the Ranges produced by InferBound, as well as other

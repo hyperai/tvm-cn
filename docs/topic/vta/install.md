@@ -13,7 +13,7 @@ one:
 5.  [Bitstream Generation with Intel
     Toolchains](#bitstream-generation-with-intel-toolchains)
 
-# VTA Simulator Installation
+## VTA Simulator Installation
 
 You need `TVM installed <installation>`{.interpreted-text role="ref"} on
 your machine. For a quick and easy start, checkout the
@@ -43,7 +43,7 @@ Add the VTA python library to your python path to run the VTA examples.
 export PYTHONPATH=/path/to/vta/python:${PYTHONPATH}
 ```
 
-## Testing your VTA Simulation Setup
+### Testing your VTA Simulation Setup
 
 To ensure that you\'ve properly installed the VTA python package, run
 the following 2D convolution testbench.
@@ -61,7 +61,7 @@ role="ref"}.
 > computational throughput that the simulator achieves, by evaluating
 > the convolutions in software.
 
-## Advanced Configuration (optional)
+### Advanced Configuration (optional)
 
 VTA is a generic configurable deep learning accelerator. The
 configuration is specified by `vta_config.json` under
@@ -81,7 +81,7 @@ vim 3rdparty/vta-hw/config/vta_config.json
 make
 ```
 
-# Xilinx Pynq FPGA Setup
+## Xilinx Pynq FPGA Setup
 
 This second guide extends the *VTA Simulator Installation* guide above
 to run FPGA hardware tests of the complete TVM and VTA software-hardware
@@ -102,7 +102,7 @@ This guide covers the following themes:
 3.  Revisiting the test examples from the *VTA Simulator Installation*
     guide, this time executing on the Pynq board.
 
-## Pynq Board Setup
+### Pynq Board Setup
 
 Setup your Pynq board based on the [Pynq board getting started
 tutorial](http://pynq.readthedocs.io/en/latest/getting_started.html).
@@ -129,7 +129,7 @@ board:
 ssh xilinx@192.168.2.99
 ```
 
-## Pynq-Side RPC Server Build & Deployment
+### Pynq-Side RPC Server Build & Deployment
 
 Because the direct board-to-computer connection prevents the board from
 directly accessing the internet, we\'ll need to mount the Pynq\'s file
@@ -191,7 +191,7 @@ Tips regarding the Pynq RPC Server:
 -   If unresponsive, the board can be rebooted by power-cycling it with
     the physical power switch.
 
-## Testing your Pynq-based Hardware Setup
+### Testing your Pynq-based Hardware Setup
 
 Before running the examples on your development machine, you\'ll need to
 configure your host environment as follows:
@@ -254,7 +254,7 @@ You can also try out our
 `VTA programming tutorials <vta-tutorials>`{.interpreted-text
 role="ref"}.
 
-# Intel DE10 FPGA Setup
+## Intel DE10 FPGA Setup
 
 Similar to the Pynq-side setup steps, this third guide bring us the
 details on how can we setup up the Linux environment for Intel FPGA
@@ -275,12 +275,12 @@ The rest part of this guide would provide the steps to
 -   Cross-compilation setup
 -   Device-side RPC server setup and deployment
 
-## DE10-Nano Board Setup
+### DE10-Nano Board Setup
 
 Before powering up the device, we need to flash the microSD card image
 with latest Angstrom Linux image.
 
-### Flash SD Card and Boot Angstrom Linux
+#### Flash SD Card and Boot Angstrom Linux
 
 To flash SD card and boot Linux on DE10-Nano, it is recommended to
 navigate to the
@@ -354,13 +354,13 @@ dropped the support for Python2), specifically, they are `numpy`,
 > [here](https://raw.githubusercontent.com/liangfu/de10-nano-supplement/master/rootfs_supplement.tgz),
 > and you can extract the files into the root filesystem.
 
-### Install Required Python Packages
+#### Install Required Python Packages
 
 After accessing bash terminal from the serial port, we need to install
 required Python packages before building and installing TVM and VTA
 programs.
 
-### Build Additional Components to Use VTA Bitstream
+#### Build Additional Components to Use VTA Bitstream
 
 To use the above built bitstream on DE10-Nano hardware, several
 additional components need to be compiled for the system. Specifically,
@@ -372,13 +372,13 @@ package on your host machine. You would also need a `cma` kernel module
 to allocate contigous memory, and a driver for communicating with the
 VTA subsystem.
 
-# Bitstream Generation with Xilinx Toolchains
+## Bitstream Generation with Xilinx Toolchains
 
 If you\'re interested in generating the Xilinx FPGA bitstream on your
 own instead of using the pre-built VTA bitstreams, follow the
 instructions below.
 
-## Xilinx Toolchain Installation
+### Xilinx Toolchain Installation
 
 We recommend using Vivado 2020.1 since our scripts have been tested to
 work on this version of the Xilinx toolchains. Our guide is written for
@@ -389,7 +389,7 @@ WebPACK
 2020.1](https://www.xilinx.com/products/design-tools/vivado.html), which
 a license-free version of the Vivado HLx toolchain.
 
-### Obtaining and Launching the Vivado GUI Installer
+#### Obtaining and Launching the Vivado GUI Installer
 
 1.  Go to the [download
     webpage](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html),
@@ -413,7 +413,7 @@ chmod u+x Xilinx_Unified_2020.1_0602_1208_Lin64.bin
 ./Xilinx_Unified_2020.1_0602_1208_Lin64.bin
 ```
 
-### Xilinx Vivado GUI Installer Steps
+#### Xilinx Vivado GUI Installer Steps
 
 At this point you\'ve launched the Vivado 2020.1 Installer GUI program.
 
@@ -450,7 +450,7 @@ At this point you\'ve launched the Vivado 2020.1 Installer GUI program.
     Free ISE WebPACK, ISE/Vivado IP or PetaLinux License\" and click
     \"Connect Now\" to complete the license registration process.
 
-### Environment Setup
+#### Environment Setup
 
 The last step is to update your `~/.bashrc` with the following lines.
 This will include all of the Xilinx binary paths so you can launch
@@ -462,7 +462,7 @@ export XILINX_VIVADO=${XILINX_PATH}/Vivado/2020.1
 export PATH=${XILINX_VIVADO}/bin:${PATH}
 ```
 
-## HLS-based Custom VTA Bitstream Compilation for Pynq
+### HLS-based Custom VTA Bitstream Compilation for Pynq
 
 High-level hardware parameters are listed in the VTA configuration file
 and can be customized by the user. For this custom VTA bitstream
@@ -518,7 +518,7 @@ Once the compilation completes, the generated bitstream can be found
 under
 `<tvm root>/3rdparty/vta-hw/build/hardware/xilinx/vivado/<configuration>/export/vta.bit`.
 
-## Using A Custom Bitstream
+### Using A Custom Bitstream
 
 We can program the new VTA FPGA bitstream by setting the bitstream path
 of the `vta.program_fpga()` function in the tutorial examples, or in the
@@ -533,13 +533,13 @@ repository, TVM will instead use the new bitstream you just generated,
 which is a VTA design clocked at a higher frequency. Do you observe a
 noticeable performance increase on the ImageNet classification example?
 
-# Bitstream Generation with Intel Toolchains
+## Bitstream Generation with Intel Toolchains
 
 If you\'re interested in generating the Xilinx FPGA bitstream on your
 own instead of using the pre-built VTA bistreams, follow the
 instructions below.
 
-## Intel Toolchain Installation
+### Intel Toolchain Installation
 
 It is recommended to use `Intel Quartus Prime 18.1`, since the test
 scripts contained in this document have been tested on this version.
@@ -548,7 +548,7 @@ You would need to install Intel\'s FPGA compilation toolchain, [Quartus
 Prime Lite](http://fpgasoftware.intel.com/?edition=lite), which is a
 license-free version of the Intel Quartus Prime software.
 
-### Obtaining and Launching the Quartus GUI Installer
+#### Obtaining and Launching the Quartus GUI Installer
 
 1.  Go to the [download
     center](http://fpgasoftware.intel.com/?edition=lite), and download
@@ -578,7 +578,7 @@ chmod u+x QuartusLiteSetup-18.1.0.625-linux.run
     `/usr/local/intelFPGA_lite/18.1` would be created and the Quartus
     program along with other programs would be available in the folder.
 
-### Environment Setup
+#### Environment Setup
 
 Similar to what should be done for Xilinx toolchain, the following line
 should be added to your `~/.bashrc`.
@@ -593,7 +593,7 @@ export PATH=${QUARTUS_ROOTDIR}/sopc_builder/bin:${PATH}
 This would add quartus binary path into your `PATH` environment
 variable, so you can launch compilation scripts from the command line.
 
-## Chisel-based Custom VTA Bitstream Compilation for DE10-Nano
+### Chisel-based Custom VTA Bitstream Compilation for DE10-Nano
 
 Similar to the HLS-based design, high-level hardware parameters in
 Chisel-based design are listed in the VTA configuration file

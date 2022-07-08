@@ -18,7 +18,7 @@ microTVM is:
 -   a minimal C runtime that supports standalone model inference on bare
     metal devices.
 
-# Supported Hardware
+## Supported Hardware
 
 microTVM currently tests against Cortex-M microcontrollers with the
 Zephyr RTOS; however, it is flexible and portable to other processors
@@ -32,7 +32,7 @@ against QEMU and the following hardware:
 -   [nRF 5340 Development
     Kit](https://www.nordicsemi.com/Software-and-tools/Development-Kits/nRF5340-DK)
 
-# Getting Started with microTVM
+## Getting Started with microTVM
 
 Before working with microTVM, we recommend you have a supported
 development board. Then, follow these tutorials to get started with
@@ -48,13 +48,13 @@ microTVM:
 3.  Try running a more complex [CIFAR10-CNN
     model](https://github.com/areusch/microtvm-blogpost-eval).
 
-# How microTVM Works
+## How microTVM Works
 
 You can read more about the design of these pieces at the
 `microTVM Design Document <microTVM-design>`{.interpreted-text
 role="ref"}.
 
-# Help and Discussion
+## Help and Discussion
 
 The [TVM Discuss Forum](https://discuss.tvm.ai) is a great place to
 collaborate on microTVM tasks, and maintains a searchable history of

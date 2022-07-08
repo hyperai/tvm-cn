@@ -9,7 +9,7 @@ configuration file, the user can change the shape of the tensor
 intrinsic, clock frequency, pipelining, data type width, and on-chip
 buffer sizes.
 
-# Parameters Overview
+## Parameters Overview
 
 We explain the parameters listed in the `vta_config.json` file in the
 table below.

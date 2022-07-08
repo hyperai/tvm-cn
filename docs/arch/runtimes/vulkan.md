@@ -6,7 +6,7 @@ TVM supports using Vulkan compute shaders to execute queries. Each
 computational kernel is compiled into a SPIR-V shader, which can then be
 called using the TVM interface.
 
-# Vulkan Features, Limits {#tvm-runtime-vulkan-features}
+## Vulkan Features, Limits {#tvm-runtime-vulkan-features}
 
 Since different Vulkan implementations may enable different optional
 features or have different physical limits, the code generation must
@@ -50,7 +50,7 @@ not supported, an error message should be issued during SPIR-V code
 generation. Efforts are also underway to remove these requirements and
 support additional Vulkan implementations.
 
-# SPIR-V Capabilities {#tvm-runtime-vulkan-spirv-capabilities}
+## SPIR-V Capabilities {#tvm-runtime-vulkan-spirv-capabilities}
 
 Some of the device-specific capabilities also correspond to SPIR-V
 capabilities or extensions that must be declared in the shader, or a
@@ -76,7 +76,7 @@ enabled in the `Target`, an exception will be raised.
 
   : Vulkan Capabilities
 
-# Vulkan-Specific Environment Variables
+## Vulkan-Specific Environment Variables
 
 Both the SPIR-V code generation and the Vulkan runtime have environment
 variables that can modify some of the runtime behavior. These are

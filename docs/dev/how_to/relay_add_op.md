@@ -23,7 +23,7 @@ Registering a new operator requires a few steps:
 7.  Wrapping the above Python API hook in a neater interface
 8.  Writing tests for the new relay operator
 
-# 1. Defining an Attribute Node
+## 1. Defining an Attribute Node
 
 Attributes are fixed arguments which are supposed to be known at compile
 time. The stride and dilation of a convolution operator would be an
@@ -86,7 +86,7 @@ struct ScanopAttrs : public tvm::AttrsNode<ScanopAttrs> {
 };
 ```
 
-# 2. Writing a Type Relation
+## 2. Writing a Type Relation
 
 To allow for flexibility in registering operators and greater
 expressivity and granularity in expressing types in Relay, operators are
@@ -135,7 +135,7 @@ bool ScanopRel(const Array<Type>& types, int num_inputs, const Attrs& attrs, con
 }
 ```
 
-# 3. Relating the Arity and Attributes to an Operation
+## 3. Relating the Arity and Attributes to an Operation
 
 We then register the name of our new ops and annotate them with the
 calling interface. The `RELAY_REGISTER_OP` macro in C++ allows a
@@ -176,7 +176,7 @@ of computation the operator does, which might be useful for fusing
 operators. `kOpaque` tells TVM to not bother trying to fuse this
 operator.
 
-# 4. Defining the Compute of the Operation
+## 4. Defining the Compute of the Operation
 
 While we\'ve now defined the interface for our operations we still need
 to define how to perform the actual calculations for cumulative sum and
@@ -197,7 +197,7 @@ In the case of our cumulative sum and product operations we write things
 directly in `TIR <api-python-tir>`{.interpreted-text role="ref"} which
 is the representation where tensor expressions and topi will lower into.
 
-# 5. Hooking up Compute and Strategy with Relay
+## 5. Hooking up Compute and Strategy with Relay
 
 After you have implemented your compute function we now need to glue it
 to our relay operation. Within TVM this means not only defining the
@@ -298,7 +298,7 @@ The shape functions are used for determining output shape given a
 dynamically shaped tensor. In this case we tell TVM the output shape
 will be the same as the input shape.
 
-# 6. Creating a Relay Call Node and Exposing a Python Hook
+## 6. Creating a Relay Call Node and Exposing a Python Hook
 
 We now have a working operation and now just need to properly call it
 via a Relay Call Node. This step requires simply writing a function that
@@ -339,7 +339,7 @@ Where `TVM_REGISTER_GLOBAL` exposes the `MakeCumsum` and `MakeCumprod`
 functions in Python via `relay.op._make.cumsum(...)` and
 `relay.op._make.cumsum(...)`.
 
-# 7. Including a Cleaner Python API Hook
+## 7. Including a Cleaner Python API Hook
 
 It is generally the convention in Relay, that functions exported through
 `TVM_REGISTER_GLOBAL` should be wrapped in a separate Python function
@@ -377,15 +377,15 @@ def concat(*args):
     return _make.concat(tup)
 ```
 
-# 8. Writing Unit Tests!
+## 8. Writing Unit Tests!
 
 This is self explanatory! Some example unit tests can be found in
 [tests/python/relay/test_op_level3.py](https://github.com/apache/tvm/blob/main/tests/python/relay/test_op_level3.py)
 for our cumulative sum and product operators.
 
-# Other Topics
+## Other Topics
 
-## Gradient Operators
+### Gradient Operators
 
 Gradient operators are important for writing differentiable programs in
 Relay. While it is the case that Relay\'s autodiff algorithm can
@@ -396,7 +396,7 @@ differentiation rule must be provided.
 Both Python and C++ can be used to write gradient operators, but we
 focus our examples on Python, as it is more commonly used.
 
-## Adding a Gradient in Python
+### Adding a Gradient in Python
 
 A collection of Python gradient operators can be found in
 `python/tvm/relay/op/_tensor_grad.py`. We will walk through two
@@ -453,7 +453,7 @@ shape of `grad` might not match the shape of the inputs, we use
 make the shape match the shape of the input we\'re differentiating with
 respect to.
 
-## Adding a Gradient in C++
+### Adding a Gradient in C++
 
 Adding a gradient in C++ is similar to adding one in Python, but the
 interface for registering is slightly different.

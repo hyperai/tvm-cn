@@ -69,7 +69,7 @@ We use two python scripts for this tutorial.
     tvm.testing.assert_allclose(c.numpy(), a.numpy() + b.numpy())
     ```
 
-# Setup
+## Setup
 
 -   Launch an instance using the FPGA Developer AMI. We don\'t need an
     F1 instance for emulation and synthesis, so it is recommended to use
@@ -86,7 +86,7 @@ We use two python scripts for this tutorial.
 
 -   Setup TVM with OpenCL enabled.
 
-# Emulation
+## Emulation
 
 -   Create emconfig.json for emulation.
 
@@ -122,7 +122,7 @@ We use two python scripts for this tutorial.
     python run.py
     ```
 
-# Synthesis
+## Synthesis
 
 -   Run synthesis with the following script.
 
@@ -145,7 +145,7 @@ We use two python scripts for this tutorial.
     This also generates an awsxclbin file, which is necessary to use the
     AWS FPGA image on F1 instances.
 
-# Run
+## Run
 
 -   Launch Amazon EC2 F1 instance.
 

@@ -7,7 +7,7 @@ TVM only needs one single dynamic shared library. The key is our unified
 module serialization mechanism. This document will introduce TVM module
 serialization format standard and implementation details.
 
-# Module Export Example
+## Module Export Example
 
 Let us build one ResNet-18 workload for GPU as an example first.
 
@@ -40,7 +40,7 @@ assert loaded_lib.type_key == "library"
 assert loaded_lib.imported_modules[0].type_key == "cuda"
 ```
 
-# Serialization
+## Serialization
 
 The entrance API is `export_library` of `tvm.module.Module`. Inside this
 function, we will do the following steps:
@@ -70,7 +70,7 @@ with the DSO module.
     enable LLVM in TVM. They achieve the same goal in fact.
 :::
 
-# Under the Hood of Serialization and Format Standard
+## Under the Hood of Serialization and Format Standard
 
 As said before, we will do the serialization work in the
 `_PackImportsToLLVM` or `_PackImportsToC`. They both call
@@ -172,7 +172,7 @@ libary.
 Now, we complete the serialization part. As you have seen, we could
 support arbitrary modules to import ideally.
 
-# Deserialization
+## Deserialization
 
 The entrance API is `tvm.runtime.load`. This function is to call
 `_LoadFromFile` in fact. If we dig it a little deeper, this is

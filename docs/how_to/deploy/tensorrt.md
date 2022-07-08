@@ -4,7 +4,7 @@ title: Relay TensorRT Integration
 
 **Author**: [Trevor Morris](https://github.com/trevor-m)
 
-# Introduction
+## Introduction
 
 NVIDIA TensorRT is a library for optimized deep learning inference. This
 integration will offload as many operators as possible from Relay to
@@ -17,7 +17,7 @@ compile and run a ResNet-18 model using TensorRT and how to configure
 the compilation and runtime settings. Finally, we document the supported
 operators and how to extend the integration to support other operators.
 
-# Installing TensorRT
+## Installing TensorRT
 
 In order to download TensorRT, you will need to create an NVIDIA
 Developer program account. Please see NVIDIA\'s documentation for more
@@ -36,7 +36,7 @@ extracted tar archive to USE_TENSORRT_RUNTIME=/path/to/TensorRT. With
 the system install method, USE_TENSORRT_RUNTIME=ON will automatically
 locate your installation.
 
-# Building TVM with TensorRT support
+## Building TVM with TensorRT support
 
 There are two separate build flags for TensorRT integration in TVM.
 These flags also enable cross-compilation: USE_TENSORRT_CODEGEN=ON will
@@ -58,7 +58,7 @@ set(USE_TENSORRT_CODEGEN ON)
 set(USE_TENSORRT_RUNTIME /home/ubuntu/TensorRT-7.0.0.11)
 ```
 
-# Build and Deploy ResNet-18 with TensorRT
+## Build and Deploy ResNet-18 with TensorRT
 
 Create a Relay graph from a MXNet ResNet-18 model.
 
@@ -114,7 +114,7 @@ input_data = np.random.uniform(0, 1, input_shape).astype(dtype)
 gen_module.run(data=input_data)
 ```
 
-# Partitioning and Compilation Settings
+## Partitioning and Compilation Settings
 
 There are some options which can be configured in
 `partition_for_tensorrt`.
@@ -135,7 +135,7 @@ There are some options which can be configured in
     each subgraph to use for TensorRT engine creation. See TensorRT
     documentation for more info. Can be overriden at runtime.
 
-# Runtime Settings
+## Runtime Settings
 
 There are some additional options which can be configured at runtime
 using environment variables.
@@ -170,7 +170,7 @@ using environment variables.
     is encountered. This will give greater performance, but will consume
     more memory.
 
-# Operator support
+## Operator support
 
   -------------------------------------------------------------
   Relay Node               Remarks
@@ -290,7 +290,7 @@ using environment variables.
   erf                      Requires TensorRT 7.0.0 or greater
   -------------------------------------------------------------
 
-# Adding a new operator
+## Adding a new operator
 
 To add support for a new operator, there are a series of files we need
 to make changes to:

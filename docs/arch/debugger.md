@@ -6,9 +6,9 @@ TVM Debugger is an interface for debugging TVM\'s computation graph
 execution. It helps to provide access to graph structures and tensor
 values at the TVM runtime.
 
-# Debug Exchange Format
+## Debug Exchange Format
 
-## 1. Computational Graph
+### 1. Computational Graph
 
 The optimized graph build by relay in json serialized format is dumped
 as it is. This contains the whole information about the graph. The UX
@@ -91,7 +91,7 @@ Example of dumped graph:
       }
     }
 
-## 2. Tensor dumping
+### 2. Tensor dumping
 
 The tensor received after execution is in `tvm.ndarray` type. All the
 tensors will be saved as binary bytes in serialized format. The result
@@ -111,7 +111,7 @@ Example of loading the parameters
 
         module.load_params(loaded_params)
 
-# How to use Debugger?
+## How to use Debugger?
 
 1.  In `config.cmake` set the `USE_PROFILER` flag to `ON`
 
@@ -164,7 +164,7 @@ Example of loading the parameters
 The outputs are dumped to a temporary folder in `/tmp` folder or the
 folder specified while creating the runtime.
 
-# Sample Output
+## Sample Output
 
 The below is the an example output of the debugger.
 

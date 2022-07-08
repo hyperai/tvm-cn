@@ -27,7 +27,7 @@ runtime environment.
     `PackedFunc <tvm-runtime-system-packed-func>`{.interpreted-text
     role="ref"}, from an IRModule.
 
-# DeviceAPI {#tvm-target-specific-device-api}
+## DeviceAPI {#tvm-target-specific-device-api}
 
 The `DeviceAPI` represents a handle to a specific hardware device API.
 (e.g. `CUDADeviceAPI` handles all interactions through the CUDA
@@ -139,7 +139,7 @@ then be registered with the following steps.
     :py`tvm.runtime.Device`{.interpreted-text role="class"} for the new
     enum value.
 
-# Target Definition {#tvm-target-specific-target}
+## Target Definition {#tvm-target-specific-target}
 
 The `Target` object is a lookup table of properties about a physical
 device, its hardware/driver limits, and its capabilities. The `Target`
@@ -178,7 +178,7 @@ In a code generator, the target properties can be accessed using
 `target->GetAttr<T>(param_name)` in C++, or with the `target.attrs`
 dictionary in Python.
 
-# Target Code Generators {#tvm-target-specific-codegen}
+## Target Code Generators {#tvm-target-specific-codegen}
 
 The code generators take an optimized `IRModule` and converts it into an
 executable representation. Each code generator must be registered in

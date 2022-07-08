@@ -1,5 +1,6 @@
 ---
-title: Welcome to tvm-cn's documentation!
+title: 欢迎访问 TVM 中文文档翻译计划！
+sidebar_label: 欢迎
 sidebar_position: 0
 ---
 
@@ -23,7 +24,7 @@ arch/index
 topic/microtvm/index topic/vta/index
 :::
 
-# Indices and tables
+## Indices and tables
 
 -   `genindex`{.interpreted-text role="ref"}
 -   `modindex`{.interpreted-text role="ref"}

@@ -11,7 +11,7 @@ contribute to, and influence the direction of the project. See
 [CONTRIBUTORS.md](https://github.com/apache/tvm/blob/main/CONTRIBUTORS.md)
 for the current list of contributors.
 
-# General Development Process
+## General Development Process
 
 Everyone in the community is welcomed to send patches, documents, and
 propose new directions to the project. The key guideline here is to
@@ -40,7 +40,7 @@ through discussion. We expect committers and PMCs to moderate technical
 discussions in a diplomatic way, and provide suggestions with clear
 technical reasoning when necessary.
 
-# Committers
+## Committers
 
 Committers are individuals who are granted the write access to the
 project. A committer is usually responsible for a certain area or
@@ -77,7 +77,7 @@ by upholding the community practices and guidelines TVM a better
 community for everyone. PMCs should strive to only nominate new
 candidates outside of their own organization.
 
-# Reviewers
+## Reviewers
 
 Reviewers are individuals who actively contributed to the project and
 are willing to participate in the code review of new contributions. We

@@ -16,9 +16,9 @@ Tested models:
 -   Vgg (16/19)
 -   BERT (Base/3-layer)
 
-# Preparing a Model for Inference
+## Preparing a Model for Inference
 
-## Remove Unneeded Nodes
+### Remove Unneeded Nodes
 
 The export process will remove many nodes that are not needed for
 inference, but unfortunately will leave some remaining. The nodes that
@@ -30,7 +30,7 @@ should be manually removed are:
     [DropoutWrapper](https://www.tensorflow.org/versions/r1.12/api_docs/python/tf/nn/rnn_cell/DropoutWrapper?hl=hr)
 -   [Assert](https://www.tensorflow.org/api_docs/python/tf/debugging/Assert)
 
-## Convert None Dimensions to Constants
+### Convert None Dimensions to Constants
 
 TVM has minimal support for dynamic tensor shapes. Dimensions that are
 `None` should be replaced with constants. For example, a model may
@@ -38,7 +38,7 @@ accept an input with shape `(None,20)`. This should be converted to a
 shape like `(1,20)`. The model should be modified accordingly to ensure
 that these shapes match throughout the graph.
 
-## Export
+### Export
 
 TensorFlow frontend expects a frozen protobuf (.pb) or saved model as
 input. It currently does not support checkpoint (.ckpt). The graphdef
@@ -88,9 +88,9 @@ def export_pb(session):
 Another method is to [export and freeze the
 graph](https://github.com/tensorflow/models/tree/master/research/slim#exporting-the-inference-graph).
 
-# Import the Model
+## Import the Model
 
-## Explicit Shape:
+### Explicit Shape:
 
 To ensure shapes can be known throughout the entire graph, pass the
 `` `shape ``[ argument to ]{.title-ref}`from_tensorflow`[. This
@@ -99,21 +99,21 @@ dictionary maps input names to input shapes. Please refer to these
 \<https://github.com/apache/tvm/blob/main/tests/python/frontend/tensorflow/test_forward.py#L36\>]{.title-ref}\_
 for examples.
 
-## Data Layout
+### Data Layout
 
 Most TensorFlow models are released with NHWC layout. NCHW layout often
 provides better performance, especially on GPU. The TensorFlow frontend
 can automatically convert the model\'s data layout by passing the
 argument `` `layout='NCHW' ``[ to ]{.title-ref}`from_tensorflow`\`.
 
-# Best Practices
+## Best Practices
 
 -   Use static tensor shapes instead of dynamic shapes (remove
     `` `None ``\` dimensions).
 -   Use static RNN instead of dynamic RNN, as `` `TensorArray ``\`
     isn\'t supported yet.
 
-# Supported Ops
+## Supported Ops
 
 -   Abs
 -   Add

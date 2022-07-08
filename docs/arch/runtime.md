@@ -1,4 +1,4 @@
-# TVM Runtime System
+## TVM Runtime System
 
 TVM supports multiple programming languages for the compiler stack
 development and deployment. In this note, we explain the key elements of
@@ -24,7 +24,7 @@ We want to be able to define a function from any language and call from
 another. We also want the runtime core to be minimal to deploy to
 embedded devices.
 
-## PackedFunc {#tvm-runtime-system-packed-func}
+### PackedFunc {#tvm-runtime-system-packed-func}
 
 [PackedFunc](https://github.com/apache/tvm/blob/main/include/tvm/runtime/packed_func.h)
 is a simple but elegant solution we find to solve the challenges listed.
@@ -143,7 +143,7 @@ we don\'t wrap small functions. In summary, the PackedFunc is the
 universal glue in TVM where we use it extensively to support our
 compiler and deployment.
 
-## Module {#tvm-runtime-system-module}
+### Module {#tvm-runtime-system-module}
 
 Since TVM supports multiple types of devices, we need to support
 different type of drivers. We have to use the driver API to load the
@@ -167,7 +167,7 @@ dynamic shared libraries. This abstraction makes introduction of new
 device easy, and we do not need to redo the host code generation for
 each type of device.
 
-## Remote Deployment
+### Remote Deployment
 
 The PackedFunc and Module system also makes it easy to ship the function
 into remote devices directly. Under the hood, we have an RPCModule that
@@ -189,7 +189,7 @@ test-cases in swift/objective-c from scratch \-- We can use RPC to
 execute on iPhone, copy the result back and do verification on the host
 via numpy. We can also do the profiling using the same script.
 
-## TVM Object and Compiler Stack
+### TVM Object and Compiler Stack
 
 As we mentioned earlier, we build compiler stack API on top of the
 PackedFunc runtime system. We faced a constant changing of the compiler
@@ -290,7 +290,7 @@ might be one of the simplest approaches possible. We also find that it
 fits our purposes as we mainly use python for testing and prototyping
 and still use c++ to do the heavy lifting job.
 
-## Implementation Details
+### Implementation Details
 
 Each argument in PackedFunc contains a union value
 [TVMValue](https://github.com/apache/tvm/blob/main/include/tvm/runtime/c_runtime_api.h#L135)
@@ -310,7 +310,7 @@ related information, like support of any in C++, see [Extension
 types](https://github.com/apache/tvm/tree/main/apps/extension) for more
 details.
 
-# Runtime-Specific Information
+## Runtime-Specific Information
 
 ::: {.toctree maxdepth="1" glob=""}
 runtimes/\*

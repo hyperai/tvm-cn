@@ -7,7 +7,7 @@ schema will allow easier cross-references with other frameworks/runs,
 experiment reproduction, data for nightly perf regression, and the
 separation of logging/visualization efforts.
 
-# Log Format Overview
+## Log Format Overview
 
 For simplicity, we suggest prioritizing the fields
 [workload]{.title-ref}, [engine]{.title-ref}, [hardware]{.title-ref}
@@ -82,7 +82,7 @@ finer-grained logging, one may additionally propagate the
                        {\"runtime_ms\":13,\...},\...\]                           array
   ----------------------------------------------------------------------------------------------------
 
-# Storage format
+## Storage format
 
 Currently we\'re prototyping benchmark data as JSON objects for
 extensibility and convenience, especially in early versions of the

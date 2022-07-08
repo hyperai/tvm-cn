@@ -10,7 +10,7 @@ of the primary mechanisms of control flow in Relay, it is important that
 Relay include ADTs in order to best express loops and other control flow
 structures that must be implemented using recursion.
 
-# Defining and Matching on an ADT
+## Defining and Matching on an ADT
 
 *Note: ADTs are not presently supported in the text format. The syntax
 here is speculative, based on ADTs in other languages.*
@@ -96,7 +96,7 @@ data Numbers2 {
 # fn() { @sum(Empty2()) }
 ```
 
-# Type-Checking ADTs and Polymorphism
+## Type-Checking ADTs and Polymorphism
 
 This section will go into more specific detail about the typing of ADTs.
 Most of the complexity involved results from the fact that, as with
@@ -170,7 +170,7 @@ particular, the `Some` example above has the signature
 `fun<a>(a) -> Optional[a]`, while `None` has the signature
 `fun<a>() -> Optional[a]`.
 
-# Recursion with ADTs
+## Recursion with ADTs
 
 ADT definitions are allowed to be recursive, that is, a definition for
 an ADT named `D` can assume the existence of type `D` and use it as an
@@ -217,7 +217,7 @@ share structures that can be factored out into generic, easily usable
 functions that will be discussed under [Common ADT
 Uses](#common-adt-uses).
 
-# Pattern Matching in Match Expressions {#adt-pattern}
+## Pattern Matching in Match Expressions {#adt-pattern}
 
 Match expressions in Relay, as in other functional languages, are
 capable of more versatile pattern matching than simply having one case
@@ -286,7 +286,7 @@ def @match_order_beware<a>(%l : List[a]) -> List[a] {
 }
 ```
 
-# Common ADT Uses
+## Common ADT Uses
 
 In functional programming languages, certain ADTs provide useful
 facilities for writing common programs. Parametric polymorphism and
@@ -394,7 +394,7 @@ ADTs and their extensibility allow for a broad range of iterations and
 data structures to be expressed in Relay and supported by the type
 system without having to modify the language implementation.
 
-# Implementing Neural Nets Using ADTs
+## Implementing Neural Nets Using ADTs
 
 In [this 2015 blog
 post](http://colah.github.io/posts/2015-09-NN-Types-FP/), Christopher

@@ -8,7 +8,7 @@ several ways you can integrate TVM into your project.
 This article introduces possible ways to integrate TVM as a JIT compiler
 to generate functions on your system.
 
-# DLPack Support
+## DLPack Support
 
 TVM\'s generated function follows the PackedFunc convention. It is a
 function that can take positional arguments including standard types
@@ -16,12 +16,12 @@ such as float, integer, string. The PackedFunc takes DLTensor pointer in
 [DLPack](https://github.com/dmlc/dlpack) convention. So the only thing
 you need to solve is to create a corresponding DLTensor object.
 
-# Integrate User Defined C++ Array
+## Integrate User Defined C++ Array
 
 The only thing we have to do in C++ is to convert your array to DLTensor
 and pass in its address as `DLTensor*` to the generated function.
 
-# Integrate User Defined Python Array
+## Integrate User Defined Python Array
 
 Assume you have a python object `MyArray`. There are three things that
 you need to do

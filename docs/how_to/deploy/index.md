@@ -7,7 +7,7 @@ as well as how to integrate it with your project.
 
 ![image](https://tvm.apache.org/images/release/tvm_flexible.png)
 
-# Build the TVM runtime library
+## Build the TVM runtime library
 
 ::: {#build-tvm-runtime-on-target-device}
 Unlike traditional deep learning frameworks. TVM stack is divided into
@@ -57,7 +57,7 @@ different architectures such as `aarch64` on a `x64_64` host. Once the
 model is cross compiled it is neccessary to have a runtime compatible
 with the target architecture to be able to run the cross compiled model.
 
-# Cross compile the TVM runtime for other architectures
+## Cross compile the TVM runtime for other architectures
 
 In the example
 `above <build-tvm-runtime-on-target-device>`{.interpreted-text
@@ -73,7 +73,7 @@ used. For reference building the TVM runtime library on a modern laptop
 (using 8 threads) for `aarch64` takes around 20 seconds vs \~10 min to
 build the runtime on a Raspberry Pi 4.
 
-## cross-compile for aarch64
+### cross-compile for aarch64
 
 ``` bash
 sudo apt-get update
@@ -101,7 +101,7 @@ install instead of gcc-aarch64-linux-\*
 sudo apt-get install gcc-multilib-arm-linux-gnueabihf g++-multilib-arm-linux-gnueabihf
 ```
 
-## cross-compile for RISC-V
+### cross-compile for RISC-V
 
 ``` bash
 sudo apt-get update
@@ -130,7 +130,7 @@ file libtvm_runtime.so
 libtvm_runtime.so: ELF 64-bit LSB shared object, UCB RISC-V, version 1 (GNU/Linux), dynamically linked, BuildID[sha1]=e9ak845b3d7f2c126dab53632aea8e012d89477e, not stripped
 ```
 
-# Optimize and tune models for target devices
+## Optimize and tune models for target devices
 
 The easiest and recommended way to test, tune and benchmark TVM kernels
 on embedded devices is through TVM\'s RPC API. Here are the links to the
@@ -139,7 +139,7 @@ related tutorials.
 -   `tutorial-cross-compilation-and-rpc`{.interpreted-text role="ref"}
 -   `tutorial-deploy-model-on-rasp`{.interpreted-text role="ref"}
 
-# Deploy optimized model on target devices
+## Deploy optimized model on target devices
 
 After you finished tuning and benchmarking, you might need to deploy the
 model on the target device without relying on RPC. See the following
@@ -149,7 +149,7 @@ resources on how to do so.
 cpp_deploy android integrate hls arm_compute_lib tensorrt vitis_ai bnns
 :::
 
-# Additional Deployment How-Tos
+## Additional Deployment How-Tos
 
 We have also developed a number of how-tos targeting specific devices,
 with working Python code that can be viewed in a Jupyter notebook. These

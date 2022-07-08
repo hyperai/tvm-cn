@@ -11,13 +11,13 @@ instructions executed as well as more high level information like total
 FLOPS and warp occupancy. PAPI makes these metrics available while
 profiling.
 
-# Installing PAPI
+## Installing PAPI
 
 PAPI can either be installed using your package manager
 (`apt-get install libpapi-dev` on Ubuntu), or from source here:
 <https://bitbucket.org/icl/papi/src/master/>.
 
-# Building TVM With PAPI
+## Building TVM With PAPI
 
 To include PAPI in your build of TVM, set the following line in you
 `config.cmake`:
@@ -33,7 +33,7 @@ is like so:
 set(USE_PAPI path/to/papi.pc)
 ```
 
-# Using PAPI While Profiling
+## Using PAPI While Profiling
 
 If TVM has been built with PAPI (see above), then you can pass a
 :py`tvm.runtime.profiling.PAPIMetricCollector`{.interpreted-text

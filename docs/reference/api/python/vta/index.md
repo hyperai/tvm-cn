@@ -8,7 +8,7 @@ This document contains the python API to VTA compiler toolchain.
 vta
 :::
 
-# Hardware Information
+## Hardware Information
 
 ::: autofunction
 vta.Environment
@@ -18,7 +18,7 @@ vta.Environment
 vta.get_env
 :::
 
-# RPC Utilities
+## RPC Utilities
 
 ::: autofunction
 vta.reconfig_runtime
@@ -28,7 +28,7 @@ vta.reconfig_runtime
 vta.program_fpga
 :::
 
-# Compiler API
+## Compiler API
 
 We program VTA using TVM, so the compiler API in vta package is only a
 thin wrapper to provide VTA specific extensions.

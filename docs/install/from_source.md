@@ -10,7 +10,7 @@ title: 从源码安装
 
 下载 TVM 源代码，请访问 [下载页面](https://tvm.apache.org/download)。
 
-# 开发者：从 GitHub 获取源代码
+## 开发者：从 GitHub 获取源代码
 
 从 GitHub 上克隆源码仓库，请使用 `--recursive` 选项来克隆子模块。
 
@@ -25,7 +25,7 @@ git submodule init
 git submodule update
 ```
 
-# 构建共享库 {#build-shared-library}
+## 构建共享库 {#build-shared-library}
 
 我们的目标是构建共享库：
 
@@ -179,7 +179,7 @@ brew install python@3.8
 如果一切顺利，我们就可以去
 `python-package-installation`{.interpreted-text role="ref"} 了。
 
-## 使用 Conda 环境进行构建 {#build-with-conda}
+### 使用 Conda 环境进行构建 {#build-with-conda}
 
 Conda 可以用来获取运行 TVM 所需的必要依赖。如果没有安装 Conda，请参照
 [Conda
@@ -210,7 +210,7 @@ conda build --output-folder=conda/pkg  conda/recipe
 conda install tvm -c ./conda/pkg
 ```
 
-## 在 Windows 上构建
+### 在 Windows 上构建
 
 TVM 支持通过 MSVC 使用 CMake 构建。需要有一个 Visual Studio 编译器。 VS
 的最低版本为 **Visual Studio Enterprise 2019**（注意：查看针对 GitHub
@@ -232,16 +232,16 @@ cd ..
 cmake --build build --config Release -- /m
 ```
 
-## 构建 ROCm 支持
+### 构建 ROCm 支持
 
 目前，ROCm 只在 Linux 上支持，因此所有教程均以 Linux 为基础编写的。 -
 设置 `set(USE_ROCM ON)`，将 ROCM_PATH 设置为正确的路径。 - 需要先从 ROCm
 中安装 HIP runtime。确保安装系统中已经安装了 ROCm。 - 安装 LLVM
 的最新稳定版本（v6.0.1），以及 LLD，确保 `ld.lld` 可以通过命令行获取。
 
-# Python 包的安装 {#python-package-installation}
+## Python 包的安装 {#python-package-installation}
 
-## TVM 包
+### TVM 包
 
 本部分介绍利用 `virtualenv` 或 `conda` 等虚拟环境和软件包管理器，来管理
 Python 软件包和依赖的方法。
@@ -277,7 +277,7 @@ Python 包位于 [tvm/python]{.title-ref}。安装方法有两种：
     cd python; python setup.py install --user; cd ..
     ```
 
-## Python 依赖
+### Python 依赖
 
 注意，如果你想要安装到一个受管理的本地环境，如 `virtualenv`，则不需要
 `--user` 标志。
@@ -316,13 +316,13 @@ Python 包位于 [tvm/python]{.title-ref}。安装方法有两种：
 > pip install xgboost
 > ```
 
-# 安装 Contrib 库
+## 安装 Contrib 库
 
 ::: {.toctree maxdepth="1"}
 nnpack
 :::
 
-# 启用 C++ 测试 {#install-from-source-cpp-tests}
+## 启用 C++ 测试 {#install-from-source-cpp-tests}
 
 可以用 [Google Test](https://github.com/google/googletest) 来驱动 TVM
 中的 C++ 测试。安装 GTest 最简单的方法是从源代码安装：
