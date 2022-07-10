@@ -17,7 +17,7 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.22",
     "@docusaurus/preset-classic": "2.0.0-beta.21",
-    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.21",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.22",
     "@mdx-js/react": "^1.6.22",
     "@openbayes/docsearch-css": "^1.2.7",
     "@openbayes/docusaurus-enlight": "^1.2.8",
