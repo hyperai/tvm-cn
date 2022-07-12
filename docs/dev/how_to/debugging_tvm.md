@@ -2,17 +2,11 @@
 title: Debuggging TVM
 ---
 
-**NOTE**: This page is a work in-progress. Everyone is welcomed to add
-suggestions and tips via sending a PR to modify this page. The goal with
-this page is to centralize the commonly-used techniques being used to
-debug TVM and to spread awareness to the community. To that end, we may
-seek to promote more broadly-used techniques to the top of this doc.
+**注意**：本章节内容持续更新中，欢迎各位提交 PR 不断丰富。本文档旨在集中分享调试 TVM 的常用方法，排列顺序以使用频率为依据。
 
 ## VLOGging
 
-TVM provides a verbose-logging facility that allows you to commit
-trace-level debugging messages without impacting the binary size or
-runtime of TVM in production. You can use VLOG in your code as follows:
+TVM 提供了一个冗余信息的记录工具，允许开发者在不影响运行中 TVM 二进制大小或 runtime 的同时，提交跟踪级别的调试信息。在代码中使用 VLOG：
 
 ``` c++
 void Foo(const std::string& bar) {
@@ -21,42 +15,15 @@ void Foo(const std::string& bar) {
 }
 ```
 
-In this example, the integer `2` passed to `VLOG()` indicates a
-verbosity level. The higher the level, the more logs printed. In
-general, TVM levels range from 0 to 2, with 3 being used only for
-extremely low-level core runtime properties. The VLOG system is
-configured at startup time to print VLOG statements between `0` and some
-integer `N`. `N` can be set per-file or globally.
+在这个例子中，传递给 `VLOG()` 的整数 `2` 表示冗余级别。级别越高，打印的日志就越多。一般来说，TVM 级别从 0 到 2，3 只用于极底层的核心运行时属性。VLOG 系统在启动时被配置为打印 `0` 到某个整数 `N` 之间的 VLOG 语句。`N` 可以按文件或全局来设置。
 
-VLOGs don\'t print or impact binary size or runtime by default (when
-compiled with proper optimization). To enable VLOGging, do the
-following:
+默认情况下（当采用适当的优化进行编译时），VLOG 不会打印或影响二进制的大小或runtime。启用 VLOGging，请执行以下操作：
 
-1.  In `config/cmake`, ensure you `set(USE_RELAY_DEBUG ON)`. This flag
-    is used to enable VLOGging.
 
-2.  Launch Python passing `TVM_LOG_DEBUG=<spec>`, where `<spec>>` is a
-    comma-separated list of level assignments of the form
-    `<file_name>=<level>`. Here are some specializations:
+1. 在 `config/cmake` 中，确保设置 `set(USE_RELAY_DEBUG ON)`。这个标志是用来启用 VLOGging 的。
+2. 通过 `TVM_LOG_DEBUG=<spec>` 启动 Python，其中 `<spec>>` 是一个形式为 `<file_name>=<level>` 的以逗号分隔的级别赋值列表。尤其需要注意：
+    * 特殊文件名 `DEFAULT` 为所有文件设置 VLOG 级别。
+    * `<level>>` 可以被设置为 `-1` 来禁用该文件的 VLOG。
+    * `<file_name>` 是在 TVM 仓库中相对于 `src/` 目录的 c++ 源文件的名字（例如 `.cc`，而不是 `.h`）。您不需要在指定文无论在指定文件路径时，是否提供 `src/`，VLOG 都可以正确解释路径。
 
-    > -   The special filename `DEFAULT` sets the VLOG level setting for
-    >     all files.
-    > -   `<level>>` can be set to `-1` to disable VLOG in that file.
-    > -   `<file_name>` is the name of the c++ source file (e.g. `.cc`,
-    >     not `.h`) relative to the `src/` directory in the TVM repo.
-    >     You do not need to supply `src/` when specifying the file
-    >     path, but if you do, VLOG will still interpret the path
-    >     correctly.
 
-Examples:
-
-> \# enable VLOG(0), VLOG(1), VLOG(2) in all files. \$
-> TVM_LOG_DEBUG=DEFAULT=2 python3 -c \'import tvm\'
->
-> \# enable VLOG(0), VLOG(1), VLOG(2) in all files, except not VLOG(2)
-> in src/bar/baz.cc. \$ TVM_LOG_DEBUG=DEFAULT=2,bar/baz.cc=1 python3 -c
-> \'import tvm\'
->
-> \# enable VLOG(0), VLOG(1), VLOG(2) in all files, except not in
-> src/foo/bar.cc. \$ TVM_LOG_DEBUG=DEFAULT=2,src/foo/bar.cc=-1 python3
-> -c \'import tvm\'
