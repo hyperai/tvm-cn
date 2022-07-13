@@ -20,7 +20,7 @@
     "@docusaurus/theme-live-codeblock": "^2.0.0-beta.22",
     "@mdx-js/react": "^1.6.22",
     "@openbayes/docsearch-css": "^1.2.7",
-    "@openbayes/docusaurus-enlight": "^1.2.8",
+    "@openbayes/docusaurus-enlight": "^1.2.9",
     "@svgr/webpack": "^6.2.1",
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.1.1",
