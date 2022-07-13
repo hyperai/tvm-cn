@@ -1731,10 +1731,10 @@
   resolved "https://registry.yarnpkg.com/@openbayes/docsearch-css/-/docsearch-css-1.2.7.tgz#4595cd02f2600f7dedfa37fc3c1a927f486e80b3"
   integrity sha512-P/yfu2aeMRKzsKuQk/gXXLVBv5GzEddCcwfIhBG6J8iQ8E5dwI3Lm44Sez08U92Xy5oW+4sS+Rf+s5R8nkNM/Q==
 
-"@openbayes/docusaurus-enlight@^1.2.8":
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/@openbayes/docusaurus-enlight/-/docusaurus-enlight-1.2.8.tgz#0fea9ef53a9ba7364b6253dface2f8a97d171f90"
-  integrity sha512-i/ww8z5hFyWy4BIFYc4x4pex5Yjz2H8+gb5C9c/7pusB58iRV0UD2Lda6MfcdI0dUG/41qJK4KIWO5+IE5jX9A==
+"@openbayes/docusaurus-enlight@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/@openbayes/docusaurus-enlight/-/docusaurus-enlight-1.2.9.tgz#7d3881dea330dbc6d2c1426ddd22bd803fc75d60"
+  integrity sha512-pnAe1h8T5LPdAT+D+ntyGETFUPmStHk0bs66PeAeYIh2nqI+eJBtSCB/OlYYh321XgJoxRILJ86dQerf4AIigA==
 
 "@philpl/buble@^0.19.7":
   version "0.19.7"
