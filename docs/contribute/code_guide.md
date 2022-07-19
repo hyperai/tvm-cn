@@ -5,71 +5,60 @@ title: Code Guide and Tips
 ::: {.contents depth="2" local=""}
 :::
 
-This is a document used to record tips in TVM codebase for reviewers and
-contributors. Most of them are summarized through lessons during the
-contributing and process.
+本文档为 reviewer 和贡献者汇总了 TVM 代码库中的技巧，大部分是在贡献过程中总结的经验教训。
 
-## C++ Code Styles
+## C++ 代码风格
 
--   Use the Google C/C++ style.
--   The public facing functions are documented in doxygen format.
--   Favor concrete type declaration over `auto` as long as it is short.
--   Favor passing by const reference (e.g. `const Expr&`) over passing
-    by value. Except when the function consumes the value by copy
-    constructor or move, pass by value is better than pass by const
-    reference in such cases.
--   Favor `const` member function when possible.
+-   使用 Google C/C++ 风格。
+-   面向公众的功能以 doxygen 格式记录。
+-   如果代码很短，使用具体类型声明而不是 `auto`。
+-   通过 const 引用传递（例如 `const Expr&`）而不是按值传递。除非函数通过拷贝构造函数或移动构造函数使用该值，在这种情况下，按值传递优于通过 const 引用传递。
+-   尽可能使用 `const` 成员函数。
 
-We use `clang-format` to enforce the code style. Because different
-version of clang-format might change by its version, it is recommended
-to use the same version of the clang-format as the main one. You can
-also use the following command via docker.
+我们可以用 `clang-format` 来规整代码风格。因为不同版本的 clang-format 可能会因版本而异，所以建议使用相同版本的 clang-format 作为主要版本。您还可以通过 docker 使用以下命令。
 
 ``` bash
-# Run a specific file through clang-format
+# 通过 clang-format 运行指定文件
 docker/bash.sh ci_lint clang-format-10 [path-to-file]
 
-# Run all linters, including clang-format
+# 运行所有 linter，包括 clang-format
 python tests/scripts/ci.py lint
 ```
 
-clang-format is also not perfect, when necessary, you can use disble
-clang-format on certain code regions.
+clang-format 并不完美，必要时可以在某些代码区域上禁用 clang-format。
 
-> // clang-format off void Test() { // clang-format will be disabled in
-> this region. } // clang-format on
+> // clang-format off 
+> void Test() { 
+>     // clang-format 将在这个区域禁用。
+> } 
+> // clang-format on
 
-Because clang-format may not recognize macros, it is recommended to use
-macro like normal function styles.
+因为 clang-format 可能无法识别宏，所以建议像普通函数样式一样使用宏。
 
-> #define MACRO_IMPL { custom impl; } #define MACRO_FUNC(x)
+> #define MACRO_IMPL { custom impl; } 
+> #define MACRO_FUNC(x)
 >
-> // not preferred, because clang-format might recognize it as types.
-> virtual void Func1() MACRO_IMPL
+> // 不是首选，因为 clang-format 可能会将其识别为类型。
 >
-> // preferred virtual void Func2() MACRO_IMPL;
+> // 首选 
+> virtual void Func2() MACRO_IMPL;
 >
 > void Func3() {
->
-> :   // preferred MACRO_FUNC(xyz);
->
+>     // 首选 
+>     MACRO_FUNC(xyz);
 > }
 
-## Python Code Styles
+## Python 代码风格
 
--   The functions and classes are documented in
-    [numpydoc](https://numpydoc.readthedocs.io/en/latest/) format.
--   Check your code style using `python tests/scripts/ci.py lint`
--   Stick to language features in `python 3.7`
+-   函数和类以 [numpydoc](https://numpydoc.readthedocs.io/en/latest/) 格式记录。
+-   使用 `python tests/scripts/ci.py lint` 检查代码风格
+-   使用 `python 3.7` 中的语言特性
 
-## Writing Python Tests
+## 编写 Python 测试
 
-We use [pytest](https://docs.pytest.org/en/stable/) for all python
-testing. `tests/python` contains all the tests.
+用 [pytest](https://docs.pytest.org/en/stable/) 进行所有 Python 测试。 `tests/python` 包含所有测试。
 
-If you want your test to run over a variety of targets, use the
-:py`tvm.testing.parametrize_targets`{.interpreted-text role="func"}
-decorator. For example:
+如果您希望测试在各种 target 上运行，请使用 :py`tvm.testing.parametrize_targets()`{.interpreted-text role="func"} 装饰器。例如：
 
 ``` python
 @tvm.testing.parametrize_targets
@@ -77,31 +66,15 @@ def test_mytest(target, dev):
   ...
 ```
 
-will run `test_mytest` with `target="llvm"`, `target="cuda"`, and few
-others. This also ensures that your test is run on the correct hardware
-by the CI. If you only want to test against a couple targets use
-`@tvm.testing.parametrize_targets("target_1", "target_2")`. If you want
-to test on a single target, use the associated decorator from
-:py`tvm.testing`{.interpreted-text role="func"}. For example, CUDA tests
-use the `@tvm.testing.requires_cuda` decorator.
+用 `target="llvm"`、`target="cuda"` 和其他几个运行 `test_mytest`。这可以确保测试由 CI 在正确的硬件上运行。如果只想针对几个 target 进行测试，请使用 `@tvm.testing.parametrize_targets("target_1", "target_2")`。如果想在单个 target 上进行测试，请使用来自 `tvm.testing()`{.interpreted-text role="func"} 的相关装饰器。例如，CUDA 测试使用 `@tvm.testing.requires_cuda` 装饰器。
 
-## Handle Integer Constant Expression
+## 处理整型常量表达式
 
-We often need to handle constant integer expressions in TVM. Before we
-do so, the first question we want to ask is that is it really necessary
-to get a constant integer. If symbolic expression also works and let the
-logic flow, we should use symbolic expression as much as possible. So
-the generated code works for shapes that are not known ahead of time.
+TVM 中经常需要处理整型常量表达式。在此之前，首先要考虑的是，是否真的有必要获取一个整型常量。如果符号表达式也有效并且逻辑行得通，那么尽可能用符号表达式。所以生成的代码也适用于未知的 shape。
 
-Note that in some cases we cannot know certain information, e.g. sign of
-symbolic variable, it is ok to make assumptions in certain cases. While
-adding precise support if the variable is constant.
+注意，某些情况下，无法知道符号变量的符号这样的信息，这样的情况可做出一些假设。如果变量是常量，则添加精确的支持。
 
-If we do have to get constant integer expression, we should get the
-constant value using type `int64_t` instead of `int`, to avoid potential
-integer overflow. We can always reconstruct an integer with the
-corresponding expression type via `make_const`. The following code gives
-an example.
+如果必须获取整型常量表达式，应该用 `int64_t` 类型而不是 `int` 来获取常量值，以避免整数溢出。通过 `make_const` 可以重构一个具有相应表达式类型的整数。相关示例如下所示：
 
 ``` c++
 Expr CalculateExpr(Expr value) {

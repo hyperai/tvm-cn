@@ -5,78 +5,45 @@ title: Committer Guide
 ::: {.contents depth="2" local=""}
 :::
 
-This is an evolving document to provide some helpful tips for
-committers. Most of them are lessons learned during development. We
-welcome every committer to contribute to this document. See the
-`community_guide`{.interpreted-text role="ref"} for an overview of the
-committership and the general development process.
+本文档长期更新中，旨在为 committer 提供一些实用技巧。其中大部分是在开发过程中总结的经验教训。我们欢迎每一位 committer 为本文档做出贡献。有关提交和一般开发过程的概述，请参阅 `TVM 社区指南`{.interpreted-text role="ref"}。
 
-## Community First
+## 社区优先
 
-The collective effort of the community moves the project forward and
-makes the project awesome for everyone. When we make a decision, it is
-always helpful to keep the community in mind. Here are some example
-questions that we can ask:
+社区成员努力推动了项目的发展，使得这个项目看起来相当完美。当我们在做决定的时候，要时刻把社区放在第一位。以下是我们可以提出的一些示例问题：
 
--   How can I encourage new contributors to get more involved in the
-    project?
--   Can I help to save my fellow committers\' time?
--   Have I enabled the rest of the community to participate the design
-    proposals?
+-   我该如何鼓励新的贡献者更多地参与项目？
+-   我可以帮其他 committer 节省时间吗？
+-   我是否让社区的其他人参与设计提案？
 
-## Public Archive Principle
+## 公共档案原则
 
-While private channels such as face to face discussion are useful for
-development, they also create barriers for the broader community\'s
-participation. The Apache way of development requires all decisions to
-be made in public channels, which are archived and accessible to
-everyone. As a result, any contributor can keep up with the development
-by watching the archives and join the development anytime.
+尽管类似面对面讨论这样的私人渠道有益于发展，但它们也限制了更广的社区参与。 Apache 的开发方式要求所有决策都要在公共渠道中实施，因为这些渠道被归档并可供所有人访问。因此，任何贡献者都可以通过浏览档案来跟上开发的步伐，并随时加入开发。
 
-While this principle applies to every contributor, it is especially
-important for committers. Here are some example applications of this
-principle:
+这一原则适用于所有贡献者，对 committer 来说尤其重要。下面是该原则的一些示例应用：
 
--   When getting a project-related question from a personal channel,
-    encourage the person to open a public thread in the discuss forum,
-    so others in the community can benefit from the answer.
--   After an in-person discussion, send a summary to public channels (as
-    an RFC or a discuss thread).
+-   当从个人渠道获得与项目相关的问题时，鼓励新开一个论坛来讨论，这样的话社区中的其他人也可以受益。
+-   在面对面讨论之后，将摘要发送到公共渠道（例如 RFC 或线程讨论）。
 
-## Shepherd a Pull Request
+## 认领 pull request
 
-Here are some tips to shepherd a pull request. You can also take a look
-at the `code_review_guide`{.interpreted-text role="ref"}.
+下面是一些认领 pull request 的技巧。也可以查看 `代码 review`{.interpreted-text role="ref"}。
 
--   Assign the PR to yourself, so that other committers know that the PR
-    has already been tended to.
--   Make use of the status label to indicate the current status.
--   Check if an RFC needs to be sent.
--   If the contributor has not requested a reviewer, kindly ask the
-    contributor to do so. If the PR comes from a new contributor, help
-    the contributor to request reviewers and ask the contributor to do
-    so next time.
--   Moderate the reviews, ask reviewers to approve explicitly.
--   Mark the PR as accepted and acknowledge the contributor/reviewers.
--   Merge the PR :)
+-   将 PR 分配给自己，以便其他 committer 知道 PR 已被处理。
+-   使用状态标签来标注当前状态。
+-   检查是否需要发送 RFC。
+-   如果贡献者没有请求 reviewer 去 review 自己的代码，请提示一下他。如果 PR 来自一个新的贡献者，提示他去请求 reviewer，并让他下次也这样做。
+-   审核 review，要求 reviewer 明确批准。
+-   将 PR 标记为已接受状态，并感谢贡献者/reviewer。
+-   merge PR
 
-## Time Management
+## 时间管理
 
-There are many things that a committer can do, such as moderating
-discussions, pull request reviews and code contributions.
+committer 可以做很多事情，例如主持讨论、review pull request 和贡献代码。
 
-Working on an open source project can be rewarding, but also be a bit
-overwhelming sometimes. A little bit of time management might be helpful
-to alleviate the problem. For example, some committers have a
-\"community day\" in a week when they actively manage outstanding PRs,
-but watch the community less frequently in the rest of the time.
+在开源项目上工作会收获很多，但有时也会有点不知所措。一点时间管理可能有助于缓解这个问题。例如，一些 committer 一周内有一天是“社区日”，他们积极管理优秀的 PR，但在其余时间较少关注社区。
 
-Remember that your merit will never go away, so please take your time
-and pace when contributing to the project :)
+记住，只要能提供有价值的贡献就是有意义的，因此在为项目做贡献时可以慢慢来。
 
-## Broad Collaboration
+## 广泛合作
 
-Sometimes, we tend to only interact with people we know. However, broad
-collaborations are necessary to the success of the project. Try to keep
-that in mind, shepherd PRs for, and request code reviews from community
-members who you do not interact physically.
+我们倾向于只与认识的人互动。然而，广泛的合作对于项目的成功是必要的。鼓励多为社区中不认识的人认领 PR，或请求他们 review 代码。

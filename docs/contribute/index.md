@@ -2,22 +2,18 @@
 title: Contributor Guide
 ---
 
-TVM has been developed by community members. Everyone is welcomed to
-contribute. We value all forms of contributions, including, but not
-limited to:
+TVM 是由社区成员开发的，欢迎大家为 TVM 项目做出贡献。我们重视所有形式的贡献，包括但不限于：
 
--   Code reviewing of the existing patches.
--   Documentation and usage examples
--   Community participation in forums and issues.
--   Code readability and developer guide
-    -   We welcome contributions that add code comments to improve
-        readability
-    -   We also welcome contributions to docs to explain the design
-        choices of the internal.
--   Test cases to make the codebase more robust
--   Tutorials, blog posts, talks that promote the project.
+- 现有补丁的代码 review
+- 文档和使用示例
+- 社区参与论坛和 issue
+- 代码的可读性和开发手册
+  - 为代码添加注释来提高可读性
+  - 贡献文档来解释内部的设计选择
+- 测试用例，使代码库更加稳健
+- 推广项目的教程、博文和讲座
 
-Here are guidelines for contributing to various aspect of the project:
+以下是对项目各方面的贡献指南：
 
 ::: {.toctree maxdepth="2"}
 community pull_request code_review committer_guide document code_guide

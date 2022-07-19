@@ -5,14 +5,10 @@ title: Submit a Pull Request
 ::: {.contents depth="2" local=""}
 :::
 
-## Guidelines
+## 准则
 
--   We recommend authors send well scoped PRs that are easy to review
-    and revert in case there is a problem. As such, authors should avoid
-    merging multiple unrelated changes into a single PR
-
--   Before you submit a PR, please rebase your code on the most recent
-    version of `main`, you can do it by running
+-  建议作者发送范围明确的 PR，以便在出现问题的时候便于 review 和 revert。因此，作者应该避免将多个不相关的修改 merge 到一个 PR 中。
+-  提交 PR 之前，请将代码重新建立在 `main` 的最新版本上，运行以下代码：
 
     ``` bash
     git remote add upstream [url to tvm repo]
@@ -20,124 +16,105 @@ title: Submit a Pull Request
     git rebase upstream/main
     ```
 
--   Make sure code passes lint checks
+-   确保代码通过 lint 检查
 
     > ``` bash
-    > # While the lint commands used should be identical to those run in CI, this command reproduces
-    > # the CI lint procedure exactly (typically helpful for debugging lint script errors or
-    > # to avoid installing tools manually)
+    > # 虽然使用的 lint 命令应该与在 CI 中运行的相同，但此命令会重现
+    > # 准确的 CI lint 过程（通常有助于调试 lint 脚本错误或避免手动安装工具）
     > python tests/scripts/ci.py lint
     >
-    > # Run all lint steps.
+    > # 运行所有的 lint 步骤。
     > docker/lint.sh
     >
-    > # To run steps individually, specify their step names on the command-line. An incorrectly
-    > # spelled step name causes the tool to print all available steps.
+    > # 要单独运行步骤，请在命令行中指定步骤名称。
+    > # 一个不正确拼写的步骤名称会导致工具打印所有可用的步骤。
     > docker/lint.sh <step_name> ...
     > ```
     >
-    > If the clang-format lint check fails, run git-clang-format as
-    > follows to automatically reformat your code:
+    > 若 clang-format lint 检查失败，运行 git-clang-format 自动对代码重新格式化：
     >
     > ``` bash
-    > # Run clang-format check for all the files that changed since upstream/main
+    > # 运行 clang-format 检查所有自 upstream/main 以来改变的文件
     > docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh upstream/main
     > ```
 
--   Add test-cases to cover the new features or bugfix the patch
-    introduces.
+-   添加测试用例，以涵盖补丁所引入的新功能或错误修复。
 
--   Document the code you wrote, see more at
-    `doc_guide`{.interpreted-text role="ref"}
+-   记录新写入的代码，更多信息请见 `文档`{.interpreted-text role="ref"}
 
--   [Create a pull
-    request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
-    and fix the problems reported by CI checks.
+-   创建一个 [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)，修复 CI 检查报告的问题。
 
--   Request code reviews from other contributors and improve your patch
-    according to their reviews by `@`-ing them in your pull request.
-    Tags in PR titles will automatically tag subscribed users, so make
-    sure to put relevant topics in your PR titles (e.g.
-    `[microTVM] a cool change` and not `a cool change for microTVM`).
+-   请求其他贡献者帮你 review 代码，并根据其在 pull request 中用 `@` 标记的评论，来改进补丁。PR 标题中的标签会自动标记订阅用户，所以请确保在 PR 标题中加入并强调相关主题（例如：`[microTVM] 一个很酷的变化`，而不是 `microTVM 的一个很酷的变化`）。
 
-    -   To get your code reviewed quickly, we encourage you to help
-        review others\' code so they can do the favor in return.
-    -   Code review is a shepherding process that helps to improve
-        contributor\'s code quality. We should treat it proactively, to
-        improve the code as much as possible before the review. We
-        highly value patches that can get in without extensive reviews.
-    -   The detailed guidelines and summarizes useful lessons.
+    -   为了加快代码 review 进程，推荐 committer 之间彼此帮助 review 代码。
+    -   代码 review 是一个引导过程，有助于提高贡献者的代码质量。我们应该积极主动地对待它，在 review 前尽可能地改进代码。我们高度重视那些不需要大量 review 就能进入的补丁。
+    -   详细的指导方针，并总结实用的经验。
 
--   The PR can be merged after the reviewers approve the pull request.
+-   reviewer 批准 PR 后，才可以 merge。
 
-## CI Environment
+## CI 环境
 
-We use Docker images to create stable CI environments that can be
-deployed to multiple machines. Follow the steps in [this issue
-template](https://github.com/apache/tvm/issues/new?assignees=&labels=&template=ci-image.md&title=%5BCI+Image%5D+)
-to update a CI Docker image.
+使用 Docker 镜像，创建能部署到多台机器上的稳定的 CI 环境。按照 [这个 issue 模板](https://github.com/apache/tvm/issues/new?assignees=&labels=&template=ci-image.md&title=%5BCI+Image%5D+) 的步骤，更新 CI Docker 镜像。
 
-## Testing {#pr-testing}
+## 测试 {#pr-testing}
 
-Even though we have hooks to run unit tests automatically for each pull
-request, it\'s always recommended to run unit tests locally beforehand
-to reduce reviewers\' burden and speedup review process.
+尽管每个 pull request 都有自动运行单元测试的 hook，但推荐先在本地运行单元测试，以减少 reviewer 的负担并加快 review 过程。
 
-### Docker (recommended)
+### Docker（推荐）
 
-`tests/scripts/ci.py` replicates the CI environment locally and provides
-a user-friendly interface. The same Docker images and scripts used in CI
-are used directly to run tests. It also deposits builds in different
-folders so you can maintain multiple test environments without
-rebuilding from scratch each time (e.g. you can test a change in CPU and
-i386 while retaining incremental rebuilds).
+`tests/scripts/ci.py` 在本地复制 CI 环境，并提供一个用户友好界面。在 CI 中使用的 Docker 镜像和脚本，可以直接用于运行测试。它是在不同的文件夹中保存构建的，这便于维护多个测试环境，无需每次都从头开始重建（例如，你可以测试 CPU 和 i386 的变化，同时保留增量重建）。
 
 ``` bash
-# see all available platforms
+# 查看所有可用的平台
 python tests/scripts/ci.py --help
 python tests/scripts/ci.py cpu --help
 
-# run the CPU build in the ci_cpu docker container (build will be left in
-# the build-cpu/ folder)
-# note: the CPU and GPU Docker images are quite large and may take some
-# time to download on their first use
+# 在 ci_cpu docker 容器中运行 CPU 构建（构建将被留在 build-cpu/ 文件夹中)
+# 注意：CPU 和 GPU 的 Docker 镜像相当大，可能在第一次使用时需要一些时间来下载
 python tests/scripts/ci.py cpu
 
-# run the CPU build in the ci_cpu docker container and then run unittests
+# 在 ci_cpu docker 容器中运行 CPU 构建，然后运行 unittests
 python tests/scripts/ci.py cpu --unittest
 
-# quickly iterate by running a specific test and skipping the rebuild each time
+# 通过运行特定的测试快速迭代，并跳过每次的重建
 python tests/scripts/ci.py cpu --skip-build --tests tests/python/unittest/test_tir_transform_inject_rolling_buffer.py::test_upscale
 
-# run the CPU build and drop into a shell in the container
+# 运行 CPU 构建，并将其放入容器中的一个 shell 中
 python tests/scripts/ci.py cpu --interactive
 ```
 
-### C++ (local)
-
-Running the C++ tests requires installation of gtest, following the
-instructions in `install-from-source-cpp-tests`{.interpreted-text
-role="ref"}
+我们会定期更新 Docker 镜像，随着时间的推移，陈旧的镜像可能造成磁盘空间的浪费。您可以使用以下命令删除当前检出的分支以及任何其他工作树中未使用的陈旧 Docker 镜像：
 
 ``` bash
-# assume you are in tvm source root
+docker/clear-stale-images.sh
+```
+
+有关更多选项，请参阅 --help。
+
+### C++（本地）
+
+运行 C++ 测试需要安装 gtest，按照 `启用 C++ 测试`{.interpreted-text
+role="ref"} 中的说明进行安装
+
+``` bash
+# 假设您是在 tvm 源码根目录下
 TVM_ROOT=`pwd`
 
 ./tests/scripts/task_cpp_unittest.sh
 ```
 
-### Python (local)
+### Python（本地）
 
-Necessary dependencies:
+必要的依赖：
 
 ``` bash
 pip install --user pytest Cython synr
 ```
 
-If you want to run all tests:
+如果希望运行所有的测试：
 
 ``` bash
-# build tvm
+# 构建 tvm
 make
 
 ./tests/scripts/task_python_unittest.sh
@@ -146,15 +123,15 @@ make
 If you want to run a single test:
 
 ``` bash
-# build tvm
+# 构建 tvm
 make
 
-# let python know where to find tvm related libraries
+# 让 python 知道在哪里可以找到 tvm 相关的库
 export PYTHONPATH=python
 rm -rf python/tvm/*.pyc python/tvm/*/*.pyc python/tvm/*/*/*.pyc
 
 TVM_FFI=ctypes python -m pytest -v tests/python/unittest/test_pass_storage_rewrite.py
 
-# Additionally if you want to run a single test, for example test_all_elemwise inside a file.
+# 另外，如果您想运行单一的测试，例如在一个文件内的 test_all_elemwise。
 TVM_FFI=ctypes python -m pytest -v -k "test_all_elemwise" tests/python/frontend/tflite/test_forward.py
 ```
