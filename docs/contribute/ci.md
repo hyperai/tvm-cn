@@ -5,43 +5,30 @@ title: Using TVM\'s CI
 ::: {.contents local=""}
 :::
 
-TVM uses Jenkins for running Linux continuous integration (CI) tests on
-[branches](https://ci.tlcpack.ai/job/tvm/) and [pull
-requests](https://ci.tlcpack.ai/job/tvm/view/change-requests/) through a
-build configuration specified in a
-[Jenkinsfile](https://github.com/apache/tvm/blob/main/Jenkinsfile).
-Non-critical jobs run in GitHub Actions for Windows and MacOS jobs.
+TVM 用 Jenkins 在 [分支](https://ci.tlcpack.ai/job/tvm/) 上运行 Linux 持续集成 (CI) 测试，并通过 [Jenkinsfile](https://github.com/apache/tvm/blob/main/Jenkinsfile) 中指定的构建配置 [pull
+requests](https://ci.tlcpack.ai/job/tvm/view/change-requests/)。Windows 和 MacOS 的非关键任务在 GitHub Actions 中运行。
 
-A standard CI run looks something like this viewed in [Jenkins\'
-BlueOcean
-viewer](https://ci.tlcpack.ai/blue/organizations/jenkins/tvm/activity).
-CI runs usually take several hours to complete and pull requests (PRs)
-cannot be merged before CI has successfully completed. To diagnose
-failing steps, click through to the failing pipeline stage then to the
-failing step to see the output logs.
+# 对 Contributor 而言
+
+[Jenkins 的 BlueOcean 查看器](https://ci.tlcpack.ai/blue/organizations/jenkins/tvm/activity) 中的标准 CI 运行如下所示。 CI 运行通常需要几个小时才能完成，并且在 CI 成功完成之前无法 merge pull request (PR)。要诊断失败的步骤，请单击失败的管道阶段，然后单击失败的步骤来查看输出日志。
 
 ![The Jenkins UI for a CI run](https://github.com/tlc-pack/web-data/raw/main/images/contribute/ci.png){width="800px"}
 
-## Debugging Failures
+## 调试失败
 
-When CI fails for some reason, there are several methods to diagnose the
-issue.
+当 CI 由于某种原因失败时，诊断问题的方法有如下几种。
 
-### Jenkins Logs
+### Jenkins 日志
 
-The first place to look for a failure is in the CI logs, follow the red
-Xs on the failing job to view the logs. Note:
+失败了首先按照失败作业上的红色 X 查看 CI 日志。注意：
 
--   Jenkins does not display the full log by default, at the top of the
-    log viewer is a button \"Show complete log\" which will take you to
-    a plaintext version of the log
--   `pytest`\_ failures are summarized at the bottom of the log but you
-    will likely need to scroll up to view the actual failure.
+-   Jenkins 默认不显示完整日志，在日志查看器的顶部有一个“显示完整日志”按钮，点击可以查看纯文本日志。
 
-### Reproduce Failures
+-   `pytest`\_ 失败总结在日志的底部，但可能需要向上滚动查看，才能知道失败的实际原因。
 
-Most TVM Python tests run under `pytest`\_ and can be run as described
-in `pr-testing`{.interpreted-text role="ref"}.
+### 重现失败
+
+大多数 TVM Python 测试可以按照 `Testing`{.interpreted-text role="ref"} 中的描述在 `pytest`\_ 下运行。
 
 ## Keeping CI Green
 

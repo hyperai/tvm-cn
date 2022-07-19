@@ -5,214 +5,115 @@ title: Documentation
 ::: {.contents depth="2" local=""}
 :::
 
-TVM documentation loosely follows the [formal documentation style
-described by Divio](https://documentation.divio.com). This system has
-been chosen because it is a \"simple, comprehensive and nearly
-universally-applicable scheme. It is proven in practice across a wide
-variety of fields and applications.\"
+TVM 文档大致遵循 [Divio 技术文档写作指南](https://documentation.divio.com)。之所以选择该指南，是因为它是一个“简单、全面且几乎普遍适用的方案，且已在广泛的领域和应用中证明”。
 
-This document describes the organization of TVM documentation, and how
-to write new documentation. See
-[docs/README.md](https://github.com/apache/tvm/tree/main/docs#build-locally)
-for instructions on building the docs.
+本文档描述了 TVM 文档的组织结构，以及如何撰写新文档。参阅 [docs/README.md](https://github.com/apache/tvm/tree/main/docs#build-locally) 来了解如何构建文档。
 
-## The Four Document Types
+## 四种文档类型
 
-### Introductory Tutorials
+### 入门教程
 
-These are step by step guides to introduce new users to a project. An
-introductory tutorial is designed to get a user engaged with the
-software without necessarily explaining why the software works the way
-it does. Those explanations can be saved for other document types. An
-introductory tutorial focuses on a successful first experience. These
-are the most important docs to turning newcomers into new users and
-developers. A fully end-to-end tutorial --- from installing TVM and
-supporting ML software, to creating and training a model, to compiling
-to different architectures --- will give a new user the opportunity to
-use TVM in the most efficient way possible. A tutorial teaches a
-beginner something they need to know. This is in contrast with a how-to,
-which is meant to be an answer to a question that a user with some
-experience would ask.
+这是引导新用户加入项目的分步指南。入门教程只需要让用户学会使用软件即可，无需让他们知道底层原理。底层原理将在其他类型的文档中讲解。入门教程侧重于成功的初体验，它是将新手转变为新用户和开发人员的最重要文档。
 
-Tutorials need to be repeatable and reliable, because the lack of
-success means a user will look for other solutions.
+完整的端到端教程——从安装 TVM 和支持 ML 软件，到创建和训练模型，再到编译到不同的架构——将让新用户以尽可能最有效的方式来使用 TVM。它让初学者知道那些必备知识，这与操作指南形成鲜明对比，操作指南旨在回答有一定经验的用户会提出的问题。
 
-### How-to Guides
+教程必须是可复现且可靠的，因为不成功的体验会让用户寻找其他解决方案。
 
-These are step by step guides on how to solve particular problems. The
-user can ask meaningful questions, and the documents provide answers. An
-examples of this type of document might be, \"how do I compile an
-optimized model for ARM architecture?\" or \"how do I compile and
-optimize a TensorFlow model?\" These documents should be open enough
-that a user could see how to apply it to a new use case. Practical
-usability is more important than completeness. The title should tell the
-user what problem the how-to is solving.
+### 操作指南
 
-How are tutorials different from how-tos? A tutorial is oriented towards
-the new developer, and focuses on successfully introducing them to the
-software and community. A how-to, in contrast, focuses on accomplishing
-a specific task within the context of basic understanding. A tutorial
-helps to on-board and assumes no prior knowledge. A how-to assumes
-minimum knowledge, and is meant to guide someone to accomplish a
-specific task.
+这是有关如何解决特定问题的分步指南。用户可以提出有意义的问题，然后文档给出答案。这类文档举例来说大概是这样的：“如何为 ARM 架构编译一个优化模型？”或“如何编译和优化 TensorFlow 模型？”这些文档应该足够开放，以便用户可以看到如何将其应用于新的用例。实用性比完整性更重要。标题应该能让用户看出这个操作指南解决的是什么问题。
 
-### Reference
+教程与操作指南有何不同？教程面向刚接触 TVM 的开发者，重点是成功地将他们引导到软件和社区之中。而操作指南则侧重于，在对它有基本理解的前提下，完成特定任务。教程假定用户没有任何先备知识，帮助他快速上手。操作指南则假设用户具备最基本的知识，旨在指导他完成特定任务。
 
-Reference documentation describes how the software is configured and
-operated. APIs, key functions, commands, and interfaces are all
-candidates for reference documentation. These are the technical manuals
-that let users build their own interfaces and programs. They are
-information oriented, focused on lists and descriptions. You can assume
-that the audience has a grasp on how the software works and is looking
-for specific answers to specific questions. Ideally, the reference
-documentation should have the same structure as the code base and be
-generated automatically as much as possible.
+### 参考
 
-### Architecture Guides
+参考文档描述了软件的配置和操作方式。 API、关键函数、命令和接口都是参考文档的候选对象。它是让用户构建自己的界面和程序的技术手册。它以信息为导向，注重列表和描述。可以假设读者已经掌握了软件的工作原理，并且正在寻找特定问题的特定答案。理想情况下，参考文档应该和代码库具有相同的结构，并且尽可能是自动生成的。
 
-Architecture Guides are explanations are background material on a topic.
-These documents help to illuminate and understand the application
-environment. Why are things the way they are? What were the design
-decisions, what alternatives were considered, what are the RFCs
-describing the existing system? This includes academic papers and links
-to publications relevant to the software. Within these documents you can
-explore contradictory and conflicting position, and help the reader make
-sense of how and why the software was built the way it is. It\'s not the
-place for how-tos and descriptions on how to accomplish tasks. They
-instead focus on higher level concepts that help with the understanding
-of the project. Generally these are written by the architects and
-developers of the project, but can useful to help both users and
-developers to have a deeper understanding of why the software works the
-way it does, and how to contribute to it in ways that are consistent
-with the underlying design principles.
+### 架构指南
 
-### Special considerations for TVM
+架构指南是关于某个主题的解释和背景材料。这些文档帮助用户理解应用环境。为什么事情是这样的？设计决策是什么，考虑了哪些替代方案，描述现有系统的 RFC 是什么？它包括了学术论文和软件相关出版物的链接。在这些文档中，你可以探索到矛盾点在哪里，并帮助读者理解软件是如何、以及为什么按照现在的方式构建的。
 
-The TVM community has some special considerations that require deviation
-from the simple docs style outlined by Divio. The first consideration is
-that there is frequently overlap between the user and developer
-communities. Many projects document the developer and user experience
-with separate systems, but it is appropriate to consider both in this
-system, with differentiations where appropriate. As a result the
-tutorials and how-tos will be divided between \"User Guides\" that focus
-on the user experience, and \"Developer Guides\" that focus on the
-developer experience.
+它既不是操作指南，也不是如何完成任务的描述。相反，这些文档聚焦能够帮助用户理解项目的更高级的概念。通常，这些是由项目的架构师和开发人员编写的，有助于帮助用户和开发人员更深入地了解为什么软件是这样工作的，以及如何以与底层设计原则一致的方式，来对它做出贡献。
 
-The next consideration is that there are special topics within the TVM
-community that benefit from additional attention. These topics include,
-but are not limited to, microTVM and VTA. Special \"Topic Guides\" can
-be created to index existing material, and provide context on how to
-navigate that material most effectively.
+### TVM 的特殊考量
 
-To facilitate newcomers, a special \"Getting Started\" section with
-installation instructions, a overview of why to use TVM, and other
-first-experience documents will be produced.
+TVM 社区有一些特殊考量，偏离了 Divio 的简单文档风格的原则。第一点就是用户和开发者社区之间经常存在重叠。很多项目用不同的系统记录开发者和用户的体验，但 TVM 将这两者放在一起，只在合适的时候做一些区分。因此，教程和操作指南将分为关注用户体验的“用户手册”和关注开发者体验的“开发手册”。
 
-## Technical Details
+下一个考量是 TVM 社区中存在一些特殊主题，值得投入较多的关注。这些主题包括但不限于 microTVM 和 VTA。可以创建特殊的“主题指南”来索引现有材料，并提供相关超链接。
 
-We use the [Sphinx](http://sphinx-doc.org) for the main documentation.
-Sphinx supports both reStructuredText and markdown. When possible, we
-encourage reStructuredText as it has richer features. Note that the
-Python doc-string and tutorials allow you to embed reStructuredText
-syntax.
+为方便新手，将制作一个特殊的“入门”部分，其中包含安装说明、为什么使用 TVM 以及其他初体验文档。
 
-See
-[docs/README.md](https://github.com/apache/tvm/tree/main/docs#build-locally)
-for instructions on building the docs.
+## 技术细节
 
-### Python Reference Documentation
+我们将 [Sphinx](http://sphinx-doc.org) 作为主要文档。 Sphinx 支持 reStructuredText 和 markdown。我们鼓励使用功能更丰富的 reStructuredText。注意，Python 文档字符串和教程允许嵌入 reStructuredText 语法。
 
-We use the [numpydoc](https://numpydoc.readthedocs.io/en/latest/) format
-to document the function and classes. The following snippet gives an
-example docstring. We always document all the public functions, when
-necessary, provide an usage example of the features we support (as shown
-below).
+构建文档的指导请参阅 [docs/README.md](https://github.com/apache/tvm/tree/main/docs#build-locally)。
+
+### Python 参考文档
+
+使用 [numpydoc](https://numpydoc.readthedocs.io/en/latest/) 格式来记录函数和类。以下代码段提供了一个文档字符串示例。记录所有公共函数，必要时提供支持功能的使用示例（如下所示）。
 
 ``` python
 def myfunction(arg1, arg2, arg3=3):
-    """Briefly describe my function.
+    """简单描述我的函数。
 
     Parameters
     ----------
     arg1 : Type1
-        Description of arg1
+        arg1 的描述
 
     arg2 : Type2
-        Description of arg2
+        arg2 的描述
 
-    arg3 : Type3, optional
-        Description of arg3
+    arg3 : Type3, 可选
+        arg3 的描述
 
     Returns
     -------
     rv1 : RType1
-        Description of return type one
+        返回类型 1 的描述
 
     Examples
     --------
     .. code:: python
 
-        # Example usage of myfunction
+        # myfunction 的使用示例
         x = myfunction(1, 2)
     """
     return rv1
 ```
 
-Be careful to leave blank lines between sections of your documents. In
-the above case, there has to be a blank line before `Parameters`,
-`Returns` and `Examples` in order for the doc to be built correctly. To
-add a new function to the docs, we need to add the
-[sphinx.autodoc](http://www.sphinx-doc.org/en/master/ext/autodoc.html)
-rules to
-[docs/reference/api/python](https://github.com/apache/tvm/tree/main/docs/reference/api/python)).
-You can refer to the existing files under this folder on how to add the
-functions.
+注意在文档的各个部分之间留空行。在上例中，`Parameters`、`Returns` 和 `Examples` 前面必须有一个空行，以便正确构建文档。要往文档里添加新功能时，需要将 [sphinx.autodoc](http://www.sphinx-doc.org/en/master/ext/autodoc.html) 规则添加到 [docs/reference/api/python](https://github.com/apache/tvm/tree/main/docs/reference/api/python) 中）。可以参考该文件夹下的已有的文件来了解如何添加功能。
 
-### C++ Reference Documentation
+### C++ 参考文档
 
-We use the doxygen format to document c++ functions. The following
-snippet shows an example of c++ docstring.
+使用 Doxygen 格式来记录 C++ 函数。以下片段展示了一个 C++ 文档字符串的示例。
 
 ``` c++
 /*!
- * \brief Description of my function
- * \param arg1 Description of arg1
- * \param arg2 Descroption of arg2
- * \returns describe return value
+ * \brief 我的函数的简单描述
+ * \param arg1：arg1 的描述
+ * \param arg2：arg2 的描述
+ * \returns 描述返回值
  */
 int myfunction(int arg1, int arg2) {
-  // When necessary, also add comment to clarify internal logics
+  // 必要的时候添加一些注释来阐明内部逻辑
 }
 ```
 
-Besides documenting function usages, we also highly recommend
-contributors to add comments about code logics to improve readability.
+除了记录函数的用法外，我们还强烈建议贡献者添加有关代码逻辑的注释以提高可读性。
 
-### Sphinx Gallery How-Tos
+### Sphinx Gallery 操作指南
 
-We use [sphinx-gallery](https://sphinx-gallery.github.io/) to build many
-Python how-tos. You can find the source code under
-[gallery](https://github.com/apache/tvm/tree/main/gallery). One thing
-that worth noting is that the comment blocks are written in
-reStructuredText instead of markdown so be aware of the syntax.
+我们用 [sphinx-gallery](https://sphinx-gallery.github.io/) 构建了很多 Python 操作指南。可以在 [gallery](https://github.com/apache/tvm/tree/main/gallery) 下找到源代码。注意：注释块是用 reStructuredText 而不是 markdown 编写的，请注意语法。
 
-The how-to code will run on our build server to generate the document
-page. So we may have a restriction like not being able to access a
-remote Raspberry Pi, in such case add a flag variable to the tutorial
-(e.g. `use_rasp`) and allow users to easily switch to the real device by
-changing one flag. Then use the existing environment to demonstrate the
-usage.
+操作指南代码将在我们的构建服务器上运行以生成文档页面。所以我们可能会有一个限制，比如无法访问远程 Raspberry Pi，在这种情况下，向教程中添加一个标志变量（如 `use_rasp`），并允许用户通过更改一个标志轻松切换到真实设备。然后用已有的环境来演示使用。
 
-If you add a new categorization of how-to, you will need to add
-references to
-[conf.py](https://github.com/apache/tvm/tree/main/docs/conf.py) and the
-[how-to
-index](https://github.com/apache/tvm/tree/main/docs/how-to/index.rst)
+如果为操作指南添加一个新的分类，则需要添加对 [conf.py](https://github.com/apache/tvm/tree/main/docs/conf.py) 和 [how-to index](https://github.com/apache/tvm/tree/main/docs/how-to/index.rst) 的引用。
 
-### Refer to Another Location in the Document
+### 引用文档中的另一个位置
 
-Please use sphinx\'s `:ref:` markup to refer to another location in the
-same doc.
+请使用 sphinx 的 `:ref:` 标记来引用同一文档中的另一个位置。
 
 ``` rst
 .. _document-my-section-tag
@@ -220,29 +121,15 @@ same doc.
 My Section
 ----------
 
-You can use :ref:`document-my-section-tag` to refer to My Section.
+可以使用 :ref:`document-my-section-tag` 来引用 My Section。
 ```
 
-### Documents with Images / Figures
+### 带有图像/图形的文档
 
-reStructuredText\'s
-[figure](https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure)
-and
-[image](https://docutils.sourceforge.io/docs/ref/rst/directives.html#image)
-elements allow a document to include an image URL.
+reStructuredText 的 [figure](https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure) 和 [image](https://docutils.sourceforge.io/docs/ref/rst/directives.html#image) 元素允许文档包含图像 URL。
 
-Image files created for TVM documentation should reside in the
-<https://github.com/tlc-pack/web-data> repository, while the
-[.rst]{.title-ref} files *using* those images should reside in the main
-TVM repostitory (<https://github.com/apache/tvm>).
+为 TVM 文档创建的图像文件应该在 <https://github.com/tlc-pack/web-data> 仓库中，而使用这些图像的 [.rst]{.title-ref} 文件应该在 TVM 仓库 (<https://github.com/apache/tvm>）。
 
-This will require two Github Pull Requests, one for the image files and
-another for the [.rst]{.title-ref} files. Discussion between the
-contributor and reviewers may be necessary to coordinate the review
-process.
+这需要两个 GitHub Pull Request，一个用于图像文件，另一个用于 [.rst]{.title-ref} 文件。contributor 与 reviewer 之间可能需要讨论来协调 review 的过程。
 
-*IMPORTANT NOTE:* When using two Pull Requests as described above,
-please merge the Pull Request in <https://github.com/tlc-pack/web-data>
-*before* merging the Pull Request in <https://github.com/apache/tvm>.
-This helps ensure that all URL links in TVM\'s online documentation are
-valid.
+重要提示：使用上述的两个 pull request 时，请先在 <https://github.com/tlc-pack/web-data> 中 merge pull request，然后再在 <https://github.com/apache/tvm> 中 merge pull request。这有助于确保 TVM 在线文档中的所有 URL 链接都是有效的。

@@ -5,119 +5,99 @@ title: Git Usage Tips
 ::: {.contents depth="2" local=""}
 :::
 
-Here are some tips for git workflow.
+以下是 Git 工作流程的一些技巧。
 
-## How to resolve a conflict with `main`
+## 如何解决与 `main` 的冲突
 
--   First rebase to most recent main
+-   首先 rebase 到最近的 main
 
     ``` bash
-    # The first two steps can be skipped after you do it once.
+    # 前两步如果操作过可以跳过
     git remote add upstream [url to tvm repo]
     git fetch upstream
     git rebase upstream/main
     ```
 
--   The git may show some conflicts it cannot merge, say
-    `conflicted.py`.
+-   Git 会显示一些无法 merge 的冲突，比如 `conflicted.py`。
 
-    -   Manually modify the file to resolve the conflict.
+    -   手动修改文件以解决冲突。
 
-    -   After you resolved the conflict, mark it as resolved by
+    -   解决冲突后，将其标记为已解决
 
         ``` bash
         git add conflicted.py
         ```
 
--   Then you can continue rebase by
+-   然后可以通过以下命令继续 rebase
 
     ``` bash
     git rebase --continue
     ```
 
--   Finally push to your fork, you may need to force push here.
+-   最后强制 push 到你的分支
 
     ``` bash
     git push --force
     ```
 
-## How to combine multiple commits into one
+## 如何将多个 commit merge 为一个
 
-Sometimes we want to combine multiple commits, especially when later
-commits are only fixes to previous ones, to create a PR with set of
-meaningful commits. You can do it by following steps.
+要将多个 commit（尤其是后面的 commit 只是对前面 commit 的修改时）组合为一个 PR 可以按照以下步骤操作。
 
--   Before doing so, configure the default editor of git if you haven\'t
-    done so before.
+-   如果之前没有配置过 Git 的默认编辑器，请先进行配置
 
     ``` bash
     git config core.editor the-editor-you-like
     ```
 
--   Assume we want to merge last 3 commits, type the following commands
+-   假设要 merge 最新 3 个 commit，请输入以下命令
 
     ``` bash
     git rebase -i HEAD~3
     ```
 
--   It will pop up an text editor. Set the first commit as `pick`, and
-    change later ones to `squash`.
+-   它将弹出一个文本编辑器。将第一个 commit 设置为 `pick`，并将稍后的 commit 更改为 `squash`。
+-   保存文件后，它会弹出另一个文本编辑器，要求修改 merge 的 commit 消息。
 
--   After you saved the file, it will pop up another text editor to ask
-    you modify the combined commit message.
-
--   Push the changes to your fork, you need to force push.
+-   将更改强制 push 到你的分支。
 
     ``` bash
     git push --force
     ```
 
-## Reset to the most recent main branch
+## 重置到最近的主分支
 
-You can always use git reset to reset your version to the most recent
-main. Note that **all your local changes will get lost**. So only do it
-when you do not have local changes or when your pull request just get
-merged.
+可用 git reset 重置为最新的主版本。注意，**所有本地更改都将丢失**。因此，只有在没有本地更改或 pull request 刚刚 merge 时才可以这样做。
 
 ``` bash
 git fetch origin main
 git reset --hard FETCH_HEAD
 ```
 
-## Recover a Previous Commit after Reset
+## 重置后恢复先前的 commit
 
-Sometimes we could mistakenly reset a branch to a wrong commit. When
-that happens, you can use the following command to show the list of
-recent commits
+有时我们可能会将分支重置为错误的 commit。发生这种情况时，可以使用以下命令显示最近 commit 的列表
 
 ``` bash
 git reflog
 ```
 
-Once you get the right hashtag, you can use git reset again to change
-the head to the right commit.
+获得正确的 hashtag 后，可以再次使用 git reset 将 head 更改为正确的 commit。
 
-## Apply only k-Latest Commits on to the main
+## 仅将 k 个最新 commit 应用于 main
 
-Sometimes it is useful to only apply your k-latest changes on top of the
-main. This usually happens when you have other m-commits that are
-already merged before these k-commits. Directly rebase against the main
-might cause merge conflicts on these first m-commits(which are can be
-safely discarded).
+当有其他 m 个 commit 在 k 个最新 commit 之前已经 merge 时，只在 main 上应用这 k 个最新 commit 很有用。直接对 main 进行 rebase 可能会导致这 m 个 commit 的 merge 冲突（可以安全地丢弃）。
 
-You can instead use the following command
+可以改用以下命令：
 
 ``` bash
-# k is the concrete number
-# Put HEAD~2 for the last 1 commit.
+# k 是实数
+# 将 HEAD~2 作为最新一个提交
 git rebase --onto upstream/main HEAD~k
 ```
 
-You can then force push to the main. Note that the above command will
-discard all the commits before tha last k ones.
+然后可以强制 push 到 main。注意，上述命令将丢弃最后 k 个 commit 之前的所有 commit。
 
-## What is the consequence of force push
+## 强制 push 的后果是什么
 
-The previous two tips requires force push, this is because we altered
-the path of the commits. It is fine to force push to your own fork, as
-long as the commits changed are only yours.
+前两个技巧需要强制 push，这是因为我们改变了 commit 的路径。如果更改的 commit 仅属于你自己，就可以强制 push 到你自己的分支。

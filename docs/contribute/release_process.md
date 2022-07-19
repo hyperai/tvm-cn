@@ -23,48 +23,36 @@ different things:
     -   Finalizing release notes
     -   Announcing the release
 
-## Prepare the Release Notes
+## 准备发行说明
 
-Release note contains new features, improvement, bug fixes, known issues
-and deprecation, etc. TVM provides [monthly dev
-report](https://discuss.tvm.ai/search?q=TVM%20Monthly%20%23Announcement)
-collects developing progress each month. It could be helpful to who
-writes the release notes.
+发行说明包含新功能、改进、错误修复、已知问题和弃用等。TVM 提供 [每月开发报告](https://discuss.tvm.ai/search?q=TVM%20Monthly%20%23Announcement)，收集每个月的开发进度。发行说明的编写者可能用得上这个。
 
-It is recommended to open a Github issue to collect feedbacks for the
-release note draft before cutting the release branch.
+建议在截取版本分支之前开一个 GitHub Issue 来收集发行说明初稿的反馈。
 
-## Prepare the GPG Key
+## 准备 GPG 密钥
 
-You can skip this section if you have already uploaded your key.
+如果已经上传了密钥，则可以跳过这部分。
 
-After generating the gpg key, you need to upload your key to a public
-key server. Please refer to
-<https://www.apache.org/dev/openpgp.html#generate-key> for details.
+参考 <https://www.apache.org/dev/openpgp.html#generate-key> 将生成的 gpg 密钥上传到公钥服务器。
 
-If you want to do the release on another machine, you can transfer your
-gpg key to that machine via the `gpg --export` and `gpg --import`
-commands.
+通过 `gpg --export` 和 `gpg --import` 命令可以将 gpg 密钥传输到另一台机器上发布。
 
-The last step is to update the KEYS file with your code signing key
-<https://www.apache.org/dev/openpgp.html#export-public-key>. Check in
-the changes to the TVM main branch, as well as ASF SVN,
+最后一步是使用你的代码签名密钥 <https://www.apache.org/dev/openpgp.html#export-public-key> 更新 KEYS 文件。查看对 TVM 主分支及 ASF SVN 的更改，
 
 ``` bash
-# the --depth=files will avoid checkout existing folders
+# 指定 --depth=files 参数将跳过检查已有文件夹
 svn co --depth=files "https://dist.apache.org/repos/dist/dev/tvm" svn-tvm
 cd svn-tvm
-# edit KEYS file
+# 编辑 KEY 文件
 svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m "Update KEYS"
-# update downloads.apache.org
+# 更新 downloads.apache.org
 svn rm --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.org/repos/dist/release/tvm/KEYS -m "Update KEYS"
 svn cp --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.org/repos/dist/dev/tvm/KEYS https://dist.apache.org/repos/dist/release/tvm/ -m "Update KEYS"
 ```
 
-## Cut a Release Candidate
+## 截取一个候选版本
 
-To cut a release candidate, one needs to first cut a branch using
-selected version string, e.g.,
+要截取一个候选版本，首先用选定的版本字符串截取一个分支，例如，
 
 ``` bash
 git clone https://github.com/apache/tvm.git
@@ -73,31 +61,25 @@ git branch v0.6.0
 git push --set-upstream origin v0.6.0
 ```
 
-(*Make sure the version numbers in the source code are correct.* Run
-`python3 version.py` to update the version.)
+（*确保源代码中的版本号正确。*运行 `python3 version.py` 进行版本更新。）
 
-Go to the GitHub repositories \"releases\" tab and click \"Draft a new
-release\",
+转到 GitHub 仓库的 "releases" 选项卡，然后单击 "Draft a new release"，
 
--   Provide the release tag in the form of "v1.0.0.rc0" where 0 means
-    it's the first release candidate
--   Select the commit by clicking Target: branch \> Recent commits \>
-    \$commit_hash
--   Copy and paste release note draft into the description box
--   Select \"This is a pre-release\"
--   Click \"Publish release\"
+-   以 “v1.0.0.rc0” 的形式提供发布标签，其中 0 表示它是第一个候选版本
+-   单击 Target 选择提交：branch \> Recent commits \> \$commit_hash
+-   将发行说明初稿复制并粘贴到说明框中
+-   选择 “This is a pre-release”
+-   点击 “Publish release”
 
-Notice that one can still apply changes to the BRANCH after the cut,
-while the TAG is fixed. If any change is required for this release, a
-new TAG has to be created.
+注意：截取后 BRANCH 仍可以更改，而 TAG 是固定的。如果此版本要做任何更改，则必须创建一个新的 TAG。
 
-Remove previous release candidate (if applied),
+删除以前的候选版本（如果有的话），
 
 ``` bash
 git push --delete origin v0.6.0.rc1
 ```
 
-Create source code artifacts,
+创建源代码工程，
 
 ``` bash
 git clone git@github.com:apache/tvm.git apache-tvm-src-v0.6.0.rc0
@@ -112,97 +94,75 @@ brew install gnu-tar
 gtar -czvf apache-tvm-src-v0.6.0.rc0.tar.gz apache-tvm-src-v0.6.0.rc0
 ```
 
-Use your GPG key to sign the created artifact. First make sure your GPG
-is set to use the correct private key,
+使用 GPG 密钥对创建的工程进行签名。首先确保 GPG 使用正确的私钥，
 
 ``` bash
 $ cat ~/.gnupg/gpg.conf
 default-key F42xxxxxxxxxxxxxxx
 ```
 
-Create GPG signature as well as the hash of the file,
+创建 GPG 签名以及文件的哈希，
 
 ``` bash
 gpg --armor --output apache-tvm-src-v0.6.0.rc0.tar.gz.asc --detach-sig apache-tvm-src-v0.6.0.rc0.tar.gz
 shasum -a 512 apache-tvm-src-v0.6.0.rc0.tar.gz > apache-tvm-src-v0.6.0.rc0.tar.gz.sha512
 ```
 
-## Upload the Release Candidate
+## 上传候选版本
 
-Edit the release page on Github and upload the artifacts created by the
-previous steps.
+编辑 GitHub 上的发布页面并上传前面步骤创建的工程。
 
-The release manager also needs to upload the artifacts to ASF SVN,
+版本 manager 还需要将工程上传到 ASF SVN，
 
 ``` bash
-# the --depth=files will avoid checkout existing folders
+# 指定 --depth=files 参数将跳过检查已有文件夹
 svn co --depth=files "https://dist.apache.org/repos/dist/dev/tvm" svn-tvm
 cd svn-tvm
 mkdir tvm-v0.6.0-rc0
-# copy files into it
+# 将文件复制到其中
 svn add tvm-0.6.0-rc0
 svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m "Add RC"
 ```
 
-## Call a Vote on the Release Candidate
+## 对候选版本投票
 
-The first voting takes place on the Apache TVM developers list
-(<dev@tvm.apache.org>). To get more attention, one can create a github
-issue start with \"\[VOTE\]\" instead, it will be mirrored to dev@
-automatically. Look at past voting threads to see how this proceeds. The
-email should follow this format.
+第一次投票在 Apache TVM 开发者名单（<dev@tvm.apache.org>）上进行。为了获得更多关注，可以创建一个以 “[VOTE]” 开头的 GitHub Issue，它会自动镜像到 dev@。可以查看以前的投票帖子来了解它是如何进行的。电子邮件应遵循以下格式：
 
--   Provide the link to the draft of the release notes in the email
--   Provide the link to the release candidate artifacts
--   Make sure the email is in text format and the links are correct
+-   在电子邮件中提供版本说明初稿的链接
+-   提供候选版本工程的链接
+-   确保电子邮件为文本格式且链接正确
 
-For the dev@ vote, there must be at least 3 binding +1 votes and more +1
-votes than -1 votes. Once the vote is done, you should also send out a
-summary email with the totals, with a subject that looks something like
-\[VOTE\]\[RESULT\] \....
+对于 dev@ 投票，必须至少有 3 个约束性 +1 投票，并且 +1 投票必须多于 -1 投票。投票完成后，发送一封包含总数的摘要电子邮件，主题类似于 \[VOTE\]\[RESULT\] \...。
 
-In ASF, votes are open \"at least\" 72hrs (3 days). If you don\'t get
-enough number of binding votes within that time, you cannot close the
-voting deadline. You need to extend it.
+在 ASF 中，投票“至少”开放 72 小时（3 天）。如果在这段时间内没有获得足够数量的约束性投票，将无法在投票截止日期关闭它，需要延期投票。
 
-If the voting fails, the community needs to modified the release
-accordingly, create a new release candidate and re-run the voting
-process.
+如果投票失败，社区需要相应地修改版本，创建新的候选版本并重新投票。
 
-## Post the Release
+## 发布版本
 
-After the vote passes, to upload the binaries to Apache mirrors, you
-move the binaries from dev directory (this should be where they are
-voted) to release directory. This \"moving\" is the only way you can add
-stuff to the actual release directory. (Note: only PMC can move to
-release directory)
+投票通过后，要将二进制文件上传到 Apache 镜像，请将二进制文件从 dev 目录（这应该是它们被投票的地方）移动到发布目录。这种“移动”是将内容添加到实际发布目录的唯一方法。 （注：只有 PMC 可以移动到发布目录）
 
 ``` bash
 export SVN_EDITOR=vim
 svn mkdir https://dist.apache.org/repos/dist/release/tvm
 svn mv https://dist.apache.org/repos/dist/dev/tvm/tvm-v0.6.0-rc2 https://dist.apache.org/repos/dist/release/tvm/tvm-v0.6.0
 
-# If you've added your signing key to the KEYS file, also update the release copy.
+# 如果您已将签名密钥添加到 KEYS 文件中，请同时更新发布副本。
 svn co --depth=files "https://dist.apache.org/repos/dist/release/tvm" svn-tvm
 curl "https://dist.apache.org/repos/dist/dev/tvm/KEYS" > svn-tvm/KEYS
 (cd svn-tvm && svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m"Update KEYS")
 ```
 
-Remember to create a new release TAG (v0.6.0 in this case) on Github and
-remove the pre-release candidate TAG.
+记得在 GitHub 上创建一个新版本 TAG（本例中为 v0.6.0）并删除预发布候选 TAG。
 
 > ``` bash
 > git push --delete origin v0.6.0.rc2
 > ```
 
-## Update the TVM Website
+## 更新 TVM 网站
 
-The website repository is located at
-<https://github.com/apache/tvm-site>. Modify the download page to
-include the release artifacts as well as the GPG signature and SHA hash.
+网站仓库位于 <https://github.com/apache/tvm-site>。向下载页面中添加版本工程以及 GPG 签名和 SHA 哈希。
 
-## Post the Announcement
+## 发布公告
 
-Send out an announcement email to <announce@apache.org>, and
-<dev@tvm.apache.org>. The announcement should include the link to
-release note and download page.
+向 <announce@apache.org> 和 <dev@tvm.apache.org> 发送公告邮件。公告应包括发布说明和下载页面的链接。

@@ -5,12 +5,7 @@ title: Error Handling Guide
 ::: {.contents depth="2" local=""}
 :::
 
-TVM contains structured error classes to indicate specific types of
-error. Please raise a specific error type when possible, so that users
-can write code to handle a specific error category if necessary. You can
-directly raise the specific error object in python. In other languages
-like c++, you simply add `<ErrorType>:` prefix to the error message(see
-below).
+TVM 包含结构化的错误类以表示特定类型的错误。请尽可能提出特定的错误类型，以便用户可以在必要时写代码来处理特定的错误类别。可以直接在 Python 中抛出特定的错误对象。在 C++ 等其他语言中，只需给错误消息添加 `<ErrorType>:` 前缀（见下文）。
 
 ::: note
 ::: title
@@ -21,14 +16,9 @@ Please refer to :py`tvm.error`{.interpreted-text role="mod"} for the
 list of errors.
 :::
 
-## Raise a Specific Error in C++
+## 在 C++ 中抛出特定错误
 
-You can add `<ErrorType>:` prefix to your error message to raise an
-error of the corresponding type. Note that you do not have to add a new
-type :py`tvm.error.TVMError`{.interpreted-text role="class"} will be
-raised by default when there is no error type prefix in the message.
-This mechanism works for both `LOG(FATAL)` and `ICHECK` macros. The
-following code gives an example on how to do so.
+可以给错误消息添加 `<ErrorType>:` 前缀来抛出相应类型的错误。注意，当消息中没有错误类型前缀时，不必添加新类型，默认会抛出 :py`tvm.error.TVMError`{.interpreted-text role="class"} 错误。此机制适用于 `LOG(FATAL)` 和 `ICHECK` 宏。具体示例见以下代码：
 
 ``` c
 // src/api_test.cc
@@ -40,9 +30,7 @@ void ErrorTest(int x, int y) {
 }
 ```
 
-The above function is registered as PackedFunc into the python frontend,
-under the name `tvm._api_internal._ErrorTest`. Here is what will happen
-if we call the registered function:
+上述函数作为 PackedFunc 注册到 Python 前端，名称为 `tvm._api_internal._ErrorTest`。如果我们调用注册函数会发生以下情况：
 
 ``` 
 >>> import tvm
@@ -74,41 +62,31 @@ InternalError: cannot reach here
 TVM hint: You hit an internal error. Please open a thread on https://discuss.tvm.ai/ to report it.
 ```
 
-As you can see in the above example, TVM\'s ffi system combines both the
-python and c++\'s stacktrace into a single message, and generate the
-corresponding error class automatically.
+如上面的示例所示，TVM 的 ffi 系统将 Python 和 C++ 的 StackTrace 合并为一条消息，并自动生成相应的错误类。
 
-## How to choose an Error Type
+## 如何选择错误类型
 
-You can go through the error types are listed below, try to use common
-sense and also refer to the choices in the existing code. We try to keep
-a reasonable amount of error types. If you feel there is a need to add a
-new error type, do the following steps:
+可以浏览下面列出的错误类型，试着用常识并参考已有代码中的选择来决定。我们尽量将错误类型保持在一个合理的数目。如果你觉得需要添加新的错误类型，请这样做：
 
--   Send a RFC proposal with a description and usage examples in the
-    current codebase.
--   Add the new error type to :py`tvm.error`{.interpreted-text
-    role="mod"} with clear documents.
--   Update the list in this file to include the new error type.
--   Change the code to use the new error type.
+-   在当前代码库中发送带有描述和使用示例的 RFC 提案。
+-   使用清晰的文档将新的错误类型添加到 :py`tvm.error`{.interpreted-text
+    role="mod"}。
+-   将新的错误类型添加到此文件中的列表里。
+-   在代码里使用新的错误类型。
 
-We also recommend to use less abstraction when creating the short error
-messages. The code is more readable in this way, and also opens path to
-craft specific error messages when necessary.
+创建简短的错误消息时推荐使用较少的抽象。代码以这种方式更具可读性，并且在必要时还打开了制作特定错误消息的路径。
 
 ``` python
 def preferred():
-    # Very clear about what is being raised and what is the error message.
+    # 清楚知道抛出什么类型的错误以及错误消息是什么。
     raise OpNotImplemented("Operator relu is not implemented in the MXNet frontend")
 
 def _op_not_implemented(op_name):
     return OpNotImplemented("Operator {} is not implemented.").format(op_name)
 
 def not_preferred():
-    # Introduces another level of indirection.
+    # In引入另一个间接方法
     raise _op_not_implemented("relu")
 ```
 
-If we need to introduce a wrapper function that constructs multi-line
-error messages, please put wrapper in the same file so other developers
-can look up the implementation easily.
+如果需要引入构造多行错误消息的包装函数，请将包装器放在同一个文件中，以便其他开发者可以轻松找到。

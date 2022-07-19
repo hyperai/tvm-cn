@@ -5,255 +5,104 @@ title: Code Reviews
 ::: {.contents depth="2" local=""}
 :::
 
-Open source code is maintained by a community with diverse backgrounds,
-interests, and goals. Hence it is important to provide clear, documented
-and maintainable code and processes. Code reviews are a shepherding
-process used to collectively spot potential problems, improve quality of
-the code, and educate both contributors and reviewers about the code
-base and its assumptions. It is also one mechanism to ensure there are
-multiple people who can maintain a related piece of code together.
-Contributors are encouraged to polish the code to a reviewable state
-before requesting reviews. This is especially important for committer
-candidates, as committers are expected to participate in not only
-writing code but also reviewing it.
+开源代码由具有不同背景、兴趣和目标的社区维护。因此，提供清晰、文档化和可维护的代码和流程非常重要。代码 review 是一个引导过程，用于共同发现潜在问题，提高代码质量，并就代码库及其假设对贡献者和 reviewer 进行教育。这也是确保多人共同维护相关代码的一种机制。鼓励贡献者在请求 review 之前将代码完善到可 review 的状态。这对于 committer 候选人来说尤其重要，因为 committer 不仅要参与写代码，还要参与 review。
 
-This document is a living guideline for code review in open source.
-Please also take sometime to read `community_guide`{.interpreted-text
-role="ref"} about the general development process.
+本文档是开源代码 review 的在线指南。还请花一些时间阅读 `TVM 社区指南`{.interpreted-text
+role="ref"} 的一般开发过程。
 
-## Building Trust
+## 建立信任
 
-First and foremost, we are building a community that based on trust,
-which takes time and effort to both build and maintain. We expect our
-community members to work together in a constructive way and work
-together with common sense. Although we all have different sets of
-backgrounds, interests and goals we must work together to find solutions
-that work for the larger community. Trust-based collaboration is also a
-key tenant of the Apache way and an important factor to consider in
-growing the community, and promoting members to official roles.
+一个基于信任的社区，需要时间和精力来建立和维护。我们希望社区成员能够达成共识，并且以一种建设性的方式来协作。尽管我们都有着不同的背景、兴趣和目标，但我们必须共同努力寻找适合更大社区的解决方案。基于信任的协作不仅是 Apache 的关键租户，它对于发展社区，以及将社区成员提升为官方角色来说也很重要。
 
-## Community Participation
+## 社区参与
 
-Everyone is welcomed to comment on PRs. We encourage committers to wait
-for some period of time(e.g. three days) before merging PR that contains
-a major architecture change. The goal is to give people time to speak up
-and express interest in reviewing and participate.
+欢迎大家对 PR 发表评论。我们鼓励 committer 在 merge 包含重大架构更改的 PR 之前等一段时间（例如三天），其目的是让人们有时间畅所欲言、充分讨论他们对 review 的兴趣并参与其中。
 
-Remembering that we are all coming from different backgrounds is
-important here. For example some community members work in different
-time zones, only work on open source during work hours, or may be
-traveling or having other events going on in their lives. An important
-part of working in a large project is ensuring there is collective
-understanding, so no one person is a bottleneck. While it is important
-to allow time for participation in code review we also can not block all
-changes on all reviewers. Remember that helping people land PRs is a
-great way to encourage broader participation, especially for those who
-volunteer their time to contribute.
+我们来自的背景不同，这对社区参与来说很重要。例如，一些社区成员工作在不同的时区，只在工作时间从事开源工作，其他时间可能在旅行或进行其他活动。在大型项目中工作有着集体认知是很重要的，这样的话没有人会成为瓶颈。虽然留出时间参与代码 review 很重要，但我们也不能阻止所有 reviewer 的所有更改。记住，帮助人们获得 PR 是鼓励更广泛参与的好方法，尤其是对于那些自愿贡献时间的人。
 
-Part of this is trusting and communicating with fellow maintainers that
-if changes need to be applied in the future that PR authors will later
-follow through on their promises. It is the responsibility of committers
-to listen to all feedback whether from PMC members or new contributors
-and consider what actions need to be taken.
+其中一部分是与其他 maintainer 的信任和沟通，如果将来要应用更改，PR 的作者要兑现他们的承诺。committer 有义务听取任何来自 PMC 成员或新贡献者的反馈，并考虑要采取什么行动。
 
-## Read the code carefully
+## 仔细阅读代码
 
-Sometimes we may quickly read through the code and only pick up on a
-selective aspects of the code. These type of comments are usually
-helpful and should be welcomed in the community. However, they are only
-part of performing code review and should be part of more comprehensive
-feedback. A good and careful code review is a large time investment and
-sometimes can be longer than writing the actual contribution.
+有时我们会快速通读代码，只关注代码的某一部分，社区应该欢迎这些类型的评论。不过，它们只是代码 review 的一部分，也应成为更全面的反馈的一部分。要仔细地进行代码 review 会耗费大量时间，这个过程花费的时间可能比实际编写代码的时间还要长。
 
-For example receiving only highly critical feedback on minor aspects of
-your PR rarely feels good, and it can be discouraging if your time and
-effort was not reciprocated during review. Practicing empathy when
-acting both as a contributor and committer is important and can help
-make you a more effective code reviewer and contributor.
+例如，就算只是收到关于 PR 次要方面的高度批评性反馈，都会让人觉得投入的时间和精力在 review 期间没有得到回报，这会让他们非常沮丧。不管是作为贡献者还是 committer 时，同理心都很重要，它可以帮助你成为更有效的代码 reviewer 和贡献者。
 
-We expect that all committers carefully read and understand the code
-before signing off. There is a lot of trust involved when a committer
-hits the merge button. In the meantime, we acknowledge that sometimes
-problems slip through, in that case, the merger is responsible for
-ensuring the correct follow up actions are taken.
+我们希望所有 committer 在签名 (sign off) 之前仔细阅读并理解代码。当 committer 点击 merge 按钮时，牵涉到很多人对他的信任。同时，我们承认有时会出现问题，在这种情况下，merger 有责任确保采取正确的后续行动。
 
-## Be Respectful
+## 尊重他人
 
--   To everyone who are making comments: making constructive comment
-    will help new contributors to land their PRs timely and help us
-    welcome new members to the community.
--   To authors: reviewers should spend significant time reading the
-    code, and a careful review could be as time intensive as writing the
-    code from scratch. Respectfully address review comments and
-    reciprocate the review by helping review others changes in the
-    future.
+-   所有发表评论的人：提出建设性评论不仅有助于新贡献者及时获得 PR，还有助于提高新成员的参与度。
+-   写给作者：reviewer 会花大量时间阅读代码，仔细 review 可能与从头开始编写代码一样耗费时间。恭敬地处理 review 意见，并在将来 review 其他人的代码，来回报他们的 review。
 
-Most importantly focus on having a constructive conversation, and try to
-assume best intentions when interacting as a reviewer. If there is
-something in the process not working, consider getting some face time
-with the other contributors and discussing how to improve the process or
-communication.
+最重要的是专注于进行建设性的对话，并在作为 reviewer 与其他人互动时尽量把他人往好处想。如果流程中有些东西不起作用，可以考虑与其他贡献者面对面交流，并讨论如何改进流程或沟通。
 
-## Factors to Consider about Code Quality
+## 代码质量需要考虑的因素
 
-High quality code is critical to the long term success of the project.
-There are many factors of code quality to consider during a code review:
+高质量代码对于项目的长期发展至关重要。在代码 review 期间，需要从多方面对代码质量进行评估：
 
--   F0: Overall architecture. This includes the definition of public
-    modules, key data structures and public interfaces. Good
-    architectural choices are critical to the success of the project in
-    the long run.
--   F1: Architectural consistency. There are usually multiple ways to
-    implement a new feature. We must ensure new features are consistent
-    with previous overall architectural choices and interact well with
-    the existing code. Every new feature increases the complexity of the
-    project, and a consistent design ideally minimizes the increase in
-    complexity bought by a new feature, making it easier to maintain
-    code in the long run.
--   F2: Code robustness and test coverage. Ensure code runs correctly in
-    all possible settings(platforms), ensure test coverage of the new
-    feature. Clear error messages for user facing errors.
--   F3: User facing API documentation: documentation of public user
-    facing APIs and key module interfaces are mandatory. This includes
-    the API, data structures that appears in the public interface (i.e.,
-    [include/tvm]{.title-ref} and user facing python APIs). We generally
-    encourage well documented code and include some form of
-    documentations for internal APIs that are used in multiple places,
-    see also F4.
--   F4: Code readability. Readability involves multiple aspects:
-    instructive and consistent function names, clear implementation of
-    the overall flow, descriptive comments for complex code logic and
-    internal functions. Readable code is easier to maintain.
+-   F0：整体架构。这包括公共模块、关键数据结构和公共接口的定义。从长远来看，良好的架构选择对于项目的成功至关重要。
+-   F1：架构一致性。通常有多种方法可以实现新功能。我们必须确保新功能与之前的整体架构选择保持一致，并能与现有代码进行良好的交互。每个新功能都会增加项目的复杂度，而一致的设计可以最大限度地降低新功能的复杂度，从长远来看利于代码维护。
+-   F2：代码稳健性和测试覆盖。确保代码在所有可能的场景（平台）中正确运行，确保新功能的测试覆盖。为遇到报错的用户清除错误消息。
+-   F3：面向用户的 API 文档：请务必编写面向用户的公共 API 和关键模块接口的文档。这包括 API、出现在公共接口中的数据结构（即 [include/tvm]{.title-ref} 和面向用户的 python API）。我们鼓励代码对应有完善的文档（其中包含对内部 API 的描述，这些内部 API 在多个地方被使用），另请参阅 F4。
+-   F4：代码可读性。可读性涉及多个方面：有指导意义且一致的函数名称、整体流程的清晰实现、复杂代码逻辑和内部函数的描述性注释。可读性高的代码更容易维护。
 
-Architectural design and consistency are the most important factors
-since they are likely to introduce the most long term technical debt. As
-a result, committers should most carefully consider these factors before
-merging the code.
+架构设计和一致性至关重要，因为它们可能会引起技术问题的长期累积。因此，committer 在合并代码之前应该仔细地考虑这些因素。
 
-Test coverage and API documentation are expected for code contributions.
+代码贡献需要包含测试覆盖和 API 文档。
 
-Code readability is relatively a subjective matter compared to the other
-ones. Different people have different thoughts on how to best write
-code. Reviewers should make constructive and actionable comments. In the
-meantime, code review should not be used as a way to get others to write
-code exactly the way you would. Conversely you should also consider that
-what you may easily understand, or find acceptable might not work for
-the larger community or other members. Use your judgment on what is
-appropriate based on the content and the scope of the contribution and
-where the contributor is coming from.
+与其他问题相比，代码可读性是一个相对主观的问题。不同的人对如何写出最好的代码有不同的看法。reviewer 应提出一些有建设性和可操作的意见。同时，代码 review 不应该成为，一种让其他人完全按照 reviewer 的方式来写代码的方式。相反，还要考虑到一点，就是你认为很容易理解或可以接受的东西，可能不适用于更大的社区或其他成员。请根据贡献的内容和范围，以及贡献者的来源来判断什么是合适的。
 
-We follow common `code_guide`{.interpreted-text role="ref"} when writing
-code. Style guides help ensure that code is readable and maintainable by
-others, long after the original author has moved on. Style guides are
-more than about code formatting --- they also pertain to the correct way
-to document code, variable naming, and other conventions that are not
-enforced by automatic formatters.
+我们写代码要遵循通用的 `代码指南和提示`{.interpreted-text role="ref"}。风格指南可以使得，即便在原作者离开很久之后，其他人仍可以阅读和维护代码。风格指南不仅仅关乎代码的格式化，还记录——代码、命名变量，以及没有被自动格式化程序强制执行的约定——的正确方式。
 
-## Consensus Building
+## 共识构建
 
-Disagreements can happen during code reviews. We encourage building
-consensus among the people involved. We are working together and
-building trust with each other in OSS. The nature of OSS means sometimes
-we make compromises on less significant issues to make steady progress
-and welcome broader participation in the community. Compromise
-unfortunately means sometimes the world will not be exactly as we would
-like, this true even for leaders of the community.
+在代码 review 期间可能会发生分歧。我们鼓励在相关人员之间建立共识，同时我们也致力于在 OSS 中彼此建立信任。 OSS 的性质意味着，我们为了取得稳步进展，有时会在不太重要的问题上做出妥协，同时欢迎更广泛的社区参与。但是妥协意味着有些事情不完全如我们所想，对社区领袖来说也是如此。
 
--   Be civil and build consensus through constructive technical-based
-    conversations.
--   A committer who owns the area can serve as a shepherd to drive the
-    discussion by taking all the conversations into consideration, and
-    suggest a resolution with to move forward.
--   Because a lot of trust is involved on the committer(shepherd), they
-    should read the PR carefully before sign off. Additionally, the
-    merger should also take the responsibility to followup in case there
-    are problems caused by the merge.
+-   在建设性的基于技术的对话中保持文明并建立共识。
+-   领域所属的 committer 可以充当主持人，通过考虑所有对话来推动讨论，并提出推进的解决方案。
+-   因为赋予了 committer（主持人）很大的信任，所以他们应该在签署之前仔细阅读 PR。此外，如果合并引发了问题，那么合并者也应承担后续的责任。
 
-## Consistency
+## 一致性
 
-A final remark is that we are all human and its hard to always be
-perfectly consistent. If contributors feel that you didn\'t apply these
-guidelines in a consistent way it is important to listen and hear folks
-out. We will constantly have to iterate on processes and guidelines as
-we evolve as a community. Our goal is to strive to be consistent and
-objective but all of us are unfortunately human and imperfect and will
-need to adjust and learn.
+最后一点，我们都是人，很难始终保持一致。如果贡献者认为某些地方你没有遵循一致性方针，请根据具体情况进行相应调整。随着社区的发展，流程和指导方针将会不断地迭代。我们的目标是努力保持一致和客观。
 
-## Additional Recommendations
+## 其他建议
 
-### Deliberate on API and Data Structures
+### 仔细考虑 API 和数据结构
 
-A minimum and stable API is critical to the project's life. A good API
-makes a huge difference. Always think very carefully about all the
-aspects including naming, argument definitions and behavior.
+最小且稳定的 API 对项目而言至关重要。好的 API 会产生很大影响。始终要仔细考虑所有方面，包括命名、参数定义和行为。
 
-When possible, pay more attention still to the proposed API design
-during code reviews. Remember, it is easier to improve code
-implementation, but it is extremely hard to change an API once accepted.
-We should treat data structures that are shared across modules(e.g. AST)
-in the same way. If/when uncertain, start a conversation with more
-developers before committing.
+如果可能，在代码 review 过程中仍要多关注已经提出的 API 设计。请记住，改进代码实现是很容易的一件事情，但是，一旦 API 被接受就很难更改变了。我们应该以相同的方式处理贯穿多个模块共享的数据结构（例如 AST）。如果不确定的话，请在 commit 之前与其他开发人员充分交流探讨。
 
-Here are some useful principles for designing APIs:
+以下是一些对于设计 API 而言，非常实用的原则：
 
--   Be consistent with existing well-known package's APIs if the
-    features overlap. For example, tensor operation APIs should always
-    be consistent with the numpy API.
--   Be consistent with existing APIs in the same project. For example,
-    we should use the same argument ordering across all the optimization
-    passes, so there is no \"surprise\" when using them.
--   Think about whether the API will change in the future. For example,
-    we will have more options like loop_unrolling and device placement
-    policy as we add more optimizations in build. We can package
-    optimization knobs into a build configuration object. In this way,
-    the build API is stable over time, even though it may be enriched.
--   Write documentation. Documentation is mandatory for APIs and
-    sometimes writing documents helps us to think further about the
-    design as well as whether we need to add further clarifications.
--   Minimum. Think about how many lines of code a user has to write to
-    use the API. Remove layers of abstraction when possible.
+-   如果功能重叠，请与现有知名包的 API 保持一致。例如，张量算子 API 应始终与 numpy API 保持一致。
+-   与同一项目中的现有 API 保持一致。例如，我们应该在整个优化过程中使用相同的参数排序，这样在使用它们时才不会有发生“意外”。
+-   想想未来 API 会不会发生变化。例如，随着在构建中添加更多的优化，我们会有更多选项，例如 loop_unrolling 和设备放置策略。我们可将优化 knob 打包到构建配置对象中，通过这种方式构建的 API， 即使在未来可能会被丰富，但长久来看也是稳定的。
+-   写文档。文档对于 API 来说是强制性的，有时候写文档可以帮助我们进一步思考设计，以及是否需要添加进一步的说明。
+-   最小化。想想用户为了使用 API 要写多少行代码。尽可能删除抽象层。
 
-### Minimize Dependencies
+### 最小化依赖
 
-Always be cautious in introducing dependencies. While it is important to
-reuse code and avoid reinventing the wheel, dependencies can increase
-burden of users in deployment. A good design principle is that a feature
-or function should only have a dependency if/when a user actually use
-it.
+引入依赖时始终要保持谨慎。虽然代码复用和避免重新造轮子很重要，但依赖关系会增加用户在部署中的负担。一个好的设计原则是，对于某个特性或功能，应该只有在用户实际使用它时，才具有依赖关系。
 
-### Concise Implementation
+### 简洁的实现
 
-Some basic principles applied here: favor vectorized array code over
-loops, use existing APIs that solve the problem.
+这里的基本原则是：多用向量化数组代码而不是循环；使用现有 API 解决问题。
 
-### Document Lessons in Code Reviews
+### 记录代码 review 中的经验
 
-When you find there are some common or recurring lessons that can be
-summarized, add it to the `code_guide`{.interpreted-text role="ref"}. It
-is always good to refer to the guideline document when requesting
-changes, so the lessons can be shared to all the community.
+对于一些常见或反复出现的问题，请将其添加到 `代码指南和技巧`{.interpreted-text role="ref"} 中。请求更改时可参考指南文档，这有助于将经验分享到所有社区。
 
-### Learn from other Code Reviews
+### 从其他代码 review 中学习
 
-There can be multiple reviewers reviewing the same changes. Many times
-other reviewers may spot things you did not find. Try to learn from
-other code reviews, when possible, document these lessons.
+可以有多个 reviewer review 相同的更改。很多时候，其他 reviewer 可能会发现你没有发现的问题。尝试从其他代码 review 中学习并积累经验。
 
-### Approve and Request Changes Explicitly
+### 明确同意和请求更改
 
-The contributor and code owner can request code reviews from multiple
-reviewers. Remember to approve changes when your comments are addressed
-in a code review. To do so \-- please click on changes tab in the pull
-request, then select approve, or comment on the code and click request
-changes. Code owner can decide if the code can be merged in case by case
-if some of the reviewers did not respond in time(e.g. a week) and
-existing reviews are sufficient.
+贡献者和代码所有者可以向多个 reviewer 请求代码 review。当你的评论在代码 review 中变为已解决时，记得同意更改：单击 pull request 中的 changes 选项卡，然后选择 approve；或者评论代码，然后单击 request changes。如果某些 reviewer 没有及时回复（例如一周）并且现有 review 足够，代码所有者可以决定是否 merge 代码。
 
 ### Reviewers
 
-Reviewers should strive to leave timely feedback on pull requests for
-which their review was requested. Reviewing code is an important part of
-the project\'s health and should be considered a regular responsibility
-for contributors. Automated tooling helps out in this regard, as PRs
-with no activity for a set amount of time will get a bot comment pinging
-the relevant parties.
+reviewer 应及时对请求 review 的 pull request 给出反馈。review 代码是项目健康的重要组成部分，应被视为贡献者的常规责任。自动化工具可用来改善这个问题：在一段时间内没有任何活动的 PR，会收到一条机器人评论提示相关责任方。
