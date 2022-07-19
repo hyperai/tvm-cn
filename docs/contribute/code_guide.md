@@ -27,26 +27,30 @@ python tests/scripts/ci.py lint
 
 clang-format 并不完美，必要时可以在某些代码区域上禁用 clang-format。
 
-> // clang-format off 
-> void Test() { 
->     // clang-format 将在这个区域禁用。
-> } 
-> // clang-format on
+``` c++
+// clang-format off 
+void Test() { 
+    // clang-format 将在这个区域禁用。
+} 
+// clang-format on
+```
 
 因为 clang-format 可能无法识别宏，所以建议像普通函数样式一样使用宏。
 
-> #define MACRO_IMPL { custom impl; } 
-> #define MACRO_FUNC(x)
->
-> // 不是首选，因为 clang-format 可能会将其识别为类型。
->
-> // 首选 
-> virtual void Func2() MACRO_IMPL;
->
-> void Func3() {
->     // 首选 
->     MACRO_FUNC(xyz);
-> }
+``` c++
+#define MACRO_IMPL { custom impl; } 
+#define MACRO_FUNC(x)
+
+// 不是首选，因为 clang-format 可能会将其识别为类型。
+
+// 首选 
+virtual void Func2() MACRO_IMPL;
+
+void Func3() {
+    // 首选 
+    MACRO_FUNC(xyz);
+}
+```
 
 ## Python 代码风格
 
