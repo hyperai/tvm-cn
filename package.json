@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-rc.1",
-    "@docusaurus/preset-classic": "2.0.0-rc.1",
+    "@docusaurus/preset-classic": "2.0.1",
     "@docusaurus/theme-live-codeblock": "^2.0.0-rc.1",
     "@mdx-js/react": "^1.6.22",
     "@openbayes/docsearch-css": "^1.2.7",
