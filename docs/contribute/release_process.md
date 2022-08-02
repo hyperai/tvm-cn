@@ -1,9 +1,7 @@
 ---
-title: Release Process
+title: 发布流程
+sidebar_position: 9
 ---
-
-::: {.contents depth="2" local=""}
-:::
 
 The release manager role in TVM means you are responsible for a few
 different things:

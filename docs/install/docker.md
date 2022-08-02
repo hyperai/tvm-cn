@@ -1,5 +1,6 @@
 ---
 title: Docker 镜像
+sidebar_position: 2
 ---
 
 开发者可以利用 Docker 工具脚本，建立开发环境。这也有助于运行 TVM Demo

@@ -1,9 +1,7 @@
 ---
-title: Using TVM\'s CI
+title: 使用 TVM 的 CI
+sidebar_position: 8
 ---
-
-::: {.contents local=""}
-:::
 
 TVM 用 Jenkins 在 [分支](https://ci.tlcpack.ai/job/tvm/) 上运行 Linux 持续集成 (CI) 测试，并通过 [Jenkinsfile](https://github.com/apache/tvm/blob/main/Jenkinsfile) 中指定的构建配置 [pull
 requests](https://ci.tlcpack.ai/job/tvm/view/change-requests/)。Windows 和 MacOS 的非关键任务在 GitHub Actions 中运行。

@@ -1,9 +1,7 @@
 ---
-title: Documentation
+title: 文档指南
+sidebar_position: 5
 ---
-
-::: {.contents depth="2" local=""}
-:::
 
 TVM 文档大致遵循 [Divio 技术文档写作指南](https://documentation.divio.com)。之所以选择该指南，是因为它是一个“简单、全面且几乎普遍适用的方案，且已在广泛的领域和应用中证明”。
 
