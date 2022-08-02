@@ -1,9 +1,7 @@
 ---
-title: Git Usage Tips
+title: Git 使用技巧
+sidebar_position: 7
 ---
-
-::: {.contents depth="2" local=""}
-:::
 
 以下是 Git 工作流程的一些技巧。
 

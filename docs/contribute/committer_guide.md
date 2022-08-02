@@ -1,11 +1,9 @@
 ---
-title: Committer Guide
+title: Committer 指南
+sidebar_position: 4
 ---
 
-::: {.contents depth="2" local=""}
-:::
-
-本文档长期更新中，旨在为 committer 提供一些实用技巧。其中大部分是在开发过程中总结的经验教训。我们欢迎每一位 committer 为本文档做出贡献。有关提交和一般开发过程的概述，请参阅 `TVM 社区指南`{.interpreted-text role="ref"}。
+本文档长期更新中，旨在为 committer 提供一些实用技巧。其中大部分是在开发过程中总结的经验教训。我们欢迎每一位 committer 为本文档做出贡献。有关提交和一般开发过程的概述，请参阅 [TVM 社区指南](/docs/contribute/community)。
 
 ## 社区优先
 
@@ -26,7 +24,7 @@ title: Committer Guide
 
 ## 认领 pull request
 
-下面是一些认领 pull request 的技巧。也可以查看 `代码 review`{.interpreted-text role="ref"}。
+下面是一些认领 pull request 的技巧。也可以查看 [代码 Reviews](/docs/contribute/code_review)。
 
 -   将 PR 分配给自己，以便其他 committer 知道 PR 已被处理。
 -   使用状态标签来标注当前状态。

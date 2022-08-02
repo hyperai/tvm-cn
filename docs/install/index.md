@@ -1,5 +1,6 @@
 ---
 title: 安装 TVM
+sidebar_position: 1
 ---
 
 查看 `install TVM from source <install-from-source>`{.interpreted-text

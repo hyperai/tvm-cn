@@ -1,5 +1,6 @@
 ---
-title: Contributor Guide
+title: 贡献指南
+sidebar_position: 2
 ---
 
 TVM 是由社区成员开发的，欢迎大家为 TVM 项目做出贡献。我们重视所有形式的贡献，包括但不限于：
@@ -19,3 +20,14 @@ TVM 是由社区成员开发的，欢迎大家为 TVM 项目做出贡献。我�
 community pull_request code_review committer_guide document code_guide
 git_howto ci release_process error_handling
 :::
+
+* [TVM 社区指南](/docs/contribute/community)
+* [提交 Pull Request](/docs/contribute/pull_request)
+* [代码 Review](/docs/contribute/code_review)
+* [Committer 指南](/docs/contribute/committer_guide)
+* [文档指南](/docs/contribute/document)
+* [代码指南及 Tips](/docs/contribute/code_guide)
+* [Git 使用技巧](/docs/contribute/git_howto)
+* [使用 TVM 的 CI](/docs/contribute/ci)
+* [发布流程](/docs/contribute/release_process)
+* [错误处理指南](/docs/contribute/error_handling)

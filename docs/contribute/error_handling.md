@@ -1,9 +1,7 @@
 ---
-title: Error Handling Guide
+title: 错误处理指南
+sidebar_position: 10
 ---
-
-::: {.contents depth="2" local=""}
-:::
 
 TVM 包含结构化的错误类以表示特定类型的错误。请尽可能提出特定的错误类型，以便用户可以在必要时写代码来处理特定的错误类别。可以直接在 Python 中抛出特定的错误对象。在 C++ 等其他语言中，只需给错误消息添加 `<ErrorType>:` 前缀（见下文）。
 

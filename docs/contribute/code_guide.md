@@ -1,9 +1,7 @@
 ---
-title: Code Guide and Tips
+title: 代码指南及 Tips
+sidebar_position: 6
 ---
-
-::: {.contents depth="2" local=""}
-:::
 
 本文档为 reviewer 和贡献者汇总了 TVM 代码库中的技巧，大部分是在贡献过程中总结的经验教训。
 

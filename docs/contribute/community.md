@@ -1,9 +1,7 @@
 ---
-title: TVM Community Guidelines
+title: TVM 社区指南
+sidebar_position: 1
 ---
-
-::: {.contents depth="2" local=""}
-:::
 
 TVM 采用 Apache 风格的模型，以优胜劣。在我们看来，创造一个包容性的社区（人人都可以使用，做贡献，也可以影响项目的走向）非常重要。有关当前贡献者列表，请参见 [CONTRIBUTORS.md](https://github.com/apache/tvm/blob/main/CONTRIBUTORS.md)。
 

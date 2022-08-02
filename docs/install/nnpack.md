@@ -1,5 +1,6 @@
 ---
-title: NNPACK Contrib Installation
+title: NNPACK Contrib 安装
+sidebar_position: 3
 ---
 
 [NNPACK](https://github.com/Maratyszcza/NNPACK) is an acceleration
