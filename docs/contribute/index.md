@@ -16,11 +16,6 @@ TVM 是由社区成员开发的，欢迎大家为 TVM 项目做出贡献。我�
 
 以下是对项目各方面的贡献指南：
 
-::: {.toctree maxdepth="2"}
-community pull_request code_review committer_guide document code_guide
-git_howto ci release_process error_handling
-:::
-
 * [TVM 社区指南](/docs/contribute/community)
 * [提交 Pull Request](/docs/contribute/pull_request)
 * [代码 Review](/docs/contribute/code_review)

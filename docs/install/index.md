@@ -16,6 +16,7 @@ role="ref"}。或者从第三方
 `TLCPack Python and Conda packages <tlcpack>`{.interpreted-text
 role="doc"} 中预先构建。
 
-::: {.toctree maxdepth="2"}
-from_source docker tlcpack
-:::
+* [从源码安装](/docs/install/from_source)
+* [Docker 镜像](/docs/install/docker)
+* [NNPACK Contrib 安装](/docs/install/nnpack)
+* [TLCPack](/docs/install/tlcpack)
