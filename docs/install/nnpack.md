@@ -3,27 +3,15 @@ title: NNPACK Contrib 安装
 sidebar_position: 3
 ---
 
-[NNPACK](https://github.com/Maratyszcza/NNPACK) is an acceleration
-package for neural network computations, which can run on x86-64, ARMv7,
-or ARM64 architecture CPUs. Using NNPACK, higher-level libraries like
-\_\_MXNet\_\_ can speed up the execution on multi-core CPU computers,
-including laptops and mobile devices.
+[NNPACK](https://github.com/Maratyszcza/NNPACK) 是用于神经网络计算的加速包，可以在 x86-64、ARMv7 或 ARM64 架构的 CPU 上运行。使用 NNPACK，像 \_MXNet\_ 这样的高级库可以加快多核 CPU 计算机（包括笔记本电脑和移动设备）上的执行速度。
 
-::: note
-::: title
-Note
+:::note
+由于 TVM 已经有原生调整的调度，这里的 NNPACK 主要是为了参考和比较。对于常规使用，原生调整的 TVM 实现更佳。
 :::
 
-AS TVM already has natively tuned schedules, NNPACK is here mainly for
-reference and comparison purpose. For regular use prefer native tuned
-TVM implementation.
-:::
+TVM 支持 NNPACK 在卷积、最大池化和全连接层中进行前向传播（仅限推理）。在本文档中，我们对如何将 NNPACK 与 TVM 一起使用进行了高级概述。
 
-TVM supports NNPACK for forward propagation (inference only) in
-convolution, max-pooling, and fully-connected layers. In this document,
-we give a high level overview of how to use NNPACK with TVM.
-
-## Conditions
+## 条件
 
 The underlying implementation of NNPACK utilizes several acceleration
 methods, including fft and winograd. These algorithms work better on
@@ -35,6 +23,8 @@ not met,
 
 NNPACK only supports Linux and OS X systems. Windows is not supported at
 present.
+
+NNPACK 的底层实现使用了多种加速方法，包括 fft 和 winograd。这些算法在某些特殊的批处理大小、内核大小和步幅设置上比其他算法效果更好，因此根据上下文，并非所有卷积、最大池或全连接层都可以由 NNPACK 提供支持。当没有满足运行 NNPACKS 的有利条件时，NNPACK 仅支持 Linux 和 OS X 系统。目前不支持 Windows。
 
 ## Build/Install NNPACK
 
