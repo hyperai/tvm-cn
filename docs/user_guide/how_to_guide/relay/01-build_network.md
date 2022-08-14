@@ -4,7 +4,9 @@ title: 构建图卷积网络
 
 # 构建图卷积网络
 
-注意：单击 [此处](https://tvm.apache.org/docs/how_to/work_with_relay/build_gcn.html#sphx-glr-download-how-to-work-with-relay-build-gcn-py) 下载完整的示例代码
+:::note
+单击 [此处](https://tvm.apache.org/docs/how_to/work_with_relay/build_gcn.html#sphx-glr-download-how-to-work-with-relay-build-gcn-py) 下载完整的示例代码
+:::
 
 **作者**：[Yulun Yao](https://yulunyao.io/)，[Chien-Yu Lin](https://homes.cs.washington.edu/\~cyulin/)
 
@@ -18,7 +20,7 @@ title: 构建图卷积网络
 
 这部分重用了 [DGL 示例](https://github.com/dmlc/dgl/tree/master/examples/pytorch/gcn) 的代码。
 
-```plain
+``` python
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -50,7 +52,7 @@ class GCN(nn.Module):
 
 输出结果：
 
-```plain
+``` bash
 Using backend: pytorch
 ```
 
@@ -58,11 +60,9 @@ Using backend: pytorch
 
 可以将这部分替换为你自己的数据集，本示例中，我们选择从 DGL 加载数据：
 
-```plain
+``` python
 from dgl.data import load_data
 from collections import namedtuple
-
-
 
 def load_dataset(dataset="cora"):
     args = namedtuple("args", ["dataset"])
@@ -75,8 +75,6 @@ def load_dataset(dataset="cora"):
 
     return g, data
 
-
-
 def evaluate(data, logits):
     test_mask = data.test_mask  # 未包含在训练阶段的测试集
 
@@ -88,7 +86,7 @@ def evaluate(data, logits):
 
 ## 加载数据并设置模型参数
 
-```plain
+``` python
 """
 Parameters
 ----------
@@ -119,7 +117,7 @@ num_classes = data.num_labels
 
 输出结果：
 
-```plain
+``` bash
 Downloading /workspace/.dgl/cora_v2.zip from https://data.dgl.ai/dataset/cora_v2.zip...
 Extracting file to /workspace/.dgl/cora_v2
 Finished data loading and preprocessing.
@@ -143,7 +141,7 @@ Done saving data into cached files.
 
 用 https://github.com/dmlc/dgl/blob/master/examples/pytorch/gcn/train.py 训练权重。
 
-```plain
+``` python
 from tvm.contrib.download import download_testdata
 from dgl import DGLGraph
 
@@ -162,7 +160,7 @@ torch_model.load_state_dict(torch.load(model_path))
 
 输出结果：
 
-```plain
+``` bash
 /usr/local/lib/python3.7/dist-packages/dgl/data/utils.py:286: UserWarning: Property dataset.feat will be deprecated, please use g.ndata['feat'] instead.
   warnings.warn('Property {} will be deprecated, please use {} instead.'.format(old, new))
 /usr/local/lib/python3.7/dist-packages/dgl/base.py:45: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
@@ -173,7 +171,7 @@ torch_model.load_state_dict(torch.load(model_path))
 
 ## 运行 DGL 模型并测试准确性
 
-```plain
+``` python
 torch_model.eval()
 with torch.no_grad():
     logits_torch = torch_model(features)
@@ -185,7 +183,7 @@ print("Test accuracy of DGL results: {:.2%}".format(acc))
 
 输出结果：
 
-```plain
+``` bash
 Print the first five outputs from DGL-PyTorch execution
  tensor([[-0.2198, -0.7980,  0.0784,  0.9232, -0.9319, -0.7733,  0.9410],
         [-0.4646, -0.6606, -0.1732,  1.1829, -0.3705, -0.5535,  0.0858],
@@ -205,15 +203,15 @@ Test accuracy of DGL results: 10.00%
 
 该层由以下操作定义。注意：我们用两个转置来保持 sparse_dense 算子右侧的邻接矩阵，此方法是临时的，接下来几周内会更新稀疏矩阵转置，使得支持左稀疏算子。
 
-$$GraphConv(A,H,W)=A∗H∗W= ((H∗W)^{t}∗A^{t})^{t} = (( W^{t} ∗ H^{t})∗ A^{t} )^{t}$$
+$$
+GraphConv(A,H,W)=A∗H∗W= ((H∗W)^{t}∗A^{t})^{t} = (( W^{t} ∗ H^{t})∗ A^{t} )^{t}
+$$
 
-```plain
+``` python
 from tvm import relay
 from tvm.contrib import graph_executor
 import tvm
 from tvm import te
-
-
 
 def GraphConv(layer_name, input_dim, output_dim, adj, input, norm=None, bias=True, activation=None):
     """
@@ -268,11 +266,9 @@ def GraphConv(layer_name, input_dim, output_dim, adj, input, norm=None, bias=Tru
 
 ## 准备 GraphConv 层所需的参数
 
-```plain
+``` python
 import numpy as np
 import networkx as nx
-
-
 
 def prepare_params(g, data):
     params = {}
@@ -293,8 +289,6 @@ def prepare_params(g, data):
 
     return params
 
-
-
 params = prepare_params(g, data)
 
 # 检查特征的 shape 和邻接矩阵的有效性
@@ -307,16 +301,14 @@ assert params["infeats"].shape[0] == params["indptr"].shape[0] - 1
 
 输出结果：
 
-```plain
+``` bash
 /usr/local/lib/python3.7/dist-packages/dgl/data/utils.py:286: UserWarning: Property dataset.feat will be deprecated, please use g.ndata['feat'] instead.
   warnings.warn('Property {} will be deprecated, please use {} instead.'.format(old, new))
 ```
 
-## Put layers together[¶](https://tvm.apache.org/docs/how_to/work_with_relay/build_gcn.html#put-layers-together)
-
 ## 逐层叠加
 
-```plain
+``` python
 # 在 Relay 中定义输入特征、范数、邻接矩阵
 infeats = relay.var("infeats", shape=data.features.shape)
 norm = relay.Constant(tvm.nd.array(params["norm"]))
@@ -358,7 +350,7 @@ output = layers[-1]
 
 输出结果：
 
-```plain
+``` bash
 /usr/local/lib/python3.7/dist-packages/dgl/data/utils.py:286: UserWarning: Property dataset.feat will be deprecated, please use g.ndata['feat'] instead.
   warnings.warn('Property {} will be deprecated, please use {} instead.'.format(old, new))
 ```
@@ -367,7 +359,7 @@ output = layers[-1]
 
 将权重从 PyTorch 模型导出到 Python 字典：
 
-```plain
+``` python
 model_params = {}
 for param_tensor in torch_model.state_dict():
     model_params[param_tensor] = torch_model.state_dict()[param_tensor].numpy()
@@ -394,7 +386,7 @@ m = graph_executor.GraphModule(lib["default"](dev))
 
 ## 运行 TVM 模型，测试准确性并使用 DGL 进行验证
 
-```plain
+``` python
 m.run()
 logits_tvm = m.get_output(0).numpy()
 print("Print the first five outputs from TVM execution\n", logits_tvm[:5])
@@ -432,6 +424,6 @@ Print the first five outputs from TVM execution
 Test accuracy of TVM results: 10.00%
 ```
 
-`下载 Python 源代码：build_gcn.py`
+[下载 Python 源代码：build_gcn.py](https://tvm.apache.org/docs/_downloads/dabb6b43ea9ef9d7bd1a3912001deace/build_gcn.py)
 
-`下载 Jupyter Notebook：build_gcn.ipynb`
+[下载 Jupyter Notebook：build_gcn.ipynb](https://tvm.apache.org/docs/_downloads/825671e45a9bdc4733400384984cd9dd/build_gcn.ipynb)

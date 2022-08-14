@@ -4,7 +4,9 @@ title: 编译 PyTorch 模型
 
 # 编译 PyTorch 模型
 
-注意：单击 [此处](https://tvm.apache.org/docs/how_to/compile_models/from_pytorch.html#sphx-glr-download-how-to-compile-models-from-pytorch-py) 下载完整的示例代码
+:::note
+单击 [此处](https://tvm.apache.org/docs/how_to/compile_models/from_pytorch.html#sphx-glr-download-how-to-compile-models-from-pytorch-py) 下载完整的示例代码
+:::
 
 **作者**：[Alex Wong](https://github.com/alexwong/)
 
@@ -14,7 +16,7 @@ title: 编译 PyTorch 模型
 
 可通过 pip 快速安装：
 
-```plain
+``` bash
 pip install torch==1.7.0
 pip install torchvision==0.8.1
 ```
@@ -25,7 +27,7 @@ PyTorch 版本应该和 TorchVision 版本兼容。
 
 目前 TVM 支持 PyTorch 1.7 和 1.4，其他版本可能不稳定。
 
-```plain
+``` python
 import tvm
 from tvm import relay
 
@@ -33,7 +35,6 @@ import numpy as np
 
 from tvm.contrib.download import download_testdata
 
-# PyTorch imports
 # 导入 PyTorch
 import torch
 import torchvision
@@ -41,12 +42,11 @@ import torchvision
 
 ## 加载预训练的 PyTorch 模型
 
-```plain
+``` python
 model_name = "resnet18"
 model = getattr(torchvision.models, model_name)(pretrained=True)
 model = model.eval()
 
-# We grab the TorchScripted model via tracing
 # 通过追踪获取 TorchScripted 模型
 input_shape = [1, 3, 224, 224]
 input_data = torch.randn(input_shape)
@@ -55,7 +55,7 @@ scripted_model = torch.jit.trace(model, input_data).eval()
 
 输出结果：
 
-```plain
+``` bash
 Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /workspace/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
 
   0%|          | 0.00/44.7M [00:00<?, ?B/s]
@@ -69,14 +69,13 @@ Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /wor
 
 经典的猫咪示例：
 
-```plain
+``` python
 from PIL import Image
 
 img_url = "https://github.com/dmlc/mxnet.js/blob/main/data/cat.png?raw=true"
 img_path = download_testdata(img_url, "cat.png", module="data")
 img = Image.open(img_path).resize((224, 224))
 
-# Preprocess the image and convert to tensor
 # 预处理图像，并将其转换为张量
 from torchvision import transforms
 
@@ -96,7 +95,7 @@ img = np.expand_dims(img, 0)
 
 将 PyTorch 计算图转换为 Relay 计算图。input_name 可以是任意值。
 
-```plain
+``` python
 input_name = "input0"
 shape_list = [(input_name, img.shape)]
 mod, params = relay.frontend.from_pytorch(scripted_model, shape_list)
@@ -106,7 +105,7 @@ mod, params = relay.frontend.from_pytorch(scripted_model, shape_list)
 
 用给定的输入规范，将计算图编译为 llvm target。
 
-```plain
+``` python
 target = tvm.target.Target("llvm", host="llvm")
 dev = tvm.cpu(0)
 with tvm.transform.PassContext(opt_level=3):
@@ -115,7 +114,7 @@ with tvm.transform.PassContext(opt_level=3):
 
 输出结果：
 
-```plain
+``` bash
 /workspace/python/tvm/driver/build_module.py:268: UserWarning: target_host parameter is going to be deprecated. Please pass in tvm.target.Target(target, host=target_host) instead.
   "target_host parameter is going to be deprecated. "
 ```
@@ -124,7 +123,7 @@ with tvm.transform.PassContext(opt_level=3):
 
 将编译好的模型部署到 target 上：
 
-```plain
+``` python
 from tvm.contrib import graph_executor
 
 dtype = "float32"
@@ -141,7 +140,7 @@ tvm_output = m.get_output(0)
 
 在 1000 个类的同义词集中，查找分数最高的第一个：
 
-```plain
+``` python
 synset_url = "".join(
     [
         "https://raw.githubusercontent.com/Cadene/",
@@ -191,11 +190,11 @@ print("Torch top-1 id: {}, class name: {}".format(top1_torch, key_to_classname[t
 
 输出结果：
 
-```plain
+``` bash
 Relay top-1 id: 281, class name: tabby, tabby cat
 Torch top-1 id: 281, class name: tabby, tabby cat
 ```
 
-`下载 Python 源代码：from_pytorch.py`
+[下载 Python 源代码：from_pytorch.py](https://tvm.apache.org/docs/_downloads/f90d5f6bfd99e0d9812ae5b91503e148/from_pytorch.py)
 
-`下载 Jupyter Notebook：from_pytorch.ipynb`
+[下载 Jupyter Notebook：from_pytorch.ipynb](https://tvm.apache.org/docs/_downloads/1f4943aed1aa607b2775c18b1d71db10/from_pytorch.ipynb)

@@ -4,7 +4,9 @@ title: 在 Relay 中使用外部库
 
 # 在 Relay 中使用外部库
 
-注意：单击 [此处](https://tvm.apache.org/docs/how_to/work_with_relay/using_external_lib.html#sphx-glr-download-how-to-work-with-relay-using-external-lib-py) 下载完整的示例代码
+:::note
+单击 [此处](https://tvm.apache.org/docs/how_to/work_with_relay/using_external_lib.html#sphx-glr-download-how-to-work-with-relay-using-external-lib-py) 下载完整的示例代码
+:::
 
 **作者**：[Masahiro Masuda](https://github.com/masahi)，[Truman Tian](https://github.com/SiNZeRo)
 
@@ -16,7 +18,7 @@ Relay 内部用 TVM 来生成 target-specific 的代码。例如，TVM 使用 CU
 
 首先导入 Relay 和 TVM。
 
-```plain
+``` python
 import tvm
 from tvm import te
 import numpy as np
@@ -30,7 +32,7 @@ import tvm.testing
 
 下面创建一个简单网络进行演示，它由 convolution，batch normalization 和 ReLU activation 组成。
 
-```plain
+``` python
 out_channels = 16
 batch_size = 1
 
@@ -56,7 +58,7 @@ net, params = testing.create_workload(simple_net)
 
 正常使用 CUDA 后端构建和运行这个网络。设置日志记录级别为 DEBUG，Relay 计算图编译的结果将作为伪代码转储。
 
-```plain
+``` python
 import logging
 
 logging.basicConfig(level=logging.DEBUG)  # to dump TVM IR after fusion
@@ -76,14 +78,14 @@ out_cuda = out.numpy()
 
 输出结果：
 
-```plain
+``` bash
 /workspace/python/tvm/driver/build_module.py:268: UserWarning: target_host parameter is going to be deprecated. Please pass in tvm.target.Target(target, host=target_host) instead.
   "target_host parameter is going to be deprecated. "
 ```
 
 生成的伪代码应如下。注意 bias add，batch normalization 和 ReLU activation 是如何融合到卷积核中的。 TVM 从这个表示中生成一个单一的融合内核。
 
-```plain
+``` python
 produce tensor {
   // attr [iter_var(blockIdx.z, , blockIdx.z)] thread_extent = 1
   // attr [compute] storage_scope = "local"
@@ -486,7 +488,7 @@ produce tensor {
 
 将选项 "-libs=cudnn" 附加到 target 字符串，从而用 cuDNN 将卷积核替换为 cuDNN。
 
-```plain
+``` python
 net, params = testing.create_workload(simple_net)
 target = "cuda -libs=cudnn"  # use cudnn for convolution
 lib = relay.build_module.build(net, target, params=params)
@@ -503,7 +505,7 @@ out_cudnn = out.numpy()
 
 输出结果：
 
-```plain
+``` bash
 /workspace/python/tvm/driver/build_module.py:268: UserWarning: target_host parameter is going to be deprecated. Please pass in tvm.target.Target(target, host=target_host) instead.
   "target_host parameter is going to be deprecated. "
 ```
@@ -512,7 +514,7 @@ out_cudnn = out.numpy()
 
 下面的伪代码显示了 cuDNN 卷积 + bias add + batch norm + ReLU 变成了两个计算阶段，一个用于 cuDNN 调用，另一个用于其余操作。
 
-```plain
+``` python
 // attr [y] storage_scope = "global"
 allocate y[float32 * 802816]
 produce y {
@@ -534,7 +536,7 @@ produce tensor {
 
 检查两次运行的结果是否匹配。
 
-```plain
+``` python
 tvm.testing.assert_allclose(out_cuda, out_cudnn, rtol=1e-5)
 ```
 
@@ -550,6 +552,6 @@ tvm.testing.assert_allclose(out_cuda, out_cudnn, rtol=1e-5)
 
 其次，外部库限制了计算图编译期间算子融合的可能性，如上所示。TVM 和 Relay 旨在通过联合算子级别和计算图级别优化，在各种硬件上实现最佳性能。为了实现这个目标，应该继续为 TVM 和 Relay 开发更好的优化，同时在必要时使用外部库回退到现有实现。
 
-`下载 Python 源代码：using_external_lib.py`
+[下载 Python 源代码：using_external_lib.py](https://tvm.apache.org/docs/_downloads/d8509b0a8e7db9031303c1a1f6fd1e70/using_external_lib.py)
 
-`下载 Jupyter Notebook：using_external_lib.ipynb`
+[下载 Jupyter Notebook：using_external_lib.ipynb](https://tvm.apache.org/docs/_downloads/edc9d28c4fbc249e2e7b78002af63b84/using_external_lib.ipynb)
