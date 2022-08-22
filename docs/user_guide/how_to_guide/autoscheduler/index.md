@@ -1,0 +1,17 @@
+---
+title: 使用 AutoScheduler 进行无模板调度
+---
+
+TVM AutoScheduler 提供了无需模板调优模型的方法。以下演示了如何针对常见平台对不同的模型进行调优。
+
+为 GPU 自动调度卷积层
+
+为 x86 CPU 自动调度神经网络
+
+为 NVIDIA GPU 自动调度神经网络
+
+为 ARM CPU 自动调度神经网络
+
+为 Mali GPU 自动调度神经网络
+
+使用自定义草图规则 (Sketch Rule) 在 CPU 上自动调度稀疏矩阵乘法
