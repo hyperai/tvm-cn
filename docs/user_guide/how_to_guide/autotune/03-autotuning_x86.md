@@ -97,7 +97,7 @@ os.environ["TVM_NUM_THREADS"] = str(num_threads)
 
 为了在 x86 CPU 上获得更好的内核执行性能，将卷积内核的数据布局从「NCHW」更改为「NCHWc」。为了处理这种情况，在 topi 中定义了 conv2d_NCHWc 算子，调优此算子而非普通的 conv2d。
 
-使用本地模式来调优配置，RPC tracker 模式的设置类似于 [自动调优 ARM CPU 的卷积网络](autotuning_arms) 教程中的方法。
+使用本地模式来调优配置，RPC tracker 模式的设置类似于 [自动调优 ARM CPU 的卷积网络](autotuning_arm) 教程中的方法。
 
 为了精准测试，应该多次重复测试，并取结果的平均值。此外，需要在重复测试时刷新权重张量的缓存，使得算子的测试延迟更接近其在端到端推理期间的实际延迟。
 
