@@ -1,6 +1,5 @@
 ---
 title: 部署模型并与 TVM 集成
-sidebar_position: 120
 ---
 
 # 部署模型并与 TVM 集成
@@ -105,60 +104,24 @@ libtvm_runtime.so: ELF 64-bit LSB shared object, UCB RISC-V, version 1 (GNU/Linu
 
 在嵌入式设备上对 TVM 内核进行测试、调优和基准测试，最简单且推荐的方法是通过 TVM 的 RPC API。下面是相关教程的链接：
 
-* [交叉编译和 RPC](https://tvm.apache.org/docs/tutorial/cross_compilation_and_rpc.html#tutorial-cross-compilation-and-rpc)
+* [交叉编译和 RPC](../../user_tutorial/rpc)
 * [在树莓派上部署预训练模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_rasp.html#tutorial-deploy-model-on-rasp)
 
 ## 在目标设备上部署优化模型
 
 完成调优和基准测试后，要在目标设备上以不依赖 RPC 的方式来部署模型。具体操作参考以下教程：
 
-* [使用 C++ API 部署 TVM 模块](https://tvm.apache.org/docs/how_to/deploy/cpp_deploy.html)
-  * [获取 TVM runtime 库](https://tvm.apache.org/docs/how_to/deploy/cpp_deploy.html#get-tvm-runtime-library)
-  * [动态库与系统模块](https://tvm.apache.org/docs/how_to/deploy/cpp_deploy.html#dynamic-library-vs-system-module)
-* [部署到 Android](https://tvm.apache.org/docs/how_to/deploy/android.html)
-  * [为 Android Target 构建模型](https://tvm.apache.org/docs/how_to/deploy/android.html#build-model-for-android-target)
-  * [Android Target 的 TVM Runtime](https://tvm.apache.org/docs/how_to/deploy/android.html#tvm-runtime-for-android-target)
-* [将 TVM 集成到项目中](https://tvm.apache.org/docs/how_to/deploy/integrate.html)
-  * [DLPack 支持](https://tvm.apache.org/docs/how_to/deploy/integrate.html#dlpack-support)
-  * [集成用户定义的 C++ 数组](https://tvm.apache.org/docs/how_to/deploy/integrate.html#integrate-user-defined-c-array)
-  * [集成用户定义的 Python 数组](https://tvm.apache.org/docs/how_to/deploy/integrate.html#integrate-user-defined-python-array)
-* [HLS 后端示例](https://tvm.apache.org/docs/how_to/deploy/hls.html)
-  * [设置](https://tvm.apache.org/docs/how_to/deploy/hls.html#setup)
-  * [仿真](https://tvm.apache.org/docs/how_to/deploy/hls.html#emulation)
-  * [合成](https://tvm.apache.org/docs/how_to/deploy/hls.html#synthesis)
-  * [运行](https://tvm.apache.org/docs/how_to/deploy/hls.html#run)
-* [Relay Arm®  计算库集成](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html)
-  * [介绍](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#introduction)
-  * [安装 Arm 计算库](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#installing-arm-compute-library)
-  * [使用 ACL 构建](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#building-with-acl-support)
-  * [使用](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#usage)
-  * [更多示例](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#more-examples)
-  * [算子支持](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#operator-support)
-  * [添加新算子](https://tvm.apache.org/docs/how_to/deploy/arm_compute_lib.html#adding-a-new-operator)
-* [Relay TensorRT 集成](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html)
-  * [介绍](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#introduction)
-  * [安装 TensorRT](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#installing-tensorrt)
-  * [使用 TensorRT 构建 TVM ](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#building-tvm-with-tensorrt-support)
-  * [使用 TensorRT 构建和部署 ResNet-18](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#build-and-deploy-resnet-18-with-tensorrt)
-  * [分区和编译设置](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#partitioning-and-compilation-settings)
-  * [Runtime 设置](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#runtime-settings)
-  * [支持的算子](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#operator-support)
-  * [添加新算子](https://tvm.apache.org/docs/how_to/deploy/tensorrt.html#adding-a-new-operator)
-* [Vitis AI 集成](https://tvm.apache.org/docs/how_to/deploy/vitis_ai.html)
-  * [系统要求](https://tvm.apache.org/docs/how_to/deploy/vitis_ai.html#system-requirements)
-  * [设置说明](https://tvm.apache.org/docs/how_to/deploy/vitis_ai.html#setup-instructions)
-  * [编译模型](https://tvm.apache.org/docs/how_to/deploy/vitis_ai.html#compiling-a-model)
-  * [推理](https://tvm.apache.org/docs/how_to/deploy/vitis_ai.html#inference)
-* [Relay BNNS 集成](https://tvm.apache.org/docs/how_to/deploy/bnns.html)
-  * [介绍](https://tvm.apache.org/docs/how_to/deploy/bnns.html#introduction)
-  * [使用 BNNS 构建 TVM](https://tvm.apache.org/docs/how_to/deploy/bnns.html#building-tvm-with-bnns-support)
-  * [Relay 计算图的 BNNS 分区](https://tvm.apache.org/docs/how_to/deploy/bnns.html#bnns-partitioning-of-relay-graph)
-  * [迁移到 BNNS 执行的操作的输入数据布局](https://tvm.apache.org/docs/how_to/deploy/bnns.html#input-data-layout-for-operations-to-be-offloaded-to-bnns-execution)
-  * [示例：使用 BNNS 构建和部署 Mobilenet v2 1.0](https://tvm.apache.org/docs/how_to/deploy/bnns.html#example-build-and-deploy-mobilenet-v2-1-0-with-bnns)
-  * [支持的算子](https://tvm.apache.org/docs/how_to/deploy/bnns.html#operator-support)
+* [使用 C++ API 部署 TVM 模块](deploy_c++)
+* [部署到 Android](deploy_android)
+* [将 TVM 集成到项目中](integrate)
+* [HLS 后端示例](hls)
+* [Relay Arm®  计算库集成](relay_arm)
+* [Relay TensorRT 集成](relay_tensorrt)
+* [Vitis AI 集成](vitis_ai)
+* [Relay BNNS 集成](relay_bnns)
 
 ## 其他部署方法
 
 前面已经有许多针对特定设备的操作指南，其中包含 Python 代码的示例（可用 Jupyter Notebook 查看），这些操作指南描述了如何准备模型，并将其部署到支持的后端。
 
-* [部署深度学习模型](https://tvm.apache.org/docs/how_to/deploy_models/index.html)
+* [部署深度学习模型](deploy_models)

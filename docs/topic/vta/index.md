@@ -1,5 +1,5 @@
 ---
-title: "VTA: Versatile Tensor Accelerator"
+title: VTA：多功能张量加速器
 ---
 
 The Versatile Tensor Accelerator (VTA) is an open, generic, and

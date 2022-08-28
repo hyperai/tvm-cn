@@ -26,7 +26,7 @@ const sidebars = {
     "index",
     {
       type: 'category',
-      label: 'Getting Started',
+      label: '快速上手',
       items: [
         {type: 'doc', id: 'install/index'},
         {
@@ -44,7 +44,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'User Guide',
+      label: '用户手册',
       items: [
         {
           type: 'category',
@@ -58,7 +58,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '用户指南',
+          label: '常见问题',
           link: {
               type:'doc', id: 'user_guide/how_to'
           },
@@ -71,7 +71,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Developer Guide',
+      label: '开发手册',
       items: [
         {
           type: 'category',
@@ -98,7 +98,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Architecture Guide',
+      label: '设计与架构',
       items: [
         {type: 'doc', id: 'arch/index'},
       ],
@@ -106,7 +106,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Topic Guides',
+      label: '主题指南',
       items: [
         {type: 'doc', id: 'topic/microtvm/index'},
         {type: 'doc', id: 'topic/vta/index'},

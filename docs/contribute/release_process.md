@@ -1,5 +1,5 @@
 ---
-title: 发布流程
+title: 发版流程
 sidebar_position: 9
 ---
 

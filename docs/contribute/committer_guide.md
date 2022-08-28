@@ -1,5 +1,5 @@
 ---
-title: Committer 指南
+title: Committer 手册
 sidebar_position: 4
 ---
 
