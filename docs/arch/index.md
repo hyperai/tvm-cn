@@ -1,200 +1,87 @@
 ---
-title: Design and Architecture
+title: 设计与架构
 ---
 
-This document is intended for developers who want to understand the
-architecture of TVM and/or actively develop on the project. This page is
-organized as follows:
+# 设计与架构
 
--   The [Example Compilation Flow](#example-compilation-flow) gives an
-    overview of the steps that TVM takes to turn a high level
-    description of a model into a deployable module. To get started,
-    please read this section first.
--   The [Logical Architecture
-    Components](#logical-architecture-components) section describes the
-    logical components. The sections after are specific guides focused
-    on each logical component, organized by the component\'s name.
--   The
-    `Device/Target Interactions <tvm-target-specific-overview>`{.interpreted-text
-    role="ref"} page describes how TVM interacts with each supported
-    physical device and code-generation target.
--   Feel free to also check out the `dev-how-to`{.interpreted-text
-    role="ref"} for useful development tips.
+本文档适用于想要了解 TVM 架构和/或积极开发项目的开发者。本文档组织结构如下：
 
-This guide provides a few complementary views of the architecture.
-First, we review a single end-to-end compilation flow and discuss the
-key data structures and the transformations. This runtime-based view
-focuses on the interactions of each components when running the
-compiler. Then we will review the logical modules of the codebase and
-their relationship. This part provides a static overarching view of the
-design.
+* [编译流程示例](#example-compilation-flow) 概述了 TVM 将模型的高级描述转换为可部署模块所采取的步骤。
+* [逻辑架构组件](#logical-architecture-components) 部分描述了逻辑组件。后面的部分是针对每个逻辑组件的具体指南，按组件的名称编排。
+* [设备/ Target 交互](https://tvm.apache.org/docs/arch/device_target_interactions.html#tvm-target-specific-overview) 文档描述了 TVM 如何与所有受支持的物理设备，以及代码生成的 target 进行交互。
+* 查看 [开发者操作指南](../dev/how_to) 获取实用开发技巧。
 
-## Example Compilation Flow
+本指南提供了架构的一些补充视图。首先研究端到端的编译流程，并讨论关键的数据结构和转换。这种基于 runtime 的视图侧重于运行编译器时每个组件的交互。接下来研究代码库的逻辑模块及其关系。这部分提供了设计的静态总体视图。
 
-In this guide, we will study an example compilation flow in the
-compiler. The figure below shows the flow. At a high-level, it contains
-several steps:
+## 编译流程示例 {#example-compilation-flow}
 
--   Import: The frontend component ingests a model into an IRModule,
-    which contains a collection of functions that internally represent
-    the model.
--   Transformation: The compiler transforms an IRModule to another
-    functionally equivalent or approximately equivalent(e.g. in the case
-    of quantization) IRModule. Many of the transformations are target
-    (backend) independent. We also allow target to affect the
-    configuration of the transformation pipeline.
--   Target Translation: The compiler translates(codegen) the IRModule to
-    an executable format specified by the target. The target translation
-    result is encapsulated as a [runtime.Module]{.title-ref} that can be
-    exported, loaded, and executed on the target runtime environment.
--   Runtime Execution: the user loads back a
-    [runtime.Module]{.title-ref} and runs the compiled functions in the
-    supported runtime environment.
+本指南研究编译器中的编译流程示例，下图显示了流程。在高层次，它包含以下步骤：
 
-![](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg){.align-center
-width="85.0%"}
+* 导入：前端组件将模型引入到 IRModule 中，它包含了内部表示模型的函数集合。
+* 转换：编译器将 IRModule 转换为功能与之等效或近似等效（例如在量化的情况下）的 IRModule。许多转换与 target（后端）无关，并且允许 target 配置转换 pipeline。
+* Target 转换：编译器将 IRModule 转换 (codegen) 为指定 target 的可执行格式。target 的转换结果被封装为 *runtime.Module*，可以在 runtime 环境中导出、加载和执行。
+* Runtime 执行：用户加载 *runtime.Module*，并在支持的 runtime 环境中运行编译好的函数。
 
-### Key data structures
+![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg)
 
-One of the best ways to design and understand a complex system is to
-identify the key data structures and APIs that manipulate (transform)
-these data structures. Once we identified the key data structures, we
-can then breakdown a system into logical components that either define a
-collection of key data structures or transformations among the data
-structures.
+### 关键数据结构
 
-**IRModule** is the primary data structure used across the entire stack.
-An IRModule (intermediate representation module) contains a collection
-of functions. Currently, we support two primary variants of functions.
+设计和理解复杂系统的最佳方法之一，就是识别关键数据结构和操作（转换）这些数据结构的 API。识别了关键数据结构后，就可以将系统分解为逻辑组件，这些逻辑组件定义了关键数据结构的集合，或是数据结构之间的转换。
 
--   **relay::Function** is a high-level functional program
-    representation. A relay.Function usually corresponds to an
-    end-to-end model. You can view a relay.Function as a computational
-    graph with additional support for control-flow, recursion, and
-    complex data structures.
--   **tir::PrimFunc** is a low-level program representation that
-    contains elements including loop-nest choices, multi-dimensional
-    load/store, threading, and vector/tensor instructions. It is usually
-    used to represent an operator program that executes a
-    (possibly-fused) layer in a model.
+**IRModule** 是整个堆栈中使用的主要数据结构。一个 IRModule (intermediate representation module) 包含一组函数。目前支持两种主要的功能变体 (variant)：
 
-During the compilation, a relay function may be lowered to multiple
-tir::PrimFunc functions and a top-level function that calls into those
-tir::PrimFunc functions.
+* **relay::Function** 是一种高级功能程序表示。一个 relay.Function 通常对应一个端到端的模型。可将 relay.Function 视为额外支持控制流、递归和复杂数据结构的计算图。
+* **tir::PrimFunc** 是一种低级程序表示，包含循环嵌套选择、多维加载/存储、线程和向量/张量指令的元素。通常用于表示算子程序，这个程序在模型中执行一个（可融合的）层。 在编译期间，Relay 函数可降级为多个 tir::PrimFunc 函数和一个调用这些 tir::PrimFunc 函数的顶层函数。
 
-### Transformations
+### 转换
 
-Now that we have covered the key data structures, let us talk about the
-transformations. Each transformation could serve one of the following
-purposes:
+前面介绍了关键数据结构，接下来讲转换。转换的目的有：
 
--   optimization: transform a program to an equivalent, possibly more
-    optimized version.
--   lowering: transform a program to a lower-level representation that
-    is closer to the target.
+* 优化：将程序转换为等效，甚至更优的版本。
+* 降级：将程序转换为更接近 target 的较低级别表示。 **relay/transform** 包含一组优化模型的 pass。优化包括常见的程序优化（例如常量折叠和无用代码清除），以及特定于张量计算的 pass（例如布局转换和 scale 因子折叠）。
 
-**relay/transform** contains a collection of passes that optimize the
-model. The optimizations include common program optimizations such as
-constant folding and dead-code elimination, and tensor-computation
-specific passes such as layout transformation and scaling factor
-folding.
+在 Relay 优化 pipeline 之后，运行 pass (FuseOps)，将端到端功能（例如 MobileNet）分解为子功能（例如 conv2d-relu）段。这个过程帮助将原始问题分为两个子问题：
 
-Near the end of the relay optimization pipeline, we will run a
-pass(FuseOps) to break the end-to-end function(e.g. MobileNet) into
-sub-function(e.g. conv2d-relu) segments. We call these segments of
-functions. This process helps us to divide the original problem into two
-sub-problems:
+* 所有子函数的编译和优化。
+* 整体执行结构：对生成的子函数进行一系列调用，执行整个模型。 使用低级 tir 阶段来编译和优化每个子函数。对于特定的 targets，也可以直接进入 target 转换阶段，使用外部代码生成器。
 
--   Compilation and optimization for each sub-function.
--   Overall execution structure: we need to do a sequence of calls into
-    the generated sub-functions to execute the whole model.
+有几种不同的方法（在 relay/backend 目录）来处理对整体执行问题的调用。对于具有已知 shape 且没有控制流的简单模型，可以降级为图执行器，这个图执行器存储计算图中的执行结构。我们还支持用于动态执行的虚拟机后端。
 
-We use the low-level tir phase to compile and optimize each
-sub-functions. For specific targets, we may also directly go to the
-target translation phase and use external code generators.
+最后，我们计划支持 ahead-of-time 编译，它将高级执行结构编译成可执行和生成的原始函数。所有这些执行模式都被统一的 **runtime.Module** 接口封装，指南的后半部分将进行讨论。
 
-There are a few different ways(in relay/backend) to handle the calls
-into the overall execution problem. For simple models with known shapes
-and no control flow, we can lower to a graph executor that stores the
-execution structure in a graph. We also support a virtual machine
-backend for dynamic executions. Finally, we plan to support ahead of
-time compilation that compiles the high-level execution structure into
-the executable and generated primitive functions. All of these execution
-modes are encapsulated by a unified \**runtime.Module*\* interface,
-which we will discuss in the latter part of the guide.
+**tir/transform** 包含 TIR 级函数的转换过程。许多 tir passes 的目的是降级。例如，有些 pass 将多维访问展平为一维指针访问，将内联函数扩展至特定于 target 的函数，以及将函数入口修饰为满足 runtime 调用约定。当然，也有一些 pass 的目的是为了优化，例如访问索引简化和无用码。
 
-**tir/transform** contains transformation passes for TIR level
-functions. Many tir passes serve the purpose of lowering. For example,
-there are passes to flatten multi-dimensional access to one-dimensional
-pointer access, to expand the intrinsics into target-specific ones, and
-to decorate the function entry to meet the runtime calling convention.
-Of course, there are also optimizations passes, such as access index
-simplification and dead code elimination.
+LLVM、CUDA C 和其他 target 编译器都可以在 target 阶段处理许多低级优化。因此，我们将低级优化（如寄存器分配）留给下游编译器，只关注它们未涵盖的优化。
 
-Many low-level optimizations can be handled in the target phase by the
-LLVM, CUDA C, and other target compilers. As a result, we leave
-low-level optimizations such as register allocation to the downstream
-compilers and only focus on optimizations that are not covered by them.
+### 搜索空间和基于学习的转换
 
-### Search-space and Learning-based Transformations
+到目前为止，我们介绍的转换 pass 都是确定且遵循一定规则的。 TVM 堆栈的设计目标之一是支持不同硬件平台的高性能代码优化。因此要研究尽可能多的优化选择，包括但不限于多维张量访问、循环分块行为、特殊加速器内存层次结构和线程。
 
-The transformation passes we described so far are deterministic and
-rule-based. One design goal of the TVM stack is to support
-high-performance code optimizations for different hardware platforms. To
-do so, we will need to investigate as many optimization choices as
-possible, including but not limited to, multi-dimensional tensor access,
-loop tiling behavior, special accelerator memory hierarchy, and
-threading.
+定义一个要做出所有选择的启发式方法很难。因此，我们采用搜索和基于学习的方法。
 
-It is hard to define a heuristic to make all of the choices. Instead, we
-will take a search and learning-based approach. We first define a
-collection of actions we can take to transform a program. Example
-actions include loop transformations, inlining, vectorization. We call
-these actions **scheduling primitives**. The collection of scheduling
-primitives defines a search space of possible optimizations we can make
-to a program. The system then searches over different possible
-scheduling sequence to pick the best scheduling combination. The search
-procedure is usually guided by a machine learning algorithm.
+首先定义一组用来转换程序的操作。示例操作包括循环转换、内联、向量化，这些操作称为**调度原语**。调度原语的集合定义了可用于程序的优化的搜索空间。
 
-We can record the best schedule sequence for an (possibly-fused)
-operator once the search is completed. The compiler can then just lookup
-the best schedule sequence and apply it to the program. Notably, this
-schedule application phase is **exactly like** the rule-based
-transformations, enabling us to share the same interface convention with
-tradition passes.
+接下来，系统搜索不同的可能调度序列，选择最佳调度组合。搜索过程通常由机器学习算法指导。
 
-We use search based optimizations to handle the initial tir function
-generation problem. This part of the module is called
-AutoTVM(auto_scheduler). We expect to expand the learning-based
-transformations to more areas as we continue to develop the TVM stack.
+搜索完成后，可以记录（可能融合的）算子的最佳调度顺序。然后编译器可以查找最佳调度序列，并将其应用于程序。注意，这个调度应用阶段与基于规则的转换**完全一样**，能够与传统 pass 共享相同的接口。
 
-### Target Translation
+使用基于搜索的优化来处理初始 tir 函数生成问题。模块的这部分称为 AutoTVM（auto_scheduler）。随着 TVM 堆栈开发的深入，基于学习的转换将扩展到更多领域。
 
-The target translation phase transforms an IRModule to the corresponding
-target executable format. For backends such as x86 and ARM, we use the
-LLVM IRBuilder to build in-memory LLVM IR. We can also generate
-source-level languages such as CUDA C and OpenCL. Finally, we support
-direct translations of a Relay function (sub-graph) to specific targets
-via external code generators. It is important that the final code
-generation phase is as lightweight as possible. Vast majority of
-transformations and lowering should be performed before the target
-translation phase.
+### Target 转换
 
-We also provide a Target structure to specify the compilation target.
-The transformations before the target translation phase can also be
-affected by the target --- for example, a target\'s vector length would
-change the vectorization behavior.
+target 转换阶段将 IRModule 转换为相应 target 的可执行格式。对于 x86 和 ARM 等后端，使用 LLVM IRBuilder 来构建内存中的 LLVM IR。还可以生成源代码级语言，例如 CUDA C 和 OpenCL。最后，支持通过外部代码生成器将 Relay 函数（子图）直接转换为特定 target 。
 
-### Runtime Execution
+重要的是，最终代码生成阶段要尽可能轻量级。绝大多数的转换和降级要在 target 转换阶段之前进行。
 
-The main goal of TVM\'s runtime is to provide a minimal API for loading
-and executing the compiled artifact in a language of their choice,
-including Python, C++, Rust, Go, Java, and JavaScript. The code snippet
-below shows such an example in Python:
+我们还提供了一个 Target 结构来指定编译 target。target 转换阶段之前的转换也可能受到 target 的影响，例如，target 的向量长度会改变向量化行为。
+
+### Runtime 执行
+
+TVM runtime 的主要目标是提供一个最小的 API，从而能以选择的语言（包括 Python、C++、Rust、Go、Java 和 JavaScript）加载和执行编译好的工件。以下代码片段展示了一个 Python 示例：
 
 ``` python
 import tvm
-# Example runtime execution program in python, with type annotated
+# Python 中 runtime 执行程序示例，带有类型注释
 mod: tvm.runtime.Module = tvm.runtime.load_module("compiled_artifact.so")
 arr: tvm.runtime.NDArray = tvm.nd.array([1, 2, 3], device=tvm.cuda(0))
 fun: tvm.runtime.PackedFunc = mod["addone"]
@@ -202,301 +89,186 @@ fun(a)
 print(a.numpy())
 ```
 
-:py`tvm.runtime.Module`{.interpreted-text role="class"} encapsulates the
-result of compilation. A runtime.Module contains a GetFunction method to
-obtain PackedFuncs by name.
+`tvm.runtime.Module` 封装了编译的结果。runtime.Module 包含一个 GetFunction 方法，用于按名称获取 PackedFuncs。
 
-:py`tvm.runtime.PackedFunc`{.interpreted-text role="class"} is a
-type-erased function interface for both the generated functions. A
-runtime.PackedFunc can take arguments and return values with the
-following types: POD types(int, float), string, runtime.PackedFunc,
-runtime.Module, runtime.NDArray, and other sub-classes of
-runtime.Object.
+`tvm.runtime.PackedFunc` 是两个生成函数的类型擦除函数接口。runtime.PackedFunc 的参数和返回值的类型如下：POD 类型 (int, float)、string、runtime.PackedFunc、runtime.Module、runtime.NDArray 和 runtime.Object 的其他子类。
 
-:py`tvm.runtime.Module`{.interpreted-text role="class"} and
-:py`tvm.runtime.PackedFunc`{.interpreted-text role="class"} are powerful
-mechanisms to modularize the runtime. For example, to get the above
-[addone]{.title-ref} function on CUDA, we can use LLVM to generate the
-host-side code to compute the launching parameters(e.g. size of the
-thread groups) and then call into another PackedFunc from a CUDAModule
-that is backed by the CUDA driver API. The same mechanism can be used
-for OpenCL kernels.
+`tvm.runtime.Module` 和 `tvm.runtime.PackedFunc` 是模块化 runtime 的强大机制。例如，要在 CUDA 上获取上述 *addone* 函数，可以用 LLVM 生成主机端代码来计算启动参数（例如线程组的大小），然后用 CUDA 驱动程序 API 支持的 CUDAModule 调用另一个 PackedFunc。OpenCL 内核也有相同的机制。
 
-The above example only deals with a simple [addone]{.title-ref}
-function. The code snippet below gives an example of an end-to-end model
-execution using the same interface:
+以上示例只处理了一个简单的 *addone* 函数。下面的代码片段给出了用相同接口执行端到端模型的示例：
 
 ``` python
 import tvm
-# Example runtime execution program in python, with types annotated
+# python 中 runtime 执行程序的示例，带有类型注释
 factory: tvm.runtime.Module = tvm.runtime.load_module("resnet18.so")
-# Create a stateful graph execution module for resnet18 on cuda(0)
+# 在 cuda(0) 上为 resnet18 创建一个有状态的图执行模块
 gmod: tvm.runtime.Module = factory["resnet18"](tvm.cuda(0))
 data: tvm.runtime.NDArray = get_input_data()
-# set input
+# 设置输入
 gmod["set_input"](0, data)
-# execute the model
+# 执行模型
 gmod["run"]()
-# get the output
+# 得到输出
 result = gmod["get_output"](0).numpy()
 ```
 
-The main take away is that runtime.Module and runtime.PackedFunc are
-sufficient to encapsulate both operator level programs (such as addone),
-as well as the end-to-end models.
+主要的结论是 runtime.Module 和 runtime.PackedFunc 可以封装算子级别的程序（例如 addone），以及端到端模型。
 
-### Summary and Discussions
+### 总结与讨论
 
-In summary, the key data structures in the compilation flows are:
+综上所述，编译流程中的关键数据结构有：
 
--   IRModule: contains relay.Function and tir.PrimFunc
--   runtime.Module: contains runtime.PackedFunc
+* IRModule：包含 relay.Function 和 tir.PrimFunc
+* runtime.Module：包含 runtime.PackedFunc
 
-Most parts of the compilation are transformations among the key data
-structures.
+编译基本是在进行关键数据结构之间的转换。
 
--   relay/transform and tir/transform are determinstic rule-based
-    transformations
--   auto_scheduler and autotvm contains the search-based transformations
+* relay/transform 和 tir/transform 是确定性的基于规则的转换
+* auto_scheduler 和 autotvm 包含基于搜索的转换
 
-Finally, the compilation flow example is only a typical use-case of the
-TVM stack. We expose these key data structures and transformations to
-python and C++ APIs. As a result, you can use TVM just like the way you
-use numpy, except that the data structure of interest changes from the
-numpy.ndarray to tvm.IRModule. Here are some example use-cases:
+最后，编译流程示例只是 TVM 堆栈的一个典型用例。将这些关键数据结构和转换提供给 Python 和 C++ API。然后，就可以像使用 numpy 一样使用 TVM，只不过关注的数据结构从 numpy.ndarray 改为 tvm.IRModule。以下是一些用例的示例：
 
--   Directly construct IRModule using the python API.
--   Compose a custom set of transformations(e.g. customize
-    quantization).
--   Manipulate the IR directly using TVM\'s python API.
+* 用 Python API 直接构建 IRModule。
+* 编写一组自定义转换（例如自定义量化）。
+* 用 TVM 的 Python API 直接操作 IR。
 
-## Logical Architecture Components
+## 逻辑架构组件 {#logical-architecture-components}
 
-![TVM Architecture
-Diagram](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_static_overview.svg){.align-center
-width="85.0%"}
+![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_static_overview.svg](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_static_overview.svg)
 
-The above figure shows the major logical components in the project.
-Please read the following sections for information about the components
-and their relations.
+*TVM Architecture Diagram*[¶](#logical-architecture-components)
+
+上图展示了项目中的主要逻辑组件。阅读以下部分，获取更多有关组件及其关系的信息。
 
 ## tvm/support
 
-The support module contains the most common utilities for the
-infrastructure, such as generic arena allocator, socket, and logging.
+support 模块包含基础架构最常用的程序，例如通用 arena 分配器 (arena allocator)、套接字 (socket) 和日志 (logging)。
 
 ## tvm/runtime
 
-The runtime serves as the foundation of the TVM stack. It provides the
-mechanism to load and execute compiled artifacts. The runtime defines a
-stable standard set of C APIs to interface with frontend languages such
-as Python and Rust.
+runtime 是 TVM 堆栈的基础，它提供了加载和执行已编译工件的机制。runtime 定义了一组稳定的标准 C API，与 Python 和 Rust 等前端语言交互。
 
-[runtime::Object]{.title-ref} is one of the primary data structures in
-TVM runtime besides the [runtime::PackedFunc]{.title-ref}. It is a
-reference-counted base class with a type index to support runtime type
-checking and downcasting. The object system allows the developer to
-introduce new data structures to the runtime, such as Array, Map, and
-new IR data structures.
+在 TVM runtime 中，*runtime::Object* 是除 *runtime::PackedFunc* 之外的主要数据结构之一。它是一个具有类型索引的引用计数基类，这个类型索引用来支持 runtime 类型检查和向下转换。
 
-Besides deployment use-cases, the compiler itself also makes heavy use
-of TVM\'s runtime mechanism. All of the IR data structures are
-subclasses of [runtime::Object]{.title-ref}, as a result, they can be
-directly accessed and manipulated from the Python frontend. We use the
-PackedFunc mechanism to expose various APIs to the frontend.
+对象系统允许开发者向 runtime 引入新的数据结构，例如 Array、Map 和新的 IR 数据结构。
 
-Runtime support for different hardware backends are defined in
-subdirectories of runtime(e.g. runtime/opencl). These hardware-specific
-runtime modules define APIs for device memory allocation and device
-function serialization.
+除了部署用例，编译器本身也大量使用 TVM 的 runtime 机制。所有 IR 数据结构都是 *runtime::Object* 的子类，因此可以从 Python 前端直接访问和操作它们。我们使用 PackedFunc 机制向前端公开各种 API。
 
-[runtime/rpc]{.title-ref} implements an RPC support for PackedFunc. We
-can use the RPC mechanism to send a cross-compiled library to a remote
-device and benchmark the execution performance. The rpc infrastructure
-enables data collection from a wide range of hardware backends for
-learning-based optimizations.
+runtime 子目录（例如 runtime/opencl）定义了 runtime 对不同硬件后端的支持。这些特定于硬件的 runtime 模块，为设备内存分配和设备功能序列化定义了 API。
 
-::: {.toctree maxdepth="1"}
-runtime
-:::
+*runtime/rpc* 实现了对 PackedFunc 的 RPC 支持，可以用 RPC 机制将交叉编译的库发送到远程设备，并对执行性能进行 benchmark 测试。rpc 基础架构支持从各种硬件后端收集数据，进行基于学习的优化。
 
-::: {.toctree maxdepth="1"}
-debugger virtual_machine introduction_to_module_serialization
-device_target_interactions
-:::
+* [TVM Runtime 系统](arch/runtimes)
+* [特定 Runtime 信息](arch/runtimes#runtime-specific-information)
+* [调试器](arch/debugger)
+* [向 TVM 中添加虚拟机：Relay 虚拟机](arch/virtual_machine)
+* [模块序列化简介](arch/introduction_to_module_serialization)
+* [设备/Target 交互](arch/device_target_interactions)
 
 ## tvm/node
 
-The node module adds additional features on top of the
-[runtime::Object]{.title-ref} for IR data structures. The main features
-include reflection, serialization, structural equivalence, and hashing.
+节点模块在 *runtime::Object* 之上，为 IR 数据结构添加了额外的功能。主要特征包括反射、序列化、结构等效和散列。
 
-Thanks to the node module, we can directly access any field of the
-TVM\'s IRNode by their name in Python.
+node 模块使得可以通过 Python 中的名称，直接访问 TVM IRNode 的任何字段。
 
 ``` python
 x = tvm.tir.Var("x", "int32")
 y = tvm.tir.Add(x, x)
-# a and b are fields of a tir.Add node
-# we can directly use the field name to access the IR structures
+# a 和 b 是 tir.Add 节点的字段
+# 可以直接使用字段名来访问 IR 结构
 assert y.a == x
 ```
 
-We can also serialize arbitrary IR node into a JSON format, and load
-them back. The ability to save/store, and inspect an IR node provides a
-foundation for making the compiler more accessible.
+还可以将任意 IR 节点序列化为 JSON 格式，然后将它们加载回来。保存/存储和检查 IR 节点的能力，为更容易访问编译器提供了基础。
 
 ## tvm/ir
 
-The [tvm/ir]{.title-ref} folder contains the unified data structure and
-interfaces across for all IR function variants. The components in
-[tvm/ir]{.title-ref} are shared by [tvm/relay]{.title-ref} and
-[tvm/tir]{.title-ref}, notable ones include
+*tvm/ir* 文件夹包含了所有 IR 函数变体的统一数据结构和接口。 *tvm/ir* 中的组件由 *tvm/relay* 和 *tvm/tir* 共享，主要包括
 
--   IRModule
--   Type
--   PassContext and Pass
--   Op
+* IRModule
+* Type
+* PassContext and Pass
+* Op 
 
-Different variants of functions(e.g. relay.Function and tir.PrimFunc)
-can co-exist in an IRModule. While these variants may not have the same
-content representation, they use the same data structure to represent
-types. As a consequence, we use the same data structure to represent
-function (type) signatures of these variants. The unified type system
-allows one function variant to call another function once we clearly
-define the calling convention. This opens doors for future
-cross-function-variant optimizations.
+不同的函数变体（例如，relay.Function 和 tir.PrimFunc）可以在一个 IRModule 中共存。虽然这些变体的内容表示可能不同，但它们使用相同的数据结构来表示类型。
 
-We also provide a unified PassContext for configuring the pass behavior,
-and common composite passes to execute a pass pipeline. The following
-code snippet gives an example of PassContext configuration.
+因此，可以用相同的数据结构来表示这些变体的函数（类型）签名。一旦明确定义了调用约定，统一的类型系统就可以用一个函数变体调用另一个函数。这为未来的跨函数变体的优化奠定了基础。
+
+我们还提供了一个统一的 PassContext，用于配置 pass 行为，以及通用的复合 pass 来执行 pass pipeline。以下代码片段给出了 PassContext 配置的示例：
 
 ``` python
-# configure the behavior of the tir.UnrollLoop pass
+# 配置 tir.UnrollLoop pass 的行为
 with tvm.transform.PassContext(config={"tir.UnrollLoop": { "auto_max_step": 10 }}):
-    # code affected by the pass context
+    # 受 pass 上下文影响的代码
 ```
 
-Op is the common class to represent all system-defined primitive
-operator/intrinsics. Developers can register new Ops as well as their
-additional attributes(e.g. whether the Op is elementwise) to the system.
+Op 是表示所有系统定义的原始算子/内联函数的通用类。开发者可以向系统注册新的 Ops，以及它们的额外属性（例如 Op 是否为元素）。
 
-::: {.toctree maxdepth="1"}
-pass_infra
-:::
+* [Pass Infrastructure](arch/pass_infra)
 
 ## tvm/target
 
-The target module contains all the code generators that translate an
-IRModule to a target runtime.Module. It also provides a common
-[Target]{.title-ref} class that describes the target.
+target 模块包含将 IRModule 转换为 target runtime.Module 的所有代码生成器。它还提供了一个描述 target 的通用 Target 类。
 
-The compilation pipeline can be customized according to the target by
-querying the attribute information in the target and builtin information
-registered to each target id(cuda, opencl).
+通过查询 target 中的属性信息和注册到每个 target id (cuda, opencl) 的内置信息，可以根据 target 定制编译 pipeline。
 
-::: {.toctree maxdepth="1"}
-device_target_interactions
-:::
+* [设备/Target 交互](arch/device_target_interactions)
 
 ## tvm/tir
 
-TIR contains the definition of the low-level program representations. We
-use [tir::PrimFunc]{.title-ref} to represent functions that can be
-transformed by TIR passes. Besides the IR data structures, the tir
-module also defines a set of builtin intrinsics and their attributes via
-the common Op registry, as well as transformation passes in
-[tir/transform]{.title-ref}.
+TIR 包含低级程序表示的定义。用 *tir::PrimFunc* 来表示可通过 TIR pass 转换的函数。除了 IR 数据结构外，tir 模块还通过通用 Op 注册表，定义了一组内置内联函数及其属性，以及 *tir/transform* 中的转换 pass。
 
 ## tvm/arith
 
-This module is closely tied to the TIR. One of the key problems in the
-low-level code generation is the analysis of the indices\' arithmetic
-properties --- the positiveness, variable bound, and the integer set
-that describes the iterator space. arith module provides a collection of
-tools that do (primarily integer) analysis. A TIR pass can use these
-analyses to simplify and optimize the code.
+该模块与 TIR 密切相关，低级代码生成的关键问题之一是分析索引的算术属性 (arithmetic properties)——正性 (positiveness)、变量界限和描述迭代器空间的整数集。arith 模块提供了一组进行（主要是整数）分析的工具。TIR pass 可以用这些分析来简化和优化代码。
 
 ## tvm/te
 
-The name te stands for \"tensor expression\". This is a domain-specific
-language module that allows us to construct [tir::PrimFunc]{.title-ref}
-variants quickly by writing tensor expressions. Importantly, a tensor
-expression itself is not a self-contained function that can be stored
-into IRModule. Instead, it is a fragment of IR that we can stitch
-together to build an IRModule.
+te (tensor expression) 代表「张量表达式」，这是一个特定领域的语言模块，它允许通过编写张量表达式来快速构造 *tir::PrimFunc* 变体 (variant)。
 
-[te/schedule]{.title-ref} provides a collection of scheduling primitives
-to control the function being generated. In the future, we might bring
-some of these scheduling components to the a [tir::PrimFunc]{.title-ref}
-itself.
+重要的是，张量表达式本身并不是一个可以存储到 IRModule 中的自包含函数 (self-contained function)。相反，它是 IR 的一个片段，可以拼接起来构建一个 IRModule。
 
-::: {.toctree maxdepth="1"}
-inferbound hybrid_script
-:::
+*te/schedule* 提供了一组调度原语，来控制正在生成的函数。未来，可能会将其中一些调度组件引入到 *tir::PrimFunc* 本身。
+
+* [InferBound Pass](arch/inferbound)
+* [混合前端开发者指南](arch/hybrid_script)
 
 ## tvm/topi
 
-While possible to construct operators directly via TIR or tensor
-expressions (TE) for each use case it is tedious to do so.
-[topi]{.title-ref} (Tensor operator inventory) provides a set of
-pre-defined operators (in TE or TIR) defined by numpy and found in
-common deep learning workloads. We also provide a collection of common
-schedule templates to obtain performant implementations across different
-target platforms.
+虽然可以通过 TIR 或张量表达式 (TE) 为每个用例直接构造算子，但这样做很乏味。 *topi*（张量算子清单）提供了一组 numpy 定义的预定义算子（在 TE 或 TIR 中），并可在常见的深度学习任务中找到。还提供了一组常见的调度模板，来获得跨不同 target 平台的性能实现。
 
 ## tvm/relay
 
-Relay is the high-level functional IR used to represent full models.
-Various optimizations are defined in [relay.transform]{.title-ref}. The
-Relay compiler defines multiple dialects, and each dialect is designed
-to support specific styles of optimization. Notable ones include QNN(for
-importing pre-quantized models), VM(for lowering to dynamic virtual
-machine), memory(for memory optimization).
+Relay 是用于表示完整模型的高级功能 IR。*relay.transform* 中定义了各种优化。 Relay 编译器定义了多种方言，每种方言都旨在支持特定的优化风格。主要包括 QNN（用于导入预量化模型）、VM（用于降级到动态虚拟机）、内存（用于内存优化）。
 
-::: {.toctree maxdepth="1"}
-relay_intro relay_op_strategy convert_layout
-:::
+* [Relay IR 简介](arch/relay_intro)
+* [Relay 算子策略](arch/relay_op_strategy)
+* [转换布局 Pass](arch/convert_layout)
 
 ## tvm/autotvm
 
-AutoTVM and AutoScheduler are both components which automate search
-based program optimization. This is rapidly evolving and primarily
-consists of:
+AutoTVM 和 AutoScheduler 都是基于程序优化的自动搜索组件。它们在迅速发展中，主要包括：
 
--   Cost models and feature extraction.
--   A record format for storing program benchmark results for cost model
-    construction.
--   A set of search policies over program transformations.
+* cost 模型和特征提取。
+* 存储 cost 模型构建的程序 benchmark 结果的记录格式。
+* 一组程序转换的搜索策略。
 
-Automated program optimization is still an active research field. As a
-result, we have attempted to modularize the design so that researchers
-may quickly modify a component or apply their own algorithms via the
-Python bindings, and customize the search and plugin their algorithms
-from the Python binding.
+自动化程序优化仍是热点研究领域。因此，我们采用了模块化的设计思路，以便研究人员通过 Python binding 来快速修改组件或应用自己的算法，也可以自定义搜索，以及从 Python binding 插入自己的算法。
 
-::: {.toctree maxdepth="1"}
-benchmark
-:::
+* [benchmark 性能日志格式](arch/benchmark)
 
-## Frontends
+## 前端
 
-Frontends ingest models from different frameworks into the TVM stack.
-:py`tvm.relay.frontend`{.interpreted-text role="mod"} is the namespace
-for model ingestion APIs.
+前端将来自不同框架的模型引入到 TVM 堆栈中。`tvm.relay.frontend` 是模型引入 API 的命名空间。
 
-::: {.toctree maxdepth="1"}
-frontend/tensorflow
-:::
+* [TensorFlow 前端](arch/tensorflow)
 
-## Security
+## 安全
 
-::: {.toctree maxdepth="1"}
-security
-:::
+* [安全指南](arch/security)
 
 ## microTVM
 
-::: {.toctree maxdepth="1"}
-microtvm_design microtvm_project_api model_library_format
-:::
+* [microTVM 设计文档](arch/microtvm_design)
+* [microTVM 项目 API](arch/microtvm_project_api)
+* [模型库格式](arch/model_library_format)
