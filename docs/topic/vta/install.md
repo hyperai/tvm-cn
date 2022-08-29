@@ -14,7 +14,7 @@ title: VTA 安装指南
 
 ## VTA 模拟器安装
 
-需要在机器上 [安装 TVM](../install)。查看 [Docker 指南](../install/docker) 来快速开始。
+需要在机器上 [安装 TVM](../../install)。查看 [Docker 指南](../../install/docker) 来快速开始。
 
 设置以下路径后才能使用 VTA：
 
