@@ -2,36 +2,27 @@
 title: VTA：多功能张量加速器
 ---
 
-The Versatile Tensor Accelerator (VTA) is an open, generic, and
-customizable deep learning accelerator with a complete TVM-based
-compiler stack. We designed VTA to expose the most salient and common
-characteristics of mainstream deep learning accelerators. Together TVM
-and VTA form an end-to-end hardware-software deep learning system stack
-that includes hardware design, drivers, a JIT runtime, and an optimizing
-compiler stack based on TVM.
+# VTA：多功能张量加速器
 
-![image](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/blogpost/vta_overview.png){.align-center
-width="60.0%"}
+多功能张量加速器 (Versatile Tensor Accelerator，简称 VTA) 是一个开放、通用和可定制的深度学习加速器，具有完整的基于 TVM 的编译器堆栈。VTA 揭示了主流深度学习加速器最显著的共同特征。TVM 和 VTA 形成了一个端到端的硬件-软件深度学习系统堆栈，其中包括硬件设计、驱动程序、JIT runtime 和基于 TVM 的优化编译器堆栈。
 
-VTA has the following key features:
+![图片](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/blogpost/vta_overview.png)
 
--   Generic, modular, open-source hardware.
--   Streamlined workflow to deploy to FPGAs.
--   Simulator support to prototype compilation passes on regular
-    workstations.
--   Pynq-based driver and JIT runtime for both simulated and FPGA
-    hardware back-end.
--   End to end TVM stack integration.
+VTA 的主要功能：
 
-This page contains links to all the resources related to VTA:
+* 通用、模块化、开源硬件。
+* 简化了部署到 FPGA 的工作流程。
+* 模拟器支持常规工作站上的原型编译传递。
+* 基于 Pynq 的驱动程序和 JIT runtime，用于模拟和 FPGA 硬件后端。
+* 端到端 TVM 堆栈集成。
 
-::: {.toctree maxdepth="1"}
-install dev/index tutorials/index
-:::
+本节包含与 VTA 相关的所有资源的链接：
 
-## Literature
+* [VTA 安装指南](https://tvm.apache.org/docs/topic/vta/install.html)
+* [VTA 设计和开发指南](https://tvm.apache.org/docs/topic/vta/dev/index.html)
+* [VTA 教程](https://tvm.apache.org/docs/topic/vta/tutorials/index.html)
 
--   Read the VTA [release blog
-    post](https://tvm.apache.org/2018/07/12/vta-release-announcement).
--   Read the VTA tech report: [An Open Hardware Software Stack for Deep
-    Learning](https://arxiv.org/abs/1807.04188).
+## 文献
+
+* 阅读 VTA [博客文章](https://tvm.apache.org/2018/07/12/vta-release-announcement)。
+* 阅读 VTA 技术报告：[用于深度学习的开放硬件软件堆栈](https://arxiv.org/abs/1807.04188)。

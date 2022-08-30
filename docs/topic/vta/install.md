@@ -1,33 +1,29 @@
 ---
-title: VTA Installation Guide
+title: VTA 安装指南
 ---
 
-We present three installation guides, each extending on the previous
-one:
+# VTA 安装指南
 
-1.  [VTA Simulator Installation](#vta-simulator-installation)
-2.  [Xilinx Pynq FPGA Setup](#xilinx-pynq-fpga-setup)
-3.  [Intel DE10 FPGA Setup](#intel-de10-fpga-setup)
-4.  [Bitstream Generation with Xilinx
-    Toolchains](#bitstream-generation-with-xilinx-toolchains)
-5.  [Bitstream Generation with Intel
-    Toolchains](#bitstream-generation-with-intel-toolchains)
+我们提供了五个安装指南，每一个都对前一个教程进行了扩展：
 
-## VTA Simulator Installation
+1. [VTA 模拟器安装](#vta-simulator-installation)
+2. [Xilinx Pynq FPGA 设置](#xilinx-pynq-fpga-setup)
+3. [Intel DE10 FPGA 设置](#intel-de10-fpga-setup)
+4. [使用 Xilinx 工具链生成比特流](#bitstream-generation-with-xilinx-toolchains)
+5. [使用 Intel 工具链生成比特流](#bitstream-generation-with-intel-toolchains)
 
-You need `TVM installed <installation>`{.interpreted-text role="ref"} on
-your machine. For a quick and easy start, checkout the
-`Docker Guide <docker-images>`{.interpreted-text role="ref"}.
+## VTA 模拟器安装
 
-You\'ll need to set the following paths to use VTA:
+需要在机器上 [安装 TVM](../install)。查看 [Docker 指南](../install/docker) 来快速开始。
+
+设置以下路径后才能使用 VTA：
 
 ``` bash
 export TVM_PATH=<path to TVM root>
 export VTA_HW_PATH=$TVM_PATH/3rdparty/vta-hw
 ```
 
-The VTA functional simulation library needs to be enabled when building
-TVM.
+构建 TVM 时要启用 VTA 功能模拟库。
 
 ``` bash
 cd <tvm-root>
@@ -37,599 +33,380 @@ echo 'set(USE_VTA_FSIM ON)' >> build/config.cmake
 cd build && cmake .. && make -j4
 ```
 
-Add the VTA python library to your python path to run the VTA examples.
+将 VTA Python 库添加到 Python 路径，运行 VTA 示例。
 
 ``` bash
 export PYTHONPATH=/path/to/vta/python:${PYTHONPATH}
 ```
 
-### Testing your VTA Simulation Setup
+### 测试 VTA 模拟设置
 
-To ensure that you\'ve properly installed the VTA python package, run
-the following 2D convolution testbench.
+为确保已正确安装 VTA Python 包，运行以下 2D 卷积进行测试。
 
 ``` bash
 python <tvm root>/vta/tests/python/integration/test_benchmark_topi_conv2d.py
 ```
 
-You are invited to try out our
-`VTA programming tutorials <vta-tutorials>`{.interpreted-text
-role="ref"}.
+诚邀你体验 [VTA 编程教程](https://tvm.apache.org/docs/topic/vta/tutorials/index.html#vta-tutorials)。
 
-> **Note**: You\'ll notice that for every convolution layer, the
-> throughput gets reported in GOPS. These numbers are actually the
-> computational throughput that the simulator achieves, by evaluating
-> the convolutions in software.
+**注意**：每个卷积层的吞吐量都会在 GOPS 中报告。这些数字实际上是模拟器通过评估软件中的卷积实现的计算吞吐量。
 
-### Advanced Configuration (optional)
+### 高级配置（可选）
 
-VTA is a generic configurable deep learning accelerator. The
-configuration is specified by `vta_config.json` under
-`3rdparty/vta-hw/config`. This file provides an architectural
-specification of the VTA accelerator to parameterize the TVM compiler
-stack and the VTA hardware stack.
+VTA 是一个通用的可配置深度学习加速器。配置由 `3rdparty/vta-hw/config` 下的 `vta_config.json` 指定。该文件提供了 VTA 加速器的体系结构规范，以参数化 TVM 编译器堆栈和 VTA 硬件堆栈。
 
-The VTA configuration file also specifies the TVM compiler target. When
-`TARGET` is set to `sim`, all TVM workloads execute on the VTA
-simulator. You can modify the content of the configuration file to
-rebuild VTA to a different parameterization. To do so,
+VTA 配置文件还指定了 TVM 编译器 target。当 `TARGET` 设置为 `sim` 时，所有 TVM 工作负载都在 VTA 模拟器上执行。可以修改配置文件的内容，将 VTA 重建为不同的参数化：
 
 ``` bash
 cd <tvm root>
 vim 3rdparty/vta-hw/config/vta_config.json
-# edit vta_config.json
+# 编辑 vta_config.json
 make
 ```
 
-## Xilinx Pynq FPGA Setup
+## Xilinx Pynq FPGA 设置
 
-This second guide extends the *VTA Simulator Installation* guide above
-to run FPGA hardware tests of the complete TVM and VTA software-hardware
-stack. In terms of hardware components you\'ll need:
+第二个指南扩展了以上 *VTA 模拟器安装*指南，从而运行完整的 TVM 和 VTA 软件-硬件堆栈的 FPGA 硬件测试。需要的硬件组件有：
 
--   The [Pynq](http://www.pynq.io/) FPGA development board which can be
-    acquired for \$200, or \$150 for academics from
-    [Digilent](https://store.digilentinc.com/pynq-z1-python-productivity-for-zynq/).
--   An Ethernet-to-USB adapter to connect the Pynq board to your
-    development machine.
--   An 8+GB micro SD card.
--   An AC to DC 12V 3A power adapter.
+* [Pynq](http://www.pynq.io/) FPGA 开发板可从 [Digilent](https://store.digilentinc.com/pynq-z1-python-productivity-for-zynq/) 以 200 美元或 150 美元的价格购买。
+* 一个以太网到 USB 适配器，用于将 Pynq 板连接到你的开发机器。
+* 8+ GB micro SD 卡。
+* 一个 AC 转 DC 12V 3A 电源适配器。
 
-This guide covers the following themes:
+本指南涵盖以下主题：
 
-1.  Pynq board setup instructions.
-2.  Pynq-side RPC server build and deployment.
-3.  Revisiting the test examples from the *VTA Simulator Installation*
-    guide, this time executing on the Pynq board.
+1. Pynq 板设置说明。
+2. Pynq 端 RPC 服务器构建和部署。
+3. 再次访问 *VTA 模拟器安装指南*中的测试示例，这次是在 Pynq 板上执行。
 
-### Pynq Board Setup
+### Pynq 板设置
 
-Setup your Pynq board based on the [Pynq board getting started
-tutorial](http://pynq.readthedocs.io/en/latest/getting_started.html).
+根据 [Pynq 开发板入门教程](http://pynq.readthedocs.io/en/latest/getting_started.html) 设置 Pynq 开发板。
 
-You should follow the instructions up to and including the *Turning On
-the PYNQ-Z1* step (no need to pursue the tutorial beyond this point).
+按照说明进行操作，包括*打开 PYNQ-Z1* 步骤（此后无需继续学习本教程）。
 
--   Make sure that you\'ve downloaded the latest Pynq image, [PYNQ-Z1
-    v2.5](http://www.pynq.io/board.html), and have imaged your SD card
-    with it (we recommend the free [Etcher](https://etcher.io/)
-    program).
--   For this test setup, follow the [\"Connect to a
-    Computer\"](https://pynq.readthedocs.io/en/latest/getting_started/pynq_z1_setup.html)
-    Ethernet setup instructions. To be able to talk to the board, make
-    sure to [assign your computer a static IP
-    address](https://pynq.readthedocs.io/en/latest/appendix.html#assign-your-computer-a-static-ip)
+* 确保已下载最新的 Pynq 镜像 [PYNQ-Z1 v2.5](http://www.pynq.io/board.html)，并已经用它为你的 SD 卡制作镜像（推荐免费的 [Etcher](https://etcher.io/) 程序）。
+* 对于这个测试设置，遵循[“连接到计算机”](https://pynq.readthedocs.io/en/latest/getting_started/pynq_z1_setup.html)以太网设置说明。为成功与板子通信，确保 [为计算机分配一个静态 IP 地址](https://pynq.readthedocs.io/en/latest/appendix.html#assign-your-computer-a-static-ip)。
 
-Once the board is powered on and connected to your development machine,
-try connecting to it to make sure you\'ve properly set up your Pynq
-board:
+一旦开发板通电，并连接到你的开发机器，尝试进行连接，并确保已正确设置 Pynq 开发板：
 
 ``` bash
-# To connect to the Pynq board use the <username, password> combo: <xilinx, xilinx>
+# 要连接到 Pynq 开发板，使用 <username, password> 组合：<xilinx, xilinx>
 ssh xilinx@192.168.2.99
 ```
 
-### Pynq-Side RPC Server Build & Deployment
+### Pynq 端 RPC 服务器构建和部署
 
-Because the direct board-to-computer connection prevents the board from
-directly accessing the internet, we\'ll need to mount the Pynq\'s file
-system to your development machine\'s file system with
-[sshfs](https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh).
-Next we directly clone the TVM repository into the sshfs mountpoint on
-your development machine.
+因为板到计算机的直接连接会阻止单板直接访问互联网，所以要使用 [sshfs](https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh) 将 Pynq 的文件系统挂载到你的开发机器的文件系统中。接下来，直接将 TVM 仓库克隆到开发机器上的 sshfs 挂载点。
 
 ``` bash
-# On the Host-side
+# 在宿主机端
 mkdir <mountpoint>
 sshfs xilinx@192.168.2.99:/home/xilinx <mountpoint>
 cd <mountpoint>
 git clone --recursive https://github.com/apache/tvm tvm
-# When finished, you can leave the moutpoint and unmount the directory
+# 完成后，可以离开挂载点，并卸载目录
 cd ~
 sudo umount <mountpoint>
 ```
 
-Now that we\'ve cloned the VTA repository in the Pynq\'s file system, we
-can ssh into it and launch the build of the TVM-based RPC server. The
-build process should take roughly 5 minutes.
+现在已经在 Pynq 的文件系统中克隆了 VTA 仓库，可以通过 ssh 登入，并基于 TVM 的 RPC 服务器启动构建。构建过程大约需要 5 分钟。
 
 ``` bash
 ssh xilinx@192.168.2.99
-# Build TVM runtime library (takes 5 mins)
+# 构建 TVM runtime 库（需要 5 分钟）
 cd /home/xilinx/tvm
 mkdir build
 cp cmake/config.cmake build/.
 echo 'set(USE_VTA_FPGA ON)' >> build/config.cmake
-# Copy pynq specific configuration
+# 复制 pynq 具体配置
 cp 3rdparty/vta-hw/config/pynq_sample.json 3rdparty/vta-hw/config/vta_config.json
 cd build
 cmake ..
 make runtime vta -j2
-# FIXME (tmoreau89): remove this step by fixing the cmake build
+# FIXME (tmoreau89): 通过修复 cmake 构建，删除此步骤
 make clean; make runtime vta -j2
-# Build VTA RPC server (takes 1 min)
+# 构建 VTA RPC 服务器（需要 1 分钟）
 cd ..
 sudo ./apps/vta_rpc/start_rpc_server.sh # pw is 'xilinx'
 ```
 
-You should see the following being displayed when starting the RPC
-server. In order to run the next examples, you\'ll need to leave the RPC
-server running in an `ssh` session.
+启动 RPC 服务器时，可看到以下显示。为了运行下一个示例，需要让 RPC 服务器在 `ssh` session 中运行。
 
 ``` bash
 INFO:root:RPCServer: bind to 0.0.0.0:9091
 ```
 
-Tips regarding the Pynq RPC Server:
+关于 Pynq RPC 服务器的提示：
 
--   The RPC server should be listening on port `9091`. If not, an
-    earlier process might have terminated unexpectedly and it\'s
-    recommended in this case to just reboot the Pynq, and re-run the RPC
-    server.
--   To kill the RPC server, just send the `Ctrl + c` command. You can
-    re-run it with `sudo ./apps/pynq_rpc/start_rpc_server.sh`.
--   If unresponsive, the board can be rebooted by power-cycling it with
-    the physical power switch.
+* RPC 服务器应该在端口 `9091` 上监听。若没有，早期的进程可能已经意外终止。在这种情况下推荐重新启动 Pynq，然后重新运行 RPC 服务器。
+* 要终止 RPC 服务器，只需发送 `Ctrl + c` 命令。可以用 `sudo ./apps/pynq_rpc/start_rpc_server.sh` 重新运行。
+* 若无响应，可以通过使用物理电源开关对其重新通电，重新启动单板。
 
-### Testing your Pynq-based Hardware Setup
+### 测试基于 Pynq 的硬件设置
 
-Before running the examples on your development machine, you\'ll need to
-configure your host environment as follows:
+在开发机器上运行示例前，按如下方式配置主机环境：
 
 ``` bash
-# On the Host-side
+# 在宿主机端
 export VTA_RPC_HOST=192.168.2.99
 export VTA_RPC_PORT=9091
 ```
 
-In addition, you\'ll need to edit the `vta_config.json` file on the host
-to indicate that we are targeting the Pynq platform, by setting the
-`TARGET` field to `"pynq"`. \> Note: in contrast to our simulation
-setup, there are no libraries to compile on the host side since the host
-offloads all of the computation to the Pynq board.
+此外，还需将主机上的 `vta_config.json` 文件中 `TARGET` 字段设置为 `"pynq"` 来指定 target 是 Pynq 平台。
+
+注意：与模拟设置相比，主机端没有要编译的库，因为主机会将所有计算转移到 Pynq 板上。
 
 ``` bash
-# On the Host-side
+# 在宿主机端
 cd <tvm root>
 cp 3rdparty/vta-hw/config/pynq_sample.json 3rdparty/vta-hw/config/vta_config.json
 ```
 
-This time again, we will run the 2D convolution testbench. Beforehand,
-we need to program the Pynq board FPGA with a VTA bitstream, and build
-the VTA runtime via RPC. The following `test_program_rpc.py` script will
-perform two operations:
+运行 2D 卷积 testbench。在此之前，要用 VTA 比特流对 Pynq 板 FPGA 进行编程，并通过 RPC 构建 VTA runtime。以下 `test_program_rpc.py` 脚本将执行两个操作：
 
--   FPGA programming, by downloading a pre-compiled bitstream from a
-    [VTA bitstream repository](https://github.com/uwsampl/vta-distro)
-    that matches the default `vta_config.json` configuration set by the
-    host, and sending it over to the Pynq via RPC to program the Pynq\'s
-    FPGA.
--   Runtime building on the Pynq, which needs to be run every time the
-    `vta_config.json` configuration is modified. This ensures that the
-    VTA software runtime that generates the accelerator\'s executable
-    via just-in-time (JIT) compilation matches the specifications of the
-    VTA design that is programmed on the FPGA. The build process takes
-    about 30 seconds to complete so be patient!
+* FPGA 编程，通过从 [VTA 比特流仓库](https://github.com/uwsampl/vta-distro) 中下载预编译的比特流，这个仓库与主机设置的默认配置 `vta_config.json` 匹配，并通过 RPC 发送到 Pynq，从而对 Pynq 的 FPGA 进行编程。
+* `vta_config.json` 配置每次修改，都要运行在 Pynq 上构建的 Runtime。这样可确保 VTA 软件 runtime（通过 just-in-time (JIT) 编译生成加速器可执行文件）与在 FPGA 上编程的 VTA 设计规范匹配。构建过程大约需要 30 秒完成，耐心等待！
 
 ``` bash
-# On the Host-side
+# 在宿主机端
 python <tvm root>/vta/tests/python/pynq/test_program_rpc.py
 ```
 
-We are now ready to run the 2D convolution testbench in hardware.
+准备在硬件中运行 2D 卷积 testbench。
 
 ``` bash
-# On the Host-side
+# 在宿主机端
 python <tvm root>/vta/tests/python/integration/test_benchmark_topi_conv2d.py
 ```
 
-The performance metrics measured on the Pynq board will be reported for
-each convolutional layer.
+每个卷积层在 Pynq 板上测试的性能指标都会生成报告。
 
-**Tip**: You can track progress of the FPGA programming and the runtime
-rebuilding steps by looking at the RPC server\'s logging messages in
-your Pynq `ssh` session.
+**提示**：可以通过查看 Pynq `ssh` session 中 RPC 服务器的日志消息来跟踪 FPGA 编程和 runtime 重建步骤的进度。
 
-You can also try out our
-`VTA programming tutorials <vta-tutorials>`{.interpreted-text
-role="ref"}.
+更多信息请访问 [VTA 编程教程](https://tvm.apache.org/docs/topic/vta/tutorials/index.html#vta-tutorials)。
 
-## Intel DE10 FPGA Setup
+## Intel DE10 FPGA 设置
 
-Similar to the Pynq-side setup steps, this third guide bring us the
-details on how can we setup up the Linux environment for Intel FPGA
-boards like DE10-Nano.
+与 Pynq 端设置步骤类似，第三个指南详细介绍了如何为 Intel FPGA 板（如 DE10-Nano）设置 Linux 环境。
 
-In terms of hardware components, you would need the [DE10-Nano
-Development
-Kit](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1046),
-which can be acquired for \$130, or \$100 for academics from
-[Terasic](https://www.terasic.com.tw/). A microSD card would be
-delivered the kit. Power cables and USB cables would be included as
-well. However, an additional Ethernet cable would be needed to connect
-the board to LAN.
+就硬件组件而言，需要 [DE10-Nano 开发套件](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1046)，它可以从 [Terasic](https://www.terasic.com.tw/) 以 130 美元购入（教育优惠价格为 100 美元）。该套件提供一张 microSD 卡，以及电源线和 USB 线。但需要额外的网线将板连接到 LAN。
 
-The rest part of this guide would provide the steps to
+本指南将讲解以下步骤：
 
--   Flash the microSD card with latest Angstrom Linux image
--   Cross-compilation setup
--   Device-side RPC server setup and deployment
+* 用最新 Angstrom Linux 镜像烧录 microSD 卡
+* 交叉编译设置
+* 设备端 RPC 服务器设置和部署
 
-### DE10-Nano Board Setup
+### DE10-Nan 板设置
 
-Before powering up the device, we need to flash the microSD card image
-with latest Angstrom Linux image.
+启动设备前，要用最新 Angstrom Linux 镜像烧录 microSD 卡镜像。
 
-#### Flash SD Card and Boot Angstrom Linux
+#### 烧录 SD 卡和引导 Angstrom Linux[¶](https://tvm.apache.org/docs/topic/vta/install.html#flash-sd-card-and-boot-angstrom-linux)
 
-To flash SD card and boot Linux on DE10-Nano, it is recommended to
-navigate to the
-[Resource](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=1046&PartNo=4)
-tab of the DE10-Nano product page from Terasic Inc. After registration
-and login on the webpage, the prebuilt Angstrom Linux image would be
-available for downloading and flashing. Specifically, to flash the
-downloaded Linux SD card image into your physical SD card:
+要在 DE10-Nano 上烧录 SD 卡，并启动 Linux，推荐查看 Terasic 公司的 DE10-Nano 产品页面的 [Resource](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=1046&PartNo=4) tab。在网页上注册并登录后，即可下载预构建的 Angstrom Linux 镜像并烧录。具体来说，要将下载的 Linux SD 卡镜像烧录到你的物理 SD 卡中：
 
-First, extract the gzipped archive file.
+首先，提取 gzip 压缩的存档文件。
 
 ``` bash
 tar xf de10-nano-image-Angstrom-v2016.12.socfpga-sdimg.2017.03.31.tgz
 ```
 
-This would produce a single SD card image named
-`de10-nano-image-Angstrom-v2016.12.socfpga-sdimg` (approx. 2.4 GB), it
-contains all the file systems to boot Angstrom Linux.
+将生成一个名为 `de10-nano-image-Angstrom-v2016.12.socfpga-sdimg`（约 2.4 GB）的 SD 卡镜像，包含启动 Angstrom Linux 的所有文件系统。
 
-Second, plugin a SD card that is ready to flash in your PC, and identify
-the device id for the disk with `fdisk -l`, or `gparted` if you feel
-better to use GUI. The typical device id for your disk would likely to
-be `/dev/sdb`.
+其次，在你的 PC 中插入准备烧录的 SD 卡，并用 `fdisk -l` 查询磁盘的设备 ID，若觉得使用 GUI 更好，则用 `gparted`。磁盘的典型设备 ID 可能是 `/dev/sdb`。
 
-Then, flash the disk image into your physical SD card with the following
-command:
+然后，用以下命令将磁盘镜像烧录到你的物理 SD 卡中：
 
 ``` bash
-# NOTE: root privilege is typically required to run the following command.
+# 注意：运行以下命令通常需要 root 权限。
 dd if=de10-nano-image-Angstrom-v2016.12.socfpga-sdimg of=/dev/sdb status=progress
 ```
 
-This would take a few minutes for your PC to write the whole file
-systems into the SD card. After this process completes, you are ready to
-unmount the SD card and insert it into your DE10-Nano board. Now you can
-connect the power cable and serial port to boot the Angstrom Linux.
+将整个文件系统写入 PC 的 SD 卡需要几分钟时间。完成后，就可以取下 SD 卡，并将其插入 DE10-Nano 板。接下来连接电源线和串口来启动 Angstrom Linux。
 
-> **Note**: When boot up from the microSD card, you might notice the
-> incompatibility of the Linux kernel `zImage` in the microSD card. In
-> this case, you might need to build the `zImage` file of your own from
-> [socfpga-4.9.78-ltsi](https://github.com/altera-opensource/linux-socfpga/tree/socfpga-4.9.78-ltsi)
-> branch of the
-> [linux-socfpga](https://github.com/altera-opensource/linux-socfpga)
-> repository. For a quick fix, you can also download a prebuilt version
-> of the `zImage` file [from this
-> link](https://raw.githubusercontent.com/liangfu/de10-nano-supplement/master/zImage).
+**注意**：从 microSD 卡启动时，可能会出现与 microSD 卡中 Linux 内核 `zImage` 不兼容的情况。这种情况下需要从 [linux-socfpga](https://github.com/altera-opensource/linux-socfpga) 仓库的 [socfpga-4.9.78-ltsi](https://github.com/altera-opensource/linux-socfpga/tree/socfpga-4.9.78-ltsi) 分支构建你自己的 `zImage` 文件。还可以 [从此链接](https://raw.githubusercontent.com/liangfu/de10-nano-supplement/master/zImage) 下载 `zImage` 文件的预构建版本来快速修复。
 
-After connecting the usb cables to the DE10-Nano board, power on the
-board by connecting the power cable. You may then connect to the serial
-port of the device by using `minicom` on your host PC:
+将 USB 线连接到 DE10-Nano 开发板后，连接电源线给开发板上电。然后，可以用主机 PC 上的 `minicom` 连接到设备的串行端口：
 
 ``` bash
-# NOTE: root privilege is typically required to run the following command.
+# 注意：运行以下命令通常需要 root 权限。
 minicom -D /dev/ttyUSB0
 ```
 
-The default user name for the device would be `root`, and the password
-is empty for the default user.
+设备的默认用户名为 `root`，默认密码为空。
 
-You may now start to install supporting Python3 packages (TVM has
-dropped the support for Python2), specifically, they are `numpy`,
-`attrs` and `decorator`.
+接下来安装支持 Python3 的包（TVM 不再支持 Python2），具体来说是 `numpy`、`attrs` 和 `decorator`。
 
-> **Note**: You might fail to install `numpy` by using `pip3` on the
-> DE10-Nano device. In that case, you have the option to either build
-> your own filesystem image for the board from
-> [meta-de10-nano](https://github.com/intel/meta-de10-nano) repository;
-> an alternative option is to download prebuilt packages from existing
-> Linux distributions, e.g. Debian. For a quick fix, we have
-> concatenated the supplementary binary files
-> [here](https://raw.githubusercontent.com/liangfu/de10-nano-supplement/master/rootfs_supplement.tgz),
-> and you can extract the files into the root filesystem.
+**注意**：在 DE10-Nano 设备上用 `pip3` 可能无法安装 `numpy`。这种情况可以从 [meta-de10-nano](https://github.com/intel/meta-de10-nano) 仓库为开发板构建文件系统镜像；也可以从现有的 Linux 发行版下载预构建的包，例如 Debian。我们已在 [此处](https://raw.githubusercontent.com/liangfu/de10-nano-supplement/master/rootfs_supplement.tgz) 连接了补充二进制文件，可以将文件提取到根文件系统来快速修复。
 
-#### Install Required Python Packages
+#### 安装所需的 Python 包
 
-After accessing bash terminal from the serial port, we need to install
-required Python packages before building and installing TVM and VTA
-programs.
+从串口访问 bash 终端后，要在构建和安装 TVM 和 VTA 程序之前，安装所需的 Python 包。
 
-#### Build Additional Components to Use VTA Bitstream
+#### 构建附加组件以使用 VTA 比特流
 
-To use the above built bitstream on DE10-Nano hardware, several
-additional components need to be compiled for the system. Specifically,
-to compile application executables for the system, you need to download
-and install
-[SoCEDS](http://fpgasoftware.intel.com/soceds/18.1/?edition=standard&download_manager=dlm3&platform=linux)
-(recommended), or alternatively install the `g++-arm-linux-gnueabihf`
-package on your host machine. You would also need a `cma` kernel module
-to allocate contigous memory, and a driver for communicating with the
-VTA subsystem.
+要在 DE10-Nano 硬件上使用上述构建的比特流，需要为系统编译几个附加组件。具体来说，要为系统编译应用程序可执行文件，需要下载并安装 [SoCEDS](http://fpgasoftware.intel.com/soceds/18.1/?edition=standard&download_manager=dlm3&platform=linux)（推荐），或者在主机上安装 `g++-arm-linux-gnueabihf` 包。还需要一个 `cma` 内核模块，来分配连续内存，以及一个用于与 VTA 子系统通信的驱动程序。
 
-## Bitstream Generation with Xilinx Toolchains
+## 使用 Xilinx 工具链生成比特流
 
-If you\'re interested in generating the Xilinx FPGA bitstream on your
-own instead of using the pre-built VTA bitstreams, follow the
-instructions below.
+若对自行生成 Xilinx FPGA 比特流感兴趣，而非直接使用预构建的 VTA 比特流，请按照以下说明进行操作。
 
-### Xilinx Toolchain Installation
+### Xilinx 工具链安装
 
-We recommend using Vivado 2020.1 since our scripts have been tested to
-work on this version of the Xilinx toolchains. Our guide is written for
-Linux (Ubuntu) installation.
+推荐使用 Vivado 2020.1，因为我们的脚本已经通过测试，可以在此版本的 Xilinx 工具链上运行。本指南是为 Linux (Ubuntu) 安装编写的。
 
-You'll need to install Xilinx' FPGA compilation toolchain, [Vivado HL
-WebPACK
-2020.1](https://www.xilinx.com/products/design-tools/vivado.html), which
-a license-free version of the Vivado HLx toolchain.
+需要安装 Xilinx 的 FPGA 编译工具链 [Vivado HL WebPACK 2020.1](https://www.xilinx.com/products/design-tools/vivado.html)，它是 Vivado HLx 工具链的免许可版本。
 
-#### Obtaining and Launching the Vivado GUI Installer
+#### 获取并启动 Vivado GUI 安装程序
 
-1.  Go to the [download
-    webpage](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html),
-    and download the Linux Self Extracting Web Installer for Vivado HLx
-    2020.1: WebPACK and Editions.
-2.  You'll have to sign in with a Xilinx account. This requires a Xilinx
-    account creation that will take 2 minutes.
-3.  Complete the Name and Address Verification by clicking "Next", and
-    you will get the opportunity to download a binary file, called
-    `Xilinx_Unified_2020.1_0602_1208_Lin64.bin`.
-4.  Now that the file is downloaded, go to your `Downloads` directory,
-    and change the file permissions so it can be executed:
+1. 访问 [下载网页](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html)，下载适用于 Vivado HLx 2020.1 的 Linux 自解压 Web 安装程序：WebPACK 和 Editions。
+2. 必须用 Xilinx 帐户登录。需要约 2 分钟创建一个 Xilinx 帐户。
+3. 单击「Next」完成名称和地址验证，然后可以下载名为 `Xilinx_Unified_2020.1_0602_1208_Lin64.bin` 的二进制文件。
+4. 文件下载后，在你的 `Downloads` 目录下更改文件权限，然后就可以执行：
+
+   ``` bash
+   chmod u+x Xilinx_Unified_2020.1_0602_1208_Lin64.bin
+   ```
+
+5. 现在可以执行二进制文件：
+
+   ``` bash
+   ./Xilinx_Unified_2020.1_0602_1208_Lin64.bin
+   ```
+
+#### Xilinx Vivado GUI 安装程序步骤
+
+此时已启动 Vivado 2020.1 安装 GUI 程序。
+
+ 1. 在「Welcome」界面，单击「Next」。
+ 2. 在「Select Install Type」界面的「User Authentication」框中，输入你的 Xilinx 用户凭据，然后选择「Download and Install Now」选项，单击「Next」。
+ 3. 在「Accept License Agreements」界面上，接受所有条款，然后单击「Next」。
+ 4. 在「Select Edition to Install」界面，选择「Vivado HL WebPACK」，然后单击「Next」。
+ 5. 在「Vivado HL WebPACK」界面，在点击「Next」之前，检查以下选项（其余选项应取消选中）： * Design Tools -> Vivado Design Suite -> Vivado * Devices -> Production Devices -> SoCs -> Zynq -7000（若 target 是 Pynq 板）* Devices  -> Production -> SoC -> UltraScale+ MPSoC（若 target 是 Ultra-96 板）
+ 6. 总下载大小约为 5 GB，所需的磁盘空间量为 23 GB。
+ 7. 在「Select Destination Directory」界面，设置安装目录，然后单击「下一步」。某些路径可能会突出显示为红色——这是因为安装程序没有写入目录的权限。在这种情况下，选择不需要特殊写入权限的路径（例如你的主目录）。
+ 8. 在「Installation Summary」界面，点击「Install」。
+ 9. 将弹出「Installation Progress」窗口，来跟踪下载和安装的进度。
+10. 此过程大约需要 20-30 分钟，具体取决于网络速度。
+11. 安装成功完成会弹出窗口通知。单击「OK」。
+12. 最后，「Vivado License Manager」将启动。选择「Get Free ISE WebPACK, ISE/Vivado IP or PetaLinux License」，并单击「Connect Now」，完成许可证注册过程。
+
+#### 环境设置
+
+最后一步是用以下代码更新你的 `~/.bashrc`。这包括所有 Xilinx 二进制路径，以便可以从命令行启动编译脚本。
 
 ``` bash
-chmod u+x Xilinx_Unified_2020.1_0602_1208_Lin64.bin
-```
-
-5.  Now you can execute the binary:
-
-``` bash
-./Xilinx_Unified_2020.1_0602_1208_Lin64.bin
-```
-
-#### Xilinx Vivado GUI Installer Steps
-
-At this point you\'ve launched the Vivado 2020.1 Installer GUI program.
-
-1.  Click "Next" on the \"Welcome\" screen.
-2.  On the \"Select Install Type\" screen, enter your Xilinx user
-    credentials under the "User Authentication" box and select the
-    "Download and Install Now" option before clicking "Next".
-3.  On the \"Accept License Agreements\" screen, accept all terms before
-    clicking "Next".
-4.  On the \"Select Edition to Install\" screen, select the "Vivado HL
-    WebPACK" before clicking "Next".
-5.  Under the \"Vivado HL WebPACK\" screen, before hitting "Next\",
-    check the following options (the rest should be unchecked):
-    -   Design Tools -\> Vivado Design Suite -\> Vivado
-    -   Devices -\> Production Devices -\> SoCs -\> Zynq-7000 (if you
-        are targeting the Pynq board)
-    -   Devices -\> Production Devices -\> SoCs -\> UltraScale+ MPSoC
-        (if you are targeting the Ultra-96 board)
-6.  Your total download size should be about 5GB and the amount of Disk
-    Space Required 23GB.
-7.  On the \"Select Destination Directory\" screen, set the installation
-    directory before clicking "Next". It might highlight some paths as
-    red - that's because the installer doesn't have the permission to
-    write to the directory. In that case select a path that doesn't
-    require special write permissions (e.g. your home directory).
-8.  On the \"Installation Summary\" screen, hit "Install".
-9.  An \"Installation Progress\" window will pop-up to track progress of
-    the download and the installation.
-10. This process will take about 20-30 minutes depending on your
-    connection speed.
-11. A pop-up window will inform you that the installation completed
-    successfully. Click \"OK\".
-12. Finally the \"Vivado License Manager\" will launch. Select \"Get
-    Free ISE WebPACK, ISE/Vivado IP or PetaLinux License\" and click
-    \"Connect Now\" to complete the license registration process.
-
-#### Environment Setup
-
-The last step is to update your `~/.bashrc` with the following lines.
-This will include all of the Xilinx binary paths so you can launch
-compilation scripts from the command line.
-
-``` bash
-# Xilinx Vivado 2020.1 environment
+# Xilinx Vivado 2020.1 环境
 export XILINX_VIVADO=${XILINX_PATH}/Vivado/2020.1
 export PATH=${XILINX_VIVADO}/bin:${PATH}
 ```
 
-### HLS-based Custom VTA Bitstream Compilation for Pynq
+### Pynq 基于 HLS 的自定义 VTA 比特流的编译
 
-High-level hardware parameters are listed in the VTA configuration file
-and can be customized by the user. For this custom VTA bitstream
-compilation exercise, we\'ll change the frequency of our design, so it
-can be clocked a little faster.
+用户可自定义 VTA 配置文件中的高级硬件参数。尝试自定义 VTA 比特流编译时，可将时钟频率调快一点。
 
--   Set the `HW_FREQ` field to `142`. The Pynq board supports 100, 142,
-    167 and 200MHz clocks. Note that the higher the frequency, the
-    harder it will be to close timing. Increasing the frequency can lead
-    to timing violation and thus faulty hardware execution.
--   Set the `HW_CLK_TARGET` to `6`. This parameters refers to the target
-    clock period in nano seconds for HLS - a lower clock period leads to
-    more aggressive pipelining to achieve timing closure at higher
-    frequencies. Technically a 142MHz clock would require a 7ns target,
-    but we intentionally lower the clock target to 6ns to more
-    aggressively pipeline our design.
+* 将 `HW_FREQ` 字段设置为 `142`。Pynq 板支持 100、142、167 和 200MHz 时钟频率。注意，频率越高，关闭时序就越困难。增加频率会导致时序违规，从而导致硬件执行错误。
+* 将 `HW_CLK_TARGET` 设置为 `6`。这个参数指的是 HLS 的目标时钟周期（以纳秒为单位）——较低的时钟周期会导致流水线操作更快，从而在较高频率下实现时序收敛。从技术上讲，142MHz 的时钟需要 7ns 的目标机，但我们刻意将时钟目标机降低到 6ns，从而更好地将设计流水线化。
 
-Bitstream generation is driven by a top-level `Makefile` under
-`<tvm root>/3rdparty/vta-hw/hardware/xilinx/`.
+比特流的生成是由 `<tvm root>/3rdparty/vta-hw/hardware/xilinx/` 顶层目录的 `Makefile` 驱动的。
 
-If you just want to simulate the VTA design in software emulation to
-make sure that it is functional, enter:
+若只想在软件仿真中模拟 VTA 设计，确保其正常工作，输入：
 
 ``` bash
 cd <tvm root>/3rdparty/vta-hw/hardware/xilinx
 make ip MODE=sim
 ```
 
-If you just want to generate the HLS-based VTA IP cores without
-launching the entire design place and route, enter:
+若只想生成基于 HLS 的 VTA IP 内核，而不启动整个设计布局和布线，输入：
 
 ``` bash
 make ip
 ```
 
-You\'ll be able to view the HLS synthesis reports under
-`<tvm root>/3rdparty/vta-hw/build/hardware/xilinx/hls/<configuration>/<block>/solution0/syn/report/<block>_csynth.rpt`
+然后就可以在 `<tvm root>/3rdparty/vta-hw/build/hardware/xilinx/hls/<configuration>/<block>/solution0/syn/report/<block>_csynth.rpt` 下查看 HLS 综合报告。
 
-> **Note**: The `<configuration>` name is a string that summarizes the
-> VTA configuration parameters listed in the `vta_config.json`. The
-> `<block>` name refers to the specific module (or HLS function) that
-> compose the high-level VTA pipeline.
+**注意**：`<configuration>` 的名称是一个字符串，它汇总了 `vta_config.json` 中列出的 VTA 配置参数。`<block>` 的名称指的是构成高级 VTA 管道的特定模块（或 HLS 函数）。
 
-Finally to run the full hardware compilation and generate the VTA
-bitstream, run `make`.
+最后，执行 `make` 命令来运行完整的硬件编译，并生成 VTA 比特流。
 
-This process is lengthy, and can take around up to an hour to complete
-depending on your machine\'s specs. We recommend setting the
-`VTA_HW_COMP_THREADS` variable in the Makefile to take full advantage of
-all the cores on your development machine.
+这个过程很长，大约一个小时才能完成，具体时长取决于机器的规格。建议在 Makefile 中设置 `VTA_HW_COMP_THREADS` 变量，充分利用开发机器上的所有内核。
 
-Once the compilation completes, the generated bitstream can be found
-under
-`<tvm root>/3rdparty/vta-hw/build/hardware/xilinx/vivado/<configuration>/export/vta.bit`.
+编译后，可以在 `<tvm root>/3rdparty/vta-hw/build/hardware/xilinx/vivado/<configuration>/export/vta.bit` 下找到生成的比特流。
 
-### Using A Custom Bitstream
+### 使用自定义比特流
 
-We can program the new VTA FPGA bitstream by setting the bitstream path
-of the `vta.program_fpga()` function in the tutorial examples, or in the
-`test_program_rpc.py` script.
+可以通过在教程示例或 `test_program_rpc.py` 脚本中设置 `vta.program_fpga()` 函数的比特流路径，来对新的 VTA FPGA 比特流进行编程。
 
 ``` python
 vta.program_fpga(remote, bitstream="<tvm root>/3rdparty/vta-hw/build/hardware/xilinx/vivado/<configuration>/export/vta.bit")
 ```
 
-Instead of downloading a pre-built bitstream from the VTA bitstream
-repository, TVM will instead use the new bitstream you just generated,
-which is a VTA design clocked at a higher frequency. Do you observe a
-noticeable performance increase on the ImageNet classification example?
+TVM 不会从 VTA 比特流仓库中下载预构建的比特流，而是用生成的新比特流，这是一种时钟频率更高的 VTA 设计。是否有观察到 ImageNet 分类示例的性能显著提高？
 
-## Bitstream Generation with Intel Toolchains
+## 使用 Intel 工具链生成比特流
 
-If you\'re interested in generating the Xilinx FPGA bitstream on your
-own instead of using the pre-built VTA bistreams, follow the
-instructions below.
+若对自行生成 Xilinx FPGA 比特流感兴趣，而非直接使用预构建的 VTA 比特流，按照以下说明进行操作。
 
-### Intel Toolchain Installation
+### Intel 工具链安装
 
-It is recommended to use `Intel Quartus Prime 18.1`, since the test
-scripts contained in this document have been tested on this version.
+推荐使用 `Intel Quartus Prime 18.1`，因为本文档中包含的测试脚本已经在该版本上进行了测试。
 
-You would need to install Intel\'s FPGA compilation toolchain, [Quartus
-Prime Lite](http://fpgasoftware.intel.com/?edition=lite), which is a
-license-free version of the Intel Quartus Prime software.
+需要安装 Intel 的 FPGA 编译工具链 [Quartus Prime Lite](http://fpgasoftware.intel.com/?edition=lite)，它是 Intel Quartus Prime 软件的免许可版本。
 
-#### Obtaining and Launching the Quartus GUI Installer
+#### 获取和启动 Quartus GUI 安装程序
 
-1.  Go to the [download
-    center](http://fpgasoftware.intel.com/?edition=lite), and download
-    the linux version of \"Quartus Prime (include Nios II EDS)\" and
-    \"Cyclone V device support\" files in the \"Separate file\" tab.
-    This avoid downloading unused device support files.
-2.  Sign in the form if you have an account, or register on the right
-    side of the web page to create an account.
-3.  After signed in, you are able to download the installer and the
-    device support files.
-4.  Now that the files are downloaded, go to your `Downloads` directory,
-    and change the file permissions:
+1. 访问 [下载中心](http://fpgasoftware.intel.com/?edition=lite)，在「Separate file」选项卡中下载 Linux 版本的「Quartus Prime (include Nios II EDS)」和「Cyclone V device support」。这样可以避免下载未使用的设备支持文件。
+2. 若有帐户，填写表单登录；或在网页右侧注册帐户。
+3. 登录后，可以下载安装程序和设备支持文件。
+4. 文件下载后，在你的 `Downloads` 目录下更改文件权限：
 
-``` bash
-chmod u+x QuartusLiteSetup-18.1.0.625-linux.run
-```
+   ``` bash
+   chmod u+x QuartusLiteSetup-18.1.0.625-linux.run
+   ```
 
-5.  Now ensure both the installer and device support files are in the
-    same directory, and you can run the install with:
+5. 现在确保安装程序和设备支持文件都在同一目录中，用以下命令运行安装：
+
+   ```plain
+   ./QuartusLiteSetup-18.1.0.625-linux.run
+   ```
+
+6. 按照弹出的 GUI 表单上的说明，将所有内容安装在 `/usr/local` 目录中。安装后，会创建 `/usr/local/intelFPGA_lite/18.1` 文件夹，包含 Quartus 程序和其他程序。
+
+#### 环境设置
+
+与 Xilinx 工具链的操作类似，将以下代码添加到 `~/.bashrc` 中。
 
 ``` bash
-./QuartusLiteSetup-18.1.0.625-linux.run
-```
-
-6.  Follow the instructions on the pop-up GUI form, and install all the
-    content in the `/usr/local` directory. After installation,
-    `/usr/local/intelFPGA_lite/18.1` would be created and the Quartus
-    program along with other programs would be available in the folder.
-
-#### Environment Setup
-
-Similar to what should be done for Xilinx toolchain, the following line
-should be added to your `~/.bashrc`.
-
-``` bash
-# Intel Quartus 18.1 environment
+# Intel Quartus 18.1 环境
 export QUARTUS_ROOTDIR="/usr/local/intelFPGA_lite/18.1/quartus"
 export PATH=${QUARTUS_ROOTDIR}/bin:${PATH}
 export PATH=${QUARTUS_ROOTDIR}/sopc_builder/bin:${PATH}
 ```
 
-This would add quartus binary path into your `PATH` environment
-variable, so you can launch compilation scripts from the command line.
+quartus 二进制路径会添加到 `PATH` 环境变量中，然后可以从命令行启动编译脚本。
 
-### Chisel-based Custom VTA Bitstream Compilation for DE10-Nano
+### DE10-Nano 基于 Chisel 的自定义 VTA 比特流的编译
 
-Similar to the HLS-based design, high-level hardware parameters in
-Chisel-based design are listed in the VTA configuration file
-[Configs.scala](https://github.com/apache/tvm/blob/main/3rdparty/vta-hw/hardware/chisel/src/main/scala/core/Configs.scala),
-and they can be customized by the user.
+与基于 HLS 的设计类似，用户可以自定义 VTA 配置文件 [Configs.scala](https://github.com/apache/tvm/blob/main/3rdparty/vta-hw/hardware/chisel/src/main/scala/core/Configs.scala) 中基于 Chisel 设计的高级硬件参数。
 
-For Intel FPGA, bitstream generation is driven by a top-level `Makefile`
-under `<tvm root>/3rdparty/vta-hw/hardware/intel`.
+对于 Intel FPGA，比特流的生成是由 `<tvm root>/3rdparty/vta-hw/hardware/intel` 顶级目录下的 `Makefile` 驱动的。
 
-If you just want to generate the Chisel-based VTA IP core for the
-DE10-Nano board without compiling the design for the FPGA hardware,
-enter:
+若只为 DE10-Nano 板生成基于 Chisel 的 VTA IP 核，而不为 FPGA 硬件编译设计，输入：
 
 ``` bash
 cd <tvm root>/3rdparty/vta-hw/hardware/intel
 make ip
 ```
 
-Then you\'ll be able to locate the generated verilog file at
-`<tvm root>/3rdparty/vta-hw/build/hardware/intel/chisel/<configuration>/VTA.DefaultDe10Config.v`.
+然后，就可以在 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/chisel/<configuration>/VTA.DefaultDe10Config.v` 中找到生成的 verilog 文件。
 
-If you would like to run the full hardware compilation for the
-`de10nano` board:
+若要为 `de10nano` 板运行完整的硬件编译：
 
 ``` bash
 make
 ```
 
-This process might be a bit lengthy, and might take up to half an hour
-to complete depending on the performance of your PC. The Quartus Prime
-software would automatically detect the number of cores available on
-your PC and try to utilize all of them to perform such process.
+这个过程可能会有点长，需要半小时才能完成，具体时长取决于 PC 的性能。Quartus Prime 软件会自动检测 PC 上可用的内核数量，并用所有内核来执行此过程。
 
-Once the compilation completes, the generated bistream can be found
-under
-`<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/export/vta.rbf`.
-You can also open the Quartus project file (.qpf) available at
-`<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/de10_nano_top.qpf`
-to look around the generated reports.
+编译后，可以在 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/export/vta.rbf` 下找到生成的比特流。还可以打开 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/de10_nano_top.qpf` 路径的 Quartus 项目文件 (.qpf)，查看生成的报告。
