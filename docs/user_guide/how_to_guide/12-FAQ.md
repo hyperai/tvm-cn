@@ -10,7 +10,7 @@ sidebar_position: 220
 ## 如何添加新的硬件后端
 * 如果硬件后端支持 LLVM，则可以直接通过在 `target` 中设置正确的 `target` 三元组来生成代码。
 * 如果 target 硬件是 GPU，请用 cuda、opencl 或 vulkan 后端。
-* 如果 target 硬件是一个特殊的加速器，请查看 [VTA：多功能张量加速器](../../topic/vta) 和 [向 TVM 中添加自定义 Codegen ](../../dev/how_to/relay_bring_your_own_codegen)。
+* 如果 target 硬件是一个特殊的加速器，请查看 [VTA：多功能张量加速器](../../topic/vta_idx) 和 [向 TVM 中添加自定义 Codegen ](../../dev/how_to/relay_bring_your_own_codegen)。
 * 对上述所有情况，若要用 AutoTVM 添加 target-specific 的优化模板，请参阅 [使用模板和 AutoTVM 进行自动调优](../../user_guide/how_to_guide/autotune)。
 * 除了使用 LLVM 的向量化，还可以嵌入微内核来利用硬件内联函数，请参阅 [使用 Tensorize 来利用硬件内联函数](../../user_guide/how_to_guide/te_schedules/tensorize)。
 
