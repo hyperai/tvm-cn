@@ -5,7 +5,7 @@ sidebar_position: 220
 
 # FAQ
 ## 如何安装
-参阅 [安装 TVM](../../get_start/install)
+参阅 [安装 TVM](../../get_start/install_idx)
 
 ## 如何添加新的硬件后端
 * 如果硬件后端支持 LLVM，则可以直接通过在 `target` 中设置正确的 `target` 三元组来生成代码。
