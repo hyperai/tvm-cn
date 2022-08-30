@@ -88,7 +88,7 @@ DLDataType dtype
 
 从给定的存储块（存储在 `storage` 中）分配适当的 shape 的张量值（存储在 `shape_register` 中）和 `dtype`。结果保存到 `dst` 寄存器中。
 
-#### AllocStorage[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#allocstorage)
+#### AllocStorage
 
 **参数**：
 
@@ -101,7 +101,7 @@ DLDataType dtype_hint
 
 用给定的 `size`、`alignment` 和数据类型 `dtype_hint` 分配存储块。分配的存储块存储在 `dst` 寄存器中。
 
-#### AllocADT[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#allocadt)
+#### AllocADT
 
 **参数**：
 
@@ -114,7 +114,7 @@ RegName* datatype_fields
 
 用 `datatype_fields` 寄存器中的 `num_fields` 条目，分配带有 `tag` 标记的数据类型。结果保存到 `dst` 寄存器中。
 
-#### AllocClosure[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#allocclosure)
+#### AllocClosure
 
 **参数**：
 
@@ -127,7 +127,7 @@ RegName* free_vars;
 
 用 `clo_index` 的 VMFunction 作为其代码分配一个闭包，并从 `free_vars` 中的寄存器分配 `num_freevar` 条目。结果保存到 `dst` 寄存器中。
 
-#### GetField[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#getfield)
+#### GetField
 
 **参数**：
 
@@ -139,7 +139,7 @@ Index field_index
 
 从 `object` 中获取 `field_index` 索引的字段值。并将结果保存到 `dst` 寄存器中。
 
-#### If[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#if)
+#### If
 
 **参数**：
 
@@ -152,7 +152,7 @@ Index false_offset
 
 检查 `test` 寄存器中的对象是否等于 `target`。若相等，则通过 `true_offset` 进行相对跳转，否则通过 `false_offset` 进行相对跳转。
 
-#### GetTag[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#gettag)
+#### GetTag
 
 **参数**：
 
@@ -163,11 +163,11 @@ RegName dst
 
 获取 `object` 寄存器中 ADT 对象的对象标签。并将结果保存到 `dst` 寄存器中。
 
-#### Fatal[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#fatal)
+#### Fatal
 
 虚拟机执行失败。
 
-#### Goto[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#goto)
+#### Goto
 
 **参数**：
 
@@ -177,7 +177,7 @@ Index pc_offset
 
 通过 `pc_offset` 进行无条件相对跳转。
 
-#### Invoke[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#invoke)
+#### Invoke
 
 **参数**：
 
@@ -187,7 +187,7 @@ Index func_index
 
 在 `func_index` 中调用函数，使用 VMFunction 的 arity 字段中包含的参数数量。
 
-#### InvokeClosure[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#invokeclosure)
+#### InvokeClosure
 
 **参数**：
 
@@ -199,7 +199,7 @@ RegName* closure_args
 
 调用 `closure`，使用闭包的 VMFunction 中声明的参数数量。
 
-#### LoadConst[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#loadconst)
+#### LoadConst
 
 **参数**：
 
@@ -210,7 +210,7 @@ Index const_index
 
 从常量池中加载 `const_index` 处的常量。结果保存到 `dst` 寄存器中。
 
-#### LoadConsti[¶](https://tvm.apache.org/docs/arch/virtual_machine.html#loadconsti)
+#### LoadConsti
 
 **参数**：
 
@@ -238,13 +238,10 @@ struct VirtualMachine {
   ...
   std::vector<VMFrame> frames;
   ...
-  // Current function.
   // 当前函数。
   size_t func_index;
-  // Pointer into the current function's instructions.
   // 指向当前函数指令的指针。
   const Instruction* code;
-  // Current program counter relative to the code pointer.
   // 当前程序计数器相对于代码指针。
   size_t pc;
   ...

@@ -12,7 +12,7 @@ title: 向 Relay 中添加算子
 2. 为算子编写一个类型关系，以整合到 Relay 的类型系统中
 3. 使用 C++ 中的 `RELAY_REGISTER_OP` 宏，为编译器注册算子的数量、类型和其他提示
 4. 编写算子的计算方式
-5. **Register the compute, schedule with the relay operator【待确认】**
+5. 用 Relay 注册算子和 schedule
 6. 定义一个为算子产生调用节点的 C++ 函数，并为该函数注册一个 Python API hook
 7. 将上述 Python API hook 放在一个更简洁的接口中
 8. 为新的 Relay 算子编写测试

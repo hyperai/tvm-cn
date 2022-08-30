@@ -117,7 +117,7 @@ make
 ./tests/scripts/task_python_unittest.sh
 ```
 
-If you want to run a single test:
+如果希望运行单个测试：
 
 ``` bash
 # 构建 tvm
