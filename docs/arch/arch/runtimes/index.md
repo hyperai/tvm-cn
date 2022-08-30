@@ -18,7 +18,7 @@ TVM 支持多种编程语言进行编译器堆栈开发和部署。本文档将�
 * 实验：将编译好的函数发送到嵌入式设备上直接运行。
   我们期望能够用任何语言定义一个函数，然后用另一种语言调用。还期望将 runtime 内核最小化，部署到嵌入式设备。
 
-## PackedFunc
+## PackedFunc {#PackedFunc}
 
 [PackedFunc](https://github.com/apache/tvm/blob/main/include/tvm/runtime/packed_func.h) 是一个简单而优雅的解决方案，它可以解决以上问题。单个 `PackedFunc` 对象代表一个函数调用，其调用者和被调用者可能使用不同的语言。
 
