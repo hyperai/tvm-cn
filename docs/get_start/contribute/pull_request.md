@@ -38,7 +38,7 @@ sidebar_position: 2
 
 -   添加测试用例，以涵盖补丁所引入的新功能或错误修复。
 
--   记录新写入的代码，更多信息请见 [文档](/docs/contribute/document)
+-   记录新写入的代码，更多信息请见 [文档](document)
 
 -   创建一个 [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)，修复 CI 检查报告的问题。
 
@@ -91,7 +91,7 @@ docker/clear-stale-images.sh
 
 ### C++（本地）
 
-运行 C++ 测试需要安装 gtest，按照 [启用 C++ 测试](/docs/install/from_source#启用-c-测试) 中的说明进行安装
+运行 C++ 测试需要安装 gtest，按照 [启用 C++ 测试](../install/from_source#C++_tests) 中的说明进行安装
 
 ``` bash
 # 假设您是在 tvm 源码根目录下

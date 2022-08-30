@@ -3,9 +3,9 @@ title: 安装 TVM
 sidebar_position: 1
 ---
 
-* [从源码安装](/docs/install/from_source)
-* [Docker 镜像](/docs/install/docker)
-* [NNPACK Contrib 安装](/docs/install/nnpack)
+* [从源码安装](install/from_source)
+* [Docker 镜像](install/docker)
+* [NNPACK Contrib 安装](install/nnpack)
 
 查看 [从源码安装](from_source)。 从源码安装 TVM
 使得从官方源码版本有效配置构建变得很灵活。如果您对部署到移动端或嵌入式设备感兴趣，

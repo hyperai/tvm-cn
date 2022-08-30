@@ -16,13 +16,13 @@ TVM 是由社区成员开发的，欢迎大家为 TVM 项目做出贡献。我�
 
 以下是对项目各方面的贡献指南：
 
-* [TVM 社区指南](/docs/contribute/community)
-* [提交 Pull Request](/docs/contribute/pull_request)
-* [代码 Review](/docs/contribute/code_review)
-* [Committer 指南](/docs/contribute/committer_guide)
-* [文档指南](/docs/contribute/document)
-* [代码指南及 Tips](/docs/contribute/code_guide)
-* [Git 使用技巧](/docs/contribute/git_howto)
-* [使用 TVM 的 CI](/docs/contribute/ci)
-* [发布流程](/docs/contribute/release_process)
-* [错误处理指南](/docs/contribute/error_handling)
+* [TVM 社区指南](contribute/community)
+* [提交 Pull Request](contribute/pull_request)
+* [代码 Review](contribute/code_review)
+* [Committer 指南](contribute/committer_guide)
+* [文档指南](contribute/document)
+* [代码指南及 Tips](contribute/code_guide)
+* [Git 使用技巧](contribute/git_howto)
+* [使用 TVM 的 CI](contribute/ci)
+* [发布流程](contribute/release_process)
+* [错误处理指南](contribute/error_handling)
