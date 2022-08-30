@@ -18,9 +18,9 @@ VTA 的主要功能：
 
 本节包含与 VTA 相关的所有资源的链接：
 
-* [VTA 安装指南](https://tvm.apache.org/docs/topic/vta/install.html)
-* [VTA 设计和开发指南](https://tvm.apache.org/docs/topic/vta/dev/index.html)
-* [VTA 教程](https://tvm.apache.org/docs/topic/vta/tutorials/index.html)
+* [VTA 安装指南](vta/install)
+* [VTA 设计和开发指南](vta/dev)
+* [VTA 教程](vta/tutorials)
 
 ## 文献
 
