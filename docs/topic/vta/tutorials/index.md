@@ -22,5 +22,3 @@ title: VTA 教程
 
 * [在 VTA 上自动调优 ALU 融合算子](autotuning_alu)
 * [在 VTA 上自动调优卷积网络](autotuning_conv)
-
-

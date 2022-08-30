@@ -1,5 +1,6 @@
 ---
 title: VTA 安装指南
+sidebar_position: 100
 ---
 
 # VTA 安装指南
@@ -47,7 +48,7 @@ export PYTHONPATH=/path/to/vta/python:${PYTHONPATH}
 python <tvm root>/vta/tests/python/integration/test_benchmark_topi_conv2d.py
 ```
 
-诚邀你体验 [VTA 编程教程](https://tvm.apache.org/docs/topic/vta/tutorials/index.html#vta-tutorials)。
+诚邀你体验 [VTA 编程教程](tutorials)。
 
 **注意**：每个卷积层的吞吐量都会在 GOPS 中报告。这些数字实际上是模拟器通过评估软件中的卷积实现的计算吞吐量。
 
@@ -184,7 +185,7 @@ python <tvm root>/vta/tests/python/integration/test_benchmark_topi_conv2d.py
 
 **提示**：可以通过查看 Pynq `ssh` session 中 RPC 服务器的日志消息来跟踪 FPGA 编程和 runtime 重建步骤的进度。
 
-更多信息请访问 [VTA 编程教程](https://tvm.apache.org/docs/topic/vta/tutorials/index.html#vta-tutorials)。
+更多信息请访问 [VTA 编程教程](tutorials)。
 
 ## Intel DE10 FPGA 设置
 
@@ -202,7 +203,7 @@ python <tvm root>/vta/tests/python/integration/test_benchmark_topi_conv2d.py
 
 启动设备前，要用最新 Angstrom Linux 镜像烧录 microSD 卡镜像。
 
-#### 烧录 SD 卡和引导 Angstrom Linux[¶](https://tvm.apache.org/docs/topic/vta/install.html#flash-sd-card-and-boot-angstrom-linux)
+#### 烧录 SD 卡和引导 Angstrom Linux
 
 要在 DE10-Nano 上烧录 SD 卡，并启动 Linux，推荐查看 Terasic 公司的 DE10-Nano 产品页面的 [Resource](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=1046&PartNo=4) tab。在网页上注册并登录后，即可下载预构建的 Angstrom Linux 镜像并烧录。具体来说，要将下载的 Linux SD 卡镜像烧录到你的物理 SD 卡中：
 
