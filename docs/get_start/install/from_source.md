@@ -323,7 +323,7 @@ Python 包位于 [tvm/python]{.title-ref}。安装方法有两种：
 nnpack
 :::
 
-## 启用 C++ 测试 
+## 启用 C++ 测试 {#C++_tests}
 
 可以用 [Google Test](https://github.com/google/googletest) 来驱动 TVM
 中的 C++ 测试。安装 GTest 最简单的方法是从源代码安装：
