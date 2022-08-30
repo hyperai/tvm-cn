@@ -3,23 +3,21 @@ title: 发版流程
 sidebar_position: 9
 ---
 
-The release manager role in TVM means you are responsible for a few
-different things:
+TVM 中的版本 manager 角色意味着要负责以下这些事情：
 
--   Preparing release notes
--   Preparing your setup
--   Preparing for release candidates
-    -   Cutting a release branch
-    -   Informing the community of timing
-    -   Making code changes in that branch with necessary version
-        updates
--   Running the voting process for a release
-    -   Creating release candidates
-    -   Calling votes and triaging issues
--   Finalizing and posting a release:
-    -   Updating the TVM website
-    -   Finalizing release notes
-    -   Announcing the release
+* 准备发行说明
+* 准备设置
+* 准备候选版本
+   * 截取版本分支
+   * 通知社区时间
+   * 在分支中做必要版本更新的代码修改
+* 对版本投票
+   * 创建候选版本
+   * 召集投票和分类问题
+* 完成并发布版本
+   * 更新 TVM 网站
+   * 完成发行说明
+   * 宣布发布
 
 ## 准备发行说明
 

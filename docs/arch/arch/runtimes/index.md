@@ -104,7 +104,7 @@ PackedFunc 用于编译器和部署堆栈：
 
 与普通函数相比，调用 PackedFunc 的开销很小，因为它只在堆栈上保存了几个值，所以只要不包装小的函数即可。总之，PackedFunc 是 TVM 中的通用粘合剂，可以广泛使用它来支持编译器和部署。
 
-## 模块
+## 模块 {#module}
 
 由于 TVM 支持多种类型的设备，因此需要支持不同类型的驱动程序。必须用驱动程序 API 来加载内核，以打包格式设置参数，并执行内核启动。
 
@@ -211,4 +211,4 @@ PackedFunc 中的每个参数都包含一个关联值 [TVMValue](https://github.
 
 # Runtime 特定信息 {#runtime-specific-information}
 
-* [Vulkan Runtime](https://tvm.apache.org/docs/arch/runtimes/vulkan.html)
+* [Vulkan Runtime](vulkan)

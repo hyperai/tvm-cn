@@ -11,7 +11,7 @@ sidebar_position: 150
 
 * [DeviceAPI](#tvm-target-specific-device-api) 类为特定设备提供句柄，以及用于与其交互的 API。它定义了一个通用接口，用于查询设备参数（例如可用内存、线程数等）和执行简单操作（例如，从主机复制内存，或在设备上的缓冲区之间复制）。
 * [Target](#tvm-target-specific-target) 类描述了运行函数的设备。它既对 target 代码生成器公开，也对优化 pass 公开。
-* [target 代码生成器](#tvm-target-specific-codegen) 从 IRModule 构造了一个 [模块](https://tvm.apache.org/docs/arch/runtime.html#tvm-runtime-system-module)，它由一个或多个 [PackedFunc](https://tvm.apache.org/docs/arch/runtime.html#tvm-runtime-system-packed-func) 组成。
+* [target 代码生成器](#tvm-target-specific-codegen) 从 IRModule 构造了一个 [模块](../../arch/arch/runtimes#module)，它由一个或多个 [PackedFunc](../../arch/arch/runtimes#PackedFunc) 组成。
 
 ## DeviceAPI {#tvm-target-specific-device-api}
 
