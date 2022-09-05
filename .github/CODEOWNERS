@@ -1,4 +1,4 @@
 # https://help.github.com/articles/about-codeowners/
 
 * @hyperai/devops
-docs/ @signcl/docs-reviewers
+docs/ @hyperai/docs-reviewers
