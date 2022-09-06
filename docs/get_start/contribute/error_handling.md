@@ -5,13 +5,8 @@ sidebar_position: 10
 
 TVM 包含结构化的错误类以表示特定类型的错误。请尽可能提出特定的错误类型，以便用户可以在必要时写代码来处理特定的错误类别。可以直接在 Python 中抛出特定的错误对象。在 C++ 等其他语言中，只需给错误消息添加 `<ErrorType>:` 前缀（见下文）。
 
-::: note
-::: title
-Note
-:::
-
-Please refer to :py`tvm.error`{.interpreted-text role="mod"} for the
-list of errors.
+:::note
+有关报错列表，请参考 [tvm.error](https://tvm.apache.org/docs/reference/api/python/error.html#module-tvm.error)。
 :::
 
 ## 在 C++ 中抛出特定错误
@@ -30,7 +25,7 @@ void ErrorTest(int x, int y) {
 
 上述函数作为 PackedFunc 注册到 Python 前端，名称为 `tvm._api_internal._ErrorTest`。如果我们调用注册函数会发生以下情况：
 
-``` 
+```
 >>> import tvm
 >>> tvm.testing.ErrorTest(0, 1)
 Traceback (most recent call last):
@@ -67,8 +62,7 @@ TVM hint: You hit an internal error. Please open a thread on https://discuss.tvm
 可以浏览下面列出的错误类型，试着用常识并参考已有代码中的选择来决定。我们尽量将错误类型保持在一个合理的数目。如果你觉得需要添加新的错误类型，请这样做：
 
 -   在当前代码库中发送带有描述和使用示例的 RFC 提案。
--   使用清晰的文档将新的错误类型添加到 :py`tvm.error`{.interpreted-text
-    role="mod"}。
+-   使用清晰的文档将新的错误类型添加到 [tvm.error](https://tvm.apache.org/docs/reference/api/python/error.html#module-tvm.error)。
 -   将新的错误类型添加到此文件中的列表里。
 -   在代码里使用新的错误类型。
 
