@@ -52,7 +52,7 @@ role="ref"} 库。
 >     [不支持](https://github.com/apache/tvm/issues/8577)。
 
 在 Ubuntu/Debian 等 Linux
-操作系统上，要安装这些最小先决条件，请在终端执行：
+操作系统上，要安装这些依赖环境，请在终端执行：
 
 ``` bash
 sudo apt-get update
@@ -138,7 +138,7 @@ brew install python@3.8
     make -j4
     ```
 
-    -   用 Ninja 来构建系统比用 Unix Makefiles 更快。
+    -   可以使用 Ninja 来加速构建
 
     ``` bash
     cd build
