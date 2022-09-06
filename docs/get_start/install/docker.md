@@ -4,7 +4,7 @@ sidebar_position: 2
 ---
 
 开发者可以利用 Docker 工具脚本，建立开发环境。这也有助于运行 TVM Demo
-和教程。 需要用到
+和教程。需要用到
 [Docker](https://docs.docker.com/engine/installation/)，
 如果使用 CUDA 则需要
 [nvidia-docker](https://github.com/NVIDIA/nvidia-docker/)。
