@@ -50,7 +50,7 @@ git submodule update
 * Python：推荐使用 3.7.X+ 和 3.8.X+ 版本，3.9.X+ 暂时[不支持](https://github.com/apache/tvm/issues/8577)。
 
 在 Ubuntu/Debian 等 Linux
-操作系统上，要安装这些最小先决条件，请在终端执行：
+操作系统上，要安装这些依赖环境，请在终端执行：
 
 ``` bash
 sudo apt-get update
