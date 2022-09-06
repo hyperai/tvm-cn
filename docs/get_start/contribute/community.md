@@ -21,7 +21,7 @@ committer 是被授予项目写入权限的人。committer 还需要监督他们
 - 贡献质量：高质量、可读性高的代码贡献表现为：无需大量代码 review，便可 merge pull request；有创建整洁、可维护的代码并包含良好的测试用例的历史；提供有用信息的代码 review，从而帮助其他贡献者更好地遵守标准。
 - 社区参与：积极参与论坛交流，通过教程、讲座和对外合作来推广项目。我们鼓励 committer 广泛合作，例如与社区成员线上一起 review 代码和讨论项目设计。
 
-[项目管理委员会（PMC）](https://projects.apache.org/committee.html?tvm) 由活跃的 committer 组成，负责主持讨论、管理项目发布并提名新的 committer/PMC 成员。候选人通常由 PMC 内部讨论提出，然后共识批准（即至少 3+1 票，并且没有否决权）。任何否决权都必须附有理由。PMC 应该通过维护社区实践和准则，把 TVM 打造成一个更好的社区。PMC 应尽可能提名自己组织之外的新候选人。
+[项目管理委员会（PMC）](https://projects.apache.org/committee.html?tvm) 由活跃的 committer 组成，负责主持讨论、管理项目发布并提名新的 committer/PMC 成员。候选人通常由 PMC 内部讨论提出，然后共识批准（即至少 3+1 票，并且没有否决票）。任何否决票都必须附有理由。PMC 应该通过维护社区实践和准则，把 TVM 打造成一个更好的社区。PMC 应尽可能提名自己组织之外的新候选人。
 
 ## Reviewers
 
