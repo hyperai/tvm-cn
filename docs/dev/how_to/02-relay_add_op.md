@@ -51,7 +51,7 @@ def cumprod(data, axis=None, dtype=None, exclusive=None):
 
 因此，在 `include/tvm/relay/attrs/transform.h` 中定义属性时，可以选择算子的 axis、accumulation dtype 及 exclusivity 作为结构体的合适字段。
 
-``` c++
+``` cpp
 /*! 用在 cumsum 和 cumprod 算子中的简单属性 */
 struct ScanopAttrs : public tvm::AttrsNode<ScanopAttrs> {
   Integer axis;
@@ -73,7 +73,7 @@ struct ScanopAttrs : public tvm::AttrsNode<ScanopAttrs> {
 
 在 `src/relay/op/tensor/transform.cc` 中可以找到 cumulative product 与 cumulative product 算子的类型关系。
 
-``` c++
+``` cpp
 TVM_REGISTER_NODE_TYPE(ScanopAttrs);
 bool ScanopRel(const Array<Type>& types, int num_inputs, const Attrs& attrs, const TypeReporter& reporter) {
     // types: [data, output]
@@ -118,7 +118,7 @@ bool ScanopRel(const Array<Type>& types, int num_inputs, const Attrs& attrs, con
 
 再次将其添加到 `src/relay/op/tensor/transform.cc` 中：
 
-``` c++
+``` cpp
 RELAY_REGISTER_OP("cumsum")
     .describe(
         R"doc(Return the cumulative sum of the elements along a given axis.)doc" TVM_ADD_FILELINE)
@@ -236,7 +236,7 @@ shape 函数用于确定 output shape，给定一个动态 shaped tensor。在�
 
 目前不支持调用属性和类型参数（最后两个字段），所以只需使用  `Op::Get` 从算子注册表中获取算子信息，并将参数传递给调用节点（如下所示）。在 `src/relay/op/tensor/transform.cc`：
 
-``` c++
+``` cpp
 Expr MakeCumsum(Expr data, Integer axis, DataType dtype, Bool exclusive) {
     auto attrs = make_object<ScanopAttrs>();
     attrs->dtype = dtype;
@@ -342,7 +342,7 @@ def multiply_grad(orig, grad):
 
 首先，确保 `src/relay/transforms/pattern_utils.h` 被包含在内。它提供了用于在 Relay AST 中创建节点的辅助函数。定义梯度算子的方式与 Python 类似：
 
-``` c++
+``` cpp
 tvm::Array<Expr> MultiplyGrad(const Expr& orig_call, const Expr& output_grad) {
     const Call& call = orig_call.Downcast<Call>();
     return { CollapseSumLike(Multiply(output_grad, call.args[1]), call.args[0]),
@@ -354,7 +354,7 @@ tvm::Array<Expr> MultiplyGrad(const Expr& orig_call, const Expr& output_grad) {
 
 要注册梯度算子，这里无需使用 Python 修饰器，只需要在基础算子注册的末尾添加 `set_attr` 调用 "FPrimalGradient" 即可。
 
-``` c++
+``` cpp
 RELAY_REGISTER_OP("multiply")
     // ...
     // 设置其他属性
