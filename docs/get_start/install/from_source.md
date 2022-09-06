@@ -134,7 +134,7 @@ brew install python@3.8
     make -j4
     ```
 
-    -   用 Ninja 来构建系统比用 Unix Makefiles 更快。
+    -   可以使用 Ninja 来加速构建
 
     ``` bash
     cd build
