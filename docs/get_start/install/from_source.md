@@ -30,29 +30,27 @@ git submodule update
 
 我们的目标是构建共享库：
 
-> -   在 Linux 上，目标库是 [libtvm.so]{.title-ref} 和
->     [libtvm_runtime.so]{.title-ref}
-> -   在 MacOS 上，目标库是 [libtvm.dylib]{.title-ref} 和
->     [libtvm_runtime.dylib]{.title-ref}
-> -   在 Windows 上，目标库是 [libtvm.dll]{.title-ref} 和
->     [libtvm_runtime.dll]{.title-ref}
+* 在 Linux 上，目标库是 *libtvm.so* 和 *libtvm_runtime.so*
+* 在 MacOS 上，目标库是 *libtvm.dylib* 和 *libtvm_runtime.dylib*
+* 在 Windows 上，目标库是 *libtvm.dll* 和 *libtvm_runtime.dll*
 
-也可以只 `build the runtime <deploy-and-integration>`{.interpreted-text
-role="ref"} 库。
+也可以只 [构建运行时库](../../user_guide/how_to_guide/deploy)。
 
 `TVM` 库的最低构建要求是：
 
-> -   支持 C++14（g++-5 或更高）的最新 C++ 编译器
-> -   CMake 3.10 或更高版本
-> -   推荐使用 LLVM 构建 TVM 库以启用所有功能。
-> -   如需使用 CUDA，请确保 CUDA 工具包的版本至少在 8.0 以上。注意：CUDA
->     旧版本升级后，请删除旧版本并重新启动。
-> -   macOS 可安装 [Homebrew](https://brew.sh) 以方便安装和管理依赖。
-> -   Python：推荐使用 3.7.X+ 和 3.8.X+ 版本，3.9.X+ 暂时
->     [不支持](https://github.com/apache/tvm/issues/8577)。
+* 支持 C++17 的最新 C++ 编译器
+   * GCC 7.1
+   * Clang 5.0
+   * Apple Clang 9.3
+   * Visual Stuio 2019 (v16.7)
+* CMake 3.10 或更高版本
+* 推荐使用 LLVM 构建 TVM 库以启用所有功能。
+* 如需使用 CUDA，请确保 CUDA 工具包的版本至少在 8.0 以上。注意：CUDA 旧版本升级后，请删除旧版本并重新启动。
+* macOS 可安装 [Homebrew](https://brew.sh) 以方便安装和管理依赖。
+* Python：推荐使用 3.7.X+ 和 3.8.X+ 版本，3.9.X+ 暂时[不支持](https://github.com/apache/tvm/issues/8577)。
 
 在 Ubuntu/Debian 等 Linux
-操作系统上，要安装这些依赖环境，请在终端执行：
+操作系统上，要安装这些最小先决条件，请在终端执行：
 
 ``` bash
 sudo apt-get update
@@ -93,9 +91,7 @@ brew install python@3.8
         `set(USE_PROFILER ON)` 启用嵌入式图形执行器 (embedded graph
         executor) 和调试功能。
 
-    -   如需用 IR 调试，可以设置
-        `set(USE_RELAY_DEBUG ON)`，同时设置环境变量
-        [TVM_LOG_DEBUG]{.title-ref}。
+    -   如需用 IR 调试，可以设置 `set(USE_RELAY_DEBUG ON)`，同时设置环境变量 *TVM_LOG_DEBUG*。
 
         > ``` bash
         > export TVM_LOG_DEBUG="ir/transform.cc=1;relay/ir/transform.cc=1"
@@ -138,7 +134,7 @@ brew install python@3.8
     make -j4
     ```
 
-    -   可以使用 Ninja 来加速构建
+    -   用 Ninja 来构建系统比用 Unix Makefiles 更快。
 
     ``` bash
     cd build
@@ -177,8 +173,7 @@ brew install python@3.8
     TVM_LIBRARY_PATH=~/tvm/build_debug python3
     ```
 
-如果一切顺利，我们就可以去
-`python-package-installation`{.interpreted-text role="ref"} 了。
+如果一切顺利，我们就可以去查看 [Python 包的安装](#python-package-installation) 了。
 
 ### 使用 Conda 环境进行构建 {#build-with-conda}
 
@@ -217,8 +212,7 @@ TVM 支持通过 MSVC 使用 CMake 构建。需要有一个 Visual Studio 编译
 的最低版本为 **Visual Studio Enterprise 2019**（注意：查看针对 GitHub
 Actions 的完整测试细节，请访问 [Windows 2019
 Runner](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)。
-官方推荐 `build-with-conda`{.interpreted-text
-role="ref"}，以获取必要的依赖及激活的 tvm-build 环境。）运行以下命令行：
+官方推荐 [使用 Conda 环境进行构建](#build-with-conda)，以获取必要的依赖及激活的 tvm-build 环境。）运行以下命令行：
 
 ``` bash
 mkdir build
@@ -247,27 +241,22 @@ cmake --build build --config Release -- /m
 本部分介绍利用 `virtualenv` 或 `conda` 等虚拟环境和软件包管理器，来管理
 Python 软件包和依赖的方法。
 
-Python 包位于 [tvm/python]{.title-ref}。安装方法有两种：
+Python 包位于 *tvm/python*。安装方法有两种：
 
-方法1
+* 方法1
 
-:   本方法适用于有可能修改\**代码的开发者*\*。
+    本方法适用于有可能修改**代码的开发者**。
 
-    设置环境变量 [PYTHONPATH]{.title-ref}，告诉 Python
-    在哪里可以找到这个库。例如，假设我们在 [/path/to/tvm]{.title-ref}[
-    目录下克隆了 \`tvm]{.title-ref}，我们可以在
-    [\~/.bashrc]{.title-ref}[ 中添加以下代码：
-    这使得拉取代码及重建项目时，无需再次调用
-    ]{.title-ref}[setup]{.title-ref}\`，这些变化就会立即反映出来
+    设置环境变量 *PYTHONPATH*，告诉 Python 在哪里可以找到这个库。例如，假设我们在 */path/to/tvm* 目录下克隆了 *tvm*，我们可以在 *~/.bashrc* 中添加以下代码：这使得拉取代码及重建项目时，无需再次调用 `setup`，这些变化就会立即反映出来
 
     ``` bash
     export TVM_HOME=/path/to/tvm
     export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
     ```
 
-方法2
+* 方法2
 
-:   通过 [setup.py]{.title-ref}\` 安装 TVM 的 Python 绑定：
+    通过 *setup.py* 安装 TVM 的 Python 绑定：
 
     ``` bash
     # 为当前用户安装 TVM 软件包
@@ -319,9 +308,7 @@ Python 包位于 [tvm/python]{.title-ref}。安装方法有两种：
 
 ## 安装 Contrib 库
 
-::: {.toctree maxdepth="1"}
-nnpack
-:::
+[NNPACK Contrib 安装](nnpack)
 
 ## 启用 C++ 测试 {#C++_tests}
 
