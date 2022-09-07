@@ -1,5 +1,6 @@
 ---
 title: 常见问题
+slug: how_to
 sidebar_position: 4
 ---
 

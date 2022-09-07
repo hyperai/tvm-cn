@@ -15,7 +15,7 @@ sidebar_position: 100
 
 ## VTA 模拟器安装
 
-需要在机器上 [安装 TVM](../../get_start/install_idx)。查看 [Docker 指南](../../get_start/install/docker) 来快速开始。
+需要在机器上 [安装 TVM](../../getting_started/install_idx)。查看 [Docker 指南](../../getting_started/install/docker) 来快速开始。
 
 设置以下路径后才能使用 VTA：
 

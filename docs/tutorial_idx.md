@@ -1,5 +1,6 @@
 ---
 title: 用户教程
+slug: /tutorial
 sidebar_position: 3
 ---
 
