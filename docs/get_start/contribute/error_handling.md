@@ -11,7 +11,7 @@ TVM 包含结构化的错误类以表示特定类型的错误。请尽可能提�
 
 ## 在 C++ 中抛出特定错误
 
-可以给错误消息添加 `<ErrorType>:` 前缀来抛出相应类型的错误。注意，当消息中没有错误类型前缀时，不必添加新类型，默认会抛出 :py`tvm.error.TVMError`{.interpreted-text role="class"} 错误。此机制适用于 `LOG(FATAL)` 和 `ICHECK` 宏。具体示例见以下代码：
+可以给错误消息添加 `<ErrorType>:` 前缀来抛出相应类型的错误。注意，当消息中没有错误类型前缀时，不必添加新类型，默认会抛出 [tvm.error.TVMError](https://tvm.apache.org/docs/reference/api/python/error.html#tvm.error.TVMError) 错误。此机制适用于 `LOG(FATAL)` 和 `ICHECK` 宏。具体示例见以下代码：
 
 ``` c
 // src/api_test.cc
