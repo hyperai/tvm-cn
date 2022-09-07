@@ -19,11 +19,11 @@ Apache TVM 是一个用于 CPU、GPU 和机器学习加速器的开源机器学�
 9. 用 GPU 编译深度学习模型
 
 # TVM 和模型优化概述
-下图说明了机器模型用 TVM 优化编译器框架转换时所采取的步骤。
+下图说明了使用 TVM 优化编译器框架转换时所采取的步骤。
 
 ![A High Level View of TVM](https://raw.githubusercontent.com/apache/tvm-site/main/images/tutorial/overview.png)
 
-1. 从 TensorFlow、PyTorch 或 Onnx 等框架导入模型。在导入层中，TVM 可以从其他框架（如 TensorFlow、PyTorch 或 ONNX）中提取模型。 TVM 为前端提供的支持水平会随着我们不断改进这个开源项目而变化。如果在将模型导入 TVM 时遇到问题，可以将其转换为 ONNX。
+1. 从 TensorFlow、PyTorch 或 ONNX 等框架导入模型。在导入阶段中，TVM 可以从其他框架（如 TensorFlow、PyTorch 或 ONNX）中提取模型。 TVM 为前端提供的支持水平会随着我们不断改进这个开源项目而变化。如果在将模型导入 TVM 时遇到问题，可以将其转换为 ONNX。
 
 2. 翻译成 TVM 的高级模型语言 Relay。已导入 TVM 的模型在 Relay 中表示。Relay 是神经网络的功能语言和中间表示（IR）。它支持：
    * 传统的数据流式表示
@@ -44,7 +44,7 @@ Apache TVM 是一个用于 CPU、GPU 和机器学习加速器的开源机器学�
 
    * LLVM，针对任意微处理器架构，包括标准 x86 和 ARM 处理器、AMDGPU 和 NVPTX 代码生成，以及 LLVM 支持的任何其他平台。
    * 特定编译器，例如 NVCC（NVIDIA 的编译器）。
-   * 嵌入式和特定 target，通过 TVM 的 Bring Your Own Codegen (BYOC) 框架实现。
+   * 嵌入式和特定 target，通过 TVM 的 自定义代码生成（Bring Your Own Codegen, BYOC）框架实现。
 
 7. 编译成机器码。compiler-specific 的生成代码最终可降级为机器码。
    TVM 可将模型编译为可链接对象模块，然后轻量级 TVM runtime 可以用 C 语言的 API 来动态加载模型，也可以为 Python 和 Rust 等其他语言提供入口点。或将 runtime 和模型放在同一个 package 里时，TVM 可以对其构建捆绑部署。
