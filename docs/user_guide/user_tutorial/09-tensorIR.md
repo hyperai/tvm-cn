@@ -4,7 +4,7 @@ title: TensorIR 快速入门
 
 # TensorIR 快速入门
 
-:::note 
+:::note
 单击 [此处](https://tvm.apache.org/docs/tutorial/tensor_ir_blitz_course.html#sphx-glr-download-tutorial-tensor-ir-blitz-course-py) 下载完整的示例代码
 :::
 
@@ -49,15 +49,15 @@ IRModule 是 TVM IR 的一种可往返语法，可通过编写 TVMScript 来创�
 class MyModule:
     @T.prim_func
     def main(a: T.handle, b: T.handle):
-        # We exchange data between function by handles, which are similar to pointer.
+        # 我们通过 T.handle 进行数据交换，类似于内存指针
         T.func_attr({"global_symbol": "main", "tir.noalias": True})
-        # Create buffer from handles.
+        # 通过 handle 创建 Buffer
         A = T.match_buffer(a, (8,), dtype="float32")
         B = T.match_buffer(b, (8,), dtype="float32")
         for i in range(8):
-            # A block is an abstraction for computation.
+            # block 是针对计算的抽象
             with T.block("B"):
-                # Define a spatial block iterator and bind it to value i.
+                # 定义一个空间（可并行）block 迭代器，并且将它的值绑定成 i
                 vi = T.axis.spatial(8, i)
                 B[vi] = A[vi] + 1.0
 
