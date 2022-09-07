@@ -27,7 +27,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          // editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/hyperai/tvm-cn/edit/master/',
         },
         blog: {
           showReadingTime: true,
