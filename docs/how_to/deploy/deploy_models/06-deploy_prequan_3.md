@@ -248,8 +248,8 @@ Execution time summary:
 
 * 将环境变量 TVM_NUM_THREADS 设置为物理内核数
 * 为硬件选择最佳 target，例如「llvm -mcpu=skylake-avx512」或「llvm -mcpu=cascadelake」（未来会出现更多支持 AVX512 的 CPU）
-* 执行自动调优 - [为 x86 CPU 自动调优卷积网络](../../autotune/autotuning_x86)。
-* 要在 ARM CPU 上获得最佳推理性能，根据设备更改 target 参数并遵循 [自动调整 ARM CPU 的卷积网络](../../autotune/autotuning_arm)。
+* 执行自动调优 - [为 x86 CPU 自动调优卷积网络](/docs/how_to/autotune/autotuning_x86)。
+* 要在 ARM CPU 上获得最佳推理性能，根据设备更改 target 参数并遵循 [自动调整 ARM CPU 的卷积网络](/docs/how_to/autotune/autotuning_arm)。
 :::
 
 **脚本总运行时长：**（1 分 52.874 秒）

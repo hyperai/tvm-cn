@@ -16,7 +16,7 @@ title: 为 Mali GPU 自动调度神经网络
 
 对于每个子图，使用 `tvm/python/topi` 中的计算声明来获取张量表达式形式的计算 DAG。然后使用 auto-scheduler 来构建这个 DAG 的搜索空间，并搜索合适的调度（底层优化）。
 
-与基于 template 的 [AutoTVM](../autotune)（依赖手动 template 来定义搜索空间） 不同，auto-scheduler 不需要任何调度 template。换言之，auto-scheduler 只使用 `tvm/python/topi` 中的计算声明，不使用现有的调度 template。
+与基于 template 的 [AutoTVM](/docs/how_to/autotune)（依赖手动 template 来定义搜索空间） 不同，auto-scheduler 不需要任何调度 template。换言之，auto-scheduler 只使用 `tvm/python/topi` 中的计算声明，不使用现有的调度 template。
 
 注意，本教程无法在 Windows 或最新版本的 macOS 上运行。若要运行，需要将本教程的主体包装在 `if __name__ == "__main__":` 块中。
 
@@ -32,7 +32,7 @@ import os
 
 ## 定义网络
 
-首先，要用 Relay 前端 API 定义网络。可以从 `tvm.relay.testing` 加载一些预定义的网络。也可以从 MXNet、ONNX、PyTorch 和 TensorFlow 加载模型（参见 [前端教程](../compile)）。
+首先，要用 Relay 前端 API 定义网络。可以从 `tvm.relay.testing` 加载一些预定义的网络。也可以从 MXNet、ONNX、PyTorch 和 TensorFlow 加载模型（参见 [前端教程](/docs/how_to/compile)）。
 
 对于卷积神经网络，尽管 auto-scheduler 可以在任何布局下正常运行，但通过 NHWC 布局实现的性能最佳。auto-scheduler 对 NHWC 布局进行了很多优化，因此推荐将模型转换为 NHWC 布局，从而得以使用 auto-scheduler。可用 [ConvertLayout](https://tvm.apache.org/docs/arch/convert_layout.html#convert-layout-usage) pass 在 TVM 中进行布局转换。
 
@@ -115,7 +115,7 @@ log_file = "%s-%s-B%d-%s.json" % (network, layout, batch_size, target.kind.name)
 
 ## 启动 RPC 跟踪器并将设备注册到跟踪器
 
-参考本 [教程](../autotune/autotuning_mobile) 中的「启动 RPC 跟踪器」和「将设备注册到 RPC 跟踪器」章节来启动 RPC 跟踪器，并将设备注册到跟踪器。
+参考本 [教程](/docs/how_to/autotune/autotuning_mobile) 中的「启动 RPC 跟踪器」和「将设备注册到 RPC 跟踪器」章节来启动 RPC 跟踪器，并将设备注册到跟踪器。
 
 ``` python
 # 将其替换为跟踪器中的设备密钥

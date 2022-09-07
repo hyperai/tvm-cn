@@ -67,7 +67,7 @@ INFO:root:RPCServer: bind to 0.0.0.0:9090
 
 注意：确保主机已经（用 LLVM）安装了完整的 TVM。
 
-使用 [MXNet Gluon 模型集合](https://mxnet.apache.org/api/python/gluon/model_zoo.html) 中的预训练模型。更多有关这部分的信息详见 [编译 MXNet 模型](../../compile/compile_mxnet) 教程。
+使用 [MXNet Gluon 模型集合](https://mxnet.apache.org/api/python/gluon/model_zoo.html) 中的预训练模型。更多有关这部分的信息详见 [编译 MXNet 模型](/docs/how_to/compile/compile_mxnet) 教程。
 
 ``` python
 from mxnet.gluon.model_zoo.vision import get_model

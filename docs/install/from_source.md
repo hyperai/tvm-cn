@@ -34,7 +34,7 @@ git submodule update
 * 在 MacOS 上，目标库是 *libtvm.dylib* 和 *libtvm_runtime.dylib*
 * 在 Windows 上，目标库是 *libtvm.dll* 和 *libtvm_runtime.dll*
 
-也可以只 [构建运行时库](../../user_guide/how_to_guide/deploy)。
+也可以只 [构建运行时库](/docs/how_to/deploy)。
 
 `TVM` 库的最低构建要求是：
 

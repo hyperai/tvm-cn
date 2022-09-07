@@ -26,13 +26,13 @@ microTVM 目前测试支持 Zephyr RTOS 的 Cortex-M 微控制器；不过，它
 
 在使用 microTVM 之前，推荐使用支持的开发板。然后，按照这些教程开始使用 microTVM：
 
-1. [启动 microTVM 虚拟机参考手册](../../user_guide/how_to_guide/microtvm/microtvm_vm)。microTVM 教程依赖于 Zephyr 和硬件的编译器工具链。通过虚拟机参考手册，可快速安装这些依赖。
-2. 尝试使用 [TFLite 教程的 microTVM](../../user_guide/how_to_guide/microtvm/microtvm_tflite)。
+1. [启动 microTVM 虚拟机参考手册](/docs/how_to/microtvm/microtvm_vm)。microTVM 教程依赖于 Zephyr 和硬件的编译器工具链。通过虚拟机参考手册，可快速安装这些依赖。
+2. 尝试使用 [TFLite 教程的 microTVM](/docs/how_to/microtvm/microtvm_tflite)。
 3. 尝试运行更复杂的 [CIFAR10-CNN 模型](https://github.com/areusch/microtvm-blogpost-eval)。
 
 ## microTVM 的工作原理
 
-可以在 [microTVM 设计文档](../../arch/arch/microtvm_design) 中阅读有关这些部件设计的更多信息。
+可以在 [microTVM 设计文档](/docs/arch/arch/microtvm_design) 中阅读有关这些部件设计的更多信息。
 
 ## 帮助及讨论
 

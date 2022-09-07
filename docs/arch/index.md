@@ -9,7 +9,7 @@ title: 设计与架构
 * [编译流程示例](#example-compilation-flow) 概述了 TVM 将模型的高级描述转换为可部署模块所采取的步骤。
 * [逻辑架构组件](#logical-architecture-components) 部分描述了逻辑组件。后面的部分是针对每个逻辑组件的具体指南，按组件的名称编排。
 * [设备/ Target 交互](https://tvm.apache.org/docs/arch/device_target_interactions.html#tvm-target-specific-overview) 文档描述了 TVM 如何与所有受支持的物理设备，以及代码生成的 target 进行交互。
-* 查看 [开发者操作指南](../dev/how_to) 获取实用开发技巧。
+* 查看 [开发者操作指南](/docs/dev/how_to) 获取实用开发技巧。
 
 本指南提供了架构的一些补充视图。首先研究端到端的编译流程，并讨论关键的数据结构和转换。这种基于 runtime 的视图侧重于运行编译器时每个组件的交互。接下来研究代码库的逻辑模块及其关系。这部分提供了设计的静态总体视图。
 
@@ -188,7 +188,7 @@ assert y.a == x
 * IRModule
 * Type
 * PassContext and Pass
-* Op 
+* Op
 
 不同的函数变体（例如，relay.Function 和 tir.PrimFunc）可以在一个 IRModule 中共存。虽然这些变体的内容表示可能不同，但它们使用相同的数据结构来表示类型。
 

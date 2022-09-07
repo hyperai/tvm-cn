@@ -16,7 +16,7 @@ title: 为 x86 CPU 自动调度神经网络
 
 对于每个子图，使用 `tvm/python/topi` 中的计算声明来获取张量表达式形式的计算 DAG。然后使用 auto-scheduler 来构建这个 DAG 的搜索空间并搜索合适的调度（底层优化）。
 
-与基于模板的 [AutoTVM](../autotune)（依赖手动模板来定义搜索空间的） 不同，auto-scheduler 不需要任何调度模板。换言之，auto-scheduler 只使用 `tvm/python/topi` 中的计算声明，不使用现有的调度模板。
+与基于模板的 [AutoTVM](/docs/how_to/autotune)（依赖手动模板来定义搜索空间的） 不同，auto-scheduler 不需要任何调度模板。换言之，auto-scheduler 只使用 `tvm/python/topi` 中的计算声明，不使用现有的调度模板。
 
 注意，本教程无法在 Windows 或最新版本的 macOS 上运行。如需运行，请将本教程的主体放在 `if __name__ == "__main__":` 代码块中。
 
@@ -32,7 +32,7 @@ from tvm.contrib import graph_executor
 
 ## 定义网络
 
-首先，要使用 Relay 前端 API 定义网络。可以从 `tvm.relay.testing` 加载一些预定义的网络。也可以从 MXNet、ONNX、PyTorch 和 TensorFlow 加载模型（参见 [前端教程](../compile) ）。
+首先，要使用 Relay 前端 API 定义网络。可以从 `tvm.relay.testing` 加载一些预定义的网络。也可以从 MXNet、ONNX、PyTorch 和 TensorFlow 加载模型（参见 [前端教程](/docs/how_to/compile) ）。
 
 对于卷积神经网络，尽管 auto-scheduler 可以在任何布局下正常运行，但通过 NHWC 布局实现的性能最佳。auto-scheduler 对 NHWC 布局进行了很多优化，因此推荐将模型转换为 NHWC 布局，从而得以使用 auto-scheduler。可用 [ConvertLayout](https://tvm.apache.org/docs/arch/convert_layout.html#convert-layout-usage) pass 在 TVM 中进行布局转换。
 

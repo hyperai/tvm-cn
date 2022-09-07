@@ -91,7 +91,7 @@ docker/clear-stale-images.sh
 
 ### C++（本地）
 
-运行 C++ 测试需要安装 gtest，按照 [启用 C++ 测试](../install/from_source#C++_tests) 中的说明进行安装
+运行 C++ 测试需要安装 gtest，按照 [启用 C++ 测试](/docs/install/from_source#C++_tests) 中的说明进行安装
 
 ``` bash
 # 假设您是在 tvm 源码根目录下

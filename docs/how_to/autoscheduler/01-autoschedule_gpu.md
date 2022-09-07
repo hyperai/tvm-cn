@@ -12,7 +12,7 @@ title: 为 GPU 自动调度卷积层
 
 本文介绍如何为 GPU 使用 auto-scheduler。
 
-与 [AutoTVM](../autotune) 不同，AutoTVM 依赖手动模板来定义搜索空间，而 auto-scheduler 不需要任何模板。用户只需编写计算声明，无需任何调度命令或模板。auto-scheduler 可以自动生成一个大的搜索空间，并在空间中找到合适的调度。
+与 [AutoTVM](/docs/how_to/autotune) 不同，AutoTVM 依赖手动模板来定义搜索空间，而 auto-scheduler 不需要任何模板。用户只需编写计算声明，无需任何调度命令或模板。auto-scheduler 可以自动生成一个大的搜索空间，并在空间中找到合适的调度。
 
 ``` python
 import os

@@ -46,11 +46,11 @@ from tvm import autotvm
 
 ## 第 1 步：定义搜索空间
 
-TVM 中有很多有用的调度原语，详细教程，例如（1）[如何在 GPU 上优化卷积](../optimize/gpu_conv)（2）[在 NVIDIA GPU 上优化 DepthwiseConv](https://tvm.apache.org/2017/08/22/Optimize-Deep-Learning-GPU-Operators-with-TVM-A-Depthwise-Convolution-Example)。
+TVM 中有很多有用的调度原语，详细教程，例如（1）[如何在 GPU 上优化卷积](/docs/how_to/optimize/gpu_conv)（2）[在 NVIDIA GPU 上优化 DepthwiseConv](https://tvm.apache.org/2017/08/22/Optimize-Deep-Learning-GPU-Operators-with-TVM-A-Depthwise-Convolution-Example)。
 
 但是，它们的实现是针对一些特殊的输入 shape 手动调整的。本节将构建足够大的空间，涵盖这些教程中使用的技术，然后依靠高效的自动调优器，对空间进行搜索并选择合适的配置。
 
-熟悉 CUDA schedule 的开发者，对以下通用模板并不陌生。可以修改此模板以调整其他算子，例如深度卷积和 GEMM。要完全理解这个模板，需要熟悉调度原语和自动调优 API，可以参考上面的教程和 [AutoTVM 教程](../../user_tutorial/ops_AutoTVM)。
+熟悉 CUDA schedule 的开发者，对以下通用模板并不陌生。可以修改此模板以调整其他算子，例如深度卷积和 GEMM。要完全理解这个模板，需要熟悉调度原语和自动调优 API，可以参考上面的教程和 [AutoTVM 教程](/docs/tutorial/ops_AutoTVM)。
 
 需要注意 conv2d 算子的搜索空间可能非常大（某些输入 shape 为 10^9 级别）
 
@@ -78,7 +78,7 @@ def conv2d_no_batching(N, H, W, CO, CI, KH, KW, stride, padding):
     cfg.define_knob("auto_unroll_max_step", [0, 512, 1500])
     cfg.define_knob("unroll_explicit", [0, 1])
     #### 空间定义结束 ####
-    
+
     # 内联填充
     pad_data = s[conv].op.input_tensors[0]
     s[pad_data].compute_inline()

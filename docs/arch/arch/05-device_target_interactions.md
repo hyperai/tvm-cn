@@ -11,7 +11,7 @@ sidebar_position: 150
 
 * [DeviceAPI](#tvm-target-specific-device-api) 类为特定设备提供句柄，以及用于与其交互的 API。它定义了一个通用接口，用于查询设备参数（例如可用内存、线程数等）和执行简单操作（例如，从主机复制内存，或在设备上的缓冲区之间复制）。
 * [Target](#tvm-target-specific-target) 类描述了运行函数的设备。它既对 target 代码生成器公开，也对优化 pass 公开。
-* [target 代码生成器](#tvm-target-specific-codegen) 从 IRModule 构造了一个 [模块](../../arch/arch/runtimes#module)，它由一个或多个 [PackedFunc](../../arch/arch/runtimes#PackedFunc) 组成。
+* [target 代码生成器](#tvm-target-specific-codegen) 从 IRModule 构造了一个 [模块](/docs/arch/arch/runtimes#module)，它由一个或多个 [PackedFunc](/docs/arch/arch/runtimes#PackedFunc) 组成。
 
 ## DeviceAPI {#tvm-target-specific-device-api}
 
@@ -23,7 +23,7 @@ sidebar_position: 150
    * 分配数据空间 - `AllocDataSpace` 和 `FreeDataSpace` 在设备上分配和释放空间。这些分配可以作为输入和输出提供给算子，并构成算子计算图的主要数据流。它们必须能够在主机和数据空间之间传输数据。返回值是一个不透明的 `void*`。虽然某些实现返回一个内存地址，但这不是必需的，并且 `void*` 可能是不透明句柄，只能由生成它的设备后端解释。 `void*` 用作其他后端特定的函数的参数，例如 `CopyDataFromTo`。
    * 分配工作空间 - `AllocWorkspace` 和 `FreeWorkspace` 在设备上分配和释放空间。不同于数据空间，它们用于存储算子定义中的中间值，并且不需要传输到主机设备，或从主机设备传输。若 `DeviceAPI` 子类没有实现这些方法，它们会默认调用相应的 `DataSpace` 函数。
    * 复制数据 - `CopyDataFromTo` 应该将数据从一个位置复制到另一个位置。副本的类型由 `dev_from` 和 `dev_to` 参数确定。实现应支持在单个设备上将内存从 CPU 复制到设备、从设备复制到 CPU，以及从一个缓冲区复制到另一个缓冲区。若源位置或目标位置在 CPU 上，则对应的 `void*` 指向一个 CPU 地址，这个地址可以传递给 `memcpy`。若源位置或目标位置在设备上，则相应的 `void*` 之前已由 `AllocDataSpace` 或 `AllocWorkspace` 生成。
-   
+
    这些副本排队等待在特定的 `TVMStreamHandle` 上执行。但是，该实现不应该假定在 `CopyDataFromTo` 调用完成后，CPU 缓冲区仍然有效或可访问。
 * 执行流管理 - 用于处理 `TVMStreamHandle` 的程序，它表示用于执行命令的并行执行流。
    * 创建流 - `CreateStream` 和 `FreeStream` 为执行流分配/释放句柄。若设备仅实现一个命令队列，则 `CreateStream` 返回 `nullptr`。
