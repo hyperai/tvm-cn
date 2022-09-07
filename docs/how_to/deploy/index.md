@@ -104,7 +104,7 @@ libtvm_runtime.so: ELF 64-bit LSB shared object, UCB RISC-V, version 1 (GNU/Linu
 
 在嵌入式设备上对 TVM 内核进行测试、调优和基准测试，最简单且推荐的方法是通过 TVM 的 RPC API。下面是相关教程的链接：
 
-* [交叉编译和 RPC](../../user_tutorial/rpc)
+* [交叉编译和 RPC](/docs/tutorial/rpc)
 * [在树莓派上部署预训练模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_rasp.html#tutorial-deploy-model-on-rasp)
 
 ## 在目标设备上部署优化模型

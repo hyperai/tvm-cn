@@ -120,7 +120,7 @@ PackedFunc 和模块系统还可以轻松地将函数直接发送到远程设备
 
 ![https://tvm.apache.org/images/release/tvm_rpc.png](https://tvm.apache.org/images/release/tvm_rpc.png)
 
-RPC 服务器本身是最小的，可以捆绑到 runtime 中。可以在 iPhone/android/raspberry pi 甚至浏览器上启动一个最小的 TVM RPC 服务器。服务器上的交叉编译和测试模块的交付可以在同一个脚本中完成。查看 [交叉编译和 RPC](../../../user_guide/user_tutorial/rpc) 以获取更多详细信息。
+RPC 服务器本身是最小的，可以捆绑到 runtime 中。可以在 iPhone/android/raspberry pi 甚至浏览器上启动一个最小的 TVM RPC 服务器。服务器上的交叉编译和测试模块的交付可以在同一个脚本中完成。查看 [交叉编译和 RPC](/docs/tutorial/rpc) 以获取更多详细信息。
 
 这种即时反馈带来了很多优势，例如，在 iPhone 上测试生成代码的正确性，不再需要从头开始在 swift/objective-c 中编写测试用例——可以使用 RPC 在 iPhone 上执行，将结果复制回来并在主机上通过 numpy 进行验证，也可以使用相同的脚本进行分析。
 

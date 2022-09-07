@@ -28,7 +28,7 @@ TVM 目前只支持 v21.08 版本的 ACL，构建和安装所需的库的推荐�
 
 * USE_ARM_COMPUTE_LIB=ON/OFF - 启用此标志能添加对编译 ACL runtime 模块的支持。
 * USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR=ON/OFF/path-to-acl - 启用此标志将允许图执行器计算 ACL 迁移的函数。
-  
+
 这些标志可根据你的设置应用于不同的场景。例如，若要在 x86 机器上编译 ACL 模块，并通过 RPC 在远程 Arm 设备上运行，则需要在 x86 机器上设置 USE_ARM_COMPUTE_LIB=ON，在远程 AArch64 设备上设置 USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR=ON。
 
 默认这两个选项都设置为 OFF。设置 USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR=ON 意味着 CMake 会在默认位置和 /path-to-tvm-project/acl/ 目录下搜索 ACL 二进制文件（参阅 https://cmake.org/cmake/help/v3.4/command/find_library.html）。若要设置搜索 ACL 的路径，可在 ON 的位置指定。
@@ -88,7 +88,7 @@ cross_compile = 'aarch64-linux-gnu-c++'
 lib.export_library(lib_path, cc=cross_compile)
 ```
 
-必须在 Arm 设备上运行推理。若在 x86 设备上编译，在 AArch64 上运行，则需要借助 RPC 机制（参考 [RPC 机制的使用教程](../../user_tutorial/rpc)）。
+必须在 Arm 设备上运行推理。若在 x86 设备上编译，在 AArch64 上运行，则需要借助 RPC 机制（参考 [RPC 机制的使用教程](/docs/tutorial/rpc)）。
 
 ``` python
 dev = tvm.cpu(0)
@@ -156,5 +156,3 @@ gen_module.run()
 * src/relay/backend/contrib/arm_compute_lib/codegen.cc：实现 Create[OpName]JSONNode 的方法；声明算子如何由 JSON 表示，可用来创建 ACL 模块。
 * src/runtime/contrib/arm_compute_lib/acl_runtime.cc：实现 Create[OpName]Layer 方法；定义如何用 JSON 表示来创建 ACL 函数；只定义了如何将 JSON 表示转换为 ACL API。
 * tests/python/contrib/test_arm_compute_lib：为给定的算子添加单元测试。
-
-

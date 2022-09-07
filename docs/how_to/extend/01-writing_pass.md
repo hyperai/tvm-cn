@@ -16,7 +16,7 @@ TVM 是一个抽象出机器学习加速器异质性的框架，有时用户希�
 
 阅读本教程前，假设读者已经熟悉以下主题：
 
-* 在 TVM 中编写算法并对其进行调度，若不熟悉，请参阅示例教程如 [如何在 CPU 上优化 GEMM](../optimize/cpu_conv)。
+* 在 TVM 中编写算法并对其进行调度，若不熟悉，请参阅示例教程如 [如何在 CPU 上优化 GEMM](/docs/how_to/optimize/cpu_conv)。
 * 熟悉 HalideIR 的基本结构，若不熟悉，请参阅 `HalideIR/src/ir/IR.h` 了解定义了 IR 节点的哪些属性。
 * 访问器设计模式，若不熟悉，请参阅 [Python AST 模块](https://docs.python.org/3/library/ast.html) 以查看 AST 访问器的实现原理。
 * Schedule 如何降低为 IRModule 类或 LLVM 模块。若不熟悉，请参阅 `python/tvm/build_module.py` 获取相关基础知识。
@@ -163,7 +163,7 @@ with tvm.transform.PassContext(config={"tir.add_lower_pass": [(1, vectorize)]}):
 * 用 `tvm.tir.stmt_functor.ir_transform` 转换 IR 节点。
 * 总结以上两点来编写一个 IR 转换函数。
 * 用 `tvm.transform.PassContext` 将此函数放入 TVM 降级 pass。
-  
+
 [下载 Python 源代码：low_level_custom_pass.py](https://tvm.apache.org/docs/_downloads/caa649473e845a115a0397a2855fd356/low_level_custom_pass.py)
 
 [下载 Jupyter Notebook：low_level_custom_pass.ipynb](https://tvm.apache.org/docs/_downloads/d58ec306b89044968adefb49e6552378/low_level_custom_pass.ipynb)

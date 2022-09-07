@@ -144,7 +144,7 @@ RELAY_REGISTER_OP("cumprod")
 
 为算子定义接口后，仍需定义如何执行 cumulative sum 和 cumulative product 的实际计算。
 
-假设算子计算的实现方式，经过了多轮测试且表现良好。推荐查看 [张量表达式教程](../../user_guide/user_tutorial/tensor_expr)、[TVM 算子清单 (topi)](../../user_guide/user_tutorial/TOPI)、[python/tvm/topi/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/scan.py) 中 cumulative sum 及 cumulative product 相关实现案例，以及 [python/tvm/topi/cuda/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/cuda/scan.py) 中的 GPU 版本。在 cumulative sum 及 cumulative product 算子中，可以直接用 [TIR](https://tvm.apache.org/docs/reference/api/python/tir.html#api-python-tir)，张量表达式及 topi 降级后表示为 TIR。
+假设算子计算的实现方式，经过了多轮测试且表现良好。推荐查看 [张量表达式教程](/docs/tutorial/tensor_expr)、[TVM 算子清单 (topi)](/docs/tutorial/TOPI)、[python/tvm/topi/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/scan.py) 中 cumulative sum 及 cumulative product 相关实现案例，以及 [python/tvm/topi/cuda/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/cuda/scan.py) 中的 GPU 版本。在 cumulative sum 及 cumulative product 算子中，可以直接用 [TIR](https://tvm.apache.org/docs/reference/api/python/tir.html#api-python-tir)，张量表达式及 topi 降级后表示为 TIR。
 
 ## 5. 将计算 (compute) 和策略 (strategy) 与 Relay 关联起来
 

@@ -9,7 +9,7 @@ Compiler Pass 是扩展 Relay 功能集及优化 Relay 程序的主要接口。�
 整体来看，编写 pass 包括两个关键组成部分：
 
 * 创建一个或多个遍历程序的 C++ 类
-* 将遍历实现及其在 pass manager API 中的元数据包装，从而方便与 [Pass Infrastructure](../../arch/arch/pass_infra) 轻松交互
+* 将遍历实现及其在 pass manager API 中的元数据包装，从而方便与 [Pass Infrastructure](/docs/arch/arch/pass_infra) 轻松交互
 
 首先，我们将概述编写 compiler pass 的关键机制。然后通过 Relay 中常量折叠 pass 的具体示例进行演示。
 
@@ -256,4 +256,4 @@ seq = transform.Sequential([
 new_mod = seq(mod)
 ```
 
-更多注册相关的内容，请查看 [TVM Runtime 系统](../../arch/arch/runtimes)；pass 管理器接口相关的更多信息，请查看 [Pass 基础架构](../../arch/arch/pass_infra)； Relay 的标准 pass 列表及实现方式，请分别查看 [include/tvm/relay/transform.h](https://github.com/apache/tvm/blob/main/include/tvm/relay/transform.h) 及 [src/relay/transforms/](https://github.com/apache/tvm/tree/main/src/relay/transforms)。
+更多注册相关的内容，请查看 [TVM Runtime 系统](/docs/arch/arch/runtimes)；pass 管理器接口相关的更多信息，请查看 [Pass 基础架构](/docs/arch/arch/pass_infra)； Relay 的标准 pass 列表及实现方式，请分别查看 [include/tvm/relay/transform.h](https://github.com/apache/tvm/blob/main/include/tvm/relay/transform.h) 及 [src/relay/transforms/](https://github.com/apache/tvm/tree/main/src/relay/transforms)。

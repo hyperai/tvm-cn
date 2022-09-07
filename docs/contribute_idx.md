@@ -1,5 +1,6 @@
 ---
 title: 贡献指南
+slug: /contribute
 sidebar_position: 2
 ---
 

@@ -35,7 +35,7 @@ from gluoncv import model_zoo, data, utils
 :::note
 现在支持在 CPU 和 GPU 上编译 SSD。
 
-为取得 CPU 上的最佳推理性能，需要根据设备修改 target 参数——对于 x86 CPU：参考 [为 x86 CPU 自动调整卷积网络](../../autotune/autotuning_x86) 来调整；对于 arm CPU：参考 [为 ARM CPU 自动调整卷积网络](../../autotune/autotuning_arm) 来调整。
+为取得 CPU 上的最佳推理性能，需要根据设备修改 target 参数——对于 x86 CPU：参考 [为 x86 CPU 自动调整卷积网络](/docs/how_to/autotune/autotuning_x86) 来调整；对于 arm CPU：参考 [为 ARM CPU 自动调整卷积网络](/docs/how_to/autotune/autotuning_arm) 来调整。
 
 为在 Intel 显卡上取得最佳推理性能，将 target 参数修改为 `opencl -device=intel_graphics` 。注意：在 Mac 上使用 Intel 显卡时，target 要设置为 `opencl` ，因为 Mac 上不支持 Intel 子组扩展。
 

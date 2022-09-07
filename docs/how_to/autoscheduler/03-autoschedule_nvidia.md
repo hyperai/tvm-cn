@@ -16,7 +16,7 @@ title: 为 NVIDIA GPU 自动调度神经网络
 
 对于每个子图，使用 `tvm/python/topi` 中的计算声明来获取张量表达式形式的计算 DAG。然后用 auto-scheduler 来构建这个 DAG 的搜索空间，并搜索合适的调度（低级优化）。
 
-与基于 template 的 [AutoTVM](../autotune)（依赖手动 template 来定义搜索空间的） 不同，auto-scheduler 无需任何调度 template。换言之，auto-scheduler 只使用 `tvm/python/topi` 中的计算声明，不使用现有的调度 template。
+与基于 template 的 [AutoTVM](/docs/how_to/autotune)（依赖手动 template 来定义搜索空间的） 不同，auto-scheduler 无需任何调度 template。换言之，auto-scheduler 只使用 `tvm/python/topi` 中的计算声明，不使用现有的调度 template。
 
 注意，本教程无法在 Windows 或最新版本的 macOS 上运行。如需运行，请将本教程的主体放在 `if __name__ == "__main__":` 代码块中。
 
@@ -31,7 +31,7 @@ from tvm.contrib import graph_executor
 
 ## 定义网络
 
-首先，要用 Relay 前端 API 定义网络。可以从 `tvm.relay.testing` 加载一些预定义的网络。也可以从 MXNet、ONNX、PyTorch 和 TensorFlow 加载模型（参见 [前端教程](../compile)）。
+首先，要用 Relay 前端 API 定义网络。可以从 `tvm.relay.testing` 加载一些预定义的网络。也可以从 MXNet、ONNX、PyTorch 和 TensorFlow 加载模型（参见 [前端教程](/docs/how_to/compile)）。
 
 对于卷积神经网络，尽管 auto-scheduler 可以在任何布局下正常运行，但通过 NHWC 布局实现的性能最佳。auto-scheduler 对 NHWC 布局进行了很多优化，因此推荐将模型转换为 NHWC 布局，从而得以使用 auto-scheduler。可用 [ConvertLayout](https://tvm.apache.org/docs/arch/convert_layout.html#convert-layout-usage) pass 在 TVM 中进行布局转换。
 
@@ -522,7 +522,7 @@ Execution time summary:
 2. 可以用 `python3 -m tvm.auto_scheduler.measure_record --mode distill -i log.json` 提取大日志文件，并仅保存最有用的记录。
 3. 可以从以前的日志文件恢复搜索，只需要在函数 `run_tuning` 中创建任务调度程序时添加一个新参数 `load_log_file`。比如，`tuner = auto_scheduler.TaskScheduler(tasks, task_weights, load_log_file=log_file)`
 4. 若有多个 target CPU，则可以将所有这些 CPU 用于并行化测试。查看这 [部分](https://tvm.apache.org/docs/how_to/tune_with_autotvm/tune_relay_cuda.html#tutorials-autotvm-scale-up-rpc-tracker) 了解如何使用 RPC 跟踪器和 RPC 服务器。要在 auto-scheduler 中使用 RPC 跟踪器，请将 `TuningOptions` 中的 runner 替换为 `auto_scheduler.RPCRunner`。
-   
+
 [下载 Python 源代码：tune_network_cuda.py](https://tvm.apache.org/docs/_downloads/eafe360d52540634c9eea0fa89e804bd/tune_network_cuda.py)
 
 [下载 Jupyter Notebook：tune_network_cuda.ipynb](https://tvm.apache.org/docs/_downloads/af264436d049e3cd84803b67b6620b63/tune_network_cuda.ipynb)

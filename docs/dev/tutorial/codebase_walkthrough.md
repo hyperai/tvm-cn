@@ -38,7 +38,7 @@ Python 中实现的，它的实现是由 Relay 中的 C++ 代码调用的。
 ## 向量加法示例
 
 本文档将借助简单示例 \-- 向量加法，介绍如何直接调用底层 TVM
-API。关于向量加法的详细介绍，请查看：[使用张量表达式处理算子](../../user_guide/user_tutorial/tensor_expr)
+API。关于向量加法的详细介绍，请查看：[使用张量表达式处理算子](/docs/tutorial/tensor_expr)
 
 ``` python
 n = 1024
@@ -63,10 +63,10 @@ class Tensor(Object, _expr.ExprOp):
 ```
 
 对象协议是将 C++ 类型暴露给前端语言（包括 Python）的基础。TVM 实现
-Python 封装的方式并不直接。在 [TVM Runtime 系统](../../arch/arch/runtimes) 中简单介绍了这一点，感兴趣的朋友可以在 `python/tvm/_ffi/`
+Python 封装的方式并不直接。在 [TVM Runtime 系统](/docs/arch/arch/runtimes) 中简单介绍了这一点，感兴趣的朋友可以在 `python/tvm/_ffi/`
 中查看细节。
 
-使用 `TVM_REGISTER_*` 宏将 C++ 函数以 [PackedFunc](../../arch/arch/runtimes#PackedFunc) 的形式暴露给前端语言。`PackedFunc` 是 TVM 实现 C++ 和 Python
+使用 `TVM_REGISTER_*` 宏将 C++ 函数以 [PackedFunc](/docs/arch/arch/runtimes#PackedFunc) 的形式暴露给前端语言。`PackedFunc` 是 TVM 实现 C++ 和 Python
 之间互操作性的另一种机制。这使得从 C++ 代码库中调用 Python
 函数变得非常容易。Python 和 C++ 的语言交互接口 (FFI)
 的调用之间导航，请查看 [FFI Navigator](https://github.com/tqchen/ffi-navigator)。
@@ -134,7 +134,7 @@ def lower(sch,
    ...
 ```
 
-边界推断（Bound inference）是推断出所有循环边界和中间缓冲区大小的过程。如果你的目标是 CUDA 后端，并且使用了共享内存，那么它所需的最小尺寸就会在这里自动确定。边界推断在 `src/te/schedule/bound.cc`、`src/te/schedule/graph.cc` 和 `src/te/schedule/message_passing.cc` 中实现。更多关于边界推断的信息，请参阅 [InferBound Pass](../../arch/arch/inferbound)。
+边界推断（Bound inference）是推断出所有循环边界和中间缓冲区大小的过程。如果你的目标是 CUDA 后端，并且使用了共享内存，那么它所需的最小尺寸就会在这里自动确定。边界推断在 `src/te/schedule/bound.cc`、`src/te/schedule/graph.cc` 和 `src/te/schedule/message_passing.cc` 中实现。更多关于边界推断的信息，请参阅 [InferBound Pass](/docs/arch/arch/inferbound)。
 
 `stmt` 是 `ScheduleOps()` 的输出，代表一个初始的循环嵌套结构。如果 schedule 已经应用了 `reorder` 或 `split` 原语，则初始循环嵌套已经反映了这些变化。`ScheduleOps()` 在 `src/te/schedule/schedule_ops.cc` 中定义。
 

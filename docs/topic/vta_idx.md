@@ -1,5 +1,6 @@
 ---
 title: VTA：多功能张量加速器
+slug: /topic/vta
 ---
 
 # VTA：多功能张量加速器
