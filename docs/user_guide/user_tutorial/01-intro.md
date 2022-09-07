@@ -44,7 +44,7 @@ Apache TVM 是一个用于 CPU、GPU 和机器学习加速器的开源机器学�
 
    * LLVM，针对任意微处理器架构，包括标准 x86 和 ARM 处理器、AMDGPU 和 NVPTX 代码生成，以及 LLVM 支持的任何其他平台。
    * 特定编译器，例如 NVCC（NVIDIA 的编译器）。
-   * 嵌入式和特定 target，通过 TVM 的 自定义代码生成 (Bring Your Own Codegen, BYOC) 框架实现。
+   * 嵌入式和特定 target，通过 TVM 的 自定义代码生成（Bring Your Own Codegen, BYOC）框架实现。
 
 7. 编译成机器码。compiler-specific 的生成代码最终可降级为机器码。
    TVM 可将模型编译为可链接对象模块，然后轻量级 TVM runtime 可以用 C 语言的 API 来动态加载模型，也可以为 Python 和 Rust 等其他语言提供入口点。或将 runtime 和模型放在同一个 package 里时，TVM 可以对其构建捆绑部署。
