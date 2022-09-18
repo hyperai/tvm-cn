@@ -2,7 +2,12 @@
 title: TVM 原理介绍
 ---
 
+:::note
+单击 [此处](https://tvm.apache.org/docs/tutorial/introduction.html#sphx-glr-download-tutorial-introduction-py) 下载完整的示例代码
+:::
+
 # 介绍
+
 **作者**：Jocelyn Shiue，[Chris Hoge](https://github.com/hogepodge)，[Lianmin Zheng](https://github.com/merrymercy)
 
 Apache TVM 是一个用于 CPU、GPU 和机器学习加速器的开源机器学习编译器框架，旨在让机器学习工程师能够在任何硬件后端上高效地优化和运行计算。本教程的目的是通过定义和演示关键概念，来引导用户了解 TVM 的所有主要功能。新用户完整学完本教程后应该对 TVM 架构及其工作原理有了基本的了解，从而能够用 TVM 来自动优化模型。
