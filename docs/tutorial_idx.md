@@ -19,4 +19,5 @@ sidebar_position: 3
 * [TensorIR 快速入门](/docs/tutorial/tensorIR)
 * [交叉编译和 RPC](/docs/tutorial/rpc)
 * [快速入门：编译深度学习模型](/docs/tutorial/quick_start)
+* [利用 UMA 使硬件加速器可直接用于 TVM](/docs/tutorial/uma)
 * [TOPI 简介](/docs/tutorial/TOPI)
