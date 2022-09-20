@@ -3,7 +3,7 @@ title: 使用 TVMC 编译和优化模型
 ---
 
 # 使用 TVMC 编译和优化模型
-**作者**： Leandro Nunes，Matthew Barrett，Chris Hoge
+**作者**：[Leandro Nunes](https://github.com/leandron)，[Matthew Barrett](https://github.com/mbaret)，[Chris Hoge](https://github.com/hogepodge)
 
 本节将介绍 TVMC（TVM 的命令行驱动程序）。TVMC 通过命令行界面执行 TVM 功能（包括对模型的自动调优、编译、分析和执行）。
 
