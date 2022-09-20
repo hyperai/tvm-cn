@@ -3,7 +3,7 @@ title: 安装 TVM
 ---
 
 # 安装 TVM
-**作者**：Jocelyn Shiue，Chris Hoge
+**作者**：Jocelyn Shiue，[Chris Hoge](https://github.com/hogepodge)
 
 根据需要和工作环境，安装 TVM 的方法有如下几种：
 
