@@ -316,8 +316,8 @@ tvmc run \
 --repeat 100 \
 resnet50-v2-7-tvm_autotuned.tar
 
-# 执行时间总结:
-# 平均 (ms)   最大 (ms)    最小 (ms)    标准 (ms)
+# Execution time summary:
+# mean (ms)   max (ms)    min (ms)    std (ms)
 #     92.19     115.73       89.85        3.15
 
 tvmc run \
@@ -327,8 +327,8 @@ tvmc run \
 --repeat 100 \
 resnet50-v2-7-tvm.tar
 
-# 执行时间总结：
-# 平均 (ms)   最大 (ms)    最小 (ms)    标准 (ms)
+# Execution time summary:
+# mean (ms)   max (ms)    min (ms)    std (ms)
 #    193.32     219.97      185.04        7.11
 ```
 
