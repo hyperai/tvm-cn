@@ -113,7 +113,7 @@ sch, args = task.apply_best(log_file)
 
 ## 检查优化的 schedule
 
-auto-scheduling 完成后，可将 schedule 降级来查看 IR。auto-scheduler 执行合适的优化，包括多级平铺、布局转换、并行化、向量化、展开和算子融合。
+auto-scheduling 完成后，可将 schedule 降级来查看 IR。auto-scheduler 执行合适的优化，包括多级循环切分、布局转换、并行化、向量化、展开和算子融合。
 
 ``` python
 print("Lowered TIR:")
