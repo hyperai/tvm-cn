@@ -613,7 +613,7 @@ print(tvm.lower(s, [A, B, C], simple_mode=True))
 ``` bash
 bn = 32
 
-# 通过循环展开实现块级化
+# 通过循环切分实现块级化
 xo, yo, xi, yi = s[C].tile(C.op.axis[0], C.op.axis[1], bn, bn)
 (k,) = s[C].op.reduce_axis
 ko, ki = s[C].split(k, factor=4)
