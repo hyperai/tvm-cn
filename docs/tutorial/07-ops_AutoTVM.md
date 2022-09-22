@@ -81,7 +81,7 @@ def matmul_basic(N, L, M, dtype):
 
 ## 用 AutoTVM 进行矩阵乘法
 
-前面的调度代码用常量“8”作为平铺因子，但是它可能不是最佳的。因为最佳的平铺因子取决于真实的硬件环境和输入 shape。
+前面的调度代码用常量“8”作为循环切分因子，但是它可能不是最佳的。因为最佳的循环切分因子取决于真实的硬件环境和输入 shape。
 
 如果希望调度代码能够在更广泛的输入 shape 和目标硬件上可移植，最好定义一组候选值，并根据目标硬件上的评估结果选择最佳值。
 
@@ -137,11 +137,11 @@ def matmul_v1(N, L, M, dtype):
 
 ## 带有高级参数 API 的矩阵乘法模板
 
-前面的模板手动列出了 konb 的所有可能值，它是用来定义空间的最低级 API，显示列出了要搜索的参数空间。这里推荐使用另一组更高级的 API，它可以更简单、更智能地定义搜索空间。
+前面的模板手动列出了 konb 的所有可能值，它是用来定义空间的最底层 API，显示列出了要搜索的参数空间。这里推荐使用另一组更高级的 API，它可以更简单、更智能地定义搜索空间。
 
 下面的示例用 `ConfigSpace.define_split` 来定义拆分 knob。它列举了所有可能的拆分 axis 和构造空间的方法。
 
-同时，`ConfigSpace.define_reorder` 用于对 knob 重新排序，`ConfigSpace.define_annotate` 用于对展开、向量化、线程绑定等进行注释 。当高级 API 无法满足你的需求时，可以回退使用低级 API。
+同时，`ConfigSpace.define_reorder` 用于对 knob 重新排序，`ConfigSpace.define_annotate` 用于对展开、向量化、线程绑定等进行注释 。当高级 API 无法满足你的需求时，可以回退使用底层 API。
 
 ``` python
 @autotvm.template("tutorial/matmul")
