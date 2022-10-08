@@ -31,7 +31,7 @@ TVM 目前只支持 v21.08 版本的 ACL，构建和安装所需的库的推荐�
 
 这些标志可根据你的设置应用于不同的场景。例如，若要在 x86 机器上编译 ACL 模块，并通过 RPC 在远程 Arm 设备上运行，则需要在 x86 机器上设置 USE_ARM_COMPUTE_LIB=ON，在远程 AArch64 设备上设置 USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR=ON。
 
-默认这两个选项都设置为 OFF。设置 USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR=ON 意味着 CMake 会在默认位置和 /path-to-tvm-project/acl/ 目录下搜索 ACL 二进制文件（参阅 https://cmake.org/cmake/help/v3.4/command/find_library.html）。若要设置搜索 ACL 的路径，可在 ON 的位置指定。
+默认这两个选项都设置为 OFF。设置 USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR=ON 意味着 CMake 会在默认位置和 /path-to-tvm-project/acl/ 目录下搜索 ACL 二进制文件（参阅 [https://cmake.org/cmake/help/v3.4/command/find_library.html](https://cmake.org/cmake/help/v3.4/command/find_library.html)）。若要设置搜索 ACL 的路径，可在 ON 的位置指定。
 
 这些标志应在 config.cmake 文件中进行设置，如：
 
