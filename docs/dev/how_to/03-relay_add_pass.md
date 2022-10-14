@@ -215,7 +215,7 @@ Expr VisitExpr_(const CallNode* call) final {
 
 ## 用 Pass Manager 注册 Pass
 
-*注意：更多详情请参阅 :ref:*`pass-infra` 中的文档。
+*注意：更多详情请参阅 [Pass Infrastructure](../../arch/arch/pass_infra) 中的文档。
 
 编写 AST 遍历器后，用以下代码可将 pass 注册为 TVM API 端点：
 
