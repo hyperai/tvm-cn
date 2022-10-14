@@ -10,7 +10,7 @@ NVIDIA TensorRT 是一个用于优化深度学习推理的库。这种集成尽�
 
 ## 安装 TensorRT
 
-若要下载 TensorRT，需要创建一个 NVIDIA 开发者帐户，可参考 NVIDIA 的文档来了解更多信息：https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html。若有 Jetson 设备（如 TX1、TX2、Xavier 或 Nano），则 TensorRT 可能已由 JetPack SDK 安装到设备了 。
+若要下载 TensorRT，需要创建一个 NVIDIA 开发者帐户，可参考 NVIDIA 的文档来了解更多信息：[https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html](https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html)。若有 Jetson 设备（如 TX1、TX2、Xavier 或 Nano），则 TensorRT 可能已由 JetPack SDK 安装到设备了 。
 
 安装 TensorRT 的两种方法：
 
