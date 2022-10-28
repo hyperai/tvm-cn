@@ -112,9 +112,9 @@ tvm_out = model(tvm.nd.array(data.astype(dtype)))
 top1_tvm = np.argmax(tvm_out.numpy()[0])
 ```
 
-## 查找同义词集名称
+## 查找分类集名称
 
-在 1000 个类的同义词集中，查找分数最高的第一个：
+在 1000 个类的分类集中，查找分数最高的第一个：
 
 ``` python
 synset_url = "".join(
