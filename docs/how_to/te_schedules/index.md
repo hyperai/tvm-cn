@@ -1,5 +1,5 @@
 ---
-title: 使用 Relay使用张量表达式和 Schedule
+title: 使用张量表达式和 Schedule
 ---
 
 * [TVM 中的 schedule 原语](primitive)
