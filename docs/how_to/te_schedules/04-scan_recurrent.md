@@ -1,8 +1,8 @@
 ---
-title: 扫描和递归核
+title: 线性和递归核
 ---
 
-# 扫描和递归核
+# 线性和递归核
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_schedules/scan.html#sphx-glr-download-how-to-work-with-schedules-scan-py) 下载完整的示例代码
@@ -21,13 +21,13 @@ from tvm import te
 import numpy as np
 ```
 
-TVM 用扫描算子来描述符号循环。以下扫描算子计算 X 列上的累积和。
+TVM 用线性算子来描述符号循环。以下线性算子计算 X 列上的累积和。
 
-扫描在张量的最高维度上进行。`s_state` 是描述扫描转换状态的占位符。`s_init` 描述如何初始化前 k 个时间步长，其第一个维度为 1，描述了如何初始化第一个时间步长的状态。
+线性在张量的最高维度上进行。`s_state` 是描述线性转换状态的占位符。`s_init` 描述如何初始化前 k 个时间步长，其第一个维度为 1，描述了如何初始化第一个时间步长的状态。
 
 `s_update` 描述了如何更新时间步长 t 处的值，更新的值可通过状态占位符引用上一个时间步长的值。注意在当前或之后的时间步长引用 `s_state` 是无效的。
 
-扫描包含状态占位符、初始值和更新描述。推荐列出扫描单元的输入，扫描的结果是一个张量—— `s_state` 在时域更新后的结果。
+线性包含状态占位符、初始值和更新描述。推荐列出线性单元的输入，线性的结果是一个张量—— `s_state` 在时域更新后的结果。
 
 ``` python
 m = te.var("m")
@@ -39,9 +39,9 @@ s_update = te.compute((m, n), lambda t, i: s_state[t - 1, i] + X[t, i])
 s_scan = tvm.te.scan(s_init, s_update, s_state, inputs=[X])
 ```
 
-## 调度扫描单元
+## 调度线性单元
 
-通过分别调度 update 和 init 部分来调度扫描体。注意，调度更新部分的第一个迭代维度是无效的。要在时间迭代上拆分，用户可以在 scan_op.scan_axis 上进行调度。
+通过分别调度 update 和 init 部分来调度线性体。注意，调度更新部分的第一个迭代维度是无效的。要在时间迭代上拆分，用户可以在 scan_op.scan_axis 上进行调度。
 
 ``` python
 s = te.create_schedule(s_scan.op)
@@ -84,7 +84,7 @@ print(tvm.lower(s, [X, s_scan], simple_mode=True))
 
 ## 构建和验证
 
-可以像其他 TVM 内核一样构建扫描内核，这里用 numpy 来验证结果的正确性。
+可以像其他 TVM 内核一样构建线性内核，这里用 numpy 来验证结果的正确性。
 
 ``` python
 fscan = tvm.build(s, [X, s_scan], "cuda", name="myscan")
@@ -98,11 +98,11 @@ fscan(a, b)
 tvm.testing.assert_allclose(b.numpy(), np.cumsum(a_np, axis=0))
 ```
 
-## 多阶段扫描单元
+## 多阶段线性单元
 
-以上示例用 s_update 中的一个张量计算阶段描述了扫描单元，可以在扫描单元中使用多个张量级。
+以上示例用 s_update 中的一个张量计算阶段描述了线性单元，可以在线性单元中使用多个张量级。
 
-以下代码演示了有两个阶段操作的扫描单元中的扫描过程：
+以下代码演示了有两个阶段操作的线性单元中的线性过程：
 
 ``` python
 m = te.var("m")
@@ -115,7 +115,7 @@ s_update_s2 = te.compute((m, n), lambda t, i: s_update_s1[t, i] + X[t, i], name=
 s_scan = tvm.te.scan(s_init, s_update_s2, s_state, inputs=[X])
 ```
 
-这些中间张量可以正常调度。为了确保正确性，TVM 创建了一个组约束——禁用扫描循环之外的 compute_at 位置的扫描体。
+这些中间张量可以正常调度。为了确保正确性，TVM 创建了一个组约束——禁用线性循环之外的 compute_at 位置的线性体。
 
 ``` python
 s = te.create_schedule(s_scan.op)
@@ -159,7 +159,7 @@ print(tvm.lower(s, [X, s_scan], simple_mode=True))
 
 ## 多状态
 
-对于像 RNN 这样的复杂应用，需要多个递归状态。扫描支持多个递归状态，以下示例演示如何构建具有两种状态的递归。
+对于像 RNN 这样的复杂应用，需要多个递归状态。线性支持多个递归状态，以下示例演示如何构建具有两种状态的递归。
 
 ``` python
 m = te.var("m")
@@ -209,11 +209,11 @@ print(tvm.lower(s, [X, s_scan1, s_scan2], simple_mode=True))
 
 ## 总结
 
-本教程演示了如何使用扫描原语。
+本教程演示了如何使用线性原语。
 
-* 用 init 和 update 描述扫描。
-* 将扫描单元当作正常 schedule 进行调度。
-* 对于复杂的工作负载，在扫描单元中使用多个状态和步骤。
+* 用 init 和 update 描述线性。
+* 将线性单元当作正常 schedule 进行调度。
+* 对于复杂的工作负载，在线性单元中使用多个状态和步骤。
 
 [下载 Python 源代码：scan.py](https://tvm.apache.org/docs/_downloads/8c7d8fd6a4b93bcff1f5573943dd02f4/scan.py)
 
