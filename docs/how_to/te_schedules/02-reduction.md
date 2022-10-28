@@ -1,8 +1,8 @@
 ---
-title: 归约
+title: 规约 (reduce)
 ---
 
-# 归约
+# 规约 (reduce)
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_schedules/reduction.html#sphx-glr-download-how-to-work-with-schedules-reduction-py) 下载完整的示例代码
@@ -10,7 +10,7 @@ title: 归约
 
 **作者**：[Tianqi Chen](https://tqchen.github.io/)
 
-本文介绍如何在 TVM 中归约。关联归约算子（如 sum/max/min）是线性代数运算的典型构造块。
+本文介绍如何在 TVM 中规约 (reduce)。关联规约算子（如 sum/max/min）是线性代数运算的典型构造块。
 
 ``` python
 from __future__ import absolute_import, print_function
@@ -25,7 +25,7 @@ import numpy as np
 
 在 NumPy 语法中，计算行的总和可以写成 `B = numpy.sum(A, axis=1)`
 
-下面几行描述了行求和操作。为创建一个归约公式，用 `te.reduce_axis` 声明了一个 reduction 轴，它接收归约的范围。 `te.sum` 接收要归约的表达式以及 reduction 轴，并计算声明范围内所有 k 值的总和。
+下面几行描述了行求和操作。为创建一个规约公式，用 `te.reduce_axis` 声明了一个 reduction 轴，它接收规约的范围。 `te.sum` 接收要规约的表达式以及 reduction 轴，并计算声明范围内所有 k 值的总和。
 
 等效的 C 代码如下：
 
@@ -46,9 +46,9 @@ k = te.reduce_axis((0, m), "k")
 B = te.compute((n,), lambda i: te.sum(A[i, k], axis=k), name="B")
 ```
 
-## Schedule 归约
+## Schedule 规约
 
-有几种方法可以 Schedule 归约，先打印出默认 Schedule 的 IR 代码。
+有几种方法可以 Schedule Reduce，先打印出默认 Schedule 的 IR 代码。
 
 ``` python
 s = te.create_schedule(B.op)
@@ -147,9 +147,9 @@ print(tvm.lower(s, [A, B], simple_mode=True))
 }
 ```
 
-## 归约因式分解和并行化
+## 规约因式分解和并行化
 
-构建归约时不能简单地在 reduction 轴上并行化，需要划分归约，将局部归约结果存储在数组中，然后再对临时数组进行归约。
+构建规约时不能简单地在 reduction 轴上并行化，需要划分规约，将局部规约结果存储在数组中，然后再对临时数组进行规约。
 
 rfactor 原语对计算进行了上述重写，在下面的调度中，B 的结果被写入一个临时结果 B.rf，分解后的维度成为 B.rf 的第一个维度。
 
@@ -190,7 +190,7 @@ print(tvm.lower(s, [A, B], simple_mode=True))
 }
 ```
 
-B 的调度算子被重写为 B.f 的归约结果在第一个轴上的和。
+B 的调度算子被重写为 B.f 的规约结果在第一个轴上的和。
 
 ``` python
 print(s[B].op.body)
@@ -202,11 +202,11 @@ print(s[B].op.body)
 [reduce(combiner=comm_reducer(result=[(x + y)], lhs=[x], rhs=[y], identity_element=[0f]), source=[B.rf[k.inner.v, ax0]], init=[], axis=[iter_var(k.inner.v, range(min=0, ext=16))], where=(bool)1, value_index=0)]
 ```
 
-## 交叉线程归约
+## 跨线程规约
 
-接下来可以在因子轴上进行并行化，这里 B 的 reduction 轴被标记为线程，如果唯一的 reduction 轴在设备中可以进行交叉线程归约，则 TVM 允许将 reduction 轴标记为 thread。
+接下来可以在因子轴上进行并行化，这里 B 的 reduction 轴被标记为线程，如果唯一的 reduction 轴在设备中可以进行跨线程规约，则 TVM 允许将 reduction 轴标记为 thread。
 
-也可以直接在归约轴上计算 BF。最终生成的内核会将行除以 blockIdx.x，将 threadIdx.y 列除以 threadIdx.x，最后对 threadIdx.x 进行跨线程归约。
+也可以直接在规约轴上计算 BF。最终生成的内核会将行除以 blockIdx.x，将 threadIdx.y 列除以 threadIdx.x，最后对 threadIdx.x 进行跨线程规约。
 
 ``` python
 xo, xi = s[B].split(s[B].op.axis[0], factor=32)
@@ -293,9 +293,9 @@ fcuda(a, b)
 tvm.testing.assert_allclose(b.numpy(), np.sum(a.numpy(), axis=1), rtol=1e-4)
 ```
 
-## 用二维归约描述卷积
+## 用二维规约描述卷积
 
-在 TVM 中，用简单的二维归约来描述卷积（过滤器大小 = [3, 3]，步长 = [1, 1]）。
+在 TVM 中，用简单的二维规约来描述卷积（过滤器大小 = [3, 3]，步长 = [1, 1]）。
 
 ``` python
 n = te.var("n")
@@ -335,9 +335,9 @@ print(tvm.lower(s, [Input, Filter, Output], simple_mode=True))
 }
 ```
 
-## 定义一般交换归约运算
+## 定义一般交换规约运算
 
-除了 `te.sum`, `tvm.te.min` 和 `tvm.te.max` 等内置归约操作外，还可以通过 `te.comm_reducer` 定义交换归约操作。
+除了 `te.sum`, `tvm.te.min` 和 `tvm.te.max` 等内置规约操作外，还可以通过 `te.comm_reducer` 定义交换规约操作。
 
 ``` python
 n = te.var("n")
@@ -349,16 +349,16 @@ B = te.compute((n,), lambda i: product(A[i, k], axis=k), name="B")
 ```
 
 :::note
-执行涉及多个值的归约，例如 `argmax`，可以通过元组输入来完成。更多详细信息，请参阅 [使用协作输入描述归约](https://tvm.apache.org/docs/how_to/work_with_schedules/tuple_inputs.html#reduction-with-tuple-inputs)。
+执行涉及多个值的规约，例如 `argmax`，可以通过元组输入来完成。更多详细信息，请参阅 [使用协作输入描述规约](https://tvm.apache.org/docs/how_to/work_with_schedules/tuple_inputs.html#reduction-with-tuple-inputs)。
 :::
 
 ## 总结
 
-本教程演示了如何归约 schedule。
+本教程演示了如何规约 schedule。
 
-* 用 reduce_axis 描述归约。
+* 用 reduce_axis 描述规约。
 * 如需并行性 (parallelism)，用 rfactor 来分解轴。
-* 通过 `te.comm_reducer` 定义新的归约操作。
+* 通过 `te.comm_reducer` 定义新的规约操作。
 
 
 [下载 Python 源代码：reduction.py](https://tvm.apache.org/docs/_downloads/2a0982f8ca0176cb17713d28286536e4/reduction.py)
