@@ -62,7 +62,7 @@ bool Check(const Expr& expr) final {
 
 以上就是全部操作。在调用 top-level 的递归之前，定义一个执行一些记录的公有接口是很常见的操作。用户也可以通过创建一个生成 `CallChecker` 实例，并在其上调用 `Check` 的独立程序来进一步包装 API，重要的是用尽可能少的资源用实现目标。
 
-## 表达式变异器 (Expression Mutators)
+## 表达式修改器 (Expression Mutators)
 
 `ExprMutator` 用于以某种方式转换程序的 pass。通过这个类，`VisitExpr` 及其对应的私有部分返回 `Expr`。此类提供的默认 `VisitExpr_` 实现访问表达式的所有表达式字段，并将字段设置为访问它们的结果。`TupleGetItemNode` 的默认实现如下所示：
 
@@ -97,7 +97,7 @@ Expr CollapseIfs(const Expr& expr) final {
 }
 ```
 
-虽然使用这个变异器无需做任何记录，但仍然鼓励用户将描述性方法作为接口。
+虽然使用这个修改器无需做任何记录，但仍然鼓励用户将描述性方法作为接口。
 
 # 示例：常量折叠
 
@@ -142,9 +142,9 @@ bool Check(const Expr& expr) {
 
 并不是所有遇到的节点都要修改 `memo_`；相反，用户只有在遇到的节点有可能是常数时，才修改 `memo_`。当 `memo_` 不包含 `expr` 时，需要依赖默认的 false 值。
 
-## `ConstantFolder` 变异器
+## `ConstantFolder` 修改器
 
-这个变异器执行了大部分的常量折叠过程，并在内部使用 `ConstantChecker`。在 Relay 中，常量折叠涉及三种节点类型：`LetNode`、`TupleItemGetNode` 和 `CallNode`。后续段落中将进行详细讲解。
+这个修改器执行了大部分的常量折叠过程，并在内部使用 `ConstantChecker`。在 Relay 中，常量折叠涉及三种节点类型：`LetNode`、`TupleItemGetNode` 和 `CallNode`。后续段落中将进行详细讲解。
 
 ``` c++
 Expr VisitExpr_(const LetNode* op) final {
