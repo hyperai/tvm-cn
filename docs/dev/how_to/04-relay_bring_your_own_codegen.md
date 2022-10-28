@@ -115,7 +115,7 @@ TVM_DLL_EXPORT_TYPED_FUNC(gcc_0, gcc_0_wrapper);
 这里详细介绍一下上面代码里的注释：
 
 * **注1**：子图中三个节点的函数实现。
-* **注2**：通过分配中间缓冲区 (intermediate buffer) 并调用相应函数来执行子图的函数。
+* **注2**：通过分配中间数组 (intermediate buffer) 并调用相应函数来执行子图的函数。
 * **注3**：TVM runtime 兼容的包装函数。它接收一个输入张量列表和一个输出张量（最后一个参数），并将其转换为正确的数据类型，调用注2 中描述的子图函数。此外，`TVM_DLL_EXPORT_TYPED_FUNC` 是一个 TVM 宏，它通过将所有张量打包到 `TVMArgs` 来生成另一个函数 `gcc_0`，该函数具有统一的函数参数。因此，TVM runtime 可以直接调用 `gcc_0` 来执行子图，无需其他操作。生成上述代码后，TVM 能够将其与计算图的其余部分一起编译并导出单个库以进行部署。
   
 在本节的其余部分，我们将逐步创建一个 codegen，来实现上述代码。你的 codegen 必须位于 `src/relay/backend/contrib/<your-codegen-name>/`。在这个例子中，我们将 codegen 命名为 "codegen_c"，并将其放在 [/src/relay/backend/contrib/codegen_c/](https://github.com/apache/tvm/blob/main/src/relay/backend/contrib/codegen_c/codegen.cc) 目录下。你可以随时查看这个文件，了解完整的实现过程。
@@ -246,7 +246,7 @@ func_decl_.push_back(macro_stream.str());
 
 示例结果：`gcc_0_0(buf_1, gcc_input3, out);`
 
-生成函数声明后，我们需要生成一个具有正确输入和输出的函数调用。要想知道调用这个函数时应该放置哪些输入或缓冲区，必须访问它的参数：
+生成函数声明后，我们需要生成一个具有正确输入和输出的函数调用。要想知道调用这个函数时应该放置哪些输入或数组，必须访问它的参数：
 
 ``` c++
 bool first = true;
@@ -276,15 +276,15 @@ for (size_t i = 0; i < call->args.size(); ++i) {
 (a) out_ = {}            (b) out_ = {}                   (c) out_ = {("buf_0", 20)}
 ```
 
-从上图中可以看出，类变量 `out_` 在访问参数节点前是空的，它被填充了 `arg_node` 输出缓冲区的名称和大小。因此在完成对参数节点的访问时，可以通过查看 `out_` 得知应该放置的正确输入缓冲区。本节末尾以及下一节中，我们将介绍如何更新 `out_`。
+从上图中可以看出，类变量 `out_` 在访问参数节点前是空的，它被填充了 `arg_node` 输出数组的名称和大小。因此在完成对参数节点的访问时，可以通过查看 `out_` 得知应该放置的正确输入数组。本节末尾以及下一节中，我们将介绍如何更新 `out_`。
 
-**注2**：你可能注意到，我们在这一步没有关闭函数调用字符串。当前函数调用字符串看起来像：`gcc_0_0(buf_1, gcc_input3`。这是因为我们没有将最后一个参数（如 output）放入此调用中。函数调用的输出可以是分配的临时缓冲区或子图输出张量。简单起见，在本例中我们为每个调用节点都分配老一个输出缓冲区（下一步），并将最后一个缓冲区中的结果复制到了输出张量。
+**注2**：你可能注意到，我们在这一步没有关闭函数调用字符串。当前函数调用字符串看起来像：`gcc_0_0(buf_1, gcc_input3`。这是因为我们没有将最后一个参数（如 output）放入此调用中。函数调用的输出可以是分配的临时数组或子图输出张量。简单起见，在本例中我们为每个调用节点都分配老一个输出数组（下一步），并将最后一个数组中的结果复制到了输出张量。
 
-#### 3. 生成输出缓冲区 (output buffer)
+#### 3. 生成输出数组 (output buffer)
 
 示例结果：`float buf_0 = (float)malloc(4 * 100);`
 
-如上一步所述，除了子图输入和输出张量外，还需要缓冲区来保存中间结果。为了生成缓冲区，我们提取 shape 信息，以确定缓冲区的类型和大小：
+如上一步所述，除了子图输入和输出张量外，还需要数组来保存中间结果。为了生成数组，我们提取 shape 信息，以确定数组的类型和大小：
 
 ``` c++
 // 这个例子仅支持单个输出。
@@ -292,31 +292,31 @@ auto type_node = call->checked_type().as<TensorTypeNode>();
 ICHECK(type_node != nullptr && runtime::TypeMatch(type_node->dtype, kDLFloat, 32))
       << "Only support single output tensor with float type";
 
-// 生成一个唯一的缓冲区名字。
+// 生成一个唯一的数组名字。
 std::string out = "buf_" + std::to_string(buf_idx_++);
 
-// 提取 shape 作为缓冲区大小。
+// 提取 shape 作为数组大小。
 auto out_shape = GetShape(call->checked_type());
 int out_size = 1;
 for (size_t i = 0; i < out_shape.size(); ++i) {
   out_size *= out_shape[i];
 }
 
-// 分配缓冲区并推送至缓冲区声明
+// 分配数组并推送至数组声明
 buf_stream << "float* " << out << " = (float*)std::malloc(4 * " << out_size << ");";
 buf_decl_.push_back(buf_stream.str());
 ```
 
-分配了输出缓冲区之后，现在可以关闭函数调用字符串，并将生成的函数调用推送到类变量 `ext_func_body`。
+分配了输出数组之后，现在可以关闭函数调用字符串，并将生成的函数调用推送到类变量 `ext_func_body`。
 
 ```plain
 decl_stream << ", " << out << ");";
 ext_func_body.push_back(decl_stream.str());
 ```
 
-#### 4. 更新输出缓冲区
+#### 4. 更新输出数组
 
-为了使得下一个节点（接受当前调用节点的输出，作为其输入）知道它应该使用哪个缓冲区，我们需要在离开这个访问函数之前更新类变量 `out_`：
+为了使得下一个节点（接受当前调用节点的输出，作为其输入）知道它应该使用哪个数组，我们需要在离开这个访问函数之前更新类变量 `out_`：
 
 ```plain
 out_.clear();
@@ -327,7 +327,7 @@ out_.push_back({out, out_size});
 
 ### 输入变量的代码生成
 
-回想一下，我们通过访问调用节点的参数（上一节中的第 2 步）收集了输入缓冲区信息，并处理了参数是另一个调用节点的情况（第 4 步）。本节我们将以 `VarNode` 为例，演示如何处理其他节点。
+回想一下，我们通过访问调用节点的参数（上一节中的第 2 步）收集了输入数组信息，并处理了参数是另一个调用节点的情况（第 4 步）。本节我们将以 `VarNode` 为例，演示如何处理其他节点。
 
 `VarNode` 表示模型中的输入张量。它非常重要的一点就是名称提示（例如，`data`、`weight` 等）。访问 `VarNode` 时，只需更新类变量 `out_` 传递名称提示，后代 (descendant) 调用节点就可以生成正确的函数调用。
 
@@ -339,7 +339,7 @@ void VisitExpr_(const VarNode* node) {
 }
 ```
 
-注意：在这个例子中，我们假设要卸载的子图只有调用节点和变量节点。如果子图包含其他类型的节点，如 `TupleNode`，那么你也需要访问它们并绕过输出缓冲区信息。
+注意：在这个例子中，我们假设要卸载的子图只有调用节点和变量节点。如果子图包含其他类型的节点，如 `TupleNode`，那么你也需要访问它们并绕过输出数组信息。
 
 ### Code Emitting
 
