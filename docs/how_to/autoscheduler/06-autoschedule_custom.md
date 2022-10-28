@@ -1,5 +1,5 @@
 ---
-title: 使用自定义草图规则 (Sketch Rule) 在 CPU 上自动调度稀疏矩阵乘法
+title: 使用自定义调度规则 (Sketch Rule) 在 CPU 上自动调度稀疏矩阵乘法
 ---
 
 # 使用自定义草图规则 (Sketch Rule) 在 CPU 上自动调度稀疏矩阵乘法
@@ -12,9 +12,9 @@ title: 使用自定义草图规则 (Sketch Rule) 在 CPU 上自动调度稀疏�
 
 本文介绍如何用 auto-scheduler 来调优 CPU 的稀疏矩阵乘法。
 
-auto-scheduler 旨在自动探索给定计算声明的最佳性能调度。有时需要尝试一些特殊的操作，auto-scheduler 的默认草图规则 (Sketch Rule) 可能不能很好的支持这些操作，会导致性能不佳。auto-scheduler 目前允许用户提供一个 CustomSketch 来覆盖这些情况。
+auto-scheduler 旨在自动探索给定计算声明的最佳性能调度。有时需要尝试一些特殊的操作，auto-scheduler 的默认调度规则 (Sketch Rule) 可能不能很好的支持这些操作，会导致性能不佳。auto-scheduler 目前允许用户提供一个 CustomSketch 来覆盖这些情况。
 
-本教程使用稀疏矩阵乘法作为示例，演示如何实现自定义草图规则，并将其插入 auto-scheduler 的搜索策略。
+本教程使用稀疏矩阵乘法作为示例，演示如何实现自定义调度规则，并将其插入 auto-scheduler 的搜索策略。
 
 注意，本教程无法在 Windows 或最新版本的 macOS 上运行。如需运行，请将本教程的主体放在 `if __name__ == "__main__":` 代码块中。
 
@@ -134,7 +134,7 @@ compute(i0, i1) = max(BiasAdd[i0, i1], 0f)
 
 CustomSketchRule 由两部分组成：条件函数和应用函数。
 
-* 条件函数：描述应用此草图规则的时间。例如，通过匹配名称和标签将规则应用于稀疏操作。
+* 条件函数：描述应用此调度规则的时间。例如，通过匹配名称和标签将规则应用于稀疏操作。
 * 应用函数：描述生成初始草图的方式。可以用 auto-scheduler 提供的循环状态 API 来实现。
 
 ``` python
@@ -195,7 +195,7 @@ def apply_func(search_policy, state, stage_id):
 * `num_measure_trials` 是搜索过程中可以使用的测试次数（根据自己的时间预算调整这个参数），为快速演示，本教程只进行了 10 次试验。在实践中，推荐使用 1000 以得到收敛结果。
 * 此外，使用 `RecordToFile` 将测试记录转储到 *sparse_dense.json* 文件中，测试记录可用于查询历史最佳、恢复搜索以及以后进行更多分析。
 * 有关更多参数，参见 `auto_scheduler.TuningOptions`
-* 接下来创建一个 `auto_scheduler.SketchPolicy` 对象，并将自定义草图规则添加为 *init_search_callbacks*。
+* 接下来创建一个 `auto_scheduler.SketchPolicy` 对象，并将自定义调度规则添加为 *init_search_callbacks*。
 
 ``` python
 log_file = "sparse_dense.json"
