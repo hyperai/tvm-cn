@@ -375,7 +375,7 @@ std::string JIT() {
 
 #### 实现 CSourceCodegen
 
-创建一个类骨架并实现所需功能，注意：需要延续使用 `CSourceModuleCodegenBase`：
+创建一个类并实现所需功能，注意：需要继承自 `CSourceModuleCodegenBase`：
 
 ``` c++
 class CSourceCodegen : public CSourceModuleCodegenBase {
