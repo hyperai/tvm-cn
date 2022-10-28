@@ -9,4 +9,4 @@ TVM AutoScheduler 提供了无需模板调优模型的方法。以下演示了�
 * [为 NVIDIA GPU 自动调度神经网络](autoschedule_nvidia)
 * [为 ARM CPU 自动调度神经网络](autoschedule_arm)
 * [为 Mali GPU 自动调度神经网络](autoschedule_mali)
-* [使用自定义草图规则 (Sketch Rule) 在 CPU 上自动调度稀疏矩阵乘法](autoschedule_custom)
+* [使用自定义调度规则 (Sketch Rule) 在 CPU 上自动调度稀疏矩阵乘法](autoschedule_custom)
