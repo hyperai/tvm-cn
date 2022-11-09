@@ -294,7 +294,7 @@ seq = tvm.transform.Sequential(
 
 此外，还有一个更灵活的调试机制，可以实现一个 `PassInstrument` 类来执行任意代码，不仅在每次传递之前和/或之后，而且在进入/退出 `PassContext` 时也可以。有关详细信息，参阅 [Pass Instrument](https://tvm.apache.org/docs/arch/pass_infra.html#pass-instrument-cpp-backend)。
 
-这里使用 :py::func`tvm.instrument.pass_instrument` 装饰器来实现一个 PassInsturment 类，在每次执行之前打印 IR：
+这里使用 `tvm.instrument.pass_instrument` 装饰器来实现一个 PassInsturment 类，在每次执行之前打印 IR：
 
 ``` python
 @tvm.instrument.pass_instrument
