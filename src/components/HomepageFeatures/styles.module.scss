@@ -1,0 +1,144 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 1006px;
+  padding: 0 30px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.featureSvg {
+  max-width: 100%;
+  height: auto;
+}
+
+.block {
+  color: var(--white);
+  background-color: var(--blue-dark);
+  padding: 70px 44px;
+  margin: 1em 0;
+  min-height: 490px;
+
+  svg {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  h3 {
+    font-size: 38px;
+    margin-bottom: 1rem;
+  }
+}
+
+.title {
+  font-size: 40px;
+}
+
+.blockWrap:first-child {
+
+  .block {
+    background: url(/img/features/performance.svg) no-repeat center, #005077;
+  }
+}
+
+.blockWrap:nth-child(2) {
+
+  .block {
+    background: url(/img/features/runbg.svg) no-repeat center, #005077;
+  }
+}
+
+.blockWrap:nth-child(3) {
+
+  .block {
+    background: url(/img/features/flexbg.svg) no-repeat center, #005077;
+  }
+}
+
+.blockWrap:last-child {
+
+  .block {
+    background: url(/img/features/usebg.svg) no-repeat center, #005077;
+  }
+}
+
+.aboutInner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 4rem;
+  list-style: none;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+}
+
+.aboutImage {
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.aboutImageSmall {
+  display: none;
+
+  @media (max-width: 991px) {
+    display: block;
+    width: 100%;
+  }
+}
+
+.aboutImgCol {
+  flex: 0 1 742px;
+  max-width: 742px;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+.aboutDetailsCol {
+  padding: 4rem 48px;
+  flex: 0 1 408px;
+  max-width: 408px;
+  line-height: 1.8;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 58px 30px 0;
+  }
+}
+
+.aboutSec {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background: #f1f4f8;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+}

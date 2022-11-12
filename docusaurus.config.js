@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Apache TVM 中文',
-  tagline: '一个用于 CPU、GPU 和加速器的端到端机器学习编译器框架',
+  title: 'Apache TVM 中文站',
+  tagline: 'Apache TVM 是一个端到端的深度学习编译框架，适用于 CPU、GPU 和各种机器学习加速芯片。',
   url: 'https://tvm.hyper.ai',
   baseUrl: '/',
   onBrokenLinks: 'throw',
