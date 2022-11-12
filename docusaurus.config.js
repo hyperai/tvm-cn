@@ -53,7 +53,7 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'TVM 中文文档',
+        title: 'TVM 中文站',
         hideOnScroll: false,
         logo: {
           alt: 'TVM Logo',
