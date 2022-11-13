@@ -18,6 +18,9 @@ function HomepageHeader() {
             查看文档
           </Link>
         </div>
+        <div className={styles.rightAlignDetails}>
+          <p className="subHeadingTwo">TVM 的全称为 Tensor Virtual Machine ，意为“向量虚拟机”。利用 TVM，工程师可以在任意硬件后端高效地优化和运行计算。本站由 MLC.AI 志愿者组织进行更新，由超神经 Hyper.AI 进行维护及托管。</p>
+        </div>
       </div>
     </header>
   );

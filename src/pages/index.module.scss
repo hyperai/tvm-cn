@@ -5,10 +5,10 @@
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - var(--ifm-navbar-height) * 2);
+  // min-height: calc(100vh - var(--ifm-navbar-height) * 2);
+  min-height: calc(714px - var(--ifm-navbar-height));
   background: url('/img/pattern.png') no-repeat right bottom, linear-gradient(141.15deg, rgba(0, 0, 0, 0.5) 1.1%, #008DD2 99.38%), #252D5A;
   background-size: cover;
 
@@ -43,5 +43,23 @@
     @media screen and (max-width: 966px) {
       font-size: 2.5rem;
     }
+  }
+}
+
+.rightAlignDetails {
+  margin-top: 2rem;
+
+  p {
+    max-width: 555px;
+    font-size: 18px;
+    line-height: 26px;
+    margin-left: auto;
+  }
+}
+
+:global {
+
+  .hero__subtitle {
+    max-width: 555px;
   }
 }
