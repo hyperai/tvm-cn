@@ -69,6 +69,8 @@ const config = {
           },
           // {to: '/docs', label: '查看文档', position: 'left'},
           {to: '/about', label: '关于', position: 'left'},
+          {href: 'https://github.com/hyperai/tvm-cn', label: 'GitHub 项目', position: 'left'},
+          {href: 'https://hyper.ai', label: '返回超神经', position: 'left'},
         ],
       },
       footer: {
