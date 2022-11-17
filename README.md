@@ -26,6 +26,24 @@ yarn install
 yarn start
 ```
 
+迁移图片，将第三方的外部图片按其完整路径进行迁移，例如图片：
+
+```md
+![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/relay/dataflow.png)
+```
+
+请将其保存在项目中的如下路径：
+
+```
+static/img/docs/tvmai/tvmai.github.io/main/images/relay/dataflow.png
+```
+
+然后在文档中替换为：
+
+```md
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/relay/dataflow.png)
+```
+
 生成 HTML 文件 (Deprecated)
 
 ```bash
