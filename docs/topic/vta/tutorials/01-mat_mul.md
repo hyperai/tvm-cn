@@ -59,7 +59,7 @@ elif env.TARGET in ["sim", "tsim"]:
 
 示例中描述了一个简单的矩阵乘法加法，它需要多个计算阶段，如下面的数据流图所示。首先，描述主存储器中的输入张量 `A` 和 `B`。然后，声明 VTA 的芯片上缓冲区的中间张量 `A_buf` 和 `B_buf`。这个额外的计算阶段使得能够显式地暂存缓存的读和写。第三，描述对 `A_buf` 和 `B_buf` 的矩阵乘法计算，产生乘积矩阵 `C_buf`。最后一个操作是，强制转换并拷贝回 DRAM，进入结果张量 `C`。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/gemm_dataflow.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/gemm_dataflow.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/gemm_dataflow.png](/img/docs/uwsampl/web-data/main/vta/tutorial/gemm_dataflow.png)
 
 ### 数据布局
 
@@ -70,13 +70,13 @@ elif env.TARGET in ["sim", "tsim"]:
 
 目标加速器之所以复杂，一个很重要的原因就是需要确保数据布局与加速器设计要求的布局相匹配。VTA 的设计以*张量 core*为核心，它在激活矩阵和权重矩阵之间每个周期执行一次矩阵-矩阵运算，将结果矩阵添加到累加器矩阵，如下图所示。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/tensor_core.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/tensor_core.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/tensor_core.png](/img/docs/uwsampl/web-data/main/vta/tutorial/tensor_core.png)
 
 在 `vta_config.json` 配置文件中指定该矩阵-矩阵乘法的维度。激活矩阵的 shape 为 `(BATCH, BLOCK_IN)`，转置权重矩阵的 shape 为 `(BLOCK_OUT, BLOCK_IN)`，因此推断生成的输出矩阵的 shape 为 `(BATCH, BLOCK_OUT)`。因此，VTA 处理的输入和输出张量要根据上述维度进行平铺。
 
 下图展示了数据平铺对初始 shape 为 (4, 8) 的矩阵的影响。按 (2, 2) shape 进行平铺可确保每个平铺内的数据是连续的。生成的平铺张量的 shape 为 (2, 4, 2, 2)。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/data_tiling.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/data_tiling.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/data_tiling.png](/img/docs/uwsampl/web-data/main/vta/tutorial/data_tiling.png)
 :::
 
 首先定义变量 `m`、`n`、`o` 来表示矩阵乘法的 shape。这些变量分别是 `BLOCK_OUT`、`BLOCK_IN` 和 `BATCH` 张量维度的乘法因子。配置文件默认将 `BATCH`、`BLOCK_IN` 和 `BLOCK_OUT` 分别设置为 1、16 和 16（`BATCH` 设置为 1 意味着计算构建块是向量矩阵乘法）。

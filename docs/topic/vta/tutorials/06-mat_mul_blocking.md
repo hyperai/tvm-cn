@@ -63,7 +63,7 @@ elif env.TARGET in ["sim", "tsim"]:
 
 在矩阵乘法中添加了额外的算子，这些算子对输出进行移位和裁剪，从而模拟定点卷积，然后进行校正线性激活。下面描述全连接层的 TVM 数据流图：
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/fc_dataflow.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/fc_dataflow.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/fc_dataflow.png](/img/docs/uwsampl/web-data/main/vta/tutorial/fc_dataflow.png)
 
 由于这种计算太大，无法一次全部放入 VTA 的芯片缓冲区。因此，在调度阶段，依靠计算分块策略将计算分解为可管理的块。
 
@@ -210,7 +210,7 @@ print(tvm.lower(s, [data, weight, res], simple_mode=True))
 
 沿每个轴执行分块（由于正在执行单个 batch 推理，batch 轴未被处理）。还将最里面的张量轴保持原样，使得 TVM 模式匹配张量。下图展示了计算调度上的分块结果：
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/blocking.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/blocking.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/blocking.png](/img/docs/uwsampl/web-data/main/vta/tutorial/blocking.png)
 
 :::note
 循环拆分和重新排序后的代码等价于以下伪代码。由于以下示例只执行单个 batch 推理，因此将忽略 batch 轴：

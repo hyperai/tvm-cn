@@ -17,7 +17,7 @@ sidebar_position: 190
 
 传统的深度学习框架使用计算图作为中间表示 (IR)。计算图（或数据流图）是表示计算的有向无环图 (DAG)。尽管数据流图由于缺乏控制流，而受限于能表达的计算，但其易用性极大简化了实现自动微分和编译异构执行环境（例如，在专用硬件上执行部分图）。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/relay/dataflow.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/relay/dataflow.png)
 
 您可以使用 Relay 构建计算（数据流）图。具体来说，上面的代码展示了如何构造一个简单的两节点图。您会发现该示例的语法与现有的计算图 IR（如 NNVMv1）没有太大区别，唯一的区别在于术语：
 
@@ -83,7 +83,7 @@ def @myfunc(%x) {
 
 可以使用一系列 let 绑定，来构造与数据流程序逻辑等效的程序。以下代码示例并排显示了一个具有两个表单的程序。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/relay/dataflow_vs_func.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/relay/dataflow_vs_func.png)
 
 嵌套的 let 绑定称为 A 范式，通常用作函数式编程语言中的 IR。仔细看看 AST 结构。虽然这两个程序在语义上是相同的（它们的文本表示也是相同的，除了 A-normal 形式有 let 前缀），但 AST 结构是不同的。
 
@@ -98,7 +98,7 @@ def @myfunc(%x) {
 
 let 绑定的一个关键用法是它指定了计算范围。下面的例子没有使用 let 绑定：
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/relay/let_scope.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/relay/let_scope.png)
 
 当试图决定应该在哪里评估节点 `%1` 时，问题就来了。尤其是，尽管文本格式建议在 if 范围之外评估节点 `%1`，但 AST（如图所示）并不建议这样做。实际上，数据流图从未定义其评估范围。这在语义上引入了一些歧义。
 

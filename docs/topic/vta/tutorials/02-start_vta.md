@@ -81,7 +81,7 @@ elif env.TARGET in ("sim", "tsim", "intelfocl"):
 
 此示例描述了一个向量加法，分为多个计算阶段，如下面的数据流图所示。首先，描述主存储器中的输入张量 `A` 和 `B`。然后，声明 VTA 芯片缓冲区里的中间张量 `A_buf` 和 `B_buf`。这个额外的计算阶段使得可以显式地暂存缓存的读和写。第三，描述将 `A_buf` 添加到 `B_buf`，产生 `C_buf` 的向量加法计算。最后一个操作是，强制转换并复制回 DRAM，产生结果张量 `C`。
 
-![图片](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/vadd_dataflow.png)
+![图片](/img/docs/uwsampl/web-data/main/vta/tutorial/vadd_dataflow.png)
 
 ## 输入占位符
 

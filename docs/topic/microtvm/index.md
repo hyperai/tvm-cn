@@ -6,7 +6,7 @@ title: microTVM：裸机上的 TVM
 
 microTVM 在裸机（即物联网）设备上运行 TVM 模型。microTVM 只依赖于 C 标准库，不需要操作系统来执行。 microTVM 目前正在全力开发中。
 
-![https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_workflow.svg](https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_workflow.svg)
+![/img/docs/tlc-pack/web-data/main/images/dev/microtvm_workflow.svg](/img/docs/tlc-pack/web-data/main/images/dev/microtvm_workflow.svg)
 
 microTVM 是：
 

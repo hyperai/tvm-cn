@@ -103,11 +103,11 @@ public:
 
 上面的 Operation 类声明中，可以看到每个 operation 还有一个 InputTensor 列表。因此，schedule 的各个 stage 形成了一个 DAG，其中每个 stage 都是图中的一个节点。若 Stage B 的 operation 有一个输入张量，其源操作是 Stage A 的 op，那么图中从 Stage A 到 Stage B 有一个 edge。简而言之，若 B 消耗了一个由 A 产生的张量，则从 A 到 B 会出现一个 edge。参见下图。这个计算图是在 InferBound 开始时调用 [CreateReadGraph](https://github.com/apache/tvm/blob/main/src/te/schedule/bound.cc) 创建的。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/stage_graph.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/stage_graph.png)
 
 InferBound 使 pass 遍历计算图，每个 stage 访问一次。InferBound 从输出 stage 开始（即上图中的实心蓝色节点），然后向上移动（在边缘的相反方向上）。这是通过对计算图的节点执行反向拓扑排序来实现的。因此，当 InferBound 访问一个 stage 时，它的每个 consumer stage 都已经被访问过。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/inferbound_traversal.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/inferbound_traversal.png)
 
 InferBound pass 如以下伪代码所示：
 
@@ -140,7 +140,7 @@ InferBound pass 有两个不是很明显的属性：
 
 回想一下，stage 的所有 IterVar 都由 IterVarRelations 关联。一个 stage 的 IterVarRelations 构成一个有向无环 hyper-graph，计算图中每个节点对应一个 IterVar，每条 hyper-edge 对应一个 IterVarRelation。也可以将这个 hyper-graph 表示为 DAG，如下图所示更易于可视化。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/relations.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/relations.png)
 
 上图显示了一个 stage 的 IterVar hyper-graph。该 stage 有一个 root_iter_var `i`，它已被拆分，生成的内轴 `i.inner` 已再次拆分。该 stage 的 leaf_iter_vars 为绿色图示：`i.outer`、`i.inner.outer` 和 `i.inner.inner`。
 
@@ -181,7 +181,7 @@ InferBound 调用 InferRootBound，然后在 stage 计算图中的每个 stage �
 
 如上所述，consumer 可能只需要每个张量中的少量元素。consumer 可以看成是针对输出张量某些区域，向 stage 发出的请求。阶段 1-3 的工作是建立每个 consumer 所需的每个输出张量的区域。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/inferbound_phases.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/inferbound_phases.png)
 
 ### IntSet
 
@@ -209,7 +209,7 @@ InferBound 调用 InferRootBound，然后在 stage 计算图中的每个 stage �
 * 案例 1：leaf var 的 Range 范围为 1。这种情况下，leaf 的 up_state 只是一个点，等于 Range 的最小值。
 * 案例 2：*不需要释放。这种情况下，leaf 的 up_state 只是一个点，由 leaf var 本身定义。*
 * 案例 3：需要释放。这种情况下，leaf 的 Range 被简单地转换为 IntSet。
-  
+
 简单起见，假设 schedule 不包含线程轴。这种情况下，仅当 schedule 包含 compute_at 时，才和案例 2 相关。参阅 [InferBound 与 compute_at](#inferboundca) 节来进一步获取更多信息。
 
 ### 阶段 2：将 IntSet 从 consumer 的 leaf 传到 consumer 的 root {#phase2}
@@ -227,7 +227,7 @@ InferBound 调用 InferRootBound，然后在 stage 计算图中的每个 stage �
 
 * 案例 1：外部和内部 IterVar 的范围匹配它们的 `up_state` 域。在这种情况下，只需将父级的 Range 转换为 IntSet 即可设置父级的 `up_state`。
 * 案例 2：*否则，父级的* `up_state` *是相对于外部和内部的**`up_state`*通过评估*  `outer*f + inner + rmap[parent]->min` *来定义的。这里，TVM 没有使用*s**plit 关系的因子，而是用* `f = rmap[inner]->extent`。
-  
+
 仅当 schedule 包含 compute_at 时才需要案例 2。参阅下面的 [InferBound 与 compute_at](#inferboundca) 节，进一步了解。
 
 在 PassUpDomain 完成向 consumer 的所有 IterVars 传到 up_state 后，将创建一个从 root_iter_vars 到 IntSet 的新映射。如果 schedule 不包含 compute_at，则 root_iter_var iv 的 IntSet 由以下代码创建：
@@ -281,17 +281,17 @@ ComputeOp 只有一个输出张量，其轴与 ComputeOp 的轴变量一一对�
 rmap[axis[i]] = arith::Union(tmap[output][i]).cover_range(axis[i]->dom);
 ```
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/gatherbound.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/gatherbound.png)
 
 IntSet 的并集是通过将每个 IntSet 转换为一个区间来计算的，然后取所有最小值中的最小值，以及所有这些区间最大值中的最大值。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/union.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/union.png)
 
 计算从未使用过的张量元素，显然会导致一些不必要的计算。
 
 即使 IntervalSet 联合体不会产生非必要的计算，GatherBound 单独考虑张量的每个维度也会导致不必要的计算。例如，在下图中，两个 consumer A 和 B 需要 2D 张量的不相交区域：consumer A 需要 T[0:2, 0:2]，consumer B 需要 T[2:4, 2:4]。 GatherBound 分别对张量的每个维度进行操作。对于张量的第一维，GatherBound 采用区间 0:2 和 2:4 的并集，产生 0:4（注意，此处不需要近似值）。对于张量的第二维也是如此。因此，这两个请求的维度并集为 T[0:4, 0:4]。因此 GatherBound 将导致计算张量 T 的所有 16 个元素，即使这些元素中只有一半会被使用。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/gatherbound_problem.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/gatherbound_problem.png)
 
 ## InferBound 与 compute_at {#inferboundca}
 
@@ -486,7 +486,7 @@ produce E {
 }
 ```
 
-### InferBound 与 compute_at 
+### InferBound 与 compute_at
 
 前面已经介绍了附加路径的概念，现在来看，若 schedule 包含 compute_at 时，InferBound 的不同之处。唯一的区别在于 InferRootBound，[阶段 1：为 consumer 的 leaf_iter_vars 初始化 IntSet ](#phase1)和 [阶段 2：将 IntSet 从 consumer 的 leaf 传到 consumer 的 root](#phase2)。
 
@@ -525,7 +525,7 @@ produce E {
 
 * 案例 1：外部和内部 IterVar 的 Range 匹配它们的 `up_state` 域。在这种情况下，只需将父级的 Range 转换为 IntSet 即可设置父级的 `up_state`。
 * 案例 2：否则，父级的 `up_state` 是通过评估 `outer*f + inner + rmap[parent]->min` 来定义的，相对于外部和内部的 `up_state`。在这里，TVM 没有使用 split 关系的因子，而是使用* `f = rmap[inner]->extent`。
-  
+
 由于 schedule 包含 compute_at，因此可以应用案例 2。这是因为 leaf IntSet 现在可能会被初始化为其 Range 内的单个点（[阶段 1 的案例 2：为 consumer 的 leaf_iter_vars 初始化 IntSet](#phase1ca)），因此 IntSet 无法总是与 Range 匹配。
 
 PassUpDomain 将 up_state 向 consumer 传给所有 IterVars 后，将创建一个从 root_iter_vars 到 IntSet 的新映射。若 stage 没有附加到当前 consumer，那么对于 consumer 的 attach_path 中的每个变量 iv，将 iv 的 Range 添加到一个 `relax_set`。stage 的 root 变量是根据这个 `relax_set` 进行评估的。
@@ -625,7 +625,7 @@ InferBound 的任务是确定必须计算的 B 的数量。但是，在这种情
 
 当 InferRootBound 在 stage B 工作时，它会访问 B 的 consumer stage C，以了解 C 请求了多少 B。C 有 root_iter_vars ci 和 cj，已经融合并进行了分割。这导致了 stage C 的以下 [IterVar Hyper-graph](https://tvm.apache.org/docs/arch/inferbound.html#itervarhypergraph)。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_problem.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_problem.png)
 
 在 stage B 上跟踪 InferRootBound 的执行。[阶段 1：为 InferRootBound 的 consumer leaf_iter_vars 初始化 IntSet](#phase1ca) 涉及为 B 的 consumer stage C 的所有 leaf_iter_vars 设置 IntSet。在这种情况下，C 的 leaf_iter_vars 是 `ci.cj.fused.outer` 和 `ci.cj.fused.inner`。由于 B 附加在 `ci.cj.fused.outer` 处，因此 `ci.cj.fused.inner` 必须释放，但 `ci.cj.fused.outer` 是单点。 C 的 leaf_iter_vars 的 IntSet，在 [阶段 1：为 consumer leaf_iter_vars 初始化 IntSet](#phase1ca) 之后，如下表所示。
 
@@ -649,7 +649,7 @@ PassUpDomain 首先在 C 的 Split 节点上调用。PassUpDomain 的案例 2 �
 * 案例 1：IterVar`fused` 的 Range（如先前由 InferBound 计算的那样）等于其 IntSet
 * 案例2：IterVar `fused` 的 IntSet 是单点
 * 案例3：其他情况
-  
+
 示例中，`ci.cj.fused` 的 Range 是 [0, 16)。不同于 `ci.cj.fused` 的 IntSet，其范围最多为 4（见上表第 3 行）。因此案例 1 不适用。案例 2 也不适用，因为 `ci.cj.fused` 的 IntSet 不是单点。因此，仅适用于默认案例 3。
 
 在案例 3 中，PassUpDomain 保守地应用了「回退 (fallback) 推理规则」，即它只返回等于 `ci` 和 `cj` 的 Range 的 IntSet。由于 C 是 schedule 的输出 stage，InferBound 会将 C 的 root_iter_vars（即 `ci` 和 `cj`）的 Range 设置为它们的原始维度（即它们的 IterVars 的 `dom` 值）。`ci` 和 `cj` 的 PassUpDomain 的结果输出显示在下表的最后两行中。
@@ -668,12 +668,12 @@ PassUpDomain 首先在 C 的 Split 节点上调用。PassUpDomain 的案例 2 �
 
 若 split 因子为 4 或 8，以上示例中，外循环每次迭代所需的 B 区域是矩形的。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_div.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_div.png)
 
 但是，若上例中的拆分因子从 4 变为 3，则很容易看出，C 所需要的 B 区域无法继续通过其每个轴的独立 Range 来描述了。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_nodiv.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_nodiv.png)
 
 下图显示了矩形区域所能达到的最佳效果。橙色区域是在外循环的每次迭代中覆盖需要计算的 B 区域的最小矩形区域。
 
-![图片](https://raw.githubusercontent.com/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_min.png)
+![图片](/img/docs/tvmai/tvmai.github.io/main/images/docs/inferbound/passupdomain_min.png)

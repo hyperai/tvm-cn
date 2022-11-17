@@ -392,7 +392,7 @@ arduino_project = tvm.micro.generate_project(
 
 加载下面两张 224x224 图像（一张是汽车，一张不是汽车），然后执行编译模型来测试 Arduino 项目。
 
-![图片](https://raw.githubusercontent.com/tlc-pack/web-data/main/testdata/microTVM/data/model_train_images_combined.png)
+![图片](/img/docs/tlc-pack/web-data/main/testdata/microTVM/data/model_train_images_combined.png)
 
 这些是可以从 Imgur 下载的 224x224 PNG 图像。在输入这些图像之前，需要调整它们的大小并转换为原始数据，这可以使用 `imagemagick` 完成。
 

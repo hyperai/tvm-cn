@@ -15,7 +15,7 @@ VTA 是一种通用深度学习加速器，专为快速高效的密集线性代�
 
 在更广的范围内，VTA 可以作为全栈优化的模板深度学习加速器设计，将通用张量计算接口提供给编译器栈。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/blogpost/vta_overview.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/blogpost/vta_overview.png)
+![/img/docs/uwsampl/web-data/main/vta/blogpost/vta_overview.png](/img/docs/uwsampl/web-data/main/vta/blogpost/vta_overview.png)
 
 上图给出了 VTA 硬件组织的高级概述。VTA 由四个模块组成，它们通过 FIFO 队列和本地内存块 (SRAM) 相互通信，实现任务级 pipeline 并行：
 
@@ -90,7 +90,7 @@ void fetch(
   * `HLS INTERFACE`：指定合成硬件模块的接口。
   * `HLS PIPELINE`：通过设置启动间隔目标来定义硬件 pipeline 性能 target。当设置 `II == 1` target 时，它告诉编译器合成的硬件 pipeline 能在每个周期执行一次循环迭代。
   * `HLS DEPENDENCE`：指示编译器忽略给定循环中某些类型的依赖检查。一个对相同 BRAM 结构进行写和读的循环体，需要 II 为 1。HLS 编译器必须假设最坏的情况，即：向之前写操作更新循环的地址发出读操作：鉴于 BRAM 时序特性，这是无法实现的（至少需要 2 个周期才能看到更新的值）。因此，为了实现 II 为 1，必须放宽依赖检查。注意，当打开此优化时，它会进入软件堆栈，防止写入后读取相同的地址。
-    
+
 :::note
 本 [参考指南](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_2/ug902-vivado-high-level-synthesis.pdf) 给出了 Xilinx 2018.2 工具链更深入、更完整的 HLS 规范。
 :::
@@ -110,7 +110,7 @@ VTA 的指令集架构 (instruction set architecture，简称 ISA) 由 4 条具�
 
 `LOAD` 指令由 load 和 compute 模块执行，具体取决于存储内存缓冲区位置 target。`GEMM` 和 `ALU` 指令由 compute 模块的 GEMM core 和张量 ALU 执行。最后，`STORE` 指令由 store 模块独占执行。每条指令的字段如下图所示。所有字段的含义将在 [微架构概述](https://tvm.apache.org/docs/topic/vta/dev/hardware.html#vta-uarch) 章节进一步解释。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/vta_instructions.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/vta_instructions.png)
+![/img/docs/uwsampl/web-data/main/vta/developer/vta_instructions.png](/img/docs/uwsampl/web-data/main/vta/developer/vta_instructions.png)
 
 :::note
 VTA ISA 会随着 VTA 的架构参数（即 GEMM core shape、数据类型、内存大小等）的修改而变化，因此 ISA 不能保证所有 VTA 变体的兼容性。但这是可以接受的，因为 VTA runtime 会适应参数变化，并生成和生成的加速器版本匹配的二进制代码。这体现了 VTA 堆栈采用的协同设计理念，它包含硬件-软件接口的流动性。
@@ -120,7 +120,7 @@ VTA ISA 会随着 VTA 的架构参数（即 GEMM core shape、数据类型、内
 
 VTA 依靠硬件模块之间依赖 FIFO 队列 (dependence FIFO queues)，来同步任务并发执行。下图展示了给定的硬件模块，如何用依赖 FIFO 队列和单读取器/单写入器 SRAM 缓冲区，以数据流的方式同时从其生产者和消费者模块执行。所有模块都通过写后读 (RAW) 和读后写 (WAR) 依赖队列连接到其消费者和生产者。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/dataflow.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/dataflow.png)
+![/img/docs/uwsampl/web-data/main/vta/developer/dataflow.png](/img/docs/uwsampl/web-data/main/vta/developer/dataflow.png)
 
 以上伪代码描述了，模块如何基于与其他指令的依赖关系，执行给定指令。首先，每条指令中的依赖标志在硬件中被解码。若指令具有传入的 RAW 依赖，则基于从生产者模块接收到 RAW 依赖 token 执行。
 
@@ -165,13 +165,13 @@ VTA 的 compute 模块充当 RISC 处理器，在张量寄存器（而非标量�
 
 compute 模块从微操作缓存中取出 RISC 微操作执行。有两种类型的计算微操作：ALU 和 GEMM 操作。为了最小化微操作内核的占用空间，同时避免对控制流指令（如条件跳转）的需求，compute 模块在两级嵌套循环内执行微操作序列，该循环通过一个仿射函数计算每个张量寄存器的位置。这种压缩方法有助于减少微内核指令的占用空间，适用于矩阵乘法和 2D 卷积，这在神经网络算子中很常见。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/gemm_core.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/gemm_core.png)
+![/img/docs/uwsampl/web-data/main/vta/developer/gemm_core.png](/img/docs/uwsampl/web-data/main/vta/developer/gemm_core.png)
 
 **GEMM core** 通过在 2 级嵌套循环（如上图所示）中执行微代码序列来评估 GEMM 指令。GEMM core 每个周期可以执行一次输入权重矩阵乘法。单周期矩阵乘法的维度定义了 TVM 编译器将计算 schedule 降级后得到的硬件*张量内联函数*。
 
 这种张量内联函数由输入、权重和累加器张量的维度定义。每种数据类型的整数精度不同：通常权重和输入类型都是低精度（8 位或更少），而累加器张量具有更宽的类型（32 位），防止溢出。为了让 GEMM core 保持高利用率，每个输入缓冲区、权重缓冲区和寄存器文件都必须提供足够的读/写带宽。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/alu_core.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/alu_core.png)
+![/img/docs/uwsampl/web-data/main/vta/developer/alu_core.png](/img/docs/uwsampl/web-data/main/vta/developer/alu_core.png)
 
 **Tensor ALU** 支持一组标准操作来实现常见的激活、归一化和池化操作。VTA 的设计遵循模块化原则，Tensor ALU 支持的算子范围可以进一步扩大，但代价是消耗更多的资源。
 
@@ -185,6 +185,6 @@ compute 模块从微操作缓存中取出 RISC 微操作执行。有两种类型
 
 ### Load 和 Store 模块
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/2d_dma.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/developer/2d_dma.png)
+![/img/docs/uwsampl/web-data/main/vta/developer/2d_dma.png](/img/docs/uwsampl/web-data/main/vta/developer/2d_dma.png)
 
 load 和 store 模块使用从 DRAM 到 SRAM 的跨步访问模式执行 2D DMA 加载。此外，load 模块可以动态插入 2D 填充（在阻塞 2D 卷积时很有用）。这意味着 VTA 可以平铺 2D 卷积输入，而无需补偿在 DRAM 中重新布局数据在输入和权重块 (weight tiles) 周围插入空间填充的开销。

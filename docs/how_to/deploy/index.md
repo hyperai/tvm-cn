@@ -37,7 +37,7 @@ make runtime
 
 若要包含其他 runtime（例如 OpenCL），可以修改 `config.cmake` 来启用这些选项。获取 TVM runtime 库后，就可以链接编译好的库了。
 
- ![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg)
+ ![/img/docs/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg](/img/docs/tlc-pack/web-data/main/images/dev/tvm_deploy_crosscompile.svg)
 
 TVM 可针对不同架构（例如 `x64_64` 主机上的 `aarch64`）交叉编译模型（无论是否被 TVM 优化）。一旦模型被交叉编译，runtime 必须与目标架构兼容，才能运行交叉编译的模型。
 

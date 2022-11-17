@@ -22,7 +22,7 @@ title: 设计与架构
 * Target 转换：编译器将 IRModule 转换 (codegen) 为指定 target 的可执行格式。target 的转换结果被封装为 *runtime.Module*，可以在 runtime 环境中导出、加载和执行。
 * Runtime 执行：用户加载 *runtime.Module*，并在支持的 runtime 环境中运行编译好的函数。
 
-![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg)
+![/img/docs/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg](/img/docs/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg)
 
 ### 关键数据结构
 
@@ -134,7 +134,7 @@ result = gmod["get_output"](0).numpy()
 
 ## 逻辑架构组件 {#logical-architecture-components}
 
-![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_static_overview.svg](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_static_overview.svg)
+![/img/docs/tlc-pack/web-data/main/images/design/tvm_static_overview.svg](/img/docs/tlc-pack/web-data/main/images/design/tvm_static_overview.svg)
 
 *TVM Architecture Diagram*[¶](#logical-architecture-components)
 

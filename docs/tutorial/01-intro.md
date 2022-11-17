@@ -26,7 +26,7 @@ Apache TVM 是一个用于 CPU、GPU 和机器学习加速器的开源机器学�
 # TVM 和模型优化概述
 下图说明了使用 TVM 优化编译器框架转换时所采取的步骤。
 
-![A High Level View of TVM](https://raw.githubusercontent.com/apache/tvm-site/main/images/tutorial/overview.png)
+![A High Level View of TVM](/img/docs/apache/tvm-site/main/images/tutorial/overview.png)
 
 1. 从 TensorFlow、PyTorch 或 ONNX 等框架导入模型。在导入阶段中，TVM 可以从其他框架（如 TensorFlow、PyTorch 或 ONNX）中提取模型。 TVM 为前端提供的支持水平会随着我们不断改进这个开源项目而变化。如果在将模型导入 TVM 时遇到问题，可以将其转换为 ONNX。
 

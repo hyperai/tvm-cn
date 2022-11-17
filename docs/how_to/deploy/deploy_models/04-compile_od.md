@@ -115,7 +115,7 @@ Downloading: "https://download.pytorch.org/models/maskrcnn_resnet50_fpn_coco-bf2
 
 ``` python
 img_url = (
-    "https://raw.githubusercontent.com/dmlc/web-data/master/gluoncv/detection/street_small.jpg"
+    "/img/docs/dmlc/web-data/master/gluoncv/detection/street_small.jpg"
 )
 img_path = download_testdata(img_url, "test_street_small.jpg", module="data")
 

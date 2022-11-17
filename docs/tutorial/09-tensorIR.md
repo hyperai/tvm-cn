@@ -26,7 +26,7 @@ import numpy as np
 
 IRModule 是 TVM 的核心数据结构，它包含深度学习程序，并且是 IR 转换和模型构建的基础。
 
- ![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_life_of_irmodule.png](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_life_of_irmodule.png)
+ ![/img/docs/tlc-pack/web-data/main/images/design/tvm_life_of_irmodule.png](/img/docs/tlc-pack/web-data/main/images/design/tvm_life_of_irmodule.png)
 
 上图展示的是 IRModule 的生命周期，它可由 TVMScript 创建。转换 IRModule 的两种主要方法是 TensorIR 的 schedule 原语转换和 pass 转换。此外，也可直接对 IRModule 进行一系列转换。注意，可以在**任何**阶段将 IRModule 打印到 TVMScript。完成所有转换和优化后，可将 IRModule 构建为可运行模块，从而部署在目标设备上。
 
@@ -155,7 +155,7 @@ print(b)
 
 IRModule 是程序优化的核心数据结构，可通过 `Schedule` 进行转换。schedule 包含多个 primitive 方法来交互地转换程序。每个 primitive 都以特定方式对程序进行转换，从而优化性能。
 
- ![https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_tensor_ir_opt_flow.png](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/design/tvm_tensor_ir_opt_flow.png)
+ ![/img/docs/tlc-pack/web-data/main/images/design/tvm_tensor_ir_opt_flow.png](/img/docs/tlc-pack/web-data/main/images/design/tvm_tensor_ir_opt_flow.png)
 
 上图是优化张量程序的典型工作流程。首先，用 TVMScript 或张量表达式创建一个初始 IRModule，然后在这个初始 IRModule 上创建 schedule。接下来，使用一系列调度原语来提高性能。最后，我们可以将其降低并构建成一个可运行模块。
 

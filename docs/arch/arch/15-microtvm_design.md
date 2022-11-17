@@ -19,7 +19,7 @@ TVM 是一个模型部署框架，它在传统操作系统上的各种模型中�
 
 本节讨论对「典型」microTVM 用例的看法。所有实现此典型用例的组件都很灵活，但这种统一的看法有助于激发每个部分的设计。
 
-![https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_workflow.svg](https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_workflow.svg)
+![/img/docs/tlc-pack/web-data/main/images/dev/microtvm_workflow.svg](/img/docs/tlc-pack/web-data/main/images/dev/microtvm_workflow.svg)
 
 该过程的各个部分描述如下：
 
@@ -140,13 +140,13 @@ microTVM 支持两种方式：
 
 将这个固件镜像烧录到设备上，并在主机上创建一个 GraphExecutor 实例。GraphExecutor 通过 UART 发送 RPC 命令来驱动执行：
 
-![https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_host_driven.svg](https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_host_driven.svg)
+![/img/docs/tlc-pack/web-data/main/images/dev/microtvm_host_driven.svg](/img/docs/tlc-pack/web-data/main/images/dev/microtvm_host_driven.svg)
 
 #### 脱机执行
 
 在脱机执行中，GraphExecutor 在设备上进行实例化：
 
-![https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_standalone.svg](https://raw.githubusercontent.com/tvmai/web-data/main/images/dev/microtvm_standalone.svg)
+![/img/docs/tlc-pack/web-data/main/images/dev/microtvm_standalone.svg](/img/docs/tlc-pack/web-data/main/images/dev/microtvm_standalone.svg)
 
 ### microTVM 固件
 

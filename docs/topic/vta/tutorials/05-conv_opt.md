@@ -67,7 +67,7 @@ elif env.TARGET in ["sim", "tsim"]:
 
 在 2D 卷积中添加了额外的算子，这些算子对输出进行移位和裁剪，从而模拟定点卷积，然后进行校正线性激活。下面描述 2D 卷积层的 TVM 数据流图：
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/conv2d_dataflow.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/conv2d_dataflow.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/conv2d_dataflow.png](/img/docs/uwsampl/web-data/main/vta/tutorial/conv2d_dataflow.png)
 
 由于这种计算太大，无法一次全部放入 VTA 的芯片缓冲区。因此，在调度阶段，我们将依靠计算分块策略，将计算分解为易于管理的块。
 
@@ -80,7 +80,7 @@ elif env.TARGET in ["sim", "tsim"]:
 
 我们展示了数据从 DRAM 加载到 VTA 的 SRAM 中时，VTA 的动态空间填充效果。这个过程发生在 2D 跨步和填充内存 (strided and padded memory) 读取后。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/padding.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/padding.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/padding.png](/img/docs/uwsampl/web-data/main/vta/tutorial/padding.png)
 :::
 
 ``` python
@@ -334,7 +334,7 @@ s[res_conv].reorder(ic_out, b_inn, oc_inn, y_inn, ic_inn, dy, dx, x_inn, b_tns, 
 
 以下实现，虚拟线程将工作分配给沿输出通道轴拆分的两个线程。下图展示了计算 2D 卷积时，工作是如何划分的。
 
-![https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/virtual_threading.png](https://raw.githubusercontent.com/uwsampl/web-data/main/vta/tutorial/virtual_threading.png)
+![/img/docs/uwsampl/web-data/main/vta/tutorial/virtual_threading.png](/img/docs/uwsampl/web-data/main/vta/tutorial/virtual_threading.png)
 
 ``` python
 # VTA 只支持 2 个虚拟线程

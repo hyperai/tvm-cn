@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewBox="-9 43 882 519" width="882" height="519">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.16 
+    <dc:date>2020-07-17 21:06:07 +0000</dc:date>
+  </metadata>
+  <g id="tvm_dyn_workflow" stroke-dasharray="none" fill-opacity="1" stroke="none" fill="none" stroke-opacity="1">
+    <title>tvm_dyn_workflow</title>
+    <g id="tvm_dyn_workflow: Layer 1">
+      <title>Layer 1</title>
+      <g id="Graphic_70">
+        <path d="M 872.5 560.6145 L 702.7872 560.6145 L 618.0581 508.8965 L 702.7872 457.17857 L 872.5 457.17857 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_69">
+        <path d="M 871 399.41596 L 697.2465 399.41596 L 610.5 350.458 L 697.2465 301.5 L 871 301.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_67">
+        <path d="M 866.5 241.26629 L 695.081 241.26629 L 609.5 193.69407 L 695.081 146.12185 L 866.5 146.12185 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_52">
+        <path d="M -8.5 385 L 309 385 L 309 539 L -8.5 539 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_2">
+        <rect x="332.5" y="108.5" width="262" height="36" fill="#ffffc0"/>
+        <rect x="332.5" y="108.5" width="262" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 117.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="66.28" y="15">Import (frontend)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_3">
+        <rect x="332.5" y="44" width="262" height="36" fill="#c0c0ff"/>
+        <rect x="332.5" y="44" width="262" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 52.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="38.728" y="15">Model from Frameworks</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <rect x="332.5" y="173" width="262" height="36" fill="#c0c0ff"/>
+        <rect x="332.5" y="173" width="262" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 181.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="91.624" y="15">IRModule </tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <rect x="-8.25" y="173" width="311.5" height="36" fill="#ffffc0"/>
+        <rect x="-8.25" y="173" width="311.5" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-3.25 181.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="42.606" y="15">Relay Passes (relay/transform)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_9">
+        <rect x="332.5" y="234" width="262" height="67.5" fill="#ffffc0"/>
+        <rect x="332.5" y="234" width="262" height="67.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 249.302)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="22.128" y="15">Primitive-function scheduling </tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="60.064" y="33.448">(relay/backend, te)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <rect x="332.5" y="328.5" width="262" height="40.5" fill="#c0c0ff"/>
+        <rect x="332.5" y="328.5" width="262" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 339.526)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="91.624" y="15">IRModule </tspan>
+        </text>
+      </g>
+      <g id="Graphic_13">
+        <rect x="-6.664" y="328.5" width="303" height="40.5" fill="#ffffc0"/>
+        <rect x="-6.664" y="328.5" width="303" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-1.664 339.526)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="55.988" y="15">TIR Passes (tir/transform)</tspan>
+        </text>
+      </g>
+      <g id="Line_17">
+        <path d="M 332.5 180.1325 C 326.9686 180.04616 321.29945 180 315.5 180 C 314.71676 180 313.93437 180.00084 313.15287 180.00251" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="1"/>
+      </g>
+      <g id="Line_18">
+        <path d="M 303.25 203.66322 C 305.31838 203.6767 307.39674 203.6836 309.48438 203.6836 C 313.91993 203.6836 318.29404 203.65246 322.6019 203.59327" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="1"/>
+      </g>
+      <g id="Graphic_19">
+        <rect x="332.5" y="408.5" width="262" height="40.5" fill="#ffffc0"/>
+        <rect x="332.5" y="408.5" width="262" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 419.526)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="36.224" y="15">Target Translation (target)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_20">
+        <rect x="332.5" y="488.5" width="262" height="40.5" fill="#c0c0ff"/>
+        <rect x="332.5" y="488.5" width="262" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(337.5 499.526)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="36.632" y="15">runtime.Module (runtime) </tspan>
+        </text>
+      </g>
+      <g id="Line_21">
+        <path d="M 332.5 341.10297 C 326.65214 341.03596 320.64928 341 314.5 341 C 311.73542 341 308.98106 341.00727 306.23888 341.02136" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="1"/>
+      </g>
+      <g id="Line_22">
+        <path d="M 296.336 357.95336 C 300.0238 357.984 303.74643 358 307.5 358 C 312.61627 358 317.65367 357.9703 322.6047 357.91424" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="1"/>
+      </g>
+      <g id="Line_24">
+        <line x1="463.5" y1="80" x2="463.5" y2="98.6" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_25">
+        <line x1="463.5" y1="144.5" x2="463.5" y2="163.1" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_26">
+        <line x1="463.5" y1="209" x2="463.5" y2="224.1" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_27">
+        <line x1="463.5" y1="301.5" x2="463.5" y2="318.6" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_28">
+        <line x1="463.5" y1="369" x2="463.5" y2="398.6" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_29">
+        <line x1="463.5" y1="449" x2="463.5" y2="478.6" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_31">
+        <rect x="-8.25" y="248.5" width="311.5" height="40.5" fill="#ffc0ff"/>
+        <rect x="-8.25" y="248.5" width="311.5" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-3.25 259.526)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="117.558" y="15">AutoTVM </tspan>
+        </text>
+      </g>
+      <g id="Line_32">
+        <line x1="303.25" y1="268.25712" x2="322.60005" y2="268.1959" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_44">
+        <rect x="10.5" y="407.052" width="27.5" height="17.947998" fill="#c0c0ff"/>
+        <rect x="10.5" y="407.052" width="27.5" height="17.947998" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_47">
+        <rect x="10.5" y="451.5" width="27.5" height="21" fill="#ffffc0"/>
+        <rect x="10.5" y="451.5" width="27.5" height="21" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_48">
+        <text transform="translate(54.5 408.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">Key data structure</tspan>
+        </text>
+      </g>
+      <g id="Graphic_49">
+        <text transform="translate(51 451.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">Rule-based Transformation (pass)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_51">
+        <rect x="10.5" y="494.052" width="27.5" height="21" fill="#ffc0ff"/>
+        <rect x="10.5" y="494.052" width="27.5" height="21" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_50">
+        <text transform="translate(51 486.104)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">Search space and </tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="33.448">learning-based Transformation </tspan>
+        </text>
+      </g>
+      <g id="Graphic_56">
+        <rect x="680" y="483.25" width="169.25" height="40.5" fill="#c0c0ff"/>
+        <rect x="680" y="483.25" width="169.25" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(685 494.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="34.873" y="15">PackedFunc</tspan>
+        </text>
+      </g>
+      <g id="Graphic_57">
+        <rect x="686.5" y="492.25" width="172.75" height="40.5" fill="#c0c0ff"/>
+        <rect x="686.5" y="492.25" width="172.75" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(691.5 503.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="36.623" y="15">PackedFunc</tspan>
+        </text>
+      </g>
+      <g id="Graphic_58">
+        <rect x="692.5" y="498.75" width="169.25" height="40.5" fill="#c0c0ff"/>
+        <rect x="692.5" y="498.75" width="169.25" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(697.5 509.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="3.753" y="15">PackedFunc(runtime)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_61">
+        <rect x="681.25" y="324.112" width="163.75" height="40.5" fill="#c0c0ff"/>
+        <rect x="681.25" y="324.112" width="163.75" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(686.25 335.138)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="23.091" y="15">tir.PrimFunc(tir)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_63">
+        <rect x="683.75" y="166.59085" width="152.296" height="40.5" fill="#c0c0ff"/>
+        <rect x="683.75" y="166.59085" width="152.296" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(688.75 177.61685)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="21.508003" y="15">relay.Function</tspan>
+        </text>
+      </g>
+      <g id="Graphic_65">
+        <rect x="696.75" y="176.94485" width="156.75" height="40.5" fill="#c0c0ff"/>
+        <rect x="696.75" y="176.94485" width="156.75" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(701.75 187.97085)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="2.703" y="15">relay.Function(relay)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_68">
+        <text transform="translate(689.25 115.94485)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="15.97" y="15">contains</tspan>
+        </text>
+      </g>
+      <g id="Graphic_71">
+        <text transform="translate(680.9939 276.052)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="15.97" y="15">contains</tspan>
+        </text>
+      </g>
+      <g id="Graphic_72">
+        <text transform="translate(669.25 430.109)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="15.97" y="15">contains</tspan>
+        </text>
+      </g>
+      <g id="Graphic_73">
+        <rect x="688.75" y="331.2857" width="165.75" height="40.5" fill="#c0c0ff"/>
+        <rect x="688.75" y="331.2857" width="165.75" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(693.75 342.3117)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="24.091" y="15">tir.PrimFunc(tir)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_74">
+        <rect x="699.25" y="341.0545" width="163.75" height="40.5" fill="#c0c0ff"/>
+        <rect x="699.25" y="341.0545" width="163.75" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(704.25 352.0805)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="23.091" y="15">tir.PrimFunc(tir)</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
