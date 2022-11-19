@@ -60,7 +60,7 @@ void Func3() {
 
 用 [pytest](https://docs.pytest.org/en/stable/) 进行所有 Python 测试。 `tests/python` 包含所有测试。
 
-如果您希望测试在各种 target 上运行，请使用 :py`tvm.testing.parametrize_targets()`{.interpreted-text role="func"} 装饰器。例如：
+如果您希望测试在各种 target 上运行，请使用 `tvm.testing.parametrize_targets()` 装饰器。例如：
 
 ``` python
 @tvm.testing.parametrize_targets
