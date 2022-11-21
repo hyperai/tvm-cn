@@ -5,8 +5,8 @@ sidebar_position: 1
 
 在各种系统中从 0 到 1 构建和安装 TVM 软件包包括两个步骤：
 
-1.  从 C++ 代码中构建共享库（Linux：\`libtvm.so\`；macOS
-    ：\`libtvm.dylib\`；Windows：\`libtvm.dll\`）。
+1.  从 C++ 代码中构建共享库（Linux：`libtvm.so`；macOS
+    ：`libtvm.dylib`；Windows：`libtvm.dll`）。
 2.  为编程语言包进行设置（如 Python 包）。
 
 下载 TVM 源代码，请访问 [下载页面](https://tvm.apache.org/download)。
@@ -272,39 +272,39 @@ Python 包位于 *tvm/python*。安装方法有两种：
 注意，如果你想要安装到一个受管理的本地环境，如 `virtualenv`，则不需要
 `--user` 标志。
 
-> -   必要的依赖：
->
-> ``` bash
-> pip3 install --user numpy decorator attrs
-> ```
->
-> -   使用 RPC 跟踪器
->
-> ``` bash
-> pip3 install --user tornado
-> ```
->
-> -   使用 auto-tuning 模块
->
-> ``` bash
-> pip3 install --user tornado psutil xgboost cloudpickle
-> ```
+-   必要的依赖：
+
+``` bash
+pip3 install --user numpy decorator attrs
+```
+
+-   使用 RPC 跟踪器
+
+``` bash
+pip3 install --user tornado
+```
+
+-   使用 auto-tuning 模块
+
+``` bash
+pip3 install --user tornado psutil xgboost cloudpickle
+```
 
 注意：在搭载 M1 芯片的 Mac 上，安装 xgboost / scipy
 时可能遇到一些问题。scipy 和 xgboost 需要安装 openblas
 等额外依赖。运行以下命令行，安装 scipy 和 xgboost 以及所需的依赖和配置：
 
-> ``` bash
-> brew install openblas gfortran
->
-> pip install pybind11 cython pythran
->
-> export OPENBLAS=/opt/homebrew/opt/openblas/lib/
->
-> pip install scipy --no-use-pep517
->
-> pip install xgboost
-> ```
+``` bash
+brew install openblas gfortran
+
+pip install pybind11 cython pythran
+
+export OPENBLAS=/opt/homebrew/opt/openblas/lib/
+
+pip install scipy --no-use-pep517
+
+pip install xgboost
+```
 
 ## 安装 Contrib 库
 
@@ -315,15 +315,15 @@ Python 包位于 *tvm/python*。安装方法有两种：
 可以用 [Google Test](https://github.com/google/googletest) 来驱动 TVM
 中的 C++ 测试。安装 GTest 最简单的方法是从源代码安装：
 
-> ``` bash
-> git clone https://github.com/google/googletest
-> cd googletest
-> mkdir build
-> cd build
-> cmake -DBUILD_SHARED_LIBS=ON ..
-> make
-> sudo make install
-> ```
+``` bash
+git clone https://github.com/google/googletest
+cd googletest
+mkdir build
+cd build
+cmake -DBUILD_SHARED_LIBS=ON ..
+make
+sudo make install
+```
 
 安装成功后，可以用 `./tests/scripts/task_cpp_unittest.sh` 来构建和启动
 C++ 测试，或者直接用 `make cpptest` 构建。
