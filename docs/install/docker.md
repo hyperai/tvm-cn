@@ -22,7 +22,7 @@ git clone --recursive https://github.com/apache/tvm tvm
 ```
 
 完成本地构建后，这里的 image-name 可以是一个本地的 Docker
-镜像名称，例如：\`tvm.ci_cpu\`。
+镜像名称，例如：`tvm.ci_cpu`。
 
 该辅助脚本可实现：
 
