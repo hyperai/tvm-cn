@@ -5,7 +5,7 @@ title: 编译 CoreML 模型
 # 编译 CoreML 模型
 
 :::note
-单击 [此处](https://tvm.apache.org/docs/how_to/compile_models/from_coreml.html#sphx-glr-download-how-to-compile-models-from-coreml-py)下载完整的示例代码
+单击 [此处](https://tvm.apache.org/docs/how_to/compile_models/from_coreml.html#sphx-glr-download-how-to-compile-models-from-coreml-py) 下载完整的示例代码
 :::
 
 **作者**：[Joshua Z. Zhang](https://zhreshold.github.io/)，[Kazutaka Morita](https://github.com/kazum)，[Zhao Wu](https://github.com/FrozenGene)
