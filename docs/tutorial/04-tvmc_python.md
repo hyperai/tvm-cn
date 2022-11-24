@@ -2,7 +2,9 @@
 title: 使用 TVMC Python 入门：TVM 的高级 API
 ---
 
+:::note
 注意：单击 [此处](https://tvm.apache.org/docs/tutorial/tvmc_python.html#sphx-glr-download-tutorial-tvmc-python-py) 下载完整的示例代码
+:::
 
 **作者**：[Jocelyn Shiue](https://github.com/CircleSpin)
 
