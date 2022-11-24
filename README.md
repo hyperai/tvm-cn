@@ -1,4 +1,4 @@
-# Apache TVM 中文文档（非官方）
+# Apache TVM 中文文档
 
 [中文文档](https://tvm.hyper.ai/) |
 [参与社区共建](CONTRIBUTING.md) |
