@@ -4,7 +4,9 @@ title: 用 Schedule 模板和 AutoTVM 优化算子
 
 # 用 Schedule 模板和 AutoTVM 优化算子
 
+:::note
 注意：单击 [此处](https://tvm.apache.org/docs/tutorial/autotvm_matmul_x86.html#sphx-glr-download-tutorial-autotvm-matmul-x86-py) 下载完整的示例代码
+:::
 
 **作者**：[Lianmin Zheng](https://github.com/merrymercy)，[Chris Hoge](https://github.com/hogepodge)
 
