@@ -4,7 +4,9 @@ title: 编译 Keras 模型
 
 # 编译 Keras 模型
 
+:::note
 注意：单击 [此处](https://tvm.apache.org/docs/how_to/compile_models/from_keras.html#sphx-glr-download-how-to-compile-models-from-keras-py) 下载完整的示例代码
+:::
 
 **作者**：[Yuwei Hu](https://huyuwei.github.io/)
 
