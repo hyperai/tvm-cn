@@ -16,25 +16,25 @@ sidebar_position: 2
 
 -   确保代码通过 lint 检查
 
-    > ``` bash
-    > # 虽然使用的 lint 命令应该与在 CI 中运行的相同，但此命令会重现
-    > # 准确的 CI lint 过程（通常有助于调试 lint 脚本错误或避免手动安装工具）
-    > python tests/scripts/ci.py lint
-    >
-    > # 运行所有的 lint 步骤。
-    > docker/lint.sh
-    >
-    > # 要单独运行步骤，请在命令行中指定步骤名称。
-    > # 一个不正确拼写的步骤名称会导致工具打印所有可用的步骤。
-    > docker/lint.sh <step_name> ...
-    > ```
-    >
-    > 若 clang-format lint 检查失败，运行 git-clang-format 自动对代码重新格式化：
-    >
-    > ``` bash
-    > # 运行 clang-format 检查所有自 upstream/main 以来改变的文件
-    > docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh upstream/main
-    > ```
+    ``` bash
+    # 虽然使用的 lint 命令应该与在 CI 中运行的相同，但此命令会重现
+    # 准确的 CI lint 过程（通常有助于调试 lint 脚本错误或避免手动安装工具）
+    python tests/scripts/ci.py lint
+    
+    # 运行所有的 lint 步骤。
+    docker/lint.sh
+    
+    # 要单独运行步骤，请在命令行中指定步骤名称。
+    # 一个不正确拼写的步骤名称会导致工具打印所有可用的步骤。
+    docker/lint.sh <step_name> ...
+    ```
+    
+    若 clang-format lint 检查失败，运行 git-clang-format 自动对代码重新格式化：
+    
+    ``` bash
+    # 运行 clang-format 检查所有自 upstream/main 以来改变的文件
+    docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh upstream/main
+    ```
 
 -   添加测试用例，以涵盖补丁所引入的新功能或错误修复。
 
