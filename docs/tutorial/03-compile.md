@@ -39,7 +39,7 @@ tvmc --help
 
 本教程使用 ONNX 格式的模型：
 ``` bash
-wget https://github.com/onnx/models/raw/652f4e4af7975c8e7a505c4b6e0f8ac72d8260ea/vision/classification/resnet/model/resnet50-v2-7.onnx
+wget https://github.com/onnx/models/raw/b9a54e89508f101a1611cd64f4ef56b9cb62c7cf/vision/classification/resnet/model/resnet50-v2-7.onnx
 ```
 :::note 支持的模型格式：
 TVMC 支持用 Keras、ONNX、TensorFlow、TFLite 和 Torch 创建的模型。可用 ```--model-format``` 选项指明正在使用的模型格式。执行 ```tvmc compile --help``` 来获取更多信息。
