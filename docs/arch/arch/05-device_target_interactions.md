@@ -29,7 +29,7 @@ sidebar_position: 150
    * 创建流 - `CreateStream` 和 `FreeStream` 为执行流分配/释放句柄。若设备仅实现一个命令队列，则 `CreateStream` 返回 `nullptr`。
    * 设置活动流 - `SetStream` 将流设置为活动的。在活动期间，若特定于 target 的 code gen 生成的 `PackedFunc` 需要在设备上执行，则应将工作提交到活动流。
    * 同步到 CPU - `StreamSync` 将执行流同步到 CPU。`StreamSync` 调用一次性返回所有的内存转换，以及在调用完成前提交的计算。
-   * 在流之间同步 - `SyncStreamFromTo` 在源流和目标流之间引入同步屏障 (synchronization barrier)。即在源流完成当前排队的所有命令前，目标流不会超出当前排队的命令。
+   * 在流之间同步 - `SyncStreamFromTo` 在源流和目标流之间引入同步屏障（synchronization barrier）。即在源流完成当前排队的所有命令前，目标流不会超出当前排队的命令。
 
 TVM 框架若要使用新的 DeviceAPI，应该按照以下步骤注册：
 

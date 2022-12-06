@@ -5,7 +5,7 @@ sidebar_position: 170
 
 # InferBound Pass
 
-InferBound pass 在 normalize 之后、ScheduleOps [build_module.py](https://github.com/apache/tvm/blob/main/python/tvm/driver/build_module.py) 之前运行。InferBound 的主要工作是创建 bounds map，为程序中的每个 IterVar 指定一个 Range。接下来这些 bounds 会传递给 ScheduleOps，用于设置 For 循环的范围，参阅 [MakeLoopNest](https://github.com/apache/tvm/blob/main/src/te/operation/op_util.cc)，以及设置分配缓冲区的大小 ([BuildRealize](https://github.com/apache/tvm/blob/main/src/te/operation/compute_op.cc)) 以及其他用途。
+InferBound pass 在 normalize 之后、ScheduleOps [build_module.py](https://github.com/apache/tvm/blob/main/python/tvm/driver/build_module.py) 之前运行。InferBound 的主要工作是创建 bounds map，为程序中的每个 IterVar 指定一个 Range。接下来这些 bounds 会传递给 ScheduleOps，用于设置 For 循环的范围，参阅 [MakeLoopNest](https://github.com/apache/tvm/blob/main/src/te/operation/op_util.cc)，以及设置分配缓冲区的大小（[BuildRealize](https://github.com/apache/tvm/blob/main/src/te/operation/compute_op.cc)）以及其他用途。
 
 InferBound 的输出是从 IterVar 到 Range 的映射：
 
@@ -319,7 +319,7 @@ for i 0, 5
         D[i, j] = C[i, j]*2
 ```
 
-可以看出，stage D 需要计算 C 的所有 (5,16) 元素。
+可以看出，stage D 需要计算 C 的所有（5,16）元素。
 
 **例 2**
 
@@ -652,7 +652,7 @@ PassUpDomain 首先在 C 的 Split 节点上调用。PassUpDomain 的案例 2 �
 
 示例中，`ci.cj.fused` 的 Range 是 [0, 16)。不同于 `ci.cj.fused` 的 IntSet，其范围最多为 4（见上表第 3 行）。因此案例 1 不适用。案例 2 也不适用，因为 `ci.cj.fused` 的 IntSet 不是单点。因此，仅适用于默认案例 3。
 
-在案例 3 中，PassUpDomain 保守地应用了「回退 (fallback) 推理规则」，即它只返回等于 `ci` 和 `cj` 的 Range 的 IntSet。由于 C 是 schedule 的输出 stage，InferBound 会将 C 的 root_iter_vars（即 `ci` 和 `cj`）的 Range 设置为它们的原始维度（即它们的 IterVars 的 `dom` 值）。`ci` 和 `cj` 的 PassUpDomain 的结果输出显示在下表的最后两行中。
+在案例 3 中，PassUpDomain 保守地应用了「回退（fallback）推理规则」，即它只返回等于 `ci` 和 `cj` 的 Range 的 IntSet。由于 C 是 schedule 的输出 stage，InferBound 会将 C 的 root_iter_vars（即 `ci` 和 `cj`）的 Range 设置为它们的原始维度（即它们的 IterVars 的 `dom` 值）。`ci` 和 `cj` 的 PassUpDomain 的结果输出显示在下表的最后两行中。
 
 | **IterVar** | **IntSet****after PassUpDomain on FuseNode** |
 |:---|:---|

@@ -79,7 +79,7 @@ BL = s.cache_write(B, "local")
 
 ## 分块
 
-以下代码将工作负载拆分为线程块和单独的线程，遵循矩阵乘法中的分块方案。如下图所示，给定一个像素坐标 (y, x)，一个线程块负责计算一个 block_factor x block_factor (64 x 64) 的区域，用于输出通道和 batch。由于共享内存空间的限制，每次只从 Apad 和 B 加载 step x block_factor (8 x 64) 数据到共享内存中的缓冲区。
+以下代码将工作负载拆分为线程块和单独的线程，遵循矩阵乘法中的分块方案。如下图所示，给定一个像素坐标（y、x），一个线程块负责计算一个 block_factor x block_factor (64 x 64) 的区域，用于输出通道和 batch。由于共享内存空间的限制，每次只从 Apad 和 B 加载 step x block_factor (8 x 64) 数据到共享内存中的缓冲区。
 
 ![图片](https://github.com/dmlc/web-data/raw/main/tvm/tutorial/conv_gpu_blocking.png)
 
@@ -131,7 +131,7 @@ s[B].bind(ty, thread_y)
 s[B].bind(tx, thread_x)
 ```
 
-## 协同获取 (Cooperative Fetching)
+## 协同获取（Cooperative Fetching）
 
 如前所述，每个时间步长都要将 step x block_factor 数据从 GPU 全局内存传输到共享内存。为了减少每个线程的内存传输，以下代码让同一线程块中的线程协同从全局内存中获取相关数据。
 

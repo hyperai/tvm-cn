@@ -157,7 +157,7 @@ python3 tests/android_rpc_test.py
 
 ## 加载预训练的 Keras 模型
 
-加载 Keras 提供的预训练 MobileNetV2 (alpha=0.5) 分类模型：
+加载 Keras 提供的预训练 MobileNetV2（alpha=0.5）分类模型：
 
 ``` python
 keras.backend.clear_session()  # 销毁当前的 TF 计算图，并创建一个新的。

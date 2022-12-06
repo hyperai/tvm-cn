@@ -1863,7 +1863,7 @@ func(a_tvm, w_tvm, c_tvm)
 
 tvm.testing.assert_allclose(c_np, c_tvm.numpy(), rtol=1e-2)
 
-# 评估运行时间。这里选择一个较大的重复次数 (400) 来减少噪音以及内核启动的开销。还可用 nvprof 来验证结果。
+# 评估运行时间。这里选择一个较大的重复次数（400）来减少噪音以及内核启动的开销。还可用 nvprof 来验证结果。
 evaluator = func.time_evaluator(func.entry_name, dev, number=400)
 print("Time cost of this operator: %f" % evaluator(a_tvm, w_tvm, c_tvm).mean)
 ```

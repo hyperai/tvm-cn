@@ -144,9 +144,9 @@ RELAY_REGISTER_OP("cumprod")
 
 为算子定义接口后，仍需定义如何执行 cumulative sum 和 cumulative product 的实际计算。
 
-假设算子计算的实现方式，经过了多轮测试且表现良好。推荐查看 [张量表达式教程](/docs/tutorial/tensor_expr)、[TVM 算子清单 (topi)](/docs/tutorial/TOPI)、[python/tvm/topi/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/scan.py) 中 cumulative sum 及 cumulative product 相关实现案例，以及 [python/tvm/topi/cuda/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/cuda/scan.py) 中的 GPU 版本。在 cumulative sum 及 cumulative product 算子中，可以直接用 [TIR](https://tvm.apache.org/docs/reference/api/python/tir.html#api-python-tir)，张量表达式及 topi 降级后表示为 TIR。
+假设算子计算的实现方式，经过了多轮测试且表现良好。推荐查看 [张量表达式教程](/docs/tutorial/tensor_expr)、[TVM 算子清单（topi）](/docs/tutorial/TOPI)、[python/tvm/topi/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/scan.py) 中 cumulative sum 及 cumulative product 相关实现案例，以及 [python/tvm/topi/cuda/scan.py](https://github.com/apache/tvm/blob/main/python/tvm/topi/cuda/scan.py) 中的 GPU 版本。在 cumulative sum 及 cumulative product 算子中，可以直接用 [TIR](https://tvm.apache.org/docs/reference/api/python/tir.html#api-python-tir)，张量表达式及 topi 降级后表示为 TIR。
 
-## 5. 将计算 (compute) 和策略 (strategy) 与 Relay 关联起来
+## 5. 将计算（compute）和策略（strategy）与 Relay 关联起来
 
 实现计算函数后，需要将其与 Relay 算子粘合在一起。在 TVM 中，这意味着不仅要定义 computation，还要定义算子的 schedule。策略决定使用哪种 computation 及 schedule。例如，对于二维卷积，识别出这属于一种深度卷积后，最终将其分配给一个更有效的 computation 和 schedule。
 
@@ -232,7 +232,7 @@ shape 函数用于确定 output shape，给定一个动态 shaped tensor。在�
 
 ## 6. 创建 Relay 调用节点并提供 Python Hook
 
-现在已经有了一个可以运行的算子，接下来只需通过一个 Relay 调用节点 (Relay Call Node) 正确地调用即可。这一步需要简单地编写一个函数，接收算子的参数（作为 Relay 表达式），并向算子返回一个的调用节点（即应该被放在调用算子的 Relay AST 中的节点）。
+现在已经有了一个可以运行的算子，接下来只需通过一个 Relay 调用节点（Relay Call Node）正确地调用即可。这一步需要简单地编写一个函数，接收算子的参数（作为 Relay 表达式），并向算子返回一个的调用节点（即应该被放在调用算子的 Relay AST 中的节点）。
 
 目前不支持调用属性和类型参数（最后两个字段），所以只需使用  `Op::Get` 从算子注册表中获取算子信息，并将参数传递给调用节点（如下所示）。在 `src/relay/op/tensor/transform.cc`：
 
@@ -260,7 +260,7 @@ Expr MakeCumprod(Expr data, Integer axis, DataType dtype, Bool exclusive) {
 TVM_REGISTER_GLOBAL("relay.op._make.cumsum").set_body_typed(MakeCumprod);
 ```
 
-其中 `TVM_REGISTER_GLOBAL` 通过 `relay.op._make.cumsum(...)` 和 `relay.op._make.cumsum(...)` 分别暴露 (expose) Python 中的 `MakeCumsum` 和 `MakeCumprod` 函数。
+其中 `TVM_REGISTER_GLOBAL` 通过 `relay.op._make.cumsum(...)` 和 `relay.op._make.cumsum(...)` 分别暴露（expose）Python 中的 `MakeCumsum` 和 `MakeCumprod` 函数。
 
 ## 7. 包含一个更简洁的 Python API hook
 
@@ -315,7 +315,7 @@ def sigmoid_grad(orig, grad):
     return [grad * orig * (ones_like(orig) - orig)]
 ```
 
-这里的输入是原始算子 `orig` 以及梯度算子 `grad`，返回是一个列表，其中第 i 个索引的元素，是算子相对于算子第 i 个输入的导数。通常，梯度算子将返回一个列表，其元素的个数和基础算子 (base operator) 的输入一样多。
+这里的输入是原始算子 `orig` 以及梯度算子 `grad`，返回是一个列表，其中第 i 个索引的元素，是算子相对于算子第 i 个输入的导数。通常，梯度算子将返回一个列表，其元素的个数和基础算子（base operator）的输入一样多。
 
 进一步分析这个定义之前，先回忆一下 sigmoid 函数的导数：∂σ/∂x=σ(x)(1−σ(x))。上面的定义看起来类似于数学定义，但有一个重要的补充：
 
@@ -332,9 +332,9 @@ def multiply_grad(orig, grad):
             collapse_sum_like(grad * x, y)]
 ```
 
-在此示例中，返回列表中有两个元素，因为 `multiply` 是二元运算符 (binary operator)。如果 f(x,y) = xy，偏导数是 ∂f / ∂x = y 和 ∂f / ∂y = x。
+在此示例中，返回列表中有两个元素，因为 `multiply` 是二元运算符（binary operator）。如果 f(x,y) = xy，偏导数是 ∂f / ∂x = y 和 ∂f / ∂y = x。
 
-与 `sigmoid` 相比，`multiply` 需要一个额外的步骤，因为 `multiply` 具有广播语义 (broadcasting semantics)。由于 `grad` 的 shape 可能与输入 shape 不匹配，所以我们使用 `collapse_sum_like` 来获取 `grad * <var>` 项的内容，并使其 shape 与做微分的输入 shape 相匹配。
+与 `sigmoid` 相比，`multiply` 需要一个额外的步骤，因为 `multiply` 具有广播语义（broadcasting semantics）。由于 `grad` 的 shape 可能与输入 shape 不匹配，所以我们使用 `collapse_sum_like` 来获取 `grad * <var>` 项的内容，并使其 shape 与做微分的输入 shape 相匹配。
 
 ## 在 C++ 中添加梯度算子
 
@@ -350,7 +350,7 @@ tvm::Array<Expr> MultiplyGrad(const Expr& orig_call, const Expr& output_grad) {
 }
 ```
 
-注意，在 C++ 中不能使用与 Python 相同的运算符重载 (operator overloading)，而是需要向下转换，因此实现更加冗长。即便如此，我们仍然可以轻易地验证这个定义反映了 Python 中先前的例子。
+注意，在 C++ 中不能使用与 Python 相同的运算符重载（operator overloading），而是需要向下转换，因此实现更加冗长。即便如此，我们仍然可以轻易地验证这个定义反映了 Python 中先前的例子。
 
 要注册梯度算子，这里无需使用 Python 修饰器，只需要在基础算子注册的末尾添加 `set_attr` 调用 "FPrimalGradient" 即可。
 

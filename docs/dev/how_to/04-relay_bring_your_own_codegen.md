@@ -16,7 +16,7 @@ title: 向 TVM 中添加 Codegen
 
 **2. 希望生成任意计算图。**
 
-有时候，硬件可能需要其他形式的计算图如 JSON。这种情况下，用户不仅要实现一个 codegen，还要实现一个自定义 TVM runtime 模块，从而使得 TVM runtime 知道如何执行这个计算图。如果你的硬件已经拥有完整的计算图执行引擎 (graph execution engine)，如适用于 GPU 的 TensorRT，那么该解决方案对你而言非常具有参考价值。
+有时候，硬件可能需要其他形式的计算图如 JSON。这种情况下，用户不仅要实现一个 codegen，还要实现一个自定义 TVM runtime 模块，从而使得 TVM runtime 知道如何执行这个计算图。如果你的硬件已经拥有完整的计算图执行引擎（graph execution engine），如适用于 GPU 的 TensorRT，那么该解决方案对你而言非常具有参考价值。
 
 完成 codegen 和 runtime 后，可以让客户借助你的自定义标签，对模型进行注释并加以利用。终端用户如何注释和启动特定 codegen 的教程，将在后续进行补充。
 
@@ -43,7 +43,7 @@ title: 向 TVM 中添加 Codegen
     }
 ```
 
-使用这两个宏，可以为一维和二维张量生成二元算子 (binary operator)。例如，给定如下所示的子图，假设所有输入都是 shape 为 (10, 10) 的二维张量：
+使用这两个宏，可以为一维和二维张量生成二元算子（binary operator）。例如，给定如下所示的子图，假设所有输入都是 shape 为（10, 10）的二维张量：
 
 ``` text
 c_compiler_input0
@@ -115,9 +115,9 @@ TVM_DLL_EXPORT_TYPED_FUNC(gcc_0, gcc_0_wrapper);
 这里详细介绍一下上面代码里的注释：
 
 * **注1**：子图中三个节点的函数实现。
-* **注2**：通过分配中间数组 (intermediate buffer) 并调用相应函数来执行子图的函数。
+* **注2**：通过分配中间数组（intermediate buffer）并调用相应函数来执行子图的函数。
 * **注3**：TVM runtime 兼容的包装函数。它接收一个输入张量列表和一个输出张量（最后一个参数），并将其转换为正确的数据类型，调用注2 中描述的子图函数。此外，`TVM_DLL_EXPORT_TYPED_FUNC` 是一个 TVM 宏，它通过将所有张量打包到 `TVMArgs` 来生成另一个函数 `gcc_0`，该函数具有统一的函数参数。因此，TVM runtime 可以直接调用 `gcc_0` 来执行子图，无需其他操作。生成上述代码后，TVM 能够将其与计算图的其余部分一起编译并导出单个库以进行部署。
-  
+
 在本节的其余部分，我们将逐步创建一个 codegen，来实现上述代码。你的 codegen 必须位于 `src/relay/backend/contrib/<your-codegen-name>/`。在这个例子中，我们将 codegen 命名为 "codegen_c"，并将其放在 [/src/relay/backend/contrib/codegen_c/](https://github.com/apache/tvm/blob/main/src/relay/backend/contrib/codegen_c/codegen.cc) 目录下。你可以随时查看这个文件，了解完整的实现过程。
 
 具体来说，我们将在这个文件中实现两个类，两个类的关系如下：
@@ -131,7 +131,7 @@ TVM backend -----------------------------> CSourceCodegen -------------> Codegen
           generated C source runtime module              generated C code
 ```
 
-当 TVM 后端发现 Relay 计算图中的函数（子图），用注册的编译器标记（本例中为 `ccompiler`）进行了注释时，TVM 后端就会调用 `CSourceCodegen` 并传递子图。 `CSourceCodegen` 的成员函数 `CreateCSourceModule` 将：
+当 TVM 后端发现 Relay 计算图中的函数（子图），用注册的编译器标签（本例中为 `ccompiler`）进行了注释时，TVM 后端就会调用 `CSourceCodegen` 并传递子图。 `CSourceCodegen` 的成员函数 `CreateCSourceModule` 将：
 
 1）为子图生成 C 代码；
 
@@ -193,7 +193,7 @@ class CodegenC : public ExprVisitor, public CodegenCBase {
 
 ### 算子的代码生成
 
-首先实现 `VisitExpr_(const CallNode* call)`。该函数在遍历子图时会访问所有调用节点。每个调用节点都包含一个我们想要卸载 (offload) 到硬件中的算子。因此，我们需要按照拓扑顺序生成具有正确算子的相应 C 代码。完整实现过程如下：
+首先实现 `VisitExpr_(const CallNode* call)`。该函数在遍历子图时会访问所有调用节点。每个调用节点都包含一个我们想要卸载（offload）到硬件中的算子。因此，我们需要按照拓扑顺序生成具有正确算子的相应 C 代码。完整实现过程如下：
 
 #### 1. 生成函数声明
 
@@ -280,7 +280,7 @@ for (size_t i = 0; i < call->args.size(); ++i) {
 
 **注2**：你可能注意到，我们在这一步没有关闭函数调用字符串。当前函数调用字符串看起来像：`gcc_0_0(buf_1, gcc_input3`。这是因为我们没有将最后一个参数（如 output）放入此调用中。函数调用的输出可以是分配的临时数组或子图输出张量。简单起见，在本例中我们为每个调用节点都分配老一个输出数组（下一步），并将最后一个数组中的结果复制到了输出张量。
 
-#### 3. 生成输出数组 (output buffer)
+#### 3. 生成输出数组（output buffer）
 
 示例结果：`float buf_0 = (float)malloc(4 * 100);`
 
@@ -329,7 +329,7 @@ out_.push_back({out, out_size});
 
 回想一下，我们通过访问调用节点的参数（上一节中的第 2 步）收集了输入数组信息，并处理了参数是另一个调用节点的情况（第 4 步）。本节我们将以 `VarNode` 为例，演示如何处理其他节点。
 
-`VarNode` 表示模型中的输入张量。它非常重要的一点就是名称提示（例如，`data`、`weight` 等）。访问 `VarNode` 时，只需更新类变量 `out_` 传递名称提示，后代 (descendant) 调用节点就可以生成正确的函数调用。
+`VarNode` 表示模型中的输入张量。它非常重要的一点就是名称提示（例如，`data`、`weight` 等）。访问 `VarNode` 时，只需更新类变量 `out_` 传递名称提示，后代（descendant）调用节点就可以生成正确的函数调用。
 
 ``` c++
 void VisitExpr_(const VarNode* node) {
@@ -499,9 +499,9 @@ endif(USE_CODEGENC)
 set(USE_CODEGENC ON)
 ```
 
-## 为表征 (Representation) 实现 Codegen
+## 为表征（Representation）实现 Codegen
 
-尽管我们已经演示了如何实现 C codegen，但用户硬件可能还需要其他形式的计算图表征 (Graph Representation)，如 JSON。在这种情况下，用户可以通过修改 `CodegenC` 类，生成自己的计算图表征，并实现一个自定义 runtime 模块，告诉 TVM runtime 如何执行这个计算图表征。
+尽管我们已经演示了如何实现 C codegen，但用户硬件可能还需要其他形式的计算图表征（Graph Representation），如 JSON。在这种情况下，用户可以通过修改 `CodegenC` 类，生成自己的计算图表征，并实现一个自定义 runtime 模块，告诉 TVM runtime 如何执行这个计算图表征。
 
 简单起见，本指南中定义了一个名为 "ExampleJSON" 的计算图表征。 ExampleJSON 并不是 JSON，而是没有控制流的计算图的简单表示。例如，假设有以下名为 `subgraph_0` 的子图：
 
@@ -668,7 +668,7 @@ class ExampleJsonModule : public ModuleNode {
 以下这些从 `ModuleNode` 派生的函数，必须在 `ExampleJsonModule` 中实现：
 
 * 构造函数：这个类的构造函数，应该接收一个表征中的子图，用户可以自行决定处理和存储的格式。保存的子图可以被以下两个函数使用。
-* `GetFunction`：这是这个类中最重要的函数。当 TVM runtime 要使用编译器标记 (compiler tag) 执行子图时，它会从自定义 runtime 模块中调用此函数。它提供函数名及 runtime 参数，`GetFunction` 会返回一个打包的函数实现，以供 TVM runtime 执行。
+* `GetFunction`：这是这个类中最重要的函数。当 TVM runtime 要使用编译器标签（compiler tag）执行子图时，它会从自定义 runtime 模块中调用此函数。它提供函数名及 runtime 参数，`GetFunction` 会返回一个打包的函数实现，以供 TVM runtime 执行。
 * `SaveToBinary` 和 `LoadFromBinary`：`SaveToBinary` 将 runtime 模块序列化为二进制格式以供后续部署。用户使用 `export_library` API 时，TVM 会调用这个函数。另一方面，由于用户这时使用的是自己的计算图表征，因此必须确保 `LoadFromBinary` 能够采用`SaveToBinary` 生成的序列化二进制文件，来构造相同的 runtime 模块。
 * `GetSource`（可选）：如果想查看生成的 ExampleJSON 代码，可以实现这个函数来转存；否则则可以跳过实现。
 
@@ -857,7 +857,7 @@ void SaveToBinary(dmlc::Stream* stream) final {
 }
 ```
 
-这个函数非常简单。在构造函数中，我们采取的唯一参数是一个子图表征 (subgraph representation)。也就是说只需一个子图表征来构造/恢复这个自定义 runtime 模块。`SaveToBinary` 只是将子图写到一个输出的 DMLC 流中，当用户使用 `export_library` API 输出模块时，自定义模块将是一个子图的 ExampleJSON 流。
+这个函数非常简单。在构造函数中，我们采取的唯一参数是一个子图表征（subgraph representation）。也就是说只需一个子图表征来构造/恢复这个自定义 runtime 模块。`SaveToBinary` 只是将子图写到一个输出的 DMLC 流中，当用户使用 `export_library` API 输出模块时，自定义模块将是一个子图的 ExampleJSON 流。
 
 `LoadFromBinary` 读取子图流并重新构建自定义 runtime 模块的流程与此类似：
 

@@ -78,7 +78,7 @@ elif env.TARGET in ["sim", "tsim"]:
 
 在 CPU 和 GPU 上，并行化工作时提高内存访问效率的一种方法是空间打包，这种方法要对数据进行重新布局。VTA 加载 DMA 引擎可以自动插入填充，因此不必将原始输入特征图重新打包到内存中。
 
-我们展示了数据从 DRAM 加载到 VTA 的 SRAM 中时，VTA 的动态空间填充效果。这个过程发生在 2D 跨步和填充内存 (strided and padded memory) 读取后。
+我们展示了数据从 DRAM 加载到 VTA 的 SRAM 中时，VTA 的动态空间填充效果。这个过程发生在 2D 跨步和填充内存（strided and padded memory）读取后。
 
 ![/img/docs/uwsampl/web-data/main/vta/tutorial/padding.png](/img/docs/uwsampl/web-data/main/vta/tutorial/padding.png)
 :::

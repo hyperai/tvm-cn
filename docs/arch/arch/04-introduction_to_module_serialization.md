@@ -82,7 +82,7 @@ llvm_mod:imported_modules
 
 因此，LLVM 模块的索引为 0，CUDA 模块的索引为 1。
 
-模块索引构建后，用 `CreateImportTree()` 来构建导入树 (import tree)，其作用是在加载导出的库时，恢复模块导入关系。在我们的设计中，用 CSR 格式存储导入树，每一行都是父索引，子索引 (child indices) 对应它的孩子索引 (children index)。代码中用 `import_tree_row_ptr_` 和 `import_tree_child_indices_` 来表示它们。
+模块索引构建后，用 `CreateImportTree()` 来构建导入树（import tree），其作用是在加载导出的库时，恢复模块导入关系。在我们的设计中，用 CSR 格式存储导入树，每一行都是父索引，子索引（child indices）对应它的孩子索引（children index）。代码中用 `import_tree_row_ptr_` 和 `import_tree_child_indices_` 来表示它们。
 
 初始化后，可以用 `SerializeModule` 函数来序列化模块。在其功能逻辑中，假设序列化格式如下：
 
@@ -107,7 +107,7 @@ _import_tree_logic
 是否需要实现 SaveToBinary 虚函数，取决于模块的使用方式。例如，加载动态共享库时，若模块有我们需要的信息，则应该实现 SaveToBinary 虚函数。它类似于 CUDA 模块，加载动态共享库时，要将其二进制数据传递给 GPU 驱动程序，因此实现 `SaveToBinary` 来序列化其二进制数据。但是对于主机模块（如 DSO），加载动态共享库时不需要其他信息，因此无需实现`SaveToBinary`。但是，若之后要记录一些 DSO 模块的元信息，也可以为 DSO 模块实现 `SaveToBinary`。
 :::
 
-最后，除非模块只有一个 DSO 模块，并且在根目录下，否则要编写一个主要的 `_import_tree`。如前所述，它用于将导出的库加载回来时，重建模块导入关系。`import_tree_logic` 只是将 `import_tree_row_ptr_` 和 `import_tree_child_indices_` 写入流 (stream) 中。
+最后，除非模块只有一个 DSO 模块，并且在根目录下，否则要编写一个主要的 `_import_tree`。如前所述，它用于将导出的库加载回来时，重建模块导入关系。`import_tree_logic` 只是将 `import_tree_row_ptr_` 和 `import_tree_child_indices_` 写入流（stream）中。
 
 完成这一步后，将其打包到符号 `runtime::symbol::tvm_dev_mblob` 中，这个符号可以在动态库中恢复。
 

@@ -1,8 +1,8 @@
 ---
-title: 部署 Single Shot Multibox Detector (SSD) 模型
+title: 部署 Single Shot Multibox Detector（SSD）模型
 ---
 
-# 部署 Single Shot Multibox Detector (SSD) 模型
+# 部署 Single Shot Multibox Detector（SSD）模型
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/deploy_models/deploy_ssd_gluoncv.html#sphx-glr-download-how-to-deploy-models-deploy-ssd-gluoncv-py) 下载完整的示例代码

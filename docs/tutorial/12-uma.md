@@ -10,7 +10,7 @@ title: 利用 UMA 使硬件加速器可直接用于 TVM
 
 **作者**：[Michael J. Klaiber](https://github.com/MichaelJKlaiber)，[Christoph Gerum](https://github.com/cgerum)，[Paul Palomero Bernardo](https://github.com/PaulPalomeroBernardo/)
 
-本节介绍**通用模块化加速器接口** (UMA)。UMA 提供了一个易用的 API 来将新的硬件加速器集成到 TVM 中。
+本节介绍**通用模块化加速器接口**（UMA）。UMA 提供了一个易用的 API 来将新的硬件加速器集成到 TVM 中。
 
 本教程详细介绍了如何利用 UMA 使得你的硬件加速器可直接用于 TVM。虽然这个问题没有万能的解决方案，但 UMA 旨在提供一个稳定的纯 Python API，从而将许多种类的硬件加速器集成到 TVM 中。
 
@@ -26,7 +26,7 @@ title: 利用 UMA 使硬件加速器可直接用于 TVM
 int vanilla_conv2dnchw(float* ifmap, float*  weights, float*  result, int oc, int iw, int ih, int ic, int kh, int kw);
 ```
 
-脚本 *uma_cli* 为新的加速器创建带有 API (UMA-API) 调用的代码骨架。
+脚本 *uma_cli* 为新的加速器创建带有 API（UMA-API）调用的代码骨架。
 
 **Vanilla** 的使用方式如下：（`--tutorial vanilla` 添加了本部分教程所需的所有附加文件）
 
@@ -70,7 +70,7 @@ class VanillaAcceleratorBackend(UMABackend):
 
 定义迁移模式
 
-为了指定 *Conv2D* 迁移到 **Vanilla**，*vanilla_accelerator/patterns.py* 中将其描述为 Relay 数据流模式 ([DFPattern](https://tvm.apache.org/docs/reference/langref/relay_pattern.html))。
+为了指定 *Conv2D* 迁移到 **Vanilla**，*vanilla_accelerator/patterns.py* 中将其描述为 Relay 数据流模式（[DFPattern](https://tvm.apache.org/docs/reference/langref/relay_pattern.html)）。
 
 ``` python
 def conv2d_pattern():
@@ -127,7 +127,7 @@ def main():
 main()
 ```
 
-运行 `vanilla_accelerator/run.py`，将以模型库格式 (MLF) 生成输出文件。
+运行 `vanilla_accelerator/run.py`，将以模型库格式（MLF）生成输出文件。
 
 输出结果：
 

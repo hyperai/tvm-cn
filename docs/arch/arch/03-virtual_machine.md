@@ -19,9 +19,9 @@ Relay 虚拟机旨在成为一个平衡了这些竞争方法的框架，提供�
 
 虚拟机是为了取得部署和执行 Relay 程序时性能和灵活性之间的平衡，同时不损失 TVM 的优势。
 
-虚拟机 (VM) 设计是编程语言和系统中一个经过充分研究的领域，成熟的嵌入式编程语言都有多种虚拟机设计。以前的语言虚拟机设计针对传统程序的执行配置文件进行了大量适配。传统程序处理小的标量值，并由大量底层指令组成。
+虚拟机（VM）设计是编程语言和系统中一个经过充分研究的领域，成熟的嵌入式编程语言都有多种虚拟机设计。以前的语言虚拟机设计针对传统程序的执行配置文件进行了大量适配。传统程序处理小的标量值，并由大量底层指令组成。
 
-由于指令的数量很多，因此指令的执行和调度必须非常高效。机器学习的上下文中，主要用（相对）较少的高级指令来处理张量值。机器学习 (ML) 程序的 cost 中心是对大量输入的耗时算子的调用，比如 GEMM 或卷积。由于 ML 程序呈现的执行配置文件，标量虚拟机中的微优化显得没那么重要了。
+由于指令的数量很多，因此指令的执行和调度必须非常高效。机器学习的上下文中，主要用（相对）较少的高级指令来处理张量值。机器学习（ML）程序的 cost 中心是对大量输入的耗时算子的调用，比如 GEMM 或卷积。由于 ML 程序呈现的执行配置文件，标量虚拟机中的微优化显得没那么重要了。
 
 TVM 很好地支持了视觉模型，但也希望能够支持更广泛的模型。图执行器能够利用输入图的完全静态特性，来执行积极的优化，比如完全静态分配，以及最佳内存重用。若引入的模型要利用控制流、递归、动态 shapes 和动态分配，就必须改变执行的工作方式。选择 Relay 虚拟机合情合理。
 
@@ -229,7 +229,7 @@ RegName dst
 
 ### 堆栈和状态
 
-Relay 虚拟机维护一个栈帧 (stack frame)，其中包含如何恢复之前的调用的信息。寄存器被分配在每个函数的连续空间（虚拟寄存器文件）中。
+Relay 虚拟机维护一个栈帧（stack frame），其中包含如何恢复之前的调用的信息。寄存器被分配在每个函数的连续空间（虚拟寄存器文件）中。
 
 跟踪一组调用的 Relay 函数，一个指向其字节码的指针，以及字节码的偏移量（称为程序计数器）。
 
@@ -268,8 +268,8 @@ struct VirtualMachine {
 * Lambda 提升（参见 [src/relay/vm/lambda_lift.cc](https://github.com/apache/tvm/blob/main/src/relay/backend/vm/lambda_lift.cc)）
 * 内联原语（参见 [src/relay/vm/inline_primitives.cc](https://github.com/apache/tvm/blob/main/src/relay/backend/vm/inline_primitives.cc)）
 * 常量池布局（参见 [src/relay/backend/vm/compiler.cc](https://github.com/apache/tvm/blob/main/src/relay/backend/vm/compiler.cc)）
-* 尾调用优化 (TODO)
-* 存活性分析 (TODO)
+* 尾调用优化（TODO）
+* 存活性分析（TODO）
 
 ### 序列化
 
@@ -281,8 +281,8 @@ struct VirtualMachine {
 * 常量部分。这一节用于存储虚拟机的常量池（即模型的权重）。
 * 原语名称部分。引入这一节是为了归纳由虚拟机调用的原语算子名称列表，即以 `fused_` 开头的名称。原语名称用作符号，从而在编译的内核库中查找函数指针。
 * 代码部分。包括字节码在内的虚拟机函数位于这一节中。调度循环遍历此部分以获取执行指令。
-  
-因此，不同于包含权重 (.params)、图 json (.json) 和编译内核库 (.so) 的图执行器 artifact，序列化的可执行 artifact 由 Relay 对象文件 (.ro) 和编译内核组成 (.so)。
+
+因此，不同于包含权重（.params）、图 json（.json）和编译内核库（.so）的图执行器 artifact，序列化的可执行 artifact 由 Relay 对象文件（.ro）和编译内核组成（.so）。
 
 实现的 `save` 函数将可执行文件存储到磁盘，并序列化为上述格式。同时，`load_exec` 函数用于加载序列化的内核二进制以及可执行相关的二进制代码，这些二进制代码之后也会用于实例化虚拟机对象。更多示例，参阅 [test_vm_serialization.py](https://github.com/apache/tvm/blob/main/tests/python/relay/test_vm_serialization.py) 文件。
 
@@ -290,7 +290,7 @@ struct VirtualMachine {
 
 #### 如何处理动态 shape？
 
-随着 Relay（TVM 的编译器）的升级，TVM 对动态 shape 的支持也在不断发展。推荐在 TVM 的论坛 (https://discuss.tvm.apache.org/) 中获取有关动态 shape 支持的最新进展。
+随着 Relay（TVM 的编译器）的升级，TVM 对动态 shape 的支持也在不断发展。推荐在 TVM 的论坛（https://discuss.tvm.apache.org/）中获取有关动态 shape 支持的最新进展。
 
 #### 如何修改虚拟机来支持某些代码路径的 JIT 编译？
 

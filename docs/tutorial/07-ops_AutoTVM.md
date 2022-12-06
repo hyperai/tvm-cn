@@ -10,7 +10,7 @@ title: 用 Schedule 模板和 AutoTVM 优化算子
 
 **作者**：[Lianmin Zheng](https://github.com/merrymercy)，[Chris Hoge](https://github.com/hogepodge)
 
-本教程将展示如何用 TVM 张量表达式 (TE) 语言编写 schedule 模板，并通过 AutoTVM 对模板进行搜索，从而找到最佳 schedule。这个自动优化张量计算的过程被称为 Auto-Tuning。
+本教程将展示如何用 TVM 张量表达式（TE）语言编写 schedule 模板，并通过 AutoTVM 对模板进行搜索，从而找到最佳 schedule。这个自动优化张量计算的过程被称为 Auto-Tuning。
 
 本教程基于前面的 [TE 编写矩阵乘法教程](https://tvm.apache.org/docs/tutorial/tensor_expr_get_started.html) 设立。
 
@@ -128,11 +128,11 @@ def matmul_v1(N, L, M, dtype):
 
 1. 使用装饰器将此函数标记为简单模板。
 2. 获取 config 对象：将 `cfg` 视为此函数的参数，但我们以另外的方式获取它。cfg 参数使得这个函数不再是一个确定的 schedule。将不同的配置传递给这个函数，可以得到不同的 schedule。这种使用配置对象的函数称为“模板”。
-   
+
    为使模板函数更精炼，可在单个函数中定义参数搜索空间：
    1. 用一组值来定义搜索空间。将 `cfg` 转为 `ConfigSpace` 对象，收集此函数中的所有可调 knob，然后从中构建一个搜索空间。
    2. 根据空间中的实体进行调度。将 `cfg` 转为 `ConfigEntity` 对象，当它被转为 `ConfigEntity` 后，会忽略所有空间定义 API（即 `cfg.define_XXXXX(...)`），但会存储所有可调 knob 的确定值，并根据这些值进行调度。
-   
+
    在 auto-tuning 的过程中，首先用 `ConfigSpace` 对象调用这个模板来构建搜索空间，然后在构建的空间中用不同的 `ConfigEntity` 调用这个模板，来得到不同的 schedule。最后，我们将评估由不同 schedule 生成的代码，然后选择最佳的 schedule。
 4. 定义两个可调 knob。第一个是 `tile_y`，它有 5 个可能值。第二个是 `tile_x`，它和前者具有相同的可能值。这两个 knob 是独立的，所以它们跨越大小为 25 = 5x5 的搜索空间。
 5. 配置 knob 被传递给 `split` 调度操作，然后可以根据之前在 `cfg` 中定义的 5x5 确定值进行调度。
@@ -175,7 +175,7 @@ def matmul(N, L, M, dtype):
 ```
 
 :::note 关于 `cfg.define_split` 的更多解释
-在此模板中，`cfg.define_split("tile_y", y, num_outputs=2)` 枚举了所有可能的组合（以 y 的长度为因子，将 y 轴分成两个轴）。例如，如果 y 的长度为 32 并且想以 32 为因子将它拆分为两个轴，那么 (外轴长度，内轴长度) 有 6 个可能的值，即 (32, 1)，(16, 2)，(8, 4)，(4, 8)，(2, 16) 或 (1, 32)。这些也是 *tile_y* 的 6 个可能值。
+在此模板中，`cfg.define_split("tile_y", y, num_outputs=2)` 枚举了所有可能的组合（以 y 的长度为因子，将 y 轴分成两个轴）。例如，如果 y 的长度为 32 并且想以 32 为因子将它拆分为两个轴，那么（外轴长度，内轴长度）有 6 个可能的值，即 (32, 1)，(16, 2)，(8, 4)，(4, 8)，(2, 16) 或 (1, 32)。这些也是 *tile_y* 的 6 个可能值。
 
 调度过程中，`cfg["tile_y"]` 是一个 `SplitEntity` 对象。我们将外轴和内轴的长度存储在 `cfg['tile_y'].size` （有两个元素的元组）中。这个模板使用 `yo, yi = cfg['tile_y'].apply(s, C, y)` 来应用它。其实等价于 `yo, yi = s[C].split(y, cfg["tile_y"].size[1])` 或 `yo, yi = s[C].split(y, nparts=cfg['tile_y"].size[0])`。
 
@@ -204,7 +204,7 @@ while ct < max_number_of_trials:
 * `tvm.autotvm.tuner.GridSearchTuner` ：以网格搜索顺序枚举空间
 * `tvm.autotvm.tuner.GATuner` ：使用遗传算法搜索空间
 * `tvm.autotvm.tuner.XGBTuner` ：用基于模型的方法训练一个 XGBoost 模型，来预测降级 IR 的速度，并根据预测值选择下一批配置。
-  
+
 可根据空间大小、时间预算和其他因素来选择调优器。例如，如果你的空间非常小（小于 1000），则网格搜索调优器或随机调优器就够了。如果你的空间在 10^9 级别（CUDA GPU 上的 conv2d 算子的空间大小），XGBoostTuner 可以更有效地探索并找到更好的配置。
 
 ### 开始调优
@@ -231,7 +231,7 @@ ConfigSpace (len=100, space_map=
 本教程只做 10 次试验进行演示。实际上可以根据自己的时间预算进行更多试验。调优结果会记录到日志文件中。这个文件可用于选择之后发现的调优器的最佳配置。
 
 ``` python
-# 记录 config (为了将 tuning 日志打印到屏幕)
+# 记录 config（为了将 tuning 日志打印到屏幕）
 logging.getLogger("autotvm").setLevel(logging.DEBUG)
 logging.getLogger("autotvm").addHandler(logging.StreamHandler(sys.stdout))
 ```

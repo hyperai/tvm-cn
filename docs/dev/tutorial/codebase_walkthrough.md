@@ -68,7 +68,7 @@ Python 封装的方式并不直接。在 [TVM Runtime 系统](/docs/arch/arch/ru
 
 使用 `TVM_REGISTER_*` 宏将 C++ 函数以 [PackedFunc](/docs/arch/arch/runtimes#PackedFunc) 的形式暴露给前端语言。`PackedFunc` 是 TVM 实现 C++ 和 Python
 之间互操作性的另一种机制。这使得从 C++ 代码库中调用 Python
-函数变得非常容易。Python 和 C++ 的语言交互接口 (FFI)
+函数变得非常容易。Python 和 C++ 的语言交互接口（FFI）
 的调用之间导航，请查看 [FFI Navigator](https://github.com/tqchen/ffi-navigator)。
 
 每个 `Tensor` 对象有一个与之相关的 `Operation` 对象，定义在

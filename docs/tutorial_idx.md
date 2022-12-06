@@ -12,7 +12,7 @@ sidebar_position: 3
 * [安装 TVM](/docs/tutorial/install)
 * [使用 TVMC 编译和优化模型](/docs/tutorial/compile)
 * [使用 TVMC Python 快速入门：TVM 的高级 API](/docs/tutorial/tvmc_python)
-* [使用 Python 接口 (AutoTVM) 编译和优化模型](/docs/tutorial/python_AutoTVM)
+* [使用 Python 接口（AutoTVM）编译和优化模型](/docs/tutorial/python_AutoTVM)
 * [使用张量表达式操作算子](/docs/tutorial/tensor_expr)
 * [使用 Schedule 模板和 AutoTVM 优化算子](/docs/tutorial/ops_AutoTVM)
 * [使用 Auto-scheduling 优化算子](/docs/tutorial/ops_AutoScheduling)

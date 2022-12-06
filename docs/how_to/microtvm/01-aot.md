@@ -10,7 +10,7 @@ title: microTVM 主机驱动的 AoT
 
 **作者**：[Mehrdad Hessar](https://github.com/mehrdadh)，[Alan MacDonald](https://github.com/alanmacd)
 
-本教程展示了 microTVM（使用 TFLite 模型）主机驱动的 AoT 编译。与 GraphExecutor 相比，AoTExecutor 减少了运行时解析图的开销。此外，我们可以通过提前编译更好地进行内存管理。本教程可以使用 C 运行时 (CRT) 在 x86 CPU 上执行，也可以在 Zephyr 支持的微控制器/板上的 Zephyr 平台上执行。
+本教程展示了 microTVM（使用 TFLite 模型）主机驱动的 AoT 编译。与 GraphExecutor 相比，AoTExecutor 减少了运行时解析图的开销。此外，我们可以通过提前编译更好地进行内存管理。本教程可以使用 C 运行时（CRT）在 x86 CPU 上执行，也可以在 Zephyr 支持的微控制器/板上的 Zephyr 平台上执行。
 
 ``` python
 import numpy as np
@@ -59,7 +59,7 @@ relay_mod, params = relay.frontend.from_tflite(
 接下来定义 target、runtime 和 executor。本教程将详细介绍使用 AOT 主机驱动的执行器。这里使用的主机微 target，它使用 CRT runtime 在 x86 CPU 上运行模型，或者在 qemu_x86 模拟器单板上运行带有 Zephyr 平台的模型。对于物理微控制器，获取物理单板（例如 nucleo_l4r5zi）的 target 模型，并将其传递给 *tvm.target.target.micro*，从而创建完整的微目标。
 
 ``` python
-# 使用 C runtime (crt)，并通过将 system-lib 设置为 True 来启用静态链接
+# 使用 C runtime（crt），并通过将 system-lib 设置为 True 来启用静态链接
 RUNTIME = Runtime("crt", {"system-lib": True})
 
 # 在主机上模拟一个微控制器。使用来自 `src/runtime/crt/host/main.cc <https://github.com/apache/tvm/blob/main/src/runtime/crt/host/main.cc>`_ 的 main()。
@@ -116,7 +116,7 @@ project = tvm.micro.generate_project(
 
 ## 构建、烧录和执行模型
 
-接下来构建 microTVM 项目，并将其烧录。Flash 步骤是特定于物理微控制器的。若它通过主机 main.cc 来模拟微控制器，或是将 Zephyr 仿真板作为 target，则会跳过该步骤。接下来，为模型输出定义标签，并使用期望值为 6 的样本 (label: left) 执行模型。
+接下来构建 microTVM 项目，并将其烧录。Flash 步骤是特定于物理微控制器的。若它通过主机 main.cc 来模拟微控制器，或是将 Zephyr 仿真板作为 target，则会跳过该步骤。接下来，为模型输出定义标签，并使用期望值为 6 的样本（label: left）执行模型。
 
 ``` python
 project.build()

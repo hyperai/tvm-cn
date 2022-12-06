@@ -10,7 +10,7 @@ title: TOPI 简介
 
 **作者**：[Ehsan M. Kermani](https://github.com/ehsanmok)
 
-这是 TVM 算子清单 (TOPI) 的入门教程。 TOPI 提供了 numpy 风格的通用操作和 schedule，其抽象程度高于 TVM。本教程将介绍 TOPI 是如何使得 TVM 中的代码不那么样板化的。
+这是 TVM 算子清单（TOPI）的入门教程。 TOPI 提供了 numpy 风格的通用操作和 schedule，其抽象程度高于 TVM。本教程将介绍 TOPI 是如何使得 TVM 中的代码不那么样板化的。
 
 ``` python
 import tvm

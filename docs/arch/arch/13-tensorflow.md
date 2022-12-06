@@ -13,10 +13,10 @@ TensorFlow 前端有助于将 TensorFlow 模型导入 TVM。
 
 测试模型：
 
-* Inception (V1/V2/V3/V4)
+* Inception（V1/V2/V3/V4）
 * Resnet（全部）
 * Mobilenet（V1/V2 全部）
-* Vgg (16/19)
+* Vgg（16/19）
 * BERT（基础/3 层）
 
 ## 为推理准备模型
@@ -34,7 +34,7 @@ TVM 对动态张量 shape 的支持最少。为 `None` 的维度应替换为常�
 
 ### 导出
 
-TensorFlow 前端需要一个冻结的 protobuf (.pb) 或保存的模型作为输入。它目前不支持检查点 (.ckpt)。TensorFlow 前端所需的 graphdef 可以从活动 session 中提取，或者使用 [TFParser](https://github.com/apache/tvm/blob/main/python/tvm/relay/frontend/tensorflow_parser.py) 辅助类。
+TensorFlow 前端需要一个冻结的 protobuf（.pb）或保存的模型作为输入。它目前不支持检查点（.ckpt）。TensorFlow 前端所需的 graphdef 可以从活动 session 中提取，或者使用 [TFParser](https://github.com/apache/tvm/blob/main/python/tvm/relay/frontend/tensorflow_parser.py) 辅助类。
 
 导出模型时应进行一些转换，以准备模型进行推理。设置 `add_shapes=True` 也很重要，因为这会将每个节点的输出 shape 嵌入到图中。这是一个将模型导出为给定会话的 protobuf 的函数：
 
@@ -45,7 +45,7 @@ from tensorflow.tools.graph_transforms import TransformGraph
 def export_pb(session):
     with tf.gfile.GFile("myexportedmodel.pb", "wb") as f:
         inputs = ["myinput1", "myinput2"] # 替换为你的输入名称
-        
+
         outputs = ["myoutput1"] # 替换为你的输出名称
         graph_def = session.graph.as_graph_def(add_shapes=True)
         graph_def = tf.graph.util.convert_variables_to_constants(session, graph_def, outputs)

@@ -18,7 +18,7 @@ Graph JSON 格式解释如下
 1. `nodes` 节点是占位符，或是 json 中的计算节点。节点存储为列表。一个节点包含以下信息：
    * `op` - 操作类型，`null` 表示它是一个占位符/变量/输入节点，`tvm_op` 表示该节点可以执行
    * `name` - 节点名称
-   * `inputs` - 算子的输入位置，Inputs 是一个 (nodeid, index, version) 元组列表。（可选）
+   * `inputs` - 算子的输入位置，Inputs 是一个（nodeid、index、version）元组列表。（可选）
    * `attrs` - 包含以下信息的节点属性
       * `flatten_data` - 执行前是否需要对数据进行展开
       * `func_name` - 融合函数名，对应 Relay 编译过程生成的 lib 的符号。
@@ -144,7 +144,5 @@ relu1_NCHW8c            fuse___layout_transform___broadcast_add_relu___layout_tr
 _contrib_conv2d_nchwc2  fuse__contrib_conv2d_NCHWc_2                                         104623.15  28.61    15:24:44.409905  15:24:44.514535  (1, 8, 224, 224, 8)  2       1
 relu2_NCHW2c            fuse___layout_transform___broadcast_add_relu___layout_transform___1  2004.77    0.55     15:24:44.514567  15:24:44.516582  (8, 8, 3, 3, 8, 8)   2       1
 _contrib_conv2d_nchwc3  fuse__contrib_conv2d_NCHWc_3                                         25218.4    6.9      15:24:44.516628  15:24:44.541856  (1, 8, 224, 224, 8)  2       1
-reshape1                fuse___layout_transform___broadcast_add_reshape_transpose_reshape    1554.25   
+reshape1                fuse___layout_transform___broadcast_add_reshape_transpose_reshape    1554.25
 ```
-
-

@@ -11,13 +11,13 @@ title: VTA 硬件指南
 
 ## VTA 概述
 
-VTA 是一种通用深度学习加速器，专为快速高效的密集线性代数而构建。VTA 包含一个简单的类似 RISC 的处理器，可以在秩 (rank) 为 1 或 2 的张量寄存器上执行密集线性代数运算。此外，该设计采用解耦的访问执行，来隐藏内存访问延迟。
+VTA 是一种通用深度学习加速器，专为快速高效的密集线性代数而构建。VTA 包含一个简单的类似 RISC 的处理器，可以在秩（rank）为 1 或 2 的张量寄存器上执行密集线性代数运算。此外，该设计采用解耦的访问执行，来隐藏内存访问延迟。
 
 在更广的范围内，VTA 可以作为全栈优化的模板深度学习加速器设计，将通用张量计算接口提供给编译器栈。
 
 ![/img/docs/uwsampl/web-data/main/vta/blogpost/vta_overview.png](/img/docs/uwsampl/web-data/main/vta/blogpost/vta_overview.png)
 
-上图给出了 VTA 硬件组织的高级概述。VTA 由四个模块组成，它们通过 FIFO 队列和本地内存块 (SRAM) 相互通信，实现任务级 pipeline 并行：
+上图给出了 VTA 硬件组织的高级概述。VTA 由四个模块组成，它们通过 FIFO 队列和本地内存块（SRAM）相互通信，实现任务级 pipeline 并行：
 
 * fetch 模块负责从 DRAM 加载指令流。它将这些指令解码，并将它们路由到三个命令队列的任意一个。
 * load 模块负责将输入和权重张量从 DRAM 加载到数据专用的芯片存储器中。
@@ -99,7 +99,7 @@ void fetch(
 
 ### 指令集架构
 
-VTA 的指令集架构 (instruction set architecture，简称 ISA) 由 4 条具有可变执行延迟的 CISC 指令组成，其中两条指令通过执行微编码指令序列来执行计算。
+VTA 的指令集架构（instruction set architecture，简称 ISA）由 4 条具有可变执行延迟的 CISC 指令组成，其中两条指令通过执行微编码指令序列来执行计算。
 
 下面列出了 VTA 指令：
 
@@ -118,7 +118,7 @@ VTA ISA 会随着 VTA 的架构参数（即 GEMM core shape、数据类型、内
 
 ### 数据流执行
 
-VTA 依靠硬件模块之间依赖 FIFO 队列 (dependence FIFO queues)，来同步任务并发执行。下图展示了给定的硬件模块，如何用依赖 FIFO 队列和单读取器/单写入器 SRAM 缓冲区，以数据流的方式同时从其生产者和消费者模块执行。所有模块都通过写后读 (RAW) 和读后写 (WAR) 依赖队列连接到其消费者和生产者。
+VTA 依靠硬件模块之间依赖 FIFO 队列（dependence FIFO queues），来同步任务并发执行。下图展示了给定的硬件模块，如何用依赖 FIFO 队列和单读取器/单写入器 SRAM 缓冲区，以数据流的方式同时从其生产者和消费者模块执行。所有模块都通过写后读（RAW）和读后写（WAR）依赖队列连接到其消费者和生产者。
 
 ![/img/docs/uwsampl/web-data/main/vta/developer/dataflow.png](/img/docs/uwsampl/web-data/main/vta/developer/dataflow.png)
 
@@ -181,10 +181,10 @@ compute 模块从微操作缓存中取出 RISC 微操作执行。有两种类型
 在计算吞吐量方面，Tensor ALU 的执行速度不是每个周期一个操作。缺少读取端口会带来一些限制：由于每个周期可以读取一个寄存器文件张量，因此张量 ALU 的启动间隔至少为 2（即每 2 个周期最多执行 1 个操作）。
 :::
 
-此外，一次执行单个张量-张量操作可能会很耗时，尤其是寄存器文件类型很宽 (wide)，通常是 32 位整数。因此，为了平衡 Tensor ALU 与 GEMM 核心的资源利用率，默认情况下，张量-张量操作是通过多个周期的向量-向量操作来执行的。
+此外，一次执行单个张量-张量操作可能会很耗时，尤其是寄存器文件类型很宽（wide），通常是 32 位整数。因此，为了平衡 Tensor ALU 与 GEMM 核心的资源利用率，默认情况下，张量-张量操作是通过多个周期的向量-向量操作来执行的。
 
 ### Load 和 Store 模块
 
 ![/img/docs/uwsampl/web-data/main/vta/developer/2d_dma.png](/img/docs/uwsampl/web-data/main/vta/developer/2d_dma.png)
 
-load 和 store 模块使用从 DRAM 到 SRAM 的跨步访问模式执行 2D DMA 加载。此外，load 模块可以动态插入 2D 填充（在阻塞 2D 卷积时很有用）。这意味着 VTA 可以平铺 2D 卷积输入，而无需补偿在 DRAM 中重新布局数据在输入和权重块 (weight tiles) 周围插入空间填充的开销。
+load 和 store 模块使用从 DRAM 到 SRAM 的跨步访问模式执行 2D DMA 加载。此外，load 模块可以动态插入 2D 填充（在阻塞 2D 卷积时很有用）。这意味着 VTA 可以平铺 2D 卷积输入，而无需补偿在 DRAM 中重新布局数据在输入和权重块（weight tiles）周围插入空间填充的开销。

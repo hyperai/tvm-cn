@@ -167,7 +167,7 @@ cp 3rdparty/vta-hw/config/pynq_sample.json 3rdparty/vta-hw/config/vta_config.jso
 运行 2D 卷积 testbench。在此之前，要用 VTA 比特流对 Pynq 板 FPGA 进行编程，并通过 RPC 构建 VTA runtime。以下 `test_program_rpc.py` 脚本将执行两个操作：
 
 * FPGA 编程，通过从 [VTA 比特流仓库](https://github.com/uwsampl/vta-distro) 中下载预编译的比特流，这个仓库与主机设置的默认配置 `vta_config.json` 匹配，并通过 RPC 发送到 Pynq，从而对 Pynq 的 FPGA 进行编程。
-* `vta_config.json` 配置每次修改，都要运行在 Pynq 上构建的 Runtime。这样可确保 VTA 软件 runtime（通过 just-in-time (JIT) 编译生成加速器可执行文件）与在 FPGA 上编程的 VTA 设计规范匹配。构建过程大约需要 30 秒完成，耐心等待！
+* `vta_config.json` 配置每次修改，都要运行在 Pynq 上构建的 Runtime。这样可确保 VTA 软件 runtime（通过 just-in-time（JIT）编译生成加速器可执行文件）与在 FPGA 上编程的 VTA 设计规范匹配。构建过程大约需要 30 秒完成，耐心等待！
 
 ``` bash
 # 在宿主机端
@@ -255,7 +255,7 @@ minicom -D /dev/ttyUSB0
 
 ### Xilinx 工具链安装
 
-推荐使用 Vivado 2020.1，因为我们的脚本已经通过测试，可以在此版本的 Xilinx 工具链上运行。本指南是为 Linux (Ubuntu) 安装编写的。
+推荐使用 Vivado 2020.1，因为我们的脚本已经通过测试，可以在此版本的 Xilinx 工具链上运行。本指南是为 Linux（Ubuntu）安装编写的。
 
 需要安装 Xilinx 的 FPGA 编译工具链 [Vivado HL WebPACK 2020.1](https://www.xilinx.com/products/design-tools/vivado.html)，它是 Vivado HLx 工具链的免许可版本。
 
@@ -357,7 +357,7 @@ TVM 不会从 VTA 比特流仓库中下载预构建的比特流，而是用生�
 
 #### 获取和启动 Quartus GUI 安装程序
 
-1. 访问 [下载中心](http://fpgasoftware.intel.com/?edition=lite)，在「Separate file」选项卡中下载 Linux 版本的「Quartus Prime (include Nios II EDS)」和「Cyclone V device support」。这样可以避免下载未使用的设备支持文件。
+1. 访问 [下载中心](http://fpgasoftware.intel.com/?edition=lite)，在「Separate file」选项卡中下载 Linux 版本的「Quartus Prime（include Nios II EDS）」和「Cyclone V device support」。这样可以避免下载未使用的设备支持文件。
 2. 若有帐户，填写表单登录；或在网页右侧注册帐户。
 3. 登录后，可以下载安装程序和设备支持文件。
 4. 文件下载后，在你的 `Downloads` 目录下更改文件权限：
@@ -410,4 +410,4 @@ make
 
 这个过程可能会有点长，需要半小时才能完成，具体时长取决于 PC 的性能。Quartus Prime 软件会自动检测 PC 上可用的内核数量，并用所有内核来执行此过程。
 
-编译后，可以在 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/export/vta.rbf` 下找到生成的比特流。还可以打开 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/de10_nano_top.qpf` 路径的 Quartus 项目文件 (.qpf)，查看生成的报告。
+编译后，可以在 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/export/vta.rbf` 下找到生成的比特流。还可以打开 `<tvm root>/3rdparty/vta-hw/build/hardware/intel/quartus/<configuration>/de10_nano_top.qpf` 路径的 Quartus 项目文件（.qpf），查看生成的报告。

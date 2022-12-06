@@ -13,7 +13,7 @@ Compiler Pass 是扩展 Relay 功能集及优化 Relay 程序的主要接口。�
 
 首先，我们将概述编写 compiler pass 的关键机制。然后通过 Relay 中常量折叠 pass 的具体示例进行演示。
 
-# AST 遍历器 (Traversers)
+# AST 遍历器（Traversers）
 
 用于遍历 Relay 程序的基类是 `ExprFunctor`。它提供的公共接口是一个 `VisitExpr` 方法，该方法接收一个表达式以及零个或多个参数，并返回某种类型的实例。扩展此类时，可以通过覆盖每种表达式类型的 `VisitExpr_` 实现，来定义 AST 遍历模式。
 
@@ -28,7 +28,7 @@ void PrintVisitor::VisitExpr(const Expr& expr) {
 
 `ExprFunctor` 本身是一个非常通用的类，这就是为什么更多时候你会扩展 `ExprVisitor` 或 `ExprMutator`。这些类扩展了 `ExprFunctor`，并提供了 `VisitExpr_` 的默认实现，这些实现捕获了每种表达式类型的常见遍历模式。有了这些默认的实现，开发者只需针对想要不同行为的表达式类型，提供覆盖的实现。后续章节将针对每个子类进行详细描述。
 
-## 表达式访问器 (Expression Visitors)
+## 表达式访问器（Expression Visitors）
 
 `ExprVisitor` 不用于修改程序的pass，而是用于实施程序分析和收集信息的 pass。使用这个类，`VisitExpr` 和私有 counterparts 不会返回任何内容。此类提供的 `VisitExpr_` 实现只是访问表达式的所有表达式字段。 `IfNode` 的默认实现如下所示：
 
@@ -62,7 +62,7 @@ bool Check(const Expr& expr) final {
 
 以上就是全部操作。在调用 top-level 的递归之前，定义一个执行一些记录的公有接口是很常见的操作。用户也可以通过创建一个生成 `CallChecker` 实例，并在其上调用 `Check` 的独立程序来进一步包装 API，重要的是用尽可能少的资源用实现目标。
 
-## 表达式修改器 (Expression Mutators)
+## 表达式修改器（Expression Mutators）
 
 `ExprMutator` 用于以某种方式转换程序的 pass。通过这个类，`VisitExpr` 及其对应的私有部分返回 `Expr`。此类提供的默认 `VisitExpr_` 实现访问表达式的所有表达式字段，并将字段设置为访问它们的结果。`TupleGetItemNode` 的默认实现如下所示：
 
@@ -79,7 +79,7 @@ Expr ExprMutator::VisitExpr_(const TupleGetItemNode* g) {
 
 这里有几点需要注意。首先，`Mutate` 是 `ExprMutator` 中 `VisitExpr` 的别名。其次，如果对 `Mutate` 的调用修改了 `tuple` 字段，则只返回一个新节点。这种更新的方法称为功能更新，这样做可以避免不必要的分配。
 
-`ExprMutator` 有、而 `ExprVisitor` 没有的一个功能，是用于缓存结果的内置 `memo_` 字段。`ExprMutator` 有一个记忆器 (memoizer) 这是合理的，因为用户知道正在缓存哪些类型的结果（即 `Expr`），而 `ExprVisitor` 的访问方法不返回任何内容。通常，当用户要在 `ExprVisitor` 的子类中缓存结果时，需要自行定义缓存。
+`ExprMutator` 有、而 `ExprVisitor` 没有的一个功能，是用于缓存结果的内置 `memo_` 字段。`ExprMutator` 有一个记忆器（memoizer）这是合理的，因为用户知道正在缓存哪些类型的结果（即 `Expr`），而 `ExprVisitor` 的访问方法不返回任何内容。通常，当用户要在 `ExprVisitor` 的子类中缓存结果时，需要自行定义缓存。
 
 如果希望编写一个 `IfCollapser` 类，用它的真实分支替换每个 if 语句，用户将为 `IfNode` 覆盖 `VisitExpr_`：
 
@@ -103,7 +103,7 @@ Expr CollapseIfs(const Expr& expr) final {
 
 为了更好地理解编写 pass 的过程，本部分将以常量折叠 pass（可在 [src/relay/transforms/fold_constant.cc](https://github.com/apache/tvm/blob/main/src/relay/transforms/fold_constant.cc) 中找到）作为示例进行讲解。常量折叠 pass 相对简单，且包含两种类型的遍历。
 
-常量折叠涉及只包含常量的程序评估表达式 (evaluating expression)，然后用评估它们的结果替换这些表达式。此过程的目的是预加载可以进行的所有计算。为了实现这一点，常量折叠 pass 使用了一个访问器（`ConstantChecker`）和一个修改器（`ConstantFolder`）。
+常量折叠涉及只包含常量的程序评估表达式（evaluating expression），然后用评估它们的结果替换这些表达式。此过程的目的是预加载可以进行的所有计算。为了实现这一点，常量折叠 pass 使用了一个访问器（`ConstantChecker`）和一个修改器（`ConstantFolder`）。
 
 ## `ConstantChecker` 访问器
 

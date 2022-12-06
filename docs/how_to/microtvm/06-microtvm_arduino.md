@@ -326,7 +326,7 @@ with open(QUANTIZED_MODEL_PATH, "wb") as f:
 
 TensorFlow 有一个用于部署到微控制器的内置框架——[TFLite Micro](https://www.tensorflow.org/lite/microcontrollers)。但是，开发板不能很好地支持它，并且不支持自动调优，因此改用 Apache TVM。
 
-TVM 可以与其命令行界面 (`tvmc`) 或 Python 界面一起使用。Python 接口功能齐全，且更稳定，因此这里用 Python。
+TVM 可以与其命令行界面（`tvmc`）或 Python 界面一起使用。Python 接口功能齐全，且更稳定，因此这里用 Python。
 
 TVM 是一个优化编译器，对模型的优化是通过**中间表示**分阶段执行的。其中第一个是 [Relay](https://arxiv.org/abs/1810.00952)（一种强调可移植性的高级 intermediate representation）。从 `.tflite` 到 Relay 的转换是在不知道“最终目标”的情况下完成的，我们打算在 Arduino 上运行这个模型。
 

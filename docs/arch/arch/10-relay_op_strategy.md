@@ -11,7 +11,7 @@ sidebar_position: 200
 
 算子策略的基本元素是 `OpImplementation`。它包括一对 compute 和 schedule 函数、实现的名称和优先级（优先级的使用在 [从算子策略中选择实现](#select-implementation-from-op-strategy) 中进行了解释）。
 
-`OpStrategy` 包括一个 `OpSpecialization` 列表。每个 `OpSpecialization` 都包含一个与 `SpecializedCondition` 关联的 `OpImplementation` 列表（参见 `include/tvm/te/schedule.h` 中的定义）。 `SpecializedCondition` 可以为 null，表示实现普遍适用；否则，仅在满足特定条件时才考虑实现。`SpecializedCondition` 包含一个子句列表（它们在张量表达式中以联合范式 (CNF) 的形式定义），并且仅支持在张量 shape 上的情况。
+`OpStrategy` 包括一个 `OpSpecialization` 列表。每个 `OpSpecialization` 都包含一个与 `SpecializedCondition` 关联的 `OpImplementation` 列表（参见 `include/tvm/te/schedule.h` 中的定义）。 `SpecializedCondition` 可以为 null，表示实现普遍适用；否则，仅在满足特定条件时才考虑实现。`SpecializedCondition` 包含一个子句列表（它们在张量表达式中以联合范式（CNF）的形式定义），并且仅支持在张量 shape 上的情况。
 
 最后，策略函数或 `FTVMStrategy` 确定在给定工作负载的情况下，使用哪一对 compute 和  schedule 函数，并且要注册到每个 Relay 算子。 `FTVMStrategy` 是一个通用函数（参见 `include/tvm/target/generic_func.h`），所有的 target 都可以覆盖它。函数签名是
 
@@ -165,7 +165,7 @@ def conv2d_strategy_mytarget(attrs, inputs, out_type, target):
 
 具有符号特征输入 shape 的算子的选择策略仍在开发中。目前，如果所有输入张量都具有符号特征的 shape，则只有具有最高优先级的实现将用于此算子。实现后将更新这部分。
 
-可以在编译 Relay 模型之前添加以下代码行进行调试，来了解每个算子的实现 (implementation)。
+可以在编译 Relay 模型之前添加以下代码行进行调试，来了解每个算子的实现（implementation）。
 
 ``` python
 logging.getLogger("te_compiler").setLevel(logging.INFO)

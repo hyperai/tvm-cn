@@ -5,13 +5,13 @@ sidebar_position: 8
 
 # 使用 TVM 的 CI
 
-TVM 用 Jenkins 在 [分支](https://ci.tlcpack.ai/job/tvm/)上运行 Linux 持续集成 (CI) 测试，并通过 [Jenkinsfile](https://github.com/apache/tvm/blob/main/Jenkinsfile) 中指定的构建配置 [pull request](https://ci.tlcpack.ai/job/tvm/view/change-requests/)。Windows 和 MacOS 的非关键任务在 GitHub Actions 中运行。
+TVM 用 Jenkins 在 [分支](https://ci.tlcpack.ai/job/tvm/)上运行 Linux 持续集成（CI）测试，并通过 [Jenkinsfile](https://github.com/apache/tvm/blob/main/Jenkinsfile) 中指定的构建配置 [pull request](https://ci.tlcpack.ai/job/tvm/view/change-requests/)。Windows 和 MacOS 的非关键任务在 GitHub Actions 中运行。
 
 本页描述了贡献者和 committer 如何用 TVM 的 CI 来验证代码。可通过 [tlc-pack/ci](https://github.com/tlc-pack/ci) 仓库了解有关 TVM CI 设计的更多信息。
 
 ## 对 Contributor 而言
 
-[Jenkins 的 BlueOcean 查看器](https://ci.tlcpack.ai/blue/organizations/jenkins/tvm/activity) 中的标准 CI 运行如下所示。 CI 运行通常需要几个小时才能完成，并且在 CI 完成之前无法 merge pull request (PR)。要诊断失败的步骤，请单击 failing pipeline stage，然后单击 failing step 来查看输出日志。
+[Jenkins 的 BlueOcean 查看器](https://ci.tlcpack.ai/blue/organizations/jenkins/tvm/activity) 中的标准 CI 运行如下所示。 CI 运行通常需要几个小时才能完成，并且在 CI 完成之前无法 merge pull request（PR）。要诊断失败的步骤，请单击 failing pipeline stage，然后单击 failing step 来查看输出日志。
 
 ![The Jenkins UI for a CI run](https://github.com/tlc-pack/web-data/raw/main/images/contribute/ci.png)
 

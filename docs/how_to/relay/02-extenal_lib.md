@@ -510,7 +510,7 @@ out_cudnn = out.numpy()
   "target_host parameter is going to be deprecated. "
 ```
 
-注意，若用 cuDNN，Relay 无法将卷积与其后面的层融合。因为层融合发生在 TVM internal representation (IR) 级别。 Relay 将外部库视为黑盒，因此无法将它们与 TVM IR 融合。
+注意，若用 cuDNN，Relay 无法将卷积与其后面的层融合。因为层融合发生在 TVM internal representation（IR）级别。 Relay 将外部库视为黑盒，因此无法将它们与 TVM IR 融合。
 
 下面的伪代码显示了 cuDNN 卷积 + bias add + batch norm + ReLU 变成了两个计算阶段，一个用于 cuDNN 调用，另一个用于其余操作。
 
@@ -542,7 +542,7 @@ tvm.testing.assert_allclose(out_cuda, out_cudnn, rtol=1e-5)
 
 ## 结论
 
-本教程介绍了 cuDNN 与 Relay 的使用，此外还支持 cuBLAS。若启用了 cuBLAS，它将在全连接层 (relay.dense) 内使用。若要用 cuBLAS，请将 target 字符串设置为 "cuda -libs=cublas"。也可以将 cuDNN 和 cuBLAS 与 "cuda -libs=cudnn,cublas" 一起使用。
+本教程介绍了 cuDNN 与 Relay 的使用，此外还支持 cuBLAS。若启用了 cuBLAS，它将在全连接层（relay.dense）内使用。若要用 cuBLAS，请将 target 字符串设置为 "cuda -libs=cublas"。也可以将 cuDNN 和 cuBLAS 与 "cuda -libs=cudnn,cublas" 一起使用。
 
 对于 ROCm 后端，支持 MIOpen 和 rocBLAS。将 target 设置为 "rocm -libs=miopen,rocblas" 以启用它们。
 

@@ -63,7 +63,7 @@ print(tvm.lower(s, [A, B, C], simple_mode=True))
 
 ## 调度 Matmul
 
-假设有一个支持矩阵向量乘法 (GEMV) 作为硬件原语的加速器，它可以采用任意大小的 reduce 轴，但另一个轴需要不大于 16。我们需要分解 matmul 循环，使最里面的循环是 (16x64) GEMV。
+假设有一个支持矩阵向量乘法（GEMV）作为硬件原语的加速器，它可以采用任意大小的 reduce 轴，但另一个轴需要不大于 16。我们需要分解 matmul 循环，使最里面的循环是（16x64）GEMV。
 
 ``` python
 factor = 16

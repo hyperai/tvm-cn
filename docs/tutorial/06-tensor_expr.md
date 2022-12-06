@@ -10,7 +10,7 @@ title: 使用张量表达式处理算子
 
 **作者**：[Tianqi Chen](https://tqchen.github.io/)
 
-本教程重点关注 TVM 如何用张量表达式 (TE) 来定义张量计算并应用循环优化。 TE 用纯函数式语言描述张量计算（即每个函数表达式都不会产生副作用 (side effect)）。从 TVM 的整体来看，Relay 将计算描述为一组算子，每个算子都可以表示为一个 TE 表达式，其中每个 TE 表达式接收输入张量并产生一个输出张量。
+本教程重点关注 TVM 如何用张量表达式（TE）来定义张量计算并应用循环优化。 TE 用纯函数式语言描述张量计算（即每个函数表达式都不会产生副作用（side effect））。从 TVM 的整体来看，Relay 将计算描述为一组算子，每个算子都可以表示为一个 TE 表达式，其中每个 TE 表达式接收输入张量并产生一个输出张量。
 
 这是 TVM 中张量表达式语言的入门教程。 TVM 使用特定领域的张量表达式来进行有效的内核构建。下面将通过两个使用张量表达式语言的示例，来演示基本工作流程。第一个例子介绍了 TE 和带有向量加法的调度。通过逐步讲解如何用 TE 优化矩阵乘法，对第二个例子的这些概念进行了扩展。后续涉及到更高阶的 TVM 功能教程，将基于此矩阵乘法示例。
 
@@ -50,7 +50,7 @@ C = te.compute(A.shape, lambda i: A[i] + B[i], name="C")
 
 ### 为计算创建默认 schedule
 
-虽然上面描述了计算规则，但为适应不同的设备，可用不同的方式来计算 `C`。对于具有多个轴 (axis) 的张量，可以选择首先迭代哪个轴，或将计算拆分到不同的线程。 TVM 要求用户提供 schedule，这是对如何执行计算的描述。 TE 中的调度操作可以在其他操作中更改循环顺序、跨不同线程拆分计算以及将数据块组合在一起。调度背后的一个重要概念是它们只描述如何执行计算，因此同一 TE 的不同调度将产生相同的结果。
+虽然上面描述了计算规则，但为适应不同的设备，可用不同的方式来计算 `C`。对于具有多个轴（axis）的张量，可以选择首先迭代哪个轴，或将计算拆分到不同的线程。 TVM 要求用户提供 schedule，这是对如何执行计算的描述。 TE 中的调度操作可以在其他操作中更改循环顺序、跨不同线程拆分计算以及将数据块组合在一起。调度背后的一个重要概念是它们只描述如何执行计算，因此同一 TE 的不同调度将产生相同的结果。
 
 TVM 允许创建一个通过按行迭代计算 `C` 的 schedule：
 
@@ -63,7 +63,7 @@ s = te.create_schedule(C.op)
 
 ### 编译和评估默认 schedule
 
-用 TE 表达式和 schedule 可为目标语言和架构（本例为 LLVM 和 CPU）生成可运行的代码。TVM 提供 schedule、schedule 中的 TE 表达式列表、target 和 host，以及正在生成的函数名。输出结果是一个类型擦除函数 (type-erased function)，可直接从 Python 调用。
+用 TE 表达式和 schedule 可为目标语言和架构（本例为 LLVM 和 CPU）生成可运行的代码。TVM 提供 schedule、schedule 中的 TE 表达式列表、target 和 host，以及正在生成的函数名。输出结果是一个类型擦除函数（type-erased function），可直接从 Python 调用。
 
 下面将使用 `tvm.build` 创建函数。 build 函数接收 schedule、所需的函数签名（包括输入和输出）以及要编译到的目标语言。
 
@@ -140,7 +140,7 @@ naive: 0.000006
 s[C].parallel(C.op.axis[0])
 ```
 
-`tvm.lower` 命令会生成 TE 的中间表示 (IR)，以及相应的 schedule。应用不同的调度操作时降低表达式，可以看到调度对计算顺序的影响。用标志 `simple_mode=True` 来返回可读的 C 风格语句：
+`tvm.lower` 命令会生成 TE 的中间表示（IR），以及相应的 schedule。应用不同的调度操作时降低表达式，可以看到调度对计算顺序的影响。用标志 `simple_mode=True` 来返回可读的 C 风格语句：
 
 ``` python
 print(tvm.lower(s, [A, B, C], simple_mode=True))
@@ -246,7 +246,7 @@ for result in log:
         "%s\t%s\t%s"
         % (result[0].rjust(20), str(result[1]).rjust(20), str(result[1] / baseline).rjust(20))
     )
-    
+
 ```
 
 输出结果：
@@ -267,7 +267,7 @@ parallel              6.0509e-06       0.774136677807214
 此外，代码还可以实现更多 specialization。例如，在计算声明中写成 `n = tvm.runtime.convert(1024)`，而不是 `n = te.var("n")`。生成的函数只会接收长度为 1024 的向量。
 :::
 
-经过上述步骤，我们已经对向量加法算子 (vector addition operator) 进行了定义、调度和编译，接下来在 TVM runtime 执行。将算子保存为一个库，之后可以在 TVM runtime 中加载。
+经过上述步骤，我们已经对向量加法算子（vector addition operator）进行了定义、调度和编译，接下来在 TVM runtime 执行。将算子保存为一个库，之后可以在 TVM runtime 中加载。
 
 ### GPU 的目标向量加法（可选）
 
@@ -305,11 +305,11 @@ if run_cuda:
     # -----------
     # 指定 schedule 后, 可将它编译为 TVM 函数。
     # 默认 TVM 编译为可直接从 Python 端调用的类型擦除函数。
-    # 
+    #
     # 下面将用 tvm.build 来创建函数。
     # build 函数接收 schedule、所需的函数签名（包括输入和输出）以及要编译到的目标语言。
     #
-    # fadd 的编译结果是 GPU 设备函数 (如果利用了 GPU）以及调用 GPU 函数的主机 wrapper。
+    # fadd 的编译结果是 GPU 设备函数（如果利用了 GPU）以及调用 GPU 函数的主机 wrapper。
     # fadd 是生成的主机 wrapper 函数，它包含对内部生成的设备函数的引用。
 
     fadd = tvm.build(s, [A, B, C], target=tgt_gpu, name="myadd")
@@ -323,7 +323,7 @@ if run_cuda:
     # - 首先创建 GPU 设备。
     # - 然后 tvm.nd.array 将数据复制到 GPU 上。
     # - `fadd` 运行真实的计算。
-    # - `numpy()` 将 GPU 数组复制回 CPU 上 (然后验证正确性)。
+    # - `numpy()` 将 GPU 数组复制回 CPU 上（然后验证正确性）。
     #
     # 注意将数据复制进出内存是必要步骤。
 
@@ -339,10 +339,10 @@ if run_cuda:
     ################################################################################
     # 检查生成的 GPU 代码
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # 可以在 TVM 中检查生成的代码。tvm.build 的结果是一个 TVM 模块。fadd 是包含主机模块的主机 wrapper，对 CUDA (GPU) 函数来说它还包含设备模块。
+    # 可以在 TVM 中检查生成的代码。tvm.build 的结果是一个 TVM 模块。fadd 是包含主机模块的主机 wrapper，对 CUDA（GPU）函数来说它还包含设备模块。
     #
     # 下面的代码从设备模块中取出并打印内容代码。
-    
+
     if (
         tgt_gpu.kind.name == "cuda"
         or tgt_gpu.kind.name == "rocm"
@@ -363,7 +363,7 @@ if run_cuda:
 
 * 将编译的主机模块保存到目标文件中。
 * 然后将设备模块保存到 ptx 文件中。
-* cc.create_shared 调用编译器 (gcc) 来创建共享库。
+* cc.create_shared 调用编译器（gcc）来创建共享库。
 
 ``` python
 from tvm.contrib import cc
@@ -389,7 +389,7 @@ print(temp.listdir())
 
 模块存储格式：
 
-CPU (主机) 模块直接保存为共享库 (.so)。设备代码有多种自定义格式。在我们的示例中，设备代码存储在 ptx 以及元数据 json 文件中。它们可以分别导入，从而实现单独加载和链接。
+CPU（主机）模块直接保存为共享库（.so）。设备代码有多种自定义格式。在我们的示例中，设备代码存储在 ptx 以及元数据 json 文件中。它们可以分别导入，从而实现单独加载和链接。
 
 ### 加载编译模块
 
@@ -460,7 +460,7 @@ TVM 的调度原语包括：
 * compute_at：TVM 默认将在函数的最外层或根部计算张量。 compute_at 指定应该在另一个算子的第一个计算轴上计算一个张量。
 * compute_inline：当标记为 inline 时，计算将被扩展，然后插入到需要张量的地址中。
 * compute_root：将计算移动到函数的最外层或根部。这意味着当前阶段的计算完全完成后才可进入下一阶段。
-  
+
 原语的完整描述参考 [Schedule Primitives](https://tvm.apache.org/docs/how_to/work_with_schedules/schedule_primitives.html#schedule-primitives) 文档。
 :::
 
@@ -784,7 +784,7 @@ loop permutation: 0.114844
 
  ![https://github.com/dmlc/web-data/raw/main/tvm/tutorial/array-packing.png](https://github.com/dmlc/web-data/raw/main/tvm/tutorial/array-packing.png)
 
-如上图所示，将计算块级化 (block) 后，可以看到 B 的数组访问模式（展开后）是有规律但不连续的。我们期望经过一些转换后，可得到一个持续访问模式。通过将 `[16] [16]` 数组重新排序为 `[16/4] [16][4]` 数组，当从打包数组中获取相应值时，B 的访问模式是顺序的。
+如上图所示，将计算块级化（block）后，可以看到 B 的数组访问模式（展开后）是有规律但不连续的。我们期望经过一些转换后，可得到一个持续访问模式。通过将 `[16] [16]` 数组重新排序为 `[16/4] [16][4]` 数组，当从打包数组中获取相应值时，B 的访问模式是顺序的。
 
 考虑到 B 的新包装，必须从一个新的默认 schedule 开始来实现这一点。值得讨论的是：TE 是一种用于编写优化算子的强大且富有表现力的语言，但它通常需要一些关于你正在编写的底层算法、数据结构和硬件目标的知识。本教程后面将讨论，如何借助 TVM 完成部分任务。下面继续新的优化 schedule：
 
@@ -948,7 +948,7 @@ block caching: 0.108552
 
 ### 优化六：并行化
 
-到目前为止，仅设计了用单核来计算。几乎所有现代处理器都有多个内核，计算可以从并行计算中受益。最后的优化将利用线程级并行 (thread-level parallelization)。
+到目前为止，仅设计了用单核来计算。几乎所有现代处理器都有多个内核，计算可以从并行计算中受益。最后的优化将利用线程级并行（thread-level parallelization）。
 
 ``` python
 # parallel
@@ -1020,7 +1020,7 @@ parallelization: 0.141811
 
 ### 矩阵乘法示例总结
 
-仅用 18 行代码应用上述简单优化后，生成的代码开始接近带有数学内核库 (MKL) 的 numpy 的性能。由于一直在记录性能，因此可比较结果：
+仅用 18 行代码应用上述简单优化后，生成的代码开始接近带有数学内核库（MKL）的 numpy 的性能。由于一直在记录性能，因此可比较结果：
 
 ``` python
 baseline = log[0][1]
@@ -1051,7 +1051,7 @@ loop permutation     0.11484386070000001     0.03526413262283832
 
 如前所述，如何使用 TE 和调度原语来应用优化，需要一些底层架构和算法的知识。但是，TE 是能搜索潜在优化的、更复杂算法的基础。学完本章节对 TE 的介绍，现在可以开始探索 TVM 如何自动化调度优化过程。
 
-本教程用向量加法和矩阵乘法这两个示例讲解了 TVM 张量表达式 (TE) 的工作流程。一般工作流程如下：
+本教程用向量加法和矩阵乘法这两个示例讲解了 TVM 张量表达式（TE）的工作流程。一般工作流程如下：
 
 * 通过一系列操作描述计算。
 * 描述如何用调度原语进行计算。

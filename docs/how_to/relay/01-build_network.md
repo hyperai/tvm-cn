@@ -10,7 +10,7 @@ title: 构建图卷积网络
 
 **作者**：[Yulun Yao](https://yulunyao.io/)，[Chien-Yu Lin](https://homes.cs.washington.edu/\~cyulin/)
 
-本文介绍如何用 Relay 构建图卷积网络 (GCN)。本教程演示在 Cora 数据集上运行 GCN。Cora 数据集是图神经网络 (GNN) 的 benchmark，同时是支持 GNN 训练和推理的框架。我们直接从 DGL 库加载数据集来与 DGL 进行同类比较。
+本文介绍如何用 Relay 构建图卷积网络（GCN）。本教程演示在 Cora 数据集上运行 GCN。Cora 数据集是图神经网络（GNN）的 benchmark，同时是支持 GNN 训练和推理的框架。我们直接从 DGL 库加载数据集来与 DGL 进行同类比较。
 
 有关 DGL 安装，参阅 [DGL 文档](https://docs.dgl.ai/install/index.html)。
 
@@ -375,7 +375,7 @@ func = relay.Function(relay.analysis.free_vars(output), output)
 func = relay.build_module.bind_params_by_name(func, params)
 mod = tvm.IRModule()
 mod["main"] = func
-# 使用 Relay 构建 
+# 使用 Relay 构建
 with tvm.transform.PassContext(opt_level=0):  # 目前只支持 opt_level=0
     lib = relay.build(mod, target, params=params)
 

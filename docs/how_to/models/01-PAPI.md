@@ -4,7 +4,7 @@ title: PAPI 入门
 
 # PAPI 入门
 
-性能应用程序编程接口 (Performance Application Programming Interface，简称 PAPI) 是一个可在各种平台上提供性能计数器的库。在指定的运行期间，性能计数器提供处理器行为的准确底层信息，包含简单的指标，如总循环计数、缓存未命中和执行的指令，以及更高级的信息（如总 FLOPS 和 warp 占用率）。PAPI 的这些指标在 profiling 时可用。
+性能应用程序编程接口（Performance Application Programming Interface，简称 PAPI）是一个可在各种平台上提供性能计数器的库。在指定的运行期间，性能计数器提供处理器行为的准确底层信息，包含简单的指标，如总循环计数、缓存未命中和执行的指令，以及更高级的信息（如总 FLOPS 和 warp 占用率）。PAPI 的这些指标在 profiling 时可用。
 
 ## 安装 PAPI
 

@@ -1,11 +1,11 @@
-# TVM Documentation in Chinese Simplified (Unofficial)
+# TVM Documentation in Chinese Simplified
 
 [Documentation](https://tvm.hyper.ai/) |
 [Contributing](CONTRIBUTING.md) |
 [Lean More](https://hyper.ai/) |
 [Version Changelog](NEWS.md)
 
-Apache [TVM documentation](https://github.com/apache/tvm) in Chinese Simplified (Unofficial).
+Apache [TVM documentation](https://github.com/apache/tvm) in Chinese Simplified
 
 ## Contributing
 

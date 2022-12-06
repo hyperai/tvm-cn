@@ -106,7 +106,7 @@ B = te.placeholder((o, m, env.BATCH, env.BLOCK_OUT), name="B", dtype=env.acc_dty
 
 硬件加速器的特点之一是必须显式管理芯片存储器。这意味着要描述中间张量 `A_buf` 和 `B_buf`，它们可以具有不同于原始占位符张量 `A` 和 `B` 的内存范围。
 
-然后在调度阶段，告诉编译器 `A_buf` 和 `B_buf` 位于 VTA 的芯片缓冲区 (SRAM) 中，而 `A` 和 `B` 在主存储器 (DRAM) 中。将 `A_buf` 和 `B_buf` 描述为计算操作（恒等函数）的结果。编译器之后可将其解释为缓存的读操作。
+然后在调度阶段，告诉编译器 `A_buf` 和 `B_buf` 位于 VTA 的芯片缓冲区（SRAM）中，而 `A` 和 `B` 在主存储器（DRAM）中。将 `A_buf` 和 `B_buf` 描述为计算操作（恒等函数）的结果。编译器之后可将其解释为缓存的读操作。
 
 ``` python
 # A 复制缓冲区

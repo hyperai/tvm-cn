@@ -4,7 +4,7 @@ title: Vulkan Runtime
 
 # Vulkan Runtime
 
-TVM 支持用 Vulkan 计算着色器 (Vulkan compute shaders) 来查询。所有计算内核都被编译成一个 SPIR-V 着色器，然后可以用 TVM 接口来调用它。
+TVM 支持用 Vulkan 计算着色器（Vulkan compute shaders）来查询。所有计算内核都被编译成一个 SPIR-V 着色器，然后可以用 TVM 接口来调用它。
 
 ## Vulkan 的功能和限制
 

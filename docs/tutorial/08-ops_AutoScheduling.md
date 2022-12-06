@@ -105,7 +105,7 @@ tune_option = auto_scheduler.TuningOptions(
 准备好所有输入就可以开始搜索，让 auto-scheduler 发挥它的作用。经过一些测试试验后，可从日志文件中加载最佳 schedule 并应用。
 
 ``` python
-# 运行 auto-tuning (搜索)
+# 运行 auto-tuning（搜索）
 task.tune(tune_option)
 # 应用最佳 schedule
 sch, args = task.apply_best(log_file)
@@ -273,7 +273,7 @@ Resume search:
 
 ## 最后的说明和总结
 
-本教程展示了如何在不指定搜索模板的情况下，使用 TVM Auto-Scheduler 自动优化矩阵乘法。从张量表达式 (TE) 语言开始，演示了一系列关于 TVM 如何优化计算操作的示例。
+本教程展示了如何在不指定搜索模板的情况下，使用 TVM Auto-Scheduler 自动优化矩阵乘法。从张量表达式（TE）语言开始，演示了一系列关于 TVM 如何优化计算操作的示例。
 
 [下载 Python 源代码：auto_scheduler_matmul_x86.py](https://tvm.apache.org/docs/_downloads/eac4389b114db015e95cb3cdf8b86b83/auto_scheduler_matmul_x86.py)
 

@@ -137,7 +137,7 @@ __kernel void myexp_kernel0(__global float* restrict B, __global float* restrict
 
 ## 内联函数降级规则
 
-当调用 `tvm.te.exp()` 时，TVM 会创建一个 intrinsic Call Expr。TVM 使用转换规则 (transformation rules)，将内联调用 (intrinsic call) 转换为特定设备的外部调用 (extern calls)。
+当调用 `tvm.te.exp()` 时，TVM 会创建一个 intrinsic Call Expr。TVM 使用转换规则（transformation rules），将内联调用（intrinsic call）转换为特定设备的外部调用（extern calls）。
 
 TVM 支持在运行时自定义规则，以下示例为 `exp` 自定义 CUDA 降级规则。
 

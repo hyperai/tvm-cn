@@ -2,7 +2,7 @@
 
 [Vitis AI](https://github.com/Xilinx/Vitis-AI) 是用在 Xilinx 平台（包括边缘设备和 Alveo 卡）上进行硬件加速 AI 推理的 Xilinx 开发堆栈。它由优化的 IP、工具、库、模型和示例设计组成。在设计时兼顾高效率和易用性，充分发挥了 Xilinx FPGA 和 ACAP 上 AI 加速的潜力。
 
-TVM 中当前的 Vitis AI 流支持使用 [Zynq Ultrascale+ MPSoc](https://www.xilinx.com/products/silicon-devices/soc/zynq-ultrascale-mpsoc.html), [Alveo](https://www.xilinx.com/products/boards-and-kits/alveo.html) 和 [Versal](https://www.xilinx.com/products/silicon-devices/acap/versal.html) 平台在边缘和云端加速神经网络模型推理。支持的边缘和云深度学习处理器单元 (DPU) 的标识符是：
+TVM 中当前的 Vitis AI 流支持使用 [Zynq Ultrascale+ MPSoc](https://www.xilinx.com/products/silicon-devices/soc/zynq-ultrascale-mpsoc.html), [Alveo](https://www.xilinx.com/products/boards-and-kits/alveo.html) 和 [Versal](https://www.xilinx.com/products/silicon-devices/acap/versal.html) 平台在边缘和云端加速神经网络模型推理。支持的边缘和云深度学习处理器单元（DPU）的标识符是：
 
 | **Target Board** | **DPU ID** | **TVM Target ID** |
 |:---|:---|:---|
@@ -44,7 +44,7 @@ TVM 中当前的 Vitis AI 流支持使用 [Zynq Ultrascale+ MPSoc](https://www.x
    ``` bash
       ./docker/build.sh demo_vitis_ai bash
       ./docker/bash.sh tvm.demo_vitis_ai
-      
+
       # Setup inside container
       conda activate vitis-ai-tensorflow
    ```
@@ -100,7 +100,7 @@ source setup.sh
 
 ### Zynq 设置 {#zynq-setup}
 
-除了构建 TVM - Vitis AI docker 之外，对于 Zynq 目标 (DPUCZDX8G)，编译阶段在主机上的 docker 内运行，不需要任何特定设置。执行模型时，首先要设置 Zynq 板，更多信息如下。
+除了构建 TVM - Vitis AI docker 之外，对于 Zynq 目标（DPUCZDX8G），编译阶段在主机上的 docker 内运行，不需要任何特定设置。执行模型时，首先要设置 Zynq 板，更多信息如下。
 
 1. 下载 Petalinux 镜像：
    * [ZCU104](https://www.xilinx.com/member/forms/download/design-license-xef.html?filename=xilinx-zcu104-dpu-v2021.1-v1.4.0.img.gz)
@@ -239,7 +239,7 @@ with tvm.transform.PassContext(opt_level=3, config={'relay.ext.vitis_ai.options'
 
 ### 量化模型
 
-为了用 Vitis AI DPU 加速器来加速神经网络模型的推理，通常要对模型预先量化。在 TVM - Vitis AI 流中，利用动态量化来替代此预处理步骤。在这个流中，可用典型的推理执行调用 (module.run) 使用提供的前 N 个输入动态量化模型（参见更多信息如下），而不需要预先量化模型。这将设置和校准 Vitis-AI DPU，为后面所有输入加速推理。
+为了用 Vitis AI DPU 加速器来加速神经网络模型的推理，通常要对模型预先量化。在 TVM - Vitis AI 流中，利用动态量化来替代此预处理步骤。在这个流中，可用典型的推理执行调用（module.run）使用提供的前 N 个输入动态量化模型（参见更多信息如下），而不需要预先量化模型。这将设置和校准 Vitis-AI DPU，为后面所有输入加速推理。
 
 注意：边缘流与推理中解释的流略有不同，边缘流在前 N 个输入后模型被量化和编译，但推理不会加速，并且它可以移动到边缘设备进行部署。查看下面的 [在 Zynq 上运行](#running-on-zynq-and-vck190) 部分了解更多信息。
 
@@ -331,10 +331,10 @@ module.run()
 
 在单板上运行模型之前，需要为目标评估单板编译模型，并将编译后的模型传输到板上。如何编译模型，参阅 [编译模型](#compile) 部分。
 
-之后将编译好的模型 (deploy_lib_edge.so) 传输到评估单板，然后可以在板上使用典型的「load_module」和「module.run」API 来执行。确保以 root 身份运行脚本（在终端中执行 `su` 登录到 root）。
+之后将编译好的模型（deploy_lib_edge.so）传输到评估单板，然后可以在板上使用典型的「load_module」和「module.run」API 来执行。确保以 root 身份运行脚本（在终端中执行 `su` 登录到 root）。
 
 :::note
-**不要**在运行脚本 (`import pyxir.contrib.target.DPUCZDX8G`) 中导入 PyXIR DPU targets。
+**不要**在运行脚本（`import pyxir.contrib.target.DPUCZDX8G`）中导入 PyXIR DPU targets。
 :::
 
 ``` python
@@ -354,5 +354,3 @@ module = graph_executor.GraphModule(lib["default"](dev))
 module.set_input(input_name, input_data)
 module.run()
 ```
-
-

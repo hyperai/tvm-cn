@@ -1,8 +1,8 @@
 ---
-title: 使用 Python 接口 (AutoTVM) 编译和优化模型
+title: 使用 Python 接口（AutoTVM）编译和优化模型
 ---
 
-# 使用 Python 接口 (AutoTVM) 编译和优化模型
+# 使用 Python 接口（AutoTVM）编译和优化模型
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/tutorial/autotvm_relay_x86.html#sphx-glr-download-tutorial-autotvm-relay-x86-py) 下载完整的示例代码
@@ -19,7 +19,7 @@ title: 使用 Python 接口 (AutoTVM) 编译和优化模型
 * 用 TVM 对 CPU 上建模的模型进行调优。
 * 用 TVM 收集的调优数据重新编译优化模型。
 * 用优化模型预测图像，并比较输出和模型性能。
-  
+
 本节目标是概述 TVM 的功能，以及如何通过 Python API 使用它们。
 
 TVM 是一个深度学习编译器框架，有许多不同的模块可用于处理深度学习模型和算子。本教程将介绍如何用 Python API 加载、编译和优化模型。
@@ -172,7 +172,7 @@ print(unoptimized)
 
 如前所述，每个模型提供输出张量的方式都不一样。
 
-本示例中，我们需要用专为该模型提供的查找表，运行一些后处理 (post-processing)，从而使得 ResNet-50 v2 的输出形式更具有可读性。
+本示例中，我们需要用专为该模型提供的查找表，运行一些后处理（post-processing），从而使得 ResNet-50 v2 的输出形式更具有可读性。
 
 ``` python
 from scipy.special import softmax

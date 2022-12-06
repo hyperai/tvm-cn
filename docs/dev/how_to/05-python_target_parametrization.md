@@ -37,7 +37,7 @@ def test_function(target, dev):
     # 测试代码写在这里
 ```
 
-`@tvm.testing.parametrize_targets` 也可以用作裸装饰器 (bare decorator) 来显式地进行参数化，但没有额外的效果。
+`@tvm.testing.parametrize_targets` 也可以用作裸装饰器（bare decorator）来显式地进行参数化，但没有额外的效果。
 
 ``` python
 # 隐式参数化以运行在所有 target 上
@@ -65,7 +65,7 @@ def test_function(target, dev, impl):
 
 * `@pytest.mark.gpu` - 将函数标记为使用 GPU 功能。这本身是没有效果的，但可以与命令行参数 `-m gpu` 或 `-m 'not gpu'` 搭配使用，从而限制 pytest 要执行哪些测试。这不应该单独调用，而应该是单元测试中使用的其他标记的一部分。
 * `@tvm.testing.uses_gpu` - 应用 `@pytest.mark.gpu`。用于标记可能使用 GPU 的单元测试（如果有）。只有在显式循环 `tvm.testing.enabled_targets()` 的测试中，才需要这个装饰器，不过这已经不是编写单元测试的首选方法了（见下文）。使用 `tvm.testing.parametrize_targets()` 时，此装饰器对于 GPU target 是隐式的，不需要显式地应用。
-* `@tvm.testing.requires_gpu` - 应用 `@tvm.testing.uses_gpu`，如果没有 GPU，还要标记这个测试应该被跳过 (`@pytest.mark.skipif`)。
+* `@tvm.testing.requires_gpu` - 应用 `@tvm.testing.uses_gpu`，如果没有 GPU，还要标记这个测试应该被跳过（`@pytest.mark.skipif`）。
 * `@tvfm.testing.requires_RUNTIME` - 几个装饰器（例如 `@tvm.testing.requires_cuda`），如果指定 runtime 不可用，每个装饰器都会跳过测试。runtime 如果在 `config.cmake` 中被禁用，或是不存在兼容设备时，则该 runtime 不可用。对于使用 GPU 的 runtime，包含 `@tvm.testing.requires_gpu`。
 
 使用参数化 target 时，每个测试运行都是用跟正在使用的 target 相对应的 `@tvm.testing.requires_RUNTIME` 修饰的。因此，如果某个 target 在 `config.cmake` 中被禁用，或没有合适的硬件可以运行，它将被显式列为跳过。
@@ -84,19 +84,19 @@ def test_function():
 要在本地运行 Python 单元测试，可以使用 `${TVM_HOME}` 目录中的命令 `pytest`。
 
 * 环境变量
-  
+
   * `TVM_TEST_TARGETS` 应该是一个用分号分隔的待运行 target 列表。如果未设置，默认是 `tvm.testing.DEFAULT_TEST_TARGETS` 中定义的 target。
-    
+
     注意：如果 `TVM_TEST_TARGETS` 不包含任何已启用且具有该类型可访问设备的 target，则测试将回退到仅在 `llvm` target 上运行。
 
   * `TVM_LIBRARY_PATH` 应该是 `libtvm.so` 库的路径。例如，这可以用来借助调试版本运行测试。如果未设置，将搜索相对于 TVM 源目录的 `libtvm.so`。
-  
+
 * 命令行参数
-  
+
   * 传递文件夹或文件的路径，将仅在该文件夹或文件中运行单元测试。这一点很实用，例如，避免在未安装特定前端的系统上，运行位于 `tests/python/frontend` 中的测试。
-  
+
   * `-m` 参数仅运行带有特定 pytest 标记的单元测试。最常见的用法是使用 `m gpu` 仅运行标有 `@pytest.mark.gpu` 的测试，并使用 GPU 运行。通过传递 `m 'not gpu'`，它也可以用于仅运行不使用 GPU 的测试。
-    
+
     注意：此过滤发生在基于 `TVM_TEST_TARGETS` 环境变量选定 target 之后。即使指定了 `-m gpu`，如果 `TVM_TEST_TARGETS` 不包含 GPU target，也不会运行任何 GPU 测试。
 
 ## 在本地 Docker 容器中运行
@@ -112,17 +112,17 @@ def test_function():
 CI 中的所有内容都从 Jenkinsfile 中的任务定义开始的。这包括定义使用哪个 Docker 镜像，编译时配置是什么，以及哪些阶段都各自包含哪些测试。
 
 * Docker 镜像
-  
+
   Jenkinsfile 的每个任务（例如 'BUILD: CPU'）都会调用 `docker/bash.sh`。调用 docker/bash.sh 后面的参数定义了 CI 中的 Docker 镜像，就本地类似。
 
 * Compile-time 配置
-  
+
   Docker 镜像没有内置 `config.cmake` 文件，因此这是每个 `BUILD` 任务的第一步。这一步是使用 `tests/scripts/task_config_build_*.sh` 脚本完成的。使用哪个脚本取决于正在测试的构建，还需要在 Jenkinsfile 中指定。
 
   每个 `BUILD` 任务都以打包一个供以后测试使用的库而结束。
 
 * 运行哪些测试
-  
+
   Jenkinsfile 的 `Unit Test` 和 `Integration Test` 阶段决定了如何调用 `pytest`。每个任务都是先解压一个编译库，这个库在先前的 `BUILD` 阶段已经编译过了。接下来运行测试脚本（如`tests/script/task_python_unittest.sh`）。这些脚本可以设定文件/文件夹，以及传递给 `pytest` 的命令行选项。
-  
+
   其中一些脚本包含 `-m gpu` 选项，该选项将测试限制为仅运行包含 `@pytest.mark.gpu` 标记的测试。

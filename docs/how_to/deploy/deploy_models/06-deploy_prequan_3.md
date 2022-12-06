@@ -1,8 +1,8 @@
 ---
-title: 使用 TVM 部署框架预量化模型 - 第 3 部分 (TFLite)
+title: 使用 TVM 部署框架预量化模型 - 第 3 部分（TFLite）
 ---
 
-# 使用 TVM 部署框架预量化模型 - 第 3 部分 (TFLite)
+# 使用 TVM 部署框架预量化模型 - 第 3 部分（TFLite）
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/deploy_models/deploy_prequantized_tflite.html#sphx-glr-download-how-to-deploy-models-deploy-prequantized-tflite-py) 下载完整的示例代码

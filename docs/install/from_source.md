@@ -88,8 +88,8 @@ brew install python@3.8
         后端。对其他你想构建的后端和库（OpenCL，RCOM，METAL，VULKAN\...\...）做同样的处理。
 
     -   为了便于调试，请确保使用 `set(USE_GRAPH_EXECUTOR ON)` 和
-        `set(USE_PROFILER ON)` 启用嵌入式图形执行器 (embedded graph
-        executor) 和调试功能。
+        `set(USE_PROFILER ON)` 启用嵌入式图形执行器（embedded graph
+        executor）和调试功能。
 
     -   如需用 IR 调试，可以设置 `set(USE_RELAY_DEBUG ON)`，同时设置环境变量 *TVM_LOG_DEBUG*。
 
@@ -97,7 +97,7 @@ brew install python@3.8
         > export TVM_LOG_DEBUG="ir/transform.cc=1;relay/ir/transform.cc=1"
         > ```
 
--   TVM 需要 LLVM 用于 CPU 代码生成工具 (Codegen)。推荐使用 LLVM 构建。
+-   TVM 需要 LLVM 用于 CPU 代码生成工具（Codegen）。推荐使用 LLVM 构建。
 
     -   使用 LLVM 构建时需要 LLVM 4.0 或更高版本。注意，默认的 apt 中的
         LLVM 版本可能低于 4.0。

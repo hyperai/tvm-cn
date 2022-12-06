@@ -12,7 +12,7 @@ title: 在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸
 
 本节使用示例说明如何使用 TVM 在带有 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 的裸机上运行模型。Cortex(R)-M55 是一款用于嵌入式设备的小型低功耗 CPU。CMSIS-NN 是针对 Arm(R) Cortex(R)-M CPU 优化的内核集合。Ethos(TM)-U55 是一种 microNPU，专门为在资源受限的嵌入式设备中，加速机器学习的推理而设计。
 
-在没有 Cortex(R)-M55 和 Ethos(TM)-U55 开发板的情况下，若要运行 demo 程序，可在固定虚拟平台 (FVP) 上运行。基于 Arm(R) Corstone(TM)-300 软件的 FVP，对包含 Cortex(R)-M55 和 Ethos(TM)-U55 的硬件系统进行建模。它对于软件开发非常友好。
+在没有 Cortex(R)-M55 和 Ethos(TM)-U55 开发板的情况下，若要运行 demo 程序，可在固定虚拟平台（FVP）上运行。基于 Arm(R) Corstone(TM)-300 软件的 FVP，对包含 Cortex(R)-M55 和 Ethos(TM)-U55 的硬件系统进行建模。它对于软件开发非常友好。
 
 本教程将编译一个 MobileNet v1 模型并使用 TVM 尽可能将算子迁移到 Ethos(TM)-U55。
 
@@ -86,7 +86,7 @@ tar xvf mobilenet_v1_1.0_224_quant.tar
 
 ## 为具有 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 设备编译模型
 
-下载 MobileNet v1 模型后，下一步是用 tvmc compile 进行编译。编译过程中得到的输出是模型的 TAR 包，该模型编译为 target  平台的模型库格式 (MLF)，能够用 TVM runtime 在 target 设备上运行该模型。
+下载 MobileNet v1 模型后，下一步是用 tvmc compile 进行编译。编译过程中得到的输出是模型的 TAR 包，该模型编译为 target  平台的模型库格式（MLF），能够用 TVM runtime 在 target 设备上运行该模型。
 
 ``` bash
 tvmc compile --target=ethos-u,cmsis-nn,c \
@@ -165,7 +165,7 @@ curl -sS https://s3.amazonaws.com/model-server/inputs/kitten.jpg -o ./kitten.jpg
 
 * `inputs.h` - 作为脚本参数提供的图像将被转换为整数数组，以输入到 MobileNet v1 模型。
 * `outputs.h` - 用一个全零的整数数组，为推理的输出保留 1001 个整数值。
-  
+
 *convert_image.py*[¶](#convert-image-py)
 {#convert-image-py}
 ``` python
@@ -336,7 +336,7 @@ demo.c[¶](#demo-c)
 若要用 FreeRTOS 进行任务调度和队列，可以在 [demo_freertos.c](https://github.com/apache/tvm/blob/main/apps/microtvm/ethosu/src/demo_freertos.c) 找到示例程序。
 :::
 
-## 创建链接脚本 (linker script)
+## 创建链接脚本（linker script）
 
 创建一个链接脚本，便于在下一节中构建应用程序时使用。链接脚本告诉链接器所有文件都放在内存中。下面的 corstone300.ld 链接脚本应该放在工作目录中。
 
@@ -368,7 +368,7 @@ Makefile 示例：[Makefile](https://github.com/apache/tvm/blob/main/apps/microt
 
 ## 运行 demo
 
-最后，使用以下命令在固定虚拟平台 (Fixed Virtual Platform，简称 FVP) 上运行 demo：
+最后，使用以下命令在固定虚拟平台（Fixed Virtual Platform，简称 FVP）上运行 demo：
 
 ``` bash
 FVP_Corstone_SSE-300_Ethos-U55 -C cpu0.CFGDTCMSZ=15 \

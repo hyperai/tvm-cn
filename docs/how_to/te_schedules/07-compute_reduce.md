@@ -1,8 +1,8 @@
 ---
-title: 使用元组输入 (Tuple Inputs) 进行计算和归约
+title: 使用元组输入（Tuple Inputs）进行计算和归约
 ---
 
-# 使用元组输入 (Tuple Inputs) 进行计算和归约
+# 使用元组输入（Tuple Inputs）进行计算和归约
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_schedules/tuple_inputs.html#sphx-glr-download-how-to-work-with-schedules-tuple-inputs-py) 下载完整的示例代码
@@ -58,7 +58,7 @@ print(tvm.lower(s, [A0, A1, B0, B1], simple_mode=True))
 }
 ```
 
-## 使用协同输入 (Collaborative Inputs) 描述归约
+## 使用协同输入（Collaborative Inputs）描述归约
 
 有时需要多个输入来表达归约算子，并且输入会协同工作，例如 `argmax`。在归约过程中，`argmax` 要比较操作数的值，还需要保留操作数的索引，可用 `te.comm_reducer()` 表示：
 

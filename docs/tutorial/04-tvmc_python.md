@@ -72,7 +72,7 @@ result = tvmc.run(package, device="cpu") # 第 3 步：运行
 
 用 `print(result)` 打印结果。
 
-## 第 1.5 步：调优【可选并推荐】
+## 第 1.5 步：调优（可选并推荐）
 
 通过调优可进一步提高运行速度。此可选步骤用机器学习来查看模型（函数）中的每个操作，并找到一种更快的方法来运行它。这一步通过 cost 模型，以及对可能的 schedule 进行基准化来实现。
 
@@ -169,12 +169,12 @@ tvmc.tune(model, target="llvm", enable_autoscheduler = True)
 
 * 方法 2:
    ``` python
-   # 运行 tuning 
-   tuning_records = tvmc.tune(model, target="llvm") 
-     
+   # 运行 tuning
+   tuning_records = tvmc.tune(model, target="llvm")
+
    ...
-     
-   # 运行 tuning，然后复用 tuning 的结果 
+
+   # 运行 tuning，然后复用 tuning 的结果
    tvmc.tune(model, target="llvm",tuning_records=tuning_records)
    ```
 
@@ -188,7 +188,7 @@ tvmc.tune(model, trials=10000, timeout=10,)
 
 ## 为远程设备编译模型
 
-为不在本地计算机上的硬件进行编译时，TVMC 支持使用远程过程调用 (RPC) 。要设置 RPC 服务器，可参考本 [文档](https://tvm.apache.org/docs/tutorials/get_started/cross_compilation_and_rpc.html) 中的“在设备上设置 RPC 服务器”部分。
+为不在本地计算机上的硬件进行编译时，TVMC 支持使用远程过程调用（RPC）。要设置 RPC 服务器，可参考本 [文档](https://tvm.apache.org/docs/tutorials/get_started/cross_compilation_and_rpc.html) 中的“在设备上设置 RPC 服务器”部分。
 
 TVMC 脚本包括以下内容，并进行了相应调整：
 
@@ -206,5 +206,3 @@ tvmc.tune(
 [`下载 Python 源代码：tvmc_python.py`](https://tvm.apache.org/docs/_downloads/10724e9ad9c29faa223c1d5eab6dbef9/tvmc_python.py)
 
 [`下载 Jupyter Notebook：tvmc_python.ipynb`](https://tvm.apache.org/docs/_downloads/8d55b8f991fb704002f768367ce2d1a2/tvmc_python.ipynb)
-
-

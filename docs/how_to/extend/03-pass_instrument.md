@@ -12,7 +12,7 @@ title: 如何使用 TVM Pass Instrument
 
 随着实现的 Pass 越来越多，instrument pass 执行、分析每个 Pass 效果和观察各种事件也愈发重要。
 
-可以通过向 `tvm.transform.PassContext` 提供 `tvm.ir.instrument.PassInstrument` 实例列表来检测 Pass。我们提供了一个用于收集计时信息的 pass 工具 (`tvm.ir.instrument.PassTimingInstrument`)，可以通过 `tvm.instrument.pass_instrument()` 装饰器使用扩展机制。
+可以通过向 `tvm.transform.PassContext` 提供 `tvm.ir.instrument.PassInstrument` 实例列表来检测 Pass。我们提供了一个用于收集计时信息的 pass 工具（`tvm.ir.instrument.PassTimingInstrument`），可以通过 `tvm.instrument.pass_instrument()` 装饰器使用扩展机制。
 
 本教程演示开发者如何用 `PassContext` 检测 Pass。另请参阅 [Pass Infrastructure](https://tvm.apache.org/docs/arch/pass_infra.html#pass-infra)。
 

@@ -205,7 +205,7 @@ Check failed: (lower) is false: Add lowering function for target llvm type 150 n
 
 新报错提示无法找到 `Add` 降级函数，这并不是坏事儿，这表明错误与 `Cast`无关！接下来只需要在程序中为其他操作注册降级函数。
 
-注意，对于 `Add`，`create_lower_func` 接受一个键 (key) 是整数的字典。对于 `Cast` 操作，需要一个 2 元组来指定 `src_bit_length` 和 `dest_bit_length`，对于其他操作，操作数之间的位长度相同，因此只需要一个整数来指定 `bit_length`。
+注意，对于 `Add`，`create_lower_func` 接受一个键（key）是整数的字典。对于 `Cast` 操作，需要一个 2 元组来指定 `src_bit_length` 和 `dest_bit_length`，对于其他操作，操作数之间的位长度相同，因此只需要一个整数来指定 `bit_length`。
 
 ``` python
 tvm.target.datatype.register_op(

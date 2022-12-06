@@ -7,7 +7,7 @@ sidebar_position: 250
 
 ## 背景
 
-TVM 是一个模型部署框架，它在传统操作系统上的各种模型中性能较好。TVM 的分层编译方法是针对裸机设备的自然扩展。虽然大多数编译流程无需更改这类设备上的概念验证 (proof-of-concept, POC) 的实现，但 runtime 不能依赖于：
+TVM 是一个模型部署框架，它在传统操作系统上的各种模型中性能较好。TVM 的分层编译方法是针对裸机设备的自然扩展。虽然大多数编译流程无需更改这类设备上的概念验证（proof-of-concept, POC）的实现，但 runtime 不能依赖于：
 
 * **虚拟内存**，以及任何系统提供的 `malloc`。此外，裸机设备的内存通常非常有限（以 KB 为单位）。正因如此，这类平台的库在使用内存时要更加谨慎，并且在不使用时释放内存。
 * 传统的操作系统抽象，例如 **文件**，**库** 和  **内核函数**。一些项目支持这些，但它们不是标准的。
@@ -78,7 +78,7 @@ microTVM 的相关部分是：
 
 使用 microTVM 时，会用 C Runtime（`Runtime('crt')`）很重要，它是最适合在微型设备上运行的 Runtime，而非更动态的 C++ Runtime。此外，还有两个执行器可以与 C Runtime 结合使用：
 
-* `Executor("aot")` - Ahead of Time (AOT) 执行器将网络预编译成一个可运行的函数，然后将其直接添加到微应用程序中
+* `Executor("aot")` - Ahead of Time（AOT）执行器将网络预编译成一个可运行的函数，然后将其直接添加到微应用程序中
 * `Executor("graph", {"link-params": True})` - 图执行器提供了网络的 JSON 表示，并且需要生成 C Runtime 的系统库，从而在函数注册表（`Runtime("crt" , {"system-lib": True})`）中查找函数。`{"link-params":True}` 允许将参数链接到生成的文件，而非从外部提供。
 
 这些是在构建 runtime 模块时指定的：`relay.build(..., runtime=..., executor=...)`。

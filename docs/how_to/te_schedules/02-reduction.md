@@ -1,8 +1,8 @@
 ---
-title: 规约 (reduce)
+title: 规约（reduce）
 ---
 
-# 规约 (reduce)
+# 规约（reduce）
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_schedules/reduction.html#sphx-glr-download-how-to-work-with-schedules-reduction-py) 下载完整的示例代码
@@ -10,7 +10,7 @@ title: 规约 (reduce)
 
 **作者**：[Tianqi Chen](https://tqchen.github.io/)
 
-本文介绍如何在 TVM 中规约 (reduce)。关联规约算子（如 sum/max/min）是线性代数运算的典型构造块。
+本文介绍如何在 TVM 中规约（reduce）。关联规约算子（如 sum/max/min）是线性代数运算的典型构造块。
 
 ``` python
 from __future__ import absolute_import, print_function
@@ -357,7 +357,7 @@ B = te.compute((n,), lambda i: product(A[i, k], axis=k), name="B")
 本教程演示了如何规约 schedule。
 
 * 用 reduce_axis 描述规约。
-* 如需并行性 (parallelism)，用 rfactor 来分解轴。
+* 如需并行性（parallelism），用 rfactor 来分解轴。
 * 通过 `te.comm_reducer` 定义新的规约操作。
 
 

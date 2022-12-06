@@ -127,7 +127,7 @@ for i in range(img_data.shape[0]):
 # 添加 batch 维度
 img_data = np.expand_dims(norm_img_data, axis=0)
 
-# 保存为 .npz (输出 imagenet_cat.npz)
+# 保存为 .npz（输出 imagenet_cat.npz）
 np.savez("imagenet_cat", data=img_data)
 ```
 
@@ -150,7 +150,7 @@ resnet50-v2-7-tvm.tar
 
 如前所述，每个模型提供输出张量的方式都不一样。
 
-本示例中，我们需要用专为该模型提供的查找表，运行一些后处理 (post-processing)，从而使得 ResNet-50 v2 的输出形式更具有可读性。
+本示例中，我们需要用专为该模型提供的查找表，运行一些后处理（post-processing），从而使得 ResNet-50 v2 的输出形式更具有可读性。
 
 下面的脚本是一个后处理示例，它从编译模块的输出中提取标签：
 

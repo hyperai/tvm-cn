@@ -116,7 +116,7 @@ def vectorize(f, mod, ctx):
     return f.with_body(tvm.tir.stmt_functor.ir_transform(f.body, None, vectorize8, ["tir.For"]))
 ```
 
-## 对接低层 (Glue to Lowering)
+## 对接低层（Glue to Lowering）
 
 到目前为止，已经完成了这个 IR 转换 pass 的编写。接下来将这个 pass 和 TVM 的底层 pass 对接。
 

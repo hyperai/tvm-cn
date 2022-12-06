@@ -19,7 +19,7 @@ title: 设计与架构
 
 * 导入：前端组件将模型引入到 IRModule 中，它包含了内部表示模型的函数集合。
 * 转换：编译器将 IRModule 转换为功能与之等效或近似等效（例如在量化的情况下）的 IRModule。许多转换与 target（后端）无关，并且允许 target 配置转换 pipeline。
-* Target 转换：编译器将 IRModule 转换 (codegen) 为指定 target 的可执行格式。target 的转换结果被封装为 *runtime.Module*，可以在 runtime 环境中导出、加载和执行。
+* Target 转换：编译器将 IRModule 转换（codegen）为指定 target 的可执行格式。target 的转换结果被封装为 *runtime.Module*，可以在 runtime 环境中导出、加载和执行。
 * Runtime 执行：用户加载 *runtime.Module*，并在支持的 runtime 环境中运行编译好的函数。
 
 ![/img/docs/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg](/img/docs/tlc-pack/web-data/main/images/design/tvm_dyn_workflow.svg)
@@ -28,7 +28,7 @@ title: 设计与架构
 
 设计和理解复杂系统的最佳方法之一，就是识别关键数据结构和操作（转换）这些数据结构的 API。识别了关键数据结构后，就可以将系统分解为逻辑组件，这些逻辑组件定义了关键数据结构的集合，或是数据结构之间的转换。
 
-**IRModule** 是整个堆栈中使用的主要数据结构。一个 IRModule (intermediate representation module) 包含一组函数。目前支持两种主要的功能变体 (variant)：
+**IRModule** 是整个堆栈中使用的主要数据结构。一个 IRModule（intermediate representation module）包含一组函数。目前支持两种主要的功能变体（variant）：
 
 * **relay::Function** 是一种高级功能程序表示。一个 relay.Function 通常对应一个端到端的模型。可将 relay.Function 视为额外支持控制流、递归和复杂数据结构的计算图。
 * **tir::PrimFunc** 是一种底层程序表示，包含循环嵌套选择、多维加载/存储、线程和向量/张量指令的元素。通常用于表示算子程序，这个程序在模型中执行一个（可融合的）层。 在编译期间，Relay 函数可降级为多个 tir::PrimFunc 函数和一个调用这些 tir::PrimFunc 函数的顶层函数。
@@ -40,7 +40,7 @@ title: 设计与架构
 * 优化：将程序转换为等效，甚至更优的版本。
 * 降级：将程序转换为更接近 target 的较低级别表示。 **relay/transform** 包含一组优化模型的 pass。优化包括常见的程序优化（例如常量折叠和死码消除），以及特定于张量计算的 pass（例如布局转换和 scale 因子折叠）。
 
-在 Relay 优化 pipeline 之后，运行 pass (FuseOps)，将端到端函数（例如 MobileNet）分解为子功能（例如 conv2d-relu）段。这个过程帮助将原始问题分为两个子问题：
+在 Relay 优化 pipeline 之后，运行 pass（FuseOps），将端到端函数（例如 MobileNet）分解为子功能（例如 conv2d-relu）段。这个过程帮助将原始问题分为两个子问题：
 
 * 所有子函数的编译和优化。
 * 整体执行结构：对生成的子函数进行一系列调用，执行整个模型。 使用下层 tir 阶段来编译和优化每个子函数。对于特定的 targets，也可以直接进入 target 转换阶段，使用外部代码生成器。
@@ -91,7 +91,7 @@ print(a.numpy())
 
 `tvm.runtime.Module` 封装了编译的结果。runtime.Module 包含一个 GetFunction 方法，用于按名称获取 PackedFuncs。
 
-`tvm.runtime.PackedFunc` 是两个生成函数的类型擦除函数接口。runtime.PackedFunc 的参数和返回值的类型如下：POD 类型 (int, float)、string、runtime.PackedFunc、runtime.Module、runtime.NDArray 和 runtime.Object 的其他子类。
+`tvm.runtime.PackedFunc` 是两个生成函数的类型擦除函数接口。runtime.PackedFunc 的参数和返回值的类型如下：POD 类型（int, float）、string、runtime.PackedFunc、runtime.Module、runtime.NDArray 和 runtime.Object 的其他子类。
 
 `tvm.runtime.Module` 和 `tvm.runtime.PackedFunc` 是模块化 runtime 的强大机制。例如，要在 CUDA 上获取上述 *addone* 函数，可以用 LLVM 生成主机端代码来计算启动参数（例如线程组的大小），然后用 CUDA 驱动程序 API 支持的 CUDAModule 调用另一个 PackedFunc。OpenCL 内核也有相同的机制。
 
@@ -142,7 +142,7 @@ result = gmod["get_output"](0).numpy()
 
 ## tvm/support
 
-support 模块包含基础架构最常用的程序，例如通用 arena 分配器 (arena allocator)、套接字 (socket) 和日志 (logging)。
+support 模块包含基础架构最常用的程序，例如通用 arena 分配器（arena allocator）、套接字（socket）和日志（logging）。
 
 ## tvm/runtime
 
@@ -210,7 +210,7 @@ Op 是表示所有系统定义的原始算子/内联函数的通用类。开发�
 
 target 模块包含将 IRModule 转换为 target runtime.Module 的所有代码生成器。它还提供了一个描述 target 的通用 Target 类。
 
-通过查询 target 中的属性信息和注册到每个 target id (cuda, opencl) 的内置信息，可以根据 target 定制编译 pipeline。
+通过查询 target 中的属性信息和注册到每个 target id（cuda、opencl）的内置信息，可以根据 target 定制编译 pipeline。
 
 * [设备/Target 交互](arch/device_target_interactions)
 
@@ -220,13 +220,13 @@ TIR 包含低级程序表示的定义。用 *tir::PrimFunc* 来表示可通过 T
 
 ## tvm/arith
 
-该模块与 TIR 密切相关，低级代码生成的关键问题之一是分析索引的算术属性 (arithmetic properties)——正性 (positiveness)、变量界限和描述迭代器空间的整数集。arith 模块提供了一组进行（主要是整数）分析的工具。TIR pass 可以用这些分析来简化和优化代码。
+该模块与 TIR 密切相关，低级代码生成的关键问题之一是分析索引的算术属性（arithmetic properties）——正性（positiveness）、变量界限和描述迭代器空间的整数集。arith 模块提供了一组进行（主要是整数）分析的工具。TIR pass 可以用这些分析来简化和优化代码。
 
 ## tvm/te
 
-te (tensor expression) 代表「张量表达式」，这是一个特定领域的语言模块，它允许通过编写张量表达式来快速构造 *tir::PrimFunc* 变体 (variant)。
+te（tensor expression）代表「张量表达式」，这是一个特定领域的语言模块，它允许通过编写张量表达式来快速构造 *tir::PrimFunc* 变体（variant）。
 
-重要的是，张量表达式本身并不是一个可以存储到 IRModule 中的自包含函数 (self-contained function)。相反，它是 IR 的一个片段，可以拼接起来构建一个 IRModule。
+重要的是，张量表达式本身并不是一个可以存储到 IRModule 中的自包含函数（self-contained function）。相反，它是 IR 的一个片段，可以拼接起来构建一个 IRModule。
 
 *te/schedule* 提供了一组调度原语，来控制正在生成的函数。未来，可能会将其中一些调度组件引入到 *tir::PrimFunc* 本身。
 
@@ -235,7 +235,7 @@ te (tensor expression) 代表「张量表达式」，这是一个特定领域的
 
 ## tvm/topi
 
-虽然可以通过 TIR 或张量表达式 (TE) 为每个用例直接构造算子，但这样做很乏味。 *topi*（张量算子清单）提供了一组 numpy 定义的预定义算子（在 TE 或 TIR 中），并可在常见的深度学习任务中找到。还提供了一组常见的调度模板，来获得跨不同 target 平台的性能实现。
+虽然可以通过 TIR 或张量表达式（TE）为每个用例直接构造算子，但这样做很乏味。 *topi*（张量算子清单）提供了一组 numpy 定义的预定义算子（在 TE 或 TIR 中），并可在常见的深度学习任务中找到。还提供了一组常见的调度模板，来获得跨不同 target 平台的性能实现。
 
 ## tvm/relay
 

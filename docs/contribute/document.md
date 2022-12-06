@@ -126,7 +126,7 @@ My Section
 
 reStructuredText 的 [figure](https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure) 和 [image](https://docutils.sourceforge.io/docs/ref/rst/directives.html#image) 元素允许文档包含图像 URL。
 
-为 TVM 文档创建的图像文件应该在 <https://github.com/tlc-pack/web-data> 仓库中，而使用这些图像的 *.rst* 文件应该在 TVM 仓库 (<https://github.com/apache/tvm>）。
+为 TVM 文档创建的图像文件应该在 <https://github.com/tlc-pack/web-data> 仓库中，而使用这些图像的 *.rst* 文件应该在 TVM 仓库（<https://github.com/apache/tvm>）。
 
 这需要两个 GitHub Pull Request，一个用于图像文件，另一个用于 *.rst* 文件。contributor 与 reviewer 之间可能需要讨论来协调 review 的过程。
 

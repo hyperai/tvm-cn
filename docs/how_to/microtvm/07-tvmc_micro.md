@@ -54,7 +54,7 @@ wget https://github.com/tensorflow/tflite-micro/raw/main/tensorflow/lite/micro/e
 
 ## 将 TFLite 模型编译为模型库格式
 
-模型库格式 (Model Library Format，简称 MLF) 是 TVM 为微 target 提供的一种输出格式，MLF 是包含了 TVM 编译器输出的所有部分的 tarball，这些编译器输出可以用于 TVM 环境之外的微 target。更多信息请访问 [模型库格式](https://tvm.apache.org/docs/arch/model_library_format.html)。
+模型库格式（Model Library Format，简称 MLF）是 TVM 为微 target 提供的一种输出格式，MLF 是包含了 TVM 编译器输出的所有部分的 tarball，这些编译器输出可以用于 TVM 环境之外的微 target。更多信息请访问 [模型库格式](https://tvm.apache.org/docs/arch/model_library_format.html)。
 
 为 `qemu_x86` Zephyr 板生成一个 MLF 文件，为 `magic_wand` TFLite 模型生成 MLF 输出：
 
@@ -75,7 +75,7 @@ tvmc compile magic_wand.tflite \
 
 ## 使用模型库格式创建 Zephyr 项目
 
-使用 TVM Micro 子命令 `create` 生成 Zephyr 项目。将 MLF 格式、项目路径，以及项目选项传递给 `create` 子命令。每个平台 (Zephyr/Arduino) 的项目选项在其项目 API 服务器文件中定义。运行如下命令生成 Zephyr 项目：
+使用 TVM Micro 子命令 `create` 生成 Zephyr 项目。将 MLF 格式、项目路径，以及项目选项传递给 `create` 子命令。每个平台（Zephyr/Arduino）的项目选项在其项目 API 服务器文件中定义。运行如下命令生成 Zephyr 项目：
 
 ``` bash
 tvmc micro create \
@@ -85,7 +85,7 @@ tvmc micro create \
     --project-option project_type=host_driven zephyr_board=qemu_x86
 ```
 
-以上命令为 `qemu_x86` Zephyr 板生成一个 `Host-Driven` Zephyr 项目，在 Host-Driven 模板项目中，图执行器 (Graph Executor) 将在主机上运行，并通过使用 RPC 机制向设备发出命令，在 Zephyr 设备上运行模型执行。阅读有关[主机驱动执行](https://tvm.apache.org/docs/arch/microtvm_design.html#host-driven-execution)的更多信息。
+以上命令为 `qemu_x86` Zephyr 板生成一个 `Host-Driven` Zephyr 项目，在 Host-Driven 模板项目中，图执行器（Graph Executor）将在主机上运行，并通过使用 RPC 机制向设备发出命令，在 Zephyr 设备上运行模型执行。阅读有关[主机驱动执行](https://tvm.apache.org/docs/arch/microtvm_design.html#host-driven-execution)的更多信息。
 
 获取有关 TVMC Micro `create` 子命令的更多信息，执行如下命令：
 
@@ -117,7 +117,7 @@ tvmc micro flash \
 
 ## 在微 Target 上运行微模型
 
-与设备通信后，在设备上对编译好的模型和 TVM RPC 服务器进行编程。Zephyr 板等待主机打开通信通道。MicroTVM 设备通常使用串口通信 (UART) 进行通信 。要使用 TVMC 在设备上运行闪存模型，可通过 `tvmc run` 子命令并通过 `--device micro` 来指定设备类型，打开通信通道，使用主机上的 `Graph Executor` 设置输入值并在设备上运行完整模型，然后从设备获取输出。
+与设备通信后，在设备上对编译好的模型和 TVM RPC 服务器进行编程。Zephyr 板等待主机打开通信通道。MicroTVM 设备通常使用串口通信（UART）进行通信 。要使用 TVMC 在设备上运行闪存模型，可通过 `tvmc run` 子命令并通过 `--device micro` 来指定设备类型，打开通信通道，使用主机上的 `Graph Executor` 设置输入值并在设备上运行完整模型，然后从设备获取输出。
 
 ``` bash
 tvmc run \
@@ -126,7 +126,7 @@ tvmc run \
     --project-option zephyr_board=qemu_x86 \
     --fill-mode ones \
     --print-top 4
- 
+
  # Output:
  #
  # INFO:__main__:b'[100%] [QEMU] CPU: qemu32,+nx,+pae\n'

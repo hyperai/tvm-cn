@@ -5,7 +5,7 @@ slug: /topic/vta
 
 # VTA：多功能张量加速器
 
-多功能张量加速器 (Versatile Tensor Accelerator，简称 VTA) 是一个开放、通用和可定制的深度学习加速器，具有完整的基于 TVM 的编译器堆栈。VTA 揭示了主流深度学习加速器最显著的共同特征。TVM 和 VTA 形成了一个端到端的硬件-软件深度学习系统堆栈，其中包括硬件设计、驱动程序、JIT runtime 和基于 TVM 的优化编译器堆栈。
+多功能张量加速器（Versatile Tensor Accelerator，简称 VTA）是一个开放、通用和可定制的深度学习加速器，具有完整的基于 TVM 的编译器堆栈。VTA 揭示了主流深度学习加速器最显著的共同特征。TVM 和 VTA 形成了一个端到端的硬件-软件深度学习系统堆栈，其中包括硬件设计、驱动程序、JIT runtime 和基于 TVM 的优化编译器堆栈。
 
 ![图片](/img/docs/uwsampl/web-data/main/vta/blogpost/vta_overview.png)
 

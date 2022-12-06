@@ -84,9 +84,9 @@ gen_module.run(data=input_data)
 
 有些选项可在 `partition_for_tensorrt` 中配置：
 
-* `version` - 用 (major, minor, patch) 元组表示的 TensorRT 版本。若在 USE_TENSORRT_RUNTIME=ON 条件下编译 TVM，则用链接的 TensorRT 版本。这个版本会影响哪些算子可以分区到 TensorRT。
+* `version` - 用（major、minor、patch）元组表示的 TensorRT 版本。若在 USE_TENSORRT_RUNTIME=ON 条件下编译 TVM，则用链接的 TensorRT 版本。这个版本会影响哪些算子可以分区到 TensorRT。
 * `use_implicit_batch` - 使用 TensorRT 隐式批处理模式（默认为 true）。设置为 false 会启用显式批处理模式，这种方式会扩大支持的算子（包括那些修改批处理维度的算子），但会降低某些模型的性能。
-* `remove_no_mac_subgraphs` - 提高性能的启发式方法。若子图没有任何乘-加操作 (multiply-accumulate operation)，则删除已为 TensorRT 分区的子图。删除的子图将通过 TVM 的标准编译。
+* `remove_no_mac_subgraphs` - 提高性能的启发式方法。若子图没有任何乘-加操作（multiply-accumulate operation），则删除已为 TensorRT 分区的子图。删除的子图将通过 TVM 的标准编译。
 * `max_workspace_size` - 允许每个子图用于创建 TensorRT 引擎的工作空间 size（以字节为单位）。它可在运行时被覆盖。更多信息请参阅 TensorRT 文档。
 
 ## Runtime 设置
@@ -167,5 +167,3 @@ gen_module.run(data=input_data)
 * *src/runtime/contrib/tensorrt/tensorrt_ops.cc* 创建一个新的算子转换器类实现 `TensorRTOpConverter` 接口。必须实现构造函数，并指定有多少输入，以及它们是张量还是权重。还必须实现 `Convert` 方法来执行转换。通过使用参数中的输入、属性和网络来添加新的 TensorRT 层，然后产生层输出。你可以使用示例中已有的转换器。最后，将新算子转换器注册到 `GetOpConverters()` 映射中。
 * *python/relay/op/contrib/tensorrt.py* 这个文件包含了 TensorRT 的注解规则（决定了支持哪些算子及其属性）。必须为 Relay 算子注册一个注解函数，并根据属性的返回值为 true 还是 false 来指定转换器支持哪些属性。
 * *tests/python/contrib/test_tensorrt.py* 为给定算子添加单元测试。
-
-

@@ -108,7 +108,7 @@ class PassNode : Object {
 
 #### 模块级 Pass
 
-模块级 pass 主要针对全局和过程间优化 (IPO)，类似于 LLVM 中的模块 pass。Relay 中一些需要模块全局图的典型 pass，如 A-normal form 转换和 lambda 提升等，都属于这个集合。在这个级别，用户甚至可以在模块中添加和/或删除功能。注意，是所有 pass。
+模块级 pass 主要针对全局和过程间优化（IPO），类似于 LLVM 中的模块 pass。Relay 中一些需要模块全局图的典型 pass，如 A-normal form 转换和 lambda 提升等，都属于这个集合。在这个级别，用户甚至可以在模块中添加和/或删除功能。注意，是所有 pass。
 
 ``` c++
 class ModulePassNode : PassNode {
@@ -326,7 +326,7 @@ with PassContext(instruments=[pi]) # pi = a PassInstrument implementation. # pi 
     pi.ExitPassContext()
 ```
 
-接下来简单介绍 `PassInstrument` 接口和 `PassContext` 方法的关系。更多详细信息，参阅 ([src/ir/transform.cc](https://github.com/apache/tvm/blob/main/src/ir/transform.cc))。
+接下来简单介绍 `PassInstrument` 接口和 `PassContext` 方法的关系。更多详细信息，参阅（[src/ir/transform.cc](https://github.com/apache/tvm/blob/main/src/ir/transform.cc)）。
 
 * `InstrumentEnterPassContext`
   * `EnterPassContext()` 按照传递给 `PassContext` 的 `instruments` 的顺序执行。
@@ -344,7 +344,7 @@ with PassContext(instruments=[pi]) # pi = a PassInstrument implementation. # pi 
   * 当异常发生时，立即抛出。我们依赖 Python 上下文管理器安全退出 `PassContext`（意味着每个工具的 `ExitPassContext` 都会运行。对于 C++，参考 [include/tvm/support/with.h](https://github.com/apache/tvm/blob/main/include/tvm/support/with.h)。）
 * `InstrumentAfterPass`
   * `RunAfterPass` 按照传递给 `PassContext` 的 `instruments` 的顺序执行。
-  * 当异常发生时，立即抛出。依靠 Python 上下文管理器或 `With` 类 ([include/tvm/support/with.h](https://github.com/apache/tvm/blob/main/include/tvm/support/with.h)) 安全退出 `PassContext`。
+  * 当异常发生时，立即抛出。依靠 Python 上下文管理器或 `With` 类（[include/tvm/support/with.h](https://github.com/apache/tvm/blob/main/include/tvm/support/with.h)）安全退出 `PassContext`。
 
 #### 内置工具
 
@@ -460,7 +460,7 @@ res_mod = fpass(input_mod)
 
 #### Pass Instrument
 
-可以通过在实现以下方法的类上使用 `pass_instrument` 装饰器 ([python/tvm/ir/instrument.py](https://github.com/apache/tvm/blob/main/python/tvm/ir/instrument.py)) 来实现 `PassInstrument`。注意，推荐使用 `pass_instrument` 装饰器来实现 `PassInstrument`，而不是覆盖或子类化。
+可以通过在实现以下方法的类上使用 `pass_instrument` 装饰器（[python/tvm/ir/instrument.py](https://github.com/apache/tvm/blob/main/python/tvm/ir/instrument.py)）来实现 `PassInstrument`。注意，推荐使用 `pass_instrument` 装饰器来实现 `PassInstrument`，而不是覆盖或子类化。
 
 * `enter_pass_ctx`
   * 该方法在进入 `PassContext` 时运行。
@@ -472,7 +472,7 @@ res_mod = fpass(input_mod)
   * 若要运行某 pass，则在 pass 执行之前运行此方法。
 * `run_after_pass`
   * 此方法在执行 pass 后立即运行。
-  * 
+  *
 
 `PassInstrument` 实例可以通过 `tvm.transform.PassContext` 中的 `instruments` 参数注册。
 

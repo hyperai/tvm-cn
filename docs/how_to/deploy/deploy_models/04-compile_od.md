@@ -10,7 +10,7 @@ title: 编译 PyTorch 目标检测模型
 
 本文介绍如何用 Relay VM 部署 PyTorch 目标检测模型。
 
-首先应安装 PyTorch。此外，还应安装 TorchVision，并将其作为模型合集 (model zoo)。
+首先应安装 PyTorch。此外，还应安装 TorchVision，并将其作为模型合集（model zoo）。
 
 可通过 pip 快速安装：
 
