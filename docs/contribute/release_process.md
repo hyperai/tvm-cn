@@ -151,9 +151,9 @@ curl "https://dist.apache.org/repos/dist/dev/tvm/KEYS" > svn-tvm/KEYS
 
 记得在 GitHub 上创建一个新版本 TAG（本例中为 v0.6.0）并删除预发布候选 TAG。
 
-> ``` bash
-> git push --delete origin v0.6.0.rc2
-> ```
+``` bash
+git push --delete origin v0.6.0.rc2
+```
 
 ## 更新 TVM 网站
 
