@@ -104,8 +104,6 @@ tvmc.compile(model, target="llvm", tuning_records = "records.log") # 第 2 步�
 python my_tvmc_script.py
 ```
 
-## Example results:[¶](https://tvm.apache.org/docs/tutorial/tvmc_python.html#example-results)
-
 ## 示例结果
 
 ``` bash
