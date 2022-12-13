@@ -142,7 +142,7 @@ func(a, b)
 np.testing.assert_equal(b.numpy(), a.numpy() + 1)
 ```
 
-要想评估内核在远程设备上的性能，避免网络开销很重要。`time_evaluator` 返回一个远程函数，这个远程函数多次运行 func 函数，并测量每一次在远程设备上运行的成本，然后返回测量的成本（不包括网络开销）。
+要想评估内核在远程设备上的性能，避免网络开销很重要。`time_evaluator` 返回一个远程函数，这个远程函数多次运行 func 函数，并测试每一次在远程设备上运行的成本，然后返回测试的成本（不包括网络开销）。
 
 ``` python
 time_f = func.time_evaluator(func.entry_name, dev, number=10)
