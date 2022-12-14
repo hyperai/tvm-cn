@@ -18,7 +18,7 @@
     "@docusaurus/core": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
     "@docusaurus/theme-live-codeblock": "2.2.0",
-    "@mdx-js/react": "1.6.22",
+    "@mdx-js/react": "2.2.1",
     "@openbayes/docsearch-css": "1.2.7",
     "@openbayes/docusaurus-enlight": "1.2.10",
     "@svgr/webpack": "6.3.1",
