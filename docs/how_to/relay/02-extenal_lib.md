@@ -14,7 +14,7 @@ title: 在 Relay 中使用外部库
 
 Relay 内部用 TVM 来生成 target-specific 的代码。例如，TVM 使用 CUDA 后端为用户提供的网络中的所有层生成 CUDA 内核。有时也可将各个供应商开发的外部库合并到 Relay 中，TVM 有一种机制可以透明地调用这些库——对于 Relay 用户，只需要设置一个适当的 target 字符串。
 
-使用 Relay 的外部库前，用你要用的库构建 TVM。例如，要用 cuDNN，需启用 *cmake/config.cmake* 中的 USE_CUDNN 选项，必要时要指定 cuDNN 包含和库目录。
+使用 Relay 的外部库前，用你要用的库构建 TVM。例如，要用 cuDNN，需启用 *cmake/config.cmake* 中的 USE_CUDNN 选项，必要时要指定 cuDNN 头文件和库目录。
 
 首先导入 Relay 和 TVM。
 
