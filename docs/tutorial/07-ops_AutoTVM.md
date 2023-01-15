@@ -159,7 +159,7 @@ def matmul(N, L, M, dtype):
     y, x = s[C].op.axis
     k = s[C].op.reduce_axis[0]
 
-    ##### 开始定义控件 #####
+    ##### 开始定义空间 #####
     cfg = autotvm.get_config()
     cfg.define_split("tile_y", y, num_outputs=2)
     cfg.define_split("tile_x", x, num_outputs=2)
