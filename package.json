@@ -24,7 +24,7 @@
     "@svgr/webpack": "6.3.1",
     "@tippyjs/react": "4.2.6",
     "clsx": "1.2.1",
-    "docusaurus-plugin-sass": "0.2.2",
+    "docusaurus-plugin-sass": "0.2.3",
     "file-loader": "6.2.0",
     "kladenets": "2.0.0-15",
     "prism-react-renderer": "1.3.5",
