@@ -59,7 +59,7 @@ c_compiler_input0
 
 我们的目标是生成以下可编译代码来执行子图：
 
-``` c++
+``` cpp
 #include <tvm/runtime/c_runtime_api.h>
 #include <tvm/runtime/packed_func.h>
 #include <dlpack/dlpack.h>
@@ -143,7 +143,7 @@ TVM backend -----------------------------> CSourceCodegen -------------> Codegen
 
 在 `src/relay/backend/contrib/codegen_c/codegen.cc` 中，首先在 `tvm.relay.contrib` 的命名空间下创建一个 codegen 类骨架：
 
-``` c++
+``` cpp
 #include <tvm/relay/expr_functor.h>
 #include <tvm/relay/transform.h>
 #include <tvm/relay/type.h>
@@ -209,7 +209,7 @@ class CodegenC : public ExprVisitor, public CodegenCBase {
 
 这些信息可以从 `CallNode` 轻松获取：
 
-``` c++
+``` cpp
 std::ostringstream macro_stream;
 std::ostringstream decl_stream;
 std::ostringstream buf_stream;
@@ -248,7 +248,7 @@ func_decl_.push_back(macro_stream.str());
 
 生成函数声明后，我们需要生成一个具有正确输入和输出的函数调用。要想知道调用这个函数时应该放置哪些输入或数组，必须访问它的参数：
 
-``` c++
+``` cpp
 bool first = true;
 decl_stream << func_name << "(";
 for (size_t i = 0; i < call->args.size(); ++i) {
@@ -286,7 +286,7 @@ for (size_t i = 0; i < call->args.size(); ++i) {
 
 如上一步所述，除了子图输入和输出张量外，还需要数组来保存中间结果。为了生成数组，我们提取 shape 信息，以确定数组的类型和大小：
 
-``` c++
+``` cpp
 // 这个例子仅支持单个输出。
 auto type_node = call->checked_type().as<TensorTypeNode>();
 ICHECK(type_node != nullptr && runtime::TypeMatch(type_node->dtype, kDLFloat, 32))
@@ -331,7 +331,7 @@ out_.push_back({out, out_size});
 
 `VarNode` 表示模型中的输入张量。它非常重要的一点就是名称提示（例如，`data`、`weight` 等）。访问 `VarNode` 时，只需更新类变量 `out_` 传递名称提示，后代（descendant）调用节点就可以生成正确的函数调用。
 
-``` c++
+``` cpp
 void VisitExpr_(const VarNode* node) {
   ext_func_args_.push_back(node->name_hint());
   out_.clear();
@@ -345,7 +345,7 @@ void VisitExpr_(const VarNode* node) {
 
 Codegen Class 的最后一部分是 `JIT` 函数，它为子图 emit 一个 C 函数，并将刚生成的 C 代码作为函数体。注意，除了在前几节中生成的子图函数外，还需要一个具有统一参数的 wrapper 函数，供 TVM runtime 调用和传递数据。幸运的是，我们继承的基类已经提供了一个实现，即 `JitImpl`，来生成该函数。调用 `JitImpl`的方式如下：
 
-``` c++
+``` cpp
 JitImpl("gcc_0" /* Subgraph symbol (ID) */,
         {"gcc_input0", "gcc_input1", "gcc_input2", "gcc_input3"} /* Input arguments */,
         {"float *buf_0 = (float*)malloc(4 * 20)", ...} /* Buffer allocations */,
@@ -361,7 +361,7 @@ JitImpl("gcc_0" /* Subgraph symbol (ID) */,
 
 因此，在 `JIT` 实现中唯一要做的，就是将生成的所有子图函数代码传递给 `JitImpl`：
 
-``` c++
+``` cpp
 std::string JIT() {
   // Write function macros
   for (auto decl : func_decl_) {
@@ -377,7 +377,7 @@ std::string JIT() {
 
 创建一个类并实现所需功能，注意：需要继承自 `CSourceModuleCodegenBase`：
 
-``` c++
+``` cpp
 class CSourceCodegen : public CSourceModuleCodegenBase {
  public:
   // 传递一个子图函数, 并生成 C 代码。
@@ -412,7 +412,7 @@ void GenCFunc(const Function& func) {
 
 此函数为外部库创建了一个 runtime 模块。本事例中，我们创建了一个可以直接被编译并与 TVM 生成的 DSOModule 链接在一起的 CSourceModule。`CodegenC` 实现之后，再实现这个功能就比较简单了：
 
-``` c++
+``` cpp
 runtime::Module CreateCSourceModule(const NodeRef& ref) override {
   // 创建头文件
   code_stream_ << "#include <cstdint>\n";
@@ -469,7 +469,7 @@ runtime::Module CreateCSourceModule(const NodeRef& ref) override {
 
 最后一步是将 codegen 注册到 TVM 后端。首先实现一个简单的函数，调用 codegen 并生成一个 runtime 模块：
 
-``` c++
+``` cpp
 runtime::Module CCompiler(const NodeRef& ref) {
   CSourceCodegen csource;
   return csource.CreateCSourceModule(ref);
@@ -478,7 +478,7 @@ runtime::Module CCompiler(const NodeRef& ref) {
 
 接下来将此函数注册到 TVM 后端：
 
-``` c++
+``` cpp
 TVM_REGISTER_GLOBAL("relay.ext.ccompiler").set_body_typed(CCompiler);
 ```
 
@@ -486,7 +486,7 @@ TVM_REGISTER_GLOBAL("relay.ext.ccompiler").set_body_typed(CCompiler);
 
 最后，设置一个 CMake 配置标志，只包含客户的编译器。首先创建一个 cmake 文件：`cmake/modules/contrib/CODEGENC.cmake`：
 
-``` c++
+``` cpp
 if(USE_CODEGENC)
   file(GLOB CSOURCE_RELAY_CONTRIB_SRC src/relay/backend/contrib/codegen_c/codegen.cc)
   list(APPEND COMPILER_SRCS ${CSOURCE_RELAY_CONTRIB_SRC})
@@ -534,7 +534,7 @@ subgraph_0
 
 在本节中，我们试图实现以下自定义 TVM runtime 模块，来执行 ExampleJSON 计算图。
 
-``` c++
+``` cpp
 runtime::Module ExampleJsonCompiler(const NodeRef& ref) {
     ExampleJsonCodeGen codegen(ref);
     std::string code = codegen.gen(); // 注 1
