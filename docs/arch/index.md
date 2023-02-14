@@ -91,7 +91,7 @@ print(a.numpy())
 
 `tvm.runtime.Module` 封装了编译的结果。runtime.Module 包含一个 GetFunction 方法，用于按名称获取 PackedFuncs。
 
-`tvm.runtime.PackedFunc` 是两个生成函数的类型擦除函数接口。runtime.PackedFunc 的参数和返回值的类型如下：POD 类型（int, float）、string、runtime.PackedFunc、runtime.Module、runtime.NDArray 和 runtime.Object 的其他子类。
+`tvm.runtime.PackedFunc` 是一种为各种构造函数消解类型的函数接口。runtime.PackedFunc 的参数和返回值的类型如下：POD 类型（int, float）、string、runtime.PackedFunc、runtime.Module、runtime.NDArray 和 runtime.Object 的其他子类。
 
 `tvm.runtime.Module` 和 `tvm.runtime.PackedFunc` 是模块化 runtime 的强大机制。例如，要在 CUDA 上获取上述 *addone* 函数，可以用 LLVM 生成主机端代码来计算启动参数（例如线程组的大小），然后用 CUDA 驱动程序 API 支持的 CUDAModule 调用另一个 PackedFunc。OpenCL 内核也有相同的机制。
 
