@@ -97,8 +97,8 @@ TVM 提供了一个 [最小的 C API](https://github.com/apache/tvm/blob/main/in
 
 PackedFunc 用于编译器和部署堆栈：
 
-* TVM 的所有编译器 pass 函数都以 PackedFunc 的形式暴露给前端
-* 编译好的模块还将编译好的函数返回为 PackedFunc
+* TVM 的所有编译器 pass 函数都以 PackedFunc 的类型暴露给前端
+* 编译好的模块还将编译好的函数作为 PackedFunc 类型返回
 
 为了将 runtime 保持为最小，我们将 IR 对象支持与部署 runtime 隔离开来。生成的 runtime 大约需要 200K - 600K，具体取决于包含多少 runtime 驱动程序模块（例如，CUDA）。
 
