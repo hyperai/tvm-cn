@@ -24,7 +24,7 @@ TVM 支持多种编程语言进行编译器堆栈开发和部署。本文档将�
 
 以下代码块提供了一个 C++ 示例：
 
-``` c++
+``` cpp
 #include <tvm/runtime/packed_func.h>
 
 void MyAdd(TVMArgs args, TVMRetValue* rv) {
@@ -46,7 +46,7 @@ void CallPacked() {
 
 由于 C++ 中的模板技巧，我们可以像调用普通函数一样来调用 PackedFunc。其类型擦除的性质，使得可以从动态语言（如 Python）中调用 PackedFunc，而无需为每个创建的新类型函数添加额外的胶水代码。以下示例在 C++ 中注册 PackedFunc，并在 Python 中调用。
 
-``` c++
+``` cpp
 // 在 C++ 中注册一个全局打包函数
 TVM_REGISTER_GLOBAL("myadd")
 .set_body(MyAdd);
@@ -72,7 +72,7 @@ PackedFunc 的关键在于 `TVMArgs` 和 `TVMRetValue` 结构。我们限制了�
 
 由于一个 PackedFunc 可以将另一个 PackedFunc 作为参数，因此可以将函数从 Python（作为 PackedFunc）传递给 C++。
 
-``` c++
+``` cpp
 TVM_REGISTER_GLOBAL("callhello")
 .set_body([](TVMArgs args, TVMRetValue* rv) {
   PackedFunc f = args[0];
@@ -137,7 +137,7 @@ RPC 服务器本身是最小的，可以捆绑到 runtime 中。可以在 iPhone
 
 一个 `Object` 通常可以在语言中的多个位置引用，因此使用 shared_ptr 来跟踪引用。用 `ObjectRef` 类表示对 `Object` 的引用。可以粗略地将 `ObjectRef` 类视为 `Object` 容器的 shared_ptr。还可以定义子类 `ObjectRef` 来保存 `Object` 的每个子类型。 `Object` 的每个子类都需要定义 VisitAttr 函数。
 
-``` c++
+``` cpp
 class AttrVisitor {
 public:
   virtual void Visit(const char* key, double* value) = 0;
@@ -161,7 +161,7 @@ public:
 
 每个 `Object` 子类将覆盖它以访问其成员。以下是 TensorNode 的实现示例：
 
-``` c++
+``` cpp
 class TensorNode : public Object {
 public:
   // 张量的形状
