@@ -21,7 +21,7 @@
     "@mdx-js/react": "1.6.22",
     "@openbayes/docsearch-css": "1.2.7",
     "@openbayes/docusaurus-enlight": "1.2.10",
-    "@svgr/webpack": "7.0.0",
+    "@svgr/webpack": "8.0.1",
     "@tippyjs/react": "4.2.6",
     "clsx": "1.2.1",
     "docusaurus-plugin-sass": "0.2.3",
