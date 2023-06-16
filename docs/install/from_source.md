@@ -3,17 +3,17 @@ title: 从源码安装
 sidebar_position: 1
 ---
 
-在各种系统中从 0 到 1 构建和安装 TVM 软件包包括两个步骤：
+在各种系统中从 0 到 1 构建和安装 TVM 软件包括两个步骤：
 
-1.  从 C++ 代码中构建共享库（Linux：`libtvm.so`；macOS
-    ：`libtvm.dylib`；Windows：`libtvm.dll`）。
-2.  为编程语言包进行设置（如 Python 包）。
+1.  从 C++ 代码中构建共享库（Linux: `libtvm.so`; macOS:
+    `libtvm.dylib`; Windows: `libtvm.dll`）。
+3.  设置编程语言包（如 Python 包）。
 
 下载 TVM 源代码，请访问 [下载页面](https://tvm.apache.org/download)。
 
 ## 开发者：从 GitHub 获取源代码
 
-从 GitHub 上克隆源码仓库，请使用 `--recursive` 选项来克隆子模块。
+从 GitHub 上克隆源码仓库，请使用 `--recursive` 选项来初始化子模块。
 
 ``` bash
 git clone --recursive https://github.com/apache/tvm tvm
@@ -38,19 +38,18 @@ git submodule update
 
 `TVM` 库的最低构建要求是：
 
-* 支持 C++17 的最新 C++ 编译器
+* 支持 C++17 的 C++ 编译器
    * GCC 7.1
    * Clang 5.0
    * Apple Clang 9.3
    * Visual Stuio 2019 (v16.7)
 * CMake 3.10 或更高版本
-* 推荐使用 LLVM 构建 TVM 库以启用所有功能。
+* 构建 TVM 库时，我们推荐使用 LLVM，以启用所有功能。
 * 如需使用 CUDA，请确保 CUDA 工具包的版本至少在 8.0 以上。注意：CUDA 旧版本升级后，请删除旧版本并重新启动。
 * macOS 可安装 [Homebrew](https://brew.sh) 以方便安装和管理依赖。
 * Python：推荐使用 3.7.X+ 和 3.8.X+ 版本，3.9.X+ 暂时[不支持](https://github.com/apache/tvm/issues/8577)。
 
-在 Ubuntu/Debian 等 Linux
-操作系统上，要安装这些依赖环境，请在终端执行：
+在 Ubuntu/Debian 等 Linux 操作系统上，要安装这些依赖环境，请在终端执行：
 
 ``` bash
 sudo apt-get update
