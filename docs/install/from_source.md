@@ -7,13 +7,13 @@ sidebar_position: 1
 
 1.  从 C++ 代码中构建共享库（Linux: `libtvm.so`; macOS:
     `libtvm.dylib`; Windows: `libtvm.dll`）。
-3.  设置编程语言包（如 Python 包）。
+2.  设置编程语言包（如 Python 包）。
 
 下载 TVM 源代码，请访问 [下载页面](https://tvm.apache.org/download)。
 
 ## 开发者：从 GitHub 获取源代码
 
-从 GitHub 上克隆源码仓库，请使用 `--recursive` 选项来初始化子模块。
+从 GitHub 上克隆源码仓库，请使用 `--recursive` 选项以同时克隆子模块。
 
 ``` bash
 git clone --recursive https://github.com/apache/tvm tvm
