@@ -94,6 +94,33 @@ git push my_repo
 
 所有 CI 任务都在 Docker 容器（由 [docker/](https://github.com/apache/tvm/tree/main/docker) 文件夹中的文件构建）中运行其大部分的工作。这些文件通过 [docker-images-ci](https://ci.tlcpack.ai/job/docker-images-ci/) 任务每日在 Jenkins 中构建。这些容器的镜像在 [tlcpack Docker Hub](https://hub.docker.com/u/tlcpack) 中托管，并在 [Jenkinsfile.j2](https://github.com/apache/tvm/tree/main/Jenkinsfile.j2) 中引用。这些镜像可用标准的 Docker 命令在本地检查和运行。
 
+#### 更新 Docker 镜像标签
+
+构建一个新的镜像并将其上传到Docker Hub来更新镜像标签。
+为了与Docker Hub上的镜像标签匹配，需要修改[docker-images.ini](https://github.com/apache/tvm/tree/main/ci/jenkins/docker-images.ini)中的镜像标签。
+
+Docker镜像每天会由[docker-images-ci](https://ci.tlcpack.ai/job/docker-images-ci/)自动构建，并在通过CI后被上传到[tlcpackstaging](https://hub.docker.com/u/tlcpackstaging)下。
+分支合并触发的CI(Post-merge CI)也会专门在``main``上构建Docker镜像，并将其上传到`tlcpackstaging`的Docker Hub账户下。`tlcpackstaging`下的镜像会被自动提升至`tlcpack`账户下。这意味着可以在CI过程中使用`tlcpackstaging`下的镜像标签，这些更新了标签的新镜像将在`main`上通过分支合并CI之后自动被移至`tlcpack`账户下。
+更新镜像的步骤如下：
+
+1. 合并一个更改了`docker`下Dockerfile或`docker/install`中脚本的PR。
+2. 执行以下操作之一：
+   1. 等待分支合并触发的构建和CI完成，将新镜像上传至Docker Hub上[tlcpackstaging](https://hub.docker.com/u/tlcpackstaging)账户下。
+   2. 等待每日Docker镜像构建完成，将新镜像上传至Docker Hub上[tlcpackstaging](https://hub.docker.com/u/tlcpackstaging)账户下。
+3. 在Docker Hub上的[tlcpackstaging](https://hub.docker.com/u/tlcpackstaging>)找到新的镜像标签（比如`20221208-070144-22ff38dff`），并将其更新到``ci/jenkins/docker-images.ini``中，来在tlcpack账户下使用tlcpackstaging的标签（例如``tlcpack/ci-arm:20221208-070144-22ff38dff``）。提交一个包含这些更改的PR，并等待其通过CI以确保新镜像是有效的。
+4. 合入`docker-images.ini`更新了的PR。一旦在`main`上通过了合并后CI，这个`tlcpackstaging`下的新标签将被自动重传至``tlcpack``名下。
+
+#### 添加新 Docker 镜像
+
+可以通过添加新的Docker镜像来在各平台上测试TVM。以下是代码提交者添加一个新CI镜像`ci_foo`的示例步骤：
+
+1. 在`docker/install`中定义`docker/Dockerfile.ci_foo`和相关脚本。创建一个只包含这些更改（没有`Jenkinsfile`更改）的PR。示例：https://github.com/apache/tvm/pull/12230/files
+2. 在本地验证镜像构建过程后，审查(review)并批准(approve)该PR。
+3. 在[tlcpack](https://hub.docker.com/u/tlcpack)下和[tlcpackstaging](https://hub.docker.com/u/tlcpackstaging)下创建ci-foo代码仓库。
+4. 在[tlcpack/ci](https://github.com/tlc-pack/ci)中创建一个PR，来为该镜像创建一个ECR代码仓库：https://github.com/tlc-pack/ci/pull/46/files
+5. 通过创建并合并一个PR，来将该镜像添加到`Jenkinsfile`中。示例：https://github.com/apache/tvm/pull/12369/files。**注意**：必须从apache/tvm的分支中创建PR，而非从fork出的仓库分支中创建PR。
+6. 将该镜像添加至tlcpack的每日镜像重构建和验证步骤中。示例：https://github.com/tlc-pack/tlcpack/pull/131
+
 ### ci-docker-staging
 
 [ci-docker-staging](https://github.com/apache/tvm/tree/ci-docker-staging) 分支对 Docker 镜像的更新和 `Jenkinsfile` 的更改进行测试。当构建从 fork 的仓库得到的 PR 时，Jenkins 使用除了`Jenkinsfile` 本身（来自基本分支）之外的 PR 中的代码。由于构建分支时会使用分支中的 `Jenkinsfile`，所以具有写权限的 committer 必须将 PR 推送到 apache/tvm 中的分支，从而正确测试 `Jenkinsfile` 更改。如果 PR 修改了 `Jenkinsfile`，必须 @ [committer](https://github.com/apache/tvm/tree/main/CONTRIBUTORS.md)，并要求他们把你的 PR 作为分支推送，从而测试更改。
