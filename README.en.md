@@ -12,6 +12,6 @@ Apache [TVM documentation](https://github.com/apache/tvm) in Chinese Simplified
 Local dev server. Install Node.js and [pnpm](https://pnpm.io/installation) first.
 
 ```bash
-yarn install
-yarn start
+pnpm install
+pnpm start
 ```
