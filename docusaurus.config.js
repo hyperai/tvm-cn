@@ -39,6 +39,11 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           lastVersion: 'current',
+          versions: {
+            current: {
+              label: '0.12.0',
+            },
+          }
         },
         blog: {
           showReadingTime: true,
