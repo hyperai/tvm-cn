@@ -24,14 +24,31 @@ jobs:
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
-        cache: 'yarn'
+        node-version: 20
 
-    - name: Install Node.js dependencies
-      run: yarn --frozen-lockfile
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: latest
+        run_install: false
+
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+    - uses: actions/cache@v3
+      name: Setup pnpm cache
+      with:
+        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
 
     - name: Build Docusaurus
-      run: yarn build
+      run: pnpm build
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
