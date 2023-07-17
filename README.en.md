@@ -9,7 +9,7 @@ Apache [TVM documentation](https://github.com/apache/tvm) in Chinese Simplified
 
 ## Contributing
 
-Local dev server. Install Node.js and [yarn v1](https://classic.yarnpkg.com/lang/en/docs/install) first.
+Local dev server. Install Node.js and [pnpm](https://pnpm.io/installation) first.
 
 ```bash
 yarn install

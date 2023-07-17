@@ -19,7 +19,7 @@ TVM 是一个开源的深度学习编译器，适用于 CPU、GPU、ARM 等多�
 
 ## 参与贡献
 
-本地开发服务器需先安装 Node.js 以及 [yarn v1](https://classic.yarnpkg.com/lang/en/docs/install)。
+本地开发服务器需先安装 Node.js 以及 [pnpm](https://pnpm.io/installation)。
 
 ```bash
 yarn install
