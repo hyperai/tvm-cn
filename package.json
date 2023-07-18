@@ -21,7 +21,6 @@
     "@mdx-js/react": "1.6.22",
     "@openbayes/docsearch-css": "1.2.7",
     "@openbayes/docusaurus-enlight": "1.2.10",
-    "@tippyjs/react": "4.2.6",
     "clsx": "1.2.1",
     "docusaurus-plugin-sass": "0.2.4",
     "kladenets": "2.0.0-15",
