@@ -24,9 +24,6 @@ const config = {
     locales: ['zh-Hans'],
   },
 
-  // https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor
-  themes: ['@docusaurus/theme-live-codeblock'],
-
   presets: [
     [
       '@docusaurus/preset-classic',
