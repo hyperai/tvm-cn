@@ -5,7 +5,13 @@ import styles from './styles.module.scss';
 import AboutImage from '@site/static/img/features/about-image.svg';
 import AboutImageSmall from '@site/static/img/features/about-responsive-image.svg';
 
-const FeatureList = [
+type FeatureItem = {
+  title: string;
+  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  description: JSX.Element;
+};
+
+const FeatureList: FeatureItem[] = [
   {
     title: '最佳性能',
     Svg: require('@site/static/img/features/speed.svg').default,
