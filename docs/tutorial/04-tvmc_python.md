@@ -162,7 +162,7 @@ tvmc.tune(model, target="llvm", enable_autoscheduler = True)
    ...
 
    # 运行 tuning，然后复用 tuning 的结果
-   tvmc.tune(model, target="llvm",tuning_records=log_file)
+   tvmc.tune(model, target="llvm",prior_records=log_file)
    ```
 
 * 方法 2:
@@ -173,7 +173,7 @@ tvmc.tune(model, target="llvm", enable_autoscheduler = True)
    ...
 
    # 运行 tuning，然后复用 tuning 的结果
-   tvmc.tune(model, target="llvm",tuning_records=tuning_records)
+   tvmc.tune(model, target="llvm",prior_records=tuning_records)
    ```
 
 ## 对更复杂的模型调优
