@@ -43,7 +43,7 @@ git submodule update
    * Clang 5.0
    * Apple Clang 9.3
    * Visual Stuio 2019 (v16.7)
-* CMake 3.10 或更高版本
+* CMake 3.18 或更高版本
 * 推荐使用 LLVM 构建 TVM 库以启用所有功能。
 * 如需使用 CUDA，请确保 CUDA 工具包的版本至少在 8.0 以上。注意：CUDA 旧版本升级后，请删除旧版本并重新启动。
 * macOS 可安装 [Homebrew](https://brew.sh) 以方便安装和管理依赖。
@@ -55,6 +55,14 @@ git submodule update
 ``` bash
 sudo apt-get update
 sudo apt-get install -y python3 python3-dev python3-setuptools gcc libtinfo-dev zlib1g-dev build-essential cmake libedit-dev libxml2-dev
+```
+需要注意的是，apt中的CMake版本可能不够新，需要直接从[Kitware的第三方apt仓](https://apt.kitware.com)进行安装。
+
+在 Fedora/CentOS 等相关的操作系统上，使用如下命令：
+``` bash
+sudo dnf update
+sudo dnf groupinstall -y "Development Tools"
+sudo dnf install -y python-devel ncurses-compat-libs zlib-devel cmake libedit-devel libxml2-devel
 ```
 
 用 Homebrew 为搭载 Intel 或 M1 芯片的 macOS 安装所需的依赖，需遵循
@@ -118,6 +126,7 @@ brew install python@3.8
         使用的不同版本的 LLVM 之间潜在的符号冲突。
     -   某些支持平台上，[Ccache 编译器 Wrapper](https://ccache.dev/)
         可帮助减少 TVM 的构建时间。在 TVM 构建中启用 CCache 的方法包括：
+        -   在`build/config.cmake`中设置`USE_CCACHE=AUTO`。如果装有CCache，便会被使用。
         -   Ccache 的 Masquerade 模式。通常在 Ccache
             安装过程中启用。要让 TVM 在 masquerade 中使用
             Ccache，只需在配置 TVM 的构建系统时指定适当的 C/C++
@@ -278,6 +287,12 @@ Python 包位于 *tvm/python*。安装方法有两种：
 pip3 install --user numpy decorator attrs
 ```
 
+-   如果你想使用``tvmc``： TVM的命令行驱动：
+
+``` bash
+pip3 install --user typing-extensions psutil scipy
+```
+
 -   使用 RPC 跟踪器
 
 ``` bash
@@ -287,7 +302,7 @@ pip3 install --user tornado
 -   使用 auto-tuning 模块
 
 ``` bash
-pip3 install --user tornado psutil xgboost cloudpickle
+pip3 install --user tornado psutil 'xgboost>=1.1.0' cloudpickle
 ```
 
 注意：在搭载 M1 芯片的 Mac 上，安装 xgboost / scipy
@@ -303,7 +318,7 @@ export OPENBLAS=/opt/homebrew/opt/openblas/lib/
 
 pip install scipy --no-use-pep517
 
-pip install xgboost
+pip install 'xgboost>=1.1.0'
 ```
 
 ## 安装 Contrib 库
