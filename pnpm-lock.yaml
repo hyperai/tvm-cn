@@ -24,8 +24,8 @@ dependencies:
     specifier: 1.2.1
     version: 1.2.1
   docusaurus-plugin-sass:
-    specifier: 0.2.4
-    version: 0.2.4(@docusaurus/core@2.4.1)(sass@1.63.6)(webpack@5.88.1)
+    specifier: 0.2.5
+    version: 0.2.5(@docusaurus/core@2.4.1)(sass@1.63.6)(webpack@5.88.1)
   kladenets:
     specifier: 2.0.0-15
     version: 2.0.0-15
@@ -4232,10 +4232,10 @@ packages:
       '@leichtgewicht/ip-codec': 2.0.4
     dev: false
 
-  /docusaurus-plugin-sass@0.2.4(@docusaurus/core@2.4.1)(sass@1.63.6)(webpack@5.88.1):
-    resolution: {integrity: sha512-r9bLXW6X2z64bzQUQZB1SxmNlGvSO9swTFALgiMjr/1O4FRDti6BseU4Sw2mlZkYvVQTq8cJMJIP6w7z/5We8Q==}
+  /docusaurus-plugin-sass@0.2.5(@docusaurus/core@2.4.1)(sass@1.63.6)(webpack@5.88.1):
+    resolution: {integrity: sha512-Z+D0fLFUKcFpM+bqSUmqKIU+vO+YF1xoEQh5hoFreg2eMf722+siwXDD+sqtwU8E4MvVpuvsQfaHwODNlxJAEg==}
     peerDependencies:
-      '@docusaurus/core': ^2.0.0-beta
+      '@docusaurus/core': ^2.0.0-beta || ^3.0.0-alpha
       sass: ^1.30.0
     dependencies:
       '@docusaurus/core': 2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.6)
