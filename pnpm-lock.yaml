@@ -18,8 +18,8 @@ dependencies:
     specifier: 1.2.7
     version: 1.2.7(kladenets@2.0.0-15)
   '@openbayes/docusaurus-enlight':
-    specifier: 1.2.10
-    version: 1.2.10(kladenets@2.0.0-15)
+    specifier: 1.3.0
+    version: 1.3.0(kladenets@2.0.0-15)
   clsx:
     specifier: 1.2.1
     version: 1.2.1
@@ -2521,8 +2521,8 @@ packages:
       kladenets: 2.0.0-15
     dev: false
 
-  /@openbayes/docusaurus-enlight@1.2.10(kladenets@2.0.0-15):
-    resolution: {integrity: sha512-lKeu8AvUP5GACzLNQDbaNwou9fe7KmHCU0ayNvHZcZ8eQwqPE8/d875TWehLWIEjC34mPIt4lLC3JKjAGjuc7Q==}
+  /@openbayes/docusaurus-enlight@1.3.0(kladenets@2.0.0-15):
+    resolution: {integrity: sha512-gy5Svxr3kAM1mQkJ5J6iQoUp4ajC4pFKB+m9RSDRLuZkhJ686kN88NC7+cFanuVqZKk4LHwP95Zw6RJCP0FaBg==}
     peerDependencies:
       kladenets: ^2.0.0-15
     dependencies:
