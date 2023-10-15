@@ -47,8 +47,8 @@ devDependencies:
     specifier: 2.4.3
     version: 2.4.3(react-dom@17.0.2)(react@17.0.2)
   '@tsconfig/docusaurus':
-    specifier: 2.0.0
-    version: 2.0.0
+    specifier: 2.0.2
+    version: 2.0.2
   typescript:
     specifier: 5.2.2
     version: 5.2.2
@@ -2764,8 +2764,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /@tsconfig/docusaurus@2.0.0:
-    resolution: {integrity: sha512-X5wptT7pXA/46/IRFTW76oR5GNjoy9qjNM/1JGhFV4QAsmLh3YUpJJA+Vpx7Ds6eEBxSxz1QrgoNEBy6rLVs8w==}
+  /@tsconfig/docusaurus@2.0.2:
+    resolution: {integrity: sha512-12HWfYmgUl4M2o76/TFufGtI68wl2k/b8qPrIrG7ci9YJLrpAtadpy897Bz5v29Mlkr7a1Hq4KHdQTKtU+2rhQ==}
     dev: true
 
   /@types/body-parser@1.19.2:
