@@ -25,7 +25,7 @@ dependencies:
     version: 2.0.0
   docusaurus-plugin-sass:
     specifier: 0.2.5
-    version: 0.2.5(@docusaurus/core@2.4.3)(sass@1.66.1)(webpack@5.88.2)
+    version: 0.2.5(@docusaurus/core@2.4.3)(sass@1.69.4)(webpack@5.88.2)
   kladenets:
     specifier: 2.0.0-15
     version: 2.0.0-15
@@ -39,8 +39,8 @@ dependencies:
     specifier: 17.0.2
     version: 17.0.2(react@17.0.2)
   sass:
-    specifier: 1.66.1
-    version: 1.66.1
+    specifier: 1.69.4
+    version: 1.69.4
 
 devDependencies:
   '@docusaurus/module-type-aliases':
@@ -4274,15 +4274,15 @@ packages:
       '@leichtgewicht/ip-codec': 2.0.4
     dev: false
 
-  /docusaurus-plugin-sass@0.2.5(@docusaurus/core@2.4.3)(sass@1.66.1)(webpack@5.88.2):
+  /docusaurus-plugin-sass@0.2.5(@docusaurus/core@2.4.3)(sass@1.69.4)(webpack@5.88.2):
     resolution: {integrity: sha512-Z+D0fLFUKcFpM+bqSUmqKIU+vO+YF1xoEQh5hoFreg2eMf722+siwXDD+sqtwU8E4MvVpuvsQfaHwODNlxJAEg==}
     peerDependencies:
       '@docusaurus/core': ^2.0.0-beta || ^3.0.0-alpha
       sass: ^1.30.0
     dependencies:
       '@docusaurus/core': 2.4.3(@docusaurus/types@2.4.3)(react-dom@17.0.2)(react@17.0.2)(typescript@5.2.2)
-      sass: 1.66.1
-      sass-loader: 10.4.1(sass@1.66.1)(webpack@5.88.2)
+      sass: 1.69.4
+      sass-loader: 10.4.1(sass@1.69.4)(webpack@5.88.2)
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -7321,7 +7321,7 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
 
-  /sass-loader@10.4.1(sass@1.66.1)(webpack@5.88.2):
+  /sass-loader@10.4.1(sass@1.69.4)(webpack@5.88.2):
     resolution: {integrity: sha512-aX/iJZTTpNUNx/OSYzo2KsjIUQHqvWsAhhUijFjAPdZTEhstjZI9zTNvkTTwsx+uNUJqUwOw5gacxQMx4hJxGQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -7340,14 +7340,14 @@ packages:
       klona: 2.0.6
       loader-utils: 2.0.4
       neo-async: 2.6.2
-      sass: 1.66.1
+      sass: 1.69.4
       schema-utils: 3.3.0
       semver: 7.5.4
       webpack: 5.88.2
     dev: false
 
-  /sass@1.66.1:
-    resolution: {integrity: sha512-50c+zTsZOJVgFfTgwwEzkjA3/QACgdNsKueWPyAR0mRINIvLAStVQBbPg14iuqEQ74NPDbXzJARJ/O4SI1zftA==}
+  /sass@1.69.4:
+    resolution: {integrity: sha512-+qEreVhqAy8o++aQfCJwp0sklr2xyEzkm9Pp/Igu9wNPoe7EZEQ8X/MBvvXggI2ql607cxKg/RKOwDj6pp2XDA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
