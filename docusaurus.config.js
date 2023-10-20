@@ -128,10 +128,9 @@ const config = {
   ],
   scripts: [
     {
-      src: 'https://get.sparanoid.net/app.js',
-      async: true,
+      src: 'https://get.openbayes.net/js/script.js',
       defer: true,
-      'data-website-id': 'ba968118-b7e7-42b6-a445-977dad89216c'
+      'data-domain': 'tvm.hyper.ai'
     }
   ],
 
