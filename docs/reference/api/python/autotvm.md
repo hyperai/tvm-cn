@@ -16,11 +16,11 @@ tvm.autotvm.apply_history_best
 tvm.autotvm.measure.measure
 :::
 
-::: {.autoclass members=""}
+:::
 tvm.autotvm.measure.MeasureInput
 :::
 
-::: {.autoclass members=""}
+:::
 tvm.autotvm.measure.MeasureResult
 :::
 
@@ -46,58 +46,58 @@ tvm.autotvm.measure.measure_methods.LocalRunner
 
 ## tvm.autotvm.tuner
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.tuner
 :::
 
-::: {.autoclass members=""}
+:::
 tvm.autotvm.tuner.Tuner
 :::
 
-::: {.autoclass members="" inherited-members=""}
+:::
 tvm.autotvm.tuner.RandomTuner
 :::
 
-::: {.autoclass members="" inherited-members=""}
+:::
 tvm.autotvm.tuner.GridSearchTuner
 :::
 
-::: {.autoclass members="" inherited-members=""}
+:::
 tvm.autotvm.tuner.GATuner
 :::
 
-::: {.autoclass members="" inherited-members=""}
+:::
 tvm.autotvm.tuner.XGBTuner
 :::
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.tuner.callback
 :::
 
 ## tvm.autotvm.task
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.task
 :::
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.task.task
 :::
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.task.space
 :::
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.task.dispatcher
 :::
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.task.topi_integration
 :::
 
 ## tvm.autotvm.record
 
-::: {.automodule members=""}
+:::
 tvm.autotvm.record
 :::

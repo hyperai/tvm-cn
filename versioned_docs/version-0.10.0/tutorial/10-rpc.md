@@ -98,11 +98,11 @@ func.export_library(path)
 
 除了 `-mtriple`，还可设置其他编译选项，例如：
 
-* **-mcpu=<cpuname\>**
+* **`-mcpu=<cpuname\>`**
 
   指定生成的代码运行的芯片架构。默认情况这是从 target 三元组推断出来的，并自动检测到当前架构。
 
-* **-mattr=a1,+a2,-a3,…**
+* **`-mattr=a1,+a2,-a3,…`**
 
   覆盖或控制 target 的指定属性，例如是否启用 SIMD 操作。默认属性集由当前 CPU 设置。要获取可用属性列表，执行：
 

@@ -13,7 +13,7 @@ title: 设计与架构
 
 本指南提供了架构的一些补充视图。首先研究端到端的编译流程，并讨论关键的数据结构和转换。这种基于 runtime 的视图侧重于运行编译器时每个组件的交互。接下来研究代码库的逻辑模块及其关系。这部分提供了设计的静态总体视图。
 
-## 编译流程示例 {#example-compilation-flow}
+## 编译流程示例
 
 本指南研究编译器中的编译流程示例，下图显示了流程。在高层次，它包含以下步骤：
 
@@ -132,7 +132,7 @@ result = gmod["get_output"](0).numpy()
 * 编写一组自定义转换（例如自定义量化）。
 * 用 TVM 的 Python API 直接操作 IR。
 
-## 逻辑架构组件 {#logical-architecture-components}
+## 逻辑架构组件
 
 ![/img/docs/tlc-pack/web-data/main/images/design/tvm_static_overview.svg](/img/docs/tlc-pack/web-data/main/images/design/tvm_static_overview.svg)
 

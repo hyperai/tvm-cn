@@ -62,7 +62,7 @@ contained in the globally visible environment, known as the
 [module](#module-and-global-functions). Global identifiers must be
 unique.
 
-See :py`~tvm.relay.expr.GlobalVar`{.interpreted-text role="class"} for
+See `GlobalVar` for
 its implementation and documentation.
 
 ### Local Variable
@@ -79,7 +79,7 @@ to `%a` in the inner scope refer to the later definition, while
 references to `%a` in the outer scope continue to refer to the first
 one.
 
-``` 
+```
 let %a = 1;
 let %b = 2 * %a;  // %b = 2
 let %a = %a + %a; // %a = 2. %a is shadowed
@@ -87,14 +87,13 @@ let %a = %a + %a; // %a = 2. %a is shadowed
 ```
 
 (Note that in Relay\'s implementation, each definition of a local
-variable creates a new :py`~tvm.relay.expr.Var`{.interpreted-text
-role="class"}, so a shadowed local variable, despite having the same
+variable creates a new `Var`, so a shadowed local variable, despite having the same
 name as one in an outer scope, will be a different object. This allows
 for comparing local variables by pointer identity with the knowledge
 that the same local variable object corresponds to a different binding
 site.)
 
-See :py`~tvm.relay.expr.Var`{.interpreted-text role="class"} for its
+See `Var` for its
 implementation and documentation.
 
 ## Functions
@@ -110,24 +109,24 @@ argument to a function or returned by a function, as function
 expressions evaluate to closures (see the [Closures](#closures)
 subsection), which are values like tensors and tuples.
 
-See :py`~tvm.relay.function.Function`{.interpreted-text role="class"}
+See `Function`
 for the definition and documentation of function nodes.
 
 ### Syntax
 
 A definition minimally consists of the keyword `fn`, an empty set of
 parameters, and a body expression
-(:py`~tvm.relay.expr.Expr`{.interpreted-text role="class"}) contained by
+(`Expr`) contained by
 curly braces.
 
-``` 
+```
 fn() { body }
 ```
 
 A definition may contain any number of parameters. For example, a simple
 function that invokes the `add` operator:
 
-``` 
+```
 fn(%x, %y) { add(%x, %y) }
 ```
 
@@ -137,7 +136,7 @@ variables, just like those bound in a `let` expression.
 One may also annotate explicit types on functions. For example, we can
 restrict the above function to only work on certain types:
 
-``` 
+```
 fn(%x : Tensor[(10, 10), float32], %y : Tensor[(10, 10), float32])
            -> Tensor[(10, 10), float32] {
     add(%x, %y)
@@ -147,7 +146,7 @@ fn(%x : Tensor[(10, 10), float32], %y : Tensor[(10, 10), float32])
 The above function only takes arguments of type
 `Tensor[(10, 10), float32]` and returns a value of type
 `Tensor[(10, 10), float32]`. A function parameter is just a local
-variable (:py`~tvm.relay.expr.LocalVar`{.interpreted-text role="class"})
+variable (`LocalVar`)
 optionally annotated with a type, written as `%x : T`.
 
 When the type information is omitted, Relay attempts to infer the most
@@ -159,7 +158,7 @@ function body and call sites.
 A recursive function expression can be defined using a `let` binding, as
 here:
 
-``` 
+```
 let %fact = fn(%x : Tensor[(10, 10), float32]) -> Tensor[(10, 10), float32] {
     if (%x == Constant(0, (10, 10), float32)) {
         Constant(1, (10, 10), float32)
@@ -181,7 +180,7 @@ For example, in the below example, the final result will be a tensor of
 zero values because the closure for `%f` stores the value of `%x` at the
 pointer where `%f` was defined.
 
-``` 
+```
 let %g = fn() {
   let %x = Constant(0, (10, 10), float32);
   // %x is a free variable in the below function
@@ -208,13 +207,12 @@ Type parameters are classified by *kind* and can only appear in parts of
 the type signature where their kind is appropriate (e.g., type
 parameters of kind `Shape` can only appear where a shape would be
 expected in a tensor type); for a full discussion, see
-`the documentation on type parameters <type-parameter>`{.interpreted-text
-role="ref"}.
+`the documentation on type parameters <type-parameter>`.
 
 For example, one can define a polymorphic identity function for any
 Relay type as follows:
 
-``` 
+```
 fn<t : Type>(%x : t) -> t {
     %x
 }
@@ -223,7 +221,7 @@ fn<t : Type>(%x : t) -> t {
 The below definition is also polymorphic, but restricts its arguments to
 tensor types:
 
-``` 
+```
 fn<s : Shape, bt : BaseType>(%x : Tensor[s, bt]) {
     %x
 }
@@ -236,7 +234,7 @@ Notice that the return type is omitted and will be inferred.
 A function may also be subject to one or more type relations, such as in
 the following:
 
-``` 
+```
 fn(%x, %y) where Broadcast { add(%x, %y) }
 ```
 
@@ -252,8 +250,7 @@ constraints on types (especially tensor shapes). All function relations
 must hold at all call sites; type checking is thus treated as a
 constraint-solving problem. For more detail on type relations and their
 implementations, please see
-`their section in the documentation on Relay's type system <type-relation>`{.interpreted-text
-role="ref"}.
+`their section in the documentation on Relay's type system <type-relation>`.
 
 ## Operators
 
@@ -272,8 +269,7 @@ From the perspective of Relay\'s type system, an operator is a function,
 so operators may be called like any other function and have function
 types. In particular, operator types are registered using a single type
 relation (see
-`the documentation on type relations <type-relation>`{.interpreted-text
-role="ref"}), typically a relation specialized to that operator. For
+`the documentation on type relations <type-relation>`, typically a relation specialized to that operator. For
 example, the `add` operator is registered with the `Broadcast` relation,
 indicating that the arguments of `add` must be tensors and that the
 return type is a tensor whose shape depends on those of its arguments.
@@ -286,20 +282,19 @@ Note that common arithmetic operators such as `add` and `multiply` may
 be written using the corresponding arithmetic operators in the text
 format (e.g., `+` or `*`) as syntactic sugar.
 
-See :py`~tvm.relay.op.Op`{.interpreted-text role="class"} for the
+See `Op` for the
 definition and documentation of operator nodes, demonstrating the
 infrastructure for registering operator metadata. The other files in
-:py`~tvm.relay.op`{.interpreted-text role="class"} give handles for
+`op` give handles for
 generating a call to various pre-registered operators. The
-`tutorial on adding operators to Relay <relay-add-op>`{.interpreted-text
-role="ref"} shows how to add further operators into the language.
+`tutorial on adding operators to Relay <relay-add-op>` shows how to add further operators into the language.
 
 ## ADT Constructors
 
 Algebraic data types (ADTs) in Relay are described in detail in a
-`separate overview<adt-overview>`{.interpreted-text role="ref"} and
+`separate overview<adt-overview>` and
 their integration into the type system is described
-`here<adt-typing>`{.interpreted-text role="ref"}.
+`here<adt-typing>`.
 
 In this section, we will simply note that ADT constructors are given a
 function type and should be used inside call nodes like a function or
@@ -326,7 +321,7 @@ well as the name (\"tag\") of the constructor. The tag will be used for
 deconstructing the instances and retrieving the values when [ADT
 Matching](#adt-matching).
 
-See :py`~tvm.relay.adt.Constructor`{.interpreted-text role="class"} for
+See `Constructor` for
 the definition and documentation.
 
 ## Call
@@ -339,7 +334,7 @@ functions) and Relay operators.
 The syntax of calls follows that used in C-like languages, demonstrated
 in the example below:
 
-``` 
+```
 let %c = 1;
 let %f = fn(%x : Tensor[(), float32], %y : Tensor[(), float32]) { %x + %y + %c };
 %f(10, 11)
@@ -362,7 +357,7 @@ given, type inference will attempt to infer type arguments if possible.
 The following code gives examples of explicit and inferred type
 arguments:
 
-``` 
+```
 // %f : fn<a : Type, b : Type, c : Type>(a, b) -> c
 let %x1 = %f<Tensor[(), bool], Tensor[(), bool], Tensor[(), bool)]>(True, False);
 // %x1 is of type Tensor[(), bool]
@@ -381,15 +376,15 @@ has the `Broadcast` relation, then there are many different shapes that
 the arguments in the below call could have that would satisfy the type
 annotation:
 
-``` 
+```
 let %x : Tensor[(100, 100, 100), float32] = %f(%a, %b);
 %x
 ```
 
-See :py`~tvm.relay.expr.Call`{.interpreted-text role="class"} for its
+See `Call` for its
 definition and documentation.
 
-## Module and Global Functions {#module-description}
+## Module and Global Functions
 
 Relay keeps a global data structure known as a \"module\" (often called
 an \"environment\" in other functional programming languages) to keep
@@ -409,7 +404,7 @@ function definition includes a global identifier and is allowed to
 recursively refer to that identifier in the body, as in the following
 example:
 
-``` 
+```
 def @ackermann(%m : Tensor[(), int32], %n : Tensor[(), int32]) -> Tensor[(), int32] {
     if (%m == 0) {
         %n + 1
@@ -427,15 +422,14 @@ and body above. Any reference to the identifier `@ackermann` elsewhere
 in the code could then look up the identifier in the module and replace
 the function definition as needed.
 
-See :py`~tvm.IRModule`{.interpreted-text role="class"} for the
+See `IRModule` for the
 definition and documentation of a module.
 
 ## Constant
 
 This node represents a constant tensor value (see
-:py`~tvm.relay.Value`{.interpreted-text role="mod"} for more details). A
-constant is represented as a :py`~tvm.NDArray`{.interpreted-text
-role="class"}, allowing Relay to utilize TVM operators for constant
+`Value` for more details). A
+constant is represented as a `NDArray`, allowing Relay to utilize TVM operators for constant
 evaluation.
 
 This node can also represent scalar constants, since scalars are tensors
@@ -443,7 +437,7 @@ with a shape of `()`. In the text format, numerical and boolean literals
 are thus syntactic sugar for constants encoding a tensor type with a
 rank-zero shape.
 
-See :py`~tvm.relay.expr.Constant`{.interpreted-text role="class"} for
+See `Constant` for
 its definition and documentation.
 
 ## Tuples
@@ -454,14 +448,14 @@ The tuple node builds a finite (that is, of statically known size)
 sequence of heterogeneous data. These tuples match Python\'s closely,
 and their fixed length allows for efficient projection of their members.
 
-``` 
+```
 fn(%a : Tensor[(10, 10), float32], %b : float32, %c : Tensor[(100, 100), float32]) {
     let %tup = (%a, %b);     // type: (Tensor[(10, 10), float32], float32)
     ((%tup.0 + %tup.1), %c)  // type: (Tensor[(10, 10), float32], Tensor[(100, 100), float32])
 }
 ```
 
-See :py`~tvm.relay.expr.Tuple`{.interpreted-text role="class"} for its
+See `Tuple` for its
 definition and documentation.
 
 ### Projection
@@ -471,11 +465,11 @@ particular member of the tuple. Projections are 0-indexed.
 
 For example, the below projection evaluates to `%b`:
 
-``` 
+```
 (%a, %b, %c).1
 ```
 
-See :py`~tvm.relay.expr.TupleGetItem`{.interpreted-text role="class"}
+See `TupleGetItem`
 for its definition and documentation.
 
 ## Let Bindings
@@ -499,7 +493,7 @@ evaluating the bindings it depends on. For example, in the following
 example the entire expression evaluates to a tensor of shape `(10, 10)`
 where all elements are 2:
 
-``` 
+```
 let %x : Tensor[(10, 10), float32] = Constant(1, (10, 10), float32);
 %x + %x
 ```
@@ -511,13 +505,13 @@ where neither depends on the other can be safely reordered. For example,
 the first and second `let` bindings below may be evaluated in either
 order because neither has a dataflow dependency on the other:
 
-``` 
+```
 let %x = %a + %b;
 let %y = %c + %d;
 %x * %y
 ```
 
-See :py`~tvm.relay.expr.Let`{.interpreted-text role="class"} for its
+See `Let` for its
 definition and documentation.
 
 ## Graph Bindings
@@ -536,15 +530,14 @@ already employed by NNVM and other dataflow graph-based input formats.
 The fact that the variables are not scoped offers some flexibility in
 evaluation order compared to `let` bindings, though this can also
 introduce some ambiguity in programs (the
-`developer introduction to the Relay IR<relay-dev-intro>`{.interpreted-text
-role="ref"} includes more detailed discussion of this nuance).
+`developer introduction to the Relay IR<relay-dev-intro>` includes more detailed discussion of this nuance).
 
 *Note: Graph bindings are not currently parsed by the text format.*
 
 In Relay\'s text format, a graph binding can be written as below (note
 the lack of a `let` keyword and a semicolon):
 
-``` 
+```
 %1 = %a + %b
 %2 = %1 + %1
 %2 * %2
@@ -558,7 +551,7 @@ corresponding Relay AST node and using the variables repeatedly, as
 below (a C++ program using the corresponding API bindings could
 accomplish the same thing):
 
-``` 
+```
 sum1 = relay.add(a, b)
 sum2 = relay.add(sum1, sum1)
 relay.multiply(sum2, sum2)
@@ -578,7 +571,7 @@ Relay has a simple if-then-else expression that allows programs to
 branch on a single value of type `bool`, i.e., a zero-rank tensor of
 booleans (`Tensor[(), bool]`).
 
-``` 
+```
 if (%t == %u) {
     %t
 } else {
@@ -593,13 +586,13 @@ evaluates to the value of the \"then\" branch if the condition value
 evaluates to `True` and evaluates to the value of the \"else\" branch if
 the condition value evaluates to `False`.
 
-See :py`~tvm.relay.expr.If`{.interpreted-text role="class"} for its
+See `If` for its
 definition and documentation.
 
 ## ADT Matching
 
 Instances of algebraic data types (ADTs), as discussed in the
-`ADT overview<adt-overview>`{.interpreted-text role="ref"}, are
+`ADT overview<adt-overview>`, are
 containers that store the arguments passed to the constructor used to
 create them, tagged by the constructor name.
 
@@ -612,8 +605,7 @@ expressions are capable of more general pattern-matching than simply
 splitting by constructors: any ADT instance nested inside an instance
 (e.g., a list of lists) can be deconstructed at the same time as the
 outer instance, while the different fields of the instance can be bound
-to variables. (See `this section<adt-pattern>`{.interpreted-text
-role="ref"} for a detailed description of ADT pattern-matching.)
+to variables. (See `this section<adt-pattern>` for a detailed description of ADT pattern-matching.)
 
 A match expression is defined using the input value (an expression) and
 a list of clauses, each of which consists of a pattern and an
@@ -623,7 +615,7 @@ evaluated and returned.
 
 For example, suppose we have an ADT for natural numbers:
 
-``` 
+```
 data Nat {
   Z : () -> Nat # zero
   S : (Nat) -> Nat # successor (+1) to a nat
@@ -632,7 +624,7 @@ data Nat {
 
 Then the following function subtracts one from a passed nat:
 
-``` 
+```
 fn(%v: Nat[]) -> Nat[] {
   match(%v) {
     case Z() { Z() }
@@ -645,7 +637,7 @@ The following function subtracts two from its argument if it is at least
 two and returns the argument otherwise, using a nested constructor
 pattern:
 
-``` 
+```
 fn(%v : Nat[]) -> Nat[] {
   match(%v) {
      case S(S(%n)) { %n }
@@ -659,7 +651,7 @@ As aforementioned, the ordering of match clauses is relevant. In the
 below example, the first clause will always match so those below it can
 never run:
 
-``` 
+```
 fn(%v : Nat[]) -> Nat[] {
   match(%v) {
     case _ { %v }
@@ -670,7 +662,7 @@ fn(%v : Nat[]) -> Nat[] {
 }
 ```
 
-See :py`~tvm.relay.adt.Match`{.interpreted-text role="class"} for its
+See `Match` for its
 definition and documentation.
 
 ## TempExprs
@@ -688,5 +680,5 @@ For an example of `TempExpr` being used in a pass, see
 to store information about scaling parameters as the pass tries to fold
 these into the weights of a convolution.
 
-See :py`~tvm.relay.expr.TempExpr`{.interpreted-text role="class"} for
+See `TempExpr` for
 its definition and documentation.

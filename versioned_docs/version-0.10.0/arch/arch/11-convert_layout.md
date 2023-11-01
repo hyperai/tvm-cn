@@ -213,7 +213,7 @@ ConvertLayout pass 非常易于使用。pass 不是默认 relay.build pipeline �
 
 为了指定要转换到的布局，创建一个映射，该映射由重度布局敏感的算子指向该算子期望布局的列表。以下第一个示例指定了数据布局，允许内核布局自动转换为 TVM 支持的布局（针对特定的数据布局和算子）。这是通过使用「default」关键字指定的。
 
-第二个示例显示了如何转换为指定内核布局。注意，以下示例将转换为相同的布局，即 {‘nn.conv2d’: [‘NCHW’, ‘default’]} == {‘nn.conv2d’: [‘NCHW’, ‘OIHW’]}
+第二个示例显示了如何转换为指定内核布局。注意，以下示例将转换为相同的布局，即 `{‘nn.conv2d’: [‘NCHW’, ‘default’]} == {‘nn.conv2d’: [‘NCHW’, ‘OIHW’]}`
 
 ``` python
 # TFlite 框架到 Relay 解析器 - 默认布局是 NHWC

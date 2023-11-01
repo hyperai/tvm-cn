@@ -18,7 +18,7 @@ TVM 支持多种编程语言进行编译器堆栈开发和部署。本文档将�
 * 实验：将编译好的函数发送到嵌入式设备上直接运行。
   我们期望能够用任何语言定义一个函数，然后用另一种语言调用。还期望将 runtime 内核最小化，部署到嵌入式设备。
 
-## PackedFunc {#PackedFunc}
+## PackedFunc
 
 [PackedFunc](https://github.com/apache/tvm/blob/main/include/tvm/runtime/packed_func.h) 是一个简单而优雅的解决方案，它可以解决以上问题。单个 `PackedFunc` 对象代表一个函数调用，其调用者和被调用者可能使用不同的语言。
 
@@ -104,7 +104,7 @@ PackedFunc 用于编译器和部署堆栈：
 
 与普通函数相比，调用 PackedFunc 的开销很小，因为它只在堆栈上保存了几个值，所以只要不包装小的函数即可。总之，PackedFunc 是 TVM 中的通用粘合剂，可以广泛使用它来支持编译器和部署。
 
-## 模块 {#module}
+## 模块
 
 由于 TVM 支持多种类型的设备，因此需要支持不同类型的驱动程序。必须用驱动程序 API 来加载内核，以打包格式设置参数，并执行内核启动。
 
@@ -209,6 +209,6 @@ PackedFunc 中的每个参数都包含一个关联值 [TVMValue](https://github.
 * [c_runtime_api.cc](https://github.com/apache/tvm/blob/main/src/runtime/c_runtime_api.cc#L262)，用于 C API 以及如何提供回调。
   为了支持扩展类型，使用了注册表系统来注册类型相关信息，如 C++ 中对所有类型的支持，参阅 [扩展类型](https://github.com/apache/tvm/tree/main/apps/extension) 了解更多详细信息。
 
-# Runtime 特定信息 {#runtime-specific-information}
+# Runtime 特定信息
 
 * [Vulkan Runtime](vulkan)

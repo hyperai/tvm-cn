@@ -6,7 +6,7 @@ title: tvm.runtime.ndarray
 tvm.runtime.ndarray
 :::
 
-::: {.autoclass members="" inherited-members=""}
+:::
 tvm.nd.NDArray
 :::
 

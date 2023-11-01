@@ -9,7 +9,7 @@
 # By default this will keep the original .rst file
 #
 # Original by https://gist.github.com/stupergenius/b43d38fbff0547c96322e3f44264a969
-# Modified by Tunghsiao Liu <t@sparanoid.com>
+# Modified by Sparanoid t@sparanoid.com
 
 set -o errexit
 set -o nounset

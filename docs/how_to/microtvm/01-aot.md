@@ -62,7 +62,7 @@ relay_mod, params = relay.frontend.from_tflite(
 # 使用 C runtime（crt），并通过将 system-lib 设置为 True 来启用静态链接
 RUNTIME = Runtime("crt", {"system-lib": True})
 
-# 在主机上模拟一个微控制器。使用来自 `src/runtime/crt/host/main.cc <https://github.com/apache/tvm/blob/main/src/runtime/crt/host/main.cc>`_ 的 main()。
+# 在主机上模拟一个微控制器。使用来自 `src/runtime/crt/host/main.cc [https://github.com/apache/tvm/blob/main/src/runtime/crt/host/main.cc](https://github.com/apache/tvm/blob/main/src/runtime/crt/host/main.cc)`_ 的 main()。
 # 若要使用物理硬件，请将「host」替换为与你的硬件匹配的内容。
 TARGET = tvm.target.target.micro("host")
 

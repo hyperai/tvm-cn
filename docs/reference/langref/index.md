@@ -22,9 +22,9 @@ transformations and optimizations.
 The below pages describe the grammar, type system, algebraic data types,
 and operators in Relay, respectively.
 
-::: {.toctree maxdepth="2"}
+```
 relay_expr relay_type relay_adt relay_op relay_pattern
-:::
+```
 
 ## Hybrid Script
 
@@ -32,6 +32,6 @@ The below page describes the TVM hybrid script front-end, which uses
 software emulation to support some constructs not officially supported
 in TVM.
 
-::: {.toctree maxdepth="2"}
+```
 hybrid_script
-:::
+```

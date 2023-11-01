@@ -65,4 +65,4 @@ Docker 镜像。
 你也可以利用非官方的第三方预建镜像，注意：这些镜像是用来测试的，并不是
 ASF 的版本。
 
-<https://hub.docker.com/r/tlcpack/>.
+[https://hub.docker.com/r/tlcpack/](https://hub.docker.com/r/tlcpack/).

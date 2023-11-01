@@ -13,7 +13,7 @@ sidebar_position: 150
 * [Target](#tvm-target-specific-target) 类描述了运行函数的设备。它既对 target 代码生成器公开，也对优化 pass 公开。
 * [target 代码生成器](#tvm-target-specific-codegen) 从 IRModule 构造了一个 [模块](/docs/arch/arch/runtimes#module)，它由一个或多个 [PackedFunc](/docs/arch/arch/runtimes#PackedFunc) 组成。
 
-## DeviceAPI {#tvm-target-specific-device-api}
+## DeviceAPI
 
 `DeviceAPI` 表示特定硬件设备 API 的句柄。（例如，`CUDADeviceAPI` 通过 CUDA 框架处理所有的交互。）大多数 `DeviceAPI` 方法接收一个 `device_id` 参数，来指定访问哪个设备。Python 中通常用 `tvm.runtime.device()` 函数访问它们，这个函数返回特定设备的句柄，通过特定 API 访问。（例如，`tvm.runtime.device()` 通过 CUDA API 访问物理设备 `0`。）
 
@@ -52,7 +52,7 @@ TVM 框架若要使用新的 DeviceAPI，应该按照以下步骤注册：
 2. 给 [device_api.h](https://github.com/apache/tvm/blob/main/include/tvm/runtime/device_api.h) 中的 `DeviceName` 添加一个案例，从而将枚举值转换为字符串表示形式。这个字符串表示应该和 `TVM_REGISTER_GLOBAL` 的名称匹配。
 3. 将入口添加到 `tvm.runtime.Device` 的 `MASK2STR` 和 `STR2MASK` 字典，获取新的枚举值。
 
-## Target 定义 {#tvm-target-specific-target}
+## Target 定义
 
 `Target` 对象是属性（包含物理设备、其硬件/驱动程序限制，及其功能）的查找表。在优化和代码生成阶段都可以访问 `Target`。虽然相同的 `Target` 类适用于所有 runtime target，但每个 runtime target 可能需要添加特定于 target 的选项。
 
@@ -64,7 +64,7 @@ TVM 框架若要使用新的 DeviceAPI，应该按照以下步骤注册：
 
 代码生成器中可以用 C++ 中的 `target->GetAttr<T>(param_name)`，或是 Python 中的 `target.attrs` 字典来访问 target 属性。
 
-## Target 代码生成器 {#tvm-target-specific-codegen}
+## Target 代码生成器
 
 代码生成器采用优化的 `IRModule`，并将其转换为可执行表示。每个代码生成器注册后，才能被 TVM 框架使用。这是通过注册 `"target.build.foo"` 函数来完成的，其中 `foo` 与上面的 `TVM_REGISTER_TARGET_KIND` 定义中使用的名称相同。
 
