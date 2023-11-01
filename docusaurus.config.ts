@@ -42,7 +42,7 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '0.12.0',
+              label: '0.13.0',
             },
           },
           remarkPlugins: [remarkMath],

@@ -49,3 +49,13 @@ static/img/docs/tvmai/tvmai.github.io/main/images/relay/dataflow.png
 ```bash
 sphinx-build -b html docs build
 ```
+
+## 创建新版本
+
+如果当前版本为 `0.12.0`，想升到 `0.13.0`，那么你需要先保存当前版本
+
+```bash
+pnpm run docusaurus docs:version 0.12.0
+```
+
+然后编辑 `docusaurus.config.ts` 中 `versions.current.label` 为最新版本 `0.13.0`
