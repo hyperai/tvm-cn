@@ -26,7 +26,7 @@ git submodule init
 git submodule update
 ```
 
-## 构建共享库 {#build-shared-library}
+## 构建共享库
 
 我们的目标是构建共享库：
 
@@ -175,7 +175,7 @@ brew install python@3.8
 
 如果一切顺利，我们就可以去查看 [Python 包的安装](#python-package-installation) 了。
 
-### 使用 Conda 环境进行构建 {#build-with-conda}
+### 使用 Conda 环境进行构建
 
 Conda 可以用来获取运行 TVM 所需的必要依赖。如果没有安装 Conda，请参照
 [Conda
@@ -234,7 +234,7 @@ cmake --build build --config Release -- /m
 中安装 HIP runtime。确保安装系统中已经安装了 ROCm。 - 安装 LLVM
 的最新稳定版本（v6.0.1），以及 LLD，确保 `ld.lld` 可以通过命令行获取。
 
-## Python 包的安装 {#python-package-installation}
+## Python 包的安装
 
 ### TVM 包
 
@@ -310,7 +310,7 @@ pip install xgboost
 
 [NNPACK Contrib 安装](nnpack)
 
-## 启用 C++ 测试 {#C++_tests}
+## 启用 C++ 测试
 
 可以用 [Google Test](https://github.com/google/googletest) 来驱动 TVM
 中的 C++ 测试。安装 GTest 最简单的方法是从源代码安装：

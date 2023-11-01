@@ -74,11 +74,11 @@ title: 支持 TFLite 模型的 microTVM
 **题外话：重新创建预训练 TFLite 模型**
 
    本教程下载了预训练的 TFLite 模型。使用微控制器时，请注意这些设备的资源高度受限，像 MobileNet 这样的标准模型和小内存并不匹配。
-   
+
    本教程使用 TF Micro 示例模型之一。
-   
+
    若要复制训练步骤，参阅：https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/examples/hello_world/train
-   
+
    :::note
    若不小心从 `wget https://storage.googleapis.com/download.tensorflow.org/models/tflite/micro/hello_world_2020_04_13.zip` 下载了示例预训练模型，会由于未实现的操作码（114）而失败。
    :::
@@ -238,7 +238,7 @@ os.unlink(model_library_format_tar_path)
 # 模型库格式用作此过程的模型输入。
 # 平台为嵌入时提供了集成，可以被 TVM 直接用于主机驱动
 # 推理和自动调优。这种集成由
-# `microTVM 项目 API` <https://github.com/apache/tvm-rfcs/blob/main/rfcs/0008-microtvm-project-api.md>_提供。
+# `microTVM 项目 API` [https://github.com/apache/tvm-rfcs/blob/main/rfcs/0008-microtvm-project-api.md](https://github.com/apache/tvm-rfcs/blob/main/rfcs/0008-microtvm-project-api.md)_提供。
 #
 # 嵌入式平台需要提供一个包含 microTVM API Server 的模板项目（通常，
 # 存在于根目录中的“microtvm_api_server.py”文件中）。本教程使用示例“主机”

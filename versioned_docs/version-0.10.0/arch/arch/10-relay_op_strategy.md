@@ -157,7 +157,7 @@ def conv2d_strategy_mytarget(attrs, inputs, out_type, target):
     ...
 ```
 
-## 从 Op 策略中选择实现 {#select-implementation-from-op-strategy}
+## 从 Op 策略中选择实现
 
 在编译过程中，Relay 编译引擎要确定当有多个算子时，使用哪个算子来实现。选择策略的工作原理如下。
 

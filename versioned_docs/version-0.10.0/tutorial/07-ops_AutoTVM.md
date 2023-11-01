@@ -297,7 +297,7 @@ Finish loading 10 records
 
 ## 总结
 
-本教程展示了如何构建算子模板，使得 TVM 能够搜索参数空间，并选择优化的调度配置。为了更深入地了解其工作原理，推荐基于 :ref: *张量表达式入门 <tensor_expr_get_started>_* 教程中演示的调度操作，向调度添加新的搜索参数。接下来的章节将演示 AutoScheduler，它是TVM 中一种优化常用算子的方法，同时无需用户提供自定义的模板。
+本教程展示了如何构建算子模板，使得 TVM 能够搜索参数空间，并选择优化的调度配置。为了更深入地了解其工作原理，推荐基于 :ref: *张量表达式入门 `<tensor_expr_get_started>`* 教程中演示的调度操作，向调度添加新的搜索参数。接下来的章节将演示 AutoScheduler，它是TVM 中一种优化常用算子的方法，同时无需用户提供自定义的模板。
 
 [下载 Python 源代码：autotvm_matmul_x86.py](https://tvm.apache.org/docs/_downloads/8e7bbc9dbdda76ac573b24606b41c006/autotvm_matmul_x86.py)
 

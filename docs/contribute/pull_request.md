@@ -20,17 +20,17 @@ sidebar_position: 2
     # 虽然使用的 lint 命令应该与在 CI 中运行的相同，但此命令会重现
     # 准确的 CI lint 过程（通常有助于调试 lint 脚本错误或避免手动安装工具）
     python tests/scripts/ci.py lint
-    
+
     # 运行所有的 lint 步骤。
     docker/lint.sh
-    
+
     # 要单独运行步骤，请在命令行中指定步骤名称。
     # 一个不正确拼写的步骤名称会导致工具打印所有可用的步骤。
     docker/lint.sh <step_name> ...
     ```
-    
+
     若 clang-format lint 检查失败，运行 git-clang-format 自动对代码重新格式化：
-    
+
     ``` bash
     # 运行 clang-format 检查所有自 upstream/main 以来改变的文件
     docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh upstream/main
@@ -54,7 +54,7 @@ sidebar_position: 2
 
 使用 Docker 镜像，创建能部署到多台机器上的稳定的 CI 环境。按照 [这个 issue 模板](https://github.com/apache/tvm/issues/new?assignees=&labels=&template=ci-image.md&title=%5BCI+Image%5D+) 的步骤，更新 CI Docker 镜像。
 
-## 测试 {#pr-testing}
+## 测试
 
 尽管每个 pull request 都有自动运行单元测试的 hook，但推荐先在本地运行单元测试，以减少 reviewer 的负担并加快 review 过程。
 

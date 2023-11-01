@@ -160,8 +160,8 @@ def test_match_tuple():
 
 The next example is matching a pattern of batch_norm -\> get(0) -\>
 relu. Note that you can also use
-[is_tuple_get_item(bn_node)]{.title-ref} to match a
-[TupleGetItem]{.title-ref} node with any index.
+[is_tuple_get_item(bn_node)] to match a
+[TupleGetItem] node with any index.
 
 ``` python
 def test_match_tuple_get_item():
@@ -332,7 +332,7 @@ doesn\'t correspond to a set of patterns nodes exactly 1-to-1. There are
 a few other places where we support such \"fuzzy\" matching.
 
 Tuples, Functions, and Call nodes with any number of inputs can be
-matched by passing [None]{.title-ref} as the argument value, i.e.:
+matched by passing [None] as the argument value, i.e.:
 
     tuple_pattern = is_tuple(None)
     func_pattern = FunctionPattern(None, wildcard() + wildcard())
@@ -345,9 +345,9 @@ arguments.
 Additionally, we support matching Functions with fuzzy bodies, i.e., a
 function body that is under constrained by the pattern. The pattern
 [FunctionPattern(\[is_var(), is_var()\], wildcard() +
-wildcard()\])]{.title-ref} will match [relay.Function(\[x, y\], x +
-y)]{.title-ref}, but it will also match [relay.Function(\[x, y\], x \*
-x + y)]{.title-ref}. In the second case, the pattern doesn\'t perfectly
+wildcard()\])] will match [relay.Function(\[x, y\], x +
+y)], but it will also match [relay.Function(\[x, y\], x \*
+x + y)]. In the second case, the pattern doesn\'t perfectly
 constrain the body of the function, so the resulting match is fuzzy.
 
 ## Pattern Language Design

@@ -30,7 +30,7 @@ TVM 支持用 Vulkan 计算着色器（Vulkan compute shaders）来查询。所�
 
 截至 2021 年 5 月，还有一些 Vulkan 的实现没支持。例如，要支持 64 位整数。若不支持 Vulkan target，则会在 SPIR-V 代码生成期间报错。我们正努力消除这些限制，并支持其他 Vulkan 实现。
 
-## SPIR-V 功能  {#tvm-table-vulkan-capabilities}
+## SPIR-V 功能
 
 某些特定于设备的功能还对应于 SPIR-V 功能或扩展，它们必须在着色器中声明，或对应于要使用某个功能所需的最低 SPIR-V 版本。TVM 生成的着色器将声明执行编译好的计算图所需的最小扩展/功能集，以及 SPIR-V 的最小允许版本。
 

@@ -318,7 +318,7 @@ if run_cuda:
     # 编译后的 TVM 函数提供了一个任何语言都可调用的 C API。
     #
     # 我们在 Python 中提供了最小数组 API 来进行快速测试以及制作原型。
-    # 数组 API 基于 `DLPack <https://github.com/dmlc/dlpack>`_ 标准。
+    # 数组 API 基于 `DLPack [https://github.com/dmlc/dlpack](https://github.com/dmlc/dlpack)`_ 标准。
     #
     # - 首先创建 GPU 设备。
     # - 然后 tvm.nd.array 将数据复制到 GPU 上。

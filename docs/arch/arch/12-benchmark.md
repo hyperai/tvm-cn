@@ -20,18 +20,18 @@ sidebar_position: 220
 | runtime_ms_std | 5.3 | statistics |    |
 | timestamp | 1572282699.6 | metadata | indicates when this record is logged |
 | schema_version | “0.1” | metadata | ensure reproducibility as we iterate on this schema |
-| metadata | { “docker_tag”:”gcr.io/…/0a680”, … } | metadata | docker_tag is optional |
-| workload_args | {“input_name”: “Input3”, “input_shape”: [list_of_shape], “data_layout”: NHCW} | workload |    |
-| workload_metadata | {“class”: “vision”,”doc_url”: “https://github.com/.../README.md”, “opset”: 7,”type”: “body_analysis”,”url”: “https://onnxzoo...ferplus.tar.gz”, “md5”: “07fc7…”} | workload | source of workload |
+| metadata | `{ “docker_tag”:”gcr.io/…/0a680”, … }` | metadata | docker_tag is optional |
+| workload_args | `{“input_name”: “Input3”, “input_shape”: [list_of_shape], “data_layout”: NHCW}` | workload |    |
+| workload_metadata | `{“class”: “vision”,”doc_url”: “https://github.com/.../README.md”, “opset”: 7,”type”: “body_analysis”,”url”: “https://onnxzoo...ferplus.tar.gz”, “md5”: “07fc7…”}` | workload | source of workload |
 | engine_version | “1.0.5” | compiler | use semvar format |
-| engine_config | {“llvm”: “llvm-8”, “nvcc”: 10.1, “accelerator”: “MLAS”, “relay_opt_level”: 3, “tvm_target”:”llvm -mcpu=cascadelake”} | compiler | fields are optionally specified |
-| compilation_config | {“opt_level”: 3, “layer_schedules”:[]/ <SHA_to_schedules>} | compiler | fields are optionally specified |
-| software_config | {“os”: “ubuntu:18.04”,”pip”: { “docker”: “4.1.0”, “gitpython”: “3.0.4”, “numpy”: “1.17.4”, “onnx”: “1.6.0”}, “cudnn”: “cudnn-8”, “cuda_driver”: “480.10.1”} | backend | env dependency list |
-| runtime_config | {“num_cpu_threads”: 3} | backend | info on non-hardware, non-software metadata |
-| hardware_config | {“cpu_count”: 16, “cloud_machine_type”:”c2-standard-16”, “memory_GB”:64} | hardware | json descriptor of target hardware environment |
-| execution_config | {“number”: 1, “repeat”: 10, “min_repeat_ms”, 0} | statistics | workload execution parameters |
-| metrics | {“accuracy”: 48.5,“compilation_ms_mean”: 12} | statistics | other metrics |
-| runtime_raw | [{“runtime_ms”: 12, …}, {“runtime_ms”:13,…},…] | statistics | optional raw metrics array |
+| engine_config | `{“llvm”: “llvm-8”, “nvcc”: 10.1, “accelerator”: “MLAS”, “relay_opt_level”: 3, “tvm_target”:”llvm -mcpu=cascadelake”}` | compiler | fields are optionally specified |
+| compilation_config | `{“opt_level”: 3, “layer_schedules”:[]/ <SHA_to_schedules>}` | compiler | fields are optionally specified |
+| software_config | `{“os”: “ubuntu:18.04”,”pip”: { “docker”: “4.1.0”, “gitpython”: “3.0.4”, “numpy”: “1.17.4”, “onnx”: “1.6.0”}, “cudnn”: “cudnn-8”, “cuda_driver”: “480.10.1”}` | backend | env dependency list |
+| runtime_config | `{“num_cpu_threads”: 3}` | backend | info on non-hardware, non-software metadata |
+| hardware_config | `{“cpu_count”: 16, “cloud_machine_type”:”c2-standard-16”, “memory_GB”:64}` | hardware | json descriptor of target hardware environment |
+| execution_config | `{“number”: 1, “repeat”: 10, “min_repeat_ms”, 0}` | statistics | workload execution parameters |
+| metrics | `{“accuracy”: 48.5,“compilation_ms_mean”: 12}` | statistics | other metrics |
+| runtime_raw | `[{“runtime_ms”: 12, …}, {“runtime_ms”:13,…},…]` | statistics | optional raw metrics array |
 
 ## 存储格式
 

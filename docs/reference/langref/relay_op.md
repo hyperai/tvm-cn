@@ -24,7 +24,7 @@ operators in the python frontend.
 
 This level enables fully connected multi-layer perceptron.
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.log tvm.relay.sqrt tvm.relay.rsqrt tvm.relay.exp
 tvm.relay.sigmoid tvm.relay.add tvm.relay.subtract tvm.relay.multiply
 tvm.relay.divide tvm.relay.mod tvm.relay.tanh tvm.relay.concatenate
@@ -37,7 +37,7 @@ tvm.relay.nn.bias_add
 
 This level enables typical convnet models.
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.nn.conv2d tvm.relay.nn.conv2d_transpose tvm.relay.nn.conv3d
 tvm.relay.nn.conv3d_transpose tvm.relay.nn.dense tvm.relay.nn.max_pool2d
 tvm.relay.nn.max_pool3d tvm.relay.nn.avg_pool2d tvm.relay.nn.avg_pool3d
@@ -56,7 +56,7 @@ tvm.relay.nn.contrib_conv3d_winograd_weight_transform
 
 This level enables additional math and transform operators.
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.nn.leaky_relu tvm.relay.nn.prelu tvm.relay.reshape
 tvm.relay.reshape_like tvm.relay.copy tvm.relay.transpose
 tvm.relay.squeeze tvm.relay.floor tvm.relay.ceil tvm.relay.sign
@@ -72,7 +72,7 @@ tvm.relay.sparse_to_dense
 
 **Level 4: Broadcast and Reductions**
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.right_shift tvm.relay.left_shift tvm.relay.equal
 tvm.relay.not_equal tvm.relay.greater tvm.relay.greater_equal
 tvm.relay.less tvm.relay.less_equal tvm.relay.all tvm.relay.any
@@ -87,7 +87,7 @@ tvm.relay.broadcast_to
 
 **Level 5: Vision/Image Operators**
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.image.resize1d tvm.relay.image.resize2d
 tvm.relay.image.resize3d tvm.relay.image.crop_and_resize
 tvm.relay.image.dilation2d tvm.relay.vision.multibox_prior
@@ -97,7 +97,7 @@ tvm.relay.vision.yolo_reorg
 
 **Level 6: Algorithm Operators**
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.argsort tvm.relay.topk
 :::
 
@@ -106,7 +106,7 @@ tvm.relay.argsort tvm.relay.topk
 This level support backpropagation of broadcast operators. It is
 temporary.
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.broadcast_to_like tvm.relay.collapse_sum_like
 tvm.relay.slice_like tvm.relay.shape_of tvm.relay.ndarray_size
 tvm.relay.layout_transform tvm.relay.device_copy
@@ -120,7 +120,7 @@ tvm.relay.one_hot
 
 This level supports dialect operators.
 
-::: {.autosummary nosignatures=""}
+:::
 tvm.relay.qnn.op.add tvm.relay.qnn.op.batch_matmul
 tvm.relay.qnn.op.concatenate tvm.relay.qnn.op.conv2d
 tvm.relay.qnn.op.conv2d_transpose tvm.relay.qnn.op.dense

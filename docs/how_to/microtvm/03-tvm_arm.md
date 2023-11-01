@@ -46,7 +46,7 @@ TVMC - TVM driver command-line interface
 运行 demo 需要一些额外的 Python 包。通过下面的 requirements.txt 文件，来安装这些额外的 Python 包：
 
 *requirements.txt*[¶](#requirements-txt)
-{#requirements-txt}
+
 ``` text
  attrs==21.2.0
  cloudpickle==2.0.0
@@ -167,7 +167,7 @@ curl -sS https://s3.amazonaws.com/model-server/inputs/kitten.jpg -o ./kitten.jpg
 * `outputs.h` - 用一个全零的整数数组，为推理的输出保留 1001 个整数值。
 
 *convert_image.py*[¶](#convert-image-py)
-{#convert-image-py}
+
 ``` python
 #!python ./convert_image.py
 import os
@@ -236,7 +236,7 @@ python convert_image.py ./kitten.jpg
 以下脚本将在 src 目录中创建一个 `labels.h` 头文件，之前下载的 labels.txt 文件会变成字符串数组。该数组将用于显示图像分类后为的标签。
 
 *convert_labels.py*[¶](#convert-image)
-{#convert-image}
+
 ``` python
 #!python ./convert_labels.py
 import os
@@ -272,7 +272,7 @@ python convert_labels.py
 下面的 C 程序会在之前下载并转换为整数数组的图像上，运行 MobileNet v1 模型的单个推理。由于该模型是以「ethos-u ...」为 target 编译的，因此需要迁移 Ethos(TM)-U55 NPU 支持的算子，以便进行加速。一旦应用程序构建并运行，测试图像应该被正确地归类为「tabby」，并且结果会显示在控制台上。这个文件应该放在 `./src`。
 
 demo.c[¶](#demo-c)
-{#demo-c}
+
 ``` c
  #include <stdio.h>
  #include <tvm_runtime.h>

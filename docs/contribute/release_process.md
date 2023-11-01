@@ -29,11 +29,11 @@ TVM 中的版本 manager 角色意味着要负责以下这些事情：
 
 如果已经上传了密钥，则可以跳过这部分。
 
-参考 <https://www.apache.org/dev/openpgp.html#generate-key> 将生成的 gpg 密钥上传到公钥服务器。
+参考 [https://www.apache.org/dev/openpgp.html#generate-key](https://www.apache.org/dev/openpgp.html#generate-key) 将生成的 gpg 密钥上传到公钥服务器。
 
 通过 `gpg --export` 和 `gpg --import` 命令可以将 gpg 密钥传输到另一台机器上发布。
 
-最后一步是使用你的代码签名密钥 <https://www.apache.org/dev/openpgp.html#export-public-key> 更新 KEYS 文件。查看对 TVM 主分支及 ASF SVN 的更改，
+最后一步是使用你的代码签名密钥 [https://www.apache.org/dev/openpgp.html#export-public-key](https://www.apache.org/dev/openpgp.html#export-public-key) 更新 KEYS 文件。查看对 TVM 主分支及 ASF SVN 的更改，
 
 ``` bash
 # 指定 --depth=files 参数将跳过检查已有文件夹
@@ -122,7 +122,7 @@ svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m "Add RC"
 
 ## 对候选版本投票
 
-第一次投票在 Apache TVM 开发者名单（<dev@tvm.apache.org>）上进行。为了获得更多关注，可以创建一个以 “[VOTE]” 开头的 GitHub Issue，它会自动镜像到 dev@。可以查看以前的投票帖子来了解它是如何进行的。电子邮件应遵循以下格式：
+第一次投票在 Apache TVM 开发者名单（[dev@tvm.apache.org](mailto:dev@tvm.apache.org)）上进行。为了获得更多关注，可以创建一个以 “[VOTE]” 开头的 GitHub Issue，它会自动镜像到 dev@。可以查看以前的投票帖子来了解它是如何进行的。电子邮件应遵循以下格式：
 
 -   在电子邮件中提供版本说明初稿的链接
 -   提供候选版本工程的链接
@@ -157,8 +157,8 @@ git push --delete origin v0.6.0.rc2
 
 ## 更新 TVM 网站
 
-网站仓库位于 <https://github.com/apache/tvm-site>。向下载页面中添加版本工程以及 GPG 签名和 SHA 哈希。
+网站仓库位于 [https://github.com/apache/tvm-site](https://github.com/apache/tvm-site)。向下载页面中添加版本工程以及 GPG 签名和 SHA 哈希。
 
 ## 发布公告
 
-向 <announce@apache.org> 和 <dev@tvm.apache.org> 发送公告邮件。公告应包括发布说明和下载页面的链接。
+向 [announce@apache.org](mailto:announce@apache.org) 和 [dev@tvm.apache.org](mailto:dev@tvm.apache.org) 发送公告邮件。公告应包括发布说明和下载页面的链接。

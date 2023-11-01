@@ -28,7 +28,7 @@ TVM 中当前的 Vitis AI 流支持使用 [Zynq Ultrascale+ MPSoc](https://www.x
 
 [Vitis AI 系统要求页面](https://github.com/Xilinx/Vitis-AI/blob/master/docs/learn/system_requirements.md) 列出了运行 Docker 容器以及在 Alveo 卡上执行的系统要求。对于边缘设备（例如 Zynq），部署模型需要使用带有 Vitis AI 流程的 TVM 编译模型的主机，以及用于运行编译模型的边缘设备。主机系统要求与上面链接中指定的相同。
 
-## 设置说明 {#setup}
+## 设置说明
 
 本节介绍如何用 Vitis AI 流为云和边缘设置 TVM。支持 Vitis AI 的 TVM 是通过 Docker 容器提供的。提供的脚本和 Dockerfile 将 TVM 和 Vitis AI 编译为单个镜像。
 
@@ -70,7 +70,7 @@ TVM 中当前的 Vitis AI 流支持使用 [Zynq Ultrascale+ MPSoc](https://www.x
 
 在这个 Docker 容器中可以为云和边缘目标编译模型。要在 docker 容器内的云 Alveo 或 Versal VCK5000 卡上运行，按照 [Alveo](#alveo-setup) 或者 [Versal VCK5000](#versal-vck5000-setup) 设置说明进行操作。分别参照 [Zynq](#zynq-setup) 和 [Versal VCK190](#versal-vck190-setup)，为推理过程设置 Zynq 或 Versal VCK190 评估单板。
 
-### Alveo 设置 {#alveo-setup}
+### Alveo 设置
 
 查看 [Alveo 设置](https://github.com/Xilinx/Vitis-AI/blob/v1.4/setup/alveo/README.md) 获取设置信息。
 
@@ -85,7 +85,7 @@ source setup.sh [DPU-IDENTIFIER]
 
 可在此页面顶部的 DPU Targets 表的第二列中找到此 DPU 标识符。
 
-### Versal VCK5000 设置 {#versal-vck5000-setup}
+### Versal VCK5000 设置
 
 查看 [VCK5000 Setup](https://github.com/Xilinx/Vitis-AI/blob/v1.4/setup/vck5000/README.md) 获取设置信息。
 
@@ -98,7 +98,7 @@ cd Vitis-AI/setup/vck5000
 source setup.sh
 ```
 
-### Zynq 设置 {#zynq-setup}
+### Zynq 设置
 
 除了构建 TVM - Vitis AI docker 之外，对于 Zynq 目标（DPUCZDX8G），编译阶段在主机上的 docker 内运行，不需要任何特定设置。执行模型时，首先要设置 Zynq 板，更多信息如下。
 
@@ -173,11 +173,11 @@ source setup.sh
 可能会看到有关未找到 "cpu-tf" runtime 的警告，可以忽略。
 :::
 
-### Versal VCK190 设置 {#versal-vck190-setup}
+### Versal VCK190 设置
 
 参考 [Zynq 设置](#zynq-setup) 设置 Versal VCK190，但在步骤 1 中参考 [VCK190 镜像](https://www.xilinx.com/member/forms/download/design-license-xef.html?filename=xilinx-vck190-dpu-v2020.2-v1.4.0.img.gz)。其他步骤相同。
 
-## 编译模型 {#compile}
+## 编译模型
 
 带有 Vitis AI 流的 TVM 包含编译和推理两个阶段。在编译期间，用户可以为当前支持的云或边缘目标设备选择要编译的模型。编译模型生成的文件可用于在 [推理](#inference) 阶段在指定的目标设备上运行模型。目前，采用 Vitis AI 流程的 TVM 支持选定数量的 Xilinx 数据中心和边缘设备。
 
@@ -290,13 +290,13 @@ lib_edge.export_library('deploy_lib_edge.so', **lib_kwargs)
 
 使用 TVM 和 Vitis AI 编译模型的教程到此结束，有关如何运行已编译的模型，参阅下一节。
 
-## 推理 {#inference}
+## 推理
 
 带有 Vitis AI 流的 TVM 包含编译和推理两个阶段，在编译期间，用户可以选择为当前支持的任何目标设备编译模型。编译模型后生成的文件可用于在推理阶段在目标设备上运行模型。
 
 查看 [在 Alveo 和 VCK5000 上运行](#running-on-alveo-and-vck5000) 以及 [在 Zynq 和 VCK190 上运行](#running-on-zynq-and-vck190) 部分，分别在云加速卡和边缘板上进行推理。
 
-### 在 Alveo 和 VCK5000 上运行 {#running-on-alveo-and-vck5000}
+### 在 Alveo 和 VCK5000 上运行
 
 按照编译模型部分中的步骤，可以在 Docker 内的新输入上执行如下命令以加速推理：
 
@@ -325,7 +325,7 @@ module.set_input(input_name, input_data)
 module.run()
 ```
 
-### 在 Zynq 和 VCK190 上运行 {#running-on-zynq-and-vck190}
+### 在 Zynq 和 VCK190 上运行
 
 开始前按照 [Zynq](#zynq-setup) 或 [Versal VCK190](#versal-vck190-setup) 设置说明进行设置。
 

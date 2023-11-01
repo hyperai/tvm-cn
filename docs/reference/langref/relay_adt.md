@@ -53,7 +53,7 @@ variables) to the list of constructors for that ADT.*
 Below is a simple example of defining an ADT and using it in a function
 via a match expression:
 
-``` 
+```
 # Defines an ADT named "Numbers"
 data Numbers {
   Empty : () -> Numbers
@@ -83,7 +83,7 @@ Note that ADTs are identified by name, meaning that two ADTs with
 structurally identical constructors will nevertheless be distinct data
 types from the point of view of the typechecker.
 
-``` 
+```
 # structurally identical constructors to Numbers
 data Numbers2 {
   Empty2 : () -> Numbers2
@@ -105,7 +105,7 @@ functions, ADTs can be polymorphic and take type parameters.
 For example, one of the standard ADTs commonly used in functional
 programming languages is the optional type, defined here:
 
-``` 
+```
 # a is a type parameter
 data Optional<a> {
   None : () -> Optional
@@ -129,7 +129,7 @@ thus given a type that contains the concrete type arguments for that
 instance, ensuring the information is kept around. Let the below example
 illustrate:
 
-``` 
+```
 # the signature for option indicates the type argument
 def @inc_scalar(%opt : Optional[Tensor[(), int32]]) -> Tensor[(), int32] {
   match(%opt) {
@@ -184,7 +184,7 @@ Many commonly used ADTs involve recursion; some of these are given in
 [Common ADT Uses](#common-adt-uses). As an example here, we will examine
 the list ADT, ubiquitous in functional languages:
 
-``` 
+```
 data List<a> {
    Nil : () -> List
    Cons : (a, List[a]) -> List
@@ -202,7 +202,7 @@ empty list).
 Lists represented in this manner can easily be recursively processed.
 For example, the following function sums a list of integers:
 
-``` 
+```
 def @list_sum(%l : List[Tensor[(), int32]]) -> Tensor[(), int32] {
   match(%l) {
     case Nil() { 0 }
@@ -217,7 +217,7 @@ share structures that can be factored out into generic, easily usable
 functions that will be discussed under [Common ADT
 Uses](#common-adt-uses).
 
-## Pattern Matching in Match Expressions {#adt-pattern}
+## Pattern Matching in Match Expressions
 
 Match expressions in Relay, as in other functional languages, are
 capable of more versatile pattern matching than simply having one case
@@ -241,7 +241,7 @@ arguments to `Cons`.
 The below example uses a wildcard pattern to ignore one of the arguments
 to `Cons`:
 
-``` 
+```
 def @first<a>(%l : List[a]) -> Optional[a] {
   match(%l) {
     case Nil() { None() }
@@ -255,7 +255,7 @@ to avoid nested match expressions for a list option. A top-level
 wildcard pattern is also used to handle all cases that do not match the
 first clause:
 
-``` 
+```
 def @second_opt<a>(%ll : Optional[List[a]]) -> Optional[a] {
   match(%ll) {
     # we only need the second member of the list if there is one
@@ -275,7 +275,7 @@ are listed: the first clause whose pattern that matches the input value
 is the one that is evaluated. Here, a top-level variable pattern binds
 the whole input value:
 
-``` 
+```
 def @match_order_beware<a>(%l : List[a]) -> List[a] {
   match(%l) {
     case %v { %v }
@@ -313,7 +313,7 @@ Relay\'s Prelude. (These have all been extensively characterized in the
 functional programming literature, and we do not attempt to reproduce
 that work in this document.)
 
-``` 
+```
 # Map: for [h1, h2, ..., hn] returns [f(h1), f(h2), ..., f(hn)]
 def @map<a, b>(%f : fn(a) -> b, %l : List[a]) -> List[b] {
   match(%l) {
@@ -343,7 +343,7 @@ Using these iteration constructs, many common operations over lists can
 be expressed compactly. For example, the following map doubles all
 members of a list:
 
-``` 
+```
 # directly written
 def @double(%l : List[Tensor[(), int32]]) -> List[Tensor[(), int32]] {
   match(%l) {
@@ -358,7 +358,7 @@ def @double(%l : List[Tensor[(), int32]]) -> List[Tensor[(), int32]] {
 
 The following right fold concatenates two lists:
 
-``` 
+```
 # directly written
 def @concat<a>(%l1 : List[a], %l2 : List[a]) -> List[a] {
   match(%l1) {
@@ -373,7 +373,7 @@ def @concat<a>(%l1 : List[a], %l2 : List[a]) -> List[a] {
 
 The following left fold flattens a list of lists (using concatenation):
 
-``` 
+```
 # directly written
 def @flatten<a>(%ll : List[List[a]]) -> List[a] {
   match(%ll) {
@@ -407,14 +407,14 @@ recurrent neural net (RNN) cell, which takes in a past state and an
 input value and returns a new state and output value. In Relay, this
 would have the following signature:
 
-``` 
+```
 @cell : fn<state_type, in_type, out_type>(state_type, in_type) -> (state_type, out_type)
 ```
 
 We might consider a ReLU cell as a simple concrete example, with a
 trained version below:
 
-``` 
+```
 def @linear(%x, %w, %b) { %w*%x + %b }
 
 def @relu_cell(%w, # weights
@@ -437,7 +437,7 @@ def @trained_cell(%w, %b) {
 Following Olah\'s example, we can encode a sequence (list) of inputs
 with the following left fold:
 
-``` 
+```
 def @encode<state_type, in_type, out_type>(%cell, %input : List[in_type], %init : state_type) -> state_type {
   # not using the output
   @foldl(fn(%state, %in) { %cell(%state, %in).0 }, %init, %input)
@@ -448,7 +448,7 @@ Using an *unfold* iterator (from Haskell\'s standard library), the same
 cell could be used to make a generator network (which takes a single
 input and produces a sequence of outputs):
 
-``` 
+```
 # included in Relay's Prelude
 def @unfoldr<a, b>(%f : fn(b) -> Optional[(a, b)], %z : b) -> List[a] {
   match(%f(%z)) {
@@ -478,7 +478,7 @@ An accumulating map (a fold that simultaneously updates an accumulator
 value and a list of outputs) can be used to write a general RNN (with an
 output for every input):
 
-``` 
+```
 def @map_accumr<a, b, c>(%f : fn(a, b) -> (a, c), %acc : a, %l : List[b]) -> (a, List[c]) {
   match(%l) {
     case Nil() { (%acc, Nil()) }
@@ -511,7 +511,7 @@ two sets of cells (which may have different weights) process the input
 in both directions and produce a single set of outputs. The following is
 a Relay implementation of that example:
 
-``` 
+```
 # creates a list of tuples from two lists
 # included in Relay's Prelude
 def @zip<a, b>(%l : List[a], %m : List[b]) -> List[(a, b)] {

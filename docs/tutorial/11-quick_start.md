@@ -52,7 +52,7 @@ mod, params = relay.testing.resnet.get_workload(
 print(mod.astext(show_meta_data=False))
 ```
 
-访问代码中的 mod.astext 更多信息：<https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Node.astext>
+访问代码中的 mod.astext 更多信息：[https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Node.astext](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Node.astext)
 
 输出结果：
 

@@ -49,7 +49,7 @@ to Relay expressions.
 The base type for all Relay types. All Relay types are sub-classes of
 this base type.
 
-See :py`~tvm.relay.ty.Type`{.interpreted-text role="class"} for its
+See `Type` for its
 definition and documentation.
 
 ## Tensor Type
@@ -71,11 +71,11 @@ shapes will be concrete before running a program.
 For example, here is a simple concrete tensor type corresponding to a
 10-by-10 tensor of 32-bit floats:
 
-``` 
+```
 Tensor[(10, 10), float32]
 ```
 
-See :py`~tvm.relay.ty.TensorType`{.interpreted-text role="class"} for
+See `TensorType` for
 its definition and documentation.
 
 ## Tuple Type
@@ -93,13 +93,13 @@ For example, in the below code, `%t` is of type
 `(Tensor[(), bool], Tensor[(10, 10), float32])` and `%c` is of type
 `Tensor[(10, 10), float32]`.
 
-``` 
+```
 let %t = (False, Constant(1, (10, 10), float32));
 let %c = %t.1;
 %c
 ```
 
-See :py`~tvm.relay.ty.TupleType`{.interpreted-text role="class"} for its
+See `TupleType` for its
 definition and documentation.
 
 ## Type Parameter
@@ -125,14 +125,14 @@ parameters at call sites.
 For example, `s` below is a type parameter of kind `Shape` and it will
 be substituted with `(10, 10)` at the call site below:
 
-``` 
+```
 def @plus<s : Shape>(%t1 : Tensor[s, float32], %t2 : Tensor[s, float32]) {
      add(%t1, %t2)
 }
 plus<(10, 10)>(%a, %b)
 ```
 
-See :py`~tvm.relay.ty.TypeVar`{.interpreted-text role="class"} for its
+See `TypeVar` for its
 definition and documentation.
 
 ## Type Constraint
@@ -141,12 +141,12 @@ This is an abstract class representing a type constraint, to be
 elaborated upon in further releases. Currently, type relations are the
 only type constraints provided; they are discussed below.
 
-See :py`~tvm.relay.ty.TypeConstraint`{.interpreted-text role="class"}
+See `TypeConstraint`
 for its definition and documentation.
 
 ## Function Type
 
-A function type in Relay, see [tvm/relay/type.h]{.title-ref} for more
+A function type in Relay, see [tvm/relay/type.h] for more
 details.
 
 This is the type assigned to functions in Relay. A function type
@@ -162,7 +162,7 @@ hold at every call site of the function. The type constraints typically
 take the function\'s argument types and the function\'s return type as
 arguments, but may take a subset instead.
 
-See :py`~tvm.relay.ty.FuncType`{.interpreted-text role="class"} for its
+See `FuncType` for its
 definition and documentation.
 
 ## Type Relation
@@ -175,8 +175,8 @@ Relay to statically reason about the shapes in these cases.
 
 A type relation `R` describes a relationship between the input and
 output types of a Relay function. Namely, `R` is a function on types
-that outputs [true]{.title-ref} if the relationship holds and
-[false]{.title-ref} if it fails to hold. Types given to a relation may
+that outputs [true] if the relationship holds and
+[false] if it fails to hold. Types given to a relation may
 be incomplete or include shape variables, so type inference must assign
 appropriate values to incomplete types and shape variables for necessary
 relations to hold, if such values exist.
@@ -200,7 +200,7 @@ Flatten(Tensor(sh, bt), O) :-
 If we have a relation like `Broadcast` it becomes possible to type
 operators like `add`:
 
-``` 
+```
 add : fn<t1 : Type, t2 : Type, t3 : Type>(t1, t2) -> t3
             where Broadcast
 ```
@@ -234,7 +234,7 @@ Presently all of the relations used in Relay are implemented in C++. See
 the files in `src/relay/op` for examples of relations implemented in
 C++.
 
-See :py`~tvm.relay.ty.TypeRelation`{.interpreted-text role="class"} for
+See `TypeRelation` for
 its definition and documentation.
 
 ## Incomplete Type
@@ -252,15 +252,15 @@ concrete type arguments (instantiated) at call sites, whereas incomplete
 types may appear anywhere in the program and are filled in during type
 inference.
 
-See :py`~tvm.relay.ty.IncompleteType`{.interpreted-text role="class"}
+See `IncompleteType`
 for its definition and documentation.
 
-## Algebraic Data Types {#adt-typing}
+## Algebraic Data Types
 
 *Note: ADTs are not currently supported in the text format.*
 
 Algebraic data types (ADTs) are described in more detail in
-`their overview <adt-overview>`{.interpreted-text role="ref"}; this
+`their overview <adt-overview>`; this
 section describes their implementation in the type system.
 
 An ADT is defined by a collection of named constructors, each of which
@@ -298,7 +298,7 @@ Recursion in an ADT definition thus follows just like recursion for a
 global function: the constructor can simply reference the ADT handle
 (global type variable) in its definition.
 
-See :py`~tvm.relay.ty.GlobalTypeVar`{.interpreted-text role="class"} for
+See `GlobalTypeVar` for
 its definition and documentation.
 
 ### Definitions (Type Data)
@@ -306,8 +306,7 @@ its definition and documentation.
 Besides a name, an ADT needs to store the constructors that are used to
 define it and any type parameters used within them. These are stored in
 the module,
-`analogous to global function definitions<module-description>`{.interpreted-text
-role="ref"}.
+`analogous to global function definitions<module-description>`.
 
 While type-checking uses of ADTs, the type system sometimes must index
 into the module using the ADT name to look up information about
@@ -316,7 +315,7 @@ a match expression clause, the type-checker must check the
 constructor\'s signature to ensure that any bound variables are being
 assigned the correct types.
 
-See :py`~tvm.relay.adt.TypeData`{.interpreted-text role="class"} for its
+See `TypeData` for its
 definition and documentation.
 
 ### Type Call
@@ -340,7 +339,7 @@ one argument for each type parameter in the ADT definition. (An ADT
 definition with no arguments means that any instance will have no type
 arguments passed to the type call).
 
-See :py`~tvm.relay.ty.TypeCall`{.interpreted-text role="class"} for its
+See `TypeCall` for its
 definition and documentation.
 
 ### Example: List ADT
@@ -349,7 +348,7 @@ This subsection uses the simple list ADT (included as a default ADT in
 Relay) to illustrate the constructs described in the previous sections.
 Its definition is as follows:
 
-``` 
+```
 data List<a> {
   Nil : () -> List
   Cons : (a, List[a]) -> List
@@ -366,7 +365,7 @@ the `Cons` constructor is accomplished by using the global type variable
 
 Below two instances of lists with their types given, using type calls:
 
-``` 
+```
 Cons(1, Cons(2, Nil())) # List[Tensor[(), int32]]
 Cons((1, 1), Cons((2, 2), Nil())) # List[(Tensor[(), int32], Tensor[(), int32])]
 ```
@@ -378,7 +377,7 @@ take any arguments that use a type parameter. (Nevertheless, for any
 Here are two lists that are rejected by the type system because the type
 parameters do not match:
 
-``` 
+```
 # attempting to put an integer on a list of int * int tuples
 Cons(1, Cons((1, 1), Nil()))
 # attempting to put a list of ints on a list of lists of int * int tuples

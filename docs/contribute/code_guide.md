@@ -26,26 +26,26 @@ python tests/scripts/ci.py lint
 clang-format 并不完美，必要时可以在某些代码区域上禁用 clang-format。
 
 ``` c++
-// clang-format off 
-void Test() { 
+// clang-format off
+void Test() {
     // clang-format 将在这个区域禁用。
-} 
+}
 // clang-format on
 ```
 
 因为 clang-format 可能无法识别宏，所以建议像普通函数样式一样使用宏。
 
 ``` c++
-#define MACRO_IMPL { custom impl; } 
+#define MACRO_IMPL { custom impl; }
 #define MACRO_FUNC(x)
 
 // 不是首选，因为 clang-format 可能会将其识别为类型。
 
-// 首选 
+// 首选
 virtual void Func2() MACRO_IMPL;
 
 void Func3() {
-    // 首选 
+    // 首选
     MACRO_FUNC(xyz);
 }
 ```
@@ -68,7 +68,7 @@ def test_mytest(target, dev):
   ...
 ```
 
-用 `target="llvm"`、`target="cuda"` 和其他几个运行 `test_mytest`。这可以确保测试由 CI 在正确的硬件上运行。如果只想针对几个 target 进行测试，请使用 `@tvm.testing.parametrize_targets("target_1", "target_2")`。如果想在单个 target 上进行测试，请使用来自 `tvm.testing()`{.interpreted-text role="func"} 的相关装饰器。例如，CUDA 测试使用 `@tvm.testing.requires_cuda` 装饰器。
+用 `target="llvm"`、`target="cuda"` 和其他几个运行 `test_mytest`。这可以确保测试由 CI 在正确的硬件上运行。如果只想针对几个 target 进行测试，请使用 `@tvm.testing.parametrize_targets("target_1", "target_2")`。如果想在单个 target 上进行测试，请使用来自 `tvm.testing()` 的相关装饰器。例如，CUDA 测试使用 `@tvm.testing.requires_cuda` 装饰器。
 
 ## 处理整型常量表达式
 
