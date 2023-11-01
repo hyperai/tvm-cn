@@ -419,7 +419,7 @@ realize D([0, 4], [0, 5], [0, 16]) {
 
 **例 5**
 
-根据上述定义，可以很自然地在拆分后应用 Compute_at。下面例子中，C 的附着点是 D 的 j_inner。C 的附着路径是 {j_inner, j_outer, i}。
+根据上述定义，可以很自然地在拆分后应用 Compute_at。下面例子中，C 的附着点是 D 的 j_inner。C 的附着路径是 `{j_inner, j_outer, i}`。
 
 ``` python
 C = tvm.compute((5, 16), lambda i, j : tvm.const(5, "int32"), name='C')
@@ -456,7 +456,7 @@ s[C].compute_at(s[D], D.op.axis[1])
 s[D].compute_at(s[E], E.op.axis[1])
 ```
 
-当 `debug_keep_trivial_loop=True` 时，C 的附加路径为 {dj,di,ej,ei}，D 的附加路径为 {ej,ei}：
+当 `debug_keep_trivial_loop=True` 时，C 的附加路径为 `{dj,di,ej,ei}`，D 的附加路径为 `{ej,ei}`：
 
 ``` c++
 // attr [D] storage_scope = "global"
