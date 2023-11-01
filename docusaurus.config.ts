@@ -118,6 +118,8 @@ const config: Config = {
     prism: {
       theme: lightTheme,
       darkTheme: darkTheme,
+      // https://docusaurus.io/docs/migration/v3#prism-react-renderer-v20
+      additionalLanguages: ['bash', 'diff', 'json', 'python'],
     },
     algolia: {
       apiKey: 'f36b719e2245a23ecd89c7e9a41937f2',
