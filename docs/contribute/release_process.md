@@ -48,20 +48,30 @@ svn cp --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.o
 
 ## 截取一个候选版本
 
-要截取一个候选版本，首先用选定的版本字符串截取一个分支，例如，
+要截取一个候选版本，首先用选定的版本字符串截取一个分支。分支的名称应该使用基本发行版本号，而不是patch号。例如，要为 v0.11.0 截取一个候选版本，分支应该命名为 v0.11，标签为`v0.11.0.rc0`,一旦截取便推送到对应分子的HEAD。
 
 ``` bash
-git clone https://github.com/apache/tvm.git
-cd tvm/
-git branch v0.6.0
-git push --set-upstream origin v0.6.0
+	git clone https://github.com/apache/tvm.git
+	cd tvm/
+
+	# 更新版本号
+	# ...
+	git add .
+	git commit -m "Bump version numbers to v0.6.0"
+
+	# 相关版本替换v0.6
+	git branch v0.6
+	git push --set-upstream origin v0.6
+
+	git tag v0.6.0.rc0
+	git push origin refs/tags/v0.6.0.rc0
 ```
 
 （*确保源代码中的版本号正确。*运行 `python3 version.py` 进行版本更新。）
 
 转到 GitHub 仓库的 "releases" 选项卡，然后单击 "Draft a new release"，
-
--   以 “v1.0.0.rc0” 的形式提供发布标签，其中 0 表示它是第一个候选版本
+-   检查版本号并确保 TVM 可以构建和运行单元测试来验证发行版本
+-   以 “v1.0.0.rc0” 的形式提供发布标签，其中 0 表示它是第一个候选版本。标签必须严格匹配此模式：`v[0-9]+\.[0-9]+\.[0-9]+\.rc[0-9]`
 -   单击 Target 选择提交：branch \> Recent commits \> \$commit_hash
 -   将发行说明初稿复制并粘贴到说明框中
 -   选择 “This is a pre-release”
@@ -104,6 +114,10 @@ gpg --armor --output apache-tvm-src-v0.6.0.rc0.tar.gz.asc --detach-sig apache-tv
 shasum -a 512 apache-tvm-src-v0.6.0.rc0.tar.gz > apache-tvm-src-v0.6.0.rc0.tar.gz.sha512
 ```
 
+## 更新`main`上的TVM版本
+
+在截取一个发行候选版本后，务必在整个 main 上更新版本号。例如，如果我们发布了`v0.10.0`，我们希望将代码库中的版本号从`v0.10.dev0`提升到`v0.11.dev0`。如何执行此操作的示例可以在此处找到：https://github.com/apache/tvm/pull/12190。在最后的一个包含开发标签（例如`v0.11.dev0`）准备发行时立即在`main`上的提交标签。此标签是必须的，以便每晚从 main 构建的包具有正确的版本号。
+
 ## 上传候选版本
 
 编辑 GitHub 上的发布页面并上传前面步骤创建的工程。
@@ -119,6 +133,10 @@ mkdir tvm-v0.6.0-rc0
 svn add tvm-0.6.0-rc0
 svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m "Add RC"
 ```
+
+## 筛选（cherry-pick）
+在截取了一个发行分支后还没被投票之前，发行管理员可以从 main 分支中 cherry-pick 提交。由于 GitHub 保护发行分支，要将这些修复合并到发行分支（例如`v0.11`），发行管理员必须向发行分支提交一个 PR，并包含被 cherry-pick 的更改。该 PR 应大致与从`main`分支提交的原始 PR 相匹配，并附带有关为何 cherry-pick 该提交的额外细节。然后，社区会对这些 PR 进行标准的审查并合并。请注意，针对发行分支的这些 PR 必须`[签名/](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)。
+
 
 ## 对候选版本投票
 
@@ -159,6 +177,11 @@ git push --delete origin v0.6.0.rc2
 
 网站仓库位于 [https://github.com/apache/tvm-site](https://github.com/apache/tvm-site)。向下载页面中添加版本工程以及 GPG 签名和 SHA 哈希。
 
+之后，更新[下载页面](https://tvm.apache.org/download)提供最新发行版本。如何操作可参考[此处/](https://github.com/apache/tvm-site/pull/38)。
+
 ## 发布公告
 
 向 [announce@apache.org](mailto:announce@apache.org) 和 [dev@tvm.apache.org](mailto:dev@tvm.apache.org) 发送公告邮件。公告应包括发布说明和下载页面的链接。
+
+## 发布Patch
+发布Patch应为修复关键错误而被保留。发布Patch必须经过与正常发行相同的流程，但发行管理员可以酌情选择缩短为期 24 小时的候选版本投票窗口，以确保修复迅速交付。每个修补版本应提升发布基础分支（例如`v0.11`）上的版本号，并为发布候选版本创建标签（`例如v0.11.1.rc0`）。

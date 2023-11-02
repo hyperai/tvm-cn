@@ -92,20 +92,20 @@ git push my_repo
 
 ### Docker 镜像
 
-所有 CI 任务都在 Docker 容器（由 [docker/](https://github.com/apache/tvm/tree/main/docker) 文件夹中的文件构建）中运行其大部分的工作。
+所有 CI 任务都在 Docker 容器（由 [docker](https://github.com/apache/tvm/tree/main/docker) 文件夹中的文件构建）中运行其大部分的工作。
 
 #### 更新 Docker 镜像标签
 
-要更新标签，需要构建一个新的镜像并上传到 Docker Hub，然后需要更新 [docker-images.ini/](https://github.com/apache/tvm/tree/main/ci/jenkins/docker-images.ini) 文件中的镜像标签，以匹配 Docker Hub 上的镜像标签。
+要更新标签，需要构建一个新的镜像并上传到 Docker Hub，然后需要更新 [docker-images.ini](https://github.com/apache/tvm/tree/main/ci/jenkins/docker-images.ini) 文件中的镜像标签，以匹配 Docker Hub 上的镜像标签。
 
-Docker 镜像会每晚自动构建，通过 [docker-images-ci/](https://ci.tlcpack.ai/job/docker-images-ci/) 来实现，一旦它们通过 CI 测试，就会上传到 https://hub.docker.com/u/tlcpackstaging。合并后的 CI 在 main 上构建 Docker 镜像并将其上传到 tlcpackstaging Docker Hub 帐户。tlcpackstaging Docker 镜像会自动晋升到tlcpack 帐户。这意味着tlcpackstaging 中的镜像标签可以在 CI 中使用，并且在 main 上成功合并后将自动移动到 tlcpack。因此，更新镜像的步骤如下：
+Docker 镜像会每晚自动构建，通过 [docker-images-ci](https://ci.tlcpack.ai/job/docker-images-ci/) 来实现，一旦它们通过 CI 测试，就会上传到 https://hub.docker.com/u/tlcpackstaging。合并后的 CI 在 main 上构建 Docker 镜像并将其上传到 tlcpackstaging Docker Hub 帐户。tlcpackstaging Docker 镜像会自动晋升到tlcpack 帐户。这意味着tlcpackstaging 中的镜像标签可以在 CI 中使用，并且在 main 上成功合并后将自动移动到 tlcpack。因此，更新镜像的步骤如下：
 
 合并一个更改docker/下的 Dockerfile 或docker/install中脚本的 PR。
 
 执行以下操作之一：
 
-a. 等待 PR 中的合并后 CI 构建完成，并将新构建的镜像上传到 [tlcpackstaging/](https://hub.docker.com/u/tlcpackstaging) Docker Hub。
-b. 等待每晚的 Docker 镜像构建完成，并将新构建的镜像上传到 [tlcpackstaging/](https://hub.docker.com/u/tlcpackstaging) Docker Hub。
+a. 等待 PR 中的合并后 CI 构建完成，并将新构建的镜像上传到 [tlcpackstaging](https://hub.docker.com/u/tlcpackstaging) Docker Hub。
+b. 等待每晚的 Docker 镜像构建完成，并将新构建的镜像上传到 [tlcpackstaging](https://hub.docker.com/u/tlcpackstaging) Docker Hub。
 
 找到tlcpackstaging Docker Hub 上新上传的镜像标签，例如20221208-070144-22ff38dff，然后将ci/jenkins/docker-images.ini 中的标签更新为使用 tlcpackstaging 标签，但在 tlcpack 帐户下，例如tlcpack/ci-arm:20221208-070144-22ff38dff。提交一个包含这些更改的 PR，并等待它通过 CI 测试以确保新的镜像有效。
 
