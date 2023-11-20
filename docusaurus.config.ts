@@ -1,14 +1,8 @@
+import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-const {themes} = require('prism-react-renderer');
-const lightTheme = themes.github;
-const darkTheme = themes.dracula;
 
 const config: Config = {
   title: 'Apache TVM 中文站',
@@ -34,7 +28,7 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           editUrl: 'https://github.com/hyperai/tvm-cn/edit/master/',
           showLastUpdateAuthor: true,
@@ -57,7 +51,7 @@ const config: Config = {
             'https://github.com/facebook/docusaurus/edit/main/website/blog/',
         },
         theme: {
-          customCss: require.resolve('./src/css/app.scss'),
+          customCss: './src/css/app.scss',
         },
       } satisfies Preset.Options,
     ],
@@ -116,8 +110,8 @@ const config: Config = {
       copyright: `© ${new Date().getFullYear()} Apache Software Foundation and Hyper.AI for Chinese Simplified mirror`,
     },
     prism: {
-      theme: lightTheme,
-      darkTheme: darkTheme,
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
       // https://docusaurus.io/docs/migration/v3#prism-react-renderer-v20
       additionalLanguages: ['bash', 'diff', 'json', 'python'],
     },
@@ -144,7 +138,7 @@ const config: Config = {
 
   plugins: [
     'docusaurus-plugin-sass',
-    require.resolve('./src/plugins/typekit/'),
+    './src/plugins/typekit/',
   ],
   scripts: [
     {
