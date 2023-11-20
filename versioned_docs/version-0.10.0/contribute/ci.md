@@ -92,7 +92,24 @@ git push my_repo
 
 ### Docker 镜像
 
-所有 CI 任务都在 Docker 容器（由 [docker/](https://github.com/apache/tvm/tree/main/docker) 文件夹中的文件构建）中运行其大部分的工作。这些文件通过 [docker-images-ci](https://ci.tlcpack.ai/job/docker-images-ci/) 任务每日在 Jenkins 中构建。这些容器的镜像在 [tlcpack Docker Hub](https://hub.docker.com/u/tlcpack) 中托管，并在 [Jenkinsfile.j2](https://github.com/apache/tvm/tree/main/Jenkinsfile.j2) 中引用。这些镜像可用标准的 Docker 命令在本地检查和运行。
+所有 CI 任务都在 Docker 容器（由 [docker/](https://github.com/apache/tvm/tree/main/docker) 文件夹中的文件构建）中运行其大部分的工作。
+
+#### 更新 Docker 镜像标签
+
+若要更新标签，需要构建一个新的镜像并上传到 Docker Hub，然后更新 [docker-images.ini/](https://github.com/apache/tvm/tree/main/ci/jenkins/docker-images.ini) 文件中的镜像标签，以匹配 Docker Hub 上的镜像标签。
+
+Docker 镜像会通过 [docker-images-ci/](https://ci.tlcpack.ai/job/docker-images-ci/) 每晚自动构建。一旦构建的镜像通过 CI ，就会上传到 https://hub.docker.com/u/tlcpackstaging。Post-merge CI 在`main`上构建 Docker 镜像并将其上传到`tlcpackstaging` Docker Hub 帐户。`tlcpackstaging` Docker 镜像会自动移入`tlcpack`账号。这意味着`tlcpackstaging`中的镜像标签可以在 CI 中使用，并且在 main 上成功合并后将自动移动到`tlcpack`。因此，更新镜像的步骤如下：
+
+1. 合并一个更改docker/下的 Dockerfile 或docker/install中脚本的 PR。
+
+2. 执行以下操作之一：
+
+a. 等待post-merge CI从PR中完成构建，并将新构建的镜像上传到 [tlcpackstaging/](https://hub.docker.com/u/tlcpackstaging) Docker Hub。
+b. 等待每晚的 Docker 镜像构建完成，并将新构建的镜像上传到 [tlcpackstaging/](https://hub.docker.com/u/tlcpackstaging) Docker Hub。
+
+1. 找到[tlcpackstaging/](https://hub.docker.com/u/tlcpackstaging) Docker Hub 上新上传的镜像标签，例如`20221208-070144-22ff38dff`，然后更新`ci/jenkins/docker-images.ini`中的标签以在tlpack账号下使用tlcpackstaging标签，例如tlcpack/ci-arm:20221208-070144-22ff38dff。提交一个包含这些更改的 PR，并等待它通过 CI 测试以确保新的镜像有效。
+
+2. 合并`docker-images.ini`,更新 PR。一旦在main 上完成post-merge CI，`tlcpackstaging`标签将自动重新上传到`tlcpack`。
 
 ### ci-docker-staging
 

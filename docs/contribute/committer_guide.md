@@ -34,6 +34,15 @@ sidebar_position: 4
 -   将 PR 标记为已接受状态，并感谢贡献者/reviewer。
 -   merge PR
 
+## 独立项目管理
+
+在参与项目时，每个人都被假定戴上他们的Apache committer角色。也就是说，committers应在项目活动中为项目的最佳利益而行事。从committers和您可能担任的其他角色中区分你的角色在是很重要的。
+
+在项目参与的过程中，明确显示您所担任的角色对可能混淆的情况非常有帮助，特别是在您没有表明committers身份的情况下。有两个例子：
+
+"[foo]角色：[担任foo且不担任commiter时发消息]"。
+"pache TVM角色：[在担任committer时发消息]".
+
 ## 时间管理
 
 committer 可以做很多事情，例如主持讨论、review pull request 和贡献代码。

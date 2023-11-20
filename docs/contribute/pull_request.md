@@ -105,7 +105,7 @@ TVM_ROOT=`pwd`
 必要的依赖：
 
 ``` bash
-pip install --user pytest Cython synr
+pip install --user pytest Cython
 ```
 
 如果希望运行所有的测试：

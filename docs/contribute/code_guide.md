@@ -70,6 +70,11 @@ def test_mytest(target, dev):
 
 用 `target="llvm"`、`target="cuda"` 和其他几个运行 `test_mytest`。这可以确保测试由 CI 在正确的硬件上运行。如果只想针对几个 target 进行测试，请使用 `@tvm.testing.parametrize_targets("target_1", "target_2")`。如果想在单个 target 上进行测试，请使用来自 `tvm.testing()` 的相关装饰器。例如，CUDA 测试使用 `@tvm.testing.requires_cuda` 装饰器。
 
+## 网络资源
+在CI中，从互联网下载文件是导致测试失败的一个主要原因（例如，远程服务器可能宕机或速度较慢），因此在测试期间尽量避免使用网络。在某些情况下，这并不是一个合理的建议（例如，需要下载模型的文档教程时）。
+
+在这些情况下，您可以在CI中重新托管文件到S3，以便快速访问。Committer可以在[upload_ci_resource.yml GitHub Actions flow](https://github.com/apache/tvm/actions/workflows/upload_ci_resource.yml)上使用`workflow_dispatch`来上传一个文件，该文件由S3中的名称、哈希和路径指定。sha256必须与文件匹配，否则将无法上传。上传路径由用户定义，可以是任意路径（不允许尾随或前导斜杠），但要小心不要意外地与现有资源发生冲突。上传完成后，您应该发送一个PR，上传新的URL来更新[request_hook.py](https://github.com/apache/tvm/blob/main/tests/scripts/request_hook/request_hook.py)中的`URL_MAP`。
+
 ## 处理整型常量表达式
 
 TVM 中经常需要处理整型常量表达式。在此之前，首先要考虑的是，是否真的有必要获取一个整型常量。如果符号表达式也有效并且逻辑行得通，那么尽可能用符号表达式。所以生成的代码也适用于未知的 shape。
