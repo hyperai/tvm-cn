@@ -264,6 +264,9 @@ resnet50-v2-7.onnx
 
 调优 session 需要很长时间，因此 ```tvmc tune``` 提供了许多选项来自定义调优过程，包括重复次数（例如 ```--repeat``` 和 ```--number```）、要用的调优算法等。查看 ```tvmc tune --help``` 了解更多信息。
 
+
+在某些情况下，只调整特定任务（即最相关的任务）可能是一个好主意，可以节约调整更简单的工作负载的时间。标志 `--task` 提供了多种选项来限制用于调整的任务量，例如 `--task 20,22` 或 `--task 16-`。可以使用 `--task list` 打印所有可用任务。
+
 ## 使用调优数据编译优化模型
 
 从上述调优过程的输出文件 ```resnet50-v2-7-autotuner_records.json`` 可获取调优记录。该文件可用来：
@@ -340,7 +343,7 @@ resnet50-v2-7-tvm.tar
 
 用 ```tvmc --help``` 命令查看其他可用选项。
 
-下个教程 ```Compiling and Optimizing a Model with the Python Interface``` 将介绍用 Python 接口的相同编译和优化步骤。
+下个教程 ```tvm pthon``` 中将介绍TVM的Python接口，并在后一个教程 ```Compiling and Optimizing a Model with the Python Interface``` 介绍用 Python 接口的相同编译和优化步骤。
 
 [下载 Python 源代码：tvmc_command_line_driver.py](https://tvm.apache.org/docs/_downloads/233ceda3a682ae5df93b4ce0bcfbf870/tvmc_command_line_driver.py)
 
