@@ -135,7 +135,7 @@ svn ci --username $ASF_USERNAME --password "$ASF_PASSWORD" -m "Add RC"
 ```
 
 ## 筛选（cherry-pick）
-在截取了一个发行分支后还没被投票之前，发行管理员可以从 main 分支中 cherry-pick 提交。由于 GitHub 保护发行分支，要将这些修复合并到发行分支（例如`v0.11`），发行管理员必须向发行分支提交一个 PR，并包含被 cherry-pick 的更改。该 PR 应大致与从`main`分支提交的原始 PR 相匹配，并附带有关为何 cherry-pick 该提交的额外细节。然后，社区会对这些 PR 进行标准的审查并合并。请注意，针对发行分支的这些 PR 必须`[签名/](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)。
+在截取了一个发行分支后还没被投票之前，发行管理员可以从 main 分支中 cherry-pick 提交。由于 GitHub 保护发行分支，要将这些修复合并到发行分支（例如 `v0.11`），发行管理员必须向发行分支提交一个 PR，并包含被 cherry-pick 的更改。该 PR 应大致与从 `main` 分支提交的原始 PR 相匹配，并附带有关为何 cherry-pick 该提交的额外细节。然后，社区会对这些 PR 进行标准的审查并合并。请注意，针对发行分支的这些 PR 必须 [签名](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)。
 
 
 ## 对候选版本投票
