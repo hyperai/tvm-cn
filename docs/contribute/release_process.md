@@ -48,7 +48,7 @@ svn cp --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.o
 
 ## 截取一个候选版本
 
-要截取一个候选版本，首先用选定的版本字符串截取一个分支。分支的名称应该使用基本发行版本号，而不是patch号。例如，要为 v0.11.0 截取一个候选版本，分支应该命名为 v0.11，标签为`v0.11.0.rc0`,一旦截取便推送到对应分子的HEAD。
+要截取一个候选版本，首先用选定的版本字符串截取一个分支。分支的名称应该使用基本发行版本号，而不是补丁（patch）号。例如，要为 v0.11.0 截取一个候选版本，分支应该命名为 v0.11，标签为 `v0.11.0.rc0`，一旦截取便推送到对应分子的 HEAD。
 
 ``` bash
 	git clone https://github.com/apache/tvm.git
