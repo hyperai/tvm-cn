@@ -177,7 +177,7 @@ git push --delete origin v0.6.0.rc2
 
 网站仓库位于 [https://github.com/apache/tvm-site](https://github.com/apache/tvm-site)。向下载页面中添加版本工程以及 GPG 签名和 SHA 哈希。
 
-之后，更新[下载页面](https://tvm.apache.org/download)提供最新发行版本。如何操作可参考[此处/](https://github.com/apache/tvm-site/pull/38)。
+之后，更新 [下载页面](https://tvm.apache.org/download) 提供最新发行版本。如何操作可参考 [此处](https://github.com/apache/tvm-site/pull/38)。
 
 ## 发布公告
 
