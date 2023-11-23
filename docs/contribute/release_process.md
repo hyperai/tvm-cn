@@ -59,7 +59,7 @@ svn cp --username $ASF_USERNAME --password "$ASF_PASSWORD" https://dist.apache.o
 	git add .
 	git commit -m "Bump version numbers to v0.6.0"
 
-	# 相关版本替换v0.6
+	# 相关版本替换 v0.6
 	git branch v0.6
 	git push --set-upstream origin v0.6
 
