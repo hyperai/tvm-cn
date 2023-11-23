@@ -114,9 +114,9 @@ gpg --armor --output apache-tvm-src-v0.6.0.rc0.tar.gz.asc --detach-sig apache-tv
 shasum -a 512 apache-tvm-src-v0.6.0.rc0.tar.gz > apache-tvm-src-v0.6.0.rc0.tar.gz.sha512
 ```
 
-## 更新`main`上的TVM版本
+## 更新 `main` 上的 TVM 版本
 
-在截取一个发行候选版本后，务必在整个 main 上更新版本号。例如，如果我们发布了`v0.10.0`，我们希望将代码库中的版本号从`v0.10.dev0`提升到`v0.11.dev0`。如何执行此操作的示例可以在此处找到：https://github.com/apache/tvm/pull/12190。在最后的一个包含开发标签（例如`v0.11.dev0`）准备发行时立即在`main`上的提交标签。此标签是必须的，以便每晚从 main 构建的包具有正确的版本号。
+在截取一个发行候选版本后，务必在整个 main 上更新版本号。例如，如果我们发布了 `v0.10.0`，我们希望将代码库中的版本号从 `v0.10.dev0` 提升到 `v0.11.dev0`。如何执行此操作的示例可以在此处找到：https://github.com/apache/tvm/pull/12190。在最后的一个包含开发标签（例如 `v0.11.dev0`）准备发行时立即在 `main` 上的提交标签。此标签是必须的，以便每晚从 main 构建的包具有正确的版本号。
 
 ## 上传候选版本
 
