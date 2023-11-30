@@ -9,11 +9,11 @@ Adreno™ GPU 可以加速复杂几何图形的渲染，在提供高性能图形
 TVM 使用 TVM 的原生 OpenCL 后端 和 OpenCLML 后端以支持加速 Adreno™ GPU 上的深度学习。TVM 的原生 OpenCL 后端通过结合纹理内存使用和 Adreno™ 友好布局来改进 Adreno™ 。 OpenCLML 是由高通发布的 SDK ，提供了大多数深度学习运算符的内核加速库。
 
 本指南展示以下方面的不同设计
-* [OpenCL后端增强](OpenCL后端增强)
-* [关于 OpenCLML](#clml)
-* [构建与部署](#adreno_atm)
+* [OpenCL后端增强](#opencl-后端增强)
+* [关于 OpenCLML](#关于-OpenCLML)
+* [构建与部署](#Adreno™-下的-TVM)
 
-## OpenCL后端增强
+## OpenCL 后端增强
 
 TVM 的 OpenCL 后端已被增强以利用 Adreno™ 特色功能，如
 - 纹理内存使用。
@@ -60,13 +60,13 @@ Adreno™ 的一个优势是对纹理的巧妙处理。目前，TVM 能够通过
 
 有关生成和检查内核源的更多详细信息，请参阅[高级用法](高级用法)。
 
-## 关于 OpenCLML <span id="clml">
+## 关于 OpenCLML
 
 OpenCLML 是高通发布的 SDK ，提供了更快的深度学习运算符。这些运算符作为标准 OpenCL 规范的扩展 ``cl_qcom_ml_ops`` 公开。有关更多详细信息，请参见 [Accelerate your models with our OpenCL ML SDK](https://developer.qualcomm.com/blog/accelerate-your-models-our-opencl-ml-sdk) 。
 
 OpenCLML 已集成到 TVM ,作为 [BYOC](https://tvm.apache.org/docs/dev/how_to/relay_bring_your_own_codegen.html?highlight=bring%20your%20own) 解决方案。 OpenCLML 运算符可以使用相同的上下文，并可以加入到同样被原生 OpenCL 使用的命令队列中。我们利用了这一点避免在回退到原生 OpenCL 时的上下文切换。
 
-## Adreno™ 下的 TVM <span id="adreno_atm">
+## Adreno™ 下的 TVM
 
 
 本节提供有关构建和部署模型到 Adreno™ 目标机的方法说明。 Adreno™ 是通过 ADB 连接与主机连接的远程目标。在这里部署已编译的模型需要在主机和目标上使用一些工具。
@@ -92,7 +92,14 @@ TVM 提供了简单的、用户友好的命令行工具以及专为开发者设�
 
 此教程以下各节将涵盖上述内容。
 
-## 自动开发环境设置：
+- [开发环境](#自动开发环境设置)
+- [RPC 设置](#rpc-设置)
+- [命令行工具](#命令行工具)
+- [Python 接口](#python-接口)
+- [应用集成](#应用程序集成)
+- [高级用法](#高级用法)
+
+## 自动开发环境设置
 
 TVM 提供了一个预定义的 Docker 容器环境，其中包含了所有入门所需的先决条件。如果您想要更多地控制依赖关系，请参考[手动环境设置](手动环境设置)。
 
@@ -234,7 +241,7 @@ cmake -DCMAKE_TOOLCHAIN_FILE="${ANDROID_NDK_HOME}/build/cmake/android.toolchain.
 make tvm_runtime tvm_rpc rtvm
 ```
 
-## RPC设置
+## RPC 设置
 
 RPC 设置允许通过 TCP/IP 网络接口访问远程目标。RPC 设置对于自动调整阶段是必不可少的，因为调整涉及在真实设备上运行自动生成的内核，并通过使用机器学习方法对其进行优化。请参考 [使用模板和 AutoTVM 进行自动调整](https://tvm.apache.org/docs/how_to/tune_with_autotvm/index.html) 以获取有关 AutoTVM 的详细信息。
 
@@ -337,7 +344,7 @@ TVM 有一个名为 ``rtvm`` 的独立工具，用于在 ADB shell 上本地部�
 在将其集成到现有 Android 应用程序中时， TVM 有多种选择。对于 JNI 或 CPP 原生，我们可以使用 [C Runtime API](https://github.com/apache/tvm/blob/main/include/tvm/runtime/c_runtime_api.h) 。
 您还可以参考 ``rtvm`` 的简化接口 [TVMRunner](https://github.com/apache/tvm/blob/main/apps/cpp_rtvm/tvm_runner.h>) 。
 
-## Python接口
+## Python 接口
 
 该节解释如何使用 Python 接口导入、自动调整、编译和运行模型的过程。 TVM 通过 ``tvmc`` 抽象提供高级接口，以及低级的 Relay API 。我们将详细讨论这两者。
 
