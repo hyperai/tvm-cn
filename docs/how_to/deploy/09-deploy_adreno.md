@@ -286,7 +286,7 @@ source tests/scripts/setup-adreno-env.sh -e query -p 9190
 
 ## 命令行工具
 
-此处我们使用命令行工具描述整个编译进程。 TVM 具有命令行实用程序 [tvmc](https://tvm.apache.org/docs/tutorial/tvmc_command_line_driver.html) ，用于执行模型导入、自动调整、编译和rpc部署。 [tvmc](https://tvm.apache.org/docs/tutorial/tvmc_command_line_driver.html) 有许多选项可供探索和尝试。
+此处我们使用命令行工具描述整个编译进程。 TVM 具有命令行实用程序 [tvmc](https://tvm.apache.org/docs/tutorial/tvmc_command_line_driver.html)，用于执行模型导入、自动调整、编译和 rpc 部署。 [tvmc](https://tvm.apache.org/docs/tutorial/tvmc_command_line_driver.html) 有许多选项可供探索和尝试。
 
 **模型导入和调整:**使用以下命令从任何框架导入模型并对其进行自动调整。此处我们使用来自 Keras 的模型，它使用 RPC 设置进行调整，并最终生成调整日志文件 ``keras-resnet50.log`` 。
 
