@@ -208,7 +208,7 @@ img = np.expand_dims(img, 0)
 ![cat](https://tvm.apache.org/docs/_images/sphx_glr_from_keras_001.png)
 
 ## 将 PyTorch 模型转换为 Relay 模块
-TVM 具有用于各种框架 的在 relay.frontend 中的前端 API 。现在对于 PyTorch 模型导入，我们有 relay.frontend.from_pytorch API 。输入名称可以是任意的
+TVM 具有用于各种框架 的在 relay.frontend 中的前端 API。现在对于 PyTorch 模型导入，我们有 relay.frontend.from_pytorch API。输入名称可以是任意的
 
 ```python
 input_name = "input0"
