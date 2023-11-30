@@ -125,7 +125,7 @@ export ADRENO_OPENCL=<OpenCLML SDK路径>
 ./tests/scripts/ci.py adreno -i
 ```
 
-成功编译后，您将进入Docker shell。构建将生成两个文件夹：
+成功编译后，您将进入 Docker shell。构建将生成两个文件夹：
 
 - `build-adreno` ：主机端TVM编译器构建。
 - `build-adreno-target` ：包含 Android 目标组件。
