@@ -20,7 +20,7 @@ title: 使用 tvmc 接口在 Adreno™ 上部署预训练模型
 
 此外，您应该已经为 Android 构建了 TVM 。请参阅以下说明，了解如何构建它并设置 RPC 环境。
 
-[在 Adreno GPU 上部署](https://tvm.apache.org/docs/how_to/deploy/adreno.html)
+[在 Adreno GPU 上部署](https://tvm.hyper.ai/docs/how_to/deploy/deploy_adreno)
 
 ```python
 import os
@@ -407,7 +407,7 @@ def @main(%input_2: Tensor[(1, 224, 224, 3), float32], %v_param_1: Tensor[(7, 7,
 ```
 
 # 自动调优
-现在，可以使用下面的 api 为任何目标对模型进行自动调优。调整需要 RPC 设置，请参阅[在 Adreno GPU 上部署](https://tvm.apache.org/docs/how_to/deploy/adreno.html)
+现在，可以使用下面的 api 为任何目标对模型进行自动调优。调整需要 RPC 设置，请参阅[在 Adreno GPU 上部署](https://tvm.hyper.ai/docs/how_to/deploy/deploy_adreno)
 
 ```python
 rpc_tracker_host = os.environ.get("TVM_TRACKER_HOST", "127.0.0.1")
