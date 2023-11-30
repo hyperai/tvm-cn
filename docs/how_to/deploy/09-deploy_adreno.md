@@ -186,7 +186,7 @@ export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
 python3 -c "import tvm" # 验证tvm Python包
 ```
 
-现在，我们可以使用以下配置来配置和构建目标组件。目标构建需要安装Android NDK。
+现在，我们可以使用以下配置来配置和构建目标组件。目标构建需要安装 Android NDK。
 
 - 在此处阅读有关 *Android NDK 安装* 的文档：[https://developer.android.com/ndk](https://developer.android.com/ndk)
 - 要获取 adb 工具的访问权限，您可以在此处查看 *Android Debug Bridge 安装* ：[https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)
