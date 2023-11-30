@@ -453,7 +453,7 @@ mixed_precision_calculation_type = "float16",
 mixed_precision_acc_type = "float16"
 ```
 
-同样，``tvmc``命令行接口选项有以下列出的选项：
+同样，``tvmc`` 命令行接口选项有以下列出的选项：
 
 ```bash
 --mixed-precision
