@@ -1,15 +1,15 @@
-# 部署到Adreno™ GPU
+# 部署到 Adreno™ GPU
 
 ## 介绍
 
-Adreno™ 是由高通开发并用于许多SoC的图形处理单元（GPU）半导体IP核系列。
+Adreno™ 是由高通开发并用于许多 SoC 的图形处理单元（GPU）半导体 IP 核系列。
 
 Adreno™ GPU 可以加速复杂几何图形的渲染，在提供高性能图形和丰富的用户体验的同时拥有很低的功耗。
 
 TVM 使用 TVM 的原生 OpenCL 后端 和 OpenCLML 后端以支持加速 Adreno™ GPU 上的深度学习。TVM 的原生 OpenCL 后端通过结合纹理内存使用和 Adreno™ 友好布局来改进 Adreno™ 。 OpenCLML 是由高通发布的 SDK ，提供了大多数深度学习运算符的内核加速库。
 
 本指南展示以下方面的不同设计
-* [OpenCL后端增强](#opencl-后端增强)
+* [OpenCL 后端增强](#opencl-后端增强)
 * [关于 OpenCLML](#关于-OpenCLML)
 * [构建与部署](#Adreno™-下的-TVM)
 
@@ -22,15 +22,15 @@ TVM 的 OpenCL 后端已被增强以利用 Adreno™ 特色功能，如
 
 Adreno™ 的一个优势是对纹理的巧妙处理。目前，TVM 能够通过对 Adreno™  的纹理支持获得益处。下图显示了 Adreno™ A5x 架构。
 
-![ Adreno™ A5x架构的高级概览，用于OpenCL](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/how-to/adreno_architecture.png)
+![ Adreno™ A5x 架构的高级概览，用于 OpenCL](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/how-to/adreno_architecture.png)
 
 *图1 用于 OpenCL Adreno™ A5x 架构的高层次概览*
 
-*来源：* [Qualcomm Adreno™ GPU的OpenCL优化和最佳实践](https://dl.acm.org/doi/10.1145/3204919.3204935)
+*来源：* [Qualcomm Adreno™ GPU 的 OpenCL 优化和最佳实践](https://dl.acm.org/doi/10.1145/3204919.3204935)
 
 使用纹理的原因：
 
-- 纹理处理器（ T P）具有专用的 L1 缓存，它是只读缓存，并存储了从2级缓存（ L2 ）中提取的用于纹理操作的数据（主要原因）
+- 纹理处理器（TP）具有专用的 L1 缓存，它是只读缓存，并存储了从 2 级缓存（L2）中提取的用于纹理操作的数据（主要原因）
 
 - 图像边界的处理已内置。
 
@@ -372,7 +372,7 @@ TVM 编译输出以模块共享库（ mod.so ）、图形 json （ mod.json ）�
 
 通常对于任何 Android 应用程序集成来说，基于 CPP/C 的接口就足够了。
 
-TVM 原生地公开了 ``c_runtime_api`` ，用于加载 TVM 编译的模块并运行相同的模块。
+TVM 原生地公开了 ``c_runtime_api``，用于加载 TVM 编译的模块并运行相同的模块。
 
 或者，用户还可以参考 [cpp_rtvm](https://github.com/apache/tvm/blob/main/apps/cpp_rtvm/tvm_runner.h) 中的 ``TVMRunner`` 接口，以获得相同的进一步简化的版本。
 
@@ -380,11 +380,11 @@ TVM 原生地公开了 ``c_runtime_api`` ，用于加载 TVM 编译的模块并�
 
 ## 高级用法
 
-本节详细介绍在 TVM上 使用 Adreno™ 目标机时的一些高级用法和其他信息。
+本节详细介绍在 TVM 上 使用 Adreno™ 目标机时的一些高级用法和其他信息。
 
 **生成源码检查**
 
-除了标准的 tvm 编译产物（ kernel 库 mod.so 、图形 mod.json 和参数 mod.params ）之外，我们还可以从 lib handle 生成 opencl kernel 源码、clml 卸载图等。 TVM 编译的输出被组织为一个 TVM 模块，其中包含许多其他导入的 TVM 模块。
+除了标准的 tvm 编译产物（kernel 库 mod.so 、图形 mod.json 和参数 mod.params）之外，我们还可以从 lib handle 生成 opencl kernel 源码、clml 卸载图等。TVM 编译的输出被组织为一个 TVM 模块，其中包含许多其他导入的 TVM 模块。
 
 下面的代码段可以将 CLML子 图以 json 格式转储。
 
@@ -411,7 +411,7 @@ for omod in opencl_modules:
 
 选择特定工作负载的正确精度可以极大地提高解决方案的效率，将精度和速度的初始平衡转移到问题的首要一侧。
 
-我们可以选择 *float16* ， *float16_acc32* （混合精度）， *float32* （标准）。
+我们可以选择 *float16*，*float16_acc32*（混合精度），*float32*（标准）。
 
 ### Float16
 
@@ -453,7 +453,7 @@ mixed_precision_calculation_type = "float16",
 mixed_precision_acc_type = "float16"
 ```
 
-同样，``tvmc``命令行接口选项有以下列出的选项：
+同样，``tvmc`` 命令行接口选项有以下列出的选项：
 
 ```bash
 --mixed-precision
