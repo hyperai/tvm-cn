@@ -107,11 +107,11 @@ endif
 
 # 要添加的其他 include 头，例如 SDK_PATH/adrenosdk/Development/Inc
 ADD_C_INCLUDES += /work/adrenosdk-linux-5_0/Development/Inc
-# 从 https://github.com/KhronosGroup/OpenCL-Headers 下载
-ADD_C_INCLUDES += /usr/local/OpenCL-Headers/
+
+ADD_C_INCLUDES = 
 
 # 要添加的附加链接库，例如 ANDROID_LIB_PATH/libOpenCL.so
-ADD_LDLIBS = /workspace/pull-from-android-device/libOpenCL.so
+ADD_LDLIBS = 
 ```
 
 :::note
