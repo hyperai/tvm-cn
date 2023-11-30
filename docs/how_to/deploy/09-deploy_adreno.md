@@ -278,7 +278,7 @@ source tests/scripts/setup-adreno-env.sh -e device -p 9190 -d abcdefgh
 source tests/scripts/setup-adreno-env.sh -e query -p 9190
 ```
 
-**手动RPC设置:**请参阅教程 [在 Adreno 上部署模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_adreno.html)了解手动 RPC 环境设置。
+**手动 RPC 设置：**请参阅教程 [在 Adreno 上部署模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_adreno.html) 了解手动 RPC 环境设置。
 
 这些 RPC 设置完成后，我们在主机 ``127.0.0.1``（rpc-tracker）上拥有rpc-tracker，端口 ``9190`` （rpc-port）可用。
 
