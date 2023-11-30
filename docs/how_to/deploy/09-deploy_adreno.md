@@ -118,7 +118,7 @@ docker tag tvm.ci_adreno ci_adreno
 ./tests/scripts/ci.py adreno -i
 ```
 
-要使用 OpenCLML SDK 构建TVM，在构建时需要导出 OpenCLML SDK ，如下所示：
+要使用 OpenCLML SDK 构建TVM，在构建时需要导出 OpenCLML SDK，如下所示：
 
 ```bash
 export ADRENO_OPENCL=<OpenCLML SDK路径>
