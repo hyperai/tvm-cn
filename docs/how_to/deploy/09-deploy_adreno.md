@@ -1,4 +1,4 @@
-# 部署到Adreno™ GPU
+# 部署到 Adreno™ GPU
 
 ## 介绍
 
