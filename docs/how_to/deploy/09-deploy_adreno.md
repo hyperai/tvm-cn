@@ -411,7 +411,7 @@ for omod in opencl_modules:
 
 选择特定工作负载的正确精度可以极大地提高解决方案的效率，将精度和速度的初始平衡转移到问题的首要一侧。
 
-我们可以选择 *float16* ， *float16_acc32* （混合精度）， *float32* （标准）。
+我们可以选择 *float16*，*float16_acc32*（混合精度），*float32*（标准）。
 
 ### Float16
 
