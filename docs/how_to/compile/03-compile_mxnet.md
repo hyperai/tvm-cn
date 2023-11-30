@@ -12,16 +12,15 @@ title: 编译 MXNet 模型
 
 本文将介绍如何用 Relay 部署 MXNet 模型。
 
-首先安装 mxnet 模块，可通过 pip 快速安装：
+首先安装 mxnet 模块：
 
 ``` bash
-pip install mxnet --user
+pip install mxnet
 ```
 
 或参考官方安装指南：https://mxnet.apache.org/versions/master/install/index.html
 
 ``` python
-# 一些标准的导包
 import mxnet as mx
 import tvm
 import tvm.relay as relay

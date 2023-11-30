@@ -13,8 +13,7 @@ title: 在 DarkNet 模型中编译 YOLO-V2 和 YOLO-V3
 本文介绍如何用 TVM 部署 DarkNet 模型。所有必需的模型和库都可通过脚本从 Internet 下载。此脚本运行带有边界框的 YOLO-V2 和 YOLO-V3 模型。DarkNet 解析依赖 CFFI 和 CV2 库，因此执行脚本前要安装这两个库。
 
 ``` bash
-pip install cffi
-pip install opencv-python
+pip install cffi opencv-python
 ```
 
 ``` python

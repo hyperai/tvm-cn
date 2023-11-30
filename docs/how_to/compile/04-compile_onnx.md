@@ -12,10 +12,10 @@ title: 编译 ONNX 模型
 
 本文将介绍如何用 Relay 部署 ONNX 模型。
 
-首先安装 ONNX 包，最便捷的方法推荐安装 protobuf 编译器：
+首先安装 ONNX 包：
 
 ``` bash
-pip install --user onnx onnxoptimizer
+pip install onnx onnxoptimizer
 ```
 
 或参考官方网站：https://github.com/onnx/onnx

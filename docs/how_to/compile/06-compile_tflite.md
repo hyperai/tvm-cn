@@ -15,8 +15,7 @@ title: 编译 TFLite 模型
 首先安装 TFLite 包。
 
 ``` bash
-# 安装 tflite
-pip install tflite==2.1.0 --user
+pip install tflite==2.1.0
 ```
 
 或者自行生成 TFLite 包，步骤如下：

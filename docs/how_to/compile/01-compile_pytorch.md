@@ -17,8 +17,8 @@ title: 编译 PyTorch 模型
 可通过 pip 快速安装：
 
 ``` bash
-pip install torch==1.7.0
-pip install torchvision==0.8.1
+pip install torch
+pip install torchvision
 ```
 
 或参考官网：https://pytorch.org/get-started/locally/

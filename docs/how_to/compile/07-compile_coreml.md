@@ -12,10 +12,10 @@ title: 编译 CoreML 模型
 
 本文介绍如何用 Relay 部署 CoreML 模型。
 
-首先安装 coremltools 模块，可通过 pip 快速安装：
+首先安装 coremltools 模块：
 
 ``` bash
-pip install -U coremltools --user
+pip install coremltools
 ```
 
 或参考官网：https://github.com/apple/coremltools
