@@ -9,7 +9,7 @@ Adreno™ GPU 可以加速复杂几何图形的渲染，在提供高性能图形
 TVM 使用 TVM 的原生 OpenCL 后端 和 OpenCLML 后端以支持加速 Adreno™ GPU 上的深度学习。TVM 的原生 OpenCL 后端通过结合纹理内存使用和 Adreno™ 友好布局来改进 Adreno™ 。 OpenCLML 是由高通发布的 SDK ，提供了大多数深度学习运算符的内核加速库。
 
 本指南展示以下方面的不同设计
-* [OpenCL后端增强](#opencl-后端增强)
+* [OpenCL 后端增强](#opencl-后端增强)
 * [关于 OpenCLML](#关于-OpenCLML)
 * [构建与部署](#Adreno™-下的-TVM)
 
