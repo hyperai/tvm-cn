@@ -15,8 +15,7 @@ title: 编译 Keras 模型
 首先安装 Keras 和 TensorFlow，可通过 pip 快速安装：
 
 ``` bash
-pip install -U keras --user
-pip install -U tensorflow --user
+pip install keras tensorflow
 ```
 
 或参考官网：https://keras.io/#installation

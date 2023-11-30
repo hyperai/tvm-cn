@@ -12,6 +12,10 @@ title: 编译 TensorFlow 模型
 
 首先安装 TensorFlow Python 模块（可参考 https://www.tensorflow.org/install）。
 
+```bash
+pip install tensorflow
+```
+
 ``` python
 # 导入 tvm 和 relay
 import tvm

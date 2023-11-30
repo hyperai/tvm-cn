@@ -10,13 +10,13 @@ title: 编译 PaddlePaddle 模型
 
 **作者**：[Ziyuan Ma](https://github.com/ZiyuanMa/)
 
-本文介绍如何用 Relay 部署 PaddlePaddle 模型，首先安装 PaddlePaddle（版本>=2.1.3），可通过 pip 快速安装：
+本文介绍如何用 Relay 部署 PaddlePaddle 模型，首先安装 PaddlePaddle（版本>=2.1.3）：
 
 ``` bash
 pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
 ```
 
-或参考官方网站：https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html
+获取更多详情，可参考官方安装教程：https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html
 
 ``` python
 import tarfile
