@@ -73,7 +73,7 @@ OpenCLML 已集成到 TVM ,作为 [BYOC](https://tvm.apache.org/docs/dev/how_to/
 
 TVM 提供了简单的、用户友好的命令行工具以及专为开发者设计的 Python API 接口，可用于各种步骤，如自动调整、构建和部署。
 
-![ 图2 ](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/how-to/Adreno-Deployment-Pipeline.jpg)
+![图2](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/how-to/Adreno-Deployment-Pipeline.jpg)
 *图2 Adreno 设备的构建和部署流水线*
 
 上图展示了以下各个阶段的通用流程：
