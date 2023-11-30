@@ -127,11 +127,11 @@ export ADRENO_OPENCL=<OpenCLML SDK路径>
 
 成功编译后，您将进入 Docker shell。构建将生成两个文件夹：
 
-- `build-adreno` ：主机端TVM编译器构建。
-- `build-adreno-target` ：包含 Android 目标组件。
-  - libtvm_runtime.so : TVM 运行时库
-  - tvm_rpc : rpc 运行时环境工具
-  - rtvm : 独立的原生工具
+- `build-adreno`：主机端TVM编译器构建。
+- `build-adreno-target`：包含 Android 目标组件。
+  - libtvm_runtime.so：TVM 运行时库
+  - tvm_rpc：rpc 运行时环境工具
+  - rtvm：独立的原生工具
 
 在使用Docker环境时， Android 设备与主机共享，所以在主机上需要安装 ADB 版本为 ``1.0.41`` ，因为 Docker 使用相同的版本。
 
