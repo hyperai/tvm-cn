@@ -257,7 +257,7 @@ RPC 设置有多个组件，如下所示。
 
 **自动化 RPC 设置:**此处，我们将解释如何在 Docker 环境中设置 RPC 。
 
-以下命令在 Docker 环境中启动 tracker，其中 tracker 监听端口9190。
+以下命令在 Docker 环境中启动 tracker，其中 tracker 监听端口 9190。
 
 ```bash
 ./tests/scripts/ci.py adreno -i # 在 anreno docker 上启动一个新的 shell
