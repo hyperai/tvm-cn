@@ -179,7 +179,7 @@ cmake ..
 make
 ```
 
-最后，我们可以导出Python路径：
+最后，我们可以导出 Python 路径：
 
 ```bash
 export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
