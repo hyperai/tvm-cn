@@ -362,7 +362,7 @@ TVM 有一个名为 ``rtvm`` 的独立工具，用于在 ADB shell 上本地部�
 
 Relay API 接口提供了对 TVM 编译器接口的低级 API 访问。与 ``tvmc`` 接口类似，Relay API 接口提供了各种前端 API，用于将模型转换为 Relay ``Module``。Relay ``Module`` 将用于所有种类的转换，如精度转换、CLML 卸载和其他自定义转换（如果有）。生成的 Module 也将用于自动调整。最后，我们使用 ``relay.build`` API 生成库模块。从这个库模块，我们可以导出编译产物，如模块共享库（mod.so）、参数（mod.params）和 json 图（mod.json）。这个库模块将用于创建图形运行时以在目标设备上部署和运行。
 
-请参考教程[如何在 Adreno 上部署预训练模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_adreno.html)， 其中逐步解释了相同的内容。
+请参考教程[如何在 Adreno 上部署预训练模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_adreno.html),其中逐步解释了相同的内容。
 
 此外，TVM 还通过 [TVM4J](https://github.com/apache/tvm/tree/main/jvm) 支持 Java 接口。
 
