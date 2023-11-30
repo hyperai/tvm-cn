@@ -364,7 +364,7 @@ Relay API 接口提供了对 TVM 编译器接口的低级 API 访问。与 ``tvm
 
 请参考教程[如何在 Adreno 上部署预训练模型](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_adreno.html)， 其中逐步解释了相同的内容。
 
-此外， TVM 还通过 [TVM4J](https://github.com/apache/tvm/tree/main/jvm) 支持Java接口。
+此外，TVM 还通过 [TVM4J](https://github.com/apache/tvm/tree/main/jvm) 支持 Java 接口。
 
 ## 应用程序集成
 
