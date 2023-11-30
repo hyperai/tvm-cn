@@ -26,7 +26,7 @@ Adreno™ 的一个优势是对纹理的巧妙处理。目前，TVM 能够通过
 
 *图1 用于 OpenCL Adreno™ A5x 架构的高层次概览*
 
-*来源：* [Qualcomm Adreno™ GPU的OpenCL优化和最佳实践](https://dl.acm.org/doi/10.1145/3204919.3204935)
+*来源：* [Qualcomm Adreno™ GPU 的 OpenCL 优化和最佳实践](https://dl.acm.org/doi/10.1145/3204919.3204935)
 
 使用纹理的原因：
 
