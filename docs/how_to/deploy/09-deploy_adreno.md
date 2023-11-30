@@ -368,7 +368,7 @@ Relay API 接口提供了对 TVM 编译器接口的低级 API 访问。与 ``tvm
 
 ## 应用程序集成
 
-TVM 编译输出以模块共享库（ mod.so ）、图形 json （ mod.json ）和参数（ mod.params ）的形式表示。 TVMPackage 的存档表示也包含相同的内容。
+TVM 编译输出以模块共享库（mod.so）、图形 json （mod.json）和参数（mod.params）的形式表示。 TVMPackage 的存档表示也包含相同的内容。
 
 通常对于任何 Android 应用程序集成来说，基于 CPP/C 的接口就足够了。
 
