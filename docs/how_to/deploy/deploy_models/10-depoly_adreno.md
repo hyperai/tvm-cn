@@ -374,7 +374,7 @@ if local_demo:
     remote = rpc.LocalSession()
 else:
     tracker = rpc.connect_tracker(rpc_tracker_host, rpc_tracker_port)
-    # 运行大模型时, 应该增加 `session_timeout`
+    # 运行大模型时，应该增加 `session_timeout`
     remote = tracker.request(key, priority=0, session_timeout=60)
 
 if local_demo:
