@@ -155,13 +155,13 @@ mkdir -p build
 cd build
 cp ../cmake/config.cmake .
 
-# 启用RPC功能以与远程设备通信。
+# 启用 RPC 功能以与远程设备通信。
 echo set\(USE_RPC ON\) >> config.cmake
 # 我们在主机（x86）上使用图执行器验证模型。
 echo set\(USE_GRAPH_EXECUTOR ON\) >> config.cmake
 # 启用溢出时的回溯以获取更多调试信息。
 echo set\(USE_LIBBACKTRACE AUTO\) >> config.cmake
-# 目标主机将是llvm。
+# 目标主机将是 llvm。
 echo set\(USE_LLVM ON\) >> config.cmake
 ```
 
