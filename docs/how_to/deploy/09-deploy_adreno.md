@@ -384,7 +384,7 @@ TVM 原生地公开了 ``c_runtime_api``，用于加载 TVM 编译的模块并�
 
 **生成源码检查**
 
-除了标准的 tvm 编译产物（ kernel 库 mod.so 、图形 mod.json 和参数 mod.params ）之外，我们还可以从 lib handle 生成 opencl kernel 源码、clml 卸载图等。 TVM 编译的输出被组织为一个 TVM 模块，其中包含许多其他导入的 TVM 模块。
+除了标准的 tvm 编译产物（kernel 库 mod.so 、图形 mod.json 和参数 mod.params）之外，我们还可以从 lib handle 生成 opencl kernel 源码、clml 卸载图等。TVM 编译的输出被组织为一个 TVM 模块，其中包含许多其他导入的 TVM 模块。
 
 下面的代码段可以将 CLML子 图以 json 格式转储。
 
