@@ -372,7 +372,7 @@ TVM 编译输出以模块共享库（ mod.so ）、图形 json （ mod.json ）�
 
 通常对于任何 Android 应用程序集成来说，基于 CPP/C 的接口就足够了。
 
-TVM 原生地公开了 ``c_runtime_api`` ，用于加载 TVM 编译的模块并运行相同的模块。
+TVM 原生地公开了 ``c_runtime_api``，用于加载 TVM 编译的模块并运行相同的模块。
 
 或者，用户还可以参考 [cpp_rtvm](https://github.com/apache/tvm/blob/main/apps/cpp_rtvm/tvm_runner.h) 中的 ``TVMRunner`` 接口，以获得相同的进一步简化的版本。
 
