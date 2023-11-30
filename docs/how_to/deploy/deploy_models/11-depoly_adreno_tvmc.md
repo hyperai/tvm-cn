@@ -14,7 +14,7 @@ title: 使用 tvmc 接口在 Adreno™ 上部署预训练模型
 单击 [此处](https://tvm.apache.org/docs/how_to/deploy_models/deploy_model_on_adreno_tvmc.html#sphx-glr-download-how-to-deploy-models-deploy-model-on-adreno-tvmc-py) 下载完整的示例代码
 :::
 
-**作者**: Siva Rama Krishna
+**作者**：Siva Rama Krishna
 
 本文是一篇关于在 Adreno™ 上部署预训练 Keras resnet50 模型的逐步教程。
 
