@@ -117,7 +117,7 @@ source setup.sh
    chmod 600 /swapfile
    mkswap /swapfile
    swapon /swapfile
-   echo "/swapfile swap swap defaults 0 0" > /etc/fstab
+   echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
    ```
 
 7. 安装 hdf5 依赖（需要 30 分钟到 1 小时）

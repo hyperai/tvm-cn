@@ -113,6 +113,7 @@ libtvm_runtime.so: ELF 64-bit LSB shared object, UCB RISC-V, version 1 (GNU/Linu
 
 * [使用 C++ API 部署 TVM 模块](deploy_c++)
 * [部署到 Android](deploy_android)
+* [部署到 Adreno](deploy_adreno)
 * [将 TVM 集成到项目中](integrate)
 * [HLS 后端示例](hls)
 * [Relay Arm®  计算库集成](relay_arm)
