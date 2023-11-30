@@ -224,7 +224,7 @@ echo set\(USE_CLML "${ADRENO_OPENCL}"\) >> config.cmake
 echo set\(USE_CLML_GRAPH_EXECUTOR "${ADRENO_OPENCL}"\) >> config.cmake
 ```
 
-对于Android目标构建， ``ANDROID_NDK_HOME`` 是一个依赖项，我们应该在环境变量中设置相同的依赖项。以下命令将构建 Adreno™ 目标组件：
+对于 Android 目标构建，``ANDROID_NDK_HOME`` 是一个依赖项，我们应该在环境变量中设置相同的依赖项。以下命令将构建 Adreno™ 目标组件：
 
 ```bash
 cmake -DCMAKE_TOOLCHAIN_FILE="${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake" \
