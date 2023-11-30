@@ -22,7 +22,7 @@ TVM 的 OpenCL 后端已被增强以利用 Adreno™ 特色功能，如
 
 Adreno™ 的一个优势是对纹理的巧妙处理。目前，TVM 能够通过对 Adreno™  的纹理支持获得益处。下图显示了 Adreno™ A5x 架构。
 
-![ Adreno™ A5x架构的高级概览，用于OpenCL](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/how-to/adreno_architecture.png)
+![ Adreno™ A5x 架构的高级概览，用于 OpenCL](https://raw.githubusercontent.com/tlc-pack/web-data/main/images/how-to/adreno_architecture.png)
 
 *图1 用于 OpenCL Adreno™ A5x 架构的高层次概览*
 
