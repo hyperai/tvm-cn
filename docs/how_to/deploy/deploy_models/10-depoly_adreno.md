@@ -10,7 +10,7 @@ title: 在 Adreno™ 上部署预训练模型
 
 本文是一个逐步教程，演示如何在 Adreno 上（不同精度）部署预训练的 PyTorch ResNet-18 模型。
 
-首先，我们需要安装 PyTorch 与 TorchVision ，因为我们将使用它作为我们的模型库。
+首先，我们需要安装 PyTorch 与 TorchVision，因为我们将使用它作为我们的模型库。
 
 可以通过 pip 快速安装：
 
