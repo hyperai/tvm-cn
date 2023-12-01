@@ -1,12 +1,6 @@
 ---
 title: 使用 tvmc 接口在 Adreno™ 上部署预训练模型
 ---
-<style>
-    pre{
-        overflow-y : auto;
-        max-height : 900px;
-    }
-</style>
 
 # 使用 tvmc 接口在 Adreno™ 上部署预训练模型
 
@@ -72,7 +66,7 @@ model.save(model_file_name)
 ```
 
 Out:
-```info
+```info 
 Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/resnet/resnet50_weights_tf_dim_ordering_tf_kernels.h5
 
      8192/102967424 [..............................] - ETA: 0s
