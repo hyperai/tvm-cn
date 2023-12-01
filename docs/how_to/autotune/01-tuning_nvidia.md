@@ -166,15 +166,20 @@ measure_option = autotvm.measure_option(
     runner=autotvm.LocalRunner(repeat=3, min_repeat_ms=100, timeout=4),
 )
 
+record_file = None
 # 开始调优，将 log 记录到 `conv2d.log`
 # 在调优过程中，会尝试很多无效的配置，所以你应该
 # 查看许多错误报告。只要能看到非零的 GFLOPS 就可以。
-tuner = autotvm.tuner.XGBTuner(task)
-tuner.tune(
-    n_trial=20,
-    measure_option=measure_option,
-    callbacks=[autotvm.callback.log_to_file("conv2d.log")],
-)
+# 我们不再在服务器上运行调优，因为太耗时间了
+# 去掉下面的注释，自己运行
+
+# tuner = autotvm.tuner.XGBTuner(task)
+# record_file = "conv2d.log"
+# tuner.tune(
+#     n_trial=5,
+#     measure_option=measure_option,
+#     callbacks=[autotvm.callback.log_to_file(record_file)],
+# )
 ```
 
 输出结果：
@@ -1839,13 +1844,13 @@ tvm.autotvm.task.space.InstantiationError: Skipped because of invalid gpu kernel
 
 ``` python
 # 检查最佳配置
-dispatch_context = autotvm.apply_history_best("conv2d.log")
+dispatch_context = autotvm.apply_history_best(record_file)
 best_config = dispatch_context.query(task.target, task.workload)
 print("\nBest config:")
 print(best_config)
 
 # 从日志文件中应用历史最好记录
-with autotvm.apply_history_best("conv2d.log"):
+with autotvm.apply_history_best(record_file):
     with tvm.target.Target("cuda"):
         s, arg_bufs = conv2d_no_batching(N, H, W, CO, CI, KH, KW, strides, padding)
         func = tvm.build(s, arg_bufs)

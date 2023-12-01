@@ -16,6 +16,12 @@ Relay IR 模块可以包含很多操作。通常单个操作很容易理解，�
 
 这里用渲染器来渲染文本形式的计算图，它是一个轻量级、类似 AST 可视化工具（灵感来自 [clang ast-dump](https://clang.llvm.org/docs/IntroductionToTheClangAST.html)）。以下将介绍如何通过接口类来实现自定义的解析器和渲染器。
 
+安装依赖可运行：
+
+```bash
+pip install graphviz
+```
+
 更多细节参考 `tvm.contrib.relay_viz`。
 
 ``` python
