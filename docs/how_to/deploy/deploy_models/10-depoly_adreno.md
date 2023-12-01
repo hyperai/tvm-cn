@@ -21,7 +21,7 @@ pip install torchvision
 
 除此之外，您应该已经为 Android 构建了 TVM。请参阅以下说明，了解如何构建它。
 
-[在 Adreno GPU 上部署](https://tvm.hyper.ai/docs/how_to/deploy/deploy_adreno)
+[在 Adreno GPU 上部署](https://tvm.apache.org/docs/v0.13.0/how_to/deploy/adreno.html)
 
 在构建部分之后，构建目录中应该有两个文件：“libtvm_runtime.so” 和 “tvm_rpc”。让我们将它们推送到设备上并运行 TVM RPC 服务器。
 

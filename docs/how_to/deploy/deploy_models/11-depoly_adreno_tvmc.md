@@ -401,7 +401,7 @@ def @main(%input_2: Tensor[(1, 224, 224, 3), float32], %v_param_1: Tensor[(7, 7,
 ```
 
 # 自动调优
-现在，可以使用下面的 api 为任何目标对模型进行自动调优。调整需要 RPC 设置，请参阅[在 Adreno GPU 上部署](https://tvm.hyper.ai/docs/how_to/deploy/deploy_adreno)
+现在，可以使用下面的 api 为任何目标对模型进行自动调优。调整需要 RPC 设置，请参阅[在 Adreno GPU 上部署](https://tvm.apache.org/docs/v0.13.0/how_to/deploy/adreno.html)
 
 ```python
 rpc_tracker_host = os.environ.get("TVM_TRACKER_HOST", "127.0.0.1")
