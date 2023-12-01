@@ -10,7 +10,7 @@ title: 在 Adreno™ 上部署预训练模型
 
 本文是一个逐步教程，演示如何在 Adreno 上（不同精度）部署预训练的 PyTorch ResNet-18 模型。
 
-首先，我们需要安装 PyTorch 与 TorchVision ，因为我们将使用它作为我们的模型库。
+首先，我们需要安装 PyTorch 与 TorchVision，因为我们将使用它作为我们的模型库。
 
 可以通过 pip 快速安装：
 
@@ -23,7 +23,7 @@ pip install torchvision
 
 [在 Adreno GPU 上部署](https://tvm.hyper.ai/docs/how_to/deploy/deploy_adreno)
 
-在构建部分之后，构建目录中应该有两个文件： “libtvm_runtime.so” 和 “tvm_rpc”。让我们将它们推送到设备上并运行 TVM RPC 服务器。
+在构建部分之后，构建目录中应该有两个文件：“libtvm_runtime.so” 和 “tvm_rpc”。让我们将它们推送到设备上并运行 TVM RPC 服务器。
 
 ## TVM RPC 服务器
 
@@ -208,7 +208,7 @@ img = np.expand_dims(img, 0)
 ![cat](https://tvm.apache.org/docs/_images/sphx_glr_from_keras_001.png)
 
 ## 将 PyTorch 模型转换为 Relay 模块
-TVM 具有用于各种框架 的在 relay.frontend 中的前端 API 。现在对于 PyTorch 模型导入，我们有 relay.frontend.from_pytorch API 。输入名称可以是任意的
+TVM 具有用于各种框架 的在 relay.frontend 中的前端 API。现在对于 PyTorch 模型导入，我们有 relay.frontend.from_pytorch API。输入名称可以是任意的
 
 ```python
 input_name = "input0"
@@ -253,7 +253,7 @@ mod = apply_graph_transforms(
 
 ```
 
-正如您在 IR 中所看到的那样，该架构现在包含强制转换操作，这些操作是为了将精度转换为 FP16 。您还可以使用 "float16" 或 "float32" 作为其他 dtype 选项。
+正如您在 IR 中所看到的那样，该架构现在包含强制转换操作，这些操作是为了将精度转换为 FP16。您还可以使用 "float16" 或 "float32" 作为其他 dtype 选项。
 
 ## 准备 TVM 目标
 
@@ -374,7 +374,7 @@ if local_demo:
     remote = rpc.LocalSession()
 else:
     tracker = rpc.connect_tracker(rpc_tracker_host, rpc_tracker_port)
-    # 运行大模型时, 应该增加 `session_timeout`
+    # 运行大模型时，应该增加 `session_timeout`
     remote = tracker.request(key, priority=0, session_timeout=60)
 
 if local_demo:
