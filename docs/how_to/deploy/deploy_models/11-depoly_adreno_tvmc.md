@@ -14,7 +14,7 @@ title: 使用 tvmc 接口在 Adreno™ 上部署预训练模型
 
 此外，您应该已经为 Android 构建了 TVM。请参阅以下说明，了解如何构建它并设置 RPC 环境。
 
-[在 Adreno GPU 上部署](https://tvm.hyper.ai/docs/how_to/deploy/deploy_adreno)
+[在 Adreno GPU 上部署](https://tvm.apache.org/docs/v0.13.0/how_to/deploy/adreno.html)
 
 ```python
 import os
