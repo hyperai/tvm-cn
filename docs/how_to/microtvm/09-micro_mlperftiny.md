@@ -292,3 +292,7 @@ west flash
 ```
 
 现在，您可以按照这些说明将您的板子连接到 EEMBC runner 并在您的板子上对此模型进行基准测试。
+
+[下载 Python 源代码：micro_mlperftiny.py](https://tvm.apache.org/docs/v0.13.0/_downloads/4577847d31fa9ec38d0a6dda3e1d178d/micro_mlperftiny.py)
+
+[下载 Jupyter notebook：micro_mlperftiny.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/1fc1683d67bee4f26703504a58d42578/micro_mlperftiny.ipynb)

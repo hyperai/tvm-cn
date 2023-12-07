@@ -311,3 +311,7 @@ void TVMLogf(const char* msg, ...) {
 
 ## 评估模型
 现在，选择菜单栏中的 Run -> Run 来刷写 MCU 并运行项目。您应该看到 LED 在闪烁，并且控制台上在打印推理结果。
+
+[下载 Python 源代码：micro_custom_ide.py](https://tvm.apache.org/docs/v0.13.0/_downloads/9322c6c215567e9975d1df6b3a218ff1/micro_custom_ide.py)
+
+[下载 Jupyter notebook：micro_custom_ide.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/a74627f44186b95116fe0ed6f77e3b99/micro_custom_ide.ipynb)

@@ -1,8 +1,8 @@
 ---
-title: microTVM 主机驱动的 AoT
+title: 3.microTVM AoT 编译
 ---
 
-# microTVM 主机驱动的 AoT
+# 3.microTVM AoT 编译
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_aot.html#sphx-glr-download-how-to-work-with-microtvm-micro-aot-py) 下载完整的示例代码
@@ -12,14 +12,65 @@ title: microTVM 主机驱动的 AoT
 
 本教程展示了 microTVM（使用 TFLite 模型）主机驱动的 AoT 编译。与 GraphExecutor 相比，AoTExecutor 减少了运行时解析图的开销。此外，我们可以通过提前编译更好地进行内存管理。本教程可以使用 C 运行时（CRT）在 x86 CPU 上执行，也可以在 Zephyr 支持的微控制器/板上的 Zephyr 平台上执行。
 
+## 安装 microTVM Python 依赖项
+TVM 不包含用于 Python 串行通信包，因此在使用 microTVM 之前我们必须先安装一个。我们还需要TFLite来加载模型。
+
+```bash
+pip install pyserial==3.5 tflite==2.1
+```
+
+```python
+import os
+
+
+# 本指南默认运行在使用 TVM 的 C 运行时的 x86 CPU 上，如果你想
+# 在 Zephyr 实机硬件上运行，你必须导入 `TVM_MICRO_USE_HW` 环境
+# 变量。此外如果你使用 C 运行时，你可以跳过安装 Zephyr。
+# 将花费大约20分钟安装 Zephyr。
+use_physical_hw = bool(os.getenv("TVM_MICRO_USE_HW"))
+
+```
+
+## 安装 Zephyr
+
+``` bash
+# 安装 west 和 ninja
+python3 -m pip install west
+apt-get install -y ninja-build
+
+# 安装 ZephyrProject
+ZEPHYR_PROJECT_PATH="/content/zephyrproject"
+export ZEPHYR_BASE=${ZEPHYR_PROJECT_PATH}/zephyr
+west init ${ZEPHYR_PROJECT_PATH}
+cd ${ZEPHYR_BASE}
+git checkout v3.2-branch
+cd ..
+west update
+west zephyr-export
+chmod -R o+w ${ZEPHYR_PROJECT_PATH}
+
+# 安装 Zephyr SDK
+cd /content
+ZEPHYR_SDK_VERSION="0.15.2"
+wget "https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${ZEPHYR_SDK_VERSION}/zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+tar xvf "zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+mv "zephyr-sdk-${ZEPHYR_SDK_VERSION}" zephyr-sdk
+rm "zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+
+# 安装 python 依赖
+python3 -m pip install -r "${ZEPHYR_BASE}/scripts/requirements.txt"
+```
+
+## 导入 Python 依赖项
+
 ``` python
 import numpy as np
 import pathlib
 import json
-import os
 
 import tvm
 from tvm import relay
+import tvm.micro.testing
 from tvm.relay.backend import Executor, Runtime
 from tvm.contrib.download import download_testdata
 ```
@@ -31,9 +82,8 @@ from tvm.contrib.download import download_testdata
 **注意：**默认情况下，本教程使用 CRT 在 x86 CPU 上运行，若要在 Zephyr 平台上运行，需要导出 *TVM_MICRO_USE_HW* 环境变量。
 
 ``` python
-use_physical_hw = bool(os.getenv("TVM_MICRO_USE_HW"))
-MODEL_URL = "https://github.com/tlc-pack/web-data/raw/main/testdata/microTVM/model/keyword_spotting_quant.tflite"
-MODEL_PATH = download_testdata(MODEL_URL, "keyword_spotting_quant.tflite", module="model")
+MODEL_URL = "https://github.com/mlcommons/tiny/raw/bceb91c5ad2e2deb295547d81505721d3a87d578/benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite"
+MODEL_PATH = download_testdata(MODEL_URL, "kws_ref_model.tflite", module="model")
 SAMPLE_URL = "https://github.com/tlc-pack/web-data/raw/main/testdata/microTVM/data/keyword_spotting_int8_6.pyc.npy"
 SAMPLE_PATH = download_testdata(SAMPLE_URL, "keyword_spotting_int8_6.pyc.npy", module="data")
 
@@ -56,25 +106,23 @@ relay_mod, params = relay.frontend.from_tflite(
 
 ## 定义 target
 
-接下来定义 target、runtime 和 executor。本教程将详细介绍使用 AOT 主机驱动的执行器。这里使用的主机微 target，它使用 CRT runtime 在 x86 CPU 上运行模型，或者在 qemu_x86 模拟器单板上运行带有 Zephyr 平台的模型。对于物理微控制器，获取物理单板（例如 nucleo_l4r5zi）的 target 模型，并将其传递给 *tvm.target.target.micro*，从而创建完整的微目标。
+接下来定义 target、runtime 和 executor。本教程将详细介绍使用 AOT 主机驱动的执行器。这里使用的主机微 target，它使用 CRT runtime 在 x86 CPU 上运行模型，或者在 qemu_x86 模拟器单板上运行带有 Zephyr 平台的模型。对于物理微控制器，获取物理单板（例如 nucleo_l4r5zi）的 target 模型，并将其修改 `BOARD` 支持 Zephyr 单板。
 
 ``` python
 # 使用 C runtime（crt），并通过将 system-lib 设置为 True 来启用静态链接
 RUNTIME = Runtime("crt", {"system-lib": True})
 
-# 在主机上模拟一个微控制器。使用来自 `src/runtime/crt/host/main.cc [https://github.com/apache/tvm/blob/main/src/runtime/crt/host/main.cc](https://github.com/apache/tvm/blob/main/src/runtime/crt/host/main.cc)`_ 的 main()。
+# 在主机上模拟一个微控制器。使用来自 `src/runtime/crt/host/main.cc`_ 的 main()。
 # 若要使用物理硬件，请将「host」替换为与你的硬件匹配的内容。
-TARGET = tvm.target.target.micro("host")
+TARGET = tvm.micro.testing.get_target("crt")
 
 # 使用 AOT 执行器，而非计算图或是虚拟机执行器。不要使用未打包的 API 或 C 调用风格。
 EXECUTOR = Executor("aot")
 
 if use_physical_hw:
-    boards_file = pathlib.Path(tvm.micro.get_microtvm_template_projects("zephyr")) / "boards.json"
-    with open(boards_file) as f:
-        boards = json.load(f)
     BOARD = os.getenv("TVM_MICRO_BOARD", default="nucleo_l4r5zi")
-    TARGET = tvm.target.target.micro(boards[BOARD]["model"])
+    SERIAL = os.getenv("TVM_MICRO_SERIAL", default=None)
+    TARGET = tvm.micro.testing.get_target("zephyr", BOARD)
 ```
 
 ## 编译模型
@@ -105,7 +153,13 @@ project_options = {}  # 可以用选项通过 TVM 提供特定于平台的选项
 
 if use_physical_hw:
     template_project_path = pathlib.Path(tvm.micro.get_microtvm_template_projects("zephyr"))
-    project_options = {"project_type": "host_driven", "zephyr_board": BOARD}
+    project_options = {
+        "project_type": "host_driven",
+        "board": BOARD,
+        "serial_number": SERIAL,
+        "config_main_stack_size": 4096,
+        "zephyr_base": os.getenv("ZEPHYR_BASE", default="/content/zephyrproject/zephyr"),
+    }
 
 temp_dir = tvm.contrib.utils.tempdir()
 generated_project_dir = temp_dir / "project"
@@ -155,6 +209,6 @@ with tvm.micro.Session(project.transport()) as session:
 Label is `left` with index `6`
 ```
 
-[下载 Python 源代码：micro_aot.py](https://tvm.apache.org/docs/_downloads/f8a7209a0e66b246185bfc41bbc82f54/micro_aot.py)
+[下载 Python 源代码：micro_aot.py](https://tvm.apache.org/docs/v0.13.0/_downloads/f8a7209a0e66b246185bfc41bbc82f54/micro_aot.py)
 
-[下载 Jupyter Notebook：micro_aot.ipynb](https://tvm.apache.org/docs/_downloads/c00933f3fbcf90c4f584d54607b33805/micro_aot.ipynb)
+[下载 Jupyter Notebook：micro_aot.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/c00933f3fbcf90c4f584d54607b33805/micro_aot.ipynb)

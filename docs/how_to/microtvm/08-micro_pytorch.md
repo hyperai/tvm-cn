@@ -11,7 +11,7 @@ title: 4.microTVM PyTorch 教程
 
 该教程展示了如何使用 PyTorch 模型进行 microTVM 主机驱动的 AOT 编译。此教程可以在使用 C 运行时（CRT）的 x86 CPU 上执行。
 
-**注意：** 此教程仅在使用 CRT 的 x86 CPU 上运行，不支持在 Zephyr 上运行，因为该模型不适用于我们当前支持的 Zephyr 主板。
+**注意：** 此教程仅在使用 CRT 的 x86 CPU 上运行，不支持在 Zephyr 上运行，因为该模型不适用于我们当前支持的 Zephyr 单板。
 
 ## 安装 microTVM Python 依赖项
 TVM 不包含用于 Python 串行通信包，因此在使用 microTVM 之前我们必须先安装一个。我们还需要TFLite来加载模型。
@@ -51,7 +51,7 @@ img_url = "https://github.com/dmlc/mxnet.js/blob/main/data/cat.png?raw=true"
 img_path = download_testdata(img_url, "cat.png", module="data")
 img = Image.open(img_path).resize((224, 224))
 
-# Preprocess the image and convert to tensor
+# 预处理图片并转换为张量
 my_preprocess = transforms.Compose(
     [
         transforms.Resize(256),
@@ -133,7 +133,7 @@ project = tvm.micro.generate_project(
 ```
 
 ## 构建、烧录和执行模型
-接下来，我们构建 microTVM项 目并进行烧录。烧录步骤特定于物理微控制器，如果通过主机的  `main.cc` 模拟微控制器，或者选择 Zephyr 模拟主板作为目标，则会跳过该步骤。
+接下来，我们构建 microTVM项 目并进行烧录。烧录步骤特定于物理微控制器，如果通过主机的  `main.cc` 模拟微控制器，或者选择 Zephyr 模拟单板作为目标，则会跳过该步骤。
 
 ```python
 project.build()
@@ -202,3 +202,7 @@ Torch top-1 id: 282, class name: tiger cat
 ```
 
 **该脚本总运行时间：**（1分26.552秒）
+
+[下载 Python 源代码：micro_pytorch.py](https://tvm.apache.org/docs/v0.13.0/_downloads/12b9ecc04c41abaa12022061771821d1/micro_pytorch.py)
+
+[下载 Jupyter notebook：micro_pytorch.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/09df7d9b9c90a2a1bdd570520693fd9f/micro_pytorch.ipynb)
