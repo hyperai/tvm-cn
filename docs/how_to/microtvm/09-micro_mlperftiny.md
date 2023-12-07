@@ -3,7 +3,7 @@ title: 创建使用 microTVM 的 MLPerfTiny 提交
 ---
 
 :::note
-单击 [此处](https://tvm.apache.org/docs/v0.13.0/how_to/work_with_microtvm/micro_mlperftiny.html#:~:text=on%20your%20board.-,Download,Python%20source%20code%3A%20micro_mlperftiny.py,-Download) 下载完整的示例代码
+单击 [此处](https://tvm.apache.org/docs/v0.13.0/how_to/work_with_microtvm/micro_mlperftiny.html#sphx-glr-download-how-to-work-with-microtvm-micro-mlperftiny-py) 下载完整的示例代码
 :::
 
 
