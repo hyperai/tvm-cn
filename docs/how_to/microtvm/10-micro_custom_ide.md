@@ -189,7 +189,7 @@ with tarfile.open(TAR_PATH, mode="a") as tar_file:
 4. 一个文本框将出现，询问是否要 “以默认模式初始化所有外设？”。点击 “Yes”。这将生成项目并打开设备配置工具，您可以使用 GUI 设置外设。默认情况下启用了 USB、USART3 和 LPUART1，以及一些 GPIO。
 5. 我们将使用 LPUART1 将数据发送到主机 PC。从连接部分中选择 LPUART1，并将 “Baud Rate” 设置为 115200，将 “Word Length” 设置为 8。保存更改并点击 “Yes” 以重新生成初始化代码。这应该会重新生成代码并打开您的 main.c 文件。您还可以从左侧的 Project Explorer 面板中找到 main.c，在 microtvm_vww_demo -> Core -> Src 下。
 6. 为了进行健全性检查，请复制下面的代码并将其粘贴到主函数的无线循环（即 While(1) ）部分。
-   * 注意：确保您的代码写在由 USER CODE BEGIN <...> 和 USER CODE END <...> 包围的部分内。如果重新生成初始化代码，被包围之外的代码将被擦除。
+   * 注意：确保您的代码写在由 USER CODE BEGIN\<...\> 和 USER CODE END\<...\> 包围的部分内。如果重新生成初始化代码，被包围之外的代码将被擦除。
 
 
  ```
