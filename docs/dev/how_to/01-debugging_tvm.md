@@ -25,7 +25,7 @@ void Foo(const std::string& bar) {
 1. 在 `config/cmake` 中，确保设置 `set(USE_RELAY_DEBUG ON)`。这个标志是用来启用 VLOGging 的。
 2. 通过 `TVM_LOG_DEBUG=<spec>` 启动 Python，其中 `<spec>>` 是一个形式为 `<file_name>=<level>` 的以逗号分隔的级别赋值列表。尤其需要注意：
     * 特殊文件名 `DEFAULT` 为所有文件设置 VLOG 级别。
-    * `<level>>` 可以被设置为 `-1` 来禁用该文件的 VLOG。
+    * `<level>` 可以被设置为 `-1` 来禁用该文件的 VLOG。
     * `<file_name>` 是在 TVM 仓库中相对于 `src/` 目录的 c++ 源文件的名字（例如 `.cc`，而不是 `.h`）。您不需要在指定文无论在指定文件路径时，是否提供 `src/`，VLOG 都可以正确解释路径。
 
 
