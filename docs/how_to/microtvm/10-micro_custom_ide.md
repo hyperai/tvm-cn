@@ -200,7 +200,7 @@ HAL_Delay(1000);
 
 7. 从菜单栏中选择 Project -> Build（或右键单击项目名称并选择 Build）。这将构建项目并生成 .elf 文件。选择 Run -> Run 以将二进制文件下载到您的 MCU。如果打开了“Edit Configuration”窗口，请直接点击 “OK”。
 
-8. 在主机机器上打开终端控制台。在 Mac 上，您可以简单地使用 “screen <usb_device> 115200” 命令，例如 “screen tty.usbmodemXXXX 115200” 。板上的 LED 应该会闪烁，终端控制台上每秒应该会打印出字符串 “Hello World.”。按 “Control-a k” 退出 screen。
+8. 在主机机器上打开终端控制台。在 Mac 上，您可以简单地使用 “screen \<usb_device\> 115200” 命令，例如 “screen tty.usbmodemXXXX 115200” 。板上的 LED 应该会闪烁，终端控制台上每秒应该会打印出字符串 “Hello World.”。按 “Control-a k” 退出 screen。
 
 ## 将模型导入生成的项目
 要将编译后的模型集成到生成的项目中，请按照以下步骤操作：
