@@ -7,7 +7,7 @@ title: 8. 创建使用 microTVM 的 MLPerfTiny 提交
 :::
 
 
-# 8.创建使用 microTVM 的 MLPerfTiny 提交
+# 8. 创建使用 microTVM 的 MLPerfTiny 提交
 
 **作者：**[Mehrdad Hessar](https://github.com/mehrdadh)
 
