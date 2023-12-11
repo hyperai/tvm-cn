@@ -99,9 +99,9 @@ Get devices for measurement successfully!
 
 ``` python
 # 运行自动调优（搜索）
-#我们不再在服务器上运行调优，因为太耗时间了
-#去掉下行代码的注释自行运行
-#task.tune(tune_option)
+# 我们不再在服务器上运行调优，因为太耗时间了
+# 去掉下行代码的注释自行运行
+# task.tune(tune_option)
 # 应用最佳 schedule
 sch, args = task.apply_best(log_file)
 # 终止测试过程
