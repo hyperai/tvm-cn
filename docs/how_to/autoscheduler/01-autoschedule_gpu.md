@@ -1197,9 +1197,9 @@ def resume_search(task, log_file):
     # 终止测试过程
     del measure_ctx
 
-#我们不再在服务器上运行调优，因为太耗时间了
-#去掉下行代码的注释自行运行
-#resume_search(task, log_file)
+# 我们不再在服务器上运行调优，因为太耗时间了
+# 去掉下行代码的注释自行运行
+# resume_search(task, log_file)
 ```
 
 输出结果：
