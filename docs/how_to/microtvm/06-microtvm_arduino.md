@@ -1,5 +1,5 @@
 ---
-title: 5.在 Arduino 上为 microTVM 训练视觉模型
+title: 5. 在 Arduino 上为 microTVM 训练视觉模型
 ---
 
 # 5.在 Arduino 上为 microTVM 训练视觉模型
