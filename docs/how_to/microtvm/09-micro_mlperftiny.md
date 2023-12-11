@@ -1,5 +1,5 @@
 ---
-title: 8.创建使用 microTVM 的 MLPerfTiny 提交
+title: 8. 创建使用 microTVM 的 MLPerfTiny 提交
 ---
 
 :::note
