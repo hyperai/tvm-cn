@@ -2,7 +2,7 @@
 title: 6. 使用 microTVM 进行模型调优
 ---
 
-# 6.使用 microTVM 进行模型调优
+# 6. 使用 microTVM 进行模型调优
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_autotune.html#sphx-glr-download-how-to-work-with-microtvm-micro-autotune-py) 下载完整的示例代码
