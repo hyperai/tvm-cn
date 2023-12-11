@@ -6,7 +6,7 @@ title: 4. microTVM PyTorch 教程
 单击 [此处](https://tvm.apache.org/docs/v0.13.0/how_to/work_with_microtvm/micro_pytorch.html#sphx-glr-download-how-to-work-with-microtvm-micro-pytorch-py) 下载完整的示例代码
 :::
 
-# 4.microTVM PyTorch 教程
+# 4. microTVM PyTorch 教程
 **作者：**[Mehrdad Hessar](https://github.com/mehrdadh)
 
 该教程展示了如何使用 PyTorch 模型进行 microTVM 主机驱动的 AOT 编译。此教程可以在使用 C 运行时（CRT）的 x86 CPU 上执行。
