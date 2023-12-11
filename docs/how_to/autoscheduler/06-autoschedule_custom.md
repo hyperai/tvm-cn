@@ -219,351 +219,52 @@ search_policy = auto_scheduler.SketchPolicy(
 现在已经准备好所有的输入。接下来开始搜索，经过一些测试后，可以从日志文件中加载最佳调度并应用。
 
 ``` python
-# 运行自动调优（搜索）
-# 注意：不在网页服务器中运行调优，因为它需要的时间太长。
-# 取消以下行的注释，来运行它。
-task.tune(tune_option, search_policy)
 
-# 应用最佳 schedule
-sch, args = task.apply_best(log_file)
-```
+def tune_and_evaluate(tune_option, search_policy):
+  # 运行自动调优（搜索）
+  task.tune(tune_option, search_policy)
 
-输出结果：
+  # 应用最佳 schedule
+  sch, args = task.apply_best(log_file)
 
-``` bash
-/usr/local/lib/python3.7/dist-packages/numpy/core/_methods.py:43: RuntimeWarning: invalid value encountered in reduce
-  return umr_minimum(a, axis, None, out, keepdims, initial, where)
-/usr/local/lib/python3.7/dist-packages/numpy/core/_methods.py:39: RuntimeWarning: invalid value encountered in reduce
-  return umr_maximum(a, axis, None, out, keepdims, initial, where)
-```
+  # 自动调度后对 schedule 降级，来查看 IR。auto-scheduler 正确执行优化，包括多级平铺、布局
+  # 转换、并行化、向量化、展开和算子融合。
+  print("Lowered TIR:")
+  print(tvm.lower(sch, args, simple_mode=True))
 
-自动调度后对 schedule 降级，来查看 IR。auto-scheduler 正确执行优化，包括多级平铺、布局转换、并行化、向量化、展开和算子融合。
+  # 检查正确性并评估性能
 
-``` python
-print("Lowered TIR:")
-print(tvm.lower(sch, args, simple_mode=True))
-```
+  # 构建二进制文件，并检查其正确性和性能。
 
-输出结果：
+  func = tvm.build(sch, args, target)
 
-``` bash
-Lowered TIR:
-@main = primfn(placeholder_5: handle, placeholder_6: handle, placeholder_7: handle, placeholder_8: handle, placeholder_9: handle, compute_1: handle) -> ()
-  attr = {"from_legacy_te_schedule": True, "global_symbol": "main", "tir.noalias": True}
-  buffers = {placeholder: Buffer(placeholder_10: Pointer(float32), float32, [32768], []),
-             placeholder_1: Buffer(placeholder_11: Pointer(float32), float32, [78656], []),
-             placeholder_2: Buffer(placeholder_12: Pointer(int32), int32, [4916], []),
-             placeholder_3: Buffer(placeholder_13: Pointer(int32), int32, [33], []),
-             placeholder_4: Buffer(placeholder_14: Pointer(float32), float32, [65536], []),
-             compute: Buffer(compute_2: Pointer(float32), float32, [65536], [])}
-  buffer_map = {placeholder_5: placeholder, placeholder_6: placeholder_1, placeholder_7: placeholder_2, placeholder_8: placeholder_3, placeholder_9: placeholder_4, compute_1: compute}
-  preflattened_buffer_map = {placeholder_5: placeholder_15: Buffer(placeholder_10, float32, [128, 256], []), compute_1: compute_3: Buffer(compute_2, float32, [128, 512], []), placeholder_9: placeholder_16: Buffer(placeholder_14, float32, [128, 512], []), placeholder_7: placeholder_17: Buffer(placeholder_12, int32, [4916], []), placeholder_6: placeholder_18: Buffer(placeholder_11, float32, [4916, 16, 1], []), placeholder_8: placeholder_19: Buffer(placeholder_13, int32, [33], [])} {
-  for (i0.outer: int32, 0, 32) "parallel" {
-    allocate(compute_4: Pointer(global float32), float32, [64]), storage_scope = global;
-    for (i1.outer: int32, 0, 32) {
-      compute_5: Buffer(compute_4, float32, [64], [])[0] = 0f32
-      compute_5[1] = 0f32
-      compute_5[2] = 0f32
-      compute_5[3] = 0f32
-      compute_5[4] = 0f32
-      compute_5[5] = 0f32
-      compute_5[6] = 0f32
-      compute_5[7] = 0f32
-      compute_5[8] = 0f32
-      compute_5[9] = 0f32
-      compute_5[10] = 0f32
-      compute_5[11] = 0f32
-      compute_5[12] = 0f32
-      compute_5[13] = 0f32
-      compute_5[14] = 0f32
-      compute_5[15] = 0f32
-      compute_5[16] = 0f32
-      compute_5[17] = 0f32
-      compute_5[18] = 0f32
-      compute_5[19] = 0f32
-      compute_5[20] = 0f32
-      compute_5[21] = 0f32
-      compute_5[22] = 0f32
-      compute_5[23] = 0f32
-      compute_5[24] = 0f32
-      compute_5[25] = 0f32
-      compute_5[26] = 0f32
-      compute_5[27] = 0f32
-      compute_5[28] = 0f32
-      compute_5[29] = 0f32
-      compute_5[30] = 0f32
-      compute_5[31] = 0f32
-      compute_5[32] = 0f32
-      compute_5[33] = 0f32
-      compute_5[34] = 0f32
-      compute_5[35] = 0f32
-      compute_5[36] = 0f32
-      compute_5[37] = 0f32
-      compute_5[38] = 0f32
-      compute_5[39] = 0f32
-      compute_5[40] = 0f32
-      compute_5[41] = 0f32
-      compute_5[42] = 0f32
-      compute_5[43] = 0f32
-      compute_5[44] = 0f32
-      compute_5[45] = 0f32
-      compute_5[46] = 0f32
-      compute_5[47] = 0f32
-      compute_5[48] = 0f32
-      compute_5[49] = 0f32
-      compute_5[50] = 0f32
-      compute_5[51] = 0f32
-      compute_5[52] = 0f32
-      compute_5[53] = 0f32
-      compute_5[54] = 0f32
-      compute_5[55] = 0f32
-      compute_5[56] = 0f32
-      compute_5[57] = 0f32
-      compute_5[58] = 0f32
-      compute_5[59] = 0f32
-      compute_5[60] = 0f32
-      compute_5[61] = 0f32
-      compute_5[62] = 0f32
-      compute_5[63] = 0f32
-      for (elem_idx: int32, 0, (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])) {
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[0] = (compute_5[0] + (placeholder_1[((placeholder_3[i1.outer]*16) + (elem_idx*16))]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[1] = (compute_5[1] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 1)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[2] = (compute_5[2] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 2)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[3] = (compute_5[3] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 3)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[4] = (compute_5[4] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 4)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[5] = (compute_5[5] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 5)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[6] = (compute_5[6] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 6)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[7] = (compute_5[7] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 7)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[8] = (compute_5[8] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 8)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[9] = (compute_5[9] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 9)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[10] = (compute_5[10] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 10)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[11] = (compute_5[11] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 11)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[12] = (compute_5[12] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 12)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[13] = (compute_5[13] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 13)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[14] = (compute_5[14] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 14)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[15] = (compute_5[15] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 15)]*max(placeholder[((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)])], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[16] = (compute_5[16] + (placeholder_1[((placeholder_3[i1.outer]*16) + (elem_idx*16))]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[17] = (compute_5[17] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 1)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[18] = (compute_5[18] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 2)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[19] = (compute_5[19] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 3)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[20] = (compute_5[20] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 4)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[21] = (compute_5[21] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 5)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[22] = (compute_5[22] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 6)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[23] = (compute_5[23] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 7)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[24] = (compute_5[24] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 8)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[25] = (compute_5[25] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 9)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[26] = (compute_5[26] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 10)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[27] = (compute_5[27] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 11)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[28] = (compute_5[28] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 12)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[29] = (compute_5[29] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 13)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[30] = (compute_5[30] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 14)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[31] = (compute_5[31] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 15)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 256)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[32] = (compute_5[32] + (placeholder_1[((placeholder_3[i1.outer]*16) + (elem_idx*16))]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[33] = (compute_5[33] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 1)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[34] = (compute_5[34] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 2)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[35] = (compute_5[35] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 3)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[36] = (compute_5[36] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 4)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[37] = (compute_5[37] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 5)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[38] = (compute_5[38] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 6)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[39] = (compute_5[39] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 7)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[40] = (compute_5[40] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 8)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[41] = (compute_5[41] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 9)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[42] = (compute_5[42] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 10)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[43] = (compute_5[43] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 11)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[44] = (compute_5[44] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 12)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[45] = (compute_5[45] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 13)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[46] = (compute_5[46] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 14)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[47] = (compute_5[47] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 15)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 512)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[48] = (compute_5[48] + (placeholder_1[((placeholder_3[i1.outer]*16) + (elem_idx*16))]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[49] = (compute_5[49] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 1)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[50] = (compute_5[50] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 2)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[51] = (compute_5[51] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 3)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[52] = (compute_5[52] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 4)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[53] = (compute_5[53] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 5)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[54] = (compute_5[54] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 6)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[55] = (compute_5[55] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 7)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[56] = (compute_5[56] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 8)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[57] = (compute_5[57] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 9)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[58] = (compute_5[58] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 10)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[59] = (compute_5[59] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 11)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[60] = (compute_5[60] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 12)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[61] = (compute_5[61] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 13)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[62] = (compute_5[62] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 14)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-        if @tir.likely((elem_idx < (placeholder_3[(i1.outer + 1)] - placeholder_3[i1.outer])), dtype=bool) {
-          compute_5[63] = (compute_5[63] + (placeholder_1[(((placeholder_3[i1.outer]*16) + (elem_idx*16)) + 15)]*max(placeholder[(((i0.outer*1024) + placeholder_2[(placeholder_3[i1.outer] + elem_idx)]) + 768)], 0f32)))
-        }
-      }
-      for (i0.inner: int32, 0, 4) {
-        let cse_var_1: int32 = (((i0.outer*2048) + (i0.inner*512)) + (i1.outer*16))
-        compute[ramp(cse_var_1, 1, 16)] = max((compute_5[ramp((i0.inner*16), 1, 16)] + placeholder_4[ramp(cse_var_1, 1, 16)]), broadcast(0f32, 16))
-      }
-    }
-  }
-}
-```
+  dev = tvm.cpu()
 
-## 检查正确性并评估性能
+  X_tvm = tvm.nd.array(X_np, device=dev)
+  W_data_tvm = tvm.nd.array(W_sp_np.data, device=dev)
+  W_indices_tvm = tvm.nd.array(W_sp_np.indices, device=dev)
+  W_indptr_tvm = tvm.nd.array(W_sp_np.indptr, device=dev)
+  B_tvm = tvm.nd.array(B_np, device=dev)
+  Y_tvm = tvm.nd.empty(Y_np.shape, device=dev)
 
-构建二进制文件，并检查其正确性和性能。
+  # 检查结果
+  tvm.testing.assert_allclose(Y_np, Y_tvm.numpy(), atol=1e-4, rtol=1e-4)
 
-``` python
-func = tvm.build(sch, args, target)
-
-dev = tvm.cpu()
-
-X_tvm = tvm.nd.array(X_np, device=dev)
-W_data_tvm = tvm.nd.array(W_sp_np.data, device=dev)
-W_indices_tvm = tvm.nd.array(W_sp_np.indices, device=dev)
-W_indptr_tvm = tvm.nd.array(W_sp_np.indptr, device=dev)
-B_tvm = tvm.nd.array(B_np, device=dev)
-Y_tvm = tvm.nd.empty(Y_np.shape, device=dev)
-
-func(X_tvm, W_data_tvm, W_indices_tvm, W_indptr_tvm, B_tvm, Y_tvm)
-
-# 检查结果
-tvm.testing.assert_allclose(Y_np, Y_tvm.numpy(), atol=1e-4, rtol=1e-4)
-
-# 评估执行时间。
-evaluator = func.time_evaluator(func.entry_name, dev, min_repeat_ms=500)
-print(
+  # 评估执行时间。
+  evaluator = func.time_evaluator(func.entry_name, dev, min_repeat_ms=500)
+  print(
     "Execution time of this operator: %.3f ms"
     % (
-        np.median(evaluator(X_tvm, W_data_tvm, W_indices_tvm, W_indptr_tvm, B_tvm, Y_tvm).results)
-        * 1000
+      np.median(
+        evaluator(X_tvm, W_data_tvm, W_indices_tvm, W_indptr_tvm, B_tvm, Y_tvm).results
+      )
+      * 1000
     )
-)
-```
+  )
 
-输出结果：
-
-``` bash
-Execution time of this operator: 2.616 ms
+# 注意: 我们不在服务器上运行调优，因为太花时间，
+# 去掉下行注释自行运行
+# tune_and_evaluate(tune_option, search_policy)
 ```
 
 :::note
