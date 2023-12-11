@@ -116,7 +116,7 @@ $ python3 -m tvm.exec.rpc_server --host RPC_PROXY_IP --port RPC_PROXY_PORT --thr
 $ python3 -m tvm.exec.rpc_server --tracker RPC_TRACKER_IP:RPC_TRACKER_PORT --key RPC_KEY
 ```
 
-## 验证RPC系统
+## 验证 RPC 系统
 
 ```shell
 $ python3 -m tvm.exec.query_rpc_tracker --host RPC_TRACKER_IP --port RPC_TRACKER_PORT
