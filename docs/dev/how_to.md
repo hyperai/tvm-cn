@@ -9,3 +9,4 @@ title: 开发者指南
 * [向 Relay 中添加 Compiler Pass](how_to/relay_add_pass)
 * [向 TVM 中添加 Codegen](how_to/relay_bring_your_own_codegen)
 * [Python Target 参数化](how_to/python_target_parametrization)
+* [设置 RPC 系统](https://tvm.apache.org/docs/v0.13.0/dev/how_to/setup_rpc_system.html)
