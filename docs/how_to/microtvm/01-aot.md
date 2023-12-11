@@ -2,7 +2,7 @@
 title: 3. microTVM AoT 编译
 ---
 
-# 3.microTVM AoT 编译
+# 3. microTVM AoT 编译
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_aot.html#sphx-glr-download-how-to-work-with-microtvm-micro-aot-py) 下载完整的示例代码
