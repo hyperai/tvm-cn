@@ -1,5 +1,5 @@
 ---
-title: 6.使用 microTVM 进行模型调优
+title: 6. 使用 microTVM 进行模型调优
 ---
 
 # 6.使用 microTVM 进行模型调优
