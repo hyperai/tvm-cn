@@ -1,8 +1,8 @@
 ---
-title: 使用 microTVM 进行自动调优
+title: 6. 使用 microTVM 进行模型调优
 ---
 
-# 使用 microTVM 进行自动调优
+# 6. 使用 microTVM 进行模型调优
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_autotune.html#sphx-glr-download-how-to-work-with-microtvm-micro-autotune-py) 下载完整的示例代码
@@ -12,16 +12,61 @@ title: 使用 microTVM 进行自动调优
 
 本教程介绍如何用 C runtime 自动调优模型。
 
-``` python
+## 安装 microTVM Python 依赖项
+TVM 不包含用于 Python 串行通信包，因此在使用 microTVM 之前我们必须先安装一个。我们还需要TFLite来加载模型。
+
+```bash
+pip install pyserial==3.5 tflite==2.1
+```
+
+```python
+# 如果下面的标志为 False，可以跳过下一节（安装 Zephyr）
+# 安装 Zephyr 约花费20分钟
 import os
+
+use_physical_hw = bool(os.getenv("TVM_MICRO_USE_HW"))
+
+```
+## 安装 Zephyr
+
+``` bash
+# 安装 west 和 ninja
+python3 -m pip install west
+apt-get install -y ninja-build
+
+# 安装 ZephyrProject
+ZEPHYR_PROJECT_PATH="/content/zephyrproject"
+export ZEPHYR_BASE=${ZEPHYR_PROJECT_PATH}/zephyr
+west init ${ZEPHYR_PROJECT_PATH}
+cd ${ZEPHYR_BASE}
+git checkout v3.2-branch
+cd ..
+west update
+west zephyr-export
+chmod -R o+w ${ZEPHYR_PROJECT_PATH}
+
+# 安装 Zephyr SDK
+cd /content
+ZEPHYR_SDK_VERSION="0.15.2"
+wget "https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${ZEPHYR_SDK_VERSION}/zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+tar xvf "zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+mv "zephyr-sdk-${ZEPHYR_SDK_VERSION}" zephyr-sdk
+rm "zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+
+# 安装 python 依赖
+python3 -m pip install -r "${ZEPHYR_BASE}/scripts/requirements.txt"
+```
+
+## 导入 Python 依赖项
+
+``` python
 import json
 import numpy as np
 import pathlib
 
 import tvm
 from tvm.relay.backend import Runtime
-
-use_physical_hw = bool(os.getenv("TVM_MICRO_USE_HW"))
+import tvm.micro.testing
 ```
 
 ## 定义模型
@@ -62,19 +107,16 @@ params = {"weight": weight_sample}
 
 ``` python
 RUNTIME = Runtime("crt", {"system-lib": True})
-TARGET = tvm.target.target.micro("host")
+TARGET = tvm.micro.testing.get_target("crt")
 
 # 为物理硬件编译
 # --------------------------------------------------------------------------
 # 在物理硬件上运行时，选择描述硬件的 TARGET 和 BOARD。
 # 下面的示例中选择 STM32L4R5ZI Nucleo。
 if use_physical_hw:
-    boards_file = pathlib.Path(tvm.micro.get_microtvm_template_projects("zephyr")) / "boards.json"
-    with open(boards_file) as f:
-        boards = json.load(f)
-
     BOARD = os.getenv("TVM_MICRO_BOARD", default="nucleo_l4r5zi")
-    TARGET = tvm.target.target.micro(boards[BOARD]["model"])
+    SERIAL = os.getenv("TVM_MICRO_SERIAL", default=None)
+    TARGET = tvm.micro.testing.get_target("zephyr", BOARD)
 ```
 
 ## 提取调优任务
@@ -117,10 +159,10 @@ if use_physical_hw:
     module_loader = tvm.micro.AutoTvmModuleLoader(
         template_project_dir=pathlib.Path(tvm.micro.get_microtvm_template_projects("zephyr")),
         project_options={
-            "zephyr_board": BOARD,
-            "west_cmd": "west",
+            "board": BOARD,
             "verbose": False,
             "project_type": "host_driven",
+            "serial_number": SERIAL,
         },
     )
     builder = tvm.autotvm.LocalBuilder(
@@ -182,10 +224,11 @@ if use_physical_hw:
         lowered,
         temp_dir / "project",
         {
-            "zephyr_board": BOARD,
-            "west_cmd": "west",
+            "board": BOARD,
             "verbose": False,
             "project_type": "host_driven",
+            "serial_number": SERIAL,
+            "config_main_stack_size": 4096,
         },
     )
 
@@ -240,10 +283,12 @@ if use_physical_hw:
         lowered_tuned,
         temp_dir / "project",
         {
-            "zephyr_board": BOARD,
+            "board": BOARD,
             "west_cmd": "west",
             "verbose": False,
             "project_type": "host_driven",
+            "serial_number": SERIAL,
+            "config_main_stack_size": 4096,
         },
     )
 
@@ -273,6 +318,6 @@ tvmgen_default_fused_layout_transform         tvmgen_default_fused_layout_transf
 Total_time                                    -                                             195.83    -        -                  -       -        -
 ```
 
-[下载 Python 源代码：micro_autotune.py](https://tvm.apache.org/docs/_downloads/9ccca8fd489a1486ac71b55a55c320c5/micro_autotune.py)
+[下载 Python 源代码：micro_autotune.py](https://tvm.apache.org/docs/v0.13.0/_downloads/9ccca8fd489a1486ac71b55a55c320c5/micro_autotune.py)
 
-[下载 Jupyter notebook：micro_autotune.ipynb](https://tvm.apache.org/docs/_downloads/f83ba3df2d52f9b54cf141114359481a/micro_autotune.ipynb)
+[下载 Jupyter notebook：micro_autotune.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/f83ba3df2d52f9b54cf141114359481a/micro_autotune.ipynb)

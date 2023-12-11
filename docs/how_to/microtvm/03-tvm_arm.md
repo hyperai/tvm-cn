@@ -1,8 +1,8 @@
 ---
-title: 在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
+title: 7. 在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
 ---
 
-# 在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
+# 7. 在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_ethosu.html#sphx-glr-download-how-to-work-with-microtvm-micro-ethosu-py) 下载完整的示例代码
@@ -51,15 +51,14 @@ TVMC - TVM driver command-line interface
  attrs==21.2.0
  cloudpickle==2.0.0
  decorator==5.1.0
- ethos-u-vela==3.2.0
- flatbuffers==1.12
+ ethos-u-vela==3.8.0
+ flatbuffers==2.0.7
  lxml==4.6.3
  nose==1.3.7
  numpy==1.19.5
  Pillow==8.3.2
  psutil==5.8.0
  scipy==1.5.4
- synr==0.4
  tflite==2.4.0
  tornado==6.1
 ```
@@ -278,7 +277,7 @@ demo.c[¶](#demo-c)
  #include <tvm_runtime.h>
 
  #include "ethosu_mod.h"
- #include "uart.h"
+ #include "uart_stdout.h"
 
  // convert_image.py 和 convert_labels.py 生成的头文件
  #include "inputs.h"
@@ -288,7 +287,7 @@ demo.c[¶](#demo-c)
  int abs(int v) { return v * ((v > 0) - (v < 0)); }
 
  int main(int argc, char** argv) {
-   uart_init();
+   UartStdOutInit();
    printf("Starting Demo\n");
    EthosuInit();
 
@@ -444,6 +443,6 @@ Info: /OSCI/SystemC: Simulation stopped by user.
 
 可以看到，输出的最后部分显示图像已被正确分类为「tabby」。
 
-[下载 Python 源代码：micro_ethosu.py](https://tvm.apache.org/docs/_downloads/ab2eef18d10188532645b1d60fc7dd68/micro_ethosu.py)
+[下载 Python 源代码：micro_ethosu.py](https://tvm.apache.org/docs/v0.13.0/_downloads/ab2eef18d10188532645b1d60fc7dd68/micro_ethosu.py)
 
-[下载 Jupyter Notebook：micro_ethosu.ipynb](https://tvm.apache.org/docs/_downloads/55a9eff88b1303e525d53269eeb16897/micro_ethosu.ipynb)
+[下载 Jupyter Notebook：micro_ethosu.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/55a9eff88b1303e525d53269eeb16897/micro_ethosu.ipynb)

@@ -1,8 +1,8 @@
 ---
-title: 使用 TVMC Micro 执行微模型
+title: 1. microRVM CLI 工具
 ---
 
-# 使用 TVMC Micro 执行微模型
+# 1. 使用 TVMC Micro 执行微模型
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_tvmc.html#sphx-glr-download-how-to-work-with-microtvm-micro-tvmc-py) 下载完整的示例代码
@@ -10,19 +10,44 @@ title: 使用 TVMC Micro 执行微模型
 
 **作者**：[Mehrdad Hessar](https://github.com/mehrdadh)
 
-本教程介绍了如何为微型设备编译一个微模型，并在 Zephyr 平台上构建一个程序，来执行这个模型，烧录程序，并用 tvmc micro 命令来执行所有模型。
+本教程介绍了如何为微型设备编译一个微模型，并在 Zephyr 平台上构建一个程序，来执行这个模型，烧录程序，并用 tvmc micro 命令来执行所有模型。在进行本教程之前你需要安装 python 和 Zephyr 依赖
 
-:::note
-本教程将介绍如何在 Zephyr 平台上使用 TVMC Mirco。学习本教程前，请安装 Zephyr 依赖项，或通过以下方式（已经安装了 Zephyr 依赖）之一运行本教程。
+## 安装 microTVM Python 依赖项
+TVM 不包含用于 Python 串行通信包，因此在使用 microTVM 之前我们必须先安装一个。我们还需要TFLite来加载模型。
 
-* 使用 [microTVM 虚拟机参考手册](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_reference_vm.html#sphx-glr-how-to-work-with-microtvm-micro-reference-vm-py)。
-* 使用 TVM 提供的 QEMU Docker 镜像。下载并登录到 Docker 镜像：
+```bash
+pip install pyserial==3.5 tflite==2.1
+```
+
+## 安装 Zephyr
 
 ``` bash
-cd tvm
-./docker/bash.sh tlcpack/ci-qemu
+# 安装 west 和 ninja
+python3 -m pip install west
+apt-get install -y ninja-build
+
+# 安装 ZephyrProject
+ZEPHYR_PROJECT_PATH="/content/zephyrproject"
+export ZEPHYR_BASE=${ZEPHYR_PROJECT_PATH}/zephyr
+west init ${ZEPHYR_PROJECT_PATH}
+cd ${ZEPHYR_BASE}
+git checkout v3.2-branch
+cd ..
+west update
+west zephyr-export
+chmod -R o+w ${ZEPHYR_PROJECT_PATH}
+
+# 安装 Zephyr SDK
+cd /content
+ZEPHYR_SDK_VERSION="0.15.2"
+wget "https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${ZEPHYR_SDK_VERSION}/zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+tar xvf "zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+mv "zephyr-sdk-${ZEPHYR_SDK_VERSION}" zephyr-sdk
+rm "zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64.tar.gz"
+
+# 安装 python 依赖
+python3 -m pip install -r "${ZEPHYR_BASE}/scripts/requirements.txt"
 ```
-:::
 
 ## 使用 TVMC Micro
 
@@ -44,31 +69,29 @@ tvmc micro --help
 
 ## 获取微模型
 
-本教程使用 TFLite micro 的 Magic Wand 模型（一种深度卷积层模型，可通过加速度传感器识别手势）。
+本教程使用 TFLite micro 的 Micro Speech 模型。Micro Speech 是一个深度卷积模型，可以识别演讲中的关键词。
 
 本教程使用 TFLite 格式的模型。
 
 ``` bash
-wget https://github.com/tensorflow/tflite-micro/raw/main/tensorflow/lite/micro/examples/magic_wand/magic_wand.tflite
+wget https://github.com/tensorflow/tflite-micro/raw/a56087ffa2703b4d5632f024a8a4c899815c31bb/tensorflow/lite/micro/examples/micro_speech/micro_speech.tflite
 ```
 
 ## 将 TFLite 模型编译为模型库格式
 
 模型库格式（Model Library Format，简称 MLF）是 TVM 为微 target 提供的一种输出格式，MLF 是包含了 TVM 编译器输出的所有部分的 tarball，这些编译器输出可以用于 TVM 环境之外的微 target。更多信息请访问 [模型库格式](https://tvm.apache.org/docs/arch/model_library_format.html)。
 
-为 `qemu_x86` Zephyr 板生成一个 MLF 文件，为 `magic_wand` TFLite 模型生成 MLF 输出：
+在这里，我们为 `qemu_x86` Zephyr 板生成一个 MLF 文件。您可以选择使用 AOT 或图形执行器类型来运行本教程，不过我们建议在 microTVM 目标上使用 AOT，因为 AOT 使用静态内存分配的提前编译。要生成 `micro_speech` tflite 模型的 MLF 输出：：
 
 ``` bash
-tvmc compile magic_wand.tflite \
-     --target='c -keys=cpu -link-params=0 -model=host' \
-     --runtime=crt \
-     --runtime-crt-system-lib 1 \
-     --executor='graph' \
-     --executor-graph-link-params 0 \
-     --output model.tar \
-     --output-format mlf \
-     --pass-config tir.disable_vectorize=1 \
-     --disabled-pass=AlterOpLayout
+tvmc compile micro_speech.tflite \
+    --target='c -keys=cpu -model=host' \
+    --runtime=crt \
+    --runtime-crt-system-lib 1 \
+    --executor='aot' \
+    --output model.tar \
+    --output-format mlf \
+    --pass-config tir.disable_vectorize=1
 ```
 
 这将生成一个包含 TVM 编译器输出文件的 `model.tar` 文件。若要为不同的 Zephyr 设备运行此命令，需要更新 `target`。例如，对于 `nrf5340dk_nrf5340_cpuapp` 板，target 是 `--target='c -keys=cpu -link-params=0 -model=nrf5340dk'`。
@@ -82,7 +105,7 @@ tvmc micro create \
     project \
     model.tar \
     zephyr \
-    --project-option project_type=host_driven zephyr_board=qemu_x86
+    --project-option project_type=host_driven board=qemu_x86
 ```
 
 以上命令为 `qemu_x86` Zephyr 板生成一个 `Host-Driven` Zephyr 项目，在 Host-Driven 模板项目中，图执行器（Graph Executor）将在主机上运行，并通过使用 RPC 机制向设备发出命令，在 Zephyr 设备上运行模型执行。阅读有关[主机驱动执行](https://tvm.apache.org/docs/arch/microtvm_design.html#host-driven-execution)的更多信息。
@@ -127,17 +150,20 @@ tvmc run \
     --fill-mode ones \
     --print-top 4
 
- # Output:
- #
- # INFO:__main__:b'[100%] [QEMU] CPU: qemu32,+nx,+pae\n'
- # remote: microTVM Zephyr runtime - running
- # INFO:__main__:b'[100%] Built target run\n'
- # [[3.         1.         2.         0.        ]
- # [0.47213247 0.41364592 0.07525456 0.03896701]]
 ```
 
 具体来说，此命令将模型的输入全部设置为 1，并显示输出的四个值及其索引。
 
-[下载 Python 源代码：micro_tvmc.py](https://tvm.apache.org/docs/_downloads/eb483c672b88006c331115968e0ffd9b/micro_tvmc.py)
+```bash
+# Output:
+# INFO:__main__:b'[100%] [QEMU] CPU: qemu32,+nx,+pae\n'
+# remote: microTVM Zephyr runtime - running
+# INFO:__main__:b'[100%] Built target run\n'
+# [[   3    2    1    0]
+#  [ 113 -120 -121 -128]]
 
-[下载 Jupyter notebook：micro_tvmc.ipynb](https://tvm.apache.org/docs/_downloads/6e511f5a8ddbf12f2fca2dfadc0cc4a9/micro_tvmc.ipynb)
+```
+
+[下载 Python 源代码：micro_tvmc.py](https://tvm.apache.org/docs/v0.13.0/_downloads/eb483c672b88006c331115968e0ffd9b/micro_tvmc.py)
+
+[下载 Jupyter notebook：micro_tvmc.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/6e511f5a8ddbf12f2fca2dfadc0cc4a9/micro_tvmc.ipynb)

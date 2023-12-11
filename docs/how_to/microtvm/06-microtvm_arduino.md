@@ -1,8 +1,8 @@
 ---
-title: 在 Arduino 上为 microTVM 训练视觉模型
+title: 5. 在 Arduino 上为 microTVM 训练视觉模型
 ---
 
-# 在 Arduino 上为 microTVM 训练视觉模型
+# 5. 在 Arduino 上为 microTVM 训练视觉模型
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_train.html#sphx-glr-download-how-to-work-with-microtvm-micro-train-py) 下载完整的示例代码
@@ -11,10 +11,6 @@ title: 在 Arduino 上为 microTVM 训练视觉模型
 **作者**：[Gavin Uberti](https://github.com/guberti)
 
 本教程介绍如何训练 MobileNetV1 模型以适应嵌入式设备，以及如何使用 TVM 将这些模型部署到 Arduino。
-
-:::note
-推荐用 Jupyter Notebook 查看本教程的代码，可以用本页底部的链接下载并运行，或者使用 [Google Colab](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/a7c7ea4b5017ae70db1f51dd8e6dcd82/micro_train.ipynb) 免费在线查看。
-:::
 
 ## 背景简介
 
@@ -346,20 +342,24 @@ TVM 是一个优化编译器，对模型的优化是通过**中间表示**分阶
 
 ``` python
 import shutil
-import tflite
 import tvm
+import tvm.micro.testing
 
 # 在 TFLite 1 和 2 中加载模型的方法不同
 try:  # TFLite 2.1 and above  # TFLite 2.1 及以上
+    import tflite
+
     tflite_model = tflite.Model.GetRootAsModel(quantized_model, 0)
 except AttributeError:  # Fall back to TFLite 1.14 method # 回退到 TFLite 1.14 方法
+    import tflite.Model
+
     tflite_model = tflite.Model.Model.GetRootAsModel(quantized_model, 0)
 
 # 转换为 Relay 中间表示
 mod, params = tvm.relay.frontend.from_tflite(tflite_model)
 
 # 设置配置标志以提高性能
-target = tvm.target.target.micro("nrf52840")
+target = tvm.micro.testing.get_target("zephyr", "nrf5340dk_nrf5340_cpuapp")
 runtime = tvm.relay.backend.Runtime("crt")
 executor = tvm.relay.backend.Executor("aot", {"unpacked-api": True})
 
@@ -374,7 +374,7 @@ arduino_project = tvm.micro.generate_project(
     mod,
     f"{FOLDER}/models/project",
     {
-        "arduino_board": "nano33ble",
+        "board": "nano33ble",
         "arduino_cli_cmd": "/content/bin/arduino-cli",
         "project_type": "example_project",
     },
@@ -505,6 +505,6 @@ Other object results:
 
 **脚本总运行时长：**（ 4 分 44.392 秒）
 
-[下载 Python 源代码：micro_train.py](https://tvm.apache.org/docs/_downloads/b52cec46baf4f78d6bcd94cbe269c8a6/micro_train.py)
+[下载 Python 源代码：micro_train.py](https://tvm.apache.org/docs/v0.13.0/_downloads/b52cec46baf4f78d6bcd94cbe269c8a6/micro_train.py)
 
-[下载 Jupyter Notebook：micro_train.ipynb](https://tvm.apache.org/docs/_downloads/a7c7ea4b5017ae70db1f51dd8e6dcd82/micro_train.ipynb)
+[下载 Jupyter Notebook：micro_train.ipynb](https://tvm.apache.org/docs/v0.13.0/_downloads/a7c7ea4b5017ae70db1f51dd8e6dcd82/micro_train.ipynb)
