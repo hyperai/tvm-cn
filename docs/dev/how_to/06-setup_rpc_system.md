@@ -110,9 +110,9 @@ $ export PYTHONPATH=`pwd`/python:${PYTHONPATH}
 可以通过以下类似的命令在您的设备机器上启动RPC服务器，请根据您的具体环境修改 *RPC_TRACKER_IP*、*RPC_TRACKER_PORT*、*RPC_PROXY_IP*、*RPC_PROXY_PORT* 和 *RPC_KEY*。
 
 ```shell
-# 如果使用RPC代理，请使用此命令。
+# 如果使用 RPC 代理，请使用此命令。
 $ python3 -m tvm.exec.rpc_server --host RPC_PROXY_IP --port RPC_PROXY_PORT --through-proxy --key RPC_KEY
-# 如果不使用RPC代理，请使用此命令。
+# 如果不使用 RPC 代理，请使用此命令。
 $ python3 -m tvm.exec.rpc_server --tracker RPC_TRACKER_IP:RPC_TRACKER_PORT --key RPC_KEY
 ```
 
