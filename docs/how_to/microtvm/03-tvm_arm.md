@@ -1,5 +1,5 @@
 ---
-title: 7.在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
+title: 7. 在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
 ---
 
 # 7.在支持 CMSIS-NN 的 Arm(R) Cortex(R)-M55 CPU 和 Ethos(TM)-U55 NPU 裸机上运行 TVM
