@@ -2,7 +2,7 @@
 title: 5. 在 Arduino 上为 microTVM 训练视觉模型
 ---
 
-# 5.在 Arduino 上为 microTVM 训练视觉模型
+# 5. 在 Arduino 上为 microTVM 训练视觉模型
 
 :::note
 单击 [此处](https://tvm.apache.org/docs/how_to/work_with_microtvm/micro_train.html#sphx-glr-download-how-to-work-with-microtvm-micro-train-py) 下载完整的示例代码
