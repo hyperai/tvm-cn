@@ -28,7 +28,7 @@ microTVM 目前测试支持 Zephyr RTOS 的 Cortex-M 微控制器；不过，它
 
 1. 尝试使用[microTVM CLI 工具](https://tvm.apache.org/docs/v0.13.0/how_to/work_with_microtvm/micro_tvmc.html#tutorial-micro-cli-tool)。
 2. 尝试使用 [microTVM TFLite 教程](/docs/how_to/microtvm/microtvm_tflite)。
-3. 尝试运行更复杂的 [使用 microTVM 创建你的 MLPerfTiny 提交](https://tvm.apache.org/docs/v0.13.0/how_to/work_with_microtvm/micro_mlperftiny.html#tutorial-micro-mlperftiny)。
+3. 尝试运行更复杂的教程 [使用 microTVM 创建你的 MLPerfTiny 提交](https://tvm.apache.org/docs/v0.13.0/how_to/work_with_microtvm/micro_mlperftiny.html#tutorial-micro-mlperftiny)。
 
 ## microTVM 的工作原理
 
