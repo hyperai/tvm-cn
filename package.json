@@ -29,7 +29,7 @@
     "react-dom": "18.2.0",
     "rehype-katex": "7",
     "remark-math": "6",
-    "sass": "1.69.6"
+    "sass": "1.69.7"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.1",
