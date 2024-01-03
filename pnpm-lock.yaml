@@ -15,8 +15,8 @@ dependencies:
     specifier: 3.0.0
     version: 3.0.0(@types/react@18.2.33)(react@18.2.0)
   '@openbayes/docsearch-css':
-    specifier: 1.2.7
-    version: 1.2.7(kladenets@2.0.0-15)
+    specifier: 1.11.1
+    version: 1.11.1(kladenets@2.0.0-15)
   '@openbayes/docusaurus-enlight':
     specifier: 1.11.1
     version: 1.11.1(kladenets@2.0.0-15)
@@ -2503,8 +2503,8 @@ packages:
       fastq: 1.15.0
     dev: false
 
-  /@openbayes/docsearch-css@1.2.7(kladenets@2.0.0-15):
-    resolution: {integrity: sha512-P/yfu2aeMRKzsKuQk/gXXLVBv5GzEddCcwfIhBG6J8iQ8E5dwI3Lm44Sez08U92Xy5oW+4sS+Rf+s5R8nkNM/Q==}
+  /@openbayes/docsearch-css@1.11.1(kladenets@2.0.0-15):
+    resolution: {integrity: sha512-gCdZu3V1ubGhtboP3PK6tuM1lOOIs0iDZ+shaZ3euxBPINkJunNow3+5Q0FOThxFQJLgFbsF+8MwvS9vZd/BPA==}
     peerDependencies:
       kladenets: ^2.0.0-15
     dependencies:
