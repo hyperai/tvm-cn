@@ -3,9 +3,7 @@ variable "DEFAULT_TAG" {
 }
 
 # Special target: https://github.com/docker/metadata-action#bake-definition
-target "docker-metadata-action" {
-  tags = "${DEFAULT_TAG}"
-}
+target "docker-metadata-action" {}
 
 # Default target if none specified
 group "default" {
@@ -18,6 +16,7 @@ target "build" {
 
 target "build-local" {
   inherits = ["build"]
+  tags = "${DEFAULT_TAG}"
   output = ["type=docker"]
 }
 
