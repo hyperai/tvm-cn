@@ -21,7 +21,7 @@
     "@mdx-js/react": "3.0.1",
     "@openbayes/docsearch-css": "1.11.1",
     "@openbayes/docusaurus-enlight": "1.11.1",
-    "clsx": "2.1.0",
+    "clsx": "2.1.1",
     "docusaurus-plugin-sass": "0.2.5",
     "kladenets": "2.0.0-15",
     "prism-react-renderer": "2.3.1",
