@@ -66,7 +66,7 @@ TVM 框架若要使用新的 DeviceAPI，应该按照以下步骤注册：
 
 ## Target 代码生成器
 
-代码生成器采用优化的 `IRModule`，并将其转换为可执行表示。每个代码生成器注册后，才能被 TVM 框架使用。这是通过注册 `"target.build.foo"` 函数来完成的，其中 `foo` 与上面的 `TVM_REGISTER_TARGET_KIND` 定义中使用的名称相同。
+代码生成器接收一个优化后的 `IRModule`，并将其转换为可执行表示。每个代码生成器注册后，才能被 TVM 框架使用。这是通过注册 `"target.build.foo"` 函数来完成的，其中 `foo` 与上面的 `TVM_REGISTER_TARGET_KIND` 定义中使用的名称相同。
 
 ``` c++
 tvm::runtime::Module GeneratorFooCode(IRModule mod, Target target);
