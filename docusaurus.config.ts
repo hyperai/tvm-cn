@@ -40,8 +40,6 @@ const config: Config = {
             },
           },
           remarkPlugins: [remarkMath],
-          // TODO: ts fix
-          // @ts-ignore
           rehypePlugins: [rehypeKatex],
         },
         blog: {
@@ -65,7 +63,8 @@ const config: Config = {
   stylesheets: [
     {
       // href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      href: 'https://experiments-hk.sparanoid.net/jsd/npm/katex@0.13.24/dist/katex.min.css',
+      // href: 'https://experiments-hk.sparanoid.net/jsd/npm/katex@0.13.24/dist/katex.min.css',
+      href: 'https://workers.vrp.moe/api/jsd/katex@0.13.24/dist/katex.min.css',
       type: 'text/css',
       integrity:
         'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
@@ -96,7 +95,7 @@ const config: Config = {
         },
         // {to: '/docs', label: '查看文档', position: 'left'},
         {to: '/about', label: '关于', position: 'left'},
-        {href: 'https://github.com/hyperai/tvm-cn', label: 'GitHub 项目', position: 'left'},
+        {href: 'https://github.com/hyperai/tvm-cn', label: 'GitHub', position: 'left'},
         {href: 'https://hyper.ai', label: '返回超神经', position: 'left'},
 
         // https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js#L535C1-L535C1
