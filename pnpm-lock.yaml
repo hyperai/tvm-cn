@@ -28,7 +28,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.5
-        version: 0.2.5(@docusaurus/core@3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3))(sass@1.77.2)(webpack@5.95.0)
+        version: 0.2.5(@docusaurus/core@3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3))(sass@1.79.4)(webpack@5.95.0)
       kladenets:
         specifier: 2.0.0-15
         version: 2.0.0-15
@@ -48,8 +48,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
       sass:
-        specifier: 1.77.2
-        version: 1.77.2
+        specifier: 1.79.4
+        version: 1.79.4
     devDependencies:
       '@docusaurus/module-type-aliases':
         specifier: 3.0.1
@@ -1638,6 +1638,10 @@ packages:
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
+
+  chokidar@4.0.1:
+    resolution: {integrity: sha512-n8enUVCED/KVRQlab1hr3MVpcVMvxtZjmEa956u+4YijlmQED223XMSYj2tLuKvr4jcCTzNNMpQDUer72MMmzA==}
+    engines: {node: '>= 14.16.0'}
 
   chrome-trace-event@1.0.4:
     resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
@@ -3852,6 +3856,10 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+  readdirp@4.0.2:
+    resolution: {integrity: sha512-yDMz9g+VaZkqBYS/ozoBJwaBhTbZo3UNYQHNRw1D3UFQB8oHB4uS/tAODO+ZLjGWmUbKnIlOWO+aaIiAxrUWHA==}
+    engines: {node: '>= 14.16.0'}
+
   reading-time@1.5.0:
     resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
 
@@ -4013,8 +4021,8 @@ packages:
       sass:
         optional: true
 
-  sass@1.77.2:
-    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
+  sass@1.79.4:
+    resolution: {integrity: sha512-K0QDSNPXgyqO4GZq2HO5Q70TLxTH6cIT59RdoCHMivrC8rqzaTw5ab9prjz9KUN1El4FLXrBXJhik61JR4HcGg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -7107,6 +7115,10 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
+  chokidar@4.0.1:
+    dependencies:
+      readdirp: 4.0.2
+
   chrome-trace-event@1.0.4: {}
 
   ci-info@3.9.0: {}
@@ -7476,11 +7488,11 @@ snapshots:
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.5
 
-  docusaurus-plugin-sass@0.2.5(@docusaurus/core@3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3))(sass@1.77.2)(webpack@5.95.0):
+  docusaurus-plugin-sass@0.2.5(@docusaurus/core@3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3))(sass@1.79.4)(webpack@5.95.0):
     dependencies:
       '@docusaurus/core': 3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3)
-      sass: 1.77.2
-      sass-loader: 10.5.2(sass@1.77.2)(webpack@5.95.0)
+      sass: 1.79.4
+      sass-loader: 10.5.2(sass@1.79.4)(webpack@5.95.0)
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -9711,6 +9723,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+  readdirp@4.0.2: {}
+
   reading-time@1.5.0: {}
 
   rechoir@0.6.2:
@@ -9907,7 +9921,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@10.5.2(sass@1.77.2)(webpack@5.95.0):
+  sass-loader@10.5.2(sass@1.79.4)(webpack@5.95.0):
     dependencies:
       klona: 2.0.6
       loader-utils: 2.0.4
@@ -9916,11 +9930,11 @@ snapshots:
       semver: 7.6.3
       webpack: 5.95.0
     optionalDependencies:
-      sass: 1.77.2
+      sass: 1.79.4
 
-  sass@1.77.2:
+  sass@1.79.4:
     dependencies:
-      chokidar: 3.6.0
+      chokidar: 4.0.1
       immutable: 4.3.7
       source-map-js: 1.2.1
 
