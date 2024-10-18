@@ -15,8 +15,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(@algolia/client-search@4.24.0)(@types/react@18.3.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(search-insights@2.9.0)(typescript@5.3.3)
       '@mdx-js/react':
-        specifier: 3.0.1
-        version: 3.0.1(@types/react@18.3.11)(react@18.2.0)
+        specifier: 3.1.0
+        version: 3.1.0(@types/react@18.3.11)(react@18.2.0)
       '@openbayes/docsearch-css':
         specifier: 1.11.1
         version: 1.11.1(kladenets@2.0.0-15)
@@ -996,8 +996,8 @@ packages:
   '@mdx-js/mdx@3.0.1':
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
 
-  '@mdx-js/react@3.0.1':
-    resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
+  '@mdx-js/react@3.1.0':
+    resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
@@ -6089,7 +6089,7 @@ snapshots:
       '@docusaurus/utils': 3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@docusaurus/utils-common': 3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@docusaurus/utils-validation': 3.0.1(@docusaurus/types@3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
-      '@mdx-js/react': 3.0.1(@types/react@18.3.11)(react@18.2.0)
+      '@mdx-js/react': 3.1.0(@types/react@18.3.11)(react@18.2.0)
       clsx: 2.1.1
       copy-text-to-clipboard: 3.2.0
       infima: 0.2.0-alpha.43
@@ -6348,7 +6348,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.11)(react@18.2.0)':
+  '@mdx-js/react@3.1.0(@types/react@18.3.11)(react@18.2.0)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.11
