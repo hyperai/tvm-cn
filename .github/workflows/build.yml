@@ -99,8 +99,9 @@ jobs:
           type=sha
 
     - name: Build and push
-      uses: docker/bake-action@v5
+      uses: docker/bake-action@v6
       with:
+        source: .
         files: |
           ./docker-bake.hcl
           ${{ steps.meta.outputs.bake-file }}
