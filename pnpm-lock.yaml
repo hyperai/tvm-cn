@@ -33,8 +33,8 @@ importers:
         specifier: 2.0.0-15
         version: 2.0.0-15
       prism-react-renderer:
-        specifier: 2.3.1
-        version: 2.3.1(react@18.2.0)
+        specifier: 2.4.1
+        version: 2.4.1(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -3700,8 +3700,8 @@ packages:
     resolution: {integrity: sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==}
     engines: {node: '>=4'}
 
-  prism-react-renderer@2.3.1:
-    resolution: {integrity: sha512-Rdf+HzBLR7KYjzpJ1rSoxT9ioO85nZngQEoFIhL07XhtJHlCU3SOz0GJ6+qvMyQe0Se+BV3qpe6Yd/NmQF5Juw==}
+  prism-react-renderer@2.4.1:
+    resolution: {integrity: sha512-ey8Ls/+Di31eqzUxC46h8MksNuGx/n0AAC8uKpwFau4RPDYLuE3EXTp8N8G2vX2N7UC/+IXeNUnlWBGGcAG+Ig==}
     peerDependencies:
       react: '>=16.0.0'
 
@@ -6096,7 +6096,7 @@ snapshots:
       lodash: 4.17.21
       nprogress: 0.2.0
       postcss: 8.4.47
-      prism-react-renderer: 2.3.1(react@18.2.0)
+      prism-react-renderer: 2.4.1(react@18.2.0)
       prismjs: 1.29.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -6137,7 +6137,7 @@ snapshots:
       '@types/react-router-config': 5.0.11
       clsx: 2.1.1
       parse-numeric-range: 1.3.0
-      prism-react-renderer: 2.3.1(react@18.2.0)
+      prism-react-renderer: 2.4.1(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.7.0
@@ -9512,7 +9512,7 @@ snapshots:
 
   pretty-time@1.1.0: {}
 
-  prism-react-renderer@2.3.1(react@18.2.0):
+  prism-react-renderer@2.4.1(react@18.2.0):
     dependencies:
       '@types/prismjs': 1.26.4
       clsx: 2.1.1
