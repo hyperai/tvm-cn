@@ -37,7 +37,7 @@ Apache TVM 是一个用于 CPU、GPU 和机器学习加速器的开源机器学�
 
    Relay 应用图级优化 pass 来优化模型。
 
-3. 降级为张量表达式（TE）表示。降级是指将较高级的表示转换为较低级的表示。应用了高级优化之后，Relay 通过运行 FuseOps pass，把模型划分为许多小的子图，并将子图降级为 TE 表示。张量表达式（TE）是一种用于描述张量计算的领域特定语言。 TE 还提供了几个 schedule 原语来指定底层循环优化，例如循环切分、矢量化、并行化、循环展开和融合。为将 Relay 表示转换为 TE 表示，TVM 包含了一个张量算子清单（TOPI），其中包含常用张量算子的预定义模板（例如，conv2d、transpose）。
+3. 降级为张量表达式（TE）表示。降级是指将较高级的表示转换为较低级的表示。应用了高级优化之后，Relay 通过运行 FuseOps pass，把模型划分为许多小的子图，并将子图降级为 TE 表示。张量表达式（TE）是一种用于描述张量计算的领域特定语言。 TE 还提供了一些 schedule 原语来指定底层循环优化，例如循环切分、矢量化、并行化、循环展开和融合。为辅助将 Relay 表示转换为 TE 表示的过程，TVM 包含了一个张量算子清单（TOPI），其中包含常用张量算子的预定义模板（例如，conv2d、transpose）。
 
 4. 使用 auto-tuning 模块 AutoTVM 或 AutoScheduler 搜索最佳 schedule。schedule 为 TE 中定义的算子或子图指定底层循环优化。auto-tuning 模块搜索最佳 schedule，并将其与 cost model 和设备上的测量值进行比较。 TVM 中有两个 auto-tuning 模块。
    * AutoTVM：基于模板的 auto-tuning 模块。它运行搜索算法以在用户定义的模板中找到可调 knob 的最佳值。 TOPI 中已经提供了常用算子的模板。
