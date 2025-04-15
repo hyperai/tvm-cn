@@ -15,6 +15,9 @@ const config: Config = {
   organizationName: 'hyperai', // Usually your GitHub org/user name.
   projectName: 'tvm-cn', // Usually your repo name.
 
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+
   future: {
     experimental_faster: true,
   },

@@ -111,7 +111,7 @@ INFO:RPCTracker:bind to 0.0.0.0:9190
 
 现在可以将设备注册到跟踪器。第一步是为 Pynq 设备构建 TVM runtime。
 
-按照 [VTA：多功能张量加速器](index) 在设备上构建 TVM runtime。然后将设备注册到跟踪器：
+按照 [VTA：多功能张量加速器](./) 在设备上构建 TVM runtime。然后将设备注册到跟踪器：
 
 ``` bash
 python -m tvm.exec.rpc_server --tracker=[HOST_IP]:9190 --key=pynq
