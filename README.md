@@ -26,6 +26,8 @@ pnpm install
 pnpm start
 ```
 
+本项目基于 Docusaurus 构建，具体的 Markdown 格式要求请参考 [Docusaurus 文档](https://docusaurus.io/docs/docs-introduction)。
+
 迁移图片，将第三方的外部图片按其完整路径进行迁移，例如图片：
 
 ```md
