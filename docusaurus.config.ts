@@ -16,6 +16,9 @@ const config: Config = {
   projectName: 'tvm-cn', // Usually your repo name.
 
   future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    },
     experimental_faster: true,
   },
 

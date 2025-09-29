@@ -16,27 +16,27 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.7.0",
-    "@docusaurus/faster": "^3.7.0",
-    "@docusaurus/preset-classic": "^3.7.0",
-    "@mdx-js/react": "^3.1.0",
+    "@docusaurus/core": "^3.9.1",
+    "@docusaurus/faster": "^3.9.1",
+    "@docusaurus/preset-classic": "^3.9.1",
+    "@mdx-js/react": "^3.1.1",
     "@openbayes/docsearch-css": "^1.11.1",
     "@openbayes/docusaurus-enlight": "^1.11.1",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
     "kladenets": "2.0.0-15",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "sass": "^1.86.3"
+    "sass": "^1.93.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.7.0",
-    "@docusaurus/tsconfig": "^3.7.0",
-    "@docusaurus/types": "^3.7.0",
-    "typescript": "^5.8.3"
+    "@docusaurus/module-type-aliases": "^3.9.1",
+    "@docusaurus/tsconfig": "^3.9.1",
+    "@docusaurus/types": "^3.9.1",
+    "typescript": "^5.9.2"
   },
   "browserslist": {
     "production": [
