@@ -15,11 +15,13 @@ const config: Config = {
   organizationName: 'hyperai', // Usually your GitHub org/user name.
   projectName: 'tvm-cn', // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-
   future: {
     experimental_faster: true,
+  },
+
+  markdown: {
+    // https://docusaurus.io/docs/markdown-features#mdx-vs-commonmark
+    format: 'detect',
   },
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -43,7 +45,7 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '0.13.0',
+              label: '0.21.0',
             },
           },
           remarkPlugins: [remarkMath],
