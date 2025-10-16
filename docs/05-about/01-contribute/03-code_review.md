@@ -12,7 +12,7 @@ title: 代码审查
 * [达成共识](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E8%80%83%E9%87%8F%E5%9B%A0%E7%B4%A0)
 * [一致性](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%B8%80%E8%87%B4%E6%80%A7)
 * [其他建议](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%85%B6%E4%BB%96%E5%BB%BA%E8%AE%AE)
-   * [深思 API ](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)与[数据结构设计](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)
+   * [深思 API ](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)[与](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)[数据结构设计](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)
    * [最小化依赖](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%9C%80%E5%B0%8F%E5%8C%96%E4%BE%9D%E8%B5%96)
    * [简洁实现](https://tvm.hyper.ai/docs/about/contribute/code_review#%E7%AE%80%E6%B4%81%E5%AE%9E%E7%8E%B0)
    * [在代码审阅中记录经验教训](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%9C%A8%E4%BB%A3%E7%A0%81%E5%AE%A1%E9%98%85%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD)
