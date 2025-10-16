@@ -18,10 +18,10 @@ TVM 由社区成员共同开发，欢迎任何人参与贡献。我们重视各�
 
 以下是各方面贡献的指导：
 * [TVM 社区准则](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community)
-   * [通用开发流程](https://tvm.apache.org/docs/contribute/community.html#general-development-process)
-   * [策略决策流程](https://tvm.apache.org/docs/contribute/community.html#strategy-decision-process)
-   * [提交者 (Committers)](https://tvm.apache.org/docs/contribute/community.html#committers)
-   * [审阅者 (Reviewers)](https://tvm.apache.org/docs/contribute/community.html#reviewers)
+  * [通用开发流程](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community#%E9%80%9A%E7%94%A8%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B)
+  * [战略决策流程](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community#%E6%88%98%E7%95%A5%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B) 
+  * [提交者](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community#%E6%8F%90%E4%BA%A4%E8%80%85) 
+  * [审阅者](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community#%E6%8F%90%E4%BA%A4%E8%80%85)
 * [提交 Pull Request](https://tvm.hyper.ai/docs/about/contribute/Submit_a_pull_request)
    * [指南](https://tvm.apache.org/docs/contribute/pull_request.html#guidelines)
    * [提交信息指南](https://tvm.apache.org/docs/contribute/pull_request.html#commit-message-guideline)
