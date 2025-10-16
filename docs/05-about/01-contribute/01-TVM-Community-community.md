@@ -4,7 +4,7 @@ title: 社区准则
 
 ---
 
-* [通用开发流程](https://tvm.apache.org/docs/contribute/community.html#general-development-process)
+* [通用开发流程](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community#%E9%80%9A%E7%94%A8%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B)
 * [战略决策流程](https://tvm.apache.org/docs/contribute/community.html#general-development-process) 
 * [提交者](https://tvm.apache.org/docs/contribute/community.html#strategy-decision-process) 
 * [审阅者](https://tvm.apache.org/docs/contribute/community.html#committers)
