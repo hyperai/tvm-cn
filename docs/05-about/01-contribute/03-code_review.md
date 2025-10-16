@@ -129,7 +129,7 @@ title: 代码审查
 
 ### 在代码审阅中记录经验教训
 
-如果你发现某些问题是反复出现的、具有共性的，可以将其总结并添加到[代码指南与技巧](https://tvm.apache.org/docs/contribute/code_guide.html#code-guide)。在要求改动时引用该文档，有助于将经验传达给整个社区。
+如果你发现某些问题是反复出现的、具有共性的，可以将其总结并添加到[代码指南与技巧](https://tvm.hyper.ai/docs/about/contribute/code_guide_and_Tips)。在要求改动时引用该文档，有助于将经验传达给整个社区。
 
 ### 
 
