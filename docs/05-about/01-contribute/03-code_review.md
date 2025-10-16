@@ -4,28 +4,28 @@ title: 代码审查
 
 ---
 
-* [建立信任](https://tvm.apache.org/docs/contribute/code_review.html#building-trust)
-* [社区参与](https://tvm.apache.org/docs/contribute/code_review.html#community-participation)
-* [仔细阅读代码](https://tvm.apache.org/docs/contribute/code_review.html#read-the-code-carefully)
-* [保持尊重](https://tvm.apache.org/docs/contribute/code_review.html#be-respectful)
-* [代码质量考量因素](https://tvm.apache.org/docs/contribute/code_review.html#factors-to-consider-about-code-quality)
-* [达成共识](https://tvm.apache.org/docs/contribute/code_review.html#consensus-building)
-* [一致性](https://tvm.apache.org/docs/contribute/code_review.html#consistency)
-* [其他建议](https://tvm.apache.org/docs/contribute/code_review.html#additional-recommendations)
-   * [深思 API ](https://tvm.apache.org/docs/contribute/code_review.html#deliberate-on-api-and-data-structures)[与](https://tvm.apache.org/docs/contribute/code_review.html#deliberate-on-api-and-data-structures)[数据结构设计](https://tvm.apache.org/docs/contribute/code_review.html#deliberate-on-api-and-data-structures)
-   * [最小化依赖](https://tvm.apache.org/docs/contribute/code_review.html#minimize-dependencies)
-   * [简洁实现](https://tvm.apache.org/docs/contribute/code_review.html#concise-implementation)
-   * 在代码审阅中记录经验教训
-   * 学习其他人的代码审阅
-   * [明确批准或请求更改](https://tvm.apache.org/docs/contribute/code_review.html#approve-and-request-changes-explicitly)
-   * 审阅者职责
+* [建立信任](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%BB%BA%E7%AB%8B%E4%BF%A1%E4%BB%BB)
+* [社区参与](https://tvm.hyper.ai/docs/about/contribute/code_review#%E7%A4%BE%E5%8C%BA%E5%8F%82%E4%B8%8Ecommunity-participation)
+* [仔细阅读代码](https://tvm.hyper.ai/docs/about/contribute/code_review#%E8%AE%A4%E7%9C%9F%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81)
+* [保持尊重](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BF%9D%E6%8C%81%E5%B0%8A%E9%87%8D)
+* [代码质量考量因素](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E8%80%83%E9%87%8F%E5%9B%A0%E7%B4%A0)
+* [达成共识](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E8%80%83%E9%87%8F%E5%9B%A0%E7%B4%A0)
+* [一致性](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%B8%80%E8%87%B4%E6%80%A7)
+* [其他建议](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%85%B6%E4%BB%96%E5%BB%BA%E8%AE%AE)
+   * [深思 API ](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)与[数据结构设计](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%B7%B1%E6%80%9D-api-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)
+   * [最小化依赖](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%9C%80%E5%B0%8F%E5%8C%96%E4%BE%9D%E8%B5%96)
+   * [简洁实现](https://tvm.hyper.ai/docs/about/contribute/code_review#%E7%AE%80%E6%B4%81%E5%AE%9E%E7%8E%B0)
+   * [在代码审阅中记录经验教训](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%9C%A8%E4%BB%A3%E7%A0%81%E5%AE%A1%E9%98%85%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD)
+   * [学习其他人的代码审阅](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%AD%A6%E4%B9%A0%E5%85%B6%E4%BB%96%E4%BA%BA%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%A1%E9%98%85)
+   * [明确批准或请求更改](https://tvm.hyper.ai/docs/about/contribute/code_review#%E6%98%8E%E7%A1%AE%E6%89%B9%E5%87%86%E6%88%96%E8%AF%B7%E6%B1%82%E6%9B%B4%E6%94%B9)
+   * [审阅者职责](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%AE%A1%E9%98%85%E8%80%85%E8%81%8C%E8%B4%A3)
 
 
 
 开源代码是由背景、兴趣、目标多样的社区成员共同维护的。因此，提供清晰、文档齐全、易维护的代码和流程非常重要。代码评审是一种协作过程，旨在集体发现潜在问题、提升代码质量，同时让贡献者与评审者深入了解代码库及其设计假设。它也是保证多个开发者可以共同维护某一部分代码的机制之一。我们鼓励贡献者在请求评审之前将代码打磨到可评审的状态。对于候选提交者（committer）来说尤其重要，因为提交者不仅要写代码，还要参与评审工作。
 
 
-本文档是关于开源代码评审的活动文档。建议同时阅读 [TVM 社区指南](https://tvm.apache.org/docs/contribute/community.html#community-guide) 了解通用的开发流程。
+本文档是关于开源代码评审的活动文档。建议同时阅读 [TVM 社区指南](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community/) 了解通用的开发流程。
 
 
 ## 建立信任
@@ -80,7 +80,7 @@ title: 代码审查
 相较于其他方面，代码可读性是一个相对主观的问题。每个人对「怎样写出好的代码」都有不同的看法。评审者应提供具有建设性和可操作性的意见。但代码审阅不应变成强迫别人照你那样写代码的过程。相反，你也应意识到你觉得没问题的内容，可能并不适合更广泛的社区。应根据代码的内容、贡献的范围以及贡献者的背景，合理判断什么是合适的。
 
 
-我们在编写代码时遵循通用的[代码指南与技巧](https://tvm.apache.org/docs/contribute/code_guide.html#code-guide)。风格指南的目的是确保代码在原作者离开后依然具有可读性与可维护性。风格不仅仅是格式，还包括如何撰写文档、变量命名以及其他格式器无法自动强制执行的约定。
+我们在编写代码时遵循通用的[代码指南与技巧](https://tvm.hyper.ai/docs/about/contribute/code_guide_and_Tips)。风格指南的目的是确保代码在原作者离开后依然具有可读性与可维护性。风格不仅仅是格式，还包括如何撰写文档、变量命名以及其他格式器无法自动强制执行的约定。
 
 ## 达成共识
 
