@@ -4,8 +4,8 @@ title: 错误处理指南
 
 ---
 
-* [在 C++ 中抛出特定错误](https://tvm.apache.org/docs/contribute/error_handling.html#raise-a-specific-error-in-c)
-* [如何选择错误类型](https://tvm.apache.org/docs/contribute/error_handling.html#how-to-choose-an-error-type)
+* [在 C++ 中抛出特定错误](https://tvm.hyper.ai/docs/about/contribute/error_handling-guide#%E5%9C%A8-c-%E4%B8%AD%E6%8A%9B%E5%87%BA%E7%89%B9%E5%AE%9A%E9%94%99%E8%AF%AF)
+* [如何选择错误类型](https://tvm.hyper.ai/docs/about/contribute/error_handling-guide#%E5%9C%A8-c-%E4%B8%AD%E6%8A%9B%E5%87%BA%E7%89%B9%E5%AE%9A%E9%94%99%E8%AF%AF)
 
 
  TVM 包含结构化的错误类，用于指示特定类型的错误。请尽可能抛出特定的错误类型，以便用户在必要时可以编写代码处理某一类特定错误。在 Python 中，你可以直接抛出具体的错误对象。而在 C++ 等其他语言中，你只需在错误信息前添加 `<ErrorType>:` 前缀（见下文）。
