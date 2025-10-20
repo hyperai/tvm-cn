@@ -174,7 +174,7 @@ timing_res = vm.time_evaluator("func_name_saved", tvm.cpu())()
 分析函数调用。
 * **参数：**   
    * **func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：函数的名称。
-   * **args** (*Listof*[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*orother objects supported by PackedFunc.*) ：函数的参数。
+   * **args** (*List of*[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)* or other objects supported by PackedFunc.*) ：函数的参数。
 * **返回：report** ：格式化的分析结果，显示每个操作的时间测量。
 * **返回类型：**[tvm.runtime.profiling.Report](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingreportcallssequencedictstr-object-device_metricsdictstrdictstr-object-configurationdictstr-object)。
 
