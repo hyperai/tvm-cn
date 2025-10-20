@@ -22,7 +22,7 @@ Relax VM 运行时。
 调用一个闭包。
 * **参数：** 
    * **closure** (*Object*) ：VMClosure 对象。
-   * **args** ([list](https://docs.python.org/3/library/stdtypes.html#list)*[**tvm.runtime.NDArray****] or*[list](https://docs.python.org/3/library/stdtypes.html#list)*[**np.ndarray****]*) ：闭包的参数。
+   * **args** ([list](https://docs.python.org/3/library/stdtypes.html#list)*[**tvm.runtime.Tensor****] or*[list](https://docs.python.org/3/library/stdtypes.html#list)*[**np.ndarray****]*) ：闭包的参数。
 * **返回：** result：输出。
 * **返回类型：** Object。
 
@@ -52,7 +52,7 @@ Relax VM 运行时。
 注意：如果使用 set_input ，必须使用 invoke_stateful 调用该函数，并且必须使用 get_outputs 获取结果。
 * **参数：**   
    * **func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：函数的名称。
-   * **args** (*List**[****tvm.runtime.NDArray**] or*** ***List****[**np.ndarray****]*) ：函数的参数。
+   * **args** (*List**[****tvm.runtime.Tensor**] or*** ***List****[**np.ndarray****]*) ：函数的参数。
    * **kwargs** ([dict](https://docs.python.org/3/library/stdtypes.html#dict)*ofstr to tvm.runtime.NDArrayornp.ndarray*) ：函数的命名参数。
 
 
@@ -73,7 +73,7 @@ Relax VM 运行时。
 如果没有先调用 invoke_stateful 就调用此函数是错误的。
 * **参数：func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：应获取其输出的函数的名称。
 * **返回：ret** ：先前通过 invoke_stateful 调用该函数的结果。若结果是一个元组，则返回一个字段列表。这些字段也可能是元组，因此可以任意嵌套。
-* **返回类型：** Union[tvm.Object, [Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)[Any]]。
+* **返回类型：** Union[tvm.Object, [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)[Any]]。
 
 
 ### set_instrument(*instrument: Function*) → [None](https://docs.python.org/3/library/constants.html#None)
@@ -174,8 +174,8 @@ timing_res = vm.time_evaluator("func_name_saved", tvm.cpu())()
 分析函数调用。
 * **参数：**   
    * **func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：函数的名称。
-   * **args** (*Listof*[NDArray](https://tvm.apache.org/docs/reference/api/python/runtime/ndarray.html#tvm.runtime.ndarray.NDArray)*orother objects supported by PackedFunc.*) ：函数的参数。
+   * **args** (*Listof*[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*orother objects supported by PackedFunc.*) ：函数的参数。
 * **返回：report** ：格式化的分析结果，显示每个操作的时间测量。
-* **返回类型：**[tvm.runtime.profiling.Report](https://tvm.apache.org/docs/reference/api/python/runtime/profiling.html#tvm.runtime.profiling.Report)。
+* **返回类型：**[tvm.runtime.profiling.Report](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingreportcallssequencedictstr-object-device_metricsdictstrdictstr-object-configurationdictstr-object)。
 
 
