@@ -48,8 +48,8 @@ pass 运行前的工具。
 
 当检测上下文处于活动状态时，每次运行 pass 都会调用一次。
 * **参数：**
-   * **mod** ([tvm.ir.module.IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule))  – 正在运行优化过程的模块。
-   * **info** ([tvm.transform.PassInfo](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.PassInfo))  –  Pass 信息。
+   * **mod** ([tvm.ir.module.IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone))  – 正在运行优化过程的模块。
+   * **info** ([tvm.transform.PassInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpassinfoopt_level-name-requirednone-traceablefalse))  –  Pass 信息。
 * **返回类型：** 无。
 
 ### run_after_pass(*mod*, info)
@@ -60,8 +60,8 @@ pass 后的工具运行。
 
 当检测上下文处于活动状态时，每次运行都会调用一次。
 * **参数：**
-  * **mod** ([tvm.ir.module.IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule))  – 正在运行优化过程的模块。
-   * **info** ([tvm.transform.PassInfo](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.PassInfo))  – [ Pass ](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.PassInfo)信息。
+  * **mod** ([tvm.ir.module.IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone))  – 正在运行优化过程的模块。
+   * **info** ([tvm.transform.PassInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpassinfoopt_level-name-requirednone-traceablefalse))  – Pass信息。
 * **返回类型：** 无。
 
 ## *class* tvm.instrument.PassPrintingInstrument(*print_before_pass_names*, *print_after_pass_names*)
