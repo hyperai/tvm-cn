@@ -174,7 +174,7 @@ timing_res = vm.time_evaluator("invoke_stateful", tvm.cpu())("func_name")
    * **func_name** () ：函数的名称。
    * **args** (*List* *of*  *or* *other objects supported by PackedFunc.*) ：函数的参数。
 * **返回：** **report**：格式化的分析结果，显示每个操作的时间测量。
-* **返回类型：** [tvm.runtime.profiling.Report](https://tvm.apache.org/docs/reference/api/python/runtime/profiling.html#tvm.runtime.profiling.Report)。
+* **返回类型：** [tvm.runtime.profiling.Report](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingreportcallssequencedictstr-object-device_metricsdictstrdictstr-object-configurationdictstr-object)。
 
 
 ## ***class*tvm.relax.VMInstrumentReturnKind(*value*)**
@@ -192,13 +192,13 @@ RelaxExpr 的别名。
 Var 中使用的唯一标识符（名称）。保证在所有过程中保持稳定。
 
 
-## ***class*tvm.relax.Var(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Id)**,*struct_info:***[StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Span)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.Var(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 所有 Relax 绑定的变量类。
 * **参数：**
    * **name_hint** (*Union*[[str](https://docs.python.org/3/library/stdtypes.html#str), Id]) ：变量的名称提示。
-   * **struct_info** (*Optional*[[StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo)])：变量的结构信息注释。
-   * **span** (*Optional*[[Span](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Span)])：指向原始源代码的 Span。
+   * **struct_info** (*Optional*[[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)])：变量的结构信息注释。
+   * **span** (*Optional*[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)])：指向原始源代码的 Span。
 
 
 ### ***property*name_hint*:* [str](https://docs.python.org/3/library/stdtypes.html#str)
@@ -206,21 +206,21 @@ Var 中使用的唯一标识符（名称）。保证在所有过程中保持稳�
 获取当前变量的名称提示。
 
 
-## ***class*tvm.relax.DataflowVar(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Id)**,*struct_info:***[StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Span)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.DataflowVar(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 变量节点的子类型，用于标记来自正常可见的“function local”绑定的数据流变量。
 * **参数：**
    * **name_hint** (Union[[str](https://docs.python.org/3/library/stdtypes.html#str), Id]) ：变量的名称提示。
-   * **struct_info** (Optional[[StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo)]) *：变量的结构信息注释。*
-   * **span** (Optional[[Span](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Span)]) *：指向原始源代码的 Span。*
+   * **struct_info** (Optional[[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)]) *：变量的结构信息注释。*
+   * **span** (Optional[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)]) *：指向原始源代码的 Span。*
 
 
-## ***class*tvm.relax.Binding**[](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Binding)
+## ***class*tvm.relax.Binding**
 
 Relax 中绑定的基类。
 
 
-## ***class*tvm.relax.MatchCast(*var:***[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)**,*value:***[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)**,*struct_info:***[StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo)**,*span:***[Span](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Span)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.MatchCast(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*value:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 运行时将值与结构信息匹配。
 
 
