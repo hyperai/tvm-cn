@@ -40,7 +40,7 @@ TVM Relax 中用于图优化和程序变换的模块
 * **返回：ret。**
 * **返回类型：**[tvm.ir.transform.Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-## tvm.relax.transform.AnnotateTIROpPattern() → [Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)
+## tvm.relax.transform.AnnotateTIROpPattern() → [Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)
 
 注释 TIR 函数的操作模式类型。
 * **返回：ret。**
@@ -194,7 +194,7 @@ TVM Relax 中用于图优化和程序变换的模块
 * **返回：ret**：已注册的通行证。
 * **返回类型：**[tvm.transform.Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-## tvm.relax.transform.DecomposeOpsForInference(*func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass) 
+## tvm.relax.transform.DecomposeOpsForInference(*func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass) 
 
 
 在推理过程中，分解由其他算子组成的复合算子。例如，批量归一化的结果（一个三元组）将被简化。注意力机制、tensor_to_shape 等也可以分解成多个简化的算子。
