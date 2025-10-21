@@ -409,7 +409,7 @@ PrimExpr 用于低级代码优化和整数分析。
 返回函数的 attrs 成员。
 
 
-### **with_attr(*attr_key_or_dict*,*attr_value=None*)→**[BaseFunc](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)
+### **with_attr(*attr_key_or_dict*,*attr_value=None*)→**[BaseFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#classtvmirbasefunc)
 
 创建函数的新副本并更新属性。
 * **参数：**
@@ -419,7 +419,7 @@ PrimExpr 用于低级代码优化和整数分析。
 * **返回类型:** [BaseFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#classtvmirbasefunc)
 
 
-### **with_attrs(*attr_map:***[DictAttrs](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.DictAttrs)***|***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***, Object]*)→**[BaseFunc](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)
+### **with_attrs(*attr_map:***[DictAttrs](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirdictattrs)***|***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***, Object]*)→**[BaseFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#classtvmirbasefunc)
 
 复制 IRModule 并添加给定的属性映射到它。 :param attr_map: 属性映射 :type attr_map: Union[DictAttrs, Dict[str, Object]]
 * **返回：** func – 函数的新副本
@@ -562,7 +562,7 @@ IRModule 是整个堆栈中所有 IR 转换的基本单元。
 * **返回：mod**  – 没有属性的 IRModule 的新拷贝
 * **返回类型：**[IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
 
-### with_attrs(*attr_map:*[DictAttrs](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.DictAttrs)*|*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object]*) → [IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
+### with_attrs(*attr_map:*[DictAttrs](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirdictattrs)*|*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object]*) → [IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
 
 复制 IRModule 并将给定的属性映射添加到其中。：param attr_map：属性映射：type attr_map：Union[DictAttrs, Dict[str, Object]]
 * **返回：mod**  – 具有属性的 IRModule 的新拷贝
@@ -575,7 +575,7 @@ IR 中的原始运算符。
 
 **方法：**
 
-|[get](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Op.get)(op_name)|获取给定名称的 Op。|
+|[get](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#static-getop_name)(op_name)|获取给定名称的 Op。|
 |:----|:----|
 |[get_attr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#get_attrattr_name)(attr_name)|获取有关操作员的附加属性。|
 |[has_attr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#has_attrattr_name)(attr_name)|检查操作员是否具有附加属性。|
@@ -677,14 +677,14 @@ IR 中的原始运算符。
 
 一个函数类型由以下部分组成：一组类型参数，用于定义泛型函数；一组类型约束（暂时省略）；一系列参数类型；以及返回类型。
 * **参数：**
-   * **arg_types** (*List[*[tvm.ir.Type](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Type)*]*)  – 参数类型
-   * **ret_type** ([tvm.ir.Type](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Type))  – 返回类型
+   * **arg_types** (*List[*[tvm.ir.Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype)*]*)  – 参数类型
+   * **ret_type** ([tvm.ir.Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype))  – 返回类型
 
 ## *class* tvm.ir.PointerType(*element_type*, *storage_scope=''*)
 
 低级 TIR 中使用的 PointerType。
 * **参数：**
-   * **element_type** ([tvm.ir.Type](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Type))  – 指针元素的类型
+   * **element_type** ([tvm.ir.Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype))  – 指针元素的类型
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str))  – 指针寻址的存储范围
 
 ## *class* tvm.ir.PrimType(*dtype*)
@@ -695,7 +695,7 @@ IR 中的原始运算符。
 ## *class* tvm.ir.TupleType(*fields*)
 
 元组值的类型。
-* **参数：fields** (*List[*[Type](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Type)*]*)  – 元组中的字段
+* **参数：fields** (*List[*[Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype)*]*)  – 元组中的字段
 
 ## *class* tvm.ir.Type
 
