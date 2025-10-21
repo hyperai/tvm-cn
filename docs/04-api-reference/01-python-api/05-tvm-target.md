@@ -71,18 +71,18 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 
 **方法：**
 
-|[from_device](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.from_device)(device)|检测与给定设备关联的目标。|
+|[from_device](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-from_devicedevicestr-device--target)(device)|检测与给定设备关联的目标。|
 |:----|:----|
-|[current](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.current)([allow_none])|返回当前目标。|
-|[get_kind_attr](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.get_kind_attr)(attr_name)|获取有关目标类型的附加属性。|
-|[get_target_device_type](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.get_target_device_type)()|返回此目标的设备类型。|
-|[list_kinds](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.list_kinds)()|返回可用目标名称的列表。|
-|[canon_target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_target)(target)|给定一个类似目标的对象，返回代表它的 TVM Target 对象。|
-|[canon_target_and_host](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_target_and_host)(target[, target_host])|返回一个 TVM Target，用于表示 target 和 target_host。|
-|[canon_multi_target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_multi_target)(multi_targets)|给定一个类似目标的对象，或者类似目标对象的类似集合的对象，返回代表该对象的 TVM 目标对象的 TVM 数组。|
-|[canon_multi_target_and_host](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_multi_target_and_host)(target[, …])|返回一个 TVM Array<Target>，用于表示 target 和 target_host。|
-|[canon_target_map_and_host](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_target_map_and_host)(target_map[, …])|将 target_map 作为从 TVM Target 的规范形式到 IRModules 的映射返回。|
-|[target_or_current](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.target_or_current)(target)|返回目标，如果目标为 None，则返回环境中的当前目标。|
+|[current](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-currentallow_nonetrue)([allow_none])|返回当前目标。|
+|[get_kind_attr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#get_kind_attrattr_name)(attr_name)|获取有关目标类型的附加属性。|
+|[get_target_device_type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#get_target_device_type)()|返回此目标的设备类型。|
+|[list_kinds](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-list_kinds)()|返回可用目标名称的列表。|
+|[canon_target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_targettarget)(target)|给定一个类似目标的对象，返回代表它的 TVM Target 对象。|
+|[canon_target_and_host](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_target_and_hosttarget-target_hostnone)(target[, target_host])|返回一个 TVM Target，用于表示 target 和 target_host。|
+|[canon_multi_target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_multi_targetmulti_targets)(multi_targets)|给定一个类似目标的对象，或者类似目标对象的类似集合的对象，返回代表该对象的 TVM 目标对象的 TVM 数组。|
+|[canon_multi_target_and_host](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_multi_target_and_hosttarget-target_hostnone)(target[, …])|返回一个 TVM Array<Target>，用于表示 target 和 target_host。|
+|[canon_target_map_and_host](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_target_map_and_hosttarget_map-target_hostnone)(target_map[, …])|将 target_map 作为从 TVM Target 的规范形式到 IRModules 的映射返回。|
+|[target_or_current](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-target_or_currenttarget)(target)|返回目标，如果目标为 None，则返回环境中的当前目标。|
 
 
 **属性：**
