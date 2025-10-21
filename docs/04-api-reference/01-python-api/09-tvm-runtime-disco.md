@@ -86,7 +86,7 @@ Disco 会话中的一个模块。
 * **参数：module_name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：Python 模块名称，它将用于 Python 导入语句中。
 
 
-### call_packed(*func:*[DRef](https://tvm.apache.org/docs/reference/api/python/runtime/disco.html#tvm.runtime.disco.DRef), *args) → [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)
+### call_packed(*func:*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref), *args) → [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)
 
 在提供可变参数的 worker 上调用 PackedFunc。
 * **参数：**
@@ -148,27 +148,27 @@ Disco 会话中的一个模块。
 
 向所有 worker 广播一个数组。
 * **参数：**
-   * **src** (*Union**[****np.ndarray,*[NDArray](https://tvm.apache.org/docs/reference/api/python/runtime/ndarray.html#tvm.runtime.ndarray.NDArray)*]*) ：要广播的数组。
+   * **src** (*Union**[****np.ndarray,*NDArray*]*) ：要广播的数组。
    * **dst** (*Optional[*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)*]*) ：输出数组。如果为 None，则将在每个 Worker 上分配一个与src的形状和数据类型匹配的数组。
    * **in_group** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：广播操作默认是全局执行还是按组执行。
 * **返回：output_array：** 包含所有 Worker 上广播数据的 DRef。如果提供了 dst ，则此返回值与 dst 相同 。否则，返回新分配的空间。
 * **返回类型：** [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)。
 
 
-### broadcast_from_worker0(*src:*[DRef](https://tvm.apache.org/docs/reference/api/python/runtime/disco.html#tvm.runtime.disco.DRef), *dst:*[DRef](https://tvm.apache.org/docs/reference/api/python/runtime/disco.html#tvm.runtime.disco.DRef), *in_group:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodreff)
+### broadcast_from_worker0(*src:*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref), *dst:*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref), *in_group:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)
 
 将数组从 worker-0 广播到所有其他 worker。
 * **参数：**
-   * **src** (*Union**[****np.ndarray,*[NDArray](https://tvm.apache.org/docs/reference/api/python/runtime/ndarray.html#tvm.runtime.ndarray.NDArray)*]*) ：要广播的数组。
+   * **src** (*Union**[****np.ndarray,*NDArray*]*) ：要广播的数组。
    * **dst** (*Optional[*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)*]*) ：输出数组。如果为 None，则将在每个 Worker 上分配一个与src的形状和数据类型匹配的数组。
    * **in_group** ([bool](https://docs.python.org/3/library/functions.html#bool)) 广播操作默认是全局执行还是按组执行。
 
 
-### scatter(*src: ndarray |*[NDArray](https://tvm.apache.org/docs/reference/api/python/runtime/ndarray.html#tvm.runtime.ndarray.NDArray), *dst:*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *in_group:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)
+### scatter(*src: ndarray |*NDArray, *dst:*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *in_group:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)
 
 将数组分散到所有 worker 中。
 * **参数：**
-   * **src** (*Union**[****np.ndarray,*[NDArray](https://tvm.apache.org/docs/reference/api/python/runtime/ndarray.html#tvm.runtime.ndarray.NDArray)*]*) ：待分散的数组。该数组的第一个维度src.shape[0]必须等于工作线程的数量。
+   * **src** (*Union**[****np.ndarray,*NDArray*]*) ：待分散的数组。该数组的第一个维度src.shape[0]必须等于工作线程的数量。
    * **dst** (*Optional[*[DRef](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-disco#class-tvmruntimediscodref)*]*) ：输出数组。如果为 None，则将在每个 Worker 上分配一个形状兼容且数据类型与 src 相同的数组。
    * **in_group** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：分散操作是全局执行还是默认在组中执行。
 * **返回：output_array**：包含所有 Worker 的分散数据的 DRef。如果提供了dst ，则此返回值与dst相同 。否则，返回新分配的空间。
