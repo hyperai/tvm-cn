@@ -283,14 +283,48 @@ structural_hash 与 structural_equal 保持一致。如果两个节点在结构�
 
 :::
 
-## *class* tvm.ir.Array(*input_list:*[Sequence](https://docs.python.org/3/library/typing.html#typing.Sequence)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*)
+## *class* tvm.ir.Array(*input_list:*[Iterable](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[*[T]*)
 
-数组容器。
+表示ffi值序列的数组容器。
 
-## *class* tvm.ir.Map(*input_dict:*[Mapping](https://docs.python.org/3/library/typing.html#typing.Mapping)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*,*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*)
+`tvm_ffi.convert()`将python列表/元组映射到这个类。
+* **参数：input_list**—要存储在数组中的值的列表
+  
+:::info 另见
+
+`tvm_ffi.convert()`
+
+:::
+示例
+```python
+import tvm_ffi
+
+a = tvm_ffi.convert([1, 2, 3])
+assert isinstance(a, tvm_ffi.Array)
+assert len(a) == 3
+```
+
+## *class* tvm.ir.Map(*input_dict:[Mapping](https://docs.python.org/3/library/typing.html#typing.Mapping)[K,V]*)
 
 映射容器。
+`tvm_ffi.convert()`将python字典映射到这个类。
+* **参数：input_dict**—要存储在映射中的值的字典。
+  
+:::info 另见
 
+`tvm_ffi.convert()`
+
+:::
+示例
+```python
+import tvm_ffi
+
+amap = tvm_ffi.convert({"a": 1, "b": 2})
+assert isinstance(amap, tvm_ffi.Map)
+assert len(amap) == 2
+assert amap["a"] == 1
+assert amap["b"] == 2
+```
 
 **方法：**
 
@@ -300,19 +334,20 @@ structural_hash 与 structural_equal 保持一致。如果两个节点在结构�
 |[items](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#items-1)()|从映射中获取项目|
 |[get](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#getkey-defaultnone-1)(key[, default])|获取具有默认值的元素|
 
-### keys() → a set-like object providing a view on D's keys
-### values() → an object providing a view on D's values
-
-### items()
-从映射中获取项目。
-
-### get(*key*, *default=None*)
+### keys()→ KeysView[K]
+返回映射键的动态视图。
+### values()→ ValuesView[V]
+返回映射值的动态视图。
+### items()→ ItemsView[K,V]
+从地图上获取物品。
+### get(*key:K*)→V|[None](https://docs.python.org/3/library/constants.html#None)
+### get(*key:K,default: V|_DefaultT*)→ V|_DefaultT
 获取具有默认值的元素。
 * **参数：**
-   * **key** ([object](https://docs.python.org/3/library/functions.html#object))  – 属性键
-   * **默认** ([object](https://docs.python.org/3/library/functions.html#object))  – 默认对象
+   * **key**  – 属性键
+   * **默认**   – 默认对象
 * **返回：value**  – 结果值
-* **返回类型：**[object](https://docs.python.org/3/library/functions.html#object)
+* **返回类型：value** 结果值
 
 ## *class* tvm.ir.BaseExpr
 所有表达式的基类。
