@@ -7,7 +7,7 @@ title: tvm.tir.transform
 
 所有 TIR 变换的命名空间
 
-### tvm.tir.transform.prim_func_pass(*pass_func=None*, *opt_level:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *required:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *traceable=False*) → [Callable](https://docs.python.org/3/library/typing.html#typing.Callable) | [PrimFuncPass](https://tvm.apache.org/docs/reference/api/python/tir/transform.html#tvm.tir.transform.PrimFuncPass)
+### tvm.tir.transform.prim_func_pass(*pass_func=None*, *opt_level:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *required:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *traceable=False*) → [Callable](https://docs.python.org/3/library/typing.html#typing.Callable) | [PrimFuncPass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir-transform#class-tvmtirtransformprimfuncpass)
 
 
 装饰一个函数传递。
