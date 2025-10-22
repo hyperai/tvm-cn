@@ -111,7 +111,7 @@ mod = bb.get()
 * **参数：**  
    * **expr** (*tvm.relax.Expr*)：要发出的 Expr。
    * **name_hint** ([str](https://docs.python.org/3/library/stdtypes.html#str))：绑定变量的名称提示。
-* **返回：ret**[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)与输入 expr 绑定的新创建的变量。
+* **返回：ret**：与输入 expr 绑定的新创建的变量。
 * **返回类型：**[tvm.relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 ### call_te(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), **args:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
