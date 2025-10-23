@@ -72,7 +72,7 @@ def test_function(target, dev):
 ```
 
 
-参数化功能是基于 `pytest marks` 实现的。每个测试函数都可以使用 [pytest marks](https://tvm.apache.org/docs/how_to/dev/pytest-marks) 进行装饰以添加元数据。最常用的标记如下：
+参数化功能是基于 `pytest marks` 实现的。每个测试函数都可以使用 pytest marks 进行装饰以添加元数据。最常用的标记如下：
 
 * `@pytest.mark.gpu`：将函数标记为使用 GPU 能力。该标记本身无直接作用，但可配合命令行参数 `-m gpu` 或 `-m 'not gpu'` 使用，以限制 pytest 执行哪些测试。通常不单独使用，而是嵌入在其他单元测试装饰器中。
 
