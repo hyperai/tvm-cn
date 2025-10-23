@@ -283,7 +283,7 @@ structural_hash 与 structural_equal 保持一致。如果两个节点在结构�
 
 :::
 
-## *class* tvm.ir.Array(*input_list:*[Sequence](https://docs.python.org/3/library/typing.html#typing.Sequence)[*[Any]（https://docs.python.org/3/library/typing.html#typing.Any）*)
+## *class* tvm.ir.Array(*input_list:*[Sequence](https://docs.python.org/3/library/typing.html#typing.Sequence)[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*)
 
 表示ffi值序列的数组容器。
 
@@ -304,7 +304,7 @@ assert isinstance(a, tvm_ffi.Array)
 assert len(a) == 3
 ```
 
-## *class* tvm.ir.Map(*input_dict:[Mapping](https://docs.python.org/3/library/typing.html#typing.Mapping)[[Any]（https://docs.python.org/3/library/typing.html#typing.Any）,[Any]（https://docs.python.org/3/library/typing.html#typing.Any）]*)
+## *class* tvm.ir.Map(*input_dict:[Mapping](https://docs.python.org/3/library/typing.html#typing.Mapping)[[Any](https://docs.python.org/3/library/typing.html#typing.Any),[Any](https://docs.python.org/3/library/typing.html#typing.Any)]*)
 
 映射容器。
 `tvm_ffi.convert()`将python字典映射到这个类。
