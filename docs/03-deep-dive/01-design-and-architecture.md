@@ -6,8 +6,8 @@ title: 设计与架构
 
 
 本文档适用于想要了解 TVM 架构或积极开发项目的开发者。本文档组织结构如下：
-* [整体流程](https://tvm.apache.org/docs/arch/index.html#overall-flow)：概述 TVM 如何将一个高级模型描述转换为可部署模块的各个步骤。建议首先阅读本节以了解基础流程。 
-*  简要介绍 TVM 栈中的关键组件。您也可以参考 [TensorIR 深度解析](https://tvm.apache.org/docs/deep_dive/tensor_ir/index.html#tensor-ir-deep-dive) 和 [Relax 深度解析](https://tvm.apache.org/docs/deep_dive/relax/index.html#relax-deep-dive)，了解 TVM 栈中两个核心部分的详细内容。
+* [整体编译流程示例](https://tvm.hyper.ai/docs/deep-dive/design-and-architecture#%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B)：概述 TVM 如何将一个高级模型描述转换为可部署模块的各个步骤。建议首先阅读本节以了解基础流程。 
+*  简要介绍 TVM 栈中的关键组件。您也可以参考 [TensorIR 深度解析](https://tvm.hyper.ai/docs/deep-dive/tensorir/) 和 [Relax 深度解析](https://tvm.hyper.ai/docs/deep-dive/relax/)，了解 TVM 栈中两个核心部分的详细内容。
 
 
 本指南提供了架构的一些补充视图。首先研究端到端的编译流程，并讨论关键的数据结构和转换。这种基于 runtime 的视图侧重于运行编译器时每个组件的交互，接下来我们将研究代码库的逻辑模块及其关系。本部分将提供该设计的静态总体视图。
@@ -52,7 +52,7 @@ Relax 转换包括一系列应用于 Relax 函数的 Pass。优化内容包括�
 #### tir 转换
 
 tir 转换包含一组应用于 tir 函数的 pass，主要包括两类：
-* **TensorIR 调度（TensorIR schedule）：** TensorIR 调度旨在为特定目标优化 TensorIR 函数，通常由用户指导控制目标代码的生成。对于 CPU 目标，TIR PrimFunc 即使没有调度也可以生成有效代码并在目标设备上运行，但性能较低。对于 GPU 目标，调度是生成有效线程绑定代码的关键。详情请参考 [TensorIR 转换教程](https://tvm.apache.org/docs/deep_dive/tensor_ir/tutorials/tir_transformation.html#tir-transform)。此外，TVM 提供了 `MetaSchedule` 来自动搜索最优的 TensorIR 调度。 
+* **TensorIR 调度（TensorIR schedule）：** TensorIR 调度旨在为特定目标优化 TensorIR 函数，通常由用户指导控制目标代码的生成。对于 CPU 目标，TIR PrimFunc 即使没有调度也可以生成有效代码并在目标设备上运行，但性能较低。对于 GPU 目标，调度是生成有效线程绑定代码的关键。详情请参考 [TensorIR 转换教程](https://tvm.hyper.ai/docs/deep-dive/tensorir/tir_transformation)。此外，TVM 提供了 `MetaSchedule` 来自动搜索最优的 TensorIR 调度。 
 * **降层 Pass（Lowering Passes）：** 这些 Pass 通常在应用调度后执行，将 TIR PrimFunc 转换为功能等价但更贴近目标表示的版本。例如，有些 Pass 会将多维访问扁平化为一维指针访问，或者将中间表示中的 intrinsic 扩展为目标特定的形式，并对函数入口进行修饰以符合运行时调用约定。
 
 
@@ -229,7 +229,7 @@ target 模块包含将 IRModule 转换为目标运行时代码的所有代码生
 ## tvm/relax
 
 
-Relax 是用于表示模型计算图的高级 IR。多种优化过程定义在 `relax.transform` 中。需要注意的是，Relax 通常与 TensorIR 的 IRModule 协同工作，许多转换会同时作用于 Relax 和 TensorIR 函数。更多信息可参考： [Relax 深度解析](https://tvm.apache.org/docs/deep_dive/relax/index.html#relax-deep-dive)。
+Relax 是用于表示模型计算图的高级 IR。多种优化过程定义在 `relax.transform` 中。需要注意的是，Relax 通常与 TensorIR 的 IRModule 协同工作，许多转换会同时作用于 Relax 和 TensorIR 函数。更多信息可参考： [Relax 深度解析](https://tvm.hyper.ai/docs/deep-dive/relax/)。
 
 
 ## tvm/tir
@@ -242,7 +242,7 @@ TIR 定义了低级程序表示。我们使用 tir::PrimFunc 来表示可以由 
 * 位于 `tir/transform` 中的转换/优化 Pass
 
 
-更多信息请参考： [TensorIR 深度解析](https://tvm.apache.org/docs/deep_dive/tensor_ir/index.html#tensor-ir-deep-dive)。
+更多信息请参考： [TensorIR 深度解析](https://tvm.hyper.ai/docs/deep-dive/tensorir/)。
 
 
 ## tvm/arith
@@ -273,6 +273,7 @@ DLight 提供一套预定义、易用且高性能的 TIR 调度策略。其目�
 * 全面支持动态形状工作负载
 * 轻量级：提供无需调优或仅需极少调优的调度策略，且性能合理 
 * 稳定性强：DLight 的调度策略具有通用性，即使当前规则不适用也不会报错，而是自动切换至下一个规则
+
 
 
 
