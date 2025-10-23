@@ -6,14 +6,14 @@ title: TensorIR 创建
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/deep_dive/tensor_ir/tutorials/tir_transformation.html#sphx-glr-download-deep-dive-tensor-ir-tutorials-tir-transformation-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/tensorir/tir_creation/#%E5%88%9B%E5%BB%BA%E5%8A%A8%E6%80%81%E5%BD%A2%E7%8A%B6%E5%87%BD%E6%95%B0)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/c43b2ae5210f95ce8dae6102e9b060fd/tir_creation.ipynb)
 
 :::
 
 
-本节将介绍在 Apache TVM Unity 中编写 TensorIR 函数的方法。此教程假设你已经了解 TensorIR 的基本概念。如果你不熟悉，请先阅读：[理解 TensorIR 抽象](https://tvm.apache.org/docs/deep_dive/tensor_ir/learning.html#tir-learning)。
+本节将介绍在 Apache TVM Unity 中编写 TensorIR 函数的方法。此教程假设你已经了解 TensorIR 的基本概念。如果你不熟悉，请先阅读：[理解 TensorIR 抽象](https://tvm.hyper.ai/docs/deep-dive/tensorir/understand-tensorir-abstraction)。
 
 
 :::note
@@ -39,7 +39,7 @@ title: TensorIR 创建
 
 ### 标准格式
 
-我们来看一个来自「[理解 TensorIR 抽象](https://tvm.apache.org/docs/deep_dive/tensor_ir/learning.html#tir-learning)」中的 `mm_relu` 示例。以下是完整的 `ir_module` 和 TVMScript 格式：
+我们来看一个来自「[理解 TensorIR 抽象](https://tvm.hyper.ai/docs/deep-dive/tensorir/understand-tensorir-abstraction)」中的 `mm_relu` 示例。以下是完整的 `ir_module` 和 TVMScript 格式：
 
 ```plain
 import numpy as np
@@ -215,17 +215,17 @@ print(evaluate_dynamic_shape(dyn_shape_lib, m=64, n=64, k=128))
 ```
 输出：
 ```plain
-[[1.0943729  0.73494804 1.2914591  1.0499114 ]
- [0.8291257  0.44333526 0.8333979  0.34442422]
- [0.6537921  0.34794778 0.63963825 0.31868583]
- [1.081526   0.668489   0.9351669  1.1250921 ]]
-[[36.871822 35.663208 32.37985  ... 32.534687 37.040905 34.348488]
- [34.477898 35.738644 31.485312 ... 31.066946 35.29616  32.309055]
- [34.64592  35.177345 32.446205 ... 32.236755 36.346832 35.233383]
+[[1.6744074  1.8393843  0.9076001  0.32640088]
+ [1.3455076  1.5298209  0.75502187 0.32371795]
+ [1.9979694  2.221868   1.0828729  0.43582058]
+ [1.7054784  1.8512932  0.89285195 0.34154552]]
+[[30.544813 29.938599 33.654526 ... 29.934391 30.73088  25.106636]
+ [30.644558 31.062693 32.34803  ... 29.584583 32.756992 25.280499]
+ [33.73643  33.23441  34.2736   ... 34.284283 35.100815 27.748833]
  ...
- [33.381042 32.140255 29.88045  ... 30.113594 32.092564 31.41969 ]
- [30.7086   32.14088  27.741928 ... 27.910046 33.892036 31.567467]
- [33.512432 35.648975 31.990215 ... 29.893415 35.56177  33.823544]]
+ [31.313179 30.462463 30.996958 ... 28.831778 32.279408 25.663143]
+ [33.129818 31.630735 33.334507 ... 29.682335 32.925854 26.043703]
+ [32.44726  30.645096 33.926357 ... 29.750242 32.810432 25.420698]]
 ```
 
 ## 使用 Tensor Expression 创建 TensorIR
@@ -353,6 +353,7 @@ class Module:
                 C[v_i, v_j] = T.max(Y[v_i, v_j], T.float32(0.0))
 ```
 
+可右键另存为下载。
 
 [下载 Jupyter Notebook：tir_creation.ipynb](https://tvm.apache.org/docs/_downloads/c43b2ae5210f95ce8dae6102e9b060fd/tir_creation.ipynb)
 
