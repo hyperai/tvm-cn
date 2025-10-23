@@ -331,10 +331,11 @@ print(gpu_out)
 
 ## 总结
 
-本教程展示了如何在 Apache TVM 中自定义机器学习模型的优化流程。我们可以轻松组合优化 pass，并针对计算图中的不同部分定制优化策略。优化流程的高度灵活性使我们能够快速迭代优化步骤，从而提升模型性能。
+本教程展示了如何在 Apache TVM 中自定义机器学习模型的优化流程。我们可以轻松组合优化 pass，并针对计算图中的不同部分定制优化策略。优化流程的高度灵活性使我们能够快速迭代优化步骤，从而提升模型性能（可右键另存为下载）。
 * [下载 Jupyter Notebook：customize_opt.ipynb](https://tvm.apache.org/docs/_downloads/d64d105c8921b2ab908ef001ab382b45/customize_opt.ipynb)  
 * [下载 Python 源代码：customize_opt.py](https://tvm.apache.org/docs/_downloads/42304b518561422fdab8c7d8ee640a55/customize_opt.py) 
 * [下载压缩包：customize_opt.zip](https://tvm.apache.org/docs/_downloads/f69433a4a80715725df90d1386679956/customize_opt.zip)
+
 
 
 
