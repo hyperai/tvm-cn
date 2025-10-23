@@ -7,7 +7,7 @@ title: 交叉编译与 RPC
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/how_to/tutorials/optimize_llm.html#sphx-glr-download-how-to-tutorials-optimize-llm-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/how-to/cross-compilation-and-rpc#%E6%80%BB%E7%BB%93)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/148819f3421b8d89b1723c3e15e3f19f/cross_compilation_and_rpc.ipynb)
 
@@ -258,6 +258,7 @@ def run_opencl():
 *  在本地设置目标设备的交叉编译配置；
 *  通过 RPC API 上传并远程运行内核程序。
 
+可右键另存为下载。
 
 [下载 Jupyter notebook: ](https://tvm.apache.org/docs/_downloads/148819f3421b8d89b1723c3e15e3f19f/cross_compilation_and_rpc.ipynb)`cross_compilation_and_rpc.ipynb`
 
