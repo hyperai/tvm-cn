@@ -603,7 +603,7 @@ assert np.allclose(cpu_out, gpu_out, atol=1e-3)
 
 ### 部署到其他后端
 
-Apache TVM Unity 也支持部署到其他后端，包括不同类型的 GPU（如 Metal、ROCm、Vulkan 和 OpenCL）、不同类型的 CPU（如 x86 和 ARM），以及其他新兴平台（例如 WebAssembly）。部署流程与 GPU 后端类似（请邮件）。
+Apache TVM Unity 也支持部署到其他后端，包括不同类型的 GPU（如 Metal、ROCm、Vulkan 和 OpenCL）、不同类型的 CPU（如 x86 和 ARM），以及其他新兴平台（例如 WebAssembly）。部署流程与 GPU 后端类似（可右键另存为下载）。
 * [下载 Jupyter Notebook: ir_module.ipynb](https://tvm.apache.org/docs/_downloads/a6d7947451d373bc811080cffa18dc7c/ir_module.ipynb) 
 * [下载 Python 源代码: ir_module.py](https://tvm.apache.org/docs/_downloads/0b64717d4cc6027368b96fad40119738/ir_module.py) 
 * [下载压缩包: ir_module.zip](https://tvm.apache.org/docs/_downloads/11c11e53c7dace51a8be968ee169ed0d/ir_module.zip)
