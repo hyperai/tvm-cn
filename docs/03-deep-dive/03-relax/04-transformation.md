@@ -5,6 +5,13 @@ title: 转换
 ---
 
 
+:::note
+
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/relax/transformation#%E6%80%BB%E7%BB%93)在本地运行 Jupyter Notebook。
+
+[在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/315fcda965a8d605f81705edf19ea2c6/relax_creation.ipynb)
+
+:::
 
 本节我们将深入介绍 Relax 程序的转换。转换是编译流程中实现优化和对接硬件后端的关键环节之一。
 
