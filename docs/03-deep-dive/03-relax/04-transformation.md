@@ -4,10 +4,12 @@ title: 转换
 
 ---
 
+
+
 本节我们将深入介绍 Relax 程序的转换。转换是编译流程中实现优化和对接硬件后端的关键环节之一。
 
 
-我们首先像[上一节](https://tvm.apache.org/docs/deep_dive/relax/tutorials/relax_creation.html#relax-creation)那样，创建一个简单的 Relax 程序。
+我们首先像[上一节](https://tvm.hyper.ai/docs/deep-dive/relax/relax-creation)那样，创建一个简单的 Relax 程序。
 
 ```plain
 import tvm
@@ -400,7 +402,7 @@ class Module:
 
 ## 总结
 
-在本节中，我们展示了如何对 Relax 程序进行转换，并介绍了如何定义和应用自定义转换。
+在本节中，我们展示了如何对 Relax 程序进行转换，并介绍了如何定义和应用自定义转换（可右键另存为下载）。
 * [下载 Jupyter notebook：relax_transformation.ipynb](https://tvm.apache.org/docs/_downloads/31d077cfa7c55c0edcd16ad5d4faf483/relax_transformation.ipynb)
 * [下载 Python 源码：relax_transformation.py](https://tvm.apache.org/docs/_downloads/4e684410fb30ce02332f55fde123c42e/relax_transformation.py)
 * [下载压缩包：relax_transformation.zip](https://tvm.apache.org/docs/_downloads/7d201684dfa095a5ea48d98e9a2ef7ad/relax_transformation.zip)
