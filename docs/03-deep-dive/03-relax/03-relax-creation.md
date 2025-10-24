@@ -7,7 +7,7 @@ title: 创建 Relax
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/deep_dive/relax/tutorials/relax_creation.html#sphx-glr-download-deep-dive-relax-tutorials-relax-creation-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/relax/relax-creation#%E6%80%BB%E7%BB%93)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/315fcda965a8d605f81705edf19ea2c6/relax_creation.ipynb)
 
@@ -496,7 +496,7 @@ class Module:
 
 ## 总结
 
-本教程演示了如何使用 TVMScript、NNModule API、Block Builder API 以及 PackedFunc API，根据不同的应用场景来创建 Relax 程序。
+本教程演示了如何使用 TVMScript、NNModule API、Block Builder API 以及 PackedFunc API，根据不同的应用场景来创建 Relax 程序（可右键另存为下载）。
 * [下载 Jupyter notebook: relax_creation.ipynb](https://tvm.apache.org/docs/_downloads/315fcda965a8d605f81705edf19ea2c6/relax_creation.ipynb)
 * [下载 Python 源码: relax_creation.py](https://tvm.apache.org/docs/_downloads/a67d9d8c1ea48d5e0c95591f8c9bfd6f/relax_creation.py)
 * [下载压缩包: relax_creation.zip](https://tvm.apache.org/docs/_downloads/4753776bbe68e7c9ee4d19117973fc8b/relax_creation.zip)

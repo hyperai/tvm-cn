@@ -7,7 +7,7 @@ title: 快速入门
 
 :::note
 
-本教程可通过 Google Colab 交互运行！也可点击[此处](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#sphx-glr-download-get-started-tutorials-quick-start-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互运行！也可点击[此处](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E5%90%8E%E7%BB%AD%E9%98%85%E8%AF%BB)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/eceb05a9badb601d2def02240aa869e9/quick_start.ipynb)
 
@@ -19,12 +19,12 @@ title: 快速入门
 
 
 **目录**
-* [概览](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#overview)
-* [完整流程](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#overall-flow)
-   * [构建或导入模型](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#construct-or-import-a-model)
-   * [执行优化转换](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#perform-optimization-transformations)
-   * [构建和通用部署](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#build-and-universal-deployment)
-* [阅读下文](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#read-next)
+* [概览](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%A6%82%E8%BF%B0)
+* [完整流程](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B)
+   * [构建或导入模型](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%9E%84%E5%BB%BA%E6%88%96%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B)
+   * [执行优化转换](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96%E8%BD%AC%E6%8D%A2)
+   * [构建和通用部署](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%9E%84%E5%BB%BA%E5%92%8C%E9%80%9A%E7%94%A8%E9%83%A8%E7%BD%B2)
+* [阅读下文](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E5%90%8E%E7%BB%AD%E9%98%85%E8%AF%BB)
 
 
 ## 概述
@@ -201,7 +201,8 @@ Tensor out = vm.getFunction("prefill").pushArg(data).pushArg(weight).pushArg(kv_
 ## 后续阅读
 
 
-本教程演示了使用 Apache TVM 编译神经网络模型的整体流程。如需了解更高级或具体的主题，请参考以下教程：
+本教程演示了使用 Apache TVM 编译神经网络模型的整体流程。如需了解更高级或具体的主题，请参考以下教程（可右键另存为下载）：
 * [下载 Jupyter notebook: quick_start.ipynb](https://tvm.apache.org/docs/_downloads/eceb05a9badb601d2def02240aa869e9/quick_start.ipynb)
 * [下载 Python 源代码: quick_start.py](https://tvm.apache.org/docs/_downloads/baf675793174f2e9b3d5da483e35ef27/quick_start.py)
 * [下载压缩包:  quick_start.zip](https://tvm.apache.org/docs/_downloads/bb7db6678496193ed0c55d3b95fa6778/quick_start.zip)
+

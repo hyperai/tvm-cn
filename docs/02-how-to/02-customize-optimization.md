@@ -7,7 +7,7 @@ title: 自定义优化
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/how_to/tutorials/customize_opt.html#sphx-glr-download-how-to-tutorials-customize-opt-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E6%A8%A1%E5%9E%8B)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/d64d105c8921b2ab908ef001ab382b45/customize_opt.ipynb)
 
@@ -17,11 +17,9 @@ Apache TVM 的一个主要设计目标是便于自定义优化流程，无论是
 
 
 **目录**
-* [审查整体流程](https://tvm.apache.org/docs/how_to/tutorials/customize_opt.html#review-overall-flow)
-* [可组合的 IRModule 优化](https://tvm.apache.org/docs/how_to/tutorials/customize_opt.html#composable-irmodule-optimization)
-* [部署优化后的模型](https://tvm.apache.org/docs/how_to/tutorials/customize_opt.html#deploy-the-optimized-model)
-* [总结](https://tvm.apache.org/docs/how_to/tutorials/customize_opt.html#summary)
-
+* [审查整体流程](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E5%AE%A1%E6%9F%A5%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B)
+* [可组合的 IRModule 优化](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E5%8F%AF%E7%BB%84%E5%90%88%E7%9A%84-irmodule-%E4%BC%98%E5%8C%96)
+* [部署优化后的模型](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E6%A8%A1%E5%9E%8B)
 
 ## 审查整体流程
 
@@ -152,7 +150,7 @@ mod.show()
 
 @I.ir_module
 class Module:
-    I.module_attrs({"external_mods": [metadata["runtime.Module"][0]]})
+    I.module_attrs({"external_mods": [metadata["ffi.Module"][0]]})
     @R.function
     def forward(x: R.Tensor((1, 784), dtype="float32"), fc1_weight: R.Tensor((256, 784), dtype="float32"), fc1_bias: R.Tensor((256,), dtype="float32"), fc2_weight: R.Tensor((10, 256), dtype="float32")) -> R.Tensor((1, 10), dtype="float32"):
         R.func_attr({"num_input": 1})
@@ -327,15 +325,18 @@ print(gpu_out)
 输出：
 
 ```plain
-[[25165.08  22909.219 25461.871 24852.129 24942.432 24389.219 24460.203
-  26586.521 23572.797 26839.176]]
+[[26357.13  23372.246 25534.104 26006.512 23795.57  24571.258 25749.385
+  23908.93  26135.215 25507.008]]
 ```
 
+## 总结
 
-本教程展示了如何在 Apache TVM 中自定义机器学习模型的优化流程。我们可以轻松组合优化 pass，并针对计算图中的不同部分定制优化策略。优化流程的高度灵活性使我们能够快速迭代优化步骤，从而提升模型性能。
+本教程展示了如何在 Apache TVM 中自定义机器学习模型的优化流程。我们可以轻松组合优化 pass，并针对计算图中的不同部分定制优化策略。优化流程的高度灵活性使我们能够快速迭代优化步骤，从而提升模型性能（可右键另存为下载）。
 * [下载 Jupyter Notebook：customize_opt.ipynb](https://tvm.apache.org/docs/_downloads/d64d105c8921b2ab908ef001ab382b45/customize_opt.ipynb)  
 * [下载 Python 源代码：customize_opt.py](https://tvm.apache.org/docs/_downloads/42304b518561422fdab8c7d8ee640a55/customize_opt.py) 
 * [下载压缩包：customize_opt.zip](https://tvm.apache.org/docs/_downloads/f69433a4a80715725df90d1386679956/customize_opt.zip)
+
+
 
 
 

@@ -7,7 +7,7 @@ title: IRModule
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/get_started/tutorials/ir_module.html#sphx-glr-download-get-started-tutorials-ir-module-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E9%83%A8%E7%BD%B2%E5%88%B0%E5%85%B6%E4%BB%96%E5%90%8E%E7%AB%AF)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/a6d7947451d373bc811080cffa18dc7c/ir_module.ipynb)
 
@@ -18,10 +18,10 @@ title: IRModule
 
 
 **目录**
-* [创建 IRModule](https://tvm.apache.org/docs/get_started/tutorials/ir_module.html#create-irmodule)
-* [IRModule 的属性](https://tvm.apache.org/docs/get_started/tutorials/ir_module.html#attributes-of-an-irmodule)
-* [对 IRModule 进行转换](https://tvm.apache.org/docs/get_started/tutorials/ir_module.html#transformations-on-irmodules)
-* [通用部署 IRModule](https://tvm.apache.org/docs/get_started/tutorials/ir_module.html#deploy-the-irmodule-universally)
+* [创建 IRModule](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E5%88%9B%E5%BB%BA-irmodule)
+* [IRModule 的属性](https://tvm.hyper.ai/docs/getting-started/irmodule/#irmodule-%E7%9A%84%E5%B1%9E%E6%80%A7)
+* [对 IRModule 进行转换](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E5%AF%B9-irmodule-%E8%BF%9B%E8%A1%8C%E8%BD%AC%E6%8D%A2)
+* [通用部署 IRModule](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E9%80%9A%E7%94%A8%E9%83%A8%E7%BD%B2-irmodule)
 
 
 ```plain
@@ -193,6 +193,7 @@ class TVMScriptModule:
 
 mod_from_script = TVMScriptModule
 mod_from_script.show()
+
 
 ```
 
@@ -412,10 +413,10 @@ print(mod.get_global_vars())
 
 
 接着，Apache TVM Unity 提供了一套默认的转换流水线，以简化转换过程。我们可以将默认的转换流水线应用到模块上。其中默认的 zero 流水线包含以下基本转换步骤：
-* **LegalizeOps：**将 Relax 操作转换为 call_tir 调用，配合相应的 TensorIR 函数。此转换会让 IRModule 同时包含 Relax 函数与 TensorIR 函数。 
-*  **AnnotateTIROpPattern：**为 TensorIR 函数打上模式标签，为后续的算子融合做好准备。 
-*  **FoldConstant：**进行常量折叠优化，简化涉及常量的运算。 
-*  **FuseOps 和 FuseTIR：**根据上一阶段 AnnotateTIROpPattern 所打的标签对 Relax 和 TensorIR 函数进行融合优化。
+* **LegalizeOps：** 将 Relax 操作转换为 call_tir 调用，配合相应的 TensorIR 函数。此转换会让 IRModule 同时包含 Relax 函数与 TensorIR 函数。 
+*  **AnnotateTIROpPattern：** 为 TensorIR 函数打上模式标签，为后续的算子融合做好准备。 
+*  **FoldConstant：** 进行常量折叠优化，简化涉及常量的运算。 
+*  **FuseOps 和 FuseTIR：** 根据上一阶段 AnnotateTIROpPattern 所打的标签对 Relax 和 TensorIR 函数进行融合优化。
 
 
 :::note
@@ -550,8 +551,9 @@ print(cpu_out)
 输出：
 
 ```plain
-[[ 0.13505758 -0.29273182  0.04422678 -0.06554039  0.02372958  0.00591143
-  -0.11505812 -0.11465105 -0.08466949  0.1232063 ]]
+[[ 6.4867303e-02  1.6763064e-01  9.3035400e-05  1.8091209e-01
+   8.0412276e-02 -1.4292052e-01 -3.2873321e-02 -7.4184828e-02
+  -6.7507513e-02  1.5245053e-01]]
 ```
 
 
@@ -593,14 +595,15 @@ assert np.allclose(cpu_out, gpu_out, atol=1e-3)
 输出：
 
 ```plain
-[[ 0.13505754 -0.29273173  0.04422677 -0.06554036  0.02372959  0.00591139
-  -0.115058   -0.11465096 -0.08466944  0.12320635]]
+[[ 6.4867347e-02  1.6763058e-01  9.3113631e-05  1.8091221e-01
+   8.0412284e-02 -1.4292067e-01 -3.2873336e-02 -7.4184842e-02
+  -6.7507453e-02  1.5245046e-01]]
 ```
 
 
 ### 部署到其他后端
 
-Apache TVM Unity 也支持部署到其他后端，包括不同类型的 GPU（如 Metal、ROCm、Vulkan 和 OpenCL）、不同类型的 CPU（如 x86 和 ARM），以及其他新兴平台（例如 WebAssembly）。部署流程与 GPU 后端类似。
+Apache TVM Unity 也支持部署到其他后端，包括不同类型的 GPU（如 Metal、ROCm、Vulkan 和 OpenCL）、不同类型的 CPU（如 x86 和 ARM），以及其他新兴平台（例如 WebAssembly）。部署流程与 GPU 后端类似（可右键另存为下载）。
 * [下载 Jupyter Notebook: ir_module.ipynb](https://tvm.apache.org/docs/_downloads/a6d7947451d373bc811080cffa18dc7c/ir_module.ipynb) 
 * [下载 Python 源代码: ir_module.py](https://tvm.apache.org/docs/_downloads/0b64717d4cc6027368b96fad40119738/ir_module.py) 
 * [下载压缩包: ir_module.zip](https://tvm.apache.org/docs/_downloads/11c11e53c7dace51a8be968ee169ed0d/ir_module.zip)

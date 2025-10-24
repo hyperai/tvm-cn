@@ -37,7 +37,7 @@ Apache TVM 的 RPC 系统包含三个工具：RPC Tracker、RPC Proxy 和 RPC Se
 
 ## 设置 RPC 追踪器和 RPC 代理
 
-一般来说，RPC 追踪器和 RPC 代理只需在主机（例如开发服务器或 PC）上运行，它们不依赖于设备端环境。只需根据 TVM 官方文档（[https://tvm.apache.org/docs/install/index.html](https://tvm.apache.org/docs/install/index.html)）完成 TVM 安装后，在相应主机上执行以下命令即可：
+一般来说，RPC 追踪器和 RPC 代理只需在主机（例如开发服务器或 PC）上运行，它们不依赖于设备端环境。只需根据 [TVM 文档](https://tvm.hyper.ai/docs/getting-started/installing-tvm/)完成 TVM 安装后，在相应主机上执行以下命令即可：
 * RPC 追踪器
 
 ```plain
@@ -63,7 +63,7 @@ TVM 社区提供了多个 RPC 服务器实现，例如：`apps/android_rpc`、`a
 RPC Server 需运行在设备端，通常依赖于 xPU 驱动、增强版支持 xPU 的 TVM 运行时及其他库，因此请先安装相关依赖组件，例如 KMD 驱动，并确保所需动态库路径已加入 `LD_LIBRARY_PATH` 环境变量。
 
 
-如果可以在设备上直接设置编译环境（无需交叉编译），请参考 [https://tvm.apache.org/docs/install/from_source.html](https://tvm.apache.org/docs/install/from_source.html) 完成编译，并直接跳转至 [步骤 3：启动 RPC Server](https://tvm.apache.org/docs/how_to/dev/setup_rpc_system.html#launch-rpc-server)。
+如果可以在设备上直接设置编译环境（无需交叉编译），请参考 [https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source) 完成编译，并直接跳转至 [步骤 3：启动 RPC Server](https://tvm.hyper.ai/docs/how-to/development-guides/setup_rpc_system#3-%E5%90%AF%E5%8A%A8-rpc-server)。
 
 ### 1. 交叉编译 TVM 运行时
 
@@ -224,4 +224,5 @@ def exp(*args, **kwargs):
 ### 2. 由于设备端缺少 `cloudpickle`，导致 RPC 服务器无法启动。
 
 由于 `cloudpickle` 是一个纯 Python 包，因此只需将其从其他机器复制到设备机器上的目录（例如 `/usr/local/lib/python3.9/site-packages`），即可解决该问题。
+
 

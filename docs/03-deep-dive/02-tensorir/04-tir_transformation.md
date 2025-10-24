@@ -7,7 +7,7 @@ title: 转换
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/deep_dive/tensor_ir/tutorials/tir_transformation.html#sphx-glr-download-deep-dive-tensor-ir-tutorials-tir-transformation-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/tensorir/tir_transformation#%E8%BF%BD%E8%B8%AA%E8%BD%AC%E6%8D%A2)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/e2a9c4bfdec7a9365ef67c5335b1aaa4/tir_transformation.ipynb)
 
@@ -18,7 +18,7 @@ title: 转换
 在本节中，我们将深入编译流程的核心内容 —— 原始张量函数的转换（Transformation）。
 
 
-在[上一节](https://tvm.apache.org/docs/deep_dive/tensor_ir/learning.html#tir-learning)中，我们展示了如何使用 TensorIR 编写 `mm_relu`。在实际应用中，同一个功能可能有多种实现方式，而不同实现可能会带来不同的性能表现。
+在[上一节](https://tvm.hyper.ai/docs/deep-dive/tensorir/understand-tensorir-abstraction)中，我们展示了如何使用 TensorIR 编写 `mm_relu`。在实际应用中，同一个功能可能有多种实现方式，而不同实现可能会带来不同的性能表现。
 
 
 :::note
@@ -73,26 +73,25 @@ a_nd = tvm.runtime.tensor(a_np)
 b_nd = tvm.runtime.tensor(b_np)
 c_nd = tvm.runtime.tensor(np.zeros((128, 128), dtype="float32"))
 
+
 def evaluate(mod: tvm.IRModule):
     lib = tvm.tir.build(mod, target="llvm")
-    # check correctness
     # 检查正确性
     lib(a_nd, b_nd, c_nd)
     np.testing.assert_allclose(c_nd.numpy(), c_np, rtol=1e-5)
-    # evaluate performance
     # 评估性能
     f_timer = lib.time_evaluator("main", tvm.cpu())
     print(f_timer(a_nd, b_nd, c_nd))
 
 
- evaluate(MyModule)
+evaluate(MyModule)
 
 ```
 输出:
 ```plain
 Execution time summary:
  mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)
-   2.3069       2.3069       2.3069       2.3069       0.0000
+   2.7253       2.7253       2.7253       2.7253       0.0000
 ```
 
 
@@ -198,7 +197,7 @@ class Module:
 
 Execution time summary:
  mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)
-   0.8776       0.8776       0.8776       0.8776       0.0000
+   0.8571       0.8571       0.8571       0.8571       0.0000
 ```
 
 
@@ -296,7 +295,7 @@ class Module:
 
 Execution time summary:
  mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)
-   0.3313       0.3313       0.3313       0.3313       0.0000
+   0.3377       0.3377       0.3377       0.3377       0.0000
 ```
 
 
@@ -377,7 +376,7 @@ def apply_trace(sch: tir.Schedule) -> None:
   b7 = sch.decompose_reduction(block=b0, loop=l3)
 ```
 
-
+可右键另存为下载。
 
 [下载 Jupyter Notebook: tir_transformation.ipynb](https://tvm.apache.org/docs/_downloads/e2a9c4bfdec7a9365ef67c5335b1aaa4/tir_transformation.ipynb) 
 
