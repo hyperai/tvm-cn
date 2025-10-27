@@ -27,29 +27,29 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 
 **类：**
 
-|[Target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target)(target[, host])|目标设备信息，通过TVM API使用。|
+|[Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)(target[, host])|目标设备信息，通过TVM API使用。|
 |:----|:----|
-|[TargetKind](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.TargetKind)|一种编译目标。|
-|[VirtualDevice](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.VirtualDevice)([device, target, memory_scope])|编译时表示数据在运行时的存储位置以及如何编译代码来计算它。|
+|[TargetKind](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargetkind)|一种编译目标。|
+|[VirtualDevice](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#classtvmtargetvirtualdevicedevicenonetargetnonememory_scope)([device, target, memory_scope])|编译时表示数据在运行时的存储位置以及如何编译代码来计算它。|
 
 
 **函数：**
 
-|[create](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.create)(target)|已弃用。|
+|[create](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetcreatetarget)(target)|已弃用。|
 |:----|:----|
-|[cuda](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.cuda)([model, arch, options])|返回一个 cuda 目标。|
-|[rocm](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.rocm)([model, options])|返回 ROCM 目标。|
-|[mali](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.mali)([model, options])|返回 ARM Mali GPU 目标。|
-|[intel_graphics](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.intel_graphics)([model, options])|返回 Intel Graphics 目标。|
-|[arm_cpu](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.arm_cpu)([model, options])|返回 ARM CPU 目标。|
-|[rasp](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.rasp)([options])|返回 Raspberry 3b 目标。|
-|[bifrost](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.bifrost)([model, options])|返回 ARM Mali GPU 目标（Bifrost 架构）。|
-|[riscv_cpu](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.riscv_cpu)([model, options])|返回 RISC-V CPU 目标。|
-|[hexagon](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.hexagon)([cpu_ver])|返回 Hexagon 目标。|
-|[stm32](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.stm32)([series, options])|返回 STM32 目标。|
-|[adreno](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.adreno)([model, options, clml])|返回 Qualcomm GPU 目标。|
-|[make_compilation_config](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.make_compilation_config)(ctxt, target[, …])|返回适用于 target 和 target_host 的 CompilationConfig，使用与标准构建接口相同的表示约定。|
-|[list_tags](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.list_tags)()|返回标签字典，将每个标签名称映射到其对应的目标。|
+|[cuda](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetcudamodelunknown-archnone-optionsnone)([model, arch, options])|返回一个 cuda 目标。|
+|[rocm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetrocmmodelunknown-optionsnone)([model, options])|返回 ROCM 目标。|
+|[mali](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetmalimodelunknown-optionsnone)([model, options])|返回 ARM Mali GPU 目标。|
+|[intel_graphics](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetintel_graphicsmodelunknown-optionsnone)([model, options])|返回 Intel Graphics 目标。|
+|[arm_cpu](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetarm_cpumodelunknown-optionsnone)([model, options])|返回 ARM CPU 目标。|
+|[rasp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetraspoptionsnone)([options])|返回 Raspberry 3b 目标。|
+|[bifrost](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetbifrostmodelunknown-optionsnone)([model, options])|返回 ARM Mali GPU 目标（Bifrost 架构）。|
+|[riscv_cpu](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetriscv_cpumodelsifive-u54-optionsnone)([model, options])|返回 RISC-V CPU 目标。|
+|[hexagon](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargethexagoncpu_verv68-kwargs)([cpu_ver])|返回 Hexagon 目标。|
+|[stm32](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetstm32seriesunknown-optionsnone)([series, options])|返回 STM32 目标。|
+|[adreno](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetadrenomodelunknown-optionsnone-clmlfalse)([model, options, clml])|返回 Qualcomm GPU 目标。|
+|[make_compilation_config](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetmake_compilation_configctxttargettarget_hostnone)(ctxt, target[, …])|返回适用于 target 和 target_host 的 CompilationConfig，使用与标准构建接口相同的表示约定。|
+|[list_tags](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#tvmtargetlist_tagsdictstrtargetnone)()|返回标签字典，将每个标签名称映射到其对应的目标。|
 
 ## *class* tvm.target.Target(*target*, *host=None*)
 
@@ -71,39 +71,39 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 
 **方法：**
 
-|[from_device](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.from_device)(device)|检测与给定设备关联的目标。|
+|[from_device](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-from_devicedevicestr-device--target)(device)|检测与给定设备关联的目标。|
 |:----|:----|
-|[current](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.current)([allow_none])|返回当前目标。|
-|[get_kind_attr](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.get_kind_attr)(attr_name)|获取有关目标类型的附加属性。|
-|[get_target_device_type](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.get_target_device_type)()|返回此目标的设备类型。|
-|[list_kinds](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.list_kinds)()|返回可用目标名称的列表。|
-|[canon_target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_target)(target)|给定一个类似目标的对象，返回代表它的 TVM Target 对象。|
-|[canon_target_and_host](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_target_and_host)(target[, target_host])|返回一个 TVM Target，用于表示 target 和 target_host。|
-|[canon_multi_target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_multi_target)(multi_targets)|给定一个类似目标的对象，或者类似目标对象的类似集合的对象，返回代表该对象的 TVM 目标对象的 TVM 数组。|
-|[canon_multi_target_and_host](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_multi_target_and_host)(target[, …])|返回一个 TVM Array<Target>，用于表示 target 和 target_host。|
-|[canon_target_map_and_host](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.canon_target_map_and_host)(target_map[, …])|将 target_map 作为从 TVM Target 的规范形式到 IRModules 的映射返回。|
-|[target_or_current](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.target_or_current)(target)|返回目标，如果目标为 None，则返回环境中的当前目标。|
+|[current](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-currentallow_nonetrue)([allow_none])|返回当前目标。|
+|[get_kind_attr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#get_kind_attrattr_name)(attr_name)|获取有关目标类型的附加属性。|
+|[get_target_device_type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#get_target_device_type)()|返回此目标的设备类型。|
+|[list_kinds](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-list_kinds)()|返回可用目标名称的列表。|
+|[canon_target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_targettarget)(target)|给定一个类似目标的对象，返回代表它的 TVM Target 对象。|
+|[canon_target_and_host](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_target_and_hosttarget-target_hostnone)(target[, target_host])|返回一个 TVM Target，用于表示 target 和 target_host。|
+|[canon_multi_target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_multi_targetmulti_targets)(multi_targets)|给定一个类似目标的对象，或者类似目标对象的类似集合的对象，返回代表该对象的 TVM 目标对象的 TVM 数组。|
+|[canon_multi_target_and_host](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_multi_target_and_hosttarget-target_hostnone)(target[, …])|返回一个 TVM Array<Target>，用于表示 target 和 target_host。|
+|[canon_target_map_and_host](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-canon_target_map_and_hosttarget_map-target_hostnone)(target_map[, …])|将 target_map 作为从 TVM Target 的规范形式到 IRModules 的映射返回。|
+|[target_or_current](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-target_or_currenttarget)(target)|返回目标，如果目标为 None，则返回环境中的当前目标。|
 
 
 **属性：**
 
-|[arch](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.arch)|如果存在，则返回目标的 cuda arch。|
+|[arch](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-arch)|如果存在，则返回目标的 cuda arch。|
 |:----|:----|
-|[max_num_threads](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.max_num_threads)|如果存在，则返回目标的 max_num_threads。|
-|[max_block_size_x](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.max_block_size_x)|如果存在，则返回目标 x 维度上的最大块大小。|
-|[max_block_size_y](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.max_block_size_y)|如果存在，则返回目标 y 维度上的最大块大小。|
-|[thread_warp_size](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.thread_warp_size)|如果存在，则返回目标的thread_warp_size。|
-|[model](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.model)|如果存在，则返回目标模型。|
-|[mcpu](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.mcpu)|如果存在，则返回目标的 mcpu。|
-|[mattr](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target.mattr)|如果存在，则返回目标的 mattr。|
+|[max_num_threads](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-max_num_threads)|如果存在，则返回目标的 max_num_threads。|
+|[max_block_size_x](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-max_block_size_x)|如果存在，则返回目标 x 维度上的最大块大小。|
+|[max_block_size_y](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-max_block_size_y)|如果存在，则返回目标 y 维度上的最大块大小。|
+|[thread_warp_size]()|如果存在，则返回目标的thread_warp_size。|
+|[model](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-model)|如果存在，则返回目标模型。|
+|[mcpu](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-mcpu)|如果存在，则返回目标的 mcpu。|
+|[mattr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-mattr)|如果存在，则返回目标的 mattr。|
 
-### *static* from_device(*device:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| Device*) → [Target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target)
+### *static* from_device(*device:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| Device*) → [Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)
 
 
 检测与指定设备关联的目标。如果设备不存在，则会引发错误。
 * **参数：dev** (*Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,*** ***Device****]*)  – 用于检测目标的设备。支持的设备类型：[“cuda”, “metal”, “rocm”, “vulkan”, “opencl”, “cpu”]。
 * **返回：target**  – 检测到的目标。
-* **返回类型：**[Target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target)。
+* **返回类型：**[Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnonet)。
 
 
 ### *static* current(*allow_none=True*)
@@ -214,13 +214,13 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 
 **属性：**
 
-|[options](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.TargetKind.options)|返回可用选项名称和类型的字典。|
+|[options](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#property-options)|返回可用选项名称和类型的字典。|
 |:----|:----|
 
 
 **方法：**
 
-|[options_from_name](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.TargetKind.options_from_name)(kind_name)|从 TargetKind 名称返回可用选项名称和类型的字典。|
+|[options_from_name](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#static-options_from_namekind_namestr)(kind_name)|从 TargetKind 名称返回可用选项名称和类型的字典。|
 |:----|:----|
 
 ### *property* options
@@ -246,7 +246,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回 ROCM 目标。
 * **参数：**
    * **model** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：该设备的型号。
-   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.mali(*model='unknown'*, *options=None*)
@@ -254,7 +254,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回 ARM Mali GPU 目标。
 * **参数：**
    * **model** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：该设备的型号。
-   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.intel_graphics(*model='unknown'*, *options=None*)
@@ -262,7 +262,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回 Intel Graphics 目标。
 * **参数：**
    * **model** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：该设备的型号。
-   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.arm_cpu(*model='unknown'*, *options=None*)
@@ -270,19 +270,19 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回 ARM CPU 目标。若没有预调操作参数，此函数也会下载。
 * **参数：**
    * **model** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：arm 板的 SoC 名称或电话名称。
-   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.rasp(*options=None*)
 
 返回 Raspberry 3b 目标。
-* **参数：options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+* **参数：options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.bifrost(*model='unknown'*, *options=None*)
 
 返回 ARM Mali GPU 目标（Bifrost 架构）。
-* **参数：options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+* **参数：options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 ## tvm.target.riscv_cpu(*model='sifive-u54'*, *options=None*)
 
@@ -290,7 +290,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回 RISC-V CPU 目标。默认值：sifive-u54 rv64gc
 * **参数：**
    * **model** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：CPU 名称。
-   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.hexagon(*cpu_ver='v68'*, ***kwargs*)
@@ -301,7 +301,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
    * **parameters** (*Recognized keyword*)。
    * **-----------------------------**
    * **hvx** ([int](https://docs.python.org/3/library/functions.html#int)*(**default: 128****)*) ：HVX 向量的大小（以字节为单位）。值为 0 表示禁用 HVX 代码生成。
-   * **llvm_options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表(**default: None****)*) ：用户定义的编译器参数[。](https://docs.python.org/3/library/stdtypes.html#str)
+   * **llvm_options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)(**default: None****)*) ：用户定义的编译器参数。
    * **use_qfloat** ([bool](https://docs.python.org/3/library/functions.html#bool)*(**default: True for cpu_ver >= v68****,False otherwise)*) ：是否使用 QFloat HVX 指令。
    * **use_ieee_fp** ([bool](https://docs.python.org/3/library/functions.html#bool)*(**default: False****)*) ：是否使用 IEEE HVX 指令。
    * **num_cores** ([int](https://docs.python.org/3/library/functions.html#int)*(**default: 4****)*) ：HVX 线程数。此属性是元调度程序所必需的。
@@ -314,7 +314,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回 STM32 目标。
 * **参数：**
    * **series** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：STM32 开发板系列的名称，例如 stm32H7xx 或 stm32F4xx。
-   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*列表*) ：附加[选项](https://docs.python.org/3/library/stdtypes.html#str)。
+   * **options** ([str](https://docs.python.org/3/library/stdtypes.html#str) *或*[str](https://docs.python.org/3/library/stdtypes.html#str)*[列表](https://docs.python.org/3/library/stdtypes.html#list)*) ：附加选项。
 
 
 ## tvm.target.adreno(*model='unknown'*, *options=None*, *clml=False*)
@@ -330,11 +330,11 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 **属性：**
 
 
-|[device_type_int](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.VirtualDevice.device_type_int)|虚拟设备的类型。|
+|[device_type_int](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#propertydevice_type_int)|虚拟设备的类型。|
 |:----|:----|
-|[memory_scope](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.VirtualDevice.memory_scope)|关于内存的面积。|
-|[target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.VirtualDevice.target)|描述如何为虚拟设备编译的目标。|
-|[virtual_device_id](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.VirtualDevice.virtual_device_id)|虚拟设备的设备 ID。|
+|[memory_scope](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#propertymemory_scope)|关于内存的面积。|
+|[target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#propertytarget)|描述如何为虚拟设备编译的目标。|
+|[virtual_device_id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#propertyvirtual_device_id)|虚拟设备的设备 ID。|
 
 
 ### ***property*device_type_int**
@@ -361,8 +361,8 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 返回适用于 target 和 target_host 的 CompilationConfig，使用与标准构建接口相同的表示约定。仅用于单元测试。
 
 
-## **tvm.target.list_tags()→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[str](https://docs.python.org/3/library/stdtypes.html#str)**,**[Target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target)**] |**[None](https://docs.python.org/3/library/constants.html#None)
+## **tvm.target.list_tags()→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[str](https://docs.python.org/3/library/stdtypes.html#str)**,**[Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)**] |**[None](https://docs.python.org/3/library/constants.html#None)
 
 返回一个包含标签的字典，将每个标签名映射到其对应的目标。
 * **返回:** tag_dict：标签字典，将每个标签名映射到其对应的目标。如果 TVM 以仅运行时模式构建，则为 None。
-* **返回类型:** Optional[Dict[[str](https://docs.python.org/3/library/stdtypes.html#str), [Target](https://tvm.apache.org/docs/reference/api/python/target.html#tvm.target.Target)]]。
+* **返回类型:** Optional[Dict[[str](https://docs.python.org/3/library/stdtypes.html#str), [Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)]]。

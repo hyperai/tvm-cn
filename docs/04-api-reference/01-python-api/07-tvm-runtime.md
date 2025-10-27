@@ -1,6 +1,6 @@
 ---
 
-title: tvm 运行时命名空间。
+title: tvm.runtime
 
 ---
 
