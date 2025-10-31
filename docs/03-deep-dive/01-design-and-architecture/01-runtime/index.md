@@ -7,7 +7,7 @@ title: TVM 运行时系统
 
 TVM 支持多种编程语言用于编译器栈的开发和部署。在本说明中，我们将解释 TVM 运行时的关键组成部分。
 
-![图片](/img/docs/v21/03-deep-dive-01-design-and-architecture-01-runtime-1.png)
+![图片](/img/docs/v21/03-deep-dive-01-design-and-architecture-01-runtime.png)
 
 VM 的运行时系统需要满足多种看似相互矛盾但又非常关键的需求：
 
