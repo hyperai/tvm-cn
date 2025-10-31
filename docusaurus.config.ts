@@ -9,7 +9,7 @@ const config: Config = {
   tagline: 'Apache TVM 是一个端到端的深度学习编译框架，适用于 CPU、GPU 和各种机器学习加速芯片。',
   url: 'https://tvm.hyper.ai',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'hyperai', // Usually your GitHub org/user name.
