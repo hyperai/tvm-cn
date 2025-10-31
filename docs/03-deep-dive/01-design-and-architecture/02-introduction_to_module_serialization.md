@@ -19,8 +19,10 @@ title: 模块序列化指南
 
 
 :::note
+
 1. 对于 C 源码模块（CSourceModule），我们会将它们编译并与 DSO 模块一同进行链接。
 2. 是否使用 `_PackImportsToLLVM` 或 `_PackImportsToC` **取决于 TVM 是否启用了 LLVM**。它们本质上实现的是相同的目标。
+
 :::
 
 ## 序列化底层机制与格式标准
@@ -80,7 +82,9 @@ _import_tree_logic
 
 
 :::note
+
 是否需要实现 SaveToBinary 虚函数取决于模块的使用方式。例如，如果模块中包含我们在重新加载动态共享库时需要的信息，那么我们就应该实现该函数。像 CUDA 模块，在重新加载动态共享库时我们需要将其二进制数据传递给 GPU 驱动，因此我们需要实现 `SaveToBinary` 来序列化其二进制数据。但对于主机侧模块（如 DSO 模块），在加载动态共享库时我们并不需要额外信息，因此不需要实现 `SaveToBinary`。不过，如果未来我们希望记录一些关于 DSO 模块的元信息，我们也可以为 DSO 模块实现 `SaveToBinary`。
+
 :::
 
 最后，除非我们的模块中仅有一个 DSO 模块并且它位于根位置，否则我们会写入一个键` _import_tree`。该键用于在重新加载导出的库时恢复模块导入关系，如前文所述。`import_tree_logic` 的内容则是将 `import_tree_row_ptr_ `和 `import_tree_child_indices_` 写入到流中。
