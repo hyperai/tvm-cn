@@ -119,7 +119,7 @@ API](https://github.com/apache/tvm/blob/main/include/tvm/runtime/base.h)，它�
 
 调用 PackedFunc 相比普通函数的开销很小，只多做了一些栈上值保存。因此，只要不频繁包装非常小的函数，这样的开销是可以接受的。总的来说，PackedFunc 是 TVM 的通用“胶水层”，我们在编译和部署模块中都大量依赖它。
 
-## Module（组件）
+## 组件
 由于 TVM 支持多种不同类型的硬件设备，我们也需要支持对应的不同驱动程序。我们必须使用这些驱动 API 来加载内核、以打包形式设置参数并启动内核执行。同时，我们还需要对驱动 API 进行封装，以确保暴露给用户的接口是线程安全的。因此，我们通常会在 C++ 中编写这些驱动层 Glue 代码，并通过 PackedFunc 将其暴露给用户。显然，我们不可能为每类函数都单独编写接口，因此 PackedFunc 再次成为解决方案。
 
 TVM 将编译结果抽象为一个 [Module](https://github.com/apache/tvm/blob/main/include/tvm/runtime/module.h)。
@@ -128,10 +128,11 @@ TVM 将编译结果抽象为一个 [Module](https://github.com/apache/tvm/blob/m
 
 ModuleNode 是一个抽象类，不同设备类型可以各自实现。例如，我们已支持 CUDA、Metal、OpenCL 以及动态库（Shared Library）。这种抽象设计使得引入新设备变得简单，而无需重新生成每种设备的主机端代码。
 
-## Remote Deployment（远程部署）
+## 远程部署
 PackedFunc 和 Module 系统也使得我们可以将函数直接部署到远程设备上。在底层，我们提供了一个 RPCModule，它负责序列化参数、进行数据传输，并在远程设备上启动计算。
 
-![image](https://tvm.apache.org/images/release/tvm_rpc.png)
+![图片](/img/docs/v21/03-deep-dive-01-design-and-architecture-01-runtime-2.png)
+
 RPC 服务器本身非常精简，可以直接与运行时一起打包。我们可以在 iPhone、Android、树莓派甚至浏览器中启动一个最小化的 TVM RPC 服务器。交叉编译、模块打包与测试都可以在同一个脚本中完成。更多细节可参考 `tutorial-cross-compilation-and-rpc`。
 
 这种即时反馈带来了显著优势。例如，当我们希望验证生成的代码在 iPhone 上的正确性时，不再需要手动用 Swift/Objective-C 重写测试样例——我们可以直接使用 RPC 在 iPhone 上执行代码，将结果复制回主机，并使用 numpy 进行验证。同样，我们也可以使用同一个脚本进行性能分析。
