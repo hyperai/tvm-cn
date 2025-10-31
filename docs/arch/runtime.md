@@ -186,6 +186,4 @@ types](https://github.com/apache/tvm/tree/main/apps/extension)。
 
 # 与运行时相关的信息
 
-::: {.toctree maxdepth="1" glob=""}
-runtimes/\*
-:::
+* Vulkan Runtime
