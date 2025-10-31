@@ -1,6 +1,6 @@
 ---
 
-title: 设备 / Target 交互
+title: 设备/目标交互
 
 ---
 
