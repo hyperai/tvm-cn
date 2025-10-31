@@ -17,7 +17,6 @@ title: 模块序列化指南
    如果存在导入模块，我们将创建一个名为 `devc.o` / `dev.cc` 的文件（用于将这些导入模块的二进制数据打包进最终的动态库中），然后调用 `_PackImportsToLLVM` 或 `_PackImportsToC` 来执行模块序列化。
 4. 最后，调用 `fcompile`，其内部会调用`_cc.create_shared`，生成动态共享库。
 
----
 
 :::note
 1. 对于 C 源码模块（CSourceModule），我们会将它们编译并与 DSO 模块一同进行链接。
