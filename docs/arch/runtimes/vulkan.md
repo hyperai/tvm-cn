@@ -1,9 +1,14 @@
-# Vulkan 运行时
+---
+
+title: Vulkan 运行时
+
+---
 
 
 TVM 支持使用 Vulkan 计算着色器来执行任务。 每个计算内核都会被编译成一个 SPIR-V 着色器，然后可通过 TVM 接口进行调用。
 
 ## Vulkan 功能与限制 
+
 由于不同的 Vulkan 实现可能启用了不同的可选特性，或具有不同的物理限制，
 代码生成必须了解可用的特性。这些特性对应于特定的 Vulkan 能力与限制，如 `Vulkan Capabilities Table <tvm-table-vulkan-capabilities>`{.interpreted-text role="ref"} 所示。 若未指定，TVM 会假定该能力不可用，或该限制为 Vulkan 规范中 [Required Limits](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#limits-minmax) 一节所定义的最小保证值。
 
@@ -65,7 +70,7 @@ SPIR-V 代码生成器和 Vulkan 运行时均可通过环境变量修改部分�
     [VK_KHR_descriptor_update_template](https://khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VK_KHR_descriptor_update_template.html)
     扩展。 若为假，TVM 会根据扩展的可用性自动决定是否使用。
 -   `TVM_VULKAN_DISABLE_DEDICATED_ALLOCATION` ------ 布尔变量。
-    若为真，TVM 不会将内存分配标记为"专用分配"， 也不会使用
+    若为真，TVM 不会将内存分配标记为「专用分配」， 也不会使用
     [VK_KHR_dedicated_allocation](https://khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VK_KHR_dedicated_allocation.html)
     扩展。 若为假，TVM 会依据
     [VkMemoryDedicatedRequirements](https://khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VkMemoryDedicatedRequirements.html)
