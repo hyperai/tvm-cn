@@ -33,7 +33,7 @@ TVM 由社区成员共同开发，欢迎任何人参与贡献。我们重视各�
    * [仔细阅读代码](https://tvm.hyper.ai/docs/about/contribute/code_review#%E8%AE%A4%E7%9C%9F%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81)
    * [保持尊重](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BF%9D%E6%8C%81%E5%B0%8A%E9%87%8D)
    * [代码质量考量因素](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E8%80%83%E9%87%8F%E5%9B%A0%E7%B4%A0)
-   * [达成共识](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E8%80%83%E9%87%8F%E5%9B%A0%E7%B4%A0)
+   * [达成共识](https://tvm.hyper.ai/docs/about/contribute/code_review#%E8%BE%BE%E6%88%90%E5%85%B1%E8%AF%86)
    * [一致性](https://tvm.hyper.ai/docs/about/contribute/code_review#%E4%B8%80%E8%87%B4%E6%80%A7)
    * [其他建议](https://tvm.hyper.ai/docs/about/contribute/code_review#%E5%85%B6%E4%BB%96%E5%BB%BA%E8%AE%AE)
 * [提交者指南](https://tvm.hyper.ai/docs/about/contribute/committer_guide)
