@@ -60,7 +60,7 @@ TVM 由社区成员共同开发，欢迎任何人参与贡献。我们重视各�
    * [仅将最新的 k 个提交到 main 分支](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E4%BB%85%E5%B0%86%E6%9C%80%E6%96%B0%E7%9A%84-k-%E4%B8%AA%E6%8F%90%E4%BA%A4%E5%88%B0-main-%E5%88%86%E6%94%AF)
    * [强制推送的后果](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%BC%BA%E5%88%B6%E6%8E%A8%E9%80%81%E7%9A%84%E5%90%8E%E6%9E%9C)
 * [使用 TVM 的 CI](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci)
-   * [贡献者指南](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%BC%BA%E5%88%B6%E6%8E%A8%E9%80%81%E7%9A%84%E5%90%8E%E6%9E%9C)
+   * [贡献者指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E8%B4%A1%E7%8C%AE%E8%80%85%E6%8C%87%E5%8D%97)
    * [维护者指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97)
 * [发布流程](https://tvm.hyper.ai/docs/about/contribute/Release_Process)
    * [准备发布说明](https://tvm.hyper.ai/docs/about/contribute/Release_Process#%E5%87%86%E5%A4%87%E5%8F%91%E5%B8%83%E8%AF%B4%E6%98%8E)
