@@ -95,7 +95,7 @@ server = rpc.Server(host, server_init_callback=server_init_callback)
    * **session_constructor_args** ( *List* )：作为远程会话构造函数传递的附加参数列表。列表的第一个元素始终是一个字符串，用于指定会话构造函数的名称，后续参数是该函数的位置参数。
    * **enable_logging**（*布尔值*）**：** 启用/禁用日志记录的标志。默认情况下，日志记录处于禁用状态。
 * **返回：sess：** 连接的会话。
-* **返回类型：**[RPCSession](hhttps://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpcrpcsessionsess)。
+* **返回类型：**[RPCSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpcrpcsessionsess)。
 
 
 **示例**
