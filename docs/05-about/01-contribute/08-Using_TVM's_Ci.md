@@ -4,8 +4,8 @@ title: 使用 TVM 的 CI
 
 ---
 
-* [贡献者指南](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%BC%BA%E5%88%B6%E6%8E%A8%E9%80%81%E7%9A%84%E5%90%8E%E6%9E%9C)
-   * [调试失败](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%BC%BA%E5%88%B6%E6%8E%A8%E9%80%81%E7%9A%84%E5%90%8E%E6%9E%9C)
+* [贡献者指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#贡献者指南)
+   * [调试失败](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#调试失败)
       * [Jenkins 日志](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#jenkins-%E6%97%A5%E5%BF%97)
       * [重现失败](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E5%A4%8D%E7%8E%B0%E5%A4%B1%E8%B4%A5)
    * [报告问题](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%8A%A5%E5%91%8A%E9%97%AE%E9%A2%98)
