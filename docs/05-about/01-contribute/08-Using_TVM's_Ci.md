@@ -47,7 +47,7 @@ TVM 主要使用 Jenkins 运行 Linux 持续集成(CI)测试，通过 [Jenkinsf
 
 #### 复现失败
 
-大多数 TVM Python 测试使用 `pytest` 运行，可按[测试指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)操作复现。
+大多数 TVM Python 测试使用 `pytest` 运行，可按[测试指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%B5%8B%E8%AF%95%E6%8C%87%E5%8D%97)操作复现。
 
 
 ### 报告问题
