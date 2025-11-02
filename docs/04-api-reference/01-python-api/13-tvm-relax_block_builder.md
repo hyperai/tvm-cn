@@ -73,7 +73,7 @@ with bb.function("main"):
     builder.emit_func_output(output, params=params)
 mod = bb.get()
 ```
-### *static* current() → [BlockBuilder](https://tvm..org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.BlockBuilder) | [None](https://docs.python.org/3/library/constants.html#None)
+### *static* current() → [BlockBuilder](https://tvm.hyper.ai/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.BlockBuilder) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 返回当前的 BlockBuilder。
