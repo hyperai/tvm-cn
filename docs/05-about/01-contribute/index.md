@@ -56,7 +56,7 @@ TVM 由社区成员共同开发，欢迎任何人参与贡献。我们重视各�
    * [如何解决与 main 分支冲突](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E4%B8%8Emain%E5%88%86%E6%94%AF%E7%9A%84%E5%86%B2%E7%AA%81) 
    * [如何合并多个提交](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%A6%82%E4%BD%95%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AA%E6%8F%90%E4%BA%A4)
    * [重置到最新的 main 分支](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E9%87%8D%E7%BD%AE%E5%88%B0%E6%9C%80%E6%96%B0%E7%9A%84-main-%E5%88%86%E6%94%AF)
-   * [恢复重置前的提交](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E9%87%8D%E7%BD%AE%E5%88%B0%E6%9C%80%E6%96%B0%E7%9A%84-main-%E5%88%86%E6%94%AF)
+   * [恢复重置前的提交](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E6%81%A2%E5%A4%8D%E9%87%8D%E7%BD%AE%E5%89%8D%E7%9A%84%E6%8F%90%E4%BA%A4)
    * [仅将最新的 k 个提交到 main 分支](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E4%BB%85%E5%B0%86%E6%9C%80%E6%96%B0%E7%9A%84-k-%E4%B8%AA%E6%8F%90%E4%BA%A4%E5%88%B0-main-%E5%88%86%E6%94%AF)
    * [强制推送的后果](https://tvm.hyper.ai/docs/about/contribute/Git_Usage_Tips#%E5%BC%BA%E5%88%B6%E6%8E%A8%E9%80%81%E7%9A%84%E5%90%8E%E6%9E%9C)
 * [使用 TVM 的 CI](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci)
