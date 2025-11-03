@@ -362,7 +362,7 @@ class Module:
 * **参数：params** (*Optional*[***List**[***[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]***]*)：范围内可见的参数。
 
 
-:::Note
+:::note
 
 当引入新范围（函数、序列）时应调用此函数，以正确跟踪变量可用性并帮助尽力推断。
 
