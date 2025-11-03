@@ -121,7 +121,7 @@ VM 中可能的返回值。
    * **f_preproc** (*,* *optional*) ：在执行时间评估器之前我们要执行的预处理函数名称。
 
 
-:::Note
+:::note
 
 该函数将被调用（1 + 数字 x 重复）次，如果存在延迟初始化，则第一次调用将被丢弃。
 
@@ -341,7 +341,7 @@ Relax 中的条件表达式。
    * **struct_info** (Optional[]) *：*常量张量的结构信息。若未指定，则根据数据推断。
    * **span** (Optional[]*)：*指向原始源代码的 Span。
 
-:::Note
+:::note
 
 标量常数由 ndim-0 常数张量表示。
 
@@ -365,7 +365,7 @@ prim expr 表示值。
    * **dtype** (*Optional*[*])：结果常量的数据类型。*
 
 
-:::Note
+:::note
 
 当 dtype 为 None 时，我们使用以下规则：
 * int 映射到“int32”。
@@ -387,7 +387,7 @@ prim expr 表示值。
 * **返回类型：** Expr
 
 
-:::Note
+:::note
 
 此函数要求对 expr 进行归一化。如果 expr 的 StructInfo 不是 TensorStructInfo，函数将报错。它会尽可能尝试返回符号函数。如果张量没有编译时符号形状，函数将选择返回 Relax.Call(relax.op.shape_of, [expr])。
 
@@ -1045,7 +1045,7 @@ StructInfo 包含静态类型和运行时结构信息。
 * **ndim** (Optional[])：形状的大小。
 
 
-:::Note
+:::note
 
 不要同时指定值和 ndim。
 
@@ -1060,7 +1060,7 @@ StructInfo 包含静态类型和运行时结构信息。
 * **vdevice** (Optional[**Vdevice**])：虚拟设备。
 * **ndim** (Optional[])：张量的维数。
 
-:::Note
+:::note
 
 不要同时指定 shape 和 ndim。
 
@@ -1186,7 +1186,7 @@ VM 编译器或 ExecBuilder 发出的虚拟机可执行对象。
 一个绑定/语句级数据流块重写器。
 
 
-:::Note
+:::note
 
 
 由于 TVM AST 节点的不可变性和写时复制特性，重写并非就地完成。相反，会创建一个新的 DataflowBlock，并通过 mutated_dfb 返回。同样，其新的根函数也会由 mutated_root_fn 创建并返回。要将此更改应用于 IRModule，请使用 mutate_irmodule 重写构造函数中注册的旧函数。
@@ -1208,7 +1208,7 @@ VM 编译器或 ExecBuilder 发出的虚拟机可执行对象。
    * **is_dfvar** (, optional)：变量类型，默认为 False。
 
 
-:::Note
+:::note
 
 
 如果未指定变量名，则会自动生成“tmp$”形式的变量。如果 is_dfvar 为 True，则变量类型为 DataflowVar，否则为 Var。relax.Var 表示变量是 DataflowBlock 的输出变量，而 DataflowVar 表示变量是 DataflowBlock 的内部变量。
