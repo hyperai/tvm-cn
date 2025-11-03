@@ -17,7 +17,7 @@ title: tvm.tir.analysis
 * **返回类型：**[bool](https://docs.python.org/3/library/functions.html#bool)。
 
 
-:::Note
+:::note
 
 此函数不会重新映射变量绑定，除非 x.same_as(y)，否则它不会对 (let x = 1 in x + 1) 和 (let y = 1 in y + 1) 返回 true。使用 py:func: tvm.ir.structural_equal 来处理结构变量重新映射。
 
