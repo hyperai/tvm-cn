@@ -475,7 +475,7 @@ Not 节点。
 Select 节点。
 
 
-:::Note
+:::note
 
 Select 可能会同时计算 true_value 和 false_value。如果您只想获取仅评估正确分支的条件表达式，请使用 `tvm.tir.if_then_else`。
 
@@ -628,7 +628,7 @@ AssertStmt 节点。
 for 循环的种类。
 
 
-:::Note
+:::note
 
 ForKind 可以改变循环的控制流语义，需要在所有 TIR 传递中考虑它。
 
@@ -2117,7 +2117,7 @@ x 次方 y。
 * **返回：result**：条件表达式的结果。
 * **返回类型：**[Node](/docs/api-reference/python-api/tvm-ir#class-tvmirnode)
 
-:::Note
+:::note
 
 与 Select 不同，if_then_else 不会执行不满足条件的分支。您可以使用它来防止越界访问。与 Select 不同，如果向量中某些通道的条件不同，则 if_then_else 无法进行向量化。
 
@@ -2194,7 +2194,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 当操作数为整数时，返回 truncdiv(a, b, span)。
 
@@ -2210,7 +2210,7 @@ x 次方 y。
 * **返回：res** *：* 结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 使用此函数拆分非负索引。此函数可以利用操作数的非负性。
 
@@ -2227,7 +2227,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 使用此函数拆分非负索引。此函数可以利用操作数的非负性。
 
@@ -2244,7 +2244,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 这是 C 语言中的默认整数除法行为。
 
@@ -2260,7 +2260,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 这是 C 语言中的默认整数除法行为。
 
