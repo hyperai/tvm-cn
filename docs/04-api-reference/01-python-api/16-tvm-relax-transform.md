@@ -757,7 +757,7 @@ class Module:
 * **返回：ret**：通行证。
 * **返回类型：**[tvm.ir.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 应在 ToNonDataflow() 之后使用。
 
