@@ -719,7 +719,7 @@ Numpy 风格的 cumsum 操作。返回沿给定轴的元素累积和。
 * **返回：buffer** ：创建的缓冲区。
 * **返回类型：**[tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)。
 
-:::Note
+:::note
 
 Buffer 数据结构反映了 dlpack 中的 DLTensor 结构。虽然 DLTensor 数据结构非常通用，但通常创建只处理特定数据结构情况的函数是有帮助的，这样编译后的函数可以从中受益。
 
@@ -752,7 +752,7 @@ Buffer 数据结构反映了 dlpack 中的 DLTensor 结构。虽然 DLTensor 数
 * **返回：res** ：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 当操作数为整数时，返回 truncdiv(a, b, span)。
 
@@ -873,7 +873,7 @@ expand_like(input, [1,2], new_shape_array) =
    * **输入**（*Tensor*[列表）](https://docs.python.org/3/library/stdtypes.html#list)[：](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)输入。
    * *fcompute**（*输入**的**lambda 函数**，*输出–> stmt*）：指定用于执行计算的 IR 语句。请参阅以下注释以了解 fcompute 的函数签名。
 
-:::Note
+:::note
 * **参数:**
    * **ins** (list of [tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输入的占位符
    * **outs** (list of [tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输出的占位符
@@ -3243,7 +3243,7 @@ NCHW 布局中的组卷积操作符。
 * **返回：result** ：条件表达式的结果。
 * **返回类型：**[Node](/docs/api-reference/python-api/tvm-ir#class-tvmirnode)。
 
-:::Note
+:::note
 
 与 Select 不同，if_then_else 不会执行不满足条件的分支。您可以使用它来防止越界访问。与 Select 不同，如果向量中某些通道的条件不同，则 if_then_else 无法进行向量化。
 
