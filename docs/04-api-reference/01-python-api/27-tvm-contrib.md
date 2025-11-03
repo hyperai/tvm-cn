@@ -61,7 +61,7 @@ BLAS 库的外部函数接口。
 * **返回：valid_list**：可能路径的列表。
 * **返回类型：**[list](https://docs.python.org/3/library/stdtypes.html#list) of [str](https://docs.python.org/3/library/stdtypes.html#str).
 
-:::Note
+:::note
 
 此函数将首先搜索与使用 tvm 构建的主要 llvm 版本匹配的 clang。
 
@@ -572,7 +572,7 @@ ROCm 后端实用程序。
 * **返回：valid_list**：可能路径的列表。
 * **返回类型：**[list](https://docs.python.org/3/library/stdtypes.html#list) of [str](https://docs.python.org/3/library/stdtypes.html#str)。
 
-:::Note
+:::note
 
 此函数将首先搜索与使用 tvm 构建的主要 llvm 版本匹配的 ld.lld
 
