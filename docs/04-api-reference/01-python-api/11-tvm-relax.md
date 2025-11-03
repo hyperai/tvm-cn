@@ -70,7 +70,7 @@ relax 从 VM 模块使用 set_input 设置的参数调用命名函数。如果�
 如果没有先调用 invoke_stateful 则调用此函数是错误的。
 * **参数：func_name** () ：应获取其输出的函数的名称。
 * **返回：** **ret** ：先前通过 invoke_stateful 调用该函数的结果。如果结果是一个元组，则返回一个字段列表。这些字段也可能是元组，因此可以任意嵌套。
-* **返回类型：** Union[tvm.Object, [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)[Any]]
+* **返回类型：** Union[tvm.Object, [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)[Any]]
 
 
 ### **set_instrument(*instrument: Function*)→**[None](https://docs.python.org/3/library/constants.html#None)
@@ -174,7 +174,7 @@ timing_res = vm.time_evaluator("invoke_stateful", tvm.cpu())("func_name")
    * **func_name** () ：函数的名称。
    * **args** (*List* *of*  *or* *other objects supported by PackedFunc.*) ：函数的参数。
 * **返回：** **report**：格式化的分析结果，显示每个操作的时间测量。
-* **返回类型：** [tvm.runtime.profiling.Report](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingreportcallssequencedictstr-object-device_metricsdictstrdictstr-object-configurationdictstr-object)。
+* **返回类型：** [tvm.runtime.profiling.Report](/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingreportcallssequencedictstr-object-device_metricsdictstrdictstr-object-configurationdictstr-object)。
 
 
 ## ***class*tvm.relax.VMInstrumentReturnKind(*value*)**
@@ -192,13 +192,13 @@ RelaxExpr 的别名。
 Var 中使用的唯一标识符（名称）。保证在所有过程中保持稳定。
 
 
-## ***class*tvm.relax.Var(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.Var(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 所有 Relax 绑定的变量类。
 * **参数：**
    * **name_hint** (*Union*[[str](https://docs.python.org/3/library/stdtypes.html#str), Id]) ：变量的名称提示。
-   * **struct_info** (*Optional*[[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)])：变量的结构信息注释。
-   * **span** (*Optional*[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)])：指向原始源代码的 Span。
+   * **struct_info** (*Optional*[[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)])：变量的结构信息注释。
+   * **span** (*Optional*[[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)])：指向原始源代码的 Span。
 
 
 ### ***property*name_hint*:* [str](https://docs.python.org/3/library/stdtypes.html#str)
@@ -206,13 +206,13 @@ Var 中使用的唯一标识符（名称）。保证在所有过程中保持稳�
 获取当前变量的名称提示。
 
 
-## ***class*tvm.relax.DataflowVar(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.DataflowVar(*name_hint:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Id](/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 变量节点的子类型，用于标记来自正常可见的“function local”绑定的数据流变量。
 * **参数：**
    * **name_hint** (Union[[str](https://docs.python.org/3/library/stdtypes.html#str), Id]) ：变量的名称提示。
-   * **struct_info** (Optional[[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)]) *：变量的结构信息注释。*
-   * **span** (Optional[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)]) *：指向原始源代码的 Span。*
+   * **struct_info** (Optional[[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)]) *：变量的结构信息注释。*
+   * **span** (Optional[[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)]) *：指向原始源代码的 Span。*
 
 
 ## ***class*tvm.relax.Binding**
@@ -220,7 +220,7 @@ Var 中使用的唯一标识符（名称）。保证在所有过程中保持稳�
 Relax 中绑定的基类。
 
 
-## ***class*tvm.relax.MatchCast(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*value:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.MatchCast(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*value:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 运行时将值与结构信息匹配。
 
 
@@ -231,7 +231,7 @@ Relax 中绑定的基类。
    * **struct_info** () ：要匹配的结构信息。
 
 
-## ***class*tvm.relax.VarBinding(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*value:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***= None*)**
+## ***class*tvm.relax.VarBinding(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*value:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***= None*)**
 
 变量绑定，将 lhs 的变量与 rhs 的变量绑定。
 * **参数：**
@@ -239,21 +239,21 @@ Relax 中绑定的基类。
    * **value** (*Expr*) ：输入值表达式。
 
 
-## ***class*tvm.relax.BindingBlock(*bindings:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Binding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)***]*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.BindingBlock(*bindings:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Binding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)***]*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 绑定块的基类，内部绑定可以是不纯的（具有副作用或控制流）。
 
 
-## ***class*tvm.relax.DataflowBlock(*bindings:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Binding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)***]*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.DataflowBlock(*bindings:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Binding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)***]*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 数据流块，内部绑定是纯粹的（没有副作用，也没有控制流）。
 
 
-## ***class*tvm.relax.SeqExpr(*blocks:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)***]*,*body:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.SeqExpr(*blocks:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)***]*,*body:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 一系列绑定块后跟一个表达式。
 
 
-## ***class*tvm.relax.ShapeExpr(*values:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***, ...] |***[Array](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirarrayinput_listsequenceany)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.ShapeExpr(*values:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***, ...] |***[Array](/docs/api-reference/python-api/tvm-ir#class-tvmirarrayinput_listsequenceany)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 形状表达式允许用户构建包含 PrimExpr 的形状。
 * **参数：**
@@ -261,7 +261,7 @@ Relax 中绑定的基类。
    * **span** (Optional[]) *：*指向原始源代码的 Span。
 
 
-## ***class*tvm.relax.Tuple(*fields:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***, ...]*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.Tuple(*fields:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***, ...]*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 将多个字段组合在一起的元组表达式。
 * **参数：**
@@ -269,7 +269,7 @@ Relax 中绑定的基类。
    * **span** (Optional[]) ：指向原始源代码的 Span。
 
 
-## ***class*tvm.relax.TupleGetItem(*tuple_value:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*index:***[int](https://docs.python.org/3/library/functions.html#int)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.TupleGetItem(*tuple_value:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*index:***[int](https://docs.python.org/3/library/functions.html#int)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 从元组中获取第 index 项。
 * **参数：**
@@ -279,11 +279,11 @@ Relax 中绑定的基类。
 
 # 
 
-## ***class*tvm.relax.Function(*params:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,*body:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*ret_struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*is_pure:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[None](https://docs.python.org/3/library/constants.html#None)***= True*,*attrs:***[DictAttrs](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirdictattrs)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.Function(*params:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,*body:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*ret_struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*is_pure:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[None](https://docs.python.org/3/library/constants.html#None)***= True*,*attrs:***[DictAttrs](/docs/api-reference/python-api/tvm-ir#class-tvmirdictattrs)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 Relax 函数。
 
-### ***static*create_empty(*params:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,*ret_struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*is_pure:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[None](https://docs.python.org/3/library/constants.html#None)***= True*,*attrs:***[DictAttrs](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirdictattrs)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+### ***static*create_empty(*params:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,*ret_struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*is_pure:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[None](https://docs.python.org/3/library/constants.html#None)***= True*,*attrs:***[DictAttrs](/docs/api-reference/python-api/tvm-ir#class-tvmirdictattrs)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 构建一个不带主体的 Relax.Function。
 
@@ -293,10 +293,10 @@ Relax 函数。
 * **参数：**
    * **binding_map** (Mapping[**Union**[, ], ]) ：待替换值的映射。键可以是 tir.Var 或变量的字符串名称。如果通过名称引用变量，则该名称必须唯一地标识函数中的符号变量。
    * **返回：** **func**：更新后的函数
-   * **返回类型：** [Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
+   * **返回类型：** [Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
 
 
-### **bind_symbolic_vars(*binding_map:***[Mapping](https://docs.python.org/3/library/typing.html#typing.Mapping)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***,***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]*)→**[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
+### **bind_symbolic_vars(*binding_map:***[Mapping](https://docs.python.org/3/library/typing.html#typing.Mapping)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***,***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]*)→**[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
 
 
 返回具有更新的符号变量的新函数。
@@ -306,13 +306,13 @@ Relax 函数。
    * 键（Key）可以是类型，也可以是 Relax 变量的字符串名称。如果通过名称来指定变量，该名称必须唯一标识函数中的一个参数。
    * 值（Value）必须是一个 Relax 表达式，或者转换可以为 Relax 表达式的值。该值必须与被替换的变量类型兼容。
    * **返回：** **func** ：更新后的函数。
-   * **返回类型：** [Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)。
+   * **返回类型：** [Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)。
 
-## ***class*tvm.relax.ExternFunc(*global_symbol: String*,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.ExternFunc(*global_symbol: String*,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 外部函数，代表一个 PackedFunc。
 
-## ***class*tvm.relax.Call(*op:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***|***[Op](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirop)**,*args:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***, ...]*,*attrs:***[Attrs](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#classtvmirattrs)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*sinfo_args:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***, ...] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.Call(*op:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***|***[Op](/docs/api-reference/python-api/tvm-ir#class-tvmirop)**,*args:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***, ...]*,*attrs:***[Attrs](/docs/api-reference/python-api/tvm-ir#classtvmirattrs)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*sinfo_args:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***] |***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***, ...] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 Relax 中的函数调用节点。
 
@@ -325,7 +325,7 @@ Relax.Call 节点对应于计算图术语中的运算符应用节点。
    * **sinfo_args** (*Optional[**Union**[**List**[*]*,***[,* ...]**]**]) ：CallNode 的结构信息参数。sinfo_args 设计为仅对内部操作（例如，call_tir、call_builtin_with_ctx 等）和对 ExternFuncs 的调用为非空，主要用于结构信息推断。
    * **span** (*Optional*[*])：指向原始源代码的 Span。*
 
-## ***class*tvm.relax.If(*cond:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*true_branch:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*false_branch:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.If(*cond:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*true_branch:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*false_branch:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 Relax 中的条件表达式。
 * **参数：**
@@ -334,7 +334,7 @@ Relax 中的条件表达式。
    * **false_branch** (*Expr*) ：当条件为假时计算的表达式。
    * **span** (Optional[]) *：指向原始源代码的 Span。*
 
-## ***class*tvm.relax.Constant(*data:***NDArray**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.Constant(*data:***NDArray**,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 常数张量
 * **参数：**
    * **data** (*tvm.nd.NDArray*) ：常数张量的数据。
@@ -347,17 +347,17 @@ Relax 中的条件表达式。
 
 :::
 
-## ***class*tvm.relax.PrimValue(*value:***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***|***[int](https://docs.python.org/3/library/functions.html#int)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.PrimValue(*value:***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***|***[int](https://docs.python.org/3/library/functions.html#int)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 prim expr 表示值。
 
-## ***class*tvm.relax.DataTypeImm(*value: dtype |***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.DataTypeImm(*value: dtype |***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 表示数据类型常量。
 
-## ***class*tvm.relax.StringImm(*value:***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.StringImm(*value:***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 表示字符串文字常量。
 
-## **tvm.relax.const(*value:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[int](https://docs.python.org/3/library/functions.html#int)***|***[float](https://docs.python.org/3/library/functions.html#float)***| ndarray |***NDArray**,*dtype:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Constant](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxconstantdatandarraystruct_infostructinfononenonespanspannonenone)
+## **tvm.relax.const(*value:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[int](https://docs.python.org/3/library/functions.html#int)***|***[float](https://docs.python.org/3/library/functions.html#float)***| ndarray |***NDArray**,*dtype:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Constant](/docs/api-reference/python-api/tvm-relax#classtvmrelaxconstantdatandarraystruct_infostructinfononenonespanspannonenone)
 
 创建一个常数值。
 * **参数：**
@@ -375,11 +375,11 @@ prim expr 表示值。
 
 :::
 
-## **tvm.relax.extern(*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## **tvm.relax.extern(*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 创建外部函数。
 
-## **tvm.relax.get_shape_of(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## **tvm.relax.get_shape_of(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 获取 expr 的形状。
 * **参数：expr** (*Expr*) ：输入表达式。
@@ -393,16 +393,16 @@ prim expr 表示值。
 
 :::
 
-## ***class*tvm.relax.ObjectType(*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.ObjectType(*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 与 tvm::runtime::Object 对应的类型是 TVM 中所有可能的对象值的基础。
 
-## ***class*tvm.relax.ShapeType(*ndim:***[int](https://docs.python.org/3/library/functions.html#int)***= -1*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.ShapeType(*ndim:***[int](https://docs.python.org/3/library/functions.html#int)***= -1*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 Relax 中的形状类型。
 * **参数：ndim** (*Optional*[*])：形状的大小。
 
-## ***class*tvm.relax.TensorType(*ndim=-1*,*dtype='float32'*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.TensorType(*ndim=-1*,*dtype='float32'*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 Relax 中的动态张量类型。
 
@@ -411,7 +411,7 @@ Relax 中的动态张量类型。
 * **参数：ndim** (Optional[]) ：张量的 ndim。
 * **dtype** (Optional[]) ：内容数据类型。
 
-## ***class*tvm.relax.PackedFuncType(*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.PackedFuncType(*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 Relax 中的 ExternFunc 的类型。
 
 ## ***class*tvm.relax.ExecBuilder**
@@ -469,7 +469,7 @@ Relax 中的 ExternFunc 的类型。
 
 返回可执行文件。
 
-## **tvm.relax.call_tir(*gvar:***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,*args:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*out_sinfo:***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***]*,*tir_vars:***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***|***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## **tvm.relax.call_tir(*gvar:***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,*args:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*out_sinfo:***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***]*,*tir_vars:***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***|***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 relax.Call 调用一个 tir.prim_func 并返回输出。
@@ -479,9 +479,9 @@ relax.Call 调用一个 tir.prim_func 并返回输出。
    * **out_sinfo** (Union[, List[]]) ：call_tir 输出的结构信息。它应该是一个 TensorStructInfo 或一个 TensorStructInfo 列表。每个 TensorStructInfo 表示返回张量的结构信息。
    * **tir_vars** (Optional[**Union**[, [], List[]**]**]) ：ShapeExpr 表示调用 func 时需要解包的整数元组。若未使用则为 null。
 * **返回：** **ret**：call_tir 运算符的调用节点。
-* **返回类型：** [relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## **tvm.relax.call_tir_inplace(*gvar:***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,*args:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*inplace_indices:***[int](https://docs.python.org/3/library/functions.html#int)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[int](https://docs.python.org/3/library/functions.html#int)***]*,*out_sinfo:***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***]*,*tir_vars:***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***|***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## **tvm.relax.call_tir_inplace(*gvar:***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,*args:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*inplace_indices:***[int](https://docs.python.org/3/library/functions.html#int)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[int](https://docs.python.org/3/library/functions.html#int)***]*,*out_sinfo:***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***]*,*tir_vars:***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***|***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 relax.Call 调用 TIR PrimFunc 并返回结果，就地执行指定的计算（基于 inplace_indices 参数；输出将为就地索引选择的输入设置别名）。
@@ -498,9 +498,9 @@ relax.Call 调用 TIR PrimFunc 并返回结果，就地执行指定的计算（�
    * **out_sinfo** (Union[, List[]]) ：call_tir_inplace 输出的结构信息。它应该是一个 TensorStructInfo 或一个 TensorStructInfo 列表。每个列表表示返回张量的结构信息。如果给出一个 TensorStructInfo 列表，则结果将是一个 TensorStructInfo 元组。
    * **tir_vars** (Optional[**Union**[,[], List[]**]**]) ：ShapeExpr 表示调用 func 时需要解包的整数元组。若未使用则为 null。
 * **返回：** **ret**：call_tir 运算符的调用节点。
-* **返回类型：** [relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+* **返回类型：** [relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
-## **tvm.relax.call_pure_packed(*func:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)***|***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,**args:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*sinfo_args:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]*)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr )
+## **tvm.relax.call_pure_packed(*func:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)***|***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,**args:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*sinfo_args:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]*)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr )
 
 
 构造一个对打包函数的调用，该调用应被视为纯粹的，即使打包调用通常不被视为纯粹的。
@@ -517,7 +517,7 @@ relax.Call 调用 TIR PrimFunc 并返回结果，就地执行指定的计算（�
 * **返回：** **result**：Relax 调用，对应于 call_pure_packed(ExternFunc(func), args, DictAttrs(kwargs), sinfo_args)。
 * **返回类型：** Expr。
 
-## **tvm.relax.call_dps_packed(*func:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*args:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*out_sinfo:***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenoneo)***]*)→**[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## **tvm.relax.call_dps_packed(*func:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*args:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*out_sinfo:***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenoneo)***]*)→**[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 
@@ -530,9 +530,9 @@ Relax。调用目的地传递式打包函数并返回输出。
    * **args** (Expr) ：输入参数。
    * **out_sinfo** (Union[, List[]]) ：call_dps_packed 输出的结构信息。它应该是一个 TensorStructInfo 或一个 TensorStructInfo 列表。每个 TensorStructInfo 表示返回张量的结构信息。
 * **返回：** **ret**：call_dps_packed 运算符的调用节点。
-* **返回类型：** [relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+* **返回类型：** [relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
-## **tvm.relax.call_tir_with_grad(*gvar:***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,*args:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*out_sinfo:***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***]*,*te_grad_name:***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*te_grad_kwargs:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***, Object] = None*,*tir_vars:***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***|***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenonel)
+## **tvm.relax.call_tir_with_grad(*gvar:***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**,*args:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*out_sinfo:***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***]*,*te_grad_name:***[str](https://docs.python.org/3/library/stdtypes.html#str)**,*te_grad_kwargs:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***, Object] = None*,*tir_vars:***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***|***[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenonel)
 
 relax.Call 调用 tir.prim_func 并返回输出。此内在函数会将 te 梯度函数（由 te_grad_name 引用）绑定到 call_tir_with_grad 节点。该 te 梯度函数将被梯度传递调用。
 * **参数：**
@@ -543,13 +543,13 @@ relax.Call 调用 tir.prim_func 并返回输出。此内在函数会将 te 梯�
    * **te_grad_kwargs** (Dict[, Object], optional) ：传递给 te 梯度函数的关键字参数。可选地，以关键字参数的形式提供。默认值：{}
    * **tir_vars** (Optional[**Union**[,[], List[]**]**]) ：ShapeExpr 表示调用 func 时需要解包的整数元组。若未使用则为 null。
 * **返回：** **ret：** call_tir_with_grad 运算符的调用节点。
-* **返回类型：** [relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenonel)
+* **返回类型：** [relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenonel)
 
 ## ***class*tvm.relax.ExprFunctor**
 
 在 Expr 上定义的抽象 visitor 。定义表达式的默认分派，并实现存储。
 
-### **visit_expr(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_expr(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 将 visitor 应用到表达式。
 
 ## ***class*tvm.relax.PyExprVisitor**
@@ -580,159 +580,159 @@ def MyExprVisitor(PyExprVisitor):
 Expr 的通用调度程序。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr(const Expr& expr)。
 * **参数：expr** (*Expr*) ：要访问的 expr。
 
-### **visit_expr(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_expr(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 通用的 Binding 调度器。用户可以自定义此函数，在 C++ 端覆盖 VisitBinding(const Binding& binding)。
 * **参数：binding** () ：要访问的绑定。
 
-### **visit_binding(*binding:***[Binding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_binding(*binding:***[Binding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端覆盖 VisitBindingBlock(const BindingBlock& block)。
 * **参数：block** () ：要访问的块。
 
-### **visit_binding_block(*block:***[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_binding_block(*block:***[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 用于访问 var 定义点的通用调度器。用户可以自定义此函数，在 C++ 端覆盖 VisitVarDef(const Relax.Var& var)。需要注意的是，visit_var_() 只会访问 Var 的使用点。
 * **参数：var** () ：要访问的 var。
 
-### **visit_var_def(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_var_def(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 访问常量。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const ConstantNode op)。
 * **参数：op** () ：要访问的常量。
 
-### **visit_constant_(*op:***[Constant](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxconstantdatandarraystruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_constant_(*op:***[Constant](/docs/api-reference/python-api/tvm-relax#classtvmrelaxconstantdatandarraystruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 访问 Tuple。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const TupleNode op)。
 * **参数：op** () ：要访问的元组。
 
-### **visit_tuple_(*op:***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_tuple_(*op:***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问变量。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const VarNode op)。
 * **参数：op** () ：要访问的 relax.Var。
 
-### **visit_var_(*op:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_var_(*op:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 访问 DataflowVar。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const DataflowVarNode op)。
 * **参数：op** () ：要访问的 DataflowVar。
 
-### **visit_dataflow_var_(*op:***[DataflowVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_dataflow_var_(*op:***[DataflowVar](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 ShapeExpr。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const ShapeExprNode op)。
 * **参数：op** () ：要访问的 ShapeExpr。
 
-### **visit_shape_expr_(*op:***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_shape_expr_(*op:***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 ExternFunc。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const ExternFuncNode* op)。
 * **参数：op** () ：要访问的 ExternFunc。
 
-### **visit_extern_func_(*op:***[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_extern_func_(*op:***[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 GlobalVar。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const GlobalVarNode op)。
 * **参数：op** () ：要访问的 GlobalVar。
 
-### **visit_global_var_(*op:***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_global_var_(*op:***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 访问函数。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const FunctionNode op)。
 * **参数：op** () ：要访问的函数。
 
-### **visit_function_(*op:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_function_(*op:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问调用。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const CallNode op)。
 * **参数：op** () ：要访问的 relax.Call。
 
-### **visit_seq_expr_(*op:***[SeqExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxseqexprblockslistbindingblockbodyrelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_seq_expr_(*op:***[SeqExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxseqexprblockslistbindingblockbodyrelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 SeqExpr。用户可以自定义此函数，在 C++端覆盖 VisitExpr_(const SeqExprNode op)。
 * **参数：op** () ：要访问的 SeqExpr。
 
-### **visit_if_(*op:***[If](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxifcondrelaxexprtrue_branchrelaxexprfalse_branchrelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_if_(*op:***[If](/docs/api-reference/python-api/tvm-relax#classtvmrelaxifcondrelaxexprtrue_branchrelaxexprfalse_branchrelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 访问 If。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const IfNode op)。
 * **参数：op** () ：要访问的 If。
 
-### **visit_op_(*op:***[Op](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirop)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_op_(*op:***[Op](/docs/api-reference/python-api/tvm-ir#class-tvmirop)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 Op。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const OpNode op)。
 * **参数：op** () ：要访问的 Op。
 
-### **visit_tuple_getitem_(*op:***[TupleGetItem](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplegetitemtuple_valuerelaxexprindexintspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_tuple_getitem_(*op:***[TupleGetItem](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplegetitemtuple_valuerelaxexprindexintspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 TupleGetItem。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const TupleGetItemNode op)。
 * **参数：op** () ：要访问的 TupleGetItem。
 
-### **visit_prim_value_(*op:***[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_prim_value_(*op:***[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 PrimValue。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const PrimValueNode op)。
 * **参数：op** () ：要访问的 PrimValue。
 
-### **visit_string_imm_(*op:***[StringImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstringimmvaluestrspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_string_imm_(*op:***[StringImm](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstringimmvaluestrspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 StringImm。用户可以自定义此函数，在 C++端覆盖 VisitExpr_(const StringImmNode op)。
 * **参数：op** () ：要访问的 StringImm。
 
 
-### **visit_data_type_imm_(*op:***[DataTypeImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdatatypeimmvaluedtypestrspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_data_type_imm_(*op:***[DataTypeImm](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdatatypeimmvaluedtypestrspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
  访问 DataTypeImm。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const 。
 * **参数：op** () ：要访问的 DataTypeImm。
 
 
-### **visit_var_binding_(*binding:***[VarBinding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarbindingvarvarvaluerelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_var_binding_(*binding:***[VarBinding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarbindingvarvarvaluerelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 
 访问 VarBinding。用户可以自定义此函数，在 C++ 端覆盖 VisitBinding_(const VarBindingNode* binding)。
 * **参数：binding** () ：要访问的 VarBinding。
 
-### **visit_match_cast_(*binding:***[MatchCast](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxmatchcastvarvarvaluerelaxexprstruct_infostructinfospanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_match_cast_(*binding:***[MatchCast](/docs/api-reference/python-api/tvm-relax#classtvmrelaxmatchcastvarvarvaluerelaxexprstruct_infostructinfospanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 MatchCast。用户可以自定义此函数，在 C++ 端覆盖 VisitBinding_(const MatchCastNode binding)。
 * **参数：binding** () ：要访问的 MatchCast。
 
-### **visit_binding_block_(*block:***[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_binding_block_(*block:***[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 BindingBlock。用户可以自定义此函数，在 C++端覆盖 VisitBlock_(const BindingBlockNode block)。
 * **参数：block** () ：要访问的 BindingBlock。
 
-### **visit_dataflow_block_(*block:***[DataflowBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_dataflow_block_(*block:***[DataflowBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 DataflowBlock。用户可以自定义此函数，在 C++ 端覆盖 VisitBindingBlock_(const DataflowBlockNode block)。
 * **参数：block** () ：要访问的 DataflowBlock。
 
-### **visit_var_def_(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_var_def_(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 relax.Var 定义站点。用户可以自定义此函数，在 C++端覆盖 VisitVarDef_(const VarNode var)。
 * **参数：var** () ：要访问的 relax.Var。
 
-### **visit_dataflow_var_def_(*var:***[DataflowVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_dataflow_var_def_(*var:***[DataflowVar](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 DataflowVar 定义站点。用户可以自定义此函数，在 C++ 端覆盖 VisitVarDef_(const DataflowVarNode var)。
 * **参数：var** () ：要访问的 DataflowVar。
 
-### **visit_span(*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_span(*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 访问 Span。用户可以自定义此函数，在 C++ 端覆盖 VisitSpan(const Span& span)。
 * **参数：span** () ：要访问的 Span。
 
-## ***class*tvm.relax.PyExprMutator(*mod:***[IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.PyExprMutator(*mod:***[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 
 一个抽象的 ExprMutator，在 Python 端具有自定义方法。这是面向用户的用于方法覆盖继承的类。*tvm_metadata* 描述了要继承的类（“cls”）、用户可以覆盖的方法（“methods”）以及构造函数的参数（“fields”）。
@@ -753,7 +753,7 @@ def MyExprMutator(PyExprMutator):
 ```
 
 
-### **visit_expr(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_expr(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 Expr 的通用调度程序。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr(const Expr& expr)。
@@ -761,29 +761,29 @@ Expr 的通用调度程序。用户可以自定义此函数，在 C++ 端覆盖 
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_binding(*binding:***[Binding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_binding(*binding:***[Binding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 通用的 Binding 调度器。用户可以自定义此函数，在 C++ 端覆盖 VisitBinding(const Binding& binding)。
 * **参数：binding** () ：要访问的绑定。
 
-### **visit_binding_block(*block:***[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)
+### **visit_binding_block(*block:***[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)
 
 
 BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端覆盖 VisitBindingBlock(const BindingBlock& block)。
 * **参数：block** () ：要访问的块。
 * **返回：** **result**：转换后的绑定块。
-* **返回类型：** [BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)。
+* **返回类型：** [BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)。
 
-### **visit_var_def(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenoner)
+### **visit_var_def(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenoner)
 
 
 用于访问 var 定义点的通用调度器。用户可以自定义此函数，在 C++ 端覆盖 VisitVarDef(const Relax.Var& var)。需要注意的是，visit_var_() 只会访问 Var 的使用点。
 * **参数：var** () ：要访问的 var。
 * **返回：** **result**：后序重写后的 var。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
-### **visit_constant_(*op:***[Constant](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxconstantdatandarraystruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_constant_(*op:***[Constant](/docs/api-reference/python-api/tvm-relax#classtvmrelaxconstantdatandarraystruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问常量。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const ConstantNode op)。
@@ -791,7 +791,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result** ：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_tuple_(*op:***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_tuple_(*op:***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 Tuple。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const TupleNode op)。
@@ -799,7 +799,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_var_(*op:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_var_(*op:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问变量。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const VarNode op)。
@@ -807,7 +807,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result：**转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_dataflow_var_(*op:***[DataflowVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_dataflow_var_(*op:***[DataflowVar](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 DataflowVar。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const DataflowVarNode op)。
@@ -815,14 +815,14 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_shape_expr_(*op:***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_shape_expr_(*op:***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 访问 ShapeExpr。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const ShapeExprNode op)。
 * **参数：op** () ：要访问的 ShapeExpr。
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_extern_func_(*op:***[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_extern_func_(*op:***[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 ExternFunc。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const ExternFuncNode op)。
@@ -830,7 +830,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_global_var_(*op:***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_global_var_(*op:***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 GlobalVar。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const GlobalVarNode op)。
@@ -838,14 +838,14 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_function_(*op:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_function_(*op:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 访问函数。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const FunctionNode op)。
 * **参数：op** () ：要访问的函数。
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_call_(*op:***[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_call_(*op:***[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问调用。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const CallNode op)。
@@ -853,7 +853,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_seq_expr_(*op:***[SeqExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxseqexprblockslistbindingblockbodyrelaxexprspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_seq_expr_(*op:***[SeqExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxseqexprblockslistbindingblockbodyrelaxexprspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 SeqExpr。用户可以自定义此函数，在 C++端覆盖 VisitExpr_(const SeqExprNode op)。
@@ -861,7 +861,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_if_(*op:***[If](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxifcondrelaxexprtrue_branchrelaxexprfalse_branchrelaxexprspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_if_(*op:***[If](/docs/api-reference/python-api/tvm-relax#classtvmrelaxifcondrelaxexprtrue_branchrelaxexprfalse_branchrelaxexprspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 If。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const IfNode op)。
@@ -869,7 +869,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**– 转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_op_(*op:***[Op](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirop)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_op_(*op:***[Op](/docs/api-reference/python-api/tvm-ir#class-tvmirop)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 Op。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const OpNode op)。
@@ -877,7 +877,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_tuple_getitem_(*op:***[TupleGetItem](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplegetitemtuple_valuerelaxexprindexintspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_tuple_getitem_(*op:***[TupleGetItem](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplegetitemtuple_valuerelaxexprindexintspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 TupleGetItem。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const TupleGetItemNode op)。
@@ -885,7 +885,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_prim_value_(*op:***[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_prim_value_(*op:***[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 PrimValue。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const PrimValueNode op)。
@@ -893,7 +893,7 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_string_imm_(*op:***[StringImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstringimmvaluestrspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_string_imm_(*op:***[StringImm](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstringimmvaluestrspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 访问 StringImm。用户可以自定义此函数，在 C++端覆盖 VisitExpr_(const StringImmNode op)。
@@ -901,66 +901,66 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_data_type_imm_(*op:***[DataTypeImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdatatypeimmvaluedtypestrspanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_data_type_imm_(*op:***[DataTypeImm](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdatatypeimmvaluedtypestrspanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 访问 DataTypeImm。用户可以自定义此函数，在 C++ 端覆盖 VisitExpr_(const DataTypeImmNode op)。
 * **参数：op** () ：要访问的 DataTypeImm。
 * **返回：** **result**：转换后的 Expr。
 * **返回类型：** Expr。
 
-### **visit_var_binding_(*binding:***[VarBinding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarbindingvarvarvaluerelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_var_binding_(*binding:***[VarBinding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarbindingvarvarvaluerelaxexprspanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 VarBinding。用户可以自定义此函数，在 C++ 端覆盖 VisitBinding_(const VarBindingNode binding)。
 * **参数：binding** () ：要访问的 VarBinding。
 
-### **visit_match_cast_(*binding:***[MatchCast](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxmatchcastvarvarvaluerelaxexprstruct_infostructinfospanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **visit_match_cast_(*binding:***[MatchCast](/docs/api-reference/python-api/tvm-relax#classtvmrelaxmatchcastvarvarvaluerelaxexprstruct_infostructinfospanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 访问 MatchCast。用户可以自定义此函数，在 C++ 端覆盖 VisitBinding_(const MatchCastNode* binding)。
 * **参数：binding** () ：要访问的 MatchCast。
 
-### **visit_binding_block_(*block:***[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)
+### **visit_binding_block_(*block:***[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)**)→**[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)
 
 
 访问 BindingBlock。用户可以自定义此函数，在 C++端覆盖 VisitBlock_(const BindingBlockNode block)。
 * **参数：block** () ：要访问的 BindingBlock。
 * **返回：** **result**：转换后的绑定块。
-* **返回类型：** [BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)。
+* **返回类型：** [BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenone)。
 
-### **visit_dataflow_block_(*block:***[DataflowBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenon)
+### **visit_dataflow_block_(*block:***[DataflowBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenon)
 
 
 访问 DataflowBlock。用户可以自定义此函数，在 C++ 端覆盖 VisitBindingBlock_(const DataflowBlockNode block)。
 * **参数：block** () ：要访问的 DataflowBlock。
 * **返回：** **result**：转换后的绑定块。
-* **返回类型：** [BindingBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenon)。
+* **返回类型：** [BindingBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbindingblockbindingslistbindingspanspannonenon)。
 
-### **visit_var_def_(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
+### **visit_var_def_(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 访问 relax.Var 定义站点。用户可以自定义此函数，在 C++端覆盖 VisitVarDef_(const VarNode var)。
 * **参数：var** () ：要访问的 relax.Var。
 * **返回：** **result**：后序重写后的 var。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
-### **visit_dataflow_var_def_(*var:***[DataflowVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
+### **visit_dataflow_var_def_(*var:***[DataflowVar](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 访问 DataflowVar 定义站点。用户可以自定义此函数，在 C++ 端覆盖 VisitVarDef_(const DataflowVarNode var)。
 * **参数：var** () ：要访问的 DataflowVar。
 * **返回：** **result**：后序重写后的 var。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
-### **visit_span(*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)**)→**[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)
+### **visit_span(*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)**)→**[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)
 
 
 访问 Span。用户可以自定义此函数，在 C++ 端覆盖 VisitSpan(const Span& span)。
 * **参数：span** ()：要访问的 Span。
 * **返回：** **result**：转换后的跨度。
-* **返回类型：** [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)。
+* **返回类型：** [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)。
 
-### **visit_expr_post_order(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_expr_post_order(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 按后序重写 Expr 并进行规范化。
@@ -968,45 +968,45 @@ BindingBlock 的通用调度器。用户可以自定义此函数，在 C++ 端�
 * **返回：** **result**：后序重写后的 Expr。
 * **返回类型：** Expr。
 
-### **set_var_remap(*vid:***[Id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **set_var_remap(*vid:***[Id](/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**,*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 在使用站点中将 var 重新映射到新的 var。
 * **参数：vid** ()：旧变量的 vid。
 * **var** ()：新的 var。
 
-### **get_var_remap(*vid:***[Id](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**)→**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
+### **get_var_remap(*vid:***[Id](/docs/api-reference/python-api/tvm-relax#classtvmrelaxid)**)→**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 在使用站点中将 var 重新映射到新的 var。
 * **参数：vid** ()：旧 var 的 vid。
 * **返回：** **var**：重新映射的 var。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
-### **visit_with_new_scope(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+### **visit_with_new_scope(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 用新的作用域重写 expr，用于函数主体和 If 的分支。
 * **参数：expr** (*Expr*)：要访问的 expr。
 * **返回：** **var**：访问后的表达式。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
-### **lookup_binding(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**|**[None](https://docs.python.org/3/library/constants.html#None)
+### **lookup_binding(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**|**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 查找绑定到变量的值。注意：对于函数参数，此函数返回 std::nullopt。
 * **参数：var** ()：要查找的变量。
 * **返回：** **var**：绑定到输入变量的值。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
-### **with_struct_info(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*struct_info:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
+### **with_struct_info(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*struct_info:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 如果原始变量的形状或类型与指定的形状或类型不匹配，则创建一个具有指定形状和类型的新变量。
 * **参数：var** ()：要更新的变量。
 * **struct_info** ()：结构信息。
 * **返回：** **var**：填充有形状和类型的 var。
-* **返回类型：** [relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
+* **返回类型：** [relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)。
 
 ## ***class*tvm.relax.StructInfo**
 
@@ -1021,7 +1021,7 @@ StructInfo 包含静态类型和运行时结构信息。
 
 结构平等导致超载。
 
-### **is_base_of(*derived:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[bool](https://docs.python.org/3/library/functions.html#bool)
+### **is_base_of(*derived:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[bool](https://docs.python.org/3/library/functions.html#bool)
 
 
 检查自身是否是另一个派生结构信息的基础。
@@ -1029,16 +1029,16 @@ StructInfo 包含静态类型和运行时结构信息。
 * **返回：** **result**：检查结果。
 * **返回类型：** [bool](https://docs.python.org/3/library/functions.html#bool)。
 
-## ***class*tvm.relax.ObjectStructInfo(*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.ObjectStructInfo(*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 对象的 StructInfo。
 
-## ***class*tvm.relax.PrimStructInfo(*dtype:***[str](https://docs.python.org/3/library/stdtypes.html#str)***| dtype |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*value:***[int](https://docs.python.org/3/library/functions.html#int)***|***[float](https://docs.python.org/3/library/functions.html#float)***|***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.PrimStructInfo(*dtype:***[str](https://docs.python.org/3/library/stdtypes.html#str)***| dtype |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*value:***[int](https://docs.python.org/3/library/functions.html#int)***|***[float](https://docs.python.org/3/library/functions.html#float)***|***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 原始 POD 值的结构信息。
 * **参数：dtype_or_expr** (Union[, DataType, ])：原始值的数据类型，或原始值的已知表达式。
 
-## ***class*tvm.relax.ShapeStructInfo(*values:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*ndim:***[int](https://docs.python.org/3/library/functions.html#int)***= -1*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.ShapeStructInfo(*values:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*ndim:***[int](https://docs.python.org/3/library/functions.html#int)***= -1*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 形状值的结构信息。
 * **参数：values** (*O*ptional[**List**[]])：如果已知，则为符号形状值。
@@ -1051,7 +1051,7 @@ StructInfo 包含静态类型和运行时结构信息。
 
 :::
 
-## ***class*tvm.relax.TensorStructInfo(*shape:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***|***[None](https://docs.python.org/3/library/constants.html#None)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] = None*,*dtype:***[str](https://docs.python.org/3/library/stdtypes.html#str)***= 'float32'*,*vdevice:***[VDevice](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirvdevicetargetnone-vdevice_idint-0-memory_scopestr-global)***|***[None](https://docs.python.org/3/library/constants.html#None)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***= None*,*ndim:***[int](https://docs.python.org/3/library/functions.html#int)***= -1*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.TensorStructInfo(*shape:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***|***[None](https://docs.python.org/3/library/constants.html#None)***|***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] = None*,*dtype:***[str](https://docs.python.org/3/library/stdtypes.html#str)***= 'float32'*,*vdevice:***[VDevice](/docs/api-reference/python-api/tvm-ir#class-tvmirvdevicetargetnone-vdevice_idint-0-memory_scopestr-global)***|***[None](https://docs.python.org/3/library/constants.html#None)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***= None*,*ndim:***[int](https://docs.python.org/3/library/functions.html#int)***= -1*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 
 张量值的结构信息。
@@ -1066,12 +1066,12 @@ StructInfo 包含静态类型和运行时结构信息。
 
 :::
 
-## ***class*tvm.relax.TupleStructInfo(*fields:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.TupleStructInfo(*fields:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 Tuple 值的 StructInfo。
 * **参数：fields** (List[])：字段的结构信息。
 
-## ***class*tvm.relax.FuncStructInfo(*params:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]*,*ret:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*purity:***[bool](https://docs.python.org/3/library/functions.html#bool)***= True*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
+## ***class*tvm.relax.FuncStructInfo(*params:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]*,*ret:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*purity:***[bool](https://docs.python.org/3/library/functions.html#bool)***= True*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)**
 
 
 函数值的结构信息。
@@ -1080,7 +1080,7 @@ Tuple 值的 StructInfo。
    * **ret** ()：返回值的结构信息。
    * **purity** ()：函数是否纯（没有可见的副作用）。注意：只有当函数对所有输入都为纯函数时，我们才认为它是纯函数。如果函数仅在某些情况下才有可见的副作用，我们仍然认为它是非纯函数。
 
-### ***static*opaque_func(***,*ret:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*derive_func:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[EnvFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirenvfunc)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*purity:***[bool](https://docs.python.org/3/library/functions.html#bool)***= False*,*span:***[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[FuncStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfuncstructinfoparamsliststructinforetstructinfopuritybooltruespanspannonenone)
+### ***static*opaque_func(***,*ret:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*derive_func:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[EnvFunc](/docs/api-reference/python-api/tvm-ir#class-tvmirenvfunc)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*purity:***[bool](https://docs.python.org/3/library/functions.html#bool)***= False*,*span:***[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[FuncStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfuncstructinfoparamsliststructinforetstructinfopuritybooltruespanspannonenone)
 
 创建一个不透明的 FuncStructInfo。
 
@@ -1091,7 +1091,7 @@ Tuple 值的 StructInfo。
 * **purity** ()：函数是否纯（默认为 false，因为大多数不透明函数都不是纯函数）。
 * **span** (Optional[])：ast 的可选跨度信息。
 * **返回：** **info。**
-* **返回类型：** [FuncStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfuncstructinfoparamsliststructinforetstructinfopuritybooltruespanspannonenone)。
+* **返回类型：** [FuncStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfuncstructinfoparamsliststructinforetstructinfopuritybooltruespanspannonenone)。
 
 :::note
 
@@ -1100,12 +1100,12 @@ Tuple 值的 StructInfo。
 
 :::
 
-## **tvm.relax.get_default_pipeline(*target:***[Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)**)**
+## **tvm.relax.get_default_pipeline(*target:***[Target](/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)**)**
 
 
 获取给定目标的默认 Relax 编译管道。
 
-## **tvm.relax.get_pipeline(*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)***= 'zero'*,***kwargs*)→**[Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)
+## **tvm.relax.get_pipeline(*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)***= 'zero'*,***kwargs*)→**[Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)
 
 
 按名称获取预构建管道。
@@ -1113,7 +1113,7 @@ Tuple 值的 StructInfo。
    * **name** (Optional[])：管道的名称。
    * **kwargs** (Dict[, ])**：** 用于配置管道的关键字参数。
 * **返回：** **pipeline**：转换管道。
-* **返回类型：** [tvm.transform.Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
+* **返回类型：** [tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## **tvm.relax.register_pipeline(*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)**)**
 
@@ -1121,7 +1121,7 @@ Tuple 值的 StructInfo。
 注册新管道。
 * **参数：name** ()**：**管道的名称
 
-## **tvm.relax.convert_to_expr(*value:***[Any](https://docs.python.org/3/library/typing.html#typing.Any)**)→**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## **tvm.relax.convert_to_expr(*value:***[Any](https://docs.python.org/3/library/typing.html#typing.Any)**)→**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 辅助函数将输入转换为 Expr，遵循以下规则：1. 如果输入已经是 Relax.Expr ，则返回输入本身；2.如果输入是 PrimExpr ，则返回 Relax.PrimValue；3.如果输入是 tvm.String 或 str ，则返回 Relax.StringImm；4.如果输入是 Expr 的元组/列表，则返回 Relax.Tuple。
@@ -1130,7 +1130,7 @@ Tuple 值的 StructInfo。
 
 1. tvm.tir.StringImm 因歧义而不被允许，它可以是 Relax.StringImm 或 Relax.PrimValue。
 
-## **tvm.relax.build(*mod:***[IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)**,*target:***[Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*params:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,***[list](https://docs.python.org/3/library/stdtypes.html#list)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*relax_pipeline:***[None](https://docs.python.org/3/library/constants.html#None)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)***= 'default'*,*tir_pipeline:***[None](https://docs.python.org/3/library/constants.html#None)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Pass](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)***= 'default'*,*exec_mode:***[str](https://docs.python.org/3/library/stdtypes.html#str)***= 'bytecode'*,***,*system_lib:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→ Executable**
+## **tvm.relax.build(*mod:***[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)**,*target:***[Target](/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*params:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,***[list](https://docs.python.org/3/library/stdtypes.html#list)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*relax_pipeline:***[None](https://docs.python.org/3/library/constants.html#None)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)***= 'default'*,*tir_pipeline:***[None](https://docs.python.org/3/library/constants.html#None)***|***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)***= 'default'*,*exec_mode:***[str](https://docs.python.org/3/library/stdtypes.html#str)***= 'bytecode'*,***,*system_lib:***[bool](https://docs.python.org/3/library/functions.html#bool)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→ Executable**
 
 
 构建一个 IRModule 到 VM 可执行文件。
@@ -1181,7 +1181,7 @@ VM 编译器或 ExecBuilder 发出的虚拟机可执行对象。
 
 将指令打印为 python 程序。
 
-## ***class*tvm.relax.DataflowBlockRewrite(*dfb:***[DataflowBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**,*root_fn:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)**
+## ***class*tvm.relax.DataflowBlockRewrite(*dfb:***[DataflowBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**,*root_fn:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)**
 
 一个绑定/语句级数据流块重写器。
 
@@ -1191,14 +1191,14 @@ VM 编译器或 ExecBuilder 发出的虚拟机可执行对象。
 
 由于 TVM AST 节点的不可变性和写时复制特性，重写并非就地完成。相反，会创建一个新的 DataflowBlock，并通过 mutated_dfb 返回。同样，其新的根函数也会由 mutated_root_fn 创建并返回。要将此更改应用于 IRModule，请使用 mutate_irmodule 重写构造函数中注册的旧函数。
 
-### **replace_all_uses(*old_var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*new_var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **replace_all_uses(*old_var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*new_var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 将所有 old_var 替换为 new_var。
 * **参数：old_var** ()**：** 要替换的旧变量。
 * **new_var** ()**：** 要替换的新变量。
 
-### **add(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*is_dfvar:***[bool](https://docs.python.org/3/library/functions.html#bool)***= False*)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **add(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*name:***[str](https://docs.python.org/3/library/stdtypes.html#str)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*is_dfvar:***[bool](https://docs.python.org/3/library/functions.html#bool)***= False*)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 使用自动生成的变量名向 DataflowBlock 添加新语句。
@@ -1213,7 +1213,7 @@ VM 编译器或 ExecBuilder 发出的虚拟机可执行对象。
 
 如果未指定变量名，则会自动生成“tmp$”形式的变量。如果 is_dfvar 为 True，则变量类型为 DataflowVar，否则为 Var。relax.Var 表示变量是 DataflowBlock 的输出变量，而 DataflowVar 表示变量是 DataflowBlock 的内部变量。
 
-### **remove_unused(*var:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*allow_undef=False*)→**[None](https://docs.python.org/3/library/constants.html#None)
+### **remove_unused(*var:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,*allow_undef=False*)→**[None](https://docs.python.org/3/library/constants.html#None)
 
 
 当且仅当语句未使用时，才通过其变量定义删除该语句。
@@ -1233,17 +1233,17 @@ VM 编译器或 ExecBuilder 发出的虚拟机可执行对象。
 
 这也可以删除其他 DataflowBlocks 中未使用的变量。
 
-### **mutated_dfb()→**[DataflowBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
+### **mutated_dfb()→**[DataflowBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
 
 
 返回转换的 DataflowBlock。
 
-### **mutated_root_fn()→**[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
+### **mutated_root_fn()→**[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
 
 
 返回转换的根函数。
 
-### **mutate_irmodule(*irmodule:***[IRModule](hhttps://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)**)→**[IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
+### **mutate_irmodule(*irmodule:***[IRModule](h/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)**)→**[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
 
 
 通过用转换的根函数替换旧函数来返回更新的 IRModule。

@@ -19,19 +19,19 @@ TVM RPC 服务器假定用户是可信的，需要在可信网络环境和加密
 
 **类：**
 
-|[Server](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpcserverhost0000-port9091-port_end9199-is_proxyfalse-tracker_addrnone-key-load_librarynone-custom_addrnone-silentfalse-no_forkfalse-server_init_callbacknone-reuse_addrtrue-timeoutnone)([host, port, port_end, is_proxy, …])|在单独的进程上启动 RPC 服务器。|
+|[Server](/docs/api-reference/python-api/tvm-rpc#class-tvmrpcserverhost0000-port9091-port_end9199-is_proxyfalse-tracker_addrnone-key-load_librarynone-custom_addrnone-silentfalse-no_forkfalse-server_init_callbacknone-reuse_addrtrue-timeoutnone)([host, port, port_end, is_proxy, …])|在单独的进程上启动 RPC 服务器。|
 |:----|:----|
-|[RPCSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpcrpcsessionsess)(sess)|RPC 客户端会话模块。|
-|[LocalSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpclocalsession)()|由本地环境支持的 RPCSession 接口。|
-|[PopenSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpcpopensessionbinary)(binary)|由 popen 支持的 RPCSession 接口。|
-|[TrackerSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpctrackersessionaddr)(addr)|跟踪器客户端会话。|
+|[RPCSession](/docs/api-reference/python-api/tvm-rpc#class-tvmrpcrpcsessionsess)(sess)|RPC 客户端会话模块。|
+|[LocalSession](/docs/api-reference/python-api/tvm-rpc#class-tvmrpclocalsession)()|由本地环境支持的 RPCSession 接口。|
+|[PopenSession](/docs/api-reference/python-api/tvm-rpc#class-tvmrpcpopensessionbinary)(binary)|由 popen 支持的 RPCSession 接口。|
+|[TrackerSession](/docs/api-reference/python-api/tvm-rpc#class-tvmrpctrackersessionaddr)(addr)|跟踪器客户端会话。|
 
 **函数：**
 
-|[connect](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#tvmrpcconnecturl-port-key-session_timeout0-session_constructor_argsnone-enable_loggingfalse)(url, port[, key, session_timeout, …])|连接到 RPC 服务器。|
+|[connect](/docs/api-reference/python-api/tvm-rpc#tvmrpcconnecturl-port-key-session_timeout0-session_constructor_argsnone-enable_loggingfalse)(url, port[, key, session_timeout, …])|连接到 RPC 服务器。|
 |:----|:----|
-|[connect_tracker](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#tvmrpcconnect_trackerurl-port)(url, port)|连接到 RPC 跟踪器。|
-|[with_minrpc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#tvmrpcwith_minrpccompile_func-serverposix_popen_server-runtimelibtvm)(compile_func[, server, runtime])|使用 minrpc 相关选项附加将编译器函数。|
+|[connect_tracker](/docs/api-reference/python-api/tvm-rpc#tvmrpcconnect_trackerurl-port)(url, port)|连接到 RPC 跟踪器。|
+|[with_minrpc](/docs/api-reference/python-api/tvm-rpc#tvmrpcwith_minrpccompile_func-serverposix_popen_server-runtimelibtvm)(compile_func[, server, runtime])|使用 minrpc 相关选项附加将编译器函数。|
 
 ## *class* tvm.rpc.Server(*host='0.0.0.0'*, *port=9091*, *port_end=9199*, *is_proxy=False*, *tracker_addr=None*, *key=''*, *load_library=None*, *custom_addr=None*, *silent=False*, *no_fork=False*, *server_init_callback=None*, *reuse_addr=True*, *timeout=None*)
 
@@ -45,7 +45,7 @@ TVM RPC 服务器假定用户是可信的，需要在可信网络环境和加密
    * **port**（[int](https://docs.python.org/3/library/functions.html#int)）：要绑定的端口。
    * **port_end** ( [int](https://docs.python.org/3/library/functions.html#int)*，可选*)：要搜索的结束端口。
    * **is_proxy**（[bool](https://docs.python.org/3/library/functions.html#bool)*，可选*）：指定的地址是否为代理。如果为真，则主机和端口实际上对应于代理服务器的地址。
-   * **tracker_addr** ( [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*(*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*),可选*)：RPC Tracker 的地址，以 tuple(host, ip) 格式表示。如果不为 None，则服务器会将自身注册到 Tracker。
+   * **tracker_addr** ( [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*(*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*),可选*)：RPC Tracker 的地址，以 tuple(host, ip) 格式表示。如果不为 None，则服务器会将自身注册到 Tracker。
    * **key**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：用于识别跟踪器中的设备类型的密钥。
    * **load_library**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：执行期间要加载的附加库列表。
    * **custom_addr**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：向 RPC 跟踪器报告的自定义 IP 地址。
@@ -76,7 +76,7 @@ server = rpc.Server(host, server_init_callback=server_init_callback)
 
 **方法：**
 
-|[terminate](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#terminate)()|终止服务器进程|
+|[terminate](/docs/api-reference/python-api/tvm-rpc#terminate)()|终止服务器进程|
 |:----|:----|
 
 ### terminate()
@@ -95,7 +95,7 @@ server = rpc.Server(host, server_init_callback=server_init_callback)
    * **session_constructor_args** ( *List* )：作为远程会话构造函数传递的附加参数列表。列表的第一个元素始终是一个字符串，用于指定会话构造函数的名称，后续参数是该函数的位置参数。
    * **enable_logging**（*布尔值*）**：** 启用/禁用日志记录的标志。默认情况下，日志记录处于禁用状态。
 * **返回：sess：** 连接的会话。
-* **返回类型：**[RPCSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpcrpcsessionsess)。
+* **返回类型：**[RPCSession](/docs/api-reference/python-api/tvm-rpc#class-tvmrpcrpcsessionsess)。
 
 
 **示例**
@@ -120,7 +120,7 @@ client_via_proxy = rpc.connect(
    * **url** ( [str](https://docs.python.org/3/library/stdtypes.html#str))：主机的 url。
    * **port**（[int](https://docs.python.org/3/library/functions.html#int)）：要连接的端口。
 * **返回：sess** ：连接的跟踪器会话。
-* **返回类型：**[TrackerSession](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#class-tvmrpctrackersessionaddr)。
+* **返回类型：**[TrackerSession](/docs/api-reference/python-api/tvm-rpc#class-tvmrpctrackersessionaddr)。
 
 ## *class* tvm.rpc.RPCSession(*sess*)
 
@@ -133,25 +133,25 @@ RPC 客户端会话模块。
 
 **方法：**
 
-|[system_lib](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#system_lib)()|获取系统范围的库模块。|
+|[system_lib](/docs/api-reference/python-api/tvm-rpc#system_lib)()|获取系统范围的库模块。|
 |:----|:----|
-|[get_function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#get_functionname)(name)|从会话中获取函数。|
-|[device](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#devicedev_type-dev_id0)(dev_type[, dev_id])|构建一个远程设备。|
-|[upload](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#uploaddata-targetnone)(data[, target])|将文件上传到远程运行时临时文件夹。|
-|[download](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#downloadpath)(path)|从远程临时文件夹下载文件。|
-|[remove](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#removepath)(path)|从远程临时文件夹中删除文件。|
-|[listdir](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#listdirpath)(path)|从远程临时文件夹中 ls 文件。|
-|[load_module](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#load_modulepath)(path)|加载远程模块，需要先上传文件。|
-|[download_linked_module](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#download_linked_modulepath)(path)|链接远程模块并下载。|
-|[cpu](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#cpudev_id0)([dev_id])|构建 CPU 设备。|
-|[cuda](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#cudadev_id0)([dev_id])|构建 CUDA GPU 设备。|
-|[cl](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#cldev_id0)([dev_id])|构建 OpenCL 设备。|
-|[vulkan](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#vulkandev_id0)([dev_id])|构建 Vulkan 设备。|
-|[metal](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#metaldev_id0)([dev_id])|建造金属装置。|
-|[rocm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#rocmdev_id0)([dev_id])|构建 ROCm 设备。|
-|[ext_dev](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#ext_devdev_id0)([dev_id])|构建扩展设备。|
-|[hexagon](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#hexagondev_id0)([dev_id])|构建六边形装置。|
-|[webgpu](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#webgpudev_id0)([dev_id])|构建 WebGPU 设备。|
+|[get_function](/docs/api-reference/python-api/tvm-rpc#get_functionname)(name)|从会话中获取函数。|
+|[device](/docs/api-reference/python-api/tvm-rpc#devicedev_type-dev_id0)(dev_type[, dev_id])|构建一个远程设备。|
+|[upload](/docs/api-reference/python-api/tvm-rpc#uploaddata-targetnone)(data[, target])|将文件上传到远程运行时临时文件夹。|
+|[download](/docs/api-reference/python-api/tvm-rpc#downloadpath)(path)|从远程临时文件夹下载文件。|
+|[remove](/docs/api-reference/python-api/tvm-rpc#removepath)(path)|从远程临时文件夹中删除文件。|
+|[listdir](/docs/api-reference/python-api/tvm-rpc#listdirpath)(path)|从远程临时文件夹中 ls 文件。|
+|[load_module](/docs/api-reference/python-api/tvm-rpc#load_modulepath)(path)|加载远程模块，需要先上传文件。|
+|[download_linked_module](/docs/api-reference/python-api/tvm-rpc#download_linked_modulepath)(path)|链接远程模块并下载。|
+|[cpu](/docs/api-reference/python-api/tvm-rpc#cpudev_id0)([dev_id])|构建 CPU 设备。|
+|[cuda](/docs/api-reference/python-api/tvm-rpc#cudadev_id0)([dev_id])|构建 CUDA GPU 设备。|
+|[cl](/docs/api-reference/python-api/tvm-rpc#cldev_id0)([dev_id])|构建 OpenCL 设备。|
+|[vulkan](/docs/api-reference/python-api/tvm-rpc#vulkandev_id0)([dev_id])|构建 Vulkan 设备。|
+|[metal](/docs/api-reference/python-api/tvm-rpc#metaldev_id0)([dev_id])|建造金属装置。|
+|[rocm](/docs/api-reference/python-api/tvm-rpc#rocmdev_id0)([dev_id])|构建 ROCm 设备。|
+|[ext_dev](/docs/api-reference/python-api/tvm-rpc#ext_devdev_id0)([dev_id])|构建扩展设备。|
+|[hexagon](/docs/api-reference/python-api/tvm-rpc#hexagondev_id0)([dev_id])|构建六边形装置。|
+|[webgpu](/docs/api-reference/python-api/tvm-rpc#webgpudev_id0)([dev_id])|构建 WebGPU 设备。|
 
 ### system_lib()
 
@@ -171,7 +171,7 @@ RPC 客户端会话模块。
 从会话中获取函数。
 * **参数：name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：函数名称
 * **返回：f** ：结果函数。
-* **返回类型：**[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)。
+* **返回类型：**[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)。
 
 ### device(*dev_type*, *dev_id=0*)
 
@@ -310,12 +310,12 @@ with open("lib.so", "wb") as file：
 
 **方法：**
 
-|[close](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#close)()|关闭跟踪器连接。|
+|[close](/docs/api-reference/python-api/tvm-rpc#close)()|关闭跟踪器连接。|
 |:----|:----|
-|[summary](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#summary)()|获取跟踪器的摘要字典。|
-|[text_summary](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#text_summary)()|获取跟踪器的文本摘要。|
-|[request](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#requestkey-priority1-session_timeout0-max_retry5-session_constructor_argsnone)(key[, priority, session_timeout, …])|向跟踪器请求新的连接。|
-|[request_and_run](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-rpc#request_and_runkey-func-priority1-session_timeout0-max_retry2)(key, func[, priority, …])|从跟踪器请求资源并运行该函数。|
+|[summary](/docs/api-reference/python-api/tvm-rpc#summary)()|获取跟踪器的摘要字典。|
+|[text_summary](/docs/api-reference/python-api/tvm-rpc#text_summary)()|获取跟踪器的文本摘要。|
+|[request](/docs/api-reference/python-api/tvm-rpc#requestkey-priority1-session_timeout0-max_retry5-session_constructor_argsnone)(key[, priority, session_timeout, …])|向跟踪器请求新的连接。|
+|[request_and_run](/docs/api-reference/python-api/tvm-rpc#request_and_runkey-func-priority1-session_timeout0-max_retry2)(key, func[, priority, …])|从跟踪器请求资源并运行该函数。|
 
 ### close()
 

@@ -7,7 +7,7 @@ title: 自定义优化
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E6%A8%A1%E5%9E%8B)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/how-to/customize-optimization#%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E6%A8%A1%E5%9E%8B)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/d64d105c8921b2ab908ef001ab382b45/customize_opt.ipynb)
 
@@ -17,9 +17,9 @@ Apache TVM 的一个主要设计目标是便于自定义优化流程，无论是
 
 
 **目录**
-* [审查整体流程](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E5%AE%A1%E6%9F%A5%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B)
-* [可组合的 IRModule 优化](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E5%8F%AF%E7%BB%84%E5%90%88%E7%9A%84-irmodule-%E4%BC%98%E5%8C%96)
-* [部署优化后的模型](https://tvm.hyper.ai/docs/how-to/customize-optimization#%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E6%A8%A1%E5%9E%8B)
+* [审查整体流程](/docs/how-to/customize-optimization#%E5%AE%A1%E6%9F%A5%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B)
+* [可组合的 IRModule 优化](/docs/how-to/customize-optimization#%E5%8F%AF%E7%BB%84%E5%90%88%E7%9A%84-irmodule-%E4%BC%98%E5%8C%96)
+* [部署优化后的模型](/docs/how-to/customize-optimization#%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E6%A8%A1%E5%9E%8B)
 
 ## 审查整体流程
 

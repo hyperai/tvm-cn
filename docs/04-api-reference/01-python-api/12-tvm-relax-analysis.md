@@ -21,28 +21,28 @@ Relax IR 分析。
 
 :::
 
-## **tvm.relax.analysis.all_global_vars(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**]**
+## **tvm.relax.analysis.all_global_vars(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)**]**
 
 
 返回表达式 expr 中的所有全局变量。:param expr: 表达式。:type expr: Expr
 * **返回：** **ret**：expr 中的全局变量列表，按 DFS 后顺序排列。
-* **返回类型：** List[[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)]
+* **返回类型：** List[[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)]
 
-## **tvm.relax.analysis.all_vars(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.all_vars(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 返回表达式 expr 中的所有（局部）变量。:param expr: 表达式。:type expr: Expr
 * **返回：** **ret**：expr 中的变量列表，按 DFS 后顺序排列。
-* **返回类型：** List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
+* **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
 
-## **tvm.relax.analysis.bound_vars(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)**]**
+## **tvm.relax.analysis.bound_vars(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)**]**
 
 
 返回表达式 expr 中的所有绑定变量。绑定变量是指所有在 expr 中声明的变量。它们仅在该 expr 内部有意义，并且只能在该 expr 中使用。:param expr: 表达式。:type expr: Expr
 * **返回：** **ret**：expr 中绑定变量的列表，按 DFS 后顺序排列。
-* **返回类型：** List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
+* **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
 
-## **tvm.relax.analysis.collect_non_negative_expressions(*sinfo:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)**]**
+## **tvm.relax.analysis.collect_non_negative_expressions(*sinfo:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)**]**
 
 
 收集非负面语境中使用的 TIR 表达式。
@@ -54,9 +54,9 @@ Relax IR 分析。
 返回的列表已去重：每个 TIR 表达式最多出现一次。列表的顺序与结构体 info 中的出现顺序一致。
 * **参数：sinfo** ()：要分析的结构信息对象。
 * **返回：** **ret**：可以从 StructInfo 定义的 TIR 变量列表。
-* **返回类型：** List[[tir.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)]。
+* **返回类型：** List[[tir.Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)]。
 
-## **tvm.relax.analysis.computable_at_compile_time(*func:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.computable_at_compile_time(*func:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 收集可以在编译时计算值的变量。
@@ -65,9 +65,9 @@ Relax IR 分析。
 如果函数具有 kNumInput 属性，则前 kNumInput 个参数在运行时提供，而所有剩余参数可能在编译时已知。此实用程序会收集所有仅直接或间接依赖于编译时已知参数的变量绑定。
 * **参数：func** ()：要分析的 Relax.Function。
 * **返回：** **ret**：可以在编译时计算的变量集，按照它们在函数中出现的顺序排列。
-* **返回类型：** List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]
+* **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]
 
-## **tvm.relax.analysis.contains_impure_call(*expr:***[RelaxExpr]((https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*own_name:***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***|***[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[bool](https://docs.python.org/3/library/functions.html#bool)
+## **tvm.relax.analysis.contains_impure_call(*expr:***[RelaxExpr]((/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**,*own_name:***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***|***[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)***|***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[bool](https://docs.python.org/3/library/functions.html#bool)
 
 检查给定的表达式（可能是函数体）是否包含任何不纯调用。
 * **参数：**
@@ -80,22 +80,22 @@ Relax IR 分析。
 依赖于 StructInfo 注解，因此请确保模块已先进行规范化。此外，嵌套*函数中的非纯调用并不意味着*外部表达式包含非纯调用——只有当嵌套函数*稍后被调用时*，才意味着外部表达式包含非纯调用。
 
 
-## **tvm.relax.analysis.definable_tir_vars_in_struct_info(*sinfo:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.definable_tir_vars_in_struct_info(*sinfo:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 从输入结构体信息中获取可能定义的 TIR 变量。返回的列表已去重 - 每个 TIR 变量最多出现一次。
 * **参数：sinfo** ()：要分析的结构信息对象。
 * **返回：** **ret**：可以从 StructInfo 定义的 TIR 变量列表。
-* **返回类型：** List[[tir.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)]。
+* **返回类型：** List[[tir.Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)]。
 
-## **tvm.relax.analysis.defined_symbolic_vars(*func:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.defined_symbolic_vars(*func:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 获取输入函数中定义的 TIR 变量。返回的列表已去重 - 每个 TIR 变量最多出现一次。
 * **参数：func** ()：要分析的函数对象。
 * **返回：** **ret**：输入函数中定义的符号变量列表。
-* **返回类型：** List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
+* **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
 
-## **tvm.relax.analysis.derive_call_ret_struct_info(*func_sinfo:***[FuncStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfuncstructinfoparamsliststructinforetstructinfopuritybooltruespanspannonenone)**,*call:***[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)**,*ctx:***[BlockBuilder](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderblockbuildermodirmodulenone-none)**)→**[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)
+## **tvm.relax.analysis.derive_call_ret_struct_info(*func_sinfo:***[FuncStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfuncstructinfoparamsliststructinforetstructinfopuritybooltruespanspannonenone)**,*call:***[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)**,*ctx:***[BlockBuilder](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderblockbuildermodirmodulenone-none)**)→**[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)
 
 
 从输入中获取调用的 ret 值结构信息。
@@ -104,7 +104,7 @@ Relax IR 分析。
    * **call** ()：调用表达式。
    * **ctx** (tvm.relax.BlockBuilder)：上下文块构建器。
 * **返回：** **ret**：派生的返回值结构信息。
-* **返回类型：** [StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
+* **返回类型：** [StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
 
 :::Note
 
@@ -112,7 +112,7 @@ Relax IR 分析。
 
 :::
 
-## **tvm.relax.analysis.detect_recursion(*mod:***[IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-non)**]]**
+## **tvm.relax.analysis.detect_recursion(*mod:***[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-non)**]]**
 
 
 查找模块中所有递归或相互递归函数集。
@@ -127,9 +127,9 @@ Relax IR 分析。
 如果一个函数只是递归的，而不是与任何其他函数相互递归的，那么它将被报告为一个单独的组。
 * **参数：mod** (*The module*)。
 * **返回：** **ret**：列表中的每个成员都是一个全局函数列表，这些函数相互递归引用。如果一个函数只是递归函数，且不与其他函数互相递归，那么它将是此列表中的单例函数。
-* **返回类型：** List[List[[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-non)]]。
+* **返回类型：** List[List[[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-non)]]。
 
-## **tvm.relax.analysis.erase_to_well_defined(*sinfo:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*shape_var_map:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***,***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*var_map:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***,***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)
+## **tvm.relax.analysis.erase_to_well_defined(*sinfo:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*shape_var_map:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***,***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*,*var_map:***[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)***[***[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***,***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)***] |***[None](https://docs.python.org/3/library/constants.html#None)***= None*)→**[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)
 
 
 将 sinfo 擦除为明确定义的形式。
@@ -141,40 +141,40 @@ Relax IR 分析。
    * **shape_var_map** (Dict[, tir.PrimExpr])：指定定义的形状变量及其应映射到的值。
    * **var_map** (Dict[, Expr])：指定定义的变量及其应映射到的值。
 * **返回：** **ret**：相应的已擦除结构信息。
-* **返回类型：** [StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
+* **返回类型：** [StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
 
-## **tvm.relax.analysis.free_symbolic_vars(*func:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.free_symbolic_vars(*func:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 获取输入函数中使用但未定义的 TIR 变量。返回的列表已去重：每个 TIR 变量最多出现一次。
 * **参数：func** ()：要分析的函数对象。
 * **返回：** **ret**：在输入函数中使用但未定义的符号变量列表。
-* **返回类型：** List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
+* **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
 
-## **tvm.relax.analysis.free_vars(*expr:***[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.free_vars(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 返回表达式 expr 中的所有自由变量。自由变量是指表达式中未受 VarBinding 或函数参数绑定的变量。:param expr: 表达式。:type expr: Expr
 * **返回：** **ret**：expr 中的自由变量列表，按 DFS 后顺序排列。
-* **返回类型：** List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
+* **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
 
-## **tvm.relax.analysis.get_static_type(*sinfo:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype)
+## **tvm.relax.analysis.get_static_type(*sinfo:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[Type](/docs/api-reference/python-api/tvm-ir#class-tvmirtype)
 
 
 从 StructInfo 中获取相应的静态类型。
 * **参数：sinfo** ()：输入结构信息。
 * **返回：** **ret：**相应的静态类型。
-* **返回类型：** [Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype)。
+* **返回类型：** [Type](/docs/api-reference/python-api/tvm-ir#class-tvmirtype)。
 
-## **tvm.relax.analysis.get_var2val(*func:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,**[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**]**
+## **tvm.relax.analysis.get_var2val(*func:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,**[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**]**
 
 
 为函数中的每个变量获取从 Relax.Var 到 Expr 的映射。
 * **参数：func** ()：要分析的输入函数。
 * **返回：** A mapping from relax.Var to Expr。
-* **返回类型：** Dict[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone), Expr]。
+* **返回类型：** Dict[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone), Expr]。
 
-## **tvm.relax.analysis.has_reshape_pattern(*func:***[PrimFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)**)→**[bool](https://docs.python.org/3/library/functions.html#bool)
+## **tvm.relax.analysis.has_reshape_pattern(*func:***[PrimFunc](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)**)→**[bool](https://docs.python.org/3/library/functions.html#bool)
 
 
 检查给定的 PrimFunc 是否本质上执行了重塑操作。重塑操作还包括 expand_dims、squeeze、flatten 等。
@@ -191,7 +191,7 @@ Relax IR 分析。
 
 根据上面的描述，返回的结果只能是假阴性，而不能是假阳性，因为只要我们无法证明相等性，我们就会返回 false。此属性保证了该函数的安全性。
 
-## **tvm.relax.analysis.name_to_binding(*func:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[str](https://docs.python.org/3/library/stdtypes.html#str)**,**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Binding](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)**]]**
+## **tvm.relax.analysis.name_to_binding(*func:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[str](https://docs.python.org/3/library/stdtypes.html#str)**,**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Binding](/docs/api-reference/python-api/tvm-relax#classtvmrelaxbinding)**]]**
 
 
 返回从变量名到其绑定的映射。
@@ -204,7 +204,7 @@ Relax IR 分析。
    * **expr** (*tvm.relax.Expr*)：输入表达式。
    * **fvisit** (*function*)**：** 要应用的访问者函数。
 
-## **tvm.relax.analysis.remove_all_unused(*func:***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
+## **tvm.relax.analysis.remove_all_unused(*func:***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**)→**[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
 
 
 它会删除：1. DataflowBlock 中未使用的本地 VarBindings。2. 函数中未使用的 DataflowBlocks。
@@ -216,9 +216,9 @@ Relax IR 分析。
 
 对于 IRModule-wise DCE，使用 py:func: tvm.relax.transform.DeadCodeElimination。
 * **返回：** 移除了未使用变量的函数。
-* **返回类型：** [Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
+* **返回类型：** [Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)
 
-## **tvm.relax.analysis.struct_info_base_check(*base:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*derived:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[BaseCheckResult](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax-analysis#classtvmrelaxanalysisbasecheckresultvalue)
+## **tvm.relax.analysis.struct_info_base_check(*base:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*derived:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[BaseCheckResult](/docs/api-reference/python-api/tvm-relax-analysis#classtvmrelaxanalysisbasecheckresultvalue)
 
 
 运行基础检查来查看基础是否包含派生。
@@ -226,19 +226,19 @@ Relax IR 分析。
    * **base** ()：基本结构信息。
    * **derived** ()：派生的结构信息。
 * **返回：** **ret：** 派生的返回值结构信息。
-* **返回类型：** [StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
+* **返回类型：** [StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
 
 
-## **tvm.relax.analysis.struct_info_lca(*lhs:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*rhs:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)
+## **tvm.relax.analysis.struct_info_lca(*lhs:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**,*rhs:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)
 
 将两个结构信息统一到它们最近的祖先。
 * **参数：**
-   * **lhs** ()[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)左操作数。
+   * **lhs** ()[：](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)左操作数。
    * **rhs** ()**：** 右操作数。
 * **返回：** **ret：** 相应的 lca 结果。
-* **返回类型：** [StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
+* **返回类型：** [StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
 
-## **tvm.relax.analysis.suggest_layout_transforms(*func:***[PrimFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)**,*write_buffer_transforms:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[IndexMap](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)***|***[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)***]*)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Block](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)**,**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Block](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)**|**[Buffer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)**,**[IndexMap](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)**]]**
+## **tvm.relax.analysis.suggest_layout_transforms(*func:***[PrimFunc](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)**,*write_buffer_transforms:***[List](https://docs.python.org/3/library/typing.html#typing.List)***[***[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)***|***[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)***]*)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)**,**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)**|**[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)**,**[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)**]]**
 
 
 建议在 PrimFunc 中对块和缓冲区进行布局转换。
@@ -246,25 +246,25 @@ Relax IR 分析。
    * **func** ()：将对其执行分析并建议转换的 PrimFunc。
    * **write_buffer_transforms** (List[**Union**[, Callable])：输出缓冲区的布局转换列表。布局转换的数量必须与 PrimFunc 的输出数量匹配。
 * **返回：** **ret**： func 中每个块的建议转换。对于每个块，返回的值是从对象（块或缓冲区）到其索引映射转换的映射。
-* **返回类型：** Dict[[Block](ttps://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none), Dict[Union[[Block](ttps://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none), [Buffer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)], [IndexMap](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)]]
+* **返回类型：** Dict[[Block](ttps://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none), Dict[Union[[Block](ttps://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none), [Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)], [IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)]]
 
-## **tvm.relax.analysis.tir_vars_in_struct_info(*sinfo:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.tir_vars_in_struct_info(*sinfo:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 获取输入结构体信息中出现的 TIR 变量。返回的列表已去重 - 每个 TIR 变量最多出现一次。
 * **参数：sinfo** ()**：** 要分析的结构信息对象。
 * **返回：** **ret：** 输入结构信息中出现的 TIR 变量列表。
-* **返回类型：** List[[tir.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]
+* **返回类型：** List[[tir.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]
 
-## **tvm.relax.analysis.tir_vars_in_struct_info(*sinfo:***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
+## **tvm.relax.analysis.tir_vars_in_struct_info(*sinfo:***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 分析数据流块中的变量 use-def 链。
-* **参数：dfb** ()[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)要分析的数据流块。
+* **参数：dfb** ()[：](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)要分析的数据流块。
 * **返回：** A mapping from variable definition to its uses.
-* **返回类型：** Dict[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone), List[[relax.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]]
+* **返回类型：** Dict[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone), List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]]
 
-## **tvm.relax.analysis.udchain(*dfb:***[DataflowBlock](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]]**
+## **tvm.relax.analysis.udchain(*dfb:***[DataflowBlock](/docs/api-reference/python-api/tvm-relax#classtvmrelaxdataflowblockbindingslistbindingspanspannonenone)**)→**[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**,**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]]**
 
 检查 IRModule 是否格式正确。
 * **参数：**
@@ -277,7 +277,7 @@ Relax IR 分析。
 默认情况下，始终会检查结构信息。只有在测试用例中，check_struct_info 才可能为 false，这样其他格式良好的需求才能得到良好的测试，而不会因为缺少结构信息而受阻。
 
 
-## **tvm.relax.analysis.well_formed(*obj:***[IRModule](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)***|***[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**,*check_struct_info:***[bool](https://docs.python.org/3/library/functions.html#bool)***= True*)→**[bool](https://docs.python.org/3/library/functions.html#bool)
+## **tvm.relax.analysis.well_formed(*obj:***[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)***|***[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)**,*check_struct_info:***[bool](https://docs.python.org/3/library/functions.html#bool)***= True*)→**[bool](https://docs.python.org/3/library/functions.html#bool)
 
 
 用于估算 IRModule 中 Relax 函数内存使用情况的分析函数。估算内容包括内存规划前后需要分配的总内存大小。

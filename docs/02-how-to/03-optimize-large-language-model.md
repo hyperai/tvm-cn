@@ -7,7 +7,7 @@ title: 优化大语言模型
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/how-to/optimize-large-language-model#decode)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/how-to/optimize-large-language-model#decode)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/ab03cb35cd7f92b5425a8974fcab921a/optimize_llm.ipynb)
 

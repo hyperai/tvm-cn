@@ -4,14 +4,14 @@ title: 安装 TVM
 
 ---
 
-* [从源码安装](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source)
-* [Docker 镜像](https://tvm.hyper.ai/docs/getting-started/installing-tvm/docker-images)
+* [从源码安装](/docs/getting-started/installing-tvm/install-from-source)
+* [Docker 镜像](/docs/getting-started/installing-tvm/docker-images)
 
 
-访问 [从源码安装](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source) 页面，以从源代码安装 TVM。从源码安装可以让你最大程度地灵活配置构建选项，并确保使用官方发布的源代码。如果你希望在移动设备或嵌入式设备上部署 TVM，你不需要在设备上安装完整的 TVM 框架，而只需安装运行时环境即可。
+访问 [从源码安装](/docs/getting-started/installing-tvm/install-from-source) 页面，以从源代码安装 TVM。从源码安装可以让你最大程度地灵活配置构建选项，并确保使用官方发布的源代码。如果你希望在移动设备或嵌入式设备上部署 TVM，你不需要在设备上安装完整的 TVM 框架，而只需安装运行时环境即可。
 
 
-如果你想快速体验 TVM 或运行一些示例和教程，可以 [通过 Docker 安装](https://tvm.hyper.ai/docs/getting-started/installing-tvm/docker-images)。你也可以通过 `pip` 在本地安装 TVM。
+如果你想快速体验 TVM 或运行一些示例和教程，可以 [通过 Docker 安装](/docs/getting-started/installing-tvm/docker-images)。你也可以通过 `pip` 在本地安装 TVM。
 
 
 ```plain

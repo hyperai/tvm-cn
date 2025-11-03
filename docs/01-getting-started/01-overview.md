@@ -19,7 +19,7 @@ Apache TVM 是一个机器学习编译框架，**遵循Python 优先开发和通
 
 ## 关键流程
 
-以下是使用 TVM 部署机器学习模型的典型流程。可运行示例请参见 [快速开始](https://tvm.hyper.ai/docs/getting-started/quick-start/)。
+以下是使用 TVM 部署机器学习模型的典型流程。可运行示例请参见 [快速开始](/docs/getting-started/quick-start/)。
 
 
 1. **导入 / 构建一个机器学习模型**

@@ -12,30 +12,30 @@ TVM 中的结构化错误类。
 
 :::note
 
-另请参阅[错误处理指南](https://tvm.hyper.ai/docs/about/contribute/error_handling-guide)。
+另请参阅[错误处理指南](/docs/about/contribute/error_handling-guide)。
 
 :::
 
 
 **函数：**
 
-|[register_error](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#tvmerrorregister_errorname_or_clsnoneclsnone)([name_or_cls, cls])|注册一个错误类，以便 FFI 错误处理器能够识别它。|
+|[register_error](/docs/api-reference/python-api/tvm-error#tvmerrorregister_errorname_or_clsnoneclsnone)([name_or_cls, cls])|注册一个错误类，以便 FFI 错误处理器能够识别它。|
 |:----|:----|
 
 
 **异常：**
 
-|[TVMError](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerrortvmerror)|TVM 的通用错误基类。|
+|[TVMError](/docs/api-reference/python-api/tvm-error#exceptiontvmerrortvmerror)|TVM 的通用错误基类。|
 |:----|:----|
-|[InternalError](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerrorinternalerror)|系统内部错误。|
-|[RPCError](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerrorrpcerror)|由远程服务器在处理 RPC 调用时抛出的错误。|
-|[RPCSessionTimeoutError](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerrorrpcsessiontimeouterror)|当 RPC 会话过期时由远程服务器抛出的错误。|
-|[OpError](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerroroperror)|前端所有算子错误的基类。|
-|[OpNotImplemented](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerroropnotimplemented)|算子未实现。|
-|[OpAttributeRequired](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerroropattributerequired)|找不到所需的算子属性。|
-|[OpAttributeInvalid](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerroropattributeinvalid)|前端算子接收的属性值无效。|
-|[OpAttributeUnImplemented](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerroropattributeunimplemented)|在某些前端中不支持该属性。|
-|[DiagnosticError](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-error#exceptiontvmerrordiagnosticerror)|在执行某个 Pass 时报告的错误诊断。|
+|[InternalError](/docs/api-reference/python-api/tvm-error#exceptiontvmerrorinternalerror)|系统内部错误。|
+|[RPCError](/docs/api-reference/python-api/tvm-error#exceptiontvmerrorrpcerror)|由远程服务器在处理 RPC 调用时抛出的错误。|
+|[RPCSessionTimeoutError](/docs/api-reference/python-api/tvm-error#exceptiontvmerrorrpcsessiontimeouterror)|当 RPC 会话过期时由远程服务器抛出的错误。|
+|[OpError](/docs/api-reference/python-api/tvm-error#exceptiontvmerroroperror)|前端所有算子错误的基类。|
+|[OpNotImplemented](/docs/api-reference/python-api/tvm-error#exceptiontvmerroropnotimplemented)|算子未实现。|
+|[OpAttributeRequired](/docs/api-reference/python-api/tvm-error#exceptiontvmerroropattributerequired)|找不到所需的算子属性。|
+|[OpAttributeInvalid](/docs/api-reference/python-api/tvm-error#exceptiontvmerroropattributeinvalid)|前端算子接收的属性值无效。|
+|[OpAttributeUnImplemented](/docs/api-reference/python-api/tvm-error#exceptiontvmerroropattributeunimplemented)|在某些前端中不支持该属性。|
+|[DiagnosticError](/docs/api-reference/python-api/tvm-error#exceptiontvmerrordiagnosticerror)|在执行某个 Pass 时报告的错误诊断。|
 
 
 

@@ -23,24 +23,24 @@ BLAS 库的外部函数接口。
 
 创建一个外部操作，使用 CrhsLAS 计算 A 和 rhs 的矩阵乘法，此函数作为如何调用外部库的示例。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
    * **transa** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 lhs。
    * **transb** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 rhs。
 * **返回：C**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.cblas.batch_matmul(*lhs*, *rhs*, *transa=False*, *transb=False*, *iterative=False*, ***kwargs*)
 
 
 创建一个外部操作，使用 CBLAS 计算 A 和 rhs 的分批矩阵乘法。此函数作为如何调用外部库的示例。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
    * **transa** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 lhs。
    * **transb** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 rhs。
 * **返回：C**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
 
@@ -188,23 +188,23 @@ cuBLAS 库的外部函数接口。
 
 创建一个外部操作，使用 cuBLAS 计算矩阵 A 和 rhs 的乘数。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))*：* 右矩阵操作数。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))*：* 右矩阵操作数。
    * **transa** ([bool](https://docs.python.org/3/library/functions.html#bool))*：* 是否转置 lhs。
    * **transb** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 rhs。
 * **返回：C**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.cublas.batch_matmul(*lhs*, *rhs*, *transa=False*, *transb=False*, *dtype=None*)
 
 创建一个外部操作，使用 cuBLAS 计算批量矩阵 A 和 rhs 的乘数。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
    * **transa** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 lhs。
    * **transb** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 rhs。
 * **返回：C**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
 
@@ -219,16 +219,16 @@ cuBLAS 库的外部函数接口。
 
 将一个 TVM 函数转换为能够接受来自其他框架的张量的函数，前提是该框架支持 DLPACK。
 * **参数：**
-   * **tvm_func** ([Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone))：构建对数组进行操作的 tvm 函数。
-   * **tensor_type** ([Type](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirtype))：目标框架的张量类型。
-   * **to_dlpack_func** ([Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone))：将源张量转换为 DLPACK 的函数。
+   * **tvm_func** ([Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone))：构建对数组进行操作的 tvm 函数。
+   * **tensor_type** ([Type](/docs/api-reference/python-api/tvm-ir#class-tvmirtype))：目标框架的张量类型。
+   * **to_dlpack_func** ([Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone))：将源张量转换为 DLPACK 的函数。
 
 ## tvm.contrib.dlpack.to_pytorch_func(*tvm_func*)
 
 将 tvm 函数转换为接受 PyTorch 张量的函数。
-* **参数：tvm_func** ([Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone))：构建对数组进行操作的 tvm 函数。
+* **参数：tvm_func** ([Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone))：构建对数组进行操作的 tvm 函数。
 * **返回：wrapped_func**：对 PyTorch 张量进行操作的包装 tvm 函数。
-* **返回类型：**[Function](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)。
+* **返回类型：**[Function](/docs/api-reference/python-api/tvm-relax#classtvmrelaxfunctionparamslistvarbodyrelaxexprret_struct_infostructinfononenoneis_pureboolnonetrueattrsdictattrsnonenonespanspannonenone)。
 
 
 # tvm.contrib.emcc
@@ -258,8 +258,8 @@ MIOpen 库的外部函数接口。
 
 创建一个使用 MIOpen 计算 2D 卷积的外部操作。
 * **参数：**
-   * **x** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：输入特征图。
-   * **w** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：卷积权重。
+   * **x** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：输入特征图。
+   * **w** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：卷积权重。
    * **stride_h** ([int](https://docs.python.org/3/library/functions.html#int))：身高步幅。
    * **stride_w** ([int](https://docs.python.org/3/library/functions.html#int))：宽度步幅。
    * **pad_h** ([int](https://docs.python.org/3/library/functions.html#int))**：** 高度垫。
@@ -270,25 +270,25 @@ MIOpen 库的外部函数接口。
    * **data_type** ([int](https://docs.python.org/3/library/functions.html#int))**：** 0：miopenHalf（fp16）1：miopenFloat（fp32）。
    * **group_count** ([int](https://docs.python.org/3/library/functions.html#int))：组数。
 * **返回：y**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.miopen.softmax(*x*, *axis=-1*)
 
 使用 MIOpen 计算 softmax。
 * **参数：**
-   * **x** ([tvm.te.Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：输入张量。
+   * **x** ([tvm.te.Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：输入张量。
    * **axis** ([int](https://docs.python.org/3/library/functions.html#int))：计算 softmax 的轴。
 * **返回：ret**：结果张量。
-* **返回类型：**[tvm.te.Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[tvm.te.Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.miopen.log_softmax(*x*, *axis=-1*)
 
 使用 MIOpen 计算对数 softmax。
 * **参数：**
-   * **x** ([tvm.te.Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：输入张量。
+   * **x** ([tvm.te.Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：输入张量。
    * **axis** ([int](https://docs.python.org/3/library/functions.html#int))*：* 计算 log softmax 的轴。
 * **返回：ret**：结果张量。
-* **返回类型：**[tvm.te.Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[tvm.te.Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
 
@@ -343,43 +343,43 @@ NNPACK 库的外部函数接口。
 
 创建一个外部操作，使用 nnpack 计算 1D 张量 lhs 和 2D 张量 rhs 的完全连接。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的 lhs 1D 数组输入[input_channels]。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的 lhs 二维矩阵核[输出通道][输入通道]。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的 lhs 1D 数组输入[input_channels]。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的 lhs 二维矩阵核[输出通道][输入通道]。
 * **返回：C**：FP32 元素的 lhs 1D 数组 out[output_channels]。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.nnpack.convolution_inference(*data*, *kernel*, *bias*, *padding*, *stride*, *nthreads=1*, *algorithm=0*)
 
 
 创建一个外部操作，使用 nnpack 对 4D 张量数据和 4D 张量核以及 1D 张量偏差进行推理卷积。
 * **参数：**
-   * **data** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的数据 4D 张量输入[batch][input_channels][input_height][input_width]。
-   * **kernel** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))**：** FP32 元素的内核 4D 张量 kernel[output_channels][input_channels][kernel_height] [kernel_width]。
-   * **bias** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的偏差 1D 数组偏差[output_channels][input_channels][kernel_height] [kernel_width]。
+   * **data** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的数据 4D 张量输入[batch][input_channels][input_height][input_width]。
+   * **kernel** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))**：** FP32 元素的内核 4D 张量 kernel[output_channels][input_channels][kernel_height] [kernel_width]。
+   * **bias** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的偏差 1D 数组偏差[output_channels][input_channels][kernel_height] [kernel_width]。
    * **padding** ([list](https://docs.python.org/3/library/stdtypes.html#list))：padding 一个 4 维列表，包含 [pad_top、pad_bottom、pad_left、pad_right]，表示特征图周围的填充。
    * **stride** ([list](https://docs.python.org/3/library/stdtypes.html#list))：步幅 [stride_height，stride_width] 的 2 维列表，表示步幅。
 * **返回：output**：FP32 元素的输出 4D 张量输出[batch][output_channels][output_height][output_width]。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.nnpack.convolution_inference_without_weight_transform(*data*, *transformed_kernel*, *bias*, *padding*, *stride*, *nthreads=1*, *algorithm=0*) 
 
 创建一个外部操作，使用 nnpack 对 4D 张量数据和 4D 预转换张量核和 1D 张量偏差进行推理卷积。
 * **参数：**
-   * **data** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))**：** FP32 元素的数据 4D 张量输入[batch][input_channels][input_height][input_width]。
-   * **transformed_kernel** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：transformed_kernel 4D 张量 kernel[output_channels][input_channels][tile] [tile] 由 FP32 元素组成。
-   * **bias** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的偏差 1D 数组偏差[output_channels][input_channels][kernel_height] [kernel_width]。
+   * **data** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))**：** FP32 元素的数据 4D 张量输入[batch][input_channels][input_height][input_width]。
+   * **transformed_kernel** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：transformed_kernel 4D 张量 kernel[output_channels][input_channels][tile] [tile] 由 FP32 元素组成。
+   * **bias** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：FP32 元素的偏差 1D 数组偏差[output_channels][input_channels][kernel_height] [kernel_width]。
    * **padding** ([list](https://docs.python.org/3/library/stdtypes.html#list))*：* padding 一个 4 维列表，包含 [pad_top、pad_bottom、pad_left、pad_right]，表示特征图周围的填充。
    * **stride** ([list](https://docs.python.org/3/library/stdtypes.html#list))：步幅 [stride_height，stride_width] 的 2 维列表，表示步幅。
 * **返回：output**：FP32 元素的输出 4D 张量输出[batch][output_channels][output_height][output_width]。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.nnpack.convolution_inference_weight_transform(*kernel*, *nthreads=1*, *algorithm=0*, *dtype='float32'*)
 
 
 创建一个外部操作，使用 nnpack 对 3D 张量数据和 4D 张量核以及 1D 张量偏差进行推理卷积。
-* **参数：kernel** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))*：* FP32 元素的内核 4D 张量 kernel[output_channels][input_channels][kernel_height] [kernel_width]。
+* **参数：kernel** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))*：* FP32 元素的内核 4D 张量 kernel[output_channels][input_channels][kernel_height] [kernel_width]。
 * **返回：output**：FP32 元素的输出 4D 张量输出[output_channels][input_channels][tile][tile]。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
 
@@ -449,7 +449,7 @@ NNPACK 库的外部函数接口。
 计算功能中是否提供 TensorCore 支持。
 * 参数：
    * **compute_version** ([str](https://docs.python.org/3/library/stdtypes.html#str)*,optional*)：GPU 的计算能力（例如“7.0”）。
-   * **target** ([tvm.target.Target](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)*,optional*)*：*编译目标，如果未指定 compute_version，则将用于确定 arch。
+   * **target** ([tvm.target.Target](/docs/api-reference/python-api/tvm-target#class-tvmtargettargettarget-hostnone)*,optional*)*：*编译目标，如果未指定 compute_version，则将用于确定 arch。
 
 ## tvm.contrib.nvcc.have_cudagraph()
 
@@ -497,7 +497,7 @@ NNPACK 库的外部函数接口。
    * **low** ([int](https://docs.python.org/3/library/functions.html#int))：从分布中抽取的最低（有符号）整数。
    * **high** ([int](https://docs.python.org/3/library/functions.html#int))：从分布中抽取的最大（有符号）整数的上一个。
 * **返回：out** *：* 具有指定大小和 dtype 的张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.random.uniform(*low*, *high*, *size*)
 
@@ -511,7 +511,7 @@ NNPACK 库的外部函数接口。
    * **high** ([float](https://docs.python.org/3/library/functions.html#float))：输出间隔的上限。所有生成的值都将小于 high。
    * **size** ([tuple](https://docs.python.org/3/library/stdtypes.html#tuple)*ofints*)：输出形状。如果给定形状为 (m, n, k)，则绘制 m * n * k 个样本。
 * **返回：out**：具有指定大小和 dtype 的张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.random.normal(*loc*, *scale*, *size*)
 
@@ -525,7 +525,7 @@ NNPACK 库的外部函数接口。
    * **scale** ([float](https://docs.python.org/3/library/functions.html#float))：分布的标准差。
    * **size** ([tuple](https://docs.python.org/3/library/stdtypes.html#tuple)*ofints*)：输出形状。如果给定形状为 (m, n, k)，则绘制 m * n * k 个样本。
 * **返回：out**：具有指定大小和 dtype 的张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
 
@@ -539,24 +539,24 @@ rocBLAS 库的外部函数接口。
 
 创建一个外部操作，使用 rocBLAS 计算 A 和 rhs 的矩阵乘法。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左矩阵操作数。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右矩阵操作数。
    * **transa** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 lhs。
    * **transb** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 rhs。
 * **返回：C**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.contrib.rocblas.batch_matmul(*lhs*, *rhs*, *transa=False*, *transb=False*)
 
 
 创建一个外部操作，使用 rocBLAS 计算 A 和 rhs 的矩阵乘法。
 * **参数：**
-   * **lhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左批处理矩阵操作数。
-   * **rhs** ([Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右批处理矩阵操作数。
+   * **lhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：左批处理矩阵操作数。
+   * **rhs** ([Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor))：右批处理矩阵操作数。
    * **transa** ([bool](https://docs.python.org/3/library/functions.html#bool))**：** 是否转置 lhs。
    * **transb** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否转置 rhs。
 * **返回：C**：结果张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
 # tvm.contrib.rocm
@@ -662,7 +662,7 @@ ROCm 后端实用程序。
 
 这对于解压 tar 中的对象然后将其转换为库很有用。
 * **参数：**
-   * **temp** ([tvm.contrib.utils.TempDirectory](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-contrib#class-tvmcontributilstempdirectorycustom_pathnone-keep_for_debugnone))：用于保存解压文件的临时目录。
+   * **temp** ([tvm.contrib.utils.TempDirectory](/docs/api-reference/python-api/tvm-contrib#class-tvmcontributilstempdirectorycustom_pathnone-keep_for_debugnone))：用于保存解压文件的临时目录。
    * **file_list** (*List[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：路径列表。
 * **返回：ret_list**：更新的文件列表。
 * **返回类型：** List[[str](https://docs.python.org/3/library/stdtypes.html#str)]。
@@ -720,7 +720,7 @@ ROCm 后端实用程序。
    * **custom_path** ([str](https://docs.python.org/3/library/stdtypes.html#str)*,optional*)：手动指定准确的临时目录路径。
    * **keep_for_debug** ([bool](https://docs.python.org/3/library/functions.html#bool))：保留临时目录以用于调试目的。
 * **返回：temp**：临时目录对象。
-* **返回类型：**[TempDirectory](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-contrib#class-tvmcontributilstempdirectorycustom_pathnone-keep_for_debugnone)。
+* **返回类型：**[TempDirectory](/docs/api-reference/python-api/tvm-contrib#class-tvmcontributilstempdirectorycustom_pathnone-keep_for_debugnone)。
 
 ## *class* tvm.contrib.utils.FileLock(*path*)
 

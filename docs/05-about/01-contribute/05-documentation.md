@@ -4,18 +4,18 @@ title: 文档
 
 ---
 
-* [四种文档类型](https://tvm.hyper.ai/docs/about/contribute/documentation#%E5%9B%9B%E7%A7%8D%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B)
-   * [入门教程](https://tvm.hyper.ai/docs/about/contribute/documentation#%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B)
-   * [操作指南](https://tvm.hyper.ai/docs/about/contribute/documentation#%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)
-   * [参考手册](https://tvm.hyper.ai/docs/about/contribute/documentation#%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C)
-   * [架构指南](https://tvm.hyper.ai/docs/about/contribute/documentation#%E6%9E%B6%E6%9E%84%E6%8C%87%E5%8D%97)
-   * [TVM 的特殊注意事项](https://tvm.hyper.ai/docs/about/contribute/documentation#tvm-%E7%9A%84%E7%89%B9%E6%AE%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
-* [技术细节](https://tvm.hyper.ai/docs/about/contribute/documentation#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82)
-   * [Python 参考文档](https://tvm.hyper.ai/docs/about/contribute/documentation#python-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
-   * [C++ 参考文档](https://tvm.hyper.ai/docs/about/contribute/documentation#c-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
-   * [Sphinx Gallery 操作指南](https://tvm.hyper.ai/docs/about/contribute/documentation#sphinx-gallery-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)
-   * [文档内部引用](https://tvm.hyper.ai/docs/about/contribute/documentation#%E6%96%87%E6%A1%A3%E5%86%85%E9%83%A8%E5%BC%95%E7%94%A8)
-   * [含图像/图表的文档](https://tvm.hyper.ai/docs/about/contribute/documentation#%E5%90%AB%E5%9B%BE%E7%89%87%E5%9B%BE%E8%A1%A8%E7%9A%84%E6%96%87%E6%A1%A3)
+* [四种文档类型](/docs/about/contribute/documentation#%E5%9B%9B%E7%A7%8D%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B)
+   * [入门教程](/docs/about/contribute/documentation#%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B)
+   * [操作指南](/docs/about/contribute/documentation#%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)
+   * [参考手册](/docs/about/contribute/documentation#%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C)
+   * [架构指南](/docs/about/contribute/documentation#%E6%9E%B6%E6%9E%84%E6%8C%87%E5%8D%97)
+   * [TVM 的特殊注意事项](/docs/about/contribute/documentation#tvm-%E7%9A%84%E7%89%B9%E6%AE%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+* [技术细节](/docs/about/contribute/documentation#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82)
+   * [Python 参考文档](/docs/about/contribute/documentation#python-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
+   * [C++ 参考文档](/docs/about/contribute/documentation#c-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
+   * [Sphinx Gallery 操作指南](/docs/about/contribute/documentation#sphinx-gallery-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)
+   * [文档内部引用](/docs/about/contribute/documentation#%E6%96%87%E6%A1%A3%E5%86%85%E9%83%A8%E5%BC%95%E7%94%A8)
+   * [含图像/图表的文档](/docs/about/contribute/documentation#%E5%90%AB%E5%9B%BE%E7%89%87%E5%9B%BE%E8%A1%A8%E7%9A%84%E6%96%87%E6%A1%A3)
 
 
 TVM 文档大致遵循 [Divio 提出的正式文档风格](https://documentation.divio.com/)。选择这一体系是因为它「简单、全面且几乎普适。经过广泛领域和实践验证，具有极高的实用性。」

@@ -7,7 +7,7 @@ title: IRModule
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E9%83%A8%E7%BD%B2%E5%88%B0%E5%85%B6%E4%BB%96%E5%90%8E%E7%AB%AF)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/getting-started/irmodule/#%E9%83%A8%E7%BD%B2%E5%88%B0%E5%85%B6%E4%BB%96%E5%90%8E%E7%AB%AF)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/a6d7947451d373bc811080cffa18dc7c/ir_module.ipynb)
 
@@ -18,10 +18,10 @@ title: IRModule
 
 
 **目录**
-* [创建 IRModule](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E5%88%9B%E5%BB%BA-irmodule)
-* [IRModule 的属性](https://tvm.hyper.ai/docs/getting-started/irmodule/#irmodule-%E7%9A%84%E5%B1%9E%E6%80%A7)
-* [对 IRModule 进行转换](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E5%AF%B9-irmodule-%E8%BF%9B%E8%A1%8C%E8%BD%AC%E6%8D%A2)
-* [通用部署 IRModule](https://tvm.hyper.ai/docs/getting-started/irmodule/#%E9%80%9A%E7%94%A8%E9%83%A8%E7%BD%B2-irmodule)
+* [创建 IRModule](/docs/getting-started/irmodule/#%E5%88%9B%E5%BB%BA-irmodule)
+* [IRModule 的属性](/docs/getting-started/irmodule/#irmodule-%E7%9A%84%E5%B1%9E%E6%80%A7)
+* [对 IRModule 进行转换](/docs/getting-started/irmodule/#%E5%AF%B9-irmodule-%E8%BF%9B%E8%A1%8C%E8%BD%AC%E6%8D%A2)
+* [通用部署 IRModule](/docs/getting-started/irmodule/#%E9%80%9A%E7%94%A8%E9%83%A8%E7%BD%B2-irmodule)
 
 
 ```plain

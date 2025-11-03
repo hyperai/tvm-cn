@@ -9,16 +9,16 @@ title: 从源码安装
 
 
 **目录**
-* [步骤 1：安装依赖项](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-1%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9)
-* [步骤 2：从 GitHub 获取源码](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-2%E4%BB%8E-github-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81)
-* [步骤 3：配置与构建](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-3%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%9E%84%E5%BB%BA)
-* [步骤 4：验证安装](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-4%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85)
-* [步骤 5：额外 Python 依赖项](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-5-%E9%A2%9D%E5%A4%96-python-%E4%BE%9D%E8%B5%96%E9%A1%B9)
-* [高级构建配置](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E9%AB%98%E7%BA%A7%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE)
-   * [Ccache](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#ccache)
-   * [在 Windows 上构建](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E5%9C%A8-windows-%E4%B8%8A%E6%9E%84%E5%BB%BA)
-   * [构建 ROCm 支持](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%9E%84%E5%BB%BA-rocm-%E6%94%AF%E6%8C%81)
-   * [启用 C++ 测试](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E5%90%AF%E7%94%A8-c-%E6%B5%8B%E8%AF%95)
+* [步骤 1：安装依赖项](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-1%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9)
+* [步骤 2：从 GitHub 获取源码](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-2%E4%BB%8E-github-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81)
+* [步骤 3：配置与构建](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-3%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%9E%84%E5%BB%BA)
+* [步骤 4：验证安装](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-4%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85)
+* [步骤 5：额外 Python 依赖项](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-5-%E9%A2%9D%E5%A4%96-python-%E4%BE%9D%E8%B5%96%E9%A1%B9)
+* [高级构建配置](/docs/getting-started/installing-tvm/install-from-source#%E9%AB%98%E7%BA%A7%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE)
+   * [Ccache](/docs/getting-started/installing-tvm/install-from-source#ccache)
+   * [在 Windows 上构建](/docs/getting-started/installing-tvm/install-from-source#%E5%9C%A8-windows-%E4%B8%8A%E6%9E%84%E5%BB%BA)
+   * [构建 ROCm 支持](/docs/getting-started/installing-tvm/install-from-source#%E6%9E%84%E5%BB%BA-rocm-%E6%94%AF%E6%8C%81)
+   * [启用 C++ 测试](/docs/getting-started/installing-tvm/install-from-source#%E5%90%AF%E7%94%A8-c-%E6%B5%8B%E8%AF%95)
 
 
 ## 步骤 1：安装依赖项
@@ -260,7 +260,7 @@ pip3 install tornado psutil 'xgboost>=1.1.0' cloudpickle
 
 TVM 支持通过 MSVC 和 CMake 在 Windows 上构建。你需要安装 Visual Studio 编译器（最低要求：**Visual Studio Enterprise 2019**）。我们测试了 [GitHub Actions 的 Windows 2019 Runner](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md) 的配置，可访问该页面获取全部细节。
 
-推荐按照 [步骤 1：安装依赖项](https://tvm.hyper.ai/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-1%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9) 获取依赖项并激活 tvm-build 环境后，运行以下命令构建：
+推荐按照 [步骤 1：安装依赖项](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-1%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9) 获取依赖项并激活 tvm-build 环境后，运行以下命令构建：
 
 ```plain
 mkdir build

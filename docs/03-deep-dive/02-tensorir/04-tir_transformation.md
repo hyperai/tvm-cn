@@ -7,7 +7,7 @@ title: 转换
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/tensorir/tir_transformation#%E8%BF%BD%E8%B8%AA%E8%BD%AC%E6%8D%A2)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/deep-dive/tensorir/tir_transformation#%E8%BF%BD%E8%B8%AA%E8%BD%AC%E6%8D%A2)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/e2a9c4bfdec7a9365ef67c5335b1aaa4/tir_transformation.ipynb)
 
@@ -18,7 +18,7 @@ title: 转换
 在本节中，我们将深入编译流程的核心内容 —— 原始张量函数的转换（Transformation）。
 
 
-在[上一节](https://tvm.hyper.ai/docs/deep-dive/tensorir/understand-tensorir-abstraction)中，我们展示了如何使用 TensorIR 编写 `mm_relu`。在实际应用中，同一个功能可能有多种实现方式，而不同实现可能会带来不同的性能表现。
+在[上一节](/docs/deep-dive/tensorir/understand-tensorir-abstraction)中，我们展示了如何使用 TensorIR 编写 `mm_relu`。在实际应用中，同一个功能可能有多种实现方式，而不同实现可能会带来不同的性能表现。
 
 
 :::note

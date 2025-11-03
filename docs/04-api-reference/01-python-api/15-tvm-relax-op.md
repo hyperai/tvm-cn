@@ -7,28 +7,28 @@ title: tvm.relax.op
 
 Relax 核心运算符。
 
-## tvm.relax.op.assert_op(*condition:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr), *format_args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *format:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= ''*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.assert_op(*condition:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr), *format_args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *format:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= ''*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 创建一个对 Relax 的 assert_op 操作的调用（在 Python 中，assert 是保留字，因此名称必须不同）。
 * **参数：**
-   * **condition** (*Union*[***Expr,*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]*)：断言条件。
+   * **condition** (*Union*[***Expr,*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]*)：断言条件。
    * **format_args** (*Optional*[****Union**[**Expr,*** ***List****[**Expr**]]*]*)：如果条件失败，则为错误消息提供格式化参数。
    * **format** (*Union*[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,***Expr***])：错误消息的格式字符串或 StringImm。
 * **返回：result**：一个调用 Relax 断言操作的 relax.Call。
 * **返回类型：** Expr。
 
-## tvm.relax.op.call_builtin_with_ctx(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *, *sinfo_args: [StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo) | [List](https://docs.python.org/3/library/typing.html#typing.List)[[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)] | [None](https://docs.python.org/3/library/constants.html#None) = None*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.call_builtin_with_ctx(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *, *sinfo_args: [StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo) | [List](https://docs.python.org/3/library/typing.html#typing.List)[[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)] | [None](https://docs.python.org/3/library/constants.html#None) = None*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 relax.Call 内置函数。
 * **参数：**
    * **func** (*Expr*)：要调用的内置函数。
    * **args** (*Expr*)**：** 输入参数。
-   * **sinfo_args** (*Optional*[****Union**[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***,** **List**[*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]**]** *]*)：调用节点中的结构信息参数。
+   * **sinfo_args** (*Optional*[****Union**[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***,** **List**[*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]**]** *]*)：调用节点中的结构信息参数。
 * **返回：ret**：创建的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.call_dps_packed(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo:*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.call_dps_packed(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo:*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 relax.Call 一个目标传递风格的打包函数并返回输出。
@@ -38,11 +38,11 @@ relax.Call 一个目标传递风格的打包函数并返回输出。
 * **参数：**
    * **func** (*Union[***[str](https://docs.python.org/3/library/stdtypes.html#str)**,****Expr****])：目标传递风格的函数，可以是 ExternFunc。
    * **args** (*Expr*)：输入参数。
-   * **out_sinfo** (*Union*[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***,***List***[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]]*)：call_dps_packed 输出的结构信息。它应该是一个 TensorStructInfo 或 TensorStructInfo 列表。每个元素表示一个返回张量的结构信息。
+   * **out_sinfo** (*Union*[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***,***List***[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]]*)：call_dps_packed 输出的结构信息。它应该是一个 TensorStructInfo 或 TensorStructInfo 列表。每个元素表示一个返回张量的结构信息。
 * **返回：ret：** 一个用于 call_dps_packed 操作的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
-## tvm.relax.op.call_inplace_packed(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*|*[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *inplace_indices:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *sinfo_args:*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.call_inplace_packed(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*|*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *inplace_indices:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *sinfo_args:*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构造一个调用打包函数的调用，该函数会消耗其部分参数「就地」并返回被修改的参数（别名），但应被视为其他方面是纯函数。inplace_indices 参数指示哪些输出是被修改的参数。
@@ -56,14 +56,14 @@ relax.Call 一个目标传递风格的打包函数并返回输出。
 
 警告：此运算符在类型系统中被视为纯操作，即使它执行了副作用（修改某些参数）。因此，用户必须确保它被安全使用（即，修改后的参数在修改后不应处于活动状态，它们不应在修改后别名化值）。
 * **参数：**
-   * **func** ( *Union [*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*]* )：PackedFunc 或 ExternFunc 节点的名称（全局符号）。
+   * **func** ( *Union [*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*]* )：PackedFunc 或 ExternFunc 节点的名称（全局符号）。
    * **args** ( *Expr* )：PackedFunc 的参数。
    * **inplace_indices** ( *Union [*[int](https://docs.python.org/3/library/functions.html#int)*, List [*[int](https://docs.python.org/3/library/functions.html#int)*] ]* )：指定哪些参数应用于就地计算。如果inplace_indices是单个整数，它将被转换为单例列表。假设inplace_indices[i] = j，其中j >= 0。则第 i 个输出将是 `args[j] 的别名。如果inplace_indices[i] = -1，则第 i 个输出将是新分配的张量。`inplace_indices 中至少有一个成员不能为 -1。
-   * **sinfo_args** ( *Union [*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*, List [*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*] ]* )：结构信息参数列表（提供返回值的结构信息）。
+   * **sinfo_args** ( *Union [*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*, List [*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*] ]* )：结构信息参数列表（提供返回值的结构信息）。
 * **返回：result**：Relax 调用，对应于 call_pure_packed(ExternFunc(func), args, DictAttrs(kwargs), sinfo_args)。
 * **返回类型：** Expr。
 
-## tvm.relax.op.call_pure_packed(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*|*[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sinfo_args:*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.call_pure_packed(*func:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*|*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sinfo_args:*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构建一个调用打包函数的调用，即使打包调用通常不被视为纯函数。
@@ -74,25 +74,25 @@ relax.Call 一个目标传递风格的打包函数并返回输出。
 
 注意：这应该用于用户知道使用这些参数调用打包函数实际上不会产生任何副作用的情况。如果用于一个确实会导致副作用的调用，那么编译器可能会最终移除、重新排序或重复该调用，并且对被调用方的任何副作用不做任何保证。
 * **参数：**
-   * **func** (*Union[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[ExternFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*]*)：PackedFunc 或 ExternFunc 节点的名称（全局符号）。
+   * **func** (*Union[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[ExternFunc](/docs/api-reference/python-api/tvm-relax#classtvmrelaxexternfuncglobal_symbolstringstruct_infostructinfononenonespanspannonenone)*]*)：PackedFunc 或 ExternFunc 节点的名称（全局符号）。
    * **args** (*Expr*)：PackedFunc 的参数。
-   * **sinfo_args** (*Union*[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***,******List****[*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]])：返回值结构信息的参数列表。
+   * **sinfo_args** (*Union*[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***,******List****[*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]])：返回值结构信息的参数列表。
 * **返回：result**：一个 Relax 调用，对应于 call_pure_packed(ExternFunc(func), args, DictAttrs(kwargs), sinfo_args)。
 * **返回类型：** Expr。
 
-## tvm.relax.op.call_tir(*gvar:*[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo:*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*, *tir_vars:*[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.call_tir(*gvar:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo:*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*, *tir_vars:*[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 relax.Call 一个 tir.prim_func 并返回输出。
 * **参数：**
-   * **gvar** ([GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none))：指向 tir PrimFunc 的 GlobalVar。
+   * **gvar** ([GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none))：指向 tir PrimFunc 的 GlobalVar。
    * **args** (*Expr*)：输入参数。
-   * **out_sinfo** (*Union*[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***,***List***[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]])：调用_tir 的输出结构信息。它应该是一个 TensorStructInfo 或 TensorStructInfo 的列表。每个元素表示一个返回张量的结构信息。
-   * **tir_vars** (*Optional*[****Union**[***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***,** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]***,List[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]*]]*)：表示调用 func 时解包的整数元组的 ShapeExpr。如果未使用则为 null。
+   * **out_sinfo** (*Union*[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***,***List***[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]])：调用_tir 的输出结构信息。它应该是一个 TensorStructInfo 或 TensorStructInfo 的列表。每个元素表示一个返回张量的结构信息。
+   * **tir_vars** (*Optional*[****Union**[***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***,** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]***,List[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]*]]*)：表示调用 func 时解包的整数元组的 ShapeExpr。如果未使用则为 null。
 * **返回：ret**：call_tir 运算符的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.call_tir_inplace(*gvar:*[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *inplace_indices:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *out_sinfo:*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*, *tir_vars:*[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.call_tir_inplace(*gvar:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *inplace_indices:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *out_sinfo:*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*, *tir_vars:*[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 relax 调用 TIR PrimFunc 并返回结果，在指定位置执行计算（基于 inplace_indices 参数；输出将与通过 in-place 索引选择的输入别名）。
@@ -103,48 +103,48 @@ relax 调用 TIR PrimFunc 并返回结果，在指定位置执行计算（基于
 
 仅应出于测试目的对此运算符进行直接调用。
 * **参数：**
-   * **gvar** ( [GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none) )：GlobalVar 引用 TIR PrimFunc。
+   * **gvar** ( [GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none) )：GlobalVar 引用 TIR PrimFunc。
    * **args** ( *Expr* )**：** 输入参数。
    * **inplace_indices** ( *Union [*[int](https://docs.python.org/3/library/functions.html#int)*, List [*[int](https://docs.python.org/3/library/functions.html#int)*] ]* )：指定哪些参数应用于就地计算。如果inplace_indices是单个整数，它将被转换为单例列表。假设inplace_indices[i] = j，其中j >= 0。则第 i 个输出将是 `args[j] 的别名。如果inplace_indices[i] = -1，则第 i 个输出将是新分配的张量。`inplace_indices 中至少有一个成员不能为 -1。
-   * **out_sinfo** ( *Union [*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*, List [*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*] ]* )：call_tir_inplace 输出的结构信息。它应该是一个TensorStructInfo或一个TensorStructInfo列表。每个列表表示返回张量的结构信息。如果给出一个TensorStructInfo列表，则结果将是一个TensorStructInfo元组。
-   * **tir_vars** ( *Optional [ Union [*[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*,*[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] , List [*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] ] ]* )：ShapeExpr 表示调用 func 时需要解包的整数元组。若未使用则为 null。
+   * **out_sinfo** ( *Union [*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*, List [*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*] ]* )：call_tir_inplace 输出的结构信息。它应该是一个TensorStructInfo或一个TensorStructInfo列表。每个列表表示返回张量的结构信息。如果给出一个TensorStructInfo列表，则结果将是一个TensorStructInfo元组。
+   * **tir_vars** ( *Optional [ Union [*[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*,*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] , List [*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] ] ]* )：ShapeExpr 表示调用 func 时需要解包的整数元组。若未使用则为 null。
 * **返回：ret**：call_tir 运算符的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.call_tir_with_grad(*gvar:*[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo:*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*, *te_grad_name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *te_grad_kwargs:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object] = None*, *tir_vars:*[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.call_tir_with_grad(*gvar:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo:*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]*, *te_grad_name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *te_grad_kwargs:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object] = None*, *tir_vars:*[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 relax 调用 tir.prim_func 并返回输出。这个内建函数会将 te 梯度函数（通过 te_grad_name 指向）绑定到 call_tir_with_grad 节点。梯度传递过程会调用这个 te 梯度函数。
 * **参数：**
-   * **gvar** ([GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none))**：** 指向 tir PrimFunc 的 GlobalVar。
+   * **gvar** ([GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none))**：** 指向 tir PrimFunc 的 GlobalVar。
    * **args** (*Expr*)：输入参数。
-   * **out_sinfo** (*Union*[***[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***,******List****[*[TensorStructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]])：call_tir_with_grad 输出的结构信息。它应该是一个 TensorStructInfo 或 TensorStructInfo 列表。每个元素表示一个返回张量的结构信息。
+   * **out_sinfo** (*Union*[***[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)***,******List****[*[TensorStructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtensorstructinfoshaperelaxexprnonelistprimexprnonedtypestrfloat32vdevicevdevicenonestrnonendimint-1spanspannonenone)*]])：call_tir_with_grad 输出的结构信息。它应该是一个 TensorStructInfo 或 TensorStructInfo 列表。每个元素表示一个返回张量的结构信息。
    * **te_grad_name** ([str](https://docs.python.org/3/library/stdtypes.html#str))：与 call_tir_with_grad 节点相关联的 te 梯度函数的注册名称。必须作为关键字参数提供。
    * **te_grad_kwargs** (*Dict*[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,******Object****],optional*)*： 传递给 te 梯度函数的关键字参数。可选作为关键字参数提供。默认：{}。
-   * **tir_vars** (*Optional**[****Union**[***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***,** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]****,List[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]*]])：表示调用 func 时要解包的整数元组的 ShapeExpr。如果未使用则为 null
+   * **tir_vars** (*Optional**[****Union**[***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***,** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]****,List[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]*]])：表示调用 func 时要解包的整数元组的 ShapeExpr。如果未使用则为 null
 * **返回：ret**：调用 call_tir_with_grad 运算符的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
-## tvm.relax.op.hint_on_device(*data*, *dst_vdevice*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.hint_on_device(*data*, *dst_vdevice*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 它提供了一个提示，指定输入数据应该在哪个设备上执行。这个提示被 RealizeVDevice 用来传播虚拟设备。
 * **参数：**
    * **data** (*Expr*)：要复制的张量。
-   * **dst_device** ([VDevice](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirvdevicetargetnone-vdevice_idint-0-memory_scopestr-global))：数据预期执行的目標设备。
+   * **dst_device** ([VDevice](/docs/api-reference/python-api/tvm-ir#class-tvmirvdevicetargetnone-vdevice_idint-0-memory_scopestr-global))：数据预期执行的目標设备。
 * **返回：result**：结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.invoke_closure(*closure:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sinfo_args:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*] |*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.invoke_closure(*closure:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sinfo_args:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*] |*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 调用闭包。
 * **参数：**
    * **closure** (*Expr*)：VMClosure 对象。
    * **args** (*Expr*)：输入参数。
-   * **type_args** (*Union*[****List**[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]****,*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]*)：CallNode 的结构信息参数。
+   * **type_args** (*Union*[****List**[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]****,*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*]*)：CallNode 的结构信息参数。
 * **返回：ret**-invoke_closure 的调用。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.invoke_pure_closure(*closure:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sinfo_args:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*] |*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.invoke_pure_closure(*closure:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sinfo_args:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*] |*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 调用闭包并指示编译器该闭包是纯函数。
@@ -154,11 +154,11 @@ relax 调用 tir.prim_func 并返回输出。这个内建函数会将 te 梯度�
 * **参数：**
    * **closure** (*Expr*)：VMClosure 对象。
    * **args** (*Expr*)：输入参数。
-   * **type_args** (*Union*[****List**[***[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]****,*[StructInfo](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*])：CallNode 的结构信息参数。
+   * **type_args** (*Union*[****List**[***[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)***]****,*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)*])：CallNode 的结构信息参数。
 * **返回：ret**：调用 invoke_pure_closure。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.make_closure(*func:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → Object
+## tvm.relax.op.make_closure(*func:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → Object
 
 创建一个带有自由变量的闭包并返回该闭包。
 * **参数：**
@@ -167,14 +167,14 @@ relax 调用 tir.prim_func 并返回输出。这个内建函数会将 te 梯度�
 * **返回：ret**：VMClosure。
 * **返回类型：** Object。
 
-## tvm.relax.op.null_value() → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.null_value() → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 创建一个表示空值对象的调用节点。
 * **返回：ret：** 创建的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.print(values:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *format:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= '') → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.print(values:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *format:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= '') → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 打印操作以打印值。
 * **参数：**
@@ -183,7 +183,7 @@ relax 调用 tir.prim_func 并返回输出。这个内建函数会将 te 梯度�
 * **返回：result**：一个 relax Call，在运行时将打印值。
 * **返回类型：** Expr。
 
-## tvm.relax.op.register_gradient(*op_name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *fgradient:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*[[*[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)*,*[Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)*,*[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)*,*[BlockBuilder](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderblockbuildermodirmodulenone-none)*],*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]] = None*, *level:*[int](https://docs.python.org/3/library/functions.html#int)*= 10*)
+## tvm.relax.op.register_gradient(*op_name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *fgradient:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*[[*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)*,*[Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)*,*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)*,*[BlockBuilder](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderblockbuildermodirmodulenone-none)*],*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]] = None*, *level:*[int](https://docs.python.org/3/library/functions.html#int)*= 10*)
 
 为 relax 运算符注册运算符梯度函数。
 * **参数：**
@@ -191,7 +191,7 @@ relax 调用 tir.prim_func 并返回输出。这个内建函数会将 te 梯度�
    * **fgradient** (*function(**orig_var: relax.Var****,orig_call: relax.Call,***output_grad: relax.Var****,ctx: BlockBuilder))：> partials: List[Expr] 使用的梯度函数。
    * **level** ([int](https://docs.python.org/3/library/functions.html#int))：优先级级别
 
-## tvm.relax.op.shape_of(*expr:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.shape_of(*expr:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 获取张量的形状。
@@ -200,29 +200,29 @@ relax 调用 tir.prim_func 并返回输出。这个内建函数会将 te 梯度�
 * **返回：result**：一个 relax.Call，它获取输入的形状。
 * **返回类型：** Expr。
 
-## tvm.relax.op.shape_to_tensor(*expr:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.shape_to_tensor(*expr:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 将形状转换为张量 expr。 :param expr: 输入的 Expr :type expr: Expr。
 * **返回：result**：一个 relax relax.Call，将形状值转换为张量。
 * **返回类型：** Expr。
 
-## tvm.relax.op.tensor_to_shape(*expr:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.tensor_to_shape(*expr:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 将张量转换为形状表达式。 :param expr: 输入的 Expr :type expr: Expr。
 * **返回：result**：一个 relax relax.Call，将张量值转换为形状。
 * **返回类型：** Expr。
 
-## tvm.relax.op.to_vdevice(*data*, *dst_vdevice*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.to_vdevice(*data*, *dst_vdevice*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 将数据复制到目标设备。此运算符有助于在不同设备之间进行数据传输，以支持异构执行。
 * **参数：**
    * **data** (*Expr*)：要复制的张量。
-   * **dst_device** ([VDevice](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirvdevicetargetnone-vdevice_idint-0-memory_scopestr-global))：数据被复制到的目标设备。
+   * **dst_device** ([VDevice](/docs/api-reference/python-api/tvm-ir#class-tvmirvdevicetargetnone-vdevice_idint-0-memory_scopestr-global))：数据被复制到的目标设备。
 * **返回：result**：复制的结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.add(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.add(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 使用 numpy 风格的广播进行加法。
@@ -241,28 +241,28 @@ a = relax.Var("a", relax.TensorStructInfo(shape=(2, 3), dtype="float32"))
 b = relax.Var("b", relax.TensorStructInfo(shape=(2, 1), dtype="float32"))
 c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dtype="float32")
 ```
-## tvm.relax.op.bitwise_and(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.bitwise_and(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 按位 AND :param x1: 第一个输入张量。 :type x1: relax.Expr :param x2: 第二个输入张量。 :type x2: relax.Expr。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.bitwise_or(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.bitwise_or(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 按位 OR :param x1: 第一个输入张量。 :type x1: relax.Expr :param x2: 第二个输入张量。 :type x2: relax.Expr。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.bitwise_xor(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.bitwise_xor(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 按位异或 :param x1: 第一个输入张量。 :type x1: relax.Expr :param x2: 第二个输入张量。 :type x2: relax.Expr
 * **返回：result：** 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.divide(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.divide(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 使用 numpy 风格的广播进行除法。
@@ -272,7 +272,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.equal(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.equal(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 逐元素广播测试（lhs == rhs）。
 * **参数：**
@@ -281,7 +281,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.floor_divide(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.floor_divide(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 使用 numpy 风格的广播进行地板除。
@@ -291,7 +291,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.log_add_exp(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.log_add_exp(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入的指数和的对数，逐元素进行。
@@ -301,14 +301,14 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：** The element-wise log-sum-exp of x1 and x2。
 * **返回类型：** Expr。
 
-## tvm.relax.op.floor_mod(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.floor_mod(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 使用 numpy 风格的广播进行地板取模。
 * **参数：**
    * **x1** (*Expr*)：第一个输入张量。
    * **x2** (*Expr*)：第二个输入张量。
 
-## tvm.relax.op.greater(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.greater(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 广播的逐元素测试 (lhs > rhs)。
@@ -318,7 +318,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.greater_equal(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.greater_equal(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 广播的逐元素测试 (lhs >= rhs)。
 * **参数：**
@@ -327,14 +327,14 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**-计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.left_shift(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.left_shift(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 位左移 :param x1: 要移位的输入张量。 :type x1: relax.Expr :param x2: 移位的位数。 :type x2: relax.Expr。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.less(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.less(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 广播的逐元素测试 (lhs < rhs)。
 * **参数：**
@@ -343,7 +343,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**-计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.less_equal(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.less_equal(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 广播的逐元素测试 (lhs <= rhs)。
@@ -353,27 +353,27 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result***：*计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.logical_and(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.logical_and(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 逻辑与 :param x1: 第一个输入张量。 :type x1: relax.Expr :param x2: 第二个输入张量。 :type x2: relax.Expr
 * **返回：result**-计算结果。
 * **返回类型：** relax.Expr，
 
-## tvm.relax.op.logical_or(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.logical_or(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 逻辑或 :param x1: 第一个输入张量。 :type x1: relax.Expr :param x2: 第二个输入张量。 :type x2: relax.Expr。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.logical_xor(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.logical_xor(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 逻辑异或 :param x1: 第一个输入张量。 :type x1: relax.Expr :param x2: 第二个输入张量。 :type x2: relax.Expr。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.maximum(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.maximum(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 逐元素最大值。
@@ -383,7 +383,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.minimum(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.minimum(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 逐元素最小值。
 * **参数：**
    * **x1** (*relax.Expr*)：第一个输入张量。
@@ -391,7 +391,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.mod(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.mod(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 使用 numpy 风格的广播进行取模运算。
@@ -399,7 +399,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
    * **x1** (*Expr*)：第一个输入张量。
    * **x2** (*Expr*)：第二个输入张量。
 
-## tvm.relax.op.multiply(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.multiply(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 使用 numpy 风格的广播进行乘法。
@@ -409,7 +409,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.not_equal(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.not_equal(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 对广播后的元素进行不等性测试 (lhs != rhs)。
 * **参数：**
@@ -418,7 +418,7 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.power(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr))
+## tvm.relax.op.power(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr))
 
 使用 numpy 风格的广播进行幂运算。
 * **参数：**
@@ -427,13 +427,13 @@ c = bb.normalize(relax.op.add(a, b))  # c has TensorStructInfo(shape=(2, 3), dty
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.right_shift(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.right_shift(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 位右移 :param x1: 要移位的输入张量。 :type x1: relax.Expr :param x2: 移位的位数。 :type x2: relax.Expr。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.subtract(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.subtract(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 numpy 风格的广播减法。
@@ -443,29 +443,29 @@ numpy 风格的广播减法。
 * **返回：result**：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.arange(*start:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *end:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *step:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*= 1*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.arange(*start:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *end:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *step:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*= 1*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构造一个元素均匀分布的张量。
 * **参数：**
-   * **start** (*Union*[****PrimExprLike,*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)*：*区间的起始值。
-   * **end** (*Optional*[****Union**[****PrimExprLike**,***[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]])：区间的结束。如果未提供，它将被设置为 start，而 start 将被设置为 0。
-   * **step** (*Union*[***PrimExprLike,*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)：步长。
+   * **start** (*Union*[****PrimExprLike,*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)*：*区间的起始值。
+   * **end** (*Optional*[****Union**[****PrimExprLike**,***[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]])：区间的结束。如果未提供，它将被设置为 start，而 start 将被设置为 0。
+   * **step** (*Union*[***PrimExprLike,*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)：步长。
    * **dtype** (*Optional*[****Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,***DataType****]]*)：创建的张量的数据类型。
 * **返回：result**：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.full(*shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *fill_value:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.full(*shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *fill_value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 用标量值填充数组。
 * **参数：**
-   * **shape** (*Union*[***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*)：创建的张量的形状。
+   * **shape** (*Union*[***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*)：创建的张量的形状。
    * **fill_value** (*relax.Expr*)：填充的值。必须是一个标量张量。
    * **dtype** (*Optional*[****Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,** ***DataType***]])：创建的张量的数据类型。如果未给出 dtype，默认将使用 fill_value 的数据类型。
 * **返回：result**：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.full_like(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *fill_value:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.full_like(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *fill_value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构造一个张量，其特征为：- 形状与输入数据张量的形状相同，- 其值被输入标量 fill_value 填充。
@@ -480,23 +480,23 @@ numpy 风格的广播减法。
 
 Hamming 窗函数。
 * **参数：**
-   * **window_size** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：返回窗口的大小。
-   * **periodic** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))**：** 如果为 True，返回一个周期函数使用的窗口。如果为 False，返回一个对称窗口。
-   * **alpha** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：系数 alpha。
-   * **beta** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：系数 beta。
+   * **window_size** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：返回窗口的大小。
+   * **periodic** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))**：** 如果为 True，返回一个周期函数使用的窗口。如果为 False，返回一个对称窗口。
+   * **alpha** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：系数 alpha。
+   * **beta** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：系数 beta。
 * **返回：ret**：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.ones(*shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.ones(*shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 构建一个所有元素都为 1 的张量，具有输入的形状和数据类型。
 * **参数：**
-   * **shape** (*Union*[***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*)：创建的张量的形状。
+   * **shape** (*Union*[***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*)：创建的张量的形状。
    * **dtype** (*Union*[***[str](https://docs.python.org/3/library/stdtypes.html#str)***, ***DataType***])：创建的张量的数据类型。
 * **返回：result**-结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.ones_like(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.ones_like(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构造一个全为 1 的张量，其形状与输入张量的形状相同。
@@ -506,30 +506,30 @@ Hamming 窗函数。
 * **返回：result**：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.eye(*n:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *m:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*= 0*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype = 'float32'*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.eye(*n:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *m:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*= 0*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype = 'float32'*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构造一个对角线上为 1，其余位置为 0 的 2-D 张量。
 * **参数：**
-   * **n** (*Union*[***PrimExprLike,*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)**：** 输出张量的行数。
-   * **m** (*Optional*[****Union**[****PrimExprLike**,*** [PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)***]***]*)：输出中的列数。如果为 None，则默认为 n。
-   * **k** (*Union*[***PrimExprLike,*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)：对角线的索引：0（默认值）表示主对角线，正值表示上对角线，负值表示下对角线。
+   * **n** (*Union*[***PrimExprLike,*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)**：** 输出张量的行数。
+   * **m** (*Optional*[****Union**[****PrimExprLike**,*** [PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)***]***]*)：输出中的列数。如果为 None，则默认为 n。
+   * **k** (*Union*[***PrimExprLike,*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)：对角线的索引：0（默认值）表示主对角线，正值表示上对角线，负值表示下对角线。
    * **dtype** (*Union* *[***[str](https://docs.python.org/3/library/stdtypes.html#str)**, ***DataType***])：创建的张量的数据类型。
 * **返回：result**：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.eye_like(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*= 0*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.eye_like(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*= 0*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 返回一个二维张量，其对角线元素为 1，其余元素为 0，形状与输入张量相同。
 * **参数：**
    * **x** (*relax.Expr*)：输入张量，当 dtype 字段未指定时，提供形状和 dtype。
-   * **k** (*Union*[***PrimExprLike,*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)：对角线的索引：0（默认值）表示主对角线，正数表示上对角线，负数表示下对角线。
+   * **k** (*Union*[***PrimExprLike,*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*]*)：对角线的索引：0（默认值）表示主对角线，正数表示上对角线，负数表示下对角线。
    * **dtype** (*Optional*[****Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,** ***DataType***]])：创建的张量的数据类型。如果未给出 dtype，默认将使用输入张量的数据类型。
 * **返回：result** ：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.tril(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.tril(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 返回矩阵或矩阵批次的下三角部分。
@@ -539,7 +539,7 @@ Hamming 窗函数。
 * **返回：ret** ：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.triu(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.triu(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 返回矩阵或矩阵批次的上三角部分。
 * **参数：**
@@ -548,17 +548,17 @@ Hamming 窗函数。
 * **返回：ret** ：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.zeros(*shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.zeros(*shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构建一个全为零的张量，其输入形状和 dtype。
 * **参数：**
-   * **shape** (*Union*[***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*) ***：*** 创建的张量的形状。
+   * **shape** (*Union*[***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*) ***：*** 创建的张量的形状。
    * **dtype** (*Union*[***[str](https://docs.python.org/3/library/stdtypes.html#str)** *,** ***DataType***]) **：** 创建的张量的数据类型。
 * **返回：result** ：结果张量。
 * **返回类型：** relax.Expr
 
-## tvm.relax.op.zeros_like(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.zeros_like(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 构造一个全为零的张量，其形状与输入张量的形状相同。
@@ -568,7 +568,7 @@ Hamming 窗函数。
 * **返回：result** ：结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.astype(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.astype(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 将输入张量转换为指定的数据类型。
@@ -578,14 +578,14 @@ Hamming 窗函数。
 * **返回：result** ：转换结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.wrap_param(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype = 'float32'*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.wrap_param(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype = 'float32'*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 如果输入数据的类型与给定的类型不同，则将模型参数输入张量转换为数据类型。 :param data: 运算符的输入数据。 :type data: relax.Expr :param dtype: 目标数据类型 :type dtype: Union[str, DataType]。
 * **返回：result** ：转换后的结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.dynamic_strided_slice(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *begin:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *end:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.dynamic_strided_slice(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *begin:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *end:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 动态步长切片张量。begin、end、strides 可以在运行时计算。
 * **参数：**
@@ -602,7 +602,7 @@ dyn_strided_slice 要求输入的 begin、end 和 strides 的长度与数据张�
 
 :::
 
-## tvm.relax.op.strided_slice(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *begin:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *end:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *assume_inbound:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.strided_slice(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *begin:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *end:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *assume_inbound:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对张量进行带步长的切片。
@@ -621,7 +621,7 @@ strided_slice 要求输入的 begin、end 和 strides 的长度与 axes 相同�
 
 :::
 
-## tvm.relax.op.take(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.take(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 从一个张量沿轴取出元素。它的语义与 numpy.take（[https://numpy.org/doc/stable/reference/generated/numpy.take.html）基本相同，可以涵盖](https://numpy.org/doc/stable/reference/generated/numpy.take.html）基本相同，可以涵盖) torch.take（[https://pytorch.org/docs/stable/generated/torch.take.html）和](https://pytorch.org/docs/stable/generated/torch.take.html）和) onnx.gather（[https://github.com/onnx/onnx/blob/main/docs/Changelog.md#Gather-13）。](https://github.com/onnx/onnx/blob/main/docs/Changelog.md#Gather-13）。)
 * **参数：**
@@ -635,12 +635,12 @@ strided_slice 要求输入的 begin、end 和 strides 的长度与 axes 相同�
 
 对数据进行爱因斯坦求和约定求值。
 * **参数：**
-   * **operands** (*Union*(****List**[****relax.Expr**]****,*[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[**relax.Expr**])) ：表达式列表。
+   * **operands** (*Union*(****List**[****relax.Expr**]****,*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[**relax.Expr**])) ：表达式列表。
    * **subscripts** ([str](https://docs.python.org/3/library/stdtypes.html#str)) -爱因斯坦求和表达式字符串。
 * **返回：result** ：einsum op 的输出。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.linear(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *bias:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.linear(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *bias:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对输入数据应用线性变换：y = xA^T + b。
@@ -658,7 +658,7 @@ Relax 不将线性运算符视为原始运算符，而是通过组合转置、�
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.matmul(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.matmul(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对两个张量进行一般矩阵乘法，并在批处理维度上进行广播。
@@ -672,7 +672,7 @@ Relax 不将线性运算符视为原始运算符，而是通过组合转置、�
 * **返回：result** **：** 计算结果。
 * **返回类型：** relax.Expr
 
-## tvm.relax.op.outer(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.outer(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算两个输入表达式的外积。
 * **参数：**
@@ -687,16 +687,16 @@ Relax 不将线性运算符视为原始运算符，而是通过组合转置、�
 * **返回：result** ：表示外积的结果表达式。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.broadcast_to(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.broadcast_to(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 将张量广播到指定形状。
 * **参数：**
    * **x** (*relax.Expr*) ：运算符的输入数据。
-   * **shape** (*Union*[***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*) -目标形状。
+   * **shape** (*Union*[***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*) -目标形状。
 * **返回：result** ：广播后的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.collapse_sum_like(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *collapse_target:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.collapse_sum_like(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *collapse_target:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 返回数据到 collapse_target 的形状的求和。
@@ -709,7 +709,7 @@ Relax 不将线性运算符视为原始运算符，而是通过组合转置、�
 * **返回：result** -求和后的结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.collapse_sum_to(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.collapse_sum_to(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 返回数据折叠到给定形状的求和结果。
 
@@ -723,11 +723,11 @@ collapse_sum_to 是 tvm.relax.op.broadcast_to 和其他广播运算符在自动�
 在计算过程中，会从右到左检查 data.shape 和 shape 的所有轴。对于一个轴，如果它满足以下规则之一，data 将在该轴上求和：- 该轴存在于 data.shape 中但不存在于 shape 中，或- 该轴存在于 data.shape 中，并且在 shape 中等于 1。
 * **参数：**
    * **data** (*relax.Expr*) ：输入张量。
-   * **shape** (*Union*[***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]****,relax.Expr]*) *：* 要折叠成的形状。
+   * **shape** (*Union*[***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]****,relax.Expr]*) *：* 要折叠成的形状。
 * **返回：result** ：按给定形状求和后的结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.concat(*tensors:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.concat(*tensors:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 沿给定轴连接输入张量。
 * **参数：**
@@ -736,7 +736,7 @@ collapse_sum_to 是 tvm.relax.op.broadcast_to 和其他广播运算符在自动�
 * **返回：result** *：* 连接的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.expand_dims(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.expand_dims(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 在 axis 指定的位置插入新的轴。
@@ -746,7 +746,7 @@ collapse_sum_to 是 tvm.relax.op.broadcast_to 和其他广播运算符在自动�
 * **返回：result** **：** 转换后的结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.flatten(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.flatten(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 将所有张量维度展平为一个。
@@ -773,7 +773,7 @@ relax.flip(x, axis=0) = [[3., 4.], [1., 2.]]
 
 relax.flip(x, axis=1) = [[2., 1.], [4., 3.]]
 ```
-## tvm.relax.op.gather_elements(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.gather_elements(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 根据指定轴上的索引从数据中收集元素。
@@ -798,7 +798,7 @@ indices = [[1, 1, 1]]
 axis = 0
 output = [[4, 5, 6]]
 ```
-## tvm.relax.op.gather_nd(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *batch_dims:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.gather_nd(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *batch_dims:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 使用 updates 中的值更新由 indices 定义的位置处的数据。
@@ -823,7 +823,7 @@ data    = [[[0,1],[2,3]],[[4,5],[6,7]]] # data_shape    = [2, 2, 2]
 indices = [[1],[0]]                     # indices_shape = [2, 1]
 output  = [[2,3],[4,5]]                 # output_shape  = [2, 2]
 ```
-## tvm.relax.op.index_put(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *values:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *accumulate:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.index_put(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *values:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *accumulate:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 此操作使用来自 values 的对应值更新 data 中由 indices 指定的位置。indices 是一个张量元组，其中每个张量对应 data 中的一个维度。当 accumulate 为 True 时，操作执行累积（加法）而不是替换。reduction 参数允许指定不同的缩减操作。 :param data: 要修改的输入张量 :type data: relax.Expr :param indices: 指定更新位置的索引张量元组（每个维度一个） :type indices: Union[Expr, Tuple[Expr]] :param values: 要放置在指定索引处的值 :type values: relax.Expr :param accumulate: 是否累积（加）值而不是替换（默认：False） :type accumulate: bool
@@ -852,7 +852,7 @@ output = [
 ]
 
 ```
-## tvm.relax.op.index_tensor(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.index_tensor(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 高级张量索引（NumPy/PyTorch 风格）。
 
@@ -896,7 +896,7 @@ col = R.const(np.array([[0,1,2]]))
 z = R.index_tensor(x, [row, col])
 # z.shape == (2,3)
 ```
-## tvm.relax.op.meshgrid(*tensors:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *indexing:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 'ij'*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.meshgrid(*tensors:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *indexing:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 'ij'*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 从输入张量生成坐标网格。
 * **参数：**
@@ -905,26 +905,26 @@ z = R.index_tensor(x, [row, col])
 * **返回：result** *：* 一个表示坐标网格的张量元组。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.layout_transform(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *index_map:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*|*[IndexMap](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map), *pad_value:*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *axis_separators:*[int](https://docs.python.org/3/library/functions.html#int)*| axis_separator |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *input_axis_separators:*[int](https://docs.python.org/3/library/functions.html#int)*| axis_separator |*[None](https://docs.python.org/3/library/constants.html#None)*= None*)
+## tvm.relax.op.layout_transform(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *index_map:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*|*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map), *pad_value:*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *axis_separators:*[int](https://docs.python.org/3/library/functions.html#int)*| axis_separator |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *input_axis_separators:*[int](https://docs.python.org/3/library/functions.html#int)*| axis_separator |*[None](https://docs.python.org/3/library/constants.html#None)*= None*)
 
 
 修改张量的布局。
 * **参数：**
    * **x** (*relax.Expr*) ***：*** 运算符的输入张量。
-   * **index_map** (*Union**[****Callable,*[IndexMap](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*]*) ：应用转换。
-   * **pad_value** (*Optional*[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,** [float](https://docs.python.org/3/library/functions.html#float)***,*** [PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)***]****]*) ：如果转换结果导致隐式填充，则用于填充的值。如果未指定，可以使用任何值。
+   * **index_map** (*Union**[****Callable,*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*]*) ：应用转换。
+   * **pad_value** (*Optional*[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,** [float](https://docs.python.org/3/library/functions.html#float)***,*** [PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)***]****]*) ：如果转换结果导致隐式填充，则用于填充的值。如果未指定，可以使用任何值。
    * **axis_separators** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,** ***IndexMap.AXIS_SEPARATOR****]]*) ：用于 index_map 创建非扁平化缓冲区的 axis_separators。
 * **返回：result** *：* 转换后的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.one_hot(*indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *on_value:*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *off_value:*[PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *depth:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.one_hot(*indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *on_value:*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *off_value:*[PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone), *depth:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 返回一个 one-hot 张量。
 * **参数：**
    * **indices** (*relax.Expr*) **：** 要设置为 on_value 的索引。
-   * **on_value** ([relax.PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)) ：要在 indices 处填充的值。
-   * **off_value** ([relax.PrimValue](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)) ：要在其他位置填充的值。
+   * **on_value** ([relax.PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)) ：要在 indices 处填充的值。
+   * **off_value** ([relax.PrimValue](/docs/api-reference/python-api/tvm-relax#classtvmrelaxprimvaluevalueprimexprintspanspannonenone)) ：要在其他位置填充的值。
    * **depth** ([int](https://docs.python.org/3/library/functions.html#int)) ：hot 维度的深度。
    * **axis** ([int](https://docs.python.org/3/library/functions.html#int)*,optional*)  -1，即在末尾添加一个新维度。
 * **返回：result** ：计算结果。
@@ -944,7 +944,7 @@ one_hot(indices, on_value, off_value, depth) =
      [0, 1, 0],
      [0, 0, 1]]
 ```
->tvm.relax.op.permute_dims(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr) 
+>tvm.relax.op.permute_dims(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr) 
 
 对数组的维度进行重排。
 * **参数：**
@@ -953,7 +953,7 @@ one_hot(indices, on_value, off_value, depth) =
 * **返回：result** ：转置结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.repeat(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *repeats:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.repeat(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *repeats:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 重复数组中的元素。
@@ -973,7 +973,7 @@ lv1 = R.repeat(x, repeats=2) # lv1 == [1, 1, 2, 2, 3, 3, 4, 4]
 lv2 = R.repeat(x, repeats=2, axis=1) # lv2 == [[1., 1., 2., 2.],
                                      #         [3., 3., 4., 4.]]
 ```
-## tvm.relax.op.reshape(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.reshape(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 重塑输入数组。
@@ -988,7 +988,7 @@ x.shape = (2, 3, 4), shape = (-1,), result.shape = (24,)
 ```
 * **参数：**
    * **x** (*relax.Expr*) ：运算符的输入数据。
-   * **shape** (*Union*[***[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*) ：新的形状。应与原始形状兼容。
+   * **shape** (*Union*[***[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[****PrimExprLike**]***,Expr]*) ：新的形状。应与原始形状兼容。
 * **返回：result** ：重塑后的结果。
 * **返回类型：** relax.Expr。
 
@@ -999,7 +999,7 @@ x.shape = (2, 3, 4), shape = (-1,), result.shape = (24,)
 
 :::
 
-## tvm.relax.op.scatter_elements(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *updates:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*, *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'update'*)
+## tvm.relax.op.scatter_elements(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *updates:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*, *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'update'*)
 
 ONNX 风格的散布元素。此操作根据 indices 指定的特定索引位置，将 data 中的值更新为 updates 中指定的值。例如，在 2D 张量中，对应于[i][j]条目的更新操作如下：
 
@@ -1055,7 +1055,7 @@ data = [
      [0.0, 2.1, 1.2]
  ]
 ```
-## tvm.relax.op.scatter_nd(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *updates:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'update'*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.scatter_nd(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *updates:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'update'*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 将更新分散到数组中，根据索引。
 * **参数：**
@@ -1078,7 +1078,7 @@ updates = [9, 10, 11, 12]
 # output
 output = [1, 11, 3, 10, 9, 6, 7, 12]
 ```
-## tvm.relax.op.slice_scatter(*input_tensor:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *src:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *start*, *end*, *step*, *axis=0*)
+## tvm.relax.op.slice_scatter(*input_tensor:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *src:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *start*, *end*, *step*, *axis=0*)
 
 将 src 张量的值嵌入到 input 的指定维度中。
 * **参数：**
@@ -1091,7 +1091,7 @@ output = [1, 11, 3, 10, 9, 6, 7, 12]
 * **返回：result** ：与 data 相同形状的计算结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.split(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices_or_sections:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.split(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices_or_sections:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 沿轴通过分段或索引分割输入张量。
@@ -1108,7 +1108,7 @@ output = [1, 11, 3, 10, 9, 6, 7, 12]
 * **返回：ret** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.squeeze(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.squeeze(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 在数组中压缩轴。
@@ -1118,7 +1118,7 @@ output = [1, 11, 3, 10, 9, 6, 7, 12]
 * **返回：result** ：压缩后的结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.stack(*tensors:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.stack(*tensors:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 沿着新轴堆叠输入张量。
 * **参数：**
@@ -1127,7 +1127,7 @@ output = [1, 11, 3, 10, 9, 6, 7, 12]
 * **返回：result** ：与输入张量相比，堆叠的张量多了一个维度。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.tile(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *repeats:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.tile(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *repeats:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 通过 repeats 指定的次数重复 data 来构造一个数组。
@@ -1142,7 +1142,7 @@ output = [1, 11, 3, 10, 9, 6, 7, 12]
 如果 d > l，reps 将通过在其前面添加 1 来提升为长度 d。因此，对于形状为 (2, 3, 4, 5) 的数据，一个 reps 为 (2, 2) 将被视为 (1, 1, 2, 2)。
 * **参数：**
    * **data** (*relax.Expr*) **：** 运算符的输入数据。
-   * **repeats** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****,List[***[int](https://docs.python.org/3/library/functions.html#int)*]*]) **：** 沿每个轴的数据重复次数。
+   * **repeats** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****,List[***[int](https://docs.python.org/3/library/functions.html#int)*]*]) **：** 沿每个轴的数据重复次数。
 * **返回：ret** ：计算结果。
 * **返回类型：** relax.Expr。
 
@@ -1158,14 +1158,14 @@ lv1 = R.tile(x, reps=(2, 3)) # lv1 = [[1., 2., 1., 2., 1., 2.],
 lv2 = R.tile(x, reps=2) # lv2 = [[1., 2., 1., 2.],
                         #        [3., 4., 3., 4.]]
 ```
-## tvm.relax.op.masked_fill(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *mask:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *value:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr))
+## tvm.relax.op.masked_fill(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *mask:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr))
 
 
 用指定的值填充由掩码定义位置的张量。 :param x: 运算符的输入数据。 :type x: relax.Expr :param mask: 掩码。 :type mask: relax.Expr :param value: 要在输入张量中设置的值。 :type value: relax.Expr
 * **返回：result** ：填充的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.dequantize(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *scale:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *zero_point:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'float32'*)
+## tvm.relax.op.dequantize(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *scale:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *zero_point:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'float32'*)
 
 
 去量化运算符 该运算符接收输入并产生去量化输出。输入张量可以是任何形状。输出形状与输入形状相同。
@@ -1181,7 +1181,7 @@ output = clamp(scale 运算符* (input_tensor - zero_point), out_dtype::min, out
 * **返回：result** ：计算结果。
 * **返回类型：** tvm.relax.Expr。
 
-## tvm.relax.op.quantize(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *scale:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *zero_point:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int8'*)
+## tvm.relax.op.quantize(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *scale:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *zero_point:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int8'*)
 
 
 量化操作 该操作接收输入并产生量化输出。输入张量可以是任意形状。输出形状与输入形状相同。
@@ -1197,7 +1197,7 @@ Q_output = clamp((round(input_tensor/scale) + zero_point), out_dtype::min, out_d
 * **返回：result** ：计算结果。
 * **返回类型：** tvm.relax.Expr。
 
-## tvm.relax.op.multinomial_from_uniform(*prob:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *uniform_sample:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sample_indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int64'*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr) 
+## tvm.relax.op.multinomial_from_uniform(*prob:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *uniform_sample:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sample_indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int64'*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr) 
 
 
 返回一个张量，其中每一行包含从位于张量 prob 相应行的多项式概率分布中采样的索引。
@@ -1228,7 +1228,7 @@ multinomial_from_uniform(prob, usample)
 multinomial_from_uniform(prob, usample, sample_indices)
 -> [[1], [2]]
 ```
-## tvm.relax.op.argmax(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.argmax(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算给定轴上张量元素的 argmax。
@@ -1239,7 +1239,7 @@ multinomial_from_uniform(prob, usample, sample_indices)
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.argmin(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.argmin(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算给定轴上张量元素的最小值。
@@ -1250,7 +1250,7 @@ multinomial_from_uniform(prob, usample, sample_indices)
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.where(*condition:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.where(*condition:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 根据条件值从输入张量中选择元素。
 
@@ -1263,7 +1263,7 @@ multinomial_from_uniform(prob, usample, sample_indices)
 * **返回：result** **：** 结果张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nonzero(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nonzero(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 找到张量中非零元素的索引。
@@ -1287,7 +1287,7 @@ x = [[0, 1],
 nonzero(x) = [[0, 1],
               [1, 0]]
 ```
-## tvm.relax.op.unique(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sorted:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= True*, *return_index:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= False*, *return_inverse:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= False*, *return_counts:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= False*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.unique(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *sorted:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= True*, *return_index:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= False*, *return_inverse:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= False*, *return_counts:*[bool](https://docs.python.org/3/library/functions.html#bool)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= False*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 查找给定张量中的唯一元素。此外，它还可以选择性地返回 - 输入张量中给出唯一值的索引； - 重建输入张量的唯一张量的索引； - 每个唯一值在输入张量中出现的次数。
@@ -1301,7 +1301,7 @@ nonzero(x) = [[0, 1],
 * **返回：ret** ：创建的 relax 调用，
 * **返回类型：** relax.Expr
 
-## tvm.relax.op.argsort(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *descending:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int32'*)
+## tvm.relax.op.argsort(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *descending:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int32'*)
 
 沿给定轴进行排序，并返回一个与输入数组形状相同的索引数组，该数组按排序顺序索引数据。
 * **参数：**
@@ -1312,7 +1312,7 @@ nonzero(x) = [[0, 1],
 * **返回：out** ：与 data 形状相同的张量。
 * **返回类型：** relax.Expr，
 
-## tvm.relax.op.sort(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *descending:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
+## tvm.relax.op.sort(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *descending:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
 
 
 沿给定轴进行排序，并返回排序后的数组。
@@ -1323,7 +1323,7 @@ nonzero(x) = [[0, 1],
 * **返回：out** *：* 排序后的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.topk(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *ret_type:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'both'*, *largest:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int32'*)
+## tvm.relax.op.topk(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *k:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*, *ret_type:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'both'*, *largest:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'int32'*)
 
 
 获取输入张量沿给定轴的 top k 元素。
@@ -1340,7 +1340,7 @@ ret_type 指定返回类型，可以是（"both"，"values"，"indices"）之一
 * **返回：out** *：* 计算结果。
 * **返回类型：** relax.Expr or List[relax.Expr]。
 
-## tvm.relax.op.cumprod(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *exclusive:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
+## tvm.relax.op.cumprod(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *exclusive:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
 
 Numpy 风格的累积乘积操作。返回沿给定轴的元素累积乘积。
 * **参数：**
@@ -1375,7 +1375,7 @@ a = [1, 1, 1, 0, 1, 1, 0]  # a is a boolean array
 cumprod(a, dtype=int32)  # dtype should be provided to get the expected results
 -> [1, 1, 1, 0, 0, 0, 0]
 ```
-## tvm.relax.op.cumsum(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *exclusive:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
+## tvm.relax.op.cumsum(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *exclusive:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
 
 Numpy 风格的累积和操作。返回沿给定轴的元素的累积包含和。
 * **参数：**
@@ -1410,7 +1410,7 @@ a = [1, 0, 1, 0, 1, 1, 0]  # a is a boolean array
 cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 -> [1, 1, 2, 2, 3, 4, 4]
 ```
-## tvm.relax.op.max(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.max(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算给定轴上张量元素的最大值。
 * **参数：**
@@ -1420,7 +1420,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.mean(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.mean(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算给定轴上张量元素的平均值。
@@ -1431,7 +1431,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.min(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.min(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算在给定轴上张量元素的最小值。
@@ -1442,7 +1442,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.prod(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.prod(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对指定轴上的张量元素进行乘积计算。
@@ -1453,7 +1453,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.std(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.std(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算张量元素在给定轴上的标准差。
@@ -1464,7 +1464,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** **：** 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.sum(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.sum(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对指定轴上的张量元素求和。
@@ -1475,7 +1475,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ***：*** 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.variance(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.variance(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *keepdims:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算张量元素在给定轴上的方差。
@@ -1486,7 +1486,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.ewise_fma(*x1:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x3:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.ewise_fma(*x1:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x2:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x3:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 元素级融合乘加运算符 返回 x1∗x2+x3 的元素级结果。
@@ -1497,7 +1497,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.abs(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.abs(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素绝对值。
@@ -1506,7 +1506,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.acos(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.acos(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算输入数据的逐元素反余弦。
 * **参数：**
@@ -1520,7 +1520,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.acosh(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.acosh(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算输入数据的逐元素反双曲余弦。
 * **参数：**
@@ -1534,7 +1534,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.asin(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.asin(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素反正弦值。
@@ -1549,7 +1549,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.asinh(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.asinh(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算输入数据的逐元素反双曲正弦。
 * **参数：**
@@ -1563,7 +1563,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.atan(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.atan(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素反正切。
@@ -1578,7 +1578,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.atanh(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.atanh(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素反双曲正切。
@@ -1593,7 +1593,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.bitwise_not(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.bitwise_not(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐位取反。
@@ -1602,7 +1602,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.ceil(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.ceil(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对输入数据取上整。
@@ -1611,7 +1611,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** **：** 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.clip(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *min:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *max:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.clip(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *min:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *max:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 将张量值裁剪到指定的最小值和最大值。
@@ -1622,7 +1622,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.cos(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.cos(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素余弦值。
@@ -1637,7 +1637,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.cosh(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.cosh(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素双曲余弦。
@@ -1652,7 +1652,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.erf(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.erf(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入的错误函数。
@@ -1661,7 +1661,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算每个元素的错误函数。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.exp(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.exp(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算数据的逐元素指数。
@@ -1676,7 +1676,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.floor(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.floor(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 取输入数据的下界。
@@ -1685,7 +1685,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.isfinite(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.isfinite(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 检查输入值是否有限。
@@ -1694,7 +1694,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.isinf(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.isinf(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 检查输入值是否为无穷大。
@@ -1703,7 +1703,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.isnan(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.isnan(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 检查输入值是否为 NaN。
@@ -1712,7 +1712,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.log(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.log(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素自然对数。
@@ -1727,7 +1727,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 
 :::
 
-## tvm.relax.op.logical_not(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.logical_not(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逻辑非。
@@ -1736,7 +1736,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.negative(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.negative(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素负值。
@@ -1745,7 +1745,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.round(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.round(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 将输入数据的每个元素四舍五入到最近的整数。
@@ -1754,7 +1754,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.rsqrt(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.rsqrt(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算输入数据的逐元素倒数平方根。
 
@@ -1770,7 +1770,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.sigmoid(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.sigmoid(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素 Sigmoid 函数。
@@ -1785,7 +1785,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.sign(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.sign(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 为输入数据的每个元素返回一个指示该数字符号的标志。
@@ -1794,7 +1794,7 @@ $$1/sqrt(x)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.sin(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.sin(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素正弦值。
@@ -1809,7 +1809,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.sinh(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.sinh(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素双曲正弦值。
@@ -1824,7 +1824,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.sqrt(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.sqrt(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算输入数据的逐元素平方根。
 * **参数：**
@@ -1838,7 +1838,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.square(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.square(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对输入数据的每个元素进行平方。
@@ -1847,7 +1847,7 @@ $$1/sqrt(x)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.tan(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.tan(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算输入数据的逐元素正切值。
@@ -1862,7 +1862,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.tanh(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.tanh(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算输入数据的逐元素 tanh。
 * **参数：**
@@ -1876,7 +1876,7 @@ $$1/sqrt(x)$$
 
 :::
 
-## tvm.relax.op.trunc(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.trunc(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 取输入数据的截断值。:param x: 输入数据 :type x: relax.Expr。
@@ -1887,7 +1887,7 @@ $$1/sqrt(x)$$
 
 与神经网络相关的运算符。
 
-## tvm.relax.op.nn.adaptive_avg_pool1d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *output_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.adaptive_avg_pool1d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *output_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 1D 自适应平均池化运算符。该运算符是实验性的。
@@ -1911,13 +1911,13 @@ $$1/sqrt(x)$$
 如果为 output_size 提供一个整数，则对于任何输入（NCW），输出大小为（N x C x output_size）。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
-   * **output_size** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]]*) ：输出高度和宽度。如果未指定，则与输入的高度和宽度相同。如果指定，则长度必须为 1 或 2。
+   * **output_size** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]]*) ：输出高度和宽度。如果未指定，则与输入的高度和宽度相同。如果指定，则长度必须为 1 或 2。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
    * **out_layout** (*Optional[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：输出的布局。如果未指定，则与 data_layout 相同
 * **返回：result** **：** 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.adaptive_avg_pool2d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *output_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.adaptive_avg_pool2d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *output_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 2D 自适应平均池化运算符。此运算符为实验性功能。
@@ -1943,13 +1943,13 @@ $$1/sqrt(x)$$
 如果为 output_size 提供了一个整数的元组（高度，宽度），则对于任何输入（NCHW），输出大小为 (N x C x 高度 x 宽度)。
 * **参数：**
    * **data** (*relax.Expr*) **：**运算符的输入数据。
-   * **output_size** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]]*) ：输出高度和宽度。如果未指定，则与输入高度和宽度相同。如果指定，其长度必须是 1 或 2。
+   * **output_size** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]]*) ：输出高度和宽度。如果未指定，则与输入高度和宽度相同。如果指定，其长度必须是 1 或 2。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) **：** 输入的布局。
    * **out_layout** (*Optional[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：输出的布局。如果未指定，则与 data_layout 相同
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.adaptive_avg_pool3d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *output_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.adaptive_avg_pool3d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *output_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 3D 自适应平均池化运算符。此运算符为实验性功能。
@@ -1975,13 +1975,13 @@ $$1/sqrt(x)$$
 如果为 output_size 提供一个整数元组(depth, height, width)，则输出大小为(N x C x depth x height x width)，适用于任何输入(NCDHW)。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
-   * **output_size** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]]*) ：输出高度和宽度。如果未指定，则与输入高度和宽度相同。如果指定，则长度必须是 1 或 3。
+   * **output_size** (*Optional**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]]*) ：输出高度和宽度。如果未指定，则与输入高度和宽度相同。如果指定，则长度必须是 1 或 3。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：* 输入的布局。
    * **out_layout** (*Optional[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：输出的布局。如果未指定，则与 data_layout 相同
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.attention(*query:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *key:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *value:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *bias:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *scale:*[FloatImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirfloatimmdtypestr-valuefloat-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *causal_mask:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *window_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.attention(*query:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *key:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *bias:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *scale:*[FloatImm](/docs/api-reference/python-api/tvm-tir#class-tvmtirfloatimmdtypestr-valuefloat-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *causal_mask:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *window_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算融合多头注意力。
@@ -2031,7 +2031,7 @@ $$FMA(Q, K, V) = \text{Softmax}(Q @ K^T) @ V$$
 * **返回：result** ：计算结果。输出布局应为(batch_size, seq_len, num_head, head_dim_v)。
 * **返回类型：** relax.Expr
 
-## tvm.relax.op.nn.attention_bias(*query:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *key:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *value:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *bias:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *scale:*[FloatImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirfloatimmdtypestr-valuefloat-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *causal_mask:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *window_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.attention_bias(*query:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *key:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *bias:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *scale:*[FloatImm](/docs/api-reference/python-api/tvm-tir#class-tvmtirfloatimmdtypestr-valuefloat-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *causal_mask:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *window_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算融合多头注意力。
@@ -2085,7 +2085,7 @@ with seq_len = 2, seq_len_kv = 4, mask for ‘TopLeft’:
 * **返回：result** ：计算结果。输出布局应为(batch_size, seq_len, num_head, head_dim_v)。
 * **返回类型：** relax.Expr
 
-## tvm.relax.op.nn.attention_var_len(*queries:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *keys:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *values:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *seqstart_q:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *max_seqlen_q:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *seqstart_k:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *max_seqlen_k:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *scale:*[FloatImm](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirfloatimmdtypestr-valuefloat-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *causal_mask:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *window_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.attention_var_len(*queries:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *keys:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *values:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *seqstart_q:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *max_seqlen_q:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *seqstart_k:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *max_seqlen_k:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *scale:*[FloatImm](/docs/api-reference/python-api/tvm-tir#class-tvmtirfloatimmdtypestr-valuefloat-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *causal_mask:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *window_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算变长批量序列的融合多头注意力。
 
@@ -2130,7 +2130,7 @@ with seq_len = 2, seq_len_kv = 4, mask for ‘TopLeft’:
 * **返回：result** ：计算结果，形状为 (1, total_seq_len, num_head, head_dim_v)。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.avg_pool1d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.avg_pool1d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 1D 平均池化运算符。
@@ -2145,10 +2145,10 @@ with seq_len = 2, seq_len_kv = 4, mask for ‘TopLeft’:
 ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad 指示是否在计算中包含或排除填充的输入值。该运算符接受数据布局规范。
 * **参数：**
    * **data** (*relax.Expr*) ***：*** 运算符的输入数据。
-   * **pool_size** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化窗口的大小。必须具有长度为 1。
-   * **strides** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1。
-   * **padding** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的填充。必须具有长度为 1 或 2。
-   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的膨胀。必须具有长度为 1。
+   * **pool_size** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化窗口的大小。必须具有长度为 1。
+   * **strides** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1。
+   * **padding** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的填充。必须具有长度为 1 或 2。
+   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的膨胀。必须具有长度为 1。
    * **ceil_mode** ([bool](https://docs.python.org/3/library/functions.html#bool)) *：* 一个布尔值，指示是否使用 ceil 或 floor 来计算输出形状。使用 ceil 时，输入张量的每个元素都将被滑动窗口覆盖。
    * **count_include_pad** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*) ：是否将填充包括在内以计算平均值。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
@@ -2156,7 +2156,7 @@ ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad �
 * **返回：result** ：计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.nn.avg_pool2d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.avg_pool2d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 2D 平均池化运算符。
@@ -2179,10 +2179,10 @@ $$
 在计算之前对数据进行填充。ceil_mode 用于在计算输出形状时取上整或下整。该运算符接受数据布局规范。
 * **参数：**
    * **data** (*relax.Expr*) ***：*** 运算符的输入数据。
-   * **pool_size** (*Union*[[int](https://docs.python.org/3/library/functions.html#int)**,** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) - 池化窗口的大小。必须具有长度为 1 或 2。
-   * **strides** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) - 池化的步长。必须具有长度为 1 或 2。
-   * **padding** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：池化操作的填充。必须具有长度为 1、2 或 4。
-   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) **：** 池化操作的膨胀率。必须具有长度为 1 或 2。
+   * **pool_size** (*Union*[[int](https://docs.python.org/3/library/functions.html#int)**,** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) - 池化窗口的大小。必须具有长度为 1 或 2。
+   * **strides** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) - 池化的步长。必须具有长度为 1 或 2。
+   * **padding** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：池化操作的填充。必须具有长度为 1、2 或 4。
+   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) **：** 池化操作的膨胀率。必须具有长度为 1 或 2。
    * **ceil_mode** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：一个布尔值，指示是否使用 ceil 或 floor 来计算输出形状。使用 ceil 时，输入张量的每个元素都将被滑动窗口覆盖。
    * **count_include_pad** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*) ：是否将填充包括在内以计算平均值。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
@@ -2190,7 +2190,7 @@ $$
 * **返回：result** *：* 计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.nn.avg_pool3d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.avg_pool3d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 2D 平均池化运算符。
@@ -2205,10 +2205,10 @@ $$
 ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad 指示是否在计算中包含或排除填充的输入值。该运算符接受数据布局规范。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
-   * **pool_size** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化窗口的大小。它必须具有 1 或 3 的长度。
-   * **strides** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1 或 3。
-   * **padding** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：池化操作的填充。长度必须是 1、3 或 6。
-   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化操作的膨胀率。必须具有长度为 1 或 3。
+   * **pool_size** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化窗口的大小。它必须具有 1 或 3 的长度。
+   * **strides** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1 或 3。
+   * **padding** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：池化操作的填充。长度必须是 1、3 或 6。
+   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化操作的膨胀率。必须具有长度为 1 或 3。
    * **ceil_mode** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：一个布尔值，指示是否使用 ceil 或 floor 来计算输出形状。使用 ceil 时，输入张量的每个元素都将被滑动窗口覆盖。
    * **count_include_pad** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*) ：是否将填充包括在内以计算平均值。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) -输入的布局。
@@ -2216,7 +2216,7 @@ ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad �
 * **返回：result** ：计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.nn.batch_norm(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *moving_mean:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *moving_var:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int), *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *momentum:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.1*, *training:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.batch_norm(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *moving_mean:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *moving_var:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int), *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *momentum:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.1*, *training:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 Batch normalization 层（Ioffe 和 Szegedy，2014）。
 
@@ -2285,7 +2285,7 @@ moving_var = moving_var * momentum + data_var * (1 - momentum)
 * **返回：result** - 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.conv1d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = 0*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'OIW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.conv1d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = 0*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'OIW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 1D 卷积。
@@ -2305,9 +2305,9 @@ $$
 * **参数：**
    * **data** (*relax.Expr*) *：* 运算符的输入数据。
    * **weight** (*relax.Expr*) ：权重表达式。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度 1。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) **：** 卷积前输入两侧的填充。必须具有长度为 1 或 2。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：指定用于扩张卷积的扩张率。必须具有长度 1。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度 1。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) **：** 卷积前输入两侧的填充。必须具有长度为 1 或 2。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：指定用于扩张卷积的扩张率。必须具有长度 1。
    * **groups** ([int](https://docs.python.org/3/library/functions.html#int)) **：** 分组卷积将输入分成多少组。输入和输出通道数应该能被组数整除。
    * **data_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
    * **kernel_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：权重的布局。
@@ -2316,7 +2316,7 @@ $$
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.conv1d_transpose(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = 0*, *output_padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 0*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'IOW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.conv1d_transpose(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = 0*, *output_padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 0*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = 1*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'IOW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 1D 转置卷积运算符。
@@ -2330,10 +2330,10 @@ $$
 * **参数：**
    * **data** (*relax.Expr*) ***：*** 运算符的输入数据。
    * **weight** (*relax.Expr*) **：** 权重表达式。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度 1。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：卷积前输入两侧的填充。必须具有长度为 1 或 2。
-   * **output_padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…***]**]**,optional) - 用于区分输出形状。
-   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：指定用于扩张卷积的扩张率。必须具有长度为 1。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度 1。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：卷积前输入两侧的填充。必须具有长度为 1 或 2。
+   * **output_padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…***]**]**,optional) - 用于区分输出形状。
+   * **dilation** (*Union*[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：指定用于扩张卷积的扩张率。必须具有长度为 1。
    * **groups** ([int](https://docs.python.org/3/library/functions.html#int)) ：分组卷积将输入分成多少组。输入和输出通道数应该能被组数整除。
    * **data_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
    * **kernel_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) -权重的布局。
@@ -2342,7 +2342,7 @@ $$
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.conv2d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'OIHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.conv2d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'OIHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 二维卷积。
 
@@ -2364,9 +2364,9 @@ $$
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
    * **weight** (*relax.Expr*) ：权重表达式。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度为 1 或 2。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) *：* 卷积前输入两侧的填充。必须具有长度为 1、2 或 4。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]***]) **：** 指定用于扩张卷积的扩张率。必须具有长度为 1 或 2。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度为 1 或 2。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) *：* 卷积前输入两侧的填充。必须具有长度为 1、2 或 4。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]***]) **：** 指定用于扩张卷积的扩张率。必须具有长度为 1 或 2。
    * **groups** ([int](https://docs.python.org/3/library/functions.html#int)) **：** 分组卷积将输入分成多少组。输入和输出通道数应该能被组数整除。
    * **data_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
    * **kernel_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：* 权重的布局。
@@ -2375,7 +2375,7 @@ $$
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.conv2d_transpose(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *output_padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'IOHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.conv2d_transpose(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *output_padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'IOHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 二维转置卷积运算符。
@@ -2399,10 +2399,10 @@ data_grad = conv2d_transpose(out_grad, weight, strides, padding, output_padding,
 * **参数：**
    * **data** (*relax.Expr*) **：** 运算符的输入数据。
    * **weight** (*relax.Expr*) ：权重表达式。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度为 1 或 2。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) **：** 卷积前输入两边的填充。必须具有长度为 1、2 或 4。
-   * **output_padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]**]****,optional*) ：用于区分输出形状。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：指定用于扩张卷积的扩张率。必须具有长度为 1 或 2。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度为 1 或 2。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) **：** 卷积前输入两边的填充。必须具有长度为 1、2 或 4。
+   * **output_padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]**]****,optional*) ：用于区分输出形状。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：指定用于扩张卷积的扩张率。必须具有长度为 1 或 2。
    * **groups** ([int](https://docs.python.org/3/library/functions.html#int)) ：分组卷积将输入分成多少组。输入和输出通道数应该能被组数整除。
    * **data_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：* 输入的布局。
    * **kernel_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：* 权重的布局。
@@ -2411,7 +2411,7 @@ data_grad = conv2d_transpose(out_grad, weight, strides, padding, output_padding,
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.conv3d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'OIDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.conv3d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *groups:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *data_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *kernel_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'OIDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 3D 卷积。
@@ -2437,9 +2437,9 @@ $$
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
    * **weight** (*relax.Expr*) ：权重表达式。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度为 1 或 3。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：卷积前输入两边的填充。必须具有长度为 1、3 或 6。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) **：** 指定用于扩张卷积的扩张率。必须具有长度为 1 或 3。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：卷积的步长。必须具有长度为 1 或 3。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：卷积前输入两边的填充。必须具有长度为 1、3 或 6。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) **：** 指定用于扩张卷积的扩张率。必须具有长度为 1 或 3。
    * **groups** ([int](https://docs.python.org/3/library/functions.html#int)) ：分组卷积将输入分成多少组。输入和输出通道数应该能被组数整除。
    * **data_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：* 输入的布局。
    * **kernel_layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：权重的布局。
@@ -2448,7 +2448,7 @@ $$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.cross_entropy_with_logits(*predictions:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *labels:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.cross_entropy_with_logits(*predictions:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *labels:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 predictions 和 labels 之间的 logits 交叉熵。
@@ -2463,7 +2463,7 @@ $$\text{cross\_entropy\_with\_logits}(x_i, y_i) = \frac{\sum_i -x_i \cdot y_i}{N
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.dropout(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *rate:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.5*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.dropout(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *rate:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.5*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 对输入张量应用 dropout 操作。
@@ -2476,7 +2476,7 @@ $$\text{cross\_entropy\_with\_logits}(x_i, y_i) = \frac{\sum_i -x_i \cdot y_i}{N
 * **返回：result** ：dropout 的结果，是一个包含两个张量的元组。第一个是原始张量，第二个是掩码张量（未丢弃元素处为 1.0，丢弃处为 0.0）。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.gelu(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.gelu(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 高斯误差线性单元函数
@@ -2495,7 +2495,7 @@ $$\text{GeLU}(x) = 0.5 * x * (1 + \text{erf}(x * 0.5**0.5))$$
 
 :::
 
-## tvm.relax.op.nn.gelu_tanh(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.gelu_tanh(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 高斯误差线性单元函数，使用 tanh 近似
 
@@ -2511,7 +2511,7 @@ $$\text{GELU}(x) = 0.5 * x * (1 + \text{Tanh}(\sqrt(2 / \pi) * (x + 0.044715 * x
 
 :::
 
-## tvm.relax.op.nn.group_norm(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *num_groups:*[int](https://docs.python.org/3/library/functions.html#int), *channel_axis:*[int](https://docs.python.org/3/library/functions.html#int), *axes:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.group_norm(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *num_groups:*[int](https://docs.python.org/3/library/functions.html#int), *channel_axis:*[int](https://docs.python.org/3/library/functions.html#int), *axes:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 分组归一化（Yuxin Wu 等人，2016 年）。将分组归一化应用于 n 维输入数组。该运算符接收一个 n 维输入数组。首先沿通道轴将输入数组分成多个组。然后对每个组应用层归一化。
@@ -2528,7 +2528,7 @@ $$\text{GELU}(x) = 0.5 * x * (1 + \text{Tanh}(\sqrt(2 / \pi) * (x + 0.044715 * x
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.instance_norm(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *channel_axis:*[int](https://docs.python.org/3/library/functions.html#int), *axes:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.instance_norm(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *channel_axis:*[int](https://docs.python.org/3/library/functions.html#int), *axes:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 **参数：**
@@ -2542,7 +2542,7 @@ $$\text{GELU}(x) = 0.5 * x * (1 + \text{Tanh}(\sqrt(2 / \pi) * (x + 0.044715 * x
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.layer_norm(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.layer_norm(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *gamma:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*, *center:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *scale:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 层归一化（Lei Ba 等人，2016 年）。将层归一化应用于 n 维输入数组。该运算符接收一个 n 维输入数组，并使用指定的轴对输入进行归一化：
 
@@ -2569,7 +2569,7 @@ $$out = \frac{data - mean(data, axis)}{\sqrt{var(data, axis)+\epsilon}} * gamma 
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.leakyrelu(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *alpha:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.01*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.leakyrelu(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *alpha:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.01*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 修正线性单元。
@@ -2581,7 +2581,7 @@ $$text{LeakyReLU, negative_slope}(x) = max(x, 0) + negative_slope * min(x, 0)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.log_softmax(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.log_softmax(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 计算 log softmax。
@@ -2595,7 +2595,7 @@ $$\text{log\_softmax}(x_i) = \log\left( \frac{\exp(x_i)}{\sum_j \exp(x_j)}\right
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.max_pool1d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.max_pool1d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1,)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 1D 最大池化运算符。
 
@@ -2609,10 +2609,10 @@ $$\text{log\_softmax}(x_i) = \log\left( \frac{\exp(x_i)}{\sum_j \exp(x_j)}\right
 ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad 指示是否在计算中包含或排除填充的输入值。该运算符接受数据布局规范。
 * **参数：**
    * **data** (*relax.Expr*) *：* 运算符的输入数据。
-   * **pool_size** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) **：** 池化窗口的大小。它必须具有长度为 1。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。它必须具有长度为 1。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) -池化的填充。它必须具有长度为 1 或 2。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) - 池化的膨胀率。必须为长度为 1。
+   * **pool_size** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) **：** 池化窗口的大小。它必须具有长度为 1。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。它必须具有长度为 1。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) -池化的填充。它必须具有长度为 1 或 2。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) - 池化的膨胀率。必须为长度为 1。
    * **ceil_mode** ([bool](https://docs.python.org/3/library/functions.html#bool)) - 一个布尔值，指示是否使用 ceil 或 floor 来计算输出形状。使用 ceil 时，输入张量的每个元素都将被滑动窗口覆盖。
    * **count_include_pad** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*) *：* 是否将填充包括在内以计算平均值。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：*输入的布局。
@@ -2620,7 +2620,7 @@ ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad �
 * **返回：result** ：计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.nn.max_pool2d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.max_pool2d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 2D 最大池化运算符。
@@ -2643,10 +2643,10 @@ $$
 在计算之前对数据进行填充。ceil_mode 用于在计算输出形状时取上整或下整。该运算符接受数据布局规范。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
-   * **pool_size** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化窗口的大小。必须具有长度为 1 或 2。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1 或 2。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) *：* 池化操作的填充。必须具有长度为 1、2 或 4。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化操作的膨胀率。必须具有长度为 1 或 2。
+   * **pool_size** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化窗口的大小。必须具有长度为 1 或 2。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1 或 2。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) *：* 池化操作的填充。必须具有长度为 1、2 或 4。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化操作的膨胀率。必须具有长度为 1 或 2。
    * **ceil_mode** ([bool](https://docs.python.org/3/library/functions.html#bool)) *：* 一个布尔值，指示是否使用 ceil 或 floor 来计算输出形状。使用 ceil 时，输入张量的每个元素都将被滑动窗口覆盖。
    * **count_include_pad** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*) - 是否将填充包括在内以计算平均值。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
@@ -2654,7 +2654,7 @@ $$
 * **返回：result** ：计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.nn.max_pool3d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.max_pool3d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *strides:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *padding:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …] = (0, 0, 0)*, *dilation:*[int](https://docs.python.org/3/library/functions.html#int)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCDHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 3D 最大池化运算符。
@@ -2669,10 +2669,10 @@ $$
 ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad 指示是否在计算中包含或排除填充的输入值。该运算符接受数据布局规范。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
-   * **pool_size** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化窗口的大小。必须具有 1 或 3 的长度。
-   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1 或 3。
-   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：池化操作的填充。长度必须是 1、3 或 6。
-   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化操作的膨胀率。必须为长度为 1 或 3 的值。
+   * **pool_size** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化窗口的大小。必须具有 1 或 3 的长度。
+   * **strides** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) ：池化的步长。必须具有长度为 1 或 3。
+   * **padding** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***…****]]*) ：池化操作的填充。长度必须是 1、3 或 6。
+   * **dilation** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[int](https://docs.python.org/3/library/functions.html#int)***,*** [int](https://docs.python.org/3/library/functions.html#int)***]****]*) *：* 池化操作的膨胀率。必须为长度为 1 或 3 的值。
    * **ceil_mode** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：一个布尔值，指示是否使用 ceil 或 floor 来计算输出形状。使用 ceil 时，输入张量的每个元素都将被滑动窗口覆盖。
    * **count_include_pad** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*) ：是否将填充包括在内以计算平均值。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
@@ -2680,7 +2680,7 @@ ceil_mode 用于在计算输出形状时取上整或下整。count_include_pad �
 * **返回：result** ：计算结果。
 * **返回类型：** Expr。
 
-## tvm.relax.op.nn.nll_loss(*predictions:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *targets:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weights:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'mean'*, *ignore_index:*[int](https://docs.python.org/3/library/functions.html#int)*= -100*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.nll_loss(*predictions:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *targets:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weights:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'mean'*, *ignore_index:*[int](https://docs.python.org/3/library/functions.html#int)*= -100*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 负对数似然损失。
 
@@ -2698,19 +2698,19 @@ result = reduction(output)。
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.pad(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pad_width:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …]*, *pad_mode:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 'constant'*, *pad_value:*[float](https://docs.python.org/3/library/functions.html#float)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 0.0*)
+## tvm.relax.op.nn.pad(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pad_width:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*, …]*, *pad_mode:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 'constant'*, *pad_value:*[float](https://docs.python.org/3/library/functions.html#float)*|*[None](https://docs.python.org/3/library/constants.html#None)*= 0.0*)
 
 
 这个运算符接收一个张量，并使用指定的值按照指定的宽度对每个轴进行填充。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据
-   * **pad_width** (*Union**[****List**[***[int](https://docs.python.org/3/library/functions.html#int)***]****,*[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[int](https://docs.python.org/3/library/functions.html#int)*,…**]****],required*) ：每个轴边缘填充的值数量，格式为 ((before_1, after_1), …, (before_N, after_N))
+   * **pad_width** (*Union**[****List**[***[int](https://docs.python.org/3/library/functions.html#int)***]****,*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[int](https://docs.python.org/3/library/functions.html#int)*,…**]****],required*) ：每个轴边缘填充的值数量，格式为 ((before_1, after_1), …, (before_N, after_N))
    * **pad_mode** (*Optional[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：‘constant’, ‘reflect’, ‘replicate’, ‘circular’ ‘constant’ 使用常数值填充 pad_value ‘reflect’ 通过镜像值（不包括边缘）进行填充 ‘replicate’ 通过重复边缘值进行填充。 ‘circular’ 通过从另一侧循环值进行填充。默认为 ‘constant’
    * **pad_value** (*Optional**[****Union**[***[float](https://docs.python.org/3/library/functions.html#float)***,*** ***Expr****]]*) ：用于填充的值。默认为 0。
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.pixel_shuffle(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *upscale_factor:*[int](https://docs.python.org/3/library/functions.html#int))
+## tvm.relax.op.nn.pixel_shuffle(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *upscale_factor:*[int](https://docs.python.org/3/library/functions.html#int))
 
 
 像素重排运算符。
@@ -2729,7 +2729,7 @@ result = reduction(output)。
 
 如果输入张量的形状为 (1, 8, 10, 15) 且上采样因子为 2，则结果张量的形状将为 (1, 2, 20, 30)。
 
-## tvm.relax.op.nn.prelu(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *alpha:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.prelu(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *alpha:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 参数化整流线性单元（PReLU）。
@@ -2742,7 +2742,7 @@ $$PReLU(x) = x \text{ if } x > 0 \text{ else } \alpha * x$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.relu(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.relu(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 修正线性单元。
@@ -2753,7 +2753,7 @@ $$\text{ReLU}(x) = \max(x, 0)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.relu6(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.relu6(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 ReLU6 激活函数。
@@ -2764,7 +2764,7 @@ $$\text{ReLU6}(x) = \min(\max(x, 0), 6)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.rms_norm(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = -1*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.rms_norm(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weight:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axes:*[int](https://docs.python.org/3/library/functions.html#int)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] = -1*, *epsilon:*[float](https://docs.python.org/3/library/functions.html#float)*= 1e-05*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 均方根归一化（Biao Zhang 等，2019）。对 n 维输入数组应用均方根归一化。该运算符接收一个 n 维输入数组，并使用指定轴对输入进行归一化：
@@ -2779,7 +2779,7 @@ $$out = \frac{data}{\sqrt{mean(data, axis)+\epsilon}} * weight + bias$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.nn.selu(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.selu(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 缩放指数线性单元（SELU）。
@@ -2792,7 +2792,7 @@ $$\begin{split}\text{SELU}(x) = \lambda \begin{cases}     x & \text{if } x > 0 \
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr
 
-## tvm.relax.op.nn.silu(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.silu(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 Sigmoid 线性单元函数。
@@ -2809,7 +2809,7 @@ $$\text{SiLU}(x) = x * \text{sigmoid}(x)$$
 
 :::
 
-## tvm.relax.op.nn.softmax(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.softmax(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 计算 softmax。
 
@@ -2824,7 +2824,7 @@ $$\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_j \exp(x_j)}$$
 输入张量必须具有 float dtype。
 
 
-## tvm.relax.op.nn.softplus(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[float](https://docs.python.org/3/library/functions.html#float)*= 1.0*, *threshold:*[float](https://docs.python.org/3/library/functions.html#float)*= 20.0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.nn.softplus(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *beta:*[float](https://docs.python.org/3/library/functions.html#float)*= 1.0*, *threshold:*[float](https://docs.python.org/3/library/functions.html#float)*= 20.0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 Softplus 激活函数。
@@ -2843,7 +2843,7 @@ $$\text{Softplus}(x) = \frac{1}{\beta} \log(1 + e^{\beta x})$$
 
 Relax 内置运算符。
 
-## tvm.relax.op.builtin.alloc_tensor(*shape:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *runtime_device_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= 'global'*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.builtin.alloc_tensor(*shape:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *runtime_device_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*= 'global'*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 构建一个 relax.Call 来分配具有特定形状、dtype 和 runtime_device_index 的张量。
@@ -2853,9 +2853,9 @@ Relax 内置运算符。
    * **runtime_device_index** (*Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,*** ***Expr****]*) ：1 保留用于主机设备。
    * **storage_scope** (*Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,*** ***Expr****]*) ：指示分配存储的范围。
 * **返回：result** ：一个 relax relax.Call，它获取已分配的张量。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.builtin.stop_lift_params(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.builtin.stop_lift_params(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 一个指示输入张量的消费者不应被提升到 transform_params 函数的标志。
@@ -2888,7 +2888,7 @@ Allreduce 运算符。
 * **返回：result** ：allreduce 的所有结果。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.ccl.broadcast_from_worker0(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.ccl.broadcast_from_worker0(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 从 worker-0 广播数据到所有其他 worker。
@@ -2896,7 +2896,7 @@ Allreduce 运算符。
 * **返回：result** *：* 已广播到所有其他 worker 的相同张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.ccl.scatter_from_worker0(*x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *num_workers:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.ccl.scatter_from_worker0(*x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *num_workers:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 执行从 worker-0 开始的 scatter 操作，将给定的 buffer 分成相等的部分。
@@ -2914,7 +2914,7 @@ Allreduce 运算符。
 
 用于分布式 Relax 的运算符。
 
-## tvm.relax.op.distributed.annotate_sharding(*input:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *device_mesh: DeviceMesh*, *placement: Placement*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.distributed.annotate_sharding(*input:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *device_mesh: DeviceMesh*, *placement: Placement*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 为张量标注分片计划。
@@ -2925,7 +2925,7 @@ Allreduce 运算符。
 * **返回：result** ：未修改的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.distributed.redistribute(*input:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *device_mesh: DeviceMesh*, *placement: Placement*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.distributed.redistribute(*input:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *device_mesh: DeviceMesh*, *placement: Placement*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 重分布张量。
@@ -2936,18 +2936,18 @@ Allreduce 运算符。
 * **返回：result** ：重分布后的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.distributed.call_tir_local_view(*gvar:*[GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo: DTensorStructInfo |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[DTensorStructInfo]*, *tir_vars:*[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.distributed.call_tir_local_view(*gvar:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *args:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *out_sinfo: DTensorStructInfo |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[DTensorStructInfo]*, *tir_vars:*[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 relax.Call 一个 tir.prim_func 并返回输出。该 prim_func 应该是一个工作本地函数，实际上在每个工作节点上执行，而不是未分割的函数。这个运算符的输出是 DTensor 或 DTensor 的元组。
 * **参数：**
-   * **gvar** ([GlobalVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)) ：指向 tir PrimFunc 的 GlobalVar。
+   * **gvar** ([GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)) ：指向 tir PrimFunc 的 GlobalVar。
    * **args** (*Expr*) ：输入参数。
    * **out_sinfo** (*Union**[****DTensorStructInfo**,*** ***List****[**DTensorStructInfo****]]*) ：调用_tir 的输出结构信息。它应该是一个 DTensorStructInfo 或一个 DTensorStructInfo 的列表。每一个表示一个返回张量的结构信息。
-   * **tir_vars** (*Optional**[****Union**[***[ShapeExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]****,List**[***[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]****]]*) ：表示调用 func 时需要解包的整数元组的 ShapeExpr。如果未使用则为 null。
+   * **tir_vars** (*Optional**[****Union**[***[ShapeExpr](/docs/api-reference/python-api/tvm-relax#classtvmrelaxshapeexprvalueslistprimexprtupleprimexprarrayspanspannonenone)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]****,List**[***[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)***]****]]*) ：表示调用 func 时需要解包的整数元组的 ShapeExpr。如果未使用则为 null。
 * **返回：ret** *：* call_tir_local_view 运算符的调用节点。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.distributed.redistribute_replica_to_shard(*input:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *num_workers:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.distributed.redistribute_replica_to_shard(*input:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *num_workers:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 沿一个轴将张量切片成多个部分，
 
@@ -2969,14 +2969,14 @@ relax.Call 一个 tir.prim_func 并返回输出。该 prim_func 应该是一个�
 
 `RelaxExpr` 的别名。
 
-## tvm.relax.op.grad.avg_pool2d_backward(*output_grad:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (0, 0, 0, 0)*, *dilation:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.avg_pool2d_backward(*output_grad:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (0, 0, 0, 0)*, *dilation:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 relax.nn.avg_pool2d 的反向运算符。除了 output_grad 之外的所有参数与relax.nn.avg_pool2d 相同。返回关于 data 的梯度。
 * **参数：output_grad** (*relax.Expr*) *：* 对 avg_pool2d 结果的梯度。
 * **返回：result** ：对数据的梯度。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.grad.end_checkpoint(*input:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.end_checkpoint(*input:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 标记检查点阶段的结束。参见 tvm.relax.op.grad.start_checkpoint。
@@ -2984,7 +2984,7 @@ relax.nn.avg_pool2d 的反向运算符。除了 output_grad 之外的所有参�
 * **返回：result** ：与输入相同的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.grad.max_pool2d_backward(*output_grad:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (0, 0, 0, 0)*, *dilation:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.max_pool2d_backward(*output_grad:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *pool_size:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *strides:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *padding:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (0, 0, 0, 0)*, *dilation:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*,*[int](https://docs.python.org/3/library/functions.html#int)*] = (1, 1)*, *ceil_mode:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *count_include_pad:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *out_layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 relax.nn.max_pool2d 的反向运算符。除了 output_grad 之外的所有参数与 。relax.nn.max_pool2d 相同。返回相对于数据的梯度。
@@ -2992,21 +2992,21 @@ relax.nn.max_pool2d 的反向运算符。除了 output_grad 之外的所有参�
 * **返回：result** *：* 对数据的梯度。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.grad.nll_loss_backward(*output_grad:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *predictions:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *targets:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weights:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'mean'*, *ignore_index:*[int](https://docs.python.org/3/library/functions.html#int)*= -100*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.nll_loss_backward(*output_grad:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *predictions:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *targets:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *weights:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *reduction:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'mean'*, *ignore_index:*[int](https://docs.python.org/3/library/functions.html#int)*= -100*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 relax.nn.nll_loss 的反向运算符。除了 output_grad 外，所有参数与 relax.nn.nll_loss 相同。返回对预测的梯度。
 * **参数：output_grad** (*relax.Expr*) ：对 nll_loss 结果的梯度。
 * **返回：result**：对预测的梯度。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.grad.no_grad(*input:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.no_grad(*input:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 对输入无梯度的虚拟运算符。
 * **参数：input** (*relax.Expr*) ：对应的输入张量。
 * **返回：result** ：相对于输入的无梯度表示。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.grad.start_checkpoint(*input:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.start_checkpoint(*input:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 标记检查点阶段的开始。start_checkpoint 和 end_checkpoint 之间的计算将被标记为检查点阶段。
 
@@ -3022,7 +3022,7 @@ relax.nn.nll_loss 的反向运算符。除了 output_grad 外，所有参数与 
 * **返回：result** *：* 与输入相同的张量。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.grad.take_backward(*output_grad:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.grad.take_backward(*output_grad:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *x:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *indices:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *axis:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 relax.take 的反向运算符。除了 output_grad 之外的所有参数与 relax.take 相同。返回关于 x 的梯度。
@@ -3038,7 +3038,7 @@ relax.take 的反向运算符。除了 output_grad 之外的所有参数与 rela
 
 图像运算符。
 
-## tvm.relax.op.image.resize2d(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *size:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]*, *roi:*[float](https://docs.python.org/3/library/functions.html#float)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[float](https://docs.python.org/3/library/functions.html#float)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *method:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'linear'*, *coordinate_transformation_mode:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'half_pixel'*, *rounding_method:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'round'*, *cubic_alpha:*[float](https://docs.python.org/3/library/functions.html#float)*= -0.75*, *cubic_exclude:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*, *extrapolation_value:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.0*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.image.resize2d(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *size:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]*, *roi:*[float](https://docs.python.org/3/library/functions.html#float)*|*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[float](https://docs.python.org/3/library/functions.html#float)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *layout:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'NCHW'*, *method:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'linear'*, *coordinate_transformation_mode:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'half_pixel'*, *rounding_method:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'round'*, *cubic_alpha:*[float](https://docs.python.org/3/library/functions.html#float)*= -0.75*, *cubic_exclude:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*, *extrapolation_value:*[float](https://docs.python.org/3/library/functions.html#float)*= 0.0*, *out_dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*| dtype |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 图像 resize2d 运算符。
@@ -3050,8 +3050,8 @@ relax.take 的反向运算符。除了 output_grad 之外的所有参数与 rela
 method 指示计算输出值时使用的算法，method 可以是("linear", "nearest_neighbor", "cubic")之一。
 * **参数：**
    * **data** (*relax.Expr*) ：运算符的输入数据。
-   * **size** (*Union**[****Expr**,*** ***PrimExprLike****,*[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[**PrimExprLike****]]*) ：图像将被调整到的输出尺寸。如果指定为列表，其长度必须是 1 或 2。如果指定为 Expr，其必须具有维度 2。
-   * **roi** (*Optional**[****Union**[***[float](https://docs.python.org/3/library/functions.html#float)***,*** [Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[float](https://docs.python.org/3/library/functions.html#float)***]****]]*) ：用于裁剪输入图像的区域。预期大小为 4，格式为[start_h, start_w, end_h, end_w]。仅在使用 coordinate_transformation_mode 为 tf_crop_and_resize 时使用。
+   * **size** (*Union**[****Expr**,*** ***PrimExprLike****,*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[**PrimExprLike****]]*) ：图像将被调整到的输出尺寸。如果指定为列表，其长度必须是 1 或 2。如果指定为 Expr，其必须具有维度 2。
+   * **roi** (*Optional**[****Union**[***[float](https://docs.python.org/3/library/functions.html#float)***,*** [Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)***[***[float](https://docs.python.org/3/library/functions.html#float)***]****]]*) ：用于裁剪输入图像的区域。预期大小为 4，格式为[start_h, start_w, end_h, end_w]。仅在使用 coordinate_transformation_mode 为 tf_crop_and_resize 时使用。
    * **layout** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：输入的布局。
    * **method** ([str](https://docs.python.org/3/library/stdtypes.html#str)) *：* 使用的缩放方法 [最近邻, 线性, 三次插值]。
    * **coordinate_transformation_mode** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：描述如何将调整大小后的张量中的坐标转换为原始张量中的坐标。定义可以在 topi/image/resize.py 中找到。[半像素, 对齐角点, 非对称, pytorch_half_pixel, tf_half_pixel_for_nn, 和 tf_crop_and_resize]。
@@ -3069,7 +3069,7 @@ method 指示计算输出值时使用的算法，method 可以是("linear", "nea
 
 Relax 内存原语。
 
-## tvm.relax.op.memory.alloc_storage(*size:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *virtual_device_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.memory.alloc_storage(*size:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *virtual_device_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 构造一个 relax.Call 来分配具有特定大小、虚拟设备索引、存储范围和 dtype 的存储。
@@ -3079,9 +3079,9 @@ Relax 内存原语。
    * **storage_scope** (*Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,*** ***Expr****]*) ：指示分配存储的范围。
    * **dtype** (*Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,*** ***Expr****]*) ：要分配的存储的数据类型。
 * **返回：result** ：一个 relax relax.Call，它获取已分配的存储。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.memory.alloc_tensor(*storage:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *offset:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone) 
+## tvm.relax.op.memory.alloc_tensor(*storage:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *offset:*[int](https://docs.python.org/3/library/functions.html#int)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone) 
 
 
 构建一个 relax.Call 来在指定的存储上从给定偏移量开始分配一个张量。
@@ -3091,25 +3091,25 @@ Relax 内存原语。
    * **shape** (*Expr*) -要分配的张量的形状。
    * **dtype** (*Union**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,*** ***Expr****]*) ：要分配的张量的数据类型。
 * **返回：result** ：一个 relax relax.Call，它获取已分配的张量。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.memory.kill_storage(*storage:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.memory.kill_storage(*storage:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 构建一个 relax.Call 来销毁一个存储。
 * **参数：storage** (*Expr*) ：要杀死的存储。
 * **返回：result** ：一个用于杀死存储的 relax relax.Call。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.memory.kill_tensor(*tensor:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
+## tvm.relax.op.memory.kill_tensor(*tensor:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
 
 构建一个 relax.Call 来销毁一个张量。
 * **参数：tensor** (*Expr*) ：要销毁的张量。
 * **返回：result** ：一个用于销毁张量的 relax relax.Call。
-* **返回类型：**[relax.Call](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
+* **返回类型：**[relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)。
 
-## tvm.relax.op.memory.view(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Sequence](https://docs.python.org/3/library/typing.html#typing.Sequence)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *dtype:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *relative_byte_offset:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.memory.view(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *shape:*[Sequence](https://docs.python.org/3/library/typing.html#typing.Sequence)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *dtype:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *relative_byte_offset:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 提供一个现有张量的视图。
@@ -3127,7 +3127,7 @@ Relax 内存原语。
 * **返回：result** ：张量视图。
 * **返回类型：** relax.Expr。
 
-## tvm.relax.op.memory.ensure_zero_offset(*data:*[RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
+## tvm.relax.op.memory.ensure_zero_offset(*data:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 确保张量具有 elem_offset == 0。如有必要，将进行复制。

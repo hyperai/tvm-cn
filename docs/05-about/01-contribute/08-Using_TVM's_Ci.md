@@ -4,20 +4,20 @@ title: 使用 TVM 的 CI
 
 ---
 
-* [贡献者指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#贡献者指南)
-   * [调试失败](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#调试失败)
-      * [Jenkins 日志](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#jenkins-%E6%97%A5%E5%BF%97)
-      * [重现失败](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E5%A4%8D%E7%8E%B0%E5%A4%B1%E8%B4%A5)
-   * [报告问题](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%8A%A5%E5%91%8A%E9%97%AE%E9%A2%98)
-* [维护者](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97)[指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97))
-   * [保持 CI 通过的常规操作](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E4%BF%9D%E6%8C%81-ci-%E9%80%9A%E8%BF%87%E7%9A%84%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C)
-      * [同时合并导致的 CI 中断](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E5%90%8C%E6%97%B6%E5%90%88%E5%B9%B6%E5%AF%BC%E8%87%B4%E7%9A%84-ci-%E4%B8%AD%E6%96%AD)
-   * [处理不稳定测试](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E5%A4%84%E7%90%86%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%B5%8B%E8%AF%95)
-   * [跳过 CI](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E8%B7%B3%E8%BF%87-ci)
-   * [Docker 镜像](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#docker-%E9%95%9C%E5%83%8F)
-      * [更新 Docker 镜像标签](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%9B%B4%E6%96%B0-docker-%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE)
-      * [添加新的 Docker 镜像](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)
-   * [CI 监控轮值](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)
+* [贡献者指南](/docs/about/contribute/Using_TVM's_Ci#贡献者指南)
+   * [调试失败](/docs/about/contribute/Using_TVM's_Ci#调试失败)
+      * [Jenkins 日志](/docs/about/contribute/Using_TVM's_Ci#jenkins-%E6%97%A5%E5%BF%97)
+      * [重现失败](/docs/about/contribute/Using_TVM's_Ci#%E5%A4%8D%E7%8E%B0%E5%A4%B1%E8%B4%A5)
+   * [报告问题](/docs/about/contribute/Using_TVM's_Ci#%E6%8A%A5%E5%91%8A%E9%97%AE%E9%A2%98)
+* [维护者](/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97)[指南](/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97))
+   * [保持 CI 通过的常规操作](/docs/about/contribute/Using_TVM's_Ci#%E4%BF%9D%E6%8C%81-ci-%E9%80%9A%E8%BF%87%E7%9A%84%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C)
+      * [同时合并导致的 CI 中断](/docs/about/contribute/Using_TVM's_Ci#%E5%90%8C%E6%97%B6%E5%90%88%E5%B9%B6%E5%AF%BC%E8%87%B4%E7%9A%84-ci-%E4%B8%AD%E6%96%AD)
+   * [处理不稳定测试](/docs/about/contribute/Using_TVM's_Ci#%E5%A4%84%E7%90%86%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%B5%8B%E8%AF%95)
+   * [跳过 CI](/docs/about/contribute/Using_TVM's_Ci#%E8%B7%B3%E8%BF%87-ci)
+   * [Docker 镜像](/docs/about/contribute/Using_TVM's_Ci#docker-%E9%95%9C%E5%83%8F)
+      * [更新 Docker 镜像标签](/docs/about/contribute/Using_TVM's_Ci#%E6%9B%B4%E6%96%B0-docker-%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE)
+      * [添加新的 Docker 镜像](/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)
+   * [CI 监控轮值](/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)
 
 
 
@@ -47,7 +47,7 @@ TVM 主要使用 Jenkins 运行 Linux 持续集成(CI)测试，通过 [Jenkinsf
 
 #### 复现失败
 
-大多数 TVM Python 测试使用 `pytest` 运行，可按[测试指南](https://tvm.hyper.ai/docs/about/contribute/Using_TVM's_Ci#%E6%B5%8B%E8%AF%95%E6%8C%87%E5%8D%97)操作复现。
+大多数 TVM Python 测试使用 `pytest` 运行，可按[测试指南](/docs/about/contribute/Using_TVM's_Ci#%E6%B5%8B%E8%AF%95%E6%8C%87%E5%8D%97)操作复现。
 
 
 ### 报告问题

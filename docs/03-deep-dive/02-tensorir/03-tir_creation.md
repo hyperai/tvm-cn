@@ -6,14 +6,14 @@ title: TensorIR 创建
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/tensorir/tir_creation/#%E5%88%9B%E5%BB%BA%E5%8A%A8%E6%80%81%E5%BD%A2%E7%8A%B6%E5%87%BD%E6%95%B0)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/deep-dive/tensorir/tir_creation/#%E5%88%9B%E5%BB%BA%E5%8A%A8%E6%80%81%E5%BD%A2%E7%8A%B6%E5%87%BD%E6%95%B0)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/c43b2ae5210f95ce8dae6102e9b060fd/tir_creation.ipynb)
 
 :::
 
 
-本节将介绍在 Apache TVM Unity 中编写 TensorIR 函数的方法。此教程假设你已经了解 TensorIR 的基本概念。如果你不熟悉，请先阅读：[理解 TensorIR 抽象](https://tvm.hyper.ai/docs/deep-dive/tensorir/understand-tensorir-abstraction)。
+本节将介绍在 Apache TVM Unity 中编写 TensorIR 函数的方法。此教程假设你已经了解 TensorIR 的基本概念。如果你不熟悉，请先阅读：[理解 TensorIR 抽象](/docs/deep-dive/tensorir/understand-tensorir-abstraction)。
 
 
 :::note
@@ -39,7 +39,7 @@ title: TensorIR 创建
 
 ### 标准格式
 
-我们来看一个来自「[理解 TensorIR 抽象](https://tvm.hyper.ai/docs/deep-dive/tensorir/understand-tensorir-abstraction)」中的 `mm_relu` 示例。以下是完整的 `ir_module` 和 TVMScript 格式：
+我们来看一个来自「[理解 TensorIR 抽象](/docs/deep-dive/tensorir/understand-tensorir-abstraction)」中的 `mm_relu` 示例。以下是完整的 `ir_module` 和 TVMScript 格式：
 
 ```plain
 import numpy as np

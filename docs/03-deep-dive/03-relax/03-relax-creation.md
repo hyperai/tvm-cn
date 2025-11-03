@@ -7,7 +7,7 @@ title: 创建 Relax
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.hyper.ai/docs/deep-dive/relax/relax-creation#%E6%80%BB%E7%BB%93)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/deep-dive/relax/relax-creation#%E6%80%BB%E7%BB%93)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/315fcda965a8d605f81705edf19ea2c6/relax_creation.ipynb)
 

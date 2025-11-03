@@ -7,7 +7,7 @@ title: 快速入门
 
 :::note
 
-本教程可通过 Google Colab 交互运行！也可点击[此处](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E5%90%8E%E7%BB%AD%E9%98%85%E8%AF%BB)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互运行！也可点击[此处](/docs/getting-started/quick-start/#%E5%90%8E%E7%BB%AD%E9%98%85%E8%AF%BB)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/eceb05a9badb601d2def02240aa869e9/quick_start.ipynb)
 
@@ -19,12 +19,12 @@ title: 快速入门
 
 
 **目录**
-* [概览](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%A6%82%E8%BF%B0)
-* [完整流程](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B)
-   * [构建或导入模型](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%9E%84%E5%BB%BA%E6%88%96%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B)
-   * [执行优化转换](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96%E8%BD%AC%E6%8D%A2)
-   * [构建和通用部署](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E6%9E%84%E5%BB%BA%E5%92%8C%E9%80%9A%E7%94%A8%E9%83%A8%E7%BD%B2)
-* [阅读下文](https://tvm.hyper.ai/docs/getting-started/quick-start/#%E5%90%8E%E7%BB%AD%E9%98%85%E8%AF%BB)
+* [概览](/docs/getting-started/quick-start/#%E6%A6%82%E8%BF%B0)
+* [完整流程](/docs/getting-started/quick-start/#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B)
+   * [构建或导入模型](/docs/getting-started/quick-start/#%E6%9E%84%E5%BB%BA%E6%88%96%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B)
+   * [执行优化转换](/docs/getting-started/quick-start/#%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96%E8%BD%AC%E6%8D%A2)
+   * [构建和通用部署](/docs/getting-started/quick-start/#%E6%9E%84%E5%BB%BA%E5%92%8C%E9%80%9A%E7%94%A8%E9%83%A8%E7%BD%B2)
+* [阅读下文](/docs/getting-started/quick-start/#%E5%90%8E%E7%BB%AD%E9%98%85%E8%AF%BB)
 
 
 ## 概述

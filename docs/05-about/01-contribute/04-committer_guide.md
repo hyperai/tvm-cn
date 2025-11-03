@@ -4,15 +4,15 @@ title: 提交者指南
 
 ---
 
-* [社区优先](https://tvm.hyper.ai/docs/about/contribute/committer_guide#%E7%A4%BE%E5%8C%BA%E4%BC%98%E5%85%88)
-* [公开归档原则](https://tvm.hyper.ai/docs/about/contribute/committer_guide#%E5%85%AC%E5%BC%80%E5%BD%92%E6%A1%A3%E5%8E%9F%E5%88%99)
-* [独立项目管理](https://tvm.hyper.ai/docs/about/contribute/committer_guide#%E7%8B%AC%E7%AB%8B%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86)
-* [指导 Pull Request（PR）](https://tvm.hyper.ai/docs/about/contribute/committer_guide#%E6%8C%87%E5%AF%BC-pull-requestpr)
-* [时间管理](https://tvm.hyper.ai/docs/about/contribute/committer_guide#%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86)
-* [广泛协作](https://tvm.hyper.ai/docs/about/contribute/committer_guide#%E5%B9%BF%E6%B3%9B%E5%8D%8F%E4%BD%9C)
+* [社区优先](/docs/about/contribute/committer_guide#%E7%A4%BE%E5%8C%BA%E4%BC%98%E5%85%88)
+* [公开归档原则](/docs/about/contribute/committer_guide#%E5%85%AC%E5%BC%80%E5%BD%92%E6%A1%A3%E5%8E%9F%E5%88%99)
+* [独立项目管理](/docs/about/contribute/committer_guide#%E7%8B%AC%E7%AB%8B%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86)
+* [指导 Pull Request（PR）](/docs/about/contribute/committer_guide#%E6%8C%87%E5%AF%BC-pull-requestpr)
+* [时间管理](/docs/about/contribute/committer_guide#%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86)
+* [广泛协作](/docs/about/contribute/committer_guide#%E5%B9%BF%E6%B3%9B%E5%8D%8F%E4%BD%9C)
 
 
-本指南是一个不断发展的文档，旨在为提交者（Committer）提供一些实用的建议。大多数内容都源自开发过程中的经验教训。我们欢迎每一位提交者为本文档作出贡献。有关提交者职责和开发流程的总体概览，请参阅 [TVM 社区指南](https://tvm.hyper.ai/docs/about/contribute/TVM-Community-community)。
+本指南是一个不断发展的文档，旨在为提交者（Committer）提供一些实用的建议。大多数内容都源自开发过程中的经验教训。我们欢迎每一位提交者为本文档作出贡献。有关提交者职责和开发流程的总体概览，请参阅 [TVM 社区指南](/docs/about/contribute/TVM-Community-community)。
 
 
 ## 社区优先
@@ -43,7 +43,7 @@ title: 提交者指南
 
 ## 指导 Pull Request（PR）
 
-以下是一些帮助你指导 PR 的建议。你也可以参考 [代码审查指南](https://tvm.hyper.ai/docs/about/contribute/code_review)。
+以下是一些帮助你指导 PR 的建议。你也可以参考 [代码审查指南](/docs/about/contribute/code_review)。
 * 将 PR 分配给自己，让其他提交者知道该 PR 已经在处理。 
 * 使用状态标签表示当前处理进度。 
 * 检查是否需要提交 RFC。 

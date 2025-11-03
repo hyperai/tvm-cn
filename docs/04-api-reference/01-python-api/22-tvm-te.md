@@ -11,82 +11,82 @@ title: tvm.te
 
 **函数:**
 
-|[any](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteanyargs-spannone)(*args[,span])|创建参数中所有条件的并集的新表达式。|
+|[any](/docs/api-reference/python-api/tvm-te#tvmteanyargs-spannone)(*args[,span])|创建参数中所有条件的并集的新表达式。|
 |:----|:----|
-|[all](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteallargs-spannone)(*args[,span])|创建所有条件交集的新表达式。|
-|[min_value](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtemin_valuedtype-spannone)(dtype[,span])|dtype 的最小值。|
-|[max_value](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtemax_valuedtypestr-spanspannone-none--any)(dtype[,span])|dtype 的最大值。|
-|[trace](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetraceargs-trace_actiontvmdefault_trace_action)(args[,trace_action])|在运行时跟踪张量数据。|
-|[exp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteexpx)(x)|取输入 x 的指数。|
-|[erf](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteerfx)(x)|取输入 x 的高斯误差函数。|
-|[tanh](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetanhx)(x)|对输入 x 取双曲 tanh。|
-|[sigmoid](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesigmoidx)(x)|快速获取 S 形函数。|
-|[log](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtelogx)(x)|对输入 x 取对数。|
-|[tan](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetanx)(x)|对输入 x 取 tan。|
-|[cos](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtecosx)(x)|取输入 x 的 cos。|
-|[sin](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesinx)(x)|对输入 x 取正弦值。|
-|[sqrt](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesqrtx)(x)|对输入 x 取平方根。|
-|[rsqrt](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtersqrtx)(x)|取输入 x 的平方根的倒数。|
-|[floor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtefloorx-primexprwithop-spannone)(x[,span])|取浮点输入 x 的下限。|
-|[ceil](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteceilx-spannone)(x[,span])|对浮点输入 x 取上限。|
-|[sinh](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesinhx)(x)|对输入 x 取 sinh。|
-|[cosh](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtecoshx)(x)|对输入 x 取余弦值。|
-|[log2](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtelog2x)(x)|对输入 x 取 log2。|
-|[log10](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtelog10x)(x)|对输入 x 取 log10。|
-|[asin](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteasinx)(x)|取输入 x 的 asin。|
-|[asinh](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteasinhx)(x)|取输入 x 的正弦值。|
-|[acos](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteacosx)(x)|对输入 x 取余数。|
-|[acosh](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteacoshx)(x)|对输入 x 取余数。|
-|[atan](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteatanx)(x)|对输入 x 取正切值。|
-|[atanh](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteatanhx)(x)|对输入 x 进行 atanh 处理。|
-|[trunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetruncx-spannone)(x[,span])|获取输入的截断值。|
-|[abs](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteabsx-spannone)(x[,span])|逐个获取输入元素的绝对值。|
-|[round](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteroundx-spannone)(x[,span])|将数组元素四舍五入为最接近的整数。|
-|[nearbyint](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtenearbyintx-spannone)(x[,span])|将数组元素四舍五入为最接近的整数。|
-|[power](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtepowerx-y-spannone)(x,y[,span])|x 次方 y。|
-|[popcount](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtepopcountx)(x)|计算输入 x 中设置位的数量。|
-|[fmod](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtefmodx-y)(x,y)|返回 x 除以 y 后的余数，其符号与 x 相同。|
-|[if_then_else](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteif_then_elsecond-t-f-spannone)(cond,t,f[,span])|条件选择表达式。|
-|[isnan](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteisnanx-spannone)(x[,span])|检查输入值是否为 Nan。|
-|[isfinite](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteisfinitex-spannone)(x[,span])|检查输入值是否有限。|
-|[isinf](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteisinfx-spannone)(x[,span])|检查输入值是否无限。|
-|[div](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtediva-b-spannone)(a,b[,span])|按照 C/C++ 语义计算 a / b。|
-|[indexdiv](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteindexdiva-b-spannone)(a,b[,span])|计算 floor(a / b)，其中 a 和 b 为非负数。|
-|[indexmod](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteindexmoda-b-spannone)(a,b[,span])|计算 indexdiv 的余数。a 和 b 非负。|
-|[truncdiv](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetruncdiva-b-spannone)(a,b[,span])|计算两个表达式的 truncdiv。|
-|[truncmod](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetruncmoda-b-spannone)(a,b[,span])|计算两个表达式的 truncmod。|
-|[floordiv](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtefloordiva-b-spannone)(a,b[,span])|计算两个表达式的 floordiv。|
-|[floormod](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtefloormoda-b-spannone)(a,b[,span])|计算两个表达式的 floormod。|
-|[logaddexp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtelogaddexpa-b-spannone)(a,b[,span])|计算两个表达式的 logaddexp。|
-|[comm_reducer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtecomm_reducerfcombine-fidentity-namereduce)(fcombine,fidentity[,name])|创建一个交换减速器用于减速。|
-|[min](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteminexpr-axis-wherenone-initnone-args)(expr,axis[,where,init])|在轴上创建最小表达式。|
-|[max](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtemaxexpr-axis-wherenone-initnone-args)(expr,axis[,where,init])|在轴上创建最大表达式。|
-|[sum](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesumexpr-axis-wherenone-initnone-args)(expr,axis[,where,init])|在轴上创建一个求和表达式。|
-|[add](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteaddlhs-rhs-spannone)(lhs,rhs[,span])|通用加法运算符。|
-|[subtract](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesubtractlhs-rhs-spannone)(lhs,rhs[,span])|通用减法运算符。|
-|[multiply](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtemultiplylhs-rhs-spannone)(lhs,rhs[,span])|通用乘法运算符。|
-|[tag_scope](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtetag_scopetag)(tag)|运算符标签范围。|
-|[placeholder](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteplaceholdershape-dtypenone-nameplaceholder)(shape[,dtype,name])|构造一个空的张量对象。|
-|[compute](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtecomputeshape-fcompute-namecompute-tag-attrsnone-varargs_namesnone)(shape,fcompute[,name,tag,attrs,…])|通过计算形状域来构建一个新的张量。|
-|[scan](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtescaninit-update-state_placeholder-inputsnone-namescan-tag-attrsnone)(init,update,state_placeholder[,…])|通过扫描轴来构建新的张量。|
-|[extern](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteexternshape-inputs-fcompute-nameextern-dtypenone-in_buffersnone-out_buffersnone-tag-attrsnone)(shape,inputs,fcompute[,name,…])|通过外部函数计算多个张量。|
-|[var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtevarnametindex-dtypeint32-spannone)([name,dtype,span])|创建具有指定名称和数据类型的新变量。|
-|[size_var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtesize_varnamesize-dtypeint32-spannone)([name,dtype,span])|创建一个新变量表示张量形状的大小，它是非负的。|
-|[const](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteconstvalue-dtypeint32-spannone)(value[,dtype,span])|创建具有指定值和数据类型的新常量。|
-|[thread_axis](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtethread_axisdomnone-tag-name-spannone)([dom,tag,name,span])|创建一个新的 IterVar 来表示线程索引。|
-|[reduce_axis](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtereduce_axisdom-namerv-thread_tag-spannone)(dom[,name,thread_tag,span])|创建一个新的 IterVar 进行缩减。|
-|[create_prim_func](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmtecreate_prim_funcopslisttensorvar-index_dtype_overridestrnone-none--primfunc)(ops[,index_dtype_override])|从张量表达式创建 TensorIR PrimFunc。|
-|[extern_primfunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#tvmteextern_primfuncinput_tensorslisttensor-primfuncprimfunc-kwargs)(input_tensors,primfunc,…)|通过可调度的 TIR PrimFunc 计算张量。|
+|[all](/docs/api-reference/python-api/tvm-te#tvmteallargs-spannone)(*args[,span])|创建所有条件交集的新表达式。|
+|[min_value](/docs/api-reference/python-api/tvm-te#tvmtemin_valuedtype-spannone)(dtype[,span])|dtype 的最小值。|
+|[max_value](/docs/api-reference/python-api/tvm-te#tvmtemax_valuedtypestr-spanspannone-none--any)(dtype[,span])|dtype 的最大值。|
+|[trace](/docs/api-reference/python-api/tvm-te#tvmtetraceargs-trace_actiontvmdefault_trace_action)(args[,trace_action])|在运行时跟踪张量数据。|
+|[exp](/docs/api-reference/python-api/tvm-te#tvmteexpx)(x)|取输入 x 的指数。|
+|[erf](/docs/api-reference/python-api/tvm-te#tvmteerfx)(x)|取输入 x 的高斯误差函数。|
+|[tanh](/docs/api-reference/python-api/tvm-te#tvmtetanhx)(x)|对输入 x 取双曲 tanh。|
+|[sigmoid](/docs/api-reference/python-api/tvm-te#tvmtesigmoidx)(x)|快速获取 S 形函数。|
+|[log](/docs/api-reference/python-api/tvm-te#tvmtelogx)(x)|对输入 x 取对数。|
+|[tan](/docs/api-reference/python-api/tvm-te#tvmtetanx)(x)|对输入 x 取 tan。|
+|[cos](/docs/api-reference/python-api/tvm-te#tvmtecosx)(x)|取输入 x 的 cos。|
+|[sin](/docs/api-reference/python-api/tvm-te#tvmtesinx)(x)|对输入 x 取正弦值。|
+|[sqrt](/docs/api-reference/python-api/tvm-te#tvmtesqrtx)(x)|对输入 x 取平方根。|
+|[rsqrt](/docs/api-reference/python-api/tvm-te#tvmtersqrtx)(x)|取输入 x 的平方根的倒数。|
+|[floor](/docs/api-reference/python-api/tvm-te#tvmtefloorx-primexprwithop-spannone)(x[,span])|取浮点输入 x 的下限。|
+|[ceil](/docs/api-reference/python-api/tvm-te#tvmteceilx-spannone)(x[,span])|对浮点输入 x 取上限。|
+|[sinh](/docs/api-reference/python-api/tvm-te#tvmtesinhx)(x)|对输入 x 取 sinh。|
+|[cosh](/docs/api-reference/python-api/tvm-te#tvmtecoshx)(x)|对输入 x 取余弦值。|
+|[log2](/docs/api-reference/python-api/tvm-te#tvmtelog2x)(x)|对输入 x 取 log2。|
+|[log10](/docs/api-reference/python-api/tvm-te#tvmtelog10x)(x)|对输入 x 取 log10。|
+|[asin](/docs/api-reference/python-api/tvm-te#tvmteasinx)(x)|取输入 x 的 asin。|
+|[asinh](/docs/api-reference/python-api/tvm-te#tvmteasinhx)(x)|取输入 x 的正弦值。|
+|[acos](/docs/api-reference/python-api/tvm-te#tvmteacosx)(x)|对输入 x 取余数。|
+|[acosh](/docs/api-reference/python-api/tvm-te#tvmteacoshx)(x)|对输入 x 取余数。|
+|[atan](/docs/api-reference/python-api/tvm-te#tvmteatanx)(x)|对输入 x 取正切值。|
+|[atanh](/docs/api-reference/python-api/tvm-te#tvmteatanhx)(x)|对输入 x 进行 atanh 处理。|
+|[trunc](/docs/api-reference/python-api/tvm-te#tvmtetruncx-spannone)(x[,span])|获取输入的截断值。|
+|[abs](/docs/api-reference/python-api/tvm-te#tvmteabsx-spannone)(x[,span])|逐个获取输入元素的绝对值。|
+|[round](/docs/api-reference/python-api/tvm-te#tvmteroundx-spannone)(x[,span])|将数组元素四舍五入为最接近的整数。|
+|[nearbyint](/docs/api-reference/python-api/tvm-te#tvmtenearbyintx-spannone)(x[,span])|将数组元素四舍五入为最接近的整数。|
+|[power](/docs/api-reference/python-api/tvm-te#tvmtepowerx-y-spannone)(x,y[,span])|x 次方 y。|
+|[popcount](/docs/api-reference/python-api/tvm-te#tvmtepopcountx)(x)|计算输入 x 中设置位的数量。|
+|[fmod](/docs/api-reference/python-api/tvm-te#tvmtefmodx-y)(x,y)|返回 x 除以 y 后的余数，其符号与 x 相同。|
+|[if_then_else](/docs/api-reference/python-api/tvm-te#tvmteif_then_elsecond-t-f-spannone)(cond,t,f[,span])|条件选择表达式。|
+|[isnan](/docs/api-reference/python-api/tvm-te#tvmteisnanx-spannone)(x[,span])|检查输入值是否为 Nan。|
+|[isfinite](/docs/api-reference/python-api/tvm-te#tvmteisfinitex-spannone)(x[,span])|检查输入值是否有限。|
+|[isinf](/docs/api-reference/python-api/tvm-te#tvmteisinfx-spannone)(x[,span])|检查输入值是否无限。|
+|[div](/docs/api-reference/python-api/tvm-te#tvmtediva-b-spannone)(a,b[,span])|按照 C/C++ 语义计算 a / b。|
+|[indexdiv](/docs/api-reference/python-api/tvm-te#tvmteindexdiva-b-spannone)(a,b[,span])|计算 floor(a / b)，其中 a 和 b 为非负数。|
+|[indexmod](/docs/api-reference/python-api/tvm-te#tvmteindexmoda-b-spannone)(a,b[,span])|计算 indexdiv 的余数。a 和 b 非负。|
+|[truncdiv](/docs/api-reference/python-api/tvm-te#tvmtetruncdiva-b-spannone)(a,b[,span])|计算两个表达式的 truncdiv。|
+|[truncmod](/docs/api-reference/python-api/tvm-te#tvmtetruncmoda-b-spannone)(a,b[,span])|计算两个表达式的 truncmod。|
+|[floordiv](/docs/api-reference/python-api/tvm-te#tvmtefloordiva-b-spannone)(a,b[,span])|计算两个表达式的 floordiv。|
+|[floormod](/docs/api-reference/python-api/tvm-te#tvmtefloormoda-b-spannone)(a,b[,span])|计算两个表达式的 floormod。|
+|[logaddexp](/docs/api-reference/python-api/tvm-te#tvmtelogaddexpa-b-spannone)(a,b[,span])|计算两个表达式的 logaddexp。|
+|[comm_reducer](/docs/api-reference/python-api/tvm-te#tvmtecomm_reducerfcombine-fidentity-namereduce)(fcombine,fidentity[,name])|创建一个交换减速器用于减速。|
+|[min](/docs/api-reference/python-api/tvm-te#tvmteminexpr-axis-wherenone-initnone-args)(expr,axis[,where,init])|在轴上创建最小表达式。|
+|[max](/docs/api-reference/python-api/tvm-te#tvmtemaxexpr-axis-wherenone-initnone-args)(expr,axis[,where,init])|在轴上创建最大表达式。|
+|[sum](/docs/api-reference/python-api/tvm-te#tvmtesumexpr-axis-wherenone-initnone-args)(expr,axis[,where,init])|在轴上创建一个求和表达式。|
+|[add](/docs/api-reference/python-api/tvm-te#tvmteaddlhs-rhs-spannone)(lhs,rhs[,span])|通用加法运算符。|
+|[subtract](/docs/api-reference/python-api/tvm-te#tvmtesubtractlhs-rhs-spannone)(lhs,rhs[,span])|通用减法运算符。|
+|[multiply](/docs/api-reference/python-api/tvm-te#tvmtemultiplylhs-rhs-spannone)(lhs,rhs[,span])|通用乘法运算符。|
+|[tag_scope](/docs/api-reference/python-api/tvm-te#tvmtetag_scopetag)(tag)|运算符标签范围。|
+|[placeholder](/docs/api-reference/python-api/tvm-te#tvmteplaceholdershape-dtypenone-nameplaceholder)(shape[,dtype,name])|构造一个空的张量对象。|
+|[compute](/docs/api-reference/python-api/tvm-te#tvmtecomputeshape-fcompute-namecompute-tag-attrsnone-varargs_namesnone)(shape,fcompute[,name,tag,attrs,…])|通过计算形状域来构建一个新的张量。|
+|[scan](/docs/api-reference/python-api/tvm-te#tvmtescaninit-update-state_placeholder-inputsnone-namescan-tag-attrsnone)(init,update,state_placeholder[,…])|通过扫描轴来构建新的张量。|
+|[extern](/docs/api-reference/python-api/tvm-te#tvmteexternshape-inputs-fcompute-nameextern-dtypenone-in_buffersnone-out_buffersnone-tag-attrsnone)(shape,inputs,fcompute[,name,…])|通过外部函数计算多个张量。|
+|[var](/docs/api-reference/python-api/tvm-te#tvmtevarnametindex-dtypeint32-spannone)([name,dtype,span])|创建具有指定名称和数据类型的新变量。|
+|[size_var](/docs/api-reference/python-api/tvm-te#tvmtesize_varnamesize-dtypeint32-spannone)([name,dtype,span])|创建一个新变量表示张量形状的大小，它是非负的。|
+|[const](/docs/api-reference/python-api/tvm-te#tvmteconstvalue-dtypeint32-spannone)(value[,dtype,span])|创建具有指定值和数据类型的新常量。|
+|[thread_axis](/docs/api-reference/python-api/tvm-te#tvmtethread_axisdomnone-tag-name-spannone)([dom,tag,name,span])|创建一个新的 IterVar 来表示线程索引。|
+|[reduce_axis](/docs/api-reference/python-api/tvm-te#tvmtereduce_axisdom-namerv-thread_tag-spannone)(dom[,name,thread_tag,span])|创建一个新的 IterVar 进行缩减。|
+|[create_prim_func](/docs/api-reference/python-api/tvm-te#tvmtecreate_prim_funcopslisttensorvar-index_dtype_overridestrnone-none--primfunc)(ops[,index_dtype_override])|从张量表达式创建 TensorIR PrimFunc。|
+|[extern_primfunc](/docs/api-reference/python-api/tvm-te#tvmteextern_primfuncinput_tensorslisttensor-primfuncprimfunc-kwargs)(input_tensors,primfunc,…)|通过可调度的 TIR PrimFunc 计算张量。|
 
 **类:**
 
-|[TensorSlice](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensorslicetensor-indices)(tensor,indices)|用于从张量启用切片语法的辅助数据结构。|
+|[TensorSlice](/docs/api-reference/python-api/tvm-te#class-tvmtetensorslicetensor-indices)(tensor,indices)|用于从张量启用切片语法的辅助数据结构。|
 |:----|:----|
-|[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)|Tensor 对象，构造方法参见 function.Tensor|
-|[PlaceholderOp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmteplaceholderop)|占位符操作。|
-|[ComputeOp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtecomputeop)|标量运算。|
-|[ScanOp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtescanop)|扫描操作。|
-|[ExternOp](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmteexternop)|外部操作。|
+|[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)|Tensor 对象，构造方法参见 function.Tensor|
+|[PlaceholderOp](/docs/api-reference/python-api/tvm-te#class-tvmteplaceholderop)|占位符操作。|
+|[ComputeOp](/docs/api-reference/python-api/tvm-te#class-tvmtecomputeop)|标量运算。|
+|[ScanOp](/docs/api-reference/python-api/tvm-te#class-tvmtescanop)|扫描操作。|
+|[ExternOp](/docs/api-reference/python-api/tvm-te#class-tvmteexternop)|外部操作。|
 
 ## tvm.te.any(args*, *span=None*)
 
@@ -94,7 +94,7 @@ title: tvm.te
 创建参数中所有条件的并集的新表达式。
 * **参数：**
    * **args**（[列表](https://docs.python.org/3/library/stdtypes.html#list)）：符号布尔表达式列表。
-   * *span*（*可选*[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * *span*（*可选*[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：expr**：表达式。
 * **返回类型：** Expr。
 
@@ -107,7 +107,7 @@ title: tvm.te
 创建一个新的表达式，该表达式表示所有参数条件的交集。
 * **参数：**
    * **args**（[列表](https://docs.python.org/3/library/stdtypes.html#list)）：符号布尔表达式列表。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：expr**：表达式
 * **返回类型：** Expr。
 
@@ -119,20 +119,20 @@ title: tvm.te
 dtype 的最小值。
 * **参数：**
    * **dtype**（[str](https://docs.python.org/3/library/stdtypes.html#str)）：数据类型。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：value**：dtype 的最小值。
 * **返回类型：** tvm.Expr。
 
 
 **别名**`tvm.tir.min_value()`
 
-## tvm.te.max_value(*dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str), *span:*[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Any](https://docs.python.org/3/library/typing.html#typing.Any)
+## tvm.te.max_value(*dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str), *span:*[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [Any](https://docs.python.org/3/library/typing.html#typing.Any)
 
 
 dtype 的最大值。
 * **参数：**
    * **dtype**（[str](https://docs.python.org/3/library/stdtypes.html#str)）*：*数据类型。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：value**：dtype 的最大值。
 * **返回类型：** tvm.Expr。
 
@@ -150,7 +150,7 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
    * **args**（*Expr**或*** *Buffers*[列表](https://docs.python.org/3/library/stdtypes.html#list)*。*）**：** 位置参数。
    * **trace_action**（*str.*）：跟踪操作的名称。
 * **返回：call**：调用表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 :::info 另见
@@ -167,9 +167,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 取输入 x 的指数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
-* **返回：y** [：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **返回：y** [：](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)结果。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.exp()`
@@ -178,9 +178,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 取输入 x 的高斯误差函数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
-* **返回：y** [：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **返回：y** [：](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)结果。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.erf()`
@@ -188,9 +188,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 ## tvm.te.tanh(*x*)
 
 对输入 x 取双曲 tanh。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
-* **返回：y** [：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **返回：y** [：](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)结果。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.tanh()`
@@ -199,9 +199,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 快速获取 S 形函数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.sigmoid()`
@@ -210,9 +210,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取对数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.log()`
@@ -221,9 +221,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取 tan。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** **：** 结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.tan()`
@@ -231,9 +231,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 ## tvm.te.cos(*x*)
 
 取输入 x 的 cos。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.cos()`
@@ -242,9 +242,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取正弦值。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.sin()`
@@ -253,9 +253,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取平方根。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.sqrt()`
@@ -264,9 +264,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 取输入 x 的平方根的倒数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.rsqrt()`
@@ -276,10 +276,10 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 取浮点输入 x 的下限。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）[：](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.floor()`
@@ -289,10 +289,10 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 对浮点输入 x 取上限。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )**：** 输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )**：** 输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.ceil()`
@@ -301,9 +301,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取 sinh。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.sinh()`
@@ -312,9 +312,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取余弦值。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.cosh()`
@@ -323,9 +323,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取 log2。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.log2()`
@@ -334,9 +334,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取 log10。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.log10()`
@@ -345,9 +345,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 取输入 x 的 asin。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.asin()`
@@ -356,9 +356,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 取输入 x 的正弦值。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.asinh()`
@@ -367,9 +367,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取余数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.acos()`
@@ -378,9 +378,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取余数。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.acosh()`
@@ -389,9 +389,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 取正切值。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.atan()`
@@ -400,9 +400,9 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 
 对输入 x 进行 atanh 处理。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** *：* 结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.atanh()`
@@ -415,10 +415,10 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 标量 x 的截断值是最接近的整数 i，它比 x 更接近零。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.trunc()`
@@ -428,10 +428,10 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 逐个获取输入元素的绝对值。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.abs()`
@@ -441,10 +441,10 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 将数组元素四舍五入为最接近的整数。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * span（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * span（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.round()`
@@ -454,10 +454,10 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 将数组元素四舍五入为最接近的整数。此内在函数使用 llvm.nearbyint 而不是 llvm.round，后者速度更快，但结果与 te.round 不同。值得注意的是，nearbyint 根据舍入模式进行舍入，而 te.round (llvm.round) 则忽略该模式。有关两者之间的差异，请参阅： https: [//en.cppreference.com/w/cpp/numeric/math/round](https://en.cppreference.com/w/cpp/numeric/math/round) [https://en.cppreference.com/w/cpp/numeric/math/nearbyint](https://en.cppreference.com/w/cpp/numeric/math/nearbyint)。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** **：** 结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.nearbyint()`
@@ -467,11 +467,11 @@ trace 函数允许在运行时跟踪特定的张量。跟踪值应作为最后�
 
 x 次方 y。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * **y** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：指数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * **y** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：指数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：z** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.power()`
@@ -479,9 +479,9 @@ x 次方 y。
 ## tvm.te.popcount(*x*)
 
 计算输入 x 中设置位的数量。
-* **参数：x** ([PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
+* **参数：x** ([PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr))：输入参数。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.popcount()`
@@ -491,10 +491,10 @@ x 次方 y。
 
 返回 x 除以 y 后的余数，其符号与 x 相同。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * **y** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * **y** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
 * **返回：z** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.fmod()`
@@ -504,12 +504,12 @@ x 次方 y。
 
 条件选择表达式。
 * **参数：**
-   * **cond** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：条件。
-   * **t** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )**：** 如果 cond 为真，则结果表达式。
-   * **f** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：如果 cond 为假，则结果表达式。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **cond** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：条件。
+   * **t** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )**：** 如果 cond 为真，则结果表达式。
+   * **f** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：如果 cond 为假，则结果表达式。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：result**：条件表达式的结果。
-* **返回类型：**[Node](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirnode)。
+* **返回类型：**[Node](/docs/api-reference/python-api/tvm-ir#class-tvmirnode)。
 
 :::Note
 
@@ -525,10 +525,10 @@ x 次方 y。
 
 检查输入值是否为 Nan。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )*：* 输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )*：* 输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.isnan()`
@@ -538,10 +538,10 @@ x 次方 y。
 
 检查输入值是否有限。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源代码中的位置。
 * **返回：y** *：* 结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.isfinite()`
@@ -551,10 +551,10 @@ x 次方 y。
 
 检查输入值是否无限。
 * **参数：**
-   * **x** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
-   * *span*（*可选*[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)此运算符在源代码中的位置。
+   * **x** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：输入参数。
+   * *span*（*可选*[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）[：](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)此运算符在源代码中的位置。
 * **返回：y** ：结果。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.isinf()`
@@ -564,11 +564,11 @@ x 次方 y。
 
 按照 C/C++ 语义计算 a / b。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数，已知为非负数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数，已知为非负。
-   * span（*可选*[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数，已知为非负数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数，已知为非负。
+   * span（*可选*[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 :::Note
 
@@ -584,11 +584,11 @@ x 次方 y。
 
 计算 floor(a / b)，其中 a 和 b 为非负数。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数，已知为非负数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数，已知为非负。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数，已知为非负数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数，已知为非负。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 :::Note
 
@@ -604,11 +604,11 @@ x 次方 y。
 
 计算 indexdiv 的余数。a 和 b 非负。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )`：`左侧操作数，已知为非负数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数，已知为非负。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )`：`左侧操作数，已知为非负数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数，已知为非负。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 :::Note
 
@@ -624,11 +624,11 @@ x 次方 y。
 
 计算两个表达式的 truncdiv。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 :::Note
 
@@ -644,11 +644,11 @@ x 次方 y。
 
 计算两个表达式的 truncmod。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
-   * *span*（*可选*[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
+   * *span*（*可选*[[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）[：](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 :::Note
 
@@ -664,11 +664,11 @@ x 次方 y。
 
 计算两个表达式的 floordiv。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.floordiv()`
@@ -678,11 +678,11 @@ x 次方 y。
 
 计算两个表达式的 floormod。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
-   * *span*（*可选*[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：右侧操作数。
+   * *span*（*可选*[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.floormod()`
@@ -692,11 +692,11 @@ x 次方 y。
 
 计算两个表达式的 logaddexp。
 * **参数：**
-   * **a** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
-   * **b** ( [PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )**：** 右侧操作数。
-   * span（*可选*[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **a** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )：左侧操作数。
+   * **b** ( [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr) )**：** 右侧操作数。
+   * span（*可选*[[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：res**：结果表达式。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **别名**`tvm.tir.logaddexp()`
@@ -734,11 +734,11 @@ B = te.compute((n,), lambda i: mysum(A[i, k], axis=k), name="B")
 
 在轴上创建最小表达式。
 * **参数：**
-   * **expr**（[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)）：源表达式。
-   * **轴**（[IterVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)）：缩减 IterVar 轴
+   * **expr**（[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)）：源表达式。
+   * **轴**（[IterVar](/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)）：缩减 IterVar 轴
    * *where*（*可选*，*Expr*）：减少的过滤谓词。
 * **返回：value**：结果值。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **示例**
@@ -767,11 +767,11 @@ min_res = tvm.min(m, n)
 
 在轴上创建最大表达式。
 * **参数：**
-   * **expr**（[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)）：源表达式。
-   * **轴**（[IterVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)）：缩减 IterVar 轴。
+   * **expr**（[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)）：源表达式。
+   * **轴**（[IterVar](/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)）：缩减 IterVar 轴。
    * *where**（*可选**，*Expr*）：减少的过滤谓词。
 * **返回：value**：结果值。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **示例**
@@ -800,11 +800,11 @@ max_res = tvm.max(m, n)
 
 在轴上创建一个求和表达式。
 * **参数：**
-   * **expr**（[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)）：源表达式。
-   * **轴**（[IterVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)）：缩减 IterVar 轴。
+   * **expr**（[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)）：源表达式。
+   * **轴**（[IterVar](/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)）：缩减 IterVar 轴。
    * *where**（*可选**，*Expr*）：减少的过滤谓词。
 * **返回：value**：结果值。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 
 **示例**
@@ -835,7 +835,7 @@ sum_res = tvm.sum(m, n)
 * **参数：**
    * **lhs**（[对象](https://docs.python.org/3/library/functions.html#object)）：左操作数。
    * **rhs**（[对象](https://docs.python.org/3/library/functions.html#object)）：右操作数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：op**：加法运算的结果 Expr。
 * **返回类型：** tvm.Expr。
 
@@ -848,8 +848,8 @@ sum_res = tvm.sum(m, n)
 通用减法运算符。
 * **参数：**
    * **lhs**（[对象](https://docs.python.org/3/library/functions.html#object)）：左操作数。
-   * **rhs**（[对象](https://docs.python.org/3/library/functions.html#object)）[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)右操作数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
+   * **rhs**（[对象](https://docs.python.org/3/library/functions.html#object)）[：](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)右操作数。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此运算符在源中的位置。
 * **返回：op**：减法运算的结果 Expr。
 * **返回类型：** tvm.Expr。
 
@@ -863,7 +863,7 @@ sum_res = tvm.sum(m, n)
 * **参数：**
    * **lhs**（[对象](https://docs.python.org/3/library/functions.html#object)）：左操作数。
    * **rhs**（[对象](https://docs.python.org/3/library/functions.html#object)）*：* 右操作数。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）*：* 此运算符在源中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）*：* 此运算符在源中的位置。
 * **返回：op**：乘法运算的结果 Expr。
 * **返回类型：** tvm.Expr。
 
@@ -878,12 +878,12 @@ sum_res = tvm.sum(m, n)
 
 **方法：**
 
-|[asobject](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#asobject)()|将切片转换为对象。|
+|[asobject](/docs/api-reference/python-api/tvm-te#asobject)()|将切片转换为对象。|
 |:----|:----|
 
 **属性：**
 
-|[dtype](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#property-dtype)|张量的数据内容。|
+|[dtype](/docs/api-reference/python-api/tvm-te#property-dtype)|张量的数据内容。|
 |:----|:----|
 
 ### asobject()
@@ -902,7 +902,7 @@ Tensor 对象，构造方法参见 function.Tensor
 
 **属性：**
 
-|[ndim](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#property-ndim)|张量的维度。|
+|[ndim](/docs/api-reference/python-api/tvm-te#property-ndim)|张量的维度。|
 |:----|:----|
 
 ## *property* ndim
@@ -942,11 +942,11 @@ def compute_relu(data):
 
 构造一个空的张量对象。
 * **参数：**
-   * **shape**（*Expr的*[Tuple](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)）：张量的形状。
+   * **shape**（*Expr的*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)）：张量的形状。
    * **dtype**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：张量的数据类型。
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：张量的名称提示。
 * **返回：tensor**：创建的张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.te.compute(*shape*, *fcompute*, *name='compute'*, *tag=''*, *attrs=None*, *varargs_names=None*)
 
@@ -956,28 +956,28 @@ def compute_relu(data):
 
 计算规则是 result[axis] = fcompute(axis)
 * **参数：**
-   * **shape**（*Expr的*[元组](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)）：张量的形状。
+   * **shape**（*Expr的*[元组](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)）：张量的形状。
    * **fcompute**（*indices–>value 的lambda 函数*）：指定输入源表达式。
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）*：* 张量的名称提示。
    * **tag**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：有关计算的附加标签信息。
    * **attrs**（[dict](https://docs.python.org/3/library/stdtypes.html#dict)*，可选*）**：** 有关计算的附加辅助属性。
    * **varargs_names**（[list](https://docs.python.org/3/library/stdtypes.html#list)*，可选*）[：](https://docs.python.org/3/library/stdtypes.html#list)每个可变参数使用的名称。如果未提供，可变参数将被称为 i1、i2……
 * **返回：tensor**：创建的张量。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 ## tvm.te.scan(*init*, *update*, *state_placeholder*, *inputs=None*, *name='scan'*, *tag=''*, *attrs=None*)
 
 通过扫描轴来构建新的张量。
 * **参数：**
-   * **init** ( [Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*或Tensor*[列表)](https://docs.python.org/3/library/stdtypes.html#list)[：](https://docs.python.org/3/library/stdtypes.html#list)[第一个 init.shape[0] 时间戳](https://docs.python.org/3/library/stdtypes.html#list)[的](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)初始条件。
-   * **更新**（[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*或*[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)[列表](https://docs.python.org/3/library/stdtypes.html#list)*）：由符号*张量给出的扫描更新规则。
-   * **state_placeholder**（[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*或Tensor*[列表](https://docs.python.org/3/library/stdtypes.html#list)）：更新使用的占位符变量[。](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)
-   * **输入**( [Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor) 或 *Tensor* [列表](https://docs.python.org/3/library/stdtypes.html#list)*，可选*)：扫描的输入列表。这不是必需的，但有助于编译器更快地检测扫描主体[。](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)
+   * **init** ( [Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*或Tensor*[列表)](https://docs.python.org/3/library/stdtypes.html#list)[：](https://docs.python.org/3/library/stdtypes.html#list)[第一个 init.shape[0] 时间戳](https://docs.python.org/3/library/stdtypes.html#list)[的](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)初始条件。
+   * **更新**（[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*或*[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)[列表](https://docs.python.org/3/library/stdtypes.html#list)*）：由符号*张量给出的扫描更新规则。
+   * **state_placeholder**（[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*或Tensor*[列表](https://docs.python.org/3/library/stdtypes.html#list)）：更新使用的占位符变量[。](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)
+   * **输入**( [Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor) 或 *Tensor* [列表](https://docs.python.org/3/library/stdtypes.html#list)*，可选*)：扫描的输入列表。这不是必需的，但有助于编译器更快地检测扫描主体[。](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：张量的名称提示。
    * **tag**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：有关计算的附加标签信息。
    * **attrs**（[dict](https://docs.python.org/3/library/stdtypes.html#dict)*，可选*）：有关计算的附加辅助属性。
 * **返回：tensor**：创建的张量或张量元组包含多个输出。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor) or [list](https://docs.python.org/3/library/stdtypes.html#list) of Tensors。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor) or [list](https://docs.python.org/3/library/stdtypes.html#list) of Tensors。
 
 
 **示例**
@@ -998,20 +998,20 @@ res = tvm.te.scan(s_init, s_update, s_state, X)
 通过外部函数计算多个张量。
    * **参数：**
    * **shape**（[元组](https://docs.python.org/3/library/stdtypes.html#tuple)*或元组*[列表](https://docs.python.org/3/library/stdtypes.html#list)*。*）：输出的形状。
-   * **输入**（*Tensor*[列表）](https://docs.python.org/3/library/stdtypes.html#list)[：](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)输入
+   * **输入**（*Tensor*[列表）](https://docs.python.org/3/library/stdtypes.html#list)[：](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)输入
    * *fcompute**（*输入**的**lambda 函数*，*输出–> stmt*）***：*** 指定用于执行计算的 IR 语句。请参阅以下注释以了解 fcompute 的函数签名。
 
 :::Note
 * **参数**
-   * *ins* (list of [tvm.tir.Buffer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输入的占位符。
-   * *outs* (list of [tvm.tir.Buffer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输出的占位符。
-   * *返回：stmt(*[tvm.tir.Stmt](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirstmt)*)* ：执行数组计算的语句。
+   * *ins* (list of [tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输入的占位符。
+   * *outs* (list of [tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输出的占位符。
+   * *返回：stmt(*[tvm.tir.Stmt](/docs/api-reference/python-api/tvm-tir#class-tvmtirstmt)*)* ：执行数组计算的语句。
 
 :::
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）**：** 张量的名称提示。
    * **dtype**（[str](https://docs.python.org/3/library/stdtypes.html#str)*或*[str](https://docs.python.org/3/library/stdtypes.html#str)[列表](https://docs.python.org/3/library/stdtypes.html#list)*，可选）：输出的数据类型，默认情况*下 dtype 与输入相同。
-   * **in_buffers**（[tvm.tir.Buffer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*或**tvm.tir.Buffer***[列表](https://docs.python.org/3/library/stdtypes.html#list)*，可选*）：输入缓冲区[。](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)
-   * **out_buffers**（[tvm.tir.Buffer](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*或**tvm.tir.Buffer***[列表](https://docs.python.org/3/library/stdtypes.html#list)，*可选*）：输出缓冲区[。](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)
+   * **in_buffers**（[tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*或**tvm.tir.Buffer***[列表](https://docs.python.org/3/library/stdtypes.html#list)*，可选*）：输入缓冲区[。](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)
+   * **out_buffers**（[tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*或**tvm.tir.Buffer***[列表](https://docs.python.org/3/library/stdtypes.html#list)，*可选*）：输出缓冲区[。](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)
 
 **tag: str, optional**
 
@@ -1021,7 +1021,7 @@ res = tvm.te.scan(s_init, s_update, s_state, X)
 
 有关计算的附加辅助属性。
 * **返回：tensor**：创建的张量或张量元组包含多个输出。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor) or [list](https://docs.python.org/3/library/stdtypes.html#list) of Tensors。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor) or [list](https://docs.python.org/3/library/stdtypes.html#list) of Tensors。
 
 
 **示例**
@@ -1043,9 +1043,9 @@ C = te.extern((n, m), [A, B],
 * **参数：**
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)）：名称。
    * **dtype** ( [str](https://docs.python.org/3/library/stdtypes.html#str) )：数据类型。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此变量在源中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此变量在源中的位置。
 * **返回：var**：结果符号变量。
-* **返回类型：**[tir.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)。
+* **返回类型：**[tir.Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)。
 
 ## tvm.te.size_var(*name='size'*, *dtype='int32'*, *span=None*)
 
@@ -1054,9 +1054,9 @@ C = te.extern((n, m), [A, B],
 * **参数：**
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)）：名称。
    * **dtype** ( [str](https://docs.python.org/3/library/stdtypes.html#str) )*：* 数据类型。
-   * *span**（*可选**[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此变量在源中的位置。
+   * *span**（*可选**[[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此变量在源中的位置。
 * **返回：var**：结果符号形状变量。
-* **返回类型：**[SizeVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirsizevarnamestr-dtypestrtype-spanspannone-none)。
+* **返回类型：**[SizeVar](/docs/api-reference/python-api/tvm-tir#class-tvmtirsizevarnamestr-dtypestrtype-spanspannone-none)。
 
 ## tvm.te.const(*value*, *dtype='int32'*, *span=None*)
 
@@ -1065,39 +1065,39 @@ C = te.extern((n, m), [A, B],
 * **参数：**
    * *value* ( *Union[*[bool](https://docs.python.org/3/library/functions.html#bool)*,*[int](https://docs.python.org/3/library/functions.html#int)*,*[float](https://docs.python.org/3/library/functions.html#float)*,numpy.ndarray,tvm.nd.NDArray]* )*：* 常量值。
    * **dtype** ( [str](https://docs.python.org/3/library/stdtypes.html#str) )：数据类型。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）*：* 此变量在源中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）*：* 此变量在源中的位置。
 * **返回：const**：结果常量 expr。
-* **返回类型：**[PrimExpr](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
+* **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
 ## tvm.te.thread_axis(*dom=None*, *tag=''*, *name=''*, *span=None*)
 
 
 创建一个新的 IterVar 来表示线程索引。
 * **参数：**
-   * **dom** ( [Range](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrangebeginprimexpr-endprimexprnone-none-spanspannone-none)*或*[str](https://docs.python.org/3/library/stdtypes.html#str) )**：** 迭代的范围，当传入 str 时，dom 设置为 None，str 作为标签。
+   * **dom** ( [Range](/docs/api-reference/python-api/tvm-ir#class-tvmirrangebeginprimexpr-endprimexprnone-none-spanspannone-none)*或*[str](https://docs.python.org/3/library/stdtypes.html#str) )**：** 迭代的范围，当传入 str 时，dom 设置为 None，str 作为标签。
    * **tag**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：线程标签。
    * **name**（[str](https://docs.python.org/3/library/stdtypes.html#str)*，可选*）：变量的名称。
-   * span（*可选*[[Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）**：** 此变量在源中的位置。
+   * span（*可选*[[Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）**：** 此变量在源中的位置。
 * **返回：axis**：线程迭代变量。
-* **返回类型：**[IterVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)。
+* **返回类型：**[IterVar](/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)。
 
 ## tvm.te.reduce_axis(*dom*, *name='rv'*, *thread_tag=''*, *span=None*)
 
 
 创建一个新的 IterVar 进行缩减。
 * **参数：**
-   * **dom** ([范围](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirrangebeginprimexpr-endprimexprnone-none-spanspannone-none))**：** 迭代的范围。
+   * **dom** ([范围](/docs/api-reference/python-api/tvm-ir#class-tvmirrangebeginprimexpr-endprimexprnone-none-spanspannone-none))**：** 迭代的范围。
    * **name** ( [str](https://docs.python.org/3/library/stdtypes.html#str) )*：* 变量的名称。
    * *thread_tag**（*可选**[ [str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：thread_tag 的名称。
-   * *span**（*可选**[ [Span](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此变量在源中的位置。
+   * *span**（*可选**[ [Span](/docs/api-reference/python-api/tvm-ir#class-tvmirspansource_name-line-end_line-column-end_column)*]*）：此变量在源中的位置。
 * **返回：axis**：表示值的迭代变量。
-* **返回类型：**[IterVar](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)。
+* **返回类型：**[IterVar](/docs/api-reference/python-api/tvm-tir#class-tvmtiritervardomrange-varvarstr-iter_typeint-thread_tagstr--spanspannone-none)。
 
-## tvm.te.create_prim_func(*ops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*|*[Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)*]*, *index_dtype_override:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [PrimFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)
+## tvm.te.create_prim_func(*ops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*|*[Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)*]*, *index_dtype_override:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)
 
 
 从张量表达式创建 TensorIR PrimFunc。
-* **参数：ops** (*List**[****Union**[****_tensor.Tensor**,*** [tvm.tir.Var](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)***]****]*)：源表达式。
+* **参数：ops** (*List**[****Union**[****_tensor.Tensor**,*** [tvm.tir.Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)***]****]*)：源表达式。
 
 
 **示例**
@@ -1136,17 +1136,17 @@ def tir_matmul(a: T.handle, b: T.handle, c: T.handle) -> None:
             C[vi, vj] += A[vi, vk] * B[vj, vk]
 ```
 * **返回：func**：创建的函数。
-* **返回类型：**[tir.PrimFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)
+* **返回类型：**[tir.PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)
 
-## tvm.te.extern_primfunc(*input_tensors:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*]*, *primfunc:*[PrimFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone), ***kwargs*)
+## tvm.te.extern_primfunc(*input_tensors:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)*]*, *primfunc:*[PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone), ***kwargs*)
 
 
 通过可调度的 TIR PrimFunc 计算张量。
 * **参数：**
-   * **input_tensors**（[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor)[列表](https://docs.python.org/3/library/stdtypes.html#list)）：映射到相应 primfunc 输入参数的输入张量。
-   * **primfunc** ( [PrimFunc](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone) )：TIR PrimFunc。
+   * **input_tensors**（[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)[列表](https://docs.python.org/3/library/stdtypes.html#list)）：映射到相应 primfunc 输入参数的输入张量。
+   * **primfunc** ( [PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone) )：TIR PrimFunc。
 * **返回：tensor**：如果包含多个输出，则创建的张量或张量元组。
-* **返回类型：**[Tensor](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#class-tvmtetensor) or [list](https://docs.python.org/3/library/stdtypes.html#list) of Tensors。
+* **返回类型：**[Tensor](/docs/api-reference/python-api/tvm-te#class-tvmtetensor) or [list](https://docs.python.org/3/library/stdtypes.html#list) of Tensors。
 
 
 **示例**
@@ -1184,7 +1184,7 @@ C = te.extern_primfunc([A, B], func)
 
 **属性：**
 
-|[scan_axis](https://tvm.hyper.ai/docs/api-reference/python-api/tvm-te#property-scan_axis)|表示扫描轴，仅当它是 ScanOp 时定义。|
+|[scan_axis](/docs/api-reference/python-api/tvm-te#property-scan_axis)|表示扫描轴，仅当它是 ScanOp 时定义。|
 |:----|:----|
 
 ### *property* scan_axis
