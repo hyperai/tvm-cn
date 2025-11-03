@@ -125,7 +125,7 @@ VM 中可能的返回值。
    *    **f_preproc** ([str](https://docs.python.org/3/library/stdtypes.html#str)*,optional*)  – 在执行时间评估器之前我们要执行的预处理函数名称。
 
 
-:::Note
+:::note
 
 该函数将被调用 (1 + 数字 x 重复) 次，如果存在延迟初始化，则第一次调用将被丢弃。
 
