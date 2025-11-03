@@ -55,7 +55,7 @@ TVM RPC 服务器假定用户是可信的，需要在可信网络环境和加密
    * **reuse_addr** ( [bool](https://docs.python.org/3/library/functions.html#bool)*，可选*)：允许内核重用处于 TIME_WAIT 状态的本地套接字。
    * **timeout**（[float](https://docs.python.org/3/library/functions.html#float)*，可选*）：设置套接字上所有操作的超时时间。
 
-:::Note
+:::note
 
 TVM RPC 服务器假定用户是可信的，需要在可信网络环境和加密通道中使用。它允许将任意文件写入服务器，并为任何可以访问此 API 的人提供完整的远程代码执行能力。
 
@@ -229,7 +229,7 @@ RPC 客户端会话模块。
 * **返回：blob** ：来自文件的结果 blob。
 * **返回类型：**[bytearray](https://docs.python.org/3/library/stdtypes.html#bytearray)。
 
-:::Note
+:::note
 
 当本地客户端上没有可用的链接器时，此函数会很有帮助。
 
