@@ -158,7 +158,7 @@ TensorIR 调度 API 的命名空间。
 指令种类名称。
 * **类型：**[str](https://docs.python.org/3/library/stdtypes.html#str)。
 
-:::Note
+:::note
 
 目前函子属性尚未在 Python 端公开。
 
@@ -1885,7 +1885,7 @@ def after_rfactor(a: T.handle, b: T.handle) -> None:
                 B[vii] = 0.0
             B[vii] = B[vii] + B_rf[vi2, vii]
 ```
-:::Note
+:::note
 
 Rfactor 要求：1）循环只有一个子块，并且它是一个缩减块；2）循环是一个缩减循环，即循环变量只绑定到块绑定中的缩减变量；3）循环未并行化、矢量化、展开或绑定到任何线程轴；4）循环所在的块范围是分阶段管道；5）缩减块外部的最外层循环应将缩减块作为其第一个子块；6）最外层缩减循环应该只有一个子块；7）未绑定到块绑定中的任何缩减或数据并行变量的一元范围循环不应出现在某些缩减循环下；8）缩减块应该只写入一个缓冲区，并且它的 init 和 body 都是简单的 BufferStore，并且该模式注册为关联缩减器。预定义模式包括：加法、乘法、最小值和最大值；9）块顶部的每个循环不能同时绑定到数据并行和缩减块绑定； 10) `factor_axis 应在[-ndim(B) - 1, ndim(B)]范围内，其中 B 是归约块写入的缓冲区。负索引根据 numpy 约定进行规范化。
 
@@ -1957,7 +1957,7 @@ def after_storage_align(a: T.handle, c: T.handle) -> None:
 
 降低传递次数后，缓冲区 B 的步幅将为 [129, 1]。
 
-:::Note
+:::note
 
 Storage_align 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
@@ -2023,7 +2023,7 @@ def after_set_scope(
             vi, vj = T.axis.remap("SS", [i, j])
             C[vi, vj] = B_shared[vi, vj] + T.float32(1)
 ```
-:::Note
+:::note
 set_scope 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
 :::
@@ -2091,7 +2091,7 @@ def after_set_dtype(
             vi, vj = T.axis.remap("SS", [i, j]
             C[vi, vj] = T.cast(B[vi, vj], "float32") + 1.0
 ```
-:::Note
+:::note
 
 unsafe_set_dtype 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
@@ -2160,7 +2160,7 @@ def after_blockize(
                     T.writes(B[vio * 16 + vi, vjo * 16 + vj])
                     B[vio * 16 + vi, vjo * 16 + vj] = A[vio * 16 + vi, vjo * 16 + vj]                                                                   * T.float32(2)
 ```
-:::Note
+:::note
 
 blockize 要求给定循环下恰好有一个块，并且该块的绑定可以被从给定循环开始的循环所表示的子空间整除。
 
@@ -2832,7 +2832,7 @@ def after_rolling_buffer(
                     C[ax0_1, ax1_1], B[ax0_1 % 6 + rv0, ax1_1 + rv1]
                 )
 ```
-:::Note
+:::note
 
 目标缓冲区的消费者块的 region_cover 属性将变为 false。
 
@@ -2852,7 +2852,7 @@ def after_rolling_buffer(
    * **buf_type** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：缓冲区类型：「读」/「写」。
    * **buf_index_array** (*List[*[int](https://docs.python.org/3/library/functions.html#int)*]*) ：我们隐藏访问的缓冲区索引数组。
 
-:::Note
+:::note
 
 此调度原语不安全，并且可能无法通过依赖性分析。unsafe_hide_buffer_access 的一个用例是隐藏对索引缓冲区的访问（例如在稀疏计算中），以便我们可以进一步对块进行张量化（出现在读/写区域中的索引缓冲区可能无法通过张量化原语中的模式匹配，而隐藏对这些缓冲区的访问可以解决这个问题）。
 
@@ -2928,7 +2928,7 @@ def after_annotate_buffer_access(
 
 这将块“B”中缓冲区 A（索引 0）的读取区域注释为块迭代域中每个 (vi, vj) 的 [vi-1:vi+1, vj-1:vj+1]。
 
-:::Note
+:::note
 
 此函数允许手动指定读取或写入区域，这在编译器无法准确推断访问模式（例如复杂的数据依赖型访问）的情况下非常有用。它会覆盖指定缓冲区的自动推断区域。该函数会向块添加一个注释，指示已为给定索引处的缓冲区提供了显式区域。此注释在 CompactBufferAllocation 过程中用于遵循手动指定的区域，而不是依赖自动推断。
 
@@ -3001,7 +3001,7 @@ Only 3 types of replacements are allowed: from src_sref->stmt to tgt_stmt. 1) Bl
    * **tgt_stmt** (*Union[*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[BlockRealize](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockrealizeiter_valueslistprimexpr-predicateprimexprbool-blockblock-spanspannone-none)*]*) ：要替换为的语句。
    * **block_sref_reuse** (*Optional**[****Dict**[***[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)***,*** [Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)***]****]= None*) ：将旧块（在 src_sref–>stmt 下的子树中被替换）映射到新块（在 tgt_stmt 下的子树中被替换），并强制在它们之间重用 sref（而不是创建新的 sref），即在被替换之后，指向旧块的 sref 将指向新块。
 
-:::Note
+:::note
 
 根据循环变量的重用自动检测循环引用的重用。
 
