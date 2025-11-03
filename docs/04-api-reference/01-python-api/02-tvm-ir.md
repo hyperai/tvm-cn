@@ -124,7 +124,7 @@ title: tvm.ir
 * **返回类型：**[Node](/docs/api-reference/python-api/tvm-ir#class-tvmirnode)
 
 
-:::Note
+:::note
 
 如果创建的节点是 AttrsNode 的实例，那么创建函数还将运行 Attrs 支持的边界检查和默认值设置
 
@@ -380,7 +380,7 @@ PrimExpr 用于低级代码优化和整数分析。
 
 
 
-:::Note
+:::note
 
 如果 `end` 参数不为 `None`，构造函数会创建范围 `[begin, end)`。否则，它会创建范围 `[0, begin)`
 
