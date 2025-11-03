@@ -11,7 +11,7 @@ title: tvm.target
 TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 
 
-:::Note
+:::note
 
 选项列表包括：
 * **-device=<device name>**
@@ -57,7 +57,7 @@ TVM 的目标字符串格式为。`<target_kind> [-option=value]...`。
 目标设备信息，通过 TVM API 使用。
 
 
-:::Note
+:::note
 
 您可以使用构造函数或以下函数创建目标：
 * `tvm.target.arm_cpu()`创建 arm_cpu 目标。
