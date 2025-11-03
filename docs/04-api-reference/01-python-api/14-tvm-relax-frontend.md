@@ -942,7 +942,7 @@ $$\text{Exp}(x) = e^x$$
 * 返回类型：[Tensor  张量](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
-:::Note
+:::note
 
 输入张量需要具有浮点型。
 
@@ -986,7 +986,7 @@ $$\text{GeLU}(x) = 0.5 * x * (1 + \text{erf}(x * 0.5**0.5))$$
 * 返回类型：[Tensor  张量](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
 
-:::Note
+:::note
 
 输入张量需要具有浮点型
 
@@ -1077,7 +1077,7 @@ $$out = \frac{data - mean(data, axis)}{\sqrt{var(data, axis)+\epsilon}} * gamma 
 
 假设输入在轴 1 上的大小为 k，则 gamma 和 beta 的形状均为 (k,)。
 
-:::Note
+:::note
 
 该运算符可以进行优化以进行推理。
 
@@ -1356,7 +1356,7 @@ $$\text{ReLU6}(x) = \min(\max(x, 0), 6)$$
 
 使用 top_p 和 top_k 过滤后重新规范化概率，确保它们的总和为 1。
 
-:::Note
+:::note
 
 为了获得准确的结果，请确保概率介于 0 和 1 之间且总和为 1。
 
@@ -1410,7 +1410,7 @@ lv2 = repeat(x, repeats=2, axis=1)   # lv2 == [[1., 1., 2., 2.],
 * **返回：result**：变形的结果。
 * 返回类型：[Tensor  张量](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
-:::Note
+:::note
 
 推断`-1`仅在编译时进行。也就是说，如果`-1`在编译时无法推断出维度的长度，则会抛出错误。
 
@@ -1509,7 +1509,7 @@ $$\text{SiLU}(x) = x * \text{sigmoid}(x)$$
 * **返回：result**：计算结果。
 * 返回类型：Tensor  张量。
 
-:::Note
+:::note
 
 输入张量需要具有浮点型。
 
@@ -1528,7 +1528,7 @@ $$\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_j \exp(x_j)}$$
 * **返回：result**：计算结果。
 * 返回类型：[Tensor  张量](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
-:::Note
+:::note
 
 输入张量需要具有浮点型。
 
@@ -1583,7 +1583,7 @@ $$\text{Softplus}(x) = \frac{1}{\beta} \log(1 + e^{\beta x})$$
 * **返回：result**：计算结果。
 * 返回类型：[Tensor  张量](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)。
 
-:::Note
+:::note
 
 输入张量需要具有浮点型。
 
@@ -1664,7 +1664,7 @@ $$\text{Tanh}(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$
 * **返回：result**：计算结果。
 * 返回类型：Tensor  张量。
 
-:::Note
+:::note
 
 输入张量需要具有浮点型。
 
