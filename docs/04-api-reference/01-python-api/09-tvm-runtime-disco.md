@@ -96,7 +96,7 @@ Disco 会话中的一个模块。
 * **返回类型：** 各种类型。
 
 
-:::Note
+:::note
 
 不支持的类型的示例： - NDArray、DLTensor； - TVM 对象，包括 PackedFunc、Module 和 String。
 
