@@ -511,7 +511,7 @@ x 次方 y。
 * **返回：result**：条件表达式的结果。
 * **返回类型：**[Node](/docs/api-reference/python-api/tvm-ir#class-tvmirnode)。
 
-:::Note
+:::note
 
 与 Select 不同，if_then_else 不会执行不满足条件的分支。您可以使用它来防止越界访问。与 Select 不同，如果向量中某些通道的条件不同，则 if_then_else 无法进行向量化。
 
@@ -570,7 +570,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 当操作数为整数时，返回 truncdiv(a, b, span)。
 
@@ -590,7 +590,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 使用此函数拆分非负索引。此函数可以利用操作数的非负性。
 
@@ -610,7 +610,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 使用此函数拆分非负索引。此函数可以利用操作数的非负性。
 
@@ -630,7 +630,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 这是 C 中的默认整数除法行为。
 
@@ -650,7 +650,7 @@ x 次方 y。
 * **返回：res**：结果表达式。
 * **返回类型：**[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)。
 
-:::Note
+:::note
 
 这是 C 中的默认整数除法行为。
 
@@ -1001,7 +1001,7 @@ res = tvm.te.scan(s_init, s_update, s_state, X)
    * **输入**（*Tensor*[列表）](https://docs.python.org/3/library/stdtypes.html#list)[：](/docs/api-reference/python-api/tvm-te#class-tvmtetensor)输入
    * *fcompute**（*输入**的**lambda 函数*，*输出–> stmt*）***：*** 指定用于执行计算的 IR 语句。请参阅以下注释以了解 fcompute 的函数签名。
 
-:::Note
+:::note
 * **参数**
    * *ins* (list of [tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输入的占位符。
    * *outs* (list of [tvm.tir.Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) ：每个输出的占位符。
