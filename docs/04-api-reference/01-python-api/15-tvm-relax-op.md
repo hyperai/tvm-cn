@@ -993,7 +993,7 @@ x.shape = (2, 3, 4), shape = (-1,), result.shape = (24,)
 * **返回类型：** relax.Expr。
 
 
- :::Note
+ :::note
 
 `-1` 推理仅在编译时执行。也就是说，在任何情况下，如果 `-1` 的维度长度不能在编译时推断，将会抛出错误。
 
@@ -1272,7 +1272,7 @@ multinomial_from_uniform(prob, usample, sample_indices)
 * **返回：result** ：一个包含非零元素索引的二维张量。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 该函数等价于 onnx.nonzero。
 
@@ -1514,7 +1514,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1528,7 +1528,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1543,7 +1543,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1557,7 +1557,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1572,7 +1572,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1587,7 +1587,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1631,7 +1631,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1646,7 +1646,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1670,7 +1670,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1721,7 +1721,7 @@ cumsum(a, dtype=int32)  # dtype should be provided to get the expected results
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1764,7 +1764,7 @@ $$1/sqrt(x)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1779,7 +1779,7 @@ $$1/sqrt(x)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1803,7 +1803,7 @@ $$1/sqrt(x)$$
 * **返回：result** *：* 计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1818,7 +1818,7 @@ $$1/sqrt(x)$$
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1832,7 +1832,7 @@ $$1/sqrt(x)$$
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1856,7 +1856,7 @@ $$1/sqrt(x)$$
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1870,7 +1870,7 @@ $$1/sqrt(x)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -1990,7 +1990,7 @@ $$1/sqrt(x)$$
 所有输入张量都是 BSNH 布局的 4 维张量。
 
 $$FMA(Q, K, V) = \text{Softmax}(Q @ K^T) @ V$$
-:::Note
+:::note
 
 输入张量必须具有 float16 数据类型。
 
@@ -2044,7 +2044,7 @@ IRModule.script() 将注意力操作转换为注意力偏置，这与 TVMScript 
 
 $$FMA(Q, K, V) = \text{Softmax}(Q @ K^T) @ V$$
 
-:::Note
+:::note
 
 输入张量必须具有 float16 数据类型。
 
@@ -2255,7 +2255,7 @@ moving_var = moving_var * momentum + data_var * (1 - momentum)
 参数 `axis` 指定输入形状中哪个轴表示“通道”（单独归一化的组）。默认值为 1。指定 -1 将通道轴设置为输入形状中的最后一项。
 
 
-:::Note
+:::note
 
 这个运算符有两种模式：
 * 训练模式。
@@ -2489,7 +2489,7 @@ $$\text{GeLU}(x) = 0.5 * x * (1 + \text{erf}(x * 0.5**0.5))$$
 * **返回：result** -计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -2505,7 +2505,7 @@ $$\text{GELU}(x) = 0.5 * x * (1 + \text{Tanh}(\sqrt(2 / \pi) * (x + 0.044715 * x
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
@@ -2553,7 +2553,7 @@ $$out = \frac{data - mean(data, axis)}{\sqrt{var(data, axis)+\epsilon}} * gamma 
 
 假设输入在轴 1 上的大小为 k，那么 gamma 和 beta 的形状都是(k,)。
 
-:::Note
+:::note
 
 这个运算符可以在推理时被优化掉。
 
@@ -2803,7 +2803,7 @@ $$\text{SiLU}(x) = x * \text{sigmoid}(x)$$
 * **返回：result** ：计算结果。
 * **返回类型：** relax.Expr。
 
-:::Note
+:::note
 
 输入张量必须具有 float dtype。
 
