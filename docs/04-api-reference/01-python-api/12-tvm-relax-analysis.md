@@ -12,7 +12,7 @@ Relax IR 分析。
 返回细粒度基础检查的结果。
 
 
-:::Note
+:::note
 
 基本检查带有细粒度的失败级别。
 * FAIL_L0：lhs 和 rhs 根本没有交集。
@@ -106,7 +106,7 @@ Relax IR 分析。
 * **返回：** **ret**：派生的返回值结构信息。
 * **返回类型：** [StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo)。
 
-:::Note
+:::note
 
 这是一个内部派生函数，在这种情况下，call.op 字段被忽略，并且派生仅依赖于 func_sinfo。
 
