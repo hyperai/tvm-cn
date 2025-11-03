@@ -521,7 +521,7 @@ Split constant loop  拆分常量循环。
 * **返回：fpass**：结果通过。
 * **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 所有存储访问分析完成后运行此过程。
 
@@ -635,7 +635,7 @@ Split constant loop  拆分常量循环。
 * **返回：fpass**：结果通过。
 * **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 在 FlattenBuffer 之后运行此过程。
 
@@ -809,7 +809,7 @@ Split constant loop  拆分常量循环。
 * **返回：fpass**：结果通过。
 * **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 vthread 是一种将被弃用的遗留行为，但 vthread 的线程绑定在本阶段仍然统一。请使用 vthread.x、vthread.y 和 vthread.z 代替。
 
