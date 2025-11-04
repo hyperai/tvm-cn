@@ -35,7 +35,7 @@ Relax IR 分析。
 * **返回：** **ret**：expr 中的变量列表，按 DFS 后顺序排列。
 * **返回类型：** List[[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)]。
 
-## **tvm.relax.analysis.bound_vars(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenon)**]**
+## **tvm.relax.analysis.bound_vars(*expr:***[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)**)→**[List](https://docs.python.org/3/library/typing.html#typing.List)**[**[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)**]**
 
 
 返回表达式 expr 中的所有绑定变量。绑定变量是指所有在 expr 中声明的变量。它们仅在该 expr 内部有意义，并且只能在该 expr 中使用。:param expr: 表达式。:type expr: Expr
