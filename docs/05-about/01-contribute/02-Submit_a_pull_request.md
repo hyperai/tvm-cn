@@ -52,7 +52,7 @@ docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh --rev upstream/main
 ```
 * 请为你引入的新功能或修复添加测试用例。 
 *  为你编写的代码添加文档，详见 [文档指南](/docs/about/contribute/documentation)。
-*  创建 [Pull Request](/docs/about/contribute/Submit_a_pull_request#c%E6%9C%AC%E5%9C%B0)，并修复 CI 检查中发现的问题。 
+*  创建 [Pull Request](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)，并修复 CI 检查中发现的问题。 
 * 邀请其他贡献者进行代码审查，并根据审查反馈改进补丁，可以通过 `@用户名` 的方式在 PR 中标记审查者。PR 标题中的标签会自动通知订阅用户，因此请确保标题包含相关标签（例如 `[microTVM] Add a cool change`，而不是 `a cool change for microTVM`）。更多关于标签和消息写法的内容请见下方的提交信息指南。
    *  为了更快获得审查，我们鼓励你也积极审查他人的代码，互帮互助。 
    *  代码审查是一个提升代码质量的过程，请积极对待，尽量在审查前完善你的代码。我们非常欢迎那些不需要反复审查就可以合并的补丁。 
