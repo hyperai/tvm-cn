@@ -19,7 +19,7 @@ TVM 由社区成员共同开发，欢迎任何人参与贡献。我们重视各�
 以下是各方面贡献的指导：
 * [TVM 社区准则](/docs/about/contribute/TVM-Community-community)
    * [通用开发流程](/docs/about/contribute/TVM-Community-community#%E9%80%9A%E7%94%A8%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B)
-   * [战略决策流程](/docs/about/contribute/TVM-Community-community#%E6%88%98%E7%95%A5%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B) 
+   * [战略决策流程](/docs/about/contribute/TVM-Community-community#%E6%88%98%E7%95%A5%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B)
    * [提交者](/docs/about/contribute/TVM-Community-community#%E6%8F%90%E4%BA%A4%E8%80%85) 
    * [审阅者](/docs/about/contribute/TVM-Community-community#%E5%AE%A1%E9%98%85%E8%80%85)
 * [提交 Pull Request](/docs/about/contribute/Submit_a_pull_request)
