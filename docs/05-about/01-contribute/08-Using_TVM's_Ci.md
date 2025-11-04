@@ -9,7 +9,7 @@ title: 使用 TVM 的 CI
       * [Jenkins 日志](/docs/about/contribute/Using_TVM's_Ci#jenkins-%E6%97%A5%E5%BF%97)
       * [重现失败](/docs/about/contribute/Using_TVM's_Ci#%E5%A4%8D%E7%8E%B0%E5%A4%B1%E8%B4%A5)
    * [报告问题](/docs/about/contribute/Using_TVM's_Ci#%E6%8A%A5%E5%91%8A%E9%97%AE%E9%A2%98)
-* [维护者](/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97)[指南](/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97))
+* [维护者指南](/docs/about/contribute/Using_TVM's_Ci#%E7%BB%B4%E6%8A%A4%E8%80%85%E6%8C%87%E5%8D%97)
    * [保持 CI 通过的常规操作](/docs/about/contribute/Using_TVM's_Ci#%E4%BF%9D%E6%8C%81-ci-%E9%80%9A%E8%BF%87%E7%9A%84%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C)
       * [同时合并导致的 CI 中断](/docs/about/contribute/Using_TVM's_Ci#%E5%90%8C%E6%97%B6%E5%90%88%E5%B9%B6%E5%AF%BC%E8%87%B4%E7%9A%84-ci-%E4%B8%AD%E6%96%AD)
    * [处理不稳定测试](/docs/about/contribute/Using_TVM's_Ci#%E5%A4%84%E7%90%86%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%B5%8B%E8%AF%95)
@@ -17,7 +17,7 @@ title: 使用 TVM 的 CI
    * [Docker 镜像](/docs/about/contribute/Using_TVM's_Ci#docker-%E9%95%9C%E5%83%8F)
       * [更新 Docker 镜像标签](/docs/about/contribute/Using_TVM's_Ci#%E6%9B%B4%E6%96%B0-docker-%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE)
       * [添加新的 Docker 镜像](/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)
-   * [CI 监控轮值](/docs/about/contribute/Using_TVM's_Ci#%E6%B7%BB%E5%8A%A0%E6%96%B0-docker-%E9%95%9C%E5%83%8F)
+   * [CI 监控轮值](/docs/about/contribute/Using_TVM's_Ci#ci-%E7%9B%91%E6%8E%A7%E8%BD%AE%E5%80%BC)
 
 
 
@@ -181,5 +181,6 @@ Docker 镜像通过 [tvm-docker](https://ci.tlcpack.ai/job/tvm-docker/) 每晚
 ### CI 监控轮值
 
 部分测试不稳定可能因与 PR 无关的原因失败。[CI 监控轮值](https://github.com/apache/tvm/wiki/CI-Monitoring-Runbook) 监视这些失败并按需禁用测试。测试作者有责任最终修复并重新启用测试。
+
 
 
