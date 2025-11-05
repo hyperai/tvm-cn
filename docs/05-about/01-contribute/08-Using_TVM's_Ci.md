@@ -47,7 +47,7 @@ TVM 主要使用 Jenkins 运行 Linux 持续集成(CI)测试，通过 [Jenkinsf
 
 #### 复现失败
 
-大多数 TVM Python 测试使用 `pytest` 运行，可按[测试指南](/docs/about/contribute/Using_TVM's_Ci#%E6%B5%8B%E8%AF%95%E6%8C%87%E5%8D%97)操作复现。
+大多数 TVM Python 测试使用 `pytest` 运行，可按[测试指南](/docs/about/contribute/Submit_a_pull_request#%E6%B5%8B%E8%AF%95)操作复现。
 
 
 ### 报告问题
@@ -181,6 +181,7 @@ Docker 镜像通过 [tvm-docker](https://ci.tlcpack.ai/job/tvm-docker/) 每晚
 ### CI 监控轮值
 
 部分测试不稳定可能因与 PR 无关的原因失败。[CI 监控轮值](https://github.com/apache/tvm/wiki/CI-Monitoring-Runbook) 监视这些失败并按需禁用测试。测试作者有责任最终修复并重新启用测试。
+
 
 
 
