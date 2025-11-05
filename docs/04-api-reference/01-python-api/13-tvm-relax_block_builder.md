@@ -251,7 +251,7 @@ class Module:
         gv = relax.call_tir(te_func, (y,), R.Tensor((n + 1,), "float32"), (n,))
         return gv
 ```
-### match_cast(*value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *struct_info:*[StructInfo](https://tvm..org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo), *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
+### match_cast(*value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *struct_info:*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo), *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 发出 MatchCast。
