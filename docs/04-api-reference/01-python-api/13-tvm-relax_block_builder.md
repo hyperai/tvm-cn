@@ -88,7 +88,7 @@ mod = bb.get()
    * **pure** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*)：函数是否被注释为纯函数。
    * **private** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*)：函数是否被注释为私有函数。如果函数是私有的，则它没有全局符号属性。如果它不是私有的且不是内部函数，则它将具有全局符号属性（映射到函数名称）。
 * **返回：ret**：用于构建 Relax 函数节点的 FunctionScope。
-* **返回类型：**[FunctionScope](h/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderfunctionscopeblock_builder-name-params-attrs-is_pure)
+* **返回类型：**[FunctionScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderfunctionscopeblock_builder-name-params-attrs-is_pure)
 
 ## testing_scope(*def_vars:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)*]*) → [TestingScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_buildertestingscopeblock_builder-def_vars)
 
