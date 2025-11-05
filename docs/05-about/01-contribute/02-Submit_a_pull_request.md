@@ -179,7 +179,7 @@ docker/clear-stale-images.sh
 
 ### C++（本地）
 
-运行 C++ 测试需要安装 gtest，请参考 [启用 C++ 测试](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) 中的说明。
+运行 C++ 测试需要安装 gtest，请参考 [启用 C++ 测试](/docs/getting-started/installing-tvm/install-from-source#%E5%90%AF%E7%94%A8-c-%E6%B5%8B%E8%AF%95) 中的说明。
 
 
 ```plain
