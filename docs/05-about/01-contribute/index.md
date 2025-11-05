@@ -77,6 +77,6 @@ TVM 由社区成员共同开发，欢迎任何人参与贡献。我们重视各�
    * [补丁发布](/docs/about/contribute/Release_Process#%E8%A1%A5%E4%B8%81%E5%8F%91%E5%B8%83)
 * [错误处理指南](/docs/about/contribute/error_handling-guide)
    * [在 C++ 中抛出特定错误](/docs/about/contribute/error_handling-guide#%E5%9C%A8-c-%E4%B8%AD%E6%8A%9B%E5%87%BA%E7%89%B9%E5%AE%9A%E9%94%99%E8%AF%AF)
-   * [如何选择错误类型](/docs/about/contribute/error_handling-guide#%E5%9C%A8-c-%E4%B8%AD%E6%8A%9B%E5%87%BA%E7%89%B9%E5%AE%9A%E9%94%99%E8%AF%AF)
+   * [如何选择错误类型](/docs/about/contribute/error_handling-guide#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B)
 
 
