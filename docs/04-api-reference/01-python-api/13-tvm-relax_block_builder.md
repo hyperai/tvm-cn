@@ -278,7 +278,7 @@ class Module:
 为函数发出输出。
 * **参数：**
    * **output** (*Expr|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)|List[*Expr]*)：当前块/函数的输出。
-   * **params** ([tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|List[***[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,optional)[：](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)要构建的函数的参数。如果 params 为 None，则表示 params 已在函数中初始化并具有作用域。
+   * **params** ([tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|List[***[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,optional)[：](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)要构建的函数的参数。如果 params 为 None，则表示 params 已在函数中初始化并具有作用域。
 * **返回：gvar：** 代表函数的 GlobalVar。
 * **返回类型：**[tvm.ir.GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
@@ -317,7 +317,7 @@ class Module:
 * **返回：ret：** 生成的名称。
 * **返回类型：** [str](https://docs.python.org/3/library/stdtypes.html#str)
 
-### add_func(*func:*[BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc), *func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [GlobalVar](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+### add_func(*func:*[BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc), *func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
 
 向正在构建的 IRModule 添加 Relax 函数或 TIR PrimFunc。
@@ -325,14 +325,14 @@ class Module:
    * **func** ([BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc))[：](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)要添加的函数。
    * **func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str))：要添加的函数的名称。
 * **返回：gvar**：与添加的函数绑定的全局变量。
-* **返回类型：**[GlobalVar](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+* **返回类型：**[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
-### update_func(*gv:*[GlobalVar](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar), *updated_func:*[BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)) → [None](https://docs.python.org/3/library/constants.html#None)
+### update_func(*gv:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *updated_func:*[BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 向正在构建的 IRModule 添加 Relax 函数或 TIR PrimFunc。
 * **参数：**
-   * **gv** ([GlobalVar](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar))：引用要更新的函数的全局变量。
+   * **gv** ([GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none))：引用要更新的函数的全局变量。
    * **updated_func** ([BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc))：更新后的函数。
 
 ### current_block_is_dataflow() → [bool](https://docs.python.org/3/library/functions.html#bool)
