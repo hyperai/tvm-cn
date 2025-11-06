@@ -272,7 +272,7 @@ class Module:
 * **返回：ret**：与输出绑定的返回变量。
 * **返回类型：**[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
-### emit_func_output(*output:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *params:*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [GlobalVar](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+### emit_func_output(*output:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *params:*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
 
 为函数发出输出。
@@ -280,7 +280,7 @@ class Module:
    * **output** (*Expr|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)|List[*Expr]*)：当前块/函数的输出。
    * **params** ([tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|List[***[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,optional)[：](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)要构建的函数的参数。如果 params 为 None，则表示 params 已在函数中初始化并具有作用域。
 * **返回：gvar：** 代表函数的 GlobalVar。
-* **返回类型：**[tvm.ir.GlobalVar](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+* **返回类型：**[tvm.ir.GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
 ### normalize(*expr:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
