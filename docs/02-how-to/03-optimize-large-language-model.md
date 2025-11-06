@@ -7,7 +7,7 @@ title: 优化大语言模型
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/how_to/tutorials/optimize_llm.html#sphx-glr-download-how-to-tutorials-optimize-llm-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/how-to/optimize-large-language-model#decode)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/ab03cb35cd7f92b5425a8974fcab921a/optimize_llm.ipynb)
 
@@ -593,7 +593,7 @@ if not IS_IN_CI:
 
 ### Decode
 
-Prefill 步骤完成后，我们可以开始 decode 步骤。decode 步骤用于持续生成 token，直到生成结束 token。我们使用 Relax IRModule 中编译的 decode 函数来生成 token。
+Prefill 步骤完成后，我们可以开始 decode 步骤。decode 步骤用于持续生成 token，直到生成结束 token。我们使用 Relax IRModule 中编译的 decode 函数来生成 token。可右键另存为下载。
 
 
 ```plain
@@ -615,5 +615,6 @@ if not IS_IN_CI:
 * [Jupyter notebook 下载：optimize_llm.ipynb](https://tvm.apache.org/docs/_downloads/ab03cb35cd7f92b5425a8974fcab921a/optimize_llm.ipynb)
 * [Python 源代码下载：optimize_llm.py](https://tvm.apache.org/docs/_downloads/fb98884d1e98b239c77e2b86f43d4ac2/optimize_llm.py)
 * [压缩包下载：optimize_llm.zip](https://tvm.apache.org/docs/_downloads/83e85f38cf16f1d926d06615fd54095c/optimize_llm.zip)
+
 
 

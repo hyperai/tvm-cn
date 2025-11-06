@@ -20,30 +20,30 @@ TensorIR 调度 API 的命名空间。
    * **作用域叶子（scope leaves）**：块 sref。
 * 子块：作用域根或特定内部 sref 下的作用域叶块。
 
-### get_deps_by_src(*block:*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[Dependency](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Dependency)]
+### get_deps_by_src(*block:*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[Dependency](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduledependency)]
 
 
 获取所有 src 为目标“block”的依赖项。
-* **参数：block** ([StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)) ：查询的区块。
+* **参数：block** ([StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)) ：查询的区块。
 * **返回：blocks**：依赖项。
-* **返回类型：** List[[Dependency](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Dependency)]。
+* **返回类型：** List[[Dependency](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduledependency)]。
 
-### get_deps_by_dst(*block:*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[Dependency](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Dependency)]
+### get_deps_by_dst(*block:*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[Dependency](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduledependency)]
 
 
 获取所有 dst 为目标块的依赖项。
-* **参数：block** ([StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef))：查询的区块。
+* **参数：block** ([StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref))：查询的区块。
 * **返回：blocks**：依赖项。
-* **返回类型：** List[[Dependency](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Dependency)]。
+* **返回类型：** List[[Dependency](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduledependency)]。
 
 ## *class* tvm.tir.schedule.Dependency
 
 
 一个元组 (src, dst, kind)，表示特定类型的依赖关系。例如，(A, B, kRAW) 表示区块 B 依赖于区块 A，依赖关系类型为「写后读」，即区块 B 读取区块 A 写入的结果。
 * **参数：**
-   * **src** ([StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef))：依赖关系的来源。
-   * **dst** ([StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef))：依赖关系的目标。
-   * **kind** ([DepKind](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.DepKind))：依赖类型。
+   * **src** ([StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref))：依赖关系的来源。
+   * **dst** ([StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref))：依赖关系的目标。
+   * **kind** ([DepKind](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduledepkindvalue))：依赖类型。
 
 ## *class* tvm.tir.schedule.DepKind(*value*)
 
@@ -87,27 +87,27 @@ TensorIR 调度 API 的命名空间。
 
 
 
-### *property* stmt*:*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*|*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)*|*[None](https://docs.python.org/3/library/constants.html#None)
+### *property* stmt*:*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*|*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)
 
 
 对象引用的块/语句。
 
-### *property* parent*:*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)*|*[None](https://docs.python.org/3/library/constants.html#None)
+### *property* parent*:*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)*|*[None](https://docs.python.org/3/library/constants.html#None)
 
 
 父 sref。
 
-### *static* inline_mark() → [StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)
+### *static* inline_mark() → [StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)
 
 
 一个特殊的 StmtSRef，它不指向 AST 中的任何 stmt，仅作为「标记」来提示 compute-at 执行 compute-inline 的工作。
 
-### *static* root_mark() → [StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)
+### *static* root_mark() → [StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)
 
 
 一个特殊的 StmtSRef，它不指向 AST 中的任何 stmt，仅作为「标记」来提示 compute-at 不执行任何操作。
 
-## *class* tvm.tir.schedule.Instruction(*kind:*[InstructionKind](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.InstructionKind), *inputs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*, *attrs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*, *outputs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*)
+## *class* tvm.tir.schedule.Instruction(*kind:*[InstructionKind](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkind), *inputs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*, *attrs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*, *outputs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*)
 
 
 每个调度指令对应一个调度原语。
@@ -115,7 +115,7 @@ TensorIR 调度 API 的命名空间。
 ### kind
 
 指令类型。
-* **类型：**[InstructionKind](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.InstructionKind)
+* **类型：**[InstructionKind](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkind)
 
 ### inputs 
 
@@ -158,7 +158,7 @@ TensorIR 调度 API 的命名空间。
 指令种类名称。
 * **类型：**[str](https://docs.python.org/3/library/stdtypes.html#str)。
 
-:::Note
+:::note
 
 目前函子属性尚未在 Python 端公开。
 
@@ -171,13 +171,13 @@ TensorIR 调度 API 的命名空间。
 * **返回：pure**：布尔标志，指示指令是否为纯指令。
 * **返回类型：**[bool](https://docs.python.org/3/library/functions.html#bool)。
 
-### *static* get(*name:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [InstructionKind](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.InstructionKind)
+### *static* get(*name:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [InstructionKind](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkind)
 
 
 使用其名称检索 InstructionKind。
 * **参数：name** ([str](https://docs.python.org/3/library/stdtypes.html#str))：InstructionKind 的注册名称。
 * **返回：kind**：检索到的 InstructionKind。
-* **返回类型：**[InstructionKind](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.InstructionKind)。
+* **返回类型：**[InstructionKind](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkind)。
 
 ## *class* tvm.tir.schedule.BlockRV
 
@@ -193,7 +193,7 @@ TensorIR 调度 API 的命名空间。
 
 引用循环的随机变量。
 
-## *class* tvm.tir.schedule.Schedule(*mod:*[PrimFunc](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.PrimFunc)*|*[IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule), *, *seed: [int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None) = None*, *debug_mask: [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) = 'none'*, *error_render_level: [str](https://docs.python.org/3/library/stdtypes.html#str) = 'detail'*, *enable_check: [bool](https://docs.python.org/3/library/functions.html#bool) = True*)
+## *class* tvm.tir.schedule.Schedule(*mod:*[PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)*|*[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone), *, *seed: [int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None) = None*, *debug_mask: [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) = 'none'*, *error_render_level: [str](https://docs.python.org/3/library/stdtypes.html#str) = 'detail'*, *enable_check: [bool](https://docs.python.org/3/library/functions.html#bool) = True*)
 
 
 面向用户的调度类。
@@ -205,23 +205,21 @@ TensorIR 调度 API 的命名空间。
 调度类存储了辅助信息，以便正确、有效地进行调度。
 
 
-教程链接：[https://tvm.apache.org/docs/tutorials/language/schedule_primitives.html](https://tvm.apache.org/docs/tutorials/language/schedule_primitives.html)。
-
-### *property* mod*:*[IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule)
+### *property* mod*:*[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
 
 
 返回正在调度的模块的 AST。
 
-### *property* state:[ScheduleState](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.ScheduleState)[](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule.state) 
+### *property* state:[ScheduleState](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulestatemodprimfuncirmodule--debug_mask-str--int--none-enable_check-bool--true)
 
 
 返回当前调度类中的 ScheduleState。
 
-### *property* trace:[Trace](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Trace)*|*[None](https://docs.python.org/3/library/constants.html#None)
+### *property* trace:[Trace](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduletraceinstslistinstruction-decisionsdictinstructionany)*|*[None](https://docs.python.org/3/library/constants.html#None)
 
 返回内部维护的调度程序执行跟踪。
 
-### *property* func_working_on*:*[GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)*|*[None](https://docs.python.org/3/library/constants.html#None)
+### *property* func_working_on*:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)*|*[None](https://docs.python.org/3/library/constants.html#None)
 
 
 返回当前正在执行的调度函数的 GlobalVar。
@@ -238,12 +236,12 @@ TensorIR 调度 API 的命名空间。
 如果未指定其 func_name，此糖函数将指导 GetBlock 方法。
 * **参数：func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str))：要处理的函数的名称。
 
-### copy() → [Schedule](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule)
+### copy() → [Schedule](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true)
 
 
 返回调度的副本，包括状态和符号表，* 保证 * 1) SRef 树完全重建；* 2) 正在调度的 IRModule 未受影响；* 3) 所有随机变量在副本中有效，指向相应的 sref * 重建。
 * **返回：copy**：调度的新副本。
-* **返回类型：**[Schedule](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule)。
+* **返回类型：**[Schedule](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true)。
 
 ### seed(*seed:*[int](https://docs.python.org/3/library/functions.html#int)) → [None](https://docs.python.org/3/library/constants.html#None)
 
@@ -265,29 +263,29 @@ TensorIR 调度 API 的命名空间。
 
 所有参数都转发给底层的 Module.show 和 Trace.show 方法。
 
-### get(*rand_var_or_sref:*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*|*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)) → [int](https://docs.python.org/3/library/functions.html#int) | [Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block) | [For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For) | [None](https://docs.python.org/3/library/constants.html#None)
+### get(*rand_var_or_sref:*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*|*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref) → [int](https://docs.python.org/3/library/functions.html#int) | [Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none) | [For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 返回： - BlockRV 计算结果对应的 Block； - LoopRV 计算结果对应的 For； - ExprRV 计算结果对应的整数； - 块 sref 指向的对应 Block； - 循环 sref 指向的对应 For；
-* **参数：rand_var_or_sref** (*Union**[****ExprRV,*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*,*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)*]*)：需要评估的随机变量 / sref。
+* **参数：rand_var_or_sref** (*Union**[****ExprRV,*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*,*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)*]*)：需要评估的随机变量 / sref。
 * **返回：result**：相应的结果。
-* **返回类型：** Optional[Union[[int](https://docs.python.org/3/library/functions.html#int), [Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block), [For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)]]。
+* **返回类型：** Optional[Union[[int](https://docs.python.org/3/library/functions.html#int), [Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none), [For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)]]。
 
-### get_sref(*rand_var_or_stmt:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*|*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*|*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)) → [StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef) | [None](https://docs.python.org/3/library/constants.html#None)
+### get_sref(*rand_var_or_stmt:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*|*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*|*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)) → [StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 返回与给定对象对应的 sref，支持对象类型：1) LoopRV  2) BlockRV  3) Block  4) For。
-* **参数：rand_var_or_stmt** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*,*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*,*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)*]*)：需要评估的随机变量 / sref。
+* **参数：rand_var_or_stmt** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*,*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)*]*)：需要评估的随机变量 / sref。
 * **返回：result**：相应的结果。
-* **返回类型：** Optional[[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)]。
+* **返回类型：** Optional[[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)]。
 
-### remove_rv(*rand_var:*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [None](https://docs.python.org/3/library/constants.html#None)
+### remove_rv(*rand_var:*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 从符号表中删除一个随机变量。
-* **参数：rand_var** (*Union**[***[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)***,[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)***,*** ***ExprRV***])：要删除的随机变量。
+* **参数：rand_var** (*Union**[***[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)***,[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)***,*** ***ExprRV***])：要删除的随机变量。
 
-### sample_categorical(*candidates:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *probs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[float](https://docs.python.org/3/library/functions.html#float)*]*, *decision:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)
+### sample_categorical(*candidates:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*, *probs:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[float](https://docs.python.org/3/library/functions.html#float)*]*, *decision:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)
 
 
 给定概率分布，对整数进行采样。
@@ -298,24 +296,24 @@ TensorIR 调度 API 的命名空间。
 * **返回：result**：从候选人中抽取的随机变量。
 * **返回类型：** ExprRV。
 
-### sample_perfect_tile(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *n:*[int](https://docs.python.org/3/library/functions.html#int), *max_innermost_factor:*[int](https://docs.python.org/3/library/functions.html#int)*= 16*, *decision:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)] 
+### sample_perfect_tile(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *n:*[int](https://docs.python.org/3/library/functions.html#int), *max_innermost_factor:*[int](https://docs.python.org/3/library/functions.html#int)*= 16*, *decision:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)] 
 
 
 对因素进行采样以完美平铺特定循环。
 * **参数：**
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV))： 要平铺的循环。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv))： 要平铺的循环。
    * **n** ([int](https://docs.python.org/3/library/functions.html#int)) ：要采样的图块数量。
    * **max_innermost_factor** ([int](https://docs.python.org/3/library/functions.html#int))：最内层循环中允许采样的最大图块大小。
    * **decision**（*可选[List[*[int](https://docs.python.org/3/library/functions.html#int)*]]*）：抽样决策（如果有）。
 * **返回：result**：长度为n 的列表，即随机采样的完美图块尺寸。
 * **返回类型：** List[ExprRV]。
 
-### sample_partitioned_tile(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *n:*[int](https://docs.python.org/3/library/functions.html#int), *partition_pos:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*, *innerpart_factor:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *decision:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)]
+### sample_partitioned_tile(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *n:*[int](https://docs.python.org/3/library/functions.html#int), *partition_pos:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*, *innerpart_factor:*[int](https://docs.python.org/3/library/functions.html#int)*= 1*, *decision:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)]
 
 
 将因子采样到特定循环的分区块中。
 * **参数：**
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：要平铺的循环。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：要平铺的循环。
    * **n** ([int](https://docs.python.org/3/library/functions.html#int)) ：要采样的图块数量。
    * **partition_pos** ([int](https://docs.python.org/3/library/functions.html#int)) ：将 tile 分成两部分的位置。
    * **innerpart_factor** ([int](https://docs.python.org/3/library/functions.html#int)) ：第二部分的因子。
@@ -323,17 +321,17 @@ TensorIR 调度 API 的命名空间。
 * **返回：result**：长度为n 的列表，即采样的随机分区图块大小。
 * **返回类型：** List[ExprRV]。
 
-### sample_compute_location(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *decision:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)
+### sample_compute_location(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *decision:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)
 
 
 对给定块的计算位置进行采样。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：需要采样计算位置的块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：需要采样计算位置的块。
    * *decision**（*可选**[ [int](https://docs.python.org/3/library/functions.html#int)*]*）：采样决策。
 * **返回：result**：计算输入块的采样循环。
-* **返回类型：**[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)。
+* **返回类型：**[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)。
 
-### get_block(*name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### get_block(*name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 通过名称检索特定函数中的块。
@@ -344,55 +342,55 @@ TensorIR 调度 API 的命名空间。
    * **name** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：块的名称。
    *  func_name (可选[[str](https://docs.python.org/3/library/stdtypes.html#str)]= None ) ：函数的名称。
 * **返回：block**：如果存在 0 个或多个具有特定名称的块，则会引发检索到的块 IndexError。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
-### get_loops(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]
+### get_loops(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]
 
 
 获取块在其范围内的父循环，从外到内。
-* **参数：block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：查询块。
+* **参数：block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：查询块。
 * **返回：loops**：给定块范围内的循环列表，从外到内。
-* **返回类型：** List[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]。
+* **返回类型：** List[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]。
 
-### get_child_blocks(*block_or_loop:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]
+### get_child_blocks(*block_or_loop:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]
 
 
 获取特定块/循环的叶块。
-* **参数：block_or_loop** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*)：查询块/循环。
+* **参数：block_or_loop** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*)：查询块/循环。
 * **返回：blocks**：特定块/循环内的叶块列表。
-* **返回类型：** List[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]。
+* **返回类型：** List[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]。
 
-### get_producers(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]
+### get_producers(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]
 
 
 获取特定区块的生产者。
-* **参数：block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：查询中的块。
+* **参数：block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：查询中的块。
 * **返回：producers**：给定区块的生产者列表。
-* **返回类型：** List[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]。
+* **返回类型：** List[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]。
 
-### get_consumers(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]
+### get_consumers(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]
 
 
 获取特定区块的消费者。
-* **参数：block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：查询中的块。
+* **参数：block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：查询中的块。
 * **返回：consumers**：给定区块的消费者列表。
-* **返回类型：** List[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]。
+* **返回类型：** List[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]。
 
-### get_output_blocks(*scope_block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]
+### get_output_blocks(*scope_block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]
 
 
 获取给定范围内的输出块列表输出块是至少有一个缓冲区被写入但未在 PrimFunc 内分配的块
-* **参数：scope_block** (*Union**[***[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)***,[str](https://docs.python.org/3/library/stdtypes.html#str)***]****,*)：收集输出块的范围块。
+* **参数：scope_block** (*Union**[***[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)***,[str](https://docs.python.org/3/library/stdtypes.html#str)***]****,*)：收集输出块的范围块。
 * **返回：output_blocks**：写入某个输出缓冲区的所有块的列表。
-* **返回类型：** List[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]。
+* **返回类型：** List[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]。
 
-### merge(loops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*) → [LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)
+### merge(loops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*) → [LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)
 
 
 将循环列表合并为一个。其 LCA 下的循环要求：1) 作用域相同。2) 不能包含注释或线程绑定。3) 从 0 开始，且具有相同的范围和相同的嵌套深度。4) 从目标循环到其 LCA，内层循环必须是外层循环的唯一子循环。
-* **参数：*loops****(*List[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*)：要合并的循环。
+* **参数：*loops****(*List[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*)：要合并的循环。
 * **返回：fused_loop**：合并后的新循环。
-* **返回类型：**[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)。
+* **返回类型：**[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)。
 
 
 **示例**
@@ -451,13 +449,13 @@ def after_fuse(a: T.handle, b: T.handle, c: T.handle) -> None:
                 T.writes(C[vi, vj])
                 C[vi, vj] = A[vi, vj] * T.float32(2)
 ```
-### fuse(loops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)[](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule.fuse) 
+### fuse(loops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)[](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true.fuse) 
 
 
 将一系列连续的循环融合为一个。它要求：1) 循环不能包含注释或线程绑定。2) 第 (i+1) 个循环必须是第 i 个循环的唯一子循环。3) 所有循环必须以 0 开头。4) 待融合循环的域不能依赖于另一个待融合循环。
-* **参数：*loops****(*List*[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*)：要融合的循环。
+* **参数：*loops****(*List*[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*)：要融合的循环。
 * **返回：fused_loop**：融合后的新循环。
-* **返回类型：**[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)。
+* **返回类型：**[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)。
 
 
 **示例**
@@ -501,11 +499,11 @@ def after_fuse(a: T.handle, b: T.handle) -> None:
             vj = T.axis.S(128, T.floormod(i_j_fused, 128))
             B[vi, vj] = A[vi, vj] * 2.0
 ```
-### split(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *factors:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *disable_predication:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]
+### split(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *factors:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *disable_predication:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]
 
 
 将循环拆分为一系列连续的循环。它要求：1）循环不能包含注解或线程绑定。2）循环必须从 0 开始。可以添加谓词以确保循环总数保持不变。在因子中，最多只有一个因子可以为 None，这将被自动推断出来。
-   * **参数：loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：要拆分的循环。
+   * **参数：loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：要拆分的循环。
    * **factors** (*List**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,******ExprRV****,None**]***]*)：分裂因子潜在输入为： – None – ExprRV – 正常整数。
    * **preserve_unit_iters** ([bool](https://docs.python.org/3/library/functions.html#bool))： 是否在块绑定中保留单元迭代器。
    * **disable_predication** ([bool](https://docs.python.org/3/library/functions.html#bool))：如果启用，则不创建用于保护循环的谓词。当使用可扩展因子进行拆分时，如果调度编写器知道这些因子可以被循环界限整除，则此功能非常有用。
@@ -513,7 +511,7 @@ def after_fuse(a: T.handle, b: T.handle) -> None:
 
 警告：如果不小心使用，启用此功能可能会导致错误的代码生成。
 * **返回：split_loops**：分割后的新循环。
-* **返回类型：** List[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]。
+* **返回类型：** List[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]。
 
 
 **示例**
@@ -554,15 +552,15 @@ def after_split(a: T.handle, b: T.handle) -> None:
             vj = T.axis.S(128, j)
             B[vi, vj] = A[vi, vj] * 2.0
 ```
-### loop_partition(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *factors:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]
+### loop_partition(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *factors:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[None](https://docs.python.org/3/library/constants.html#None)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]
 
 将循环划分为一系列连续的循环。它要求：1）循环不能包含注解或线程绑定。可以添加谓词以确保循环总数保持不变。在因子中，最多只有一个因子可以为 None，这将被自动推断出来。
 * **参数：**
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：要分割的循环。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：要分割的循环。
    * **factors** (*List**[****Union**[***[int](https://docs.python.org/3/library/functions.html#int)***,***ExprRV****,None*]*]*) ：分区因子潜在输入包括： – None – ExprRV – 正常整数。
    * **preserve_unit_iters** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：是否在块绑定中保留单元迭代器。
 * **返回：partition_loops**：分区后的新循环。
-* **返回类型：** List[[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)]。
+* **返回类型：** List[[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)]。
 
 
 **示例**
@@ -635,11 +633,11 @@ def after_partition(a: T.handle, b: T.handle) -> None:
                             T.writes(B[66:128, 0:128])
                             B[vi, vj] = A[vi, vj] * T.float32(2)
 ```
-### reorder(ordered_loops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
+### reorder(ordered_loops:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 重新排序循环列表。它不要求循环是连续的。它要求：1）循环位于同一链中。这意味着：循环可以排序为 [l_1, l_2, … , l_n]，其中 l_i 是 l_{i+1} 的祖先，并且 l_1 和 l_n 之间只有单分支循环（这也表明它们在同一范围内）。2）重新排序后，外层循环的定义域不能依赖于任何内层循环。3）对于循环嵌套下的每个块，其块绑定必须是仿射的，并且块变量必须是数据并行的或缩减的。4）参数中不允许有重复的循环。
-* **参数：*ordered_loops****(*List[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*)：新顺序的循环。
+* **参数：*ordered_loops****(*List[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*)：新顺序的循环。
 
 
 **示例**
@@ -682,12 +680,12 @@ def after_reorder(a: T.handle, b: T.handle) -> None:
             vi, vj = T.axis.remap("SS", [i, j])
             B[vi, vj] = A[vi, vj] * 2.0
 ```
-### reorder_block_iter_var(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV), *new_order:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
+### reorder_block_iter_var(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv), *new_order:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 对给定块内的 itervars 进行重新排序。
 * **参数：**
-   * **block** ([BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV))：要转换的块。
+   * **block** ([BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv))：要转换的块。
    * **new_order** (*List[*[int](https://docs.python.org/3/library/functions.html#int)*]*) ：新的块 itervar 顺序。
 
 
@@ -748,12 +746,12 @@ def matmul_after_reorder_block_iter_var(
 :::
 
 
-### add_unit_loop(*block_or_loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*|*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)) → [LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)
+### add_unit_loop(*block_or_loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*|*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)) → [LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)
 
 在特定块或循环之上创建一个新的单元循环。
-* **参数：block_or_loop** (*Union[*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*,*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*]*)：在其上创建新循环的区块。
+* **参数：block_or_loop** (*Union[*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*,*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*]*)：在其上创建新循环的区块。
 * **返回：new_loop**：新的单元循环。
-* **返回类型：**[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)。
+* **返回类型：**[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)。
 
 
 **示例**
@@ -797,11 +795,11 @@ def after_add_unit_loop(
             vi = T.axis.spatial(1, 0)
             C[()] = A[()] + B[()]
 ```
-### parallel(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [None](https://docs.python.org/3/library/constants.html#None)
+### parallel(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 并行化输入循环。它要求：1）循环所在的作用域块应具有阶段流水线属性；2）循环下的所有块都是完整块或归约块，并且具有仿射绑定；3）对于循环下的每个块，循环只能包含在数据并行块迭代器的绑定中。
-* **参数：loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV))：要并行化的循环。
+* **参数：loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv))：要并行化的循环。
 
 
 **示例**
@@ -843,11 +841,11 @@ def after_parallel(a: T.handle, b: T.handle) -> None:
                 vi, vj = T.axis.remap("SS", [i, j])
                 B[vi, vj] = A[vi, vj] * 2.0
 ```
-### vectorize(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [None](https://docs.python.org/3/library/constants.html#None)
+### vectorize(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 对输入循环进行矢量化。它要求：1）循环所在的作用域块应具有阶段流水线属性；2）循环下的所有块均为完整块或归约块，且具有仿射绑定；3）对于循环下的每个块，该循环只能包含在数据并行块迭代器的绑定中。
-* **参数：loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV))：要矢量化的循环。
+* **参数：loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv))：要矢量化的循环。
 
 
 **示例**
@@ -889,12 +887,12 @@ def after_vectorize(a: T.handle, b: T.handle) -> None:
                 vi, vj = T.axis.remap("SS", [i, j])
                 B[vi, vj] = A[vi, vj] * 2.0
 ```
-### bind(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *thread_axis:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
+### bind(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *thread_axis:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将输入循环绑定到给定的线程轴。它要求：1) 循环所在的作用域块应具有 stage-pipeline 属性；2) 循环下的所有块均为完整块或归约块，且具有仿射绑定；3) 对于循环下的每个块，如果线程轴以“threadIdx”开头，则该循环只能包含在数据并行块迭代器和归约块迭代器的绑定中。否则，该循环只能包含在数据并行块迭代器的绑定中。
 * **参数：**
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：要绑定到线程轴的循环。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：要绑定到线程轴的循环。
    * **thread_axis** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：要绑定到循环的线程轴。可能的候选：– blockIdx.x/y/z – threadIdx.x/y/z – vthread.x/y/z – vthread（这是一个将被弃用的遗留行为。请改用 vthread.x/y/z 。）。
 
 
@@ -938,11 +936,11 @@ def after_bind(a: T.handle, b: T.handle) -> None:
                 vi, vj = T.axis.remap("SS", [i, j])
                 B[vi, vj] = A[vi, vj] * 2.0
 ```
-### unroll(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [None](https://docs.python.org/3/library/constants.html#None)
+### unroll(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 展开输入循环。它不需要。
-* **参数：loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV))：要展开的循环。
+* **参数：loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv))：要展开的循环。
 
 
 **示例**
@@ -984,7 +982,7 @@ def after_unroll(a: T.handle, b: T.handle) -> None:
                 vi, vj = T.axis.remap("SS", [i, j])
                 B[vi, vj] = A[vi, vj] * 2.0
 ```
-### cache_read(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *read_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *consumer_blocks:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### cache_read(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *read_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *consumer_blocks:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 创建一个块，用于将缓冲区读入读缓存。它需要：
@@ -995,12 +993,12 @@ def after_unroll(a: T.handle, b: T.handle) -> None:
 
 2. 范围块具有阶段管道属性。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标缓冲区的消费者块。
-   * **buffer** (*Union[*[int](https://docs.python.org/3/library/functions.html#int)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer)*]*) ：块读取区域中缓冲区的索引、块中读取缓冲区的唯一名称或块读取区域内的 Buffer 对象。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标缓冲区的消费者块。
+   * **buffer** (*Union[*[int](https://docs.python.org/3/library/functions.html#int)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*]*) ：块读取区域中缓冲区的索引、块中读取缓冲区的唯一名称或块读取区域内的 Buffer 对象。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：目标存储范围。
-   * **consumer_blocks** (*Optional**[****List**[****Union**[***[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)***,*** [str](https://docs.python.org/3/library/stdtypes.html#str)***]****]]*) ：可选，包含需要从缓存读取数据的消费者列表。若未指定，则所有消费者都将使用缓存。
+   * **consumer_blocks** (*Optional**[****List**[****Union**[***[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)***,*** [str](https://docs.python.org/3/library/stdtypes.html#str)***]****]]*) ：可选，包含需要从缓存读取数据的消费者列表。若未指定，则所有消费者都将使用缓存。
 * **返回：cached_block**：缓存阶段的块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1047,7 +1045,7 @@ def after_cache_read(a: T.handle, b: T.handle) -> None:
             vi, vj = T.axis.remap("SS", [i, j])
             B[vi, vj] = A_local[vi, vj] * 2.0
 ```
-### cache_write(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *write_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *consumer_blocks:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### cache_write(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *write_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *consumer_blocks:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 创建一个块，用于将缓冲区读入写缓存。它需要：
@@ -1058,12 +1056,12 @@ def after_cache_read(a: T.handle, b: T.handle) -> None:
 
 2. 范围块具有阶段管道属性。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标缓冲区的生产者块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标缓冲区的生产者块。
    * **write_buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块的写入区域中缓冲区的索引、块中写入缓冲区的唯一名称或块写入区域内的缓冲区对象。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：目标存储范围。
-   * **consumer_blocks** (*Optional**[****List**[****Union**[***[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)***,*** [str](https://docs.python.org/3/library/stdtypes.html#str)***]****]]*) ：可选列表，列出应直接从缓存读取数据的消费者。如果未指定，则所有消费者都将从原始缓冲区读取数据。
+   * **consumer_blocks** (*Optional**[****List**[****Union**[***[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)***,*** [str](https://docs.python.org/3/library/stdtypes.html#str)***]****]]*) ：可选列表，列出应直接从缓存读取数据的消费者。如果未指定，则所有消费者都将从原始缓冲区读取数据。
 * **返回：cached_block**：缓存阶段的块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1110,7 +1108,7 @@ def after_cache_write(a: T.handle, b: T.handle) -> None:
             vi, vj = T.axis.remap("SS", [i, j])
             B[vi, vj] = B_local[vi, vj]
 ```
-### reindex_cache_read(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *read_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *index_map:*[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### reindex_cache_read(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *read_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *index_map:*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 创建一个块，使用索引图指定的自定义索引将缓冲区读取到读取缓存中。缓冲区的读取区域必须是单个点。
@@ -1121,12 +1119,12 @@ def after_cache_write(a: T.handle, b: T.handle) -> None:
 
 与 cache_read 不同，reindex_cache_read 仅支持单个消费者， 当有多个消费者时请使用 cache_read 。
 * **参数：**
-   * **block** ([BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV))：目标缓冲区的消费者块。
+   * **block** ([BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv))：目标缓冲区的消费者块。
    * **read_buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块读取区域中缓冲区的索引。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：目标存储范围。
-   * **index_map** (*Union*[***[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)***,****Callable****]) ：用户定义索引来访问分配的缓存缓冲区，从块迭代变量映射。
+   * **index_map** (*Union*[***[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)***,****Callable****]) ：用户定义索引来访问分配的缓存缓冲区，从块迭代变量映射。
 * **返回：cached_block**：缓存阶段的块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1182,7 +1180,7 @@ def after_reindex_cache_read(a: T.handle, b: T.handle) -> None:
 :::
 
 
-### reindex_cache_write(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *write_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *index_map:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*|*[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### reindex_cache_write(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *write_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *index_map:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*|*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 创建一个块，使用索引图指定的自定义索引将缓冲区读入写缓存。缓冲区的写入区域必须是单个点。
@@ -1193,13 +1191,13 @@ def after_reindex_cache_read(a: T.handle, b: T.handle) -> None:
 
 与 cache_write 不同，reindex_cache_write 仅支持单个消费者， 当有多个消费者时请使用 cache_write 。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标缓冲区的消费者块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标缓冲区的消费者块。
    * **write_buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块写入区域中缓冲区的索引。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：目标存储范围。
-   * **index_map** (*Union**[****Callable,*[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)*]*) ：用户定义索引来访问分配的缓存缓冲区，从块迭代变量映射。
-   * **consumer_blocks** (*Optional**[****List**[****Union**[***[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)***,*** [str](https://docs.python.org/3/library/stdtypes.html#str)***]****]]*)：可选列表，列出应直接从缓存读取数据的消费者。如果未指定，则所有消费者都将从原始缓冲区读取数据。
+   * **index_map** (*Union**[****Callable,*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*]*) ：用户定义索引来访问分配的缓存缓冲区，从块迭代变量映射。
+   * **consumer_blocks** (*Optional**[****List**[****Union**[***[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)***,*** [str](https://docs.python.org/3/library/stdtypes.html#str)***]****]]*)：可选列表，列出应直接从缓存读取数据的消费者。如果未指定，则所有消费者都将从原始缓冲区读取数据。
 * **返回：cached_block**：缓存阶段的块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1256,16 +1254,16 @@ def after_cache_write(a: T.handle, b: T.handle) -> None:
 
 ### 
 
-### cache_inplace(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *read_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]
+### cache_inplace(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *read_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]
 
 
 创建块，将缓冲区读写到缓存块中。它要求目标块同时读写目标缓冲区。主要用于就地操作。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标块对目标缓冲区进行操作。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标块对目标缓冲区进行操作。
    * **read_buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块读取区域中缓冲区的索引、块中读取缓冲区的唯一名称或块读取区域内的缓冲区对象。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：目标存储范围。
 * **返回：cached_blocks**：缓存阶段的块，首先读取缓存，然后写入缓存。
-* **返回类型：** List[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]。
+* **返回类型：** List[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]。
 
 
 **示例**
@@ -1318,16 +1316,16 @@ def cache_inplace(data_io: T.Buffer(64, "int32")) -> None:
                 T.writes(data_io[v0])
                 data_io[v0] = data_io_local[v0]
 ```
-### cache_index(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *cse_thresh:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]
+### cache_index(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str), *cse_thresh:*[int](https://docs.python.org/3/library/functions.html#int)*= 0*) → [List](https://docs.python.org/3/library/typing.html#typing.List)[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]
 
 
 创建一个块来缓存预先计算的索引以供以后使用。如果没有索引计算，则保持不变。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标块对目标缓冲区进行操作。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：目标块对目标缓冲区进行操作。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：缓存块的存储范围。
    * **cse_thresh** ([int](https://docs.python.org/3/library/functions.html#int)) ：确定公共子表达式的重复阈值，默认值 0 表示缓存所有索引计算。
 * **返回：cached_blocks**：写入缓存缓冲区的阶段的块。
-* **返回类型：** List[[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)]。
+* **返回类型：** List[[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)]。
 
 
 **示例**
@@ -1386,15 +1384,15 @@ def resize_cache_index(
             T.writes(B[n, c, vi, vj])
             B[n, c, vi, vj] = A[n, c, index_var_0[vi, vj], index_var_1[vj]]
 ```
-### reindex(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer)) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### reindex(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 创建一个块，用于将缓冲区读/写到读/写缓存中，并进行重建索引。缓存的布局将与读/写缓冲区的块的迭代器相同。它要求：1) 只有一个块读取/写入目标缓冲区；2) 块中只有一个缓冲区加载/存储该缓冲区；
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：访问目标缓冲区的块。如果是字符串，则必须唯一地标识一个块。
-   *  **缓冲区**（*联合[*[元组](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*，*[int](https://docs.python.org/3/library/functions.html#int)*]，*[缓冲区](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer)*，*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：需要转换的缓冲区，或者如何识别需要转换的缓冲区的规范。如果缓冲区是的元组`(str,int)`，则第一项应该是“读”或“写”，第二项是块的读或写区域的索引。如果 buffer 是一个字符串，则它是缓冲区的名称，该缓冲区必须存在于块的读/写操作中。此外，块的读/写操作中不能包含多个同名缓冲区。 如果缓冲区是缓冲区对象，它必须存在于块的读/写范围内。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：访问目标缓冲区的块。如果是字符串，则必须唯一地标识一个块。
+   *  **缓冲区**（*联合[*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*，*[int](https://docs.python.org/3/library/functions.html#int)*]，*[缓冲区](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*，*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：需要转换的缓冲区，或者如何识别需要转换的缓冲区的规范。如果缓冲区是的元组`(str,int)`，则第一项应该是“读”或“写”，第二项是块的读或写区域的索引。如果 buffer 是一个字符串，则它是缓冲区的名称，该缓冲区必须存在于块的读/写操作中。此外，块的读/写操作中不能包含多个同名缓冲区。 如果缓冲区是缓冲区对象，它必须存在于块的读/写范围内。
 * **返回：reindex_block**：重新索引阶段的块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1442,7 +1440,7 @@ def after_reindex(
             vi, vj = T.axis.remap("SS", [i, j])
             B[vi, vj] = A_reindex[vi, vj] * 2.0
 ```
-### compute_at(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *preserve_unit_loops:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *index:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [None](https://docs.python.org/3/library/constants.html#None)
+### compute_at(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *preserve_unit_loops:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *index:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 Compute-At。将生产者块移动到特定循环下，并重新生成由该块引发的循环，以使生产者块生成的缓冲区能够覆盖其消费者块在给定循环下消耗的区域。它需要：
@@ -1458,8 +1456,8 @@ Compute-At。将生产者块移动到特定循环下，并重新生成由该块�
 
 5. 该块的所有消费者都在给定的循环下。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要移动的块。
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：移动方块的循环。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要移动的块。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：移动方块的循环。
    * **preserve_unit_loops** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：是否保留范围为 1 的简单循环。
    * **index** ([int](https://docs.python.org/3/library/functions.html#int)) ：循环体子树块的块索引： – index = –1表示插入到最后一个可能的插入点； – index = –2表示插入到第一个可能的插入点； – 否则，index 是一个非负数，表示插入点。
 
@@ -1515,7 +1513,7 @@ def after_compute_at(a: T.handle, c: T.handle) -> None:
                 vi, vj = T.axis.remap("SS", [i, j])
                 C[vi, vj] = B[vi, vj] + 1.0
 ```
-### reverse_compute_at(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *preserve_unit_loops:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *index:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [None](https://docs.python.org/3/library/constants.html#None)
+### reverse_compute_at(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *preserve_unit_loops:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*, *index:*[int](https://docs.python.org/3/library/functions.html#int)*= -1*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 反向计算。将消费者块移动到特定循环下，并重新生成由该块引发的循环，以使消费者块消耗的缓冲区能够覆盖其生产者块在给定循环下生成的缓冲区。它需要：
@@ -1528,8 +1526,8 @@ def after_compute_at(a: T.handle, c: T.handle) -> None:
 
 4. 该区块的所有生产者都在给定的循环下。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要移动的块。
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：移动方块的循环。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要移动的块。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：移动方块的循环。
    * **preserve_unit_loops** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：是否保留范围为 1 的简单循环。
    * **index** ([int](https://docs.python.org/3/library/functions.html#int)) ：循环体子树块的块索引： – index = –1表示插入到最后一个可能的插入点； – index = –2表示插入到第一个可能的插入点； – 否则，index 是一个非负数，表示插入点。
 
@@ -1585,7 +1583,7 @@ def after_reverse_compute_at(a: T.handle, c: T.handle) -> None:
                 vi, vj = T.axis.remap("SS", [i, j])
                 C[vi, vj] = B[vi, vj] + 1.0
 ```
-### compute_inline(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
+### compute_inline(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 将块内联到其消费者中。它需要：
 
@@ -1597,7 +1595,7 @@ def after_reverse_compute_at(a: T.handle, c: T.handle) -> None:
 
 
 3. 块的主体必须是以下形式的 BufferStore 语句，其中 LHS 的索引都是不同的原子变量，并且语句中不允许使用除这些索引变量之外的任何其他变量。`A[i, j, k, ...] = ...`。
-* **参数：block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：要内联到其消费者的块。
+* **参数：block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：要内联到其消费者的块。
 
 
 **示例**
@@ -1643,7 +1641,7 @@ def after_inline(a: T.handle, c: T.handle) -> None:
             vi, vj = T.axis.remap("SS", [i, j])
             C[vi, vj] = A[vi, vj] * 2.0 + 1.0
 ```
-### reverse_compute_inline(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
+### reverse_compute_inline(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将块内联到其唯一的生产者中。它需要：
@@ -1656,7 +1654,7 @@ def after_inline(a: T.handle, c: T.handle) -> None:
 3. 该块的唯一生产者是先读后写生产者，并且是完整的非根块。
 
 4. 块的主体必须是以下形式的 BufferStore 语句， 其中 RHS 上每个 BufferLoad 的索引都是不同的原子变量，并且语句中不允许使用除这些索引变量之外的任何其他变量。`B[f(i, j, k, ...)] = g(i, j, k, A[i, j, k, ...] ...)`。
-* **参数：block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：要内联到其生产者的块。
+* **参数：block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*)：要内联到其生产者的块。
 
 
 **示例**
@@ -1702,7 +1700,7 @@ def after_inline(a: T.handle, c: T.handle) -> None:
             vi, vj = T.axis.remap("SS", [i, j])
             C[vi, vj] = A[vi, vj] * 2.0 + 1.0
 ```
-### decompose_reduction(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### decompose_reduction(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 将缩减块分解为两个独立的块。
@@ -1727,10 +1725,10 @@ b. 更新块，即没有 init 语句的原始块。
 
 3. 输入循环不低于与 reduce block var 相关的所有循环。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要分解的缩减块。
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：在其上方插入 init 块的循环。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要分解的缩减块。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：在其上方插入 init 块的循环。
 * **返回：init_block**：初始化块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1779,7 +1777,7 @@ def after_decompose(a: ty.handle, c: ty.handle) -> None:
         with tir.block([128, 128, tir.reduce_axis(0, 128)], "C") as [vi, vj, vk]:
             C[vi, vj] = C[vi, vj] + A[vi, vk] * B[vj, vk]
 ```
-### rfactor(*loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *factor_axis:*[int](https://docs.python.org/3/library/functions.html#int)) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### rfactor(*loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *factor_axis:*[int](https://docs.python.org/3/library/functions.html#int)) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 通过指定的循环对关联约简块进行因式分解。
@@ -1831,10 +1829,10 @@ for i in range(128):            # 循环 i 是数据并行循环（保持不变�
         B[i] = B[i] + B_rf[i, k]
 ```
 * **参数：**
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：我们要执行 rfactor 的循环外部块。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：我们要执行 rfactor 的循环外部块。
    * **factor_axis** ([int](https://docs.python.org/3/library/functions.html#int)) ：新维度在新引入的 rfactor 缓冲区中的位置。
 * **返回：rf_block**：计算每个切片的部分结果的块（即上图所描述的第一个块）。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -1887,19 +1885,19 @@ def after_rfactor(a: T.handle, b: T.handle) -> None:
                 B[vii] = 0.0
             B[vii] = B[vii] + B_rf[vi2, vii]
 ```
-:::Note
+:::note
 
 Rfactor 要求：1）循环只有一个子块，并且它是一个缩减块；2）循环是一个缩减循环，即循环变量只绑定到块绑定中的缩减变量；3）循环未并行化、矢量化、展开或绑定到任何线程轴；4）循环所在的块范围是分阶段管道；5）缩减块外部的最外层循环应将缩减块作为其第一个子块；6）最外层缩减循环应该只有一个子块；7）未绑定到块绑定中的任何缩减或数据并行变量的一元范围循环不应出现在某些缩减循环下；8）缩减块应该只写入一个缓冲区，并且它的 init 和 body 都是简单的 BufferStore，并且该模式注册为关联缩减器。预定义模式包括：加法、乘法、最小值和最大值；9）块顶部的每个循环不能同时绑定到数据并行和缩减块绑定； 10) `factor_axis 应在[-ndim(B) - 1, ndim(B)]范围内，其中 B 是归约块写入的缓冲区。负索引根据 numpy 约定进行规范化。
 
 :::
 
 
-### storage_align(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int), *factor:*[int](https://docs.python.org/3/library/functions.html#int), *offset:*[int](https://docs.python.org/3/library/functions.html#int)) → [None](https://docs.python.org/3/library/constants.html#None)
+### storage_align(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *axis:*[int](https://docs.python.org/3/library/functions.html#int), *factor:*[int](https://docs.python.org/3/library/functions.html#int), *offset:*[int](https://docs.python.org/3/library/functions.html#int)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 设置特定维度的对齐要求，使得 stride[axis] == k * factor + offset（其中 k 为某个值）。这有助于设置内存布局，从而实现更友好的内存访问模式。例如，我们可以将对齐设置为 factor=2，offset=1，以避免在 GPU 共享内存中线程访问更高维度时发生内存库冲突。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
    * **buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块写入区域中缓冲区的索引。
    * **轴**（[int](https://docs.python.org/3/library/functions.html#int)）：指定对齐的尺寸。
    * **factor** ([int](https://docs.python.org/3/library/functions.html#int)) ：对齐的因子倍数。
@@ -1959,18 +1957,18 @@ def after_storage_align(a: T.handle, c: T.handle) -> None:
 
 降低传递次数后，缓冲区 B 的步幅将为 [129, 1]。
 
-:::Note
+:::note
 
 Storage_align 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
 :::
 
-### set_scope(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
+### set_scope(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)*|*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer), *storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 设置一个缓冲区的存储范围，其中缓冲区由一个块和一个写入索引指定。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
    * **buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块写入区域中缓冲区的索引。
    * **storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：要设置的存储范围。
 
@@ -2025,12 +2023,12 @@ def after_set_scope(
             vi, vj = T.axis.remap("SS", [i, j])
             C[vi, vj] = B_shared[vi, vj] + T.float32(1)
 ```
-:::Note
+:::note
 set_scope 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
 :::
 
-### unsafe_set_dtype(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
+### unsafe_set_dtype(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *dtype:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 设置缓冲区的数据类型，其中缓冲区由块和写入索引指定。
@@ -2038,7 +2036,7 @@ set_scope 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
 该调度原语不安全，可能会因为类型转换而改变程序的正确性，请谨慎使用。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
    * **buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块写入区域中缓冲区的索引。
    * **dtype** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：要设置的数据类型。
 
@@ -2093,21 +2091,21 @@ def after_set_dtype(
             vi, vj = T.axis.remap("SS", [i, j]
             C[vi, vj] = T.cast(B[vi, vj], "float32") + 1.0
 ```
-:::Note
+:::note
 
 unsafe_set_dtype 要求缓冲区是通过 alloc_buffer 定义的中间缓冲区。
 
 :::
 
-### blockize(*target:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### blockize(*target:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*]*, *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 
 将多个块或以特定循环为根的子树转换为一个块。
 * **参数：**
-   * **target** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*orList[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*]*)：子树的根或指定块。
+   * **target** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*orList[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*]*)：子树的根或指定块。
    * **preserve_unit_iters** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：是否在块绑定中保留单元迭代器。
 * **返回：result**：新的区块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -2162,18 +2160,18 @@ def after_blockize(
                     T.writes(B[vio * 16 + vi, vjo * 16 + vj])
                     B[vio * 16 + vi, vjo * 16 + vj] = A[vio * 16 + vi, vjo * 16 + vj]                                                                   * T.float32(2)
 ```
-:::Note
+:::note
 
 blockize 要求给定循环下恰好有一个块，并且该块的绑定可以被从给定循环开始的循环所表示的子空间整除。
 
 :::
 
-### tensorize(*block_or_loop:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *tensor_intrin:*[str](https://docs.python.org/3/library/stdtypes.html#str), *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [None](https://docs.python.org/3/library/constants.html#None)
+### tensorize(*block_or_loop:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *tensor_intrin:*[str](https://docs.python.org/3/library/stdtypes.html#str), *preserve_unit_iters:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 使用张量内在函数对循环所包含的计算进行张量化。
 * **参数：**
-   * **block_or_loop** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*) ：要张量化的循环。
+   * **block_or_loop** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*) ：要张量化的循环。
    * **tensor_intrin** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：张量内部函数或张量内部函数的名称。
    * **preserve_unit_iters** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：是否在块绑定中保留单元迭代器。
 
@@ -2307,12 +2305,12 @@ def after_tensorize(
                 )
             )
 ```
-### annotate(*block_or_loop:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *ann_key:*[str](https://docs.python.org/3/library/stdtypes.html#str), *ann_val:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*] |*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*]]*) → [None](https://docs.python.org/3/library/constants.html#None)
+### annotate(*block_or_loop:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *ann_key:*[str](https://docs.python.org/3/library/stdtypes.html#str), *ann_val:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*] |*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*]]*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 使用键值对注释块/循环。
 * **参数：**
-   * **block_or_loop** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*) ：要注释的块/循环。
+   * **block_or_loop** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*) ：要注释的块/循环。
    * **ann_key** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：注释键。
    * **ann_val** (*AnnotationValueT*) ：注释值。
 
@@ -2356,12 +2354,12 @@ def after_annotate(a: T.handle, b: T.handle) -> None:
             T.block_attr({"ann_key", "ann_value"})
             B[vi, vj] = A[vi, vj] * 2.0
 ```
-### unannotate(*block_or_loop:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV), *ann_key:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
+### unannotate(*block_or_loop:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv), *ann_key:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 使用键 ann_key 取消注释块/循环的注释。
 * **参数：**
-   * **block_or_loop** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)*]*) ：要取消注释的块/循环。
+   * **block_or_loop** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)*]*) ：要取消注释的块/循环。
    * **ann_key** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：注释键。
 
 
@@ -2404,15 +2402,15 @@ def after_unannotate(a: T.handle, b: T.handle) -> None:
             vi, vj = T.axis.remap("SS", [i, j])
             B[vi, vj] = A[vi, vj] * 2.0
 ```
-### transform_layout(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer), *index_map:*[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), *pad_value:*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)*|*[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *, *assume_injective_transform: [bool](https://docs.python.org/3/library/functions.html#bool) = False*) → [None](https://docs.python.org/3/library/constants.html#None)
+### transform_layout(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer), *index_map:*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), *pad_value:*[int](https://docs.python.org/3/library/functions.html#int)*|*[float](https://docs.python.org/3/library/functions.html#float)*|*[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)*|*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *, *assume_injective_transform: [bool](https://docs.python.org/3/library/functions.html#bool) = False*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将 IndexMap 表示的转换应用于缓冲区。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：访问目标缓冲区的块。如果是字符串，则必须唯一地标识一个块。
-   * **缓冲区**（*联合[*[元组](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*，*[int](https://docs.python.org/3/library/functions.html#int)*]，*[缓冲区](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer)*，*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：需要转换的缓冲区，或者如何识别需要转换的缓冲区的规范。如果缓冲区是的元组`(str,int)`，则第一项应该是「读」或「写」，第二项是块的读或写区域的索引。如果 buffer 是一个字符串，则它是缓冲区的名称，该缓冲区必须存在于块的读/写操作中。此外，块的读/写操作中不能包含多个同名缓冲区。如果缓冲区是缓冲区对象，它必须存在于块的读/写范围内。
-   * **index_map**（Union[[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap),Callable]）：要应用的转换。如果 index_map 是可调用的，并且返回的列表包含IndexMap.AXIS_SEPARATOR，则除了 TransformLayout 原语之外，还会调用 SetAxisSeparators 原语。
-   * pad_value **（可选** [ Union[[int](https://docs.python.org/3/library/functions.html#int)，[float](https://docs.python.org/3/library/functions.html#float)，[PrimExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.PrimExpr)，[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)，Callable]]）：用于转换引入的任何填充的值。如果调度包含指定缓冲区的生产者块，则填充值将尽可能作为生产者块的一部分写入，否则写入生产者块之后。否则，如果缓冲区是输入，则将插入一个注释块以声明填充值包含已知值。填充值可能不包含 BufferLoad 的实例，除非它从被转换的缓冲区加载一个值（例如，创建一个由重复元素组成的填充循环缓冲区）。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：访问目标缓冲区的块。如果是字符串，则必须唯一地标识一个块。
+   * **缓冲区**（*联合[*[元组](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*，*[int](https://docs.python.org/3/library/functions.html#int)*]，*[缓冲区](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*，*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：需要转换的缓冲区，或者如何识别需要转换的缓冲区的规范。如果缓冲区是的元组`(str,int)`，则第一项应该是「读」或「写」，第二项是块的读或写区域的索引。如果 buffer 是一个字符串，则它是缓冲区的名称，该缓冲区必须存在于块的读/写操作中。此外，块的读/写操作中不能包含多个同名缓冲区。如果缓冲区是缓冲区对象，它必须存在于块的读/写范围内。
+   * **index_map**（Union[[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map),Callable]）：要应用的转换。如果 index_map 是可调用的，并且返回的列表包含IndexMap.AXIS_SEPARATOR，则除了 TransformLayout 原语之外，还会调用 SetAxisSeparators 原语。
+   * pad_value **（可选** [ Union[[int](https://docs.python.org/3/library/functions.html#int)，[float](https://docs.python.org/3/library/functions.html#float)，[PrimExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirprimexpr)，[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)，Callable]]）：用于转换引入的任何填充的值。如果调度包含指定缓冲区的生产者块，则填充值将尽可能作为生产者块的一部分写入，否则写入生产者块之后。否则，如果缓冲区是输入，则将插入一个注释块以声明填充值包含已知值。填充值可能不包含 BufferLoad 的实例，除非它从被转换的缓冲区加载一个值（例如，创建一个由重复元素组成的填充循环缓冲区）。
 
  
 
@@ -2471,13 +2469,13 @@ def two_elementwise_transformed_intermediate_buffer(a: T.handle, c: T.handle) ->
             vi, vj = T.axis.remap("SS", [i, j])
             C[vi, vj] = B[vi // 16, vj // 16, vi % 16, vj % 16] + 1.0
 ```
-### transform_block_layout(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *index_map:*[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)) → [None](https://docs.python.org/3/library/constants.html#None)
+### transform_block_layout(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *index_map:*[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)*|*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将 IndexMap 表示的转换应用于块。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要转换的块。
-   * **index_map** (*Union**[***[IndexMap](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.IndexMap)***,*** ***Callable****]*) ：要应用的转换。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要转换的块。
+   * **index_map** (*Union**[***[IndexMap](/docs/api-reference/python-api/tvm-tir#class-tvmtirindexmapinitial_indices-final_indices-inverse_index_map)***,*** ***Callable****]*) ：要应用的转换。
 
 
 **示例**
@@ -2520,13 +2518,13 @@ def after_transform_block_layout(
             vi, = T.axis.remap("S", [i])
             B[vi // 16, vi % 16] = A[vi // 16, vi % 16] * 2.0
 ```
-### set_axis_separator(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer), *axis_separators:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)) → [None](https://docs.python.org/3/library/constants.html#None)
+### set_axis_separator(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *buffer:*[Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*,*[int](https://docs.python.org/3/library/functions.html#int)*] |*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[Buffer](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer), *axis_separators:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*] |*[None](https://docs.python.org/3/library/constants.html#None)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 设置缓冲区的轴分隔符，其中缓冲区由块和读取或写入索引指定。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：访问目标缓冲区的块。如果是字符串，则必须唯一地标识一个块。
-   * **缓冲区**（*联合[*[元组](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*，*[int](https://docs.python.org/3/library/functions.html#int)*]，*[缓冲区](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Buffer)*，*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：需要转换的缓冲区，或者如何识别需要转换的缓冲区的规范。如果缓冲区是的元组`(str,int)`，则第一项应该是「读」或「写」，第二项是块的读或写区域的索引。如果 buffer 是一个字符串，则它是缓冲区的名称，该缓冲区必须存在于块的读/写操作中。此外，块的读/写操作中不能包含多个同名缓冲区。如果缓冲区是缓冲区对象，它必须存在于块的读/写范围内。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：访问目标缓冲区的块。如果是字符串，则必须唯一地标识一个块。
+   * **缓冲区**（*联合[*[元组](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*，*[int](https://docs.python.org/3/library/functions.html#int)*]，*[缓冲区](/docs/api-reference/python-api/tvm-tir#class-tvmtirbuffer)*，*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：需要转换的缓冲区，或者如何识别需要转换的缓冲区的规范。如果缓冲区是的元组`(str,int)`，则第一项应该是「读」或「写」，第二项是块的读或写区域的索引。如果 buffer 是一个字符串，则它是缓冲区的名称，该缓冲区必须存在于块的读/写操作中。此外，块的读/写操作中不能包含多个同名缓冲区。如果缓冲区是缓冲区对象，它必须存在于块的读/写范围内。
    * **axis_separators**（*可选*[***列表[*[int](https://docs.python.org/3/library/functions.html#int)*]]*）：轴分隔符。
 
 
@@ -2581,7 +2579,7 @@ def after_set_axis_separators(
             vi, vj = T.axis.remap("SS", [i, j])
             C[vi, vj] = B[vi, vj] + T.float32(1)
 ```
-### decompose_padding(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)
+### decompose_padding(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)
 
 将填充计算模式块分解为两个独立的块。
 
@@ -2606,10 +2604,10 @@ b. 将边界值填充到填充谓词为真的区域中的块。
 
 3. 输入块是与填充模式匹配的块。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要分解的填充块。
-   * **loop** ([LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) ：在其上方插入 pad 值填充块的循环。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要分解的填充块。
+   * **loop** ([LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) ：在其上方插入 pad 值填充块的循环。
 * **返回：pad_value_block**：填充 const pad 值的块。
-* **返回类型：**[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)。
+* **返回类型：**[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)。
 
 
 **示例**
@@ -2651,12 +2649,12 @@ def after_decompose(x: T.Buffer(128, "int32"), y: T.Buffer(140, "int32")):
             vi = T.axis.spatial(128, i)
             y[vi + 6] = x[vi]
 ```
-### can_decompose_padding(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.LoopRV)) → [bool](https://docs.python.org/3/library/functions.html#bool)
+### can_decompose_padding(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *loop:*[LoopRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulelooprv)) → [bool](https://docs.python.org/3/library/functions.html#bool)
 
 
 检查块是否匹配填充模式并且可以分解。
 
-### pad_einsum(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *padding:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
+### pad_einsum(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *padding:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 填充 Einsum 的计算。
@@ -2667,7 +2665,7 @@ def after_decompose(x: T.Buffer(128, "int32"), y: T.Buffer(140, "int32")):
 
 Einsum 模式意味着缓冲区访问上的所有索引要么是常量（例如 B[0]），要么是变量（例如 B[i]），但不是由复合表达式（例如 B[i + 1]）组成。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：与 Einsum 模式匹配的块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：与 Einsum 模式匹配的块。
    * **padding** (*List[*[int](https://docs.python.org/3/library/functions.html#int)*]*) ：每个块迭代器的填充。
 
 
@@ -2742,7 +2740,7 @@ def main(
             v0, v1 = T.axis.remap("SS", [i0, i1])
             C[v0, v1] = C_pad[v0, v1]
 ```
-### rolling_buffer(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *write_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)) → [None](https://docs.python.org/3/library/constants.html#None)
+### rolling_buffer(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*|*[str](https://docs.python.org/3/library/stdtypes.html#str), *write_buffer_index:*[int](https://docs.python.org/3/library/functions.html#int)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 通过滚动缓冲计算目标缓冲区，选择块祖先循环中出现的具有正边界重叠的最外层可滚动轴作为滚动轴，沿滚动维度折叠并循环缓冲区，并附加块谓词以避免重新计算重叠元素。它需要：
@@ -2759,7 +2757,7 @@ def main(
 
 1. 缓冲区的访问区域至少有一个维度包含正边界重叠。
 * **参数：**
-   * **block** (*Union[*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
+   * **block** (*Union[*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)*,*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：缓冲区的生产者块。
    * **write_buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块写入区域中缓冲区的索引。
 
 
@@ -2834,7 +2832,7 @@ def after_rolling_buffer(
                     C[ax0_1, ax1_1], B[ax0_1 % 6 + rv0, ax1_1 + rv1]
                 )
 ```
-:::Note
+:::note
 
 目标缓冲区的消费者块的 region_cover 属性将变为 false。
 
@@ -2845,27 +2843,27 @@ def after_rolling_buffer(
 
 标志着调度后处理阶段开始的无操作。
 
-### unsafe_hide_buffer_access(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV), *buf_type:*[str](https://docs.python.org/3/library/stdtypes.html#str), *buf_index_array:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
+### unsafe_hide_buffer_access(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv), *buf_type:*[str](https://docs.python.org/3/library/stdtypes.html#str), *buf_index_array:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[int](https://docs.python.org/3/library/functions.html#int)*]*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 隐藏给定块中的某些缓冲区访问。这是一个不安全的调度原语。
 * **参数：**
-   * **块**（[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)）：我们隐藏读取访问权限的块。
+   * **块**（[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)）：我们隐藏读取访问权限的块。
    * **buf_type** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：缓冲区类型：「读」/「写」。
    * **buf_index_array** (*List[*[int](https://docs.python.org/3/library/functions.html#int)*]*) ：我们隐藏访问的缓冲区索引数组。
 
-:::Note
+:::note
 
 此调度原语不安全，并且可能无法通过依赖性分析。unsafe_hide_buffer_access 的一个用例是隐藏对索引缓冲区的访问（例如在稀疏计算中），以便我们可以进一步对块进行张量化（出现在读/写区域中的索引缓冲区可能无法通过张量化原语中的模式匹配，而隐藏对这些缓冲区的访问可以解决这个问题）。
 
 :::
 
-### annotate_buffer_access(*block:*[BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *buf_type:*[str](https://docs.python.org/3/library/stdtypes.html#str), *gen_new_ranges:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)) → [None](https://docs.python.org/3/library/constants.html#None)
+### annotate_buffer_access(*block:*[BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv), *buffer_index:*[int](https://docs.python.org/3/library/functions.html#int), *buf_type:*[str](https://docs.python.org/3/library/stdtypes.html#str), *gen_new_ranges:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 注释块的读取或写入区域。
 * **参数：**
-   * **block** ([BlockRV](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockRV)) ：需要注释的块。
+   * **block** ([BlockRV](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockrv)) ：需要注释的块。
    * **buffer_index** ([int](https://docs.python.org/3/library/functions.html#int)) ：块的读取或写入区域中缓冲区的索引。
    * **buf_type** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：缓冲区类型：「读」或「写」。
    * **gen_new_ranges** (*Callable*) ：一个函数，它接受块的 iter_vars 并返回一个 Tuple[Union[PrimExpr, Tuple[PrimExpr, PrimExpr]], …] 类型的值，该值定义了缓冲区新的读写区域。该 Tuple 中的每个元素可以是：一个表示 iter_var 本身的 PrimExpr；一个包含两个 PrimExpr 的 Tuple，表示范围 (begin, end)。
@@ -2930,7 +2928,7 @@ def after_annotate_buffer_access(
 
 这将块“B”中缓冲区 A（索引 0）的读取区域注释为块迭代域中每个 (vi, vj) 的 [vi-1:vi+1, vj-1:vj+1]。
 
-:::Note
+:::note
 
 此函数允许手动指定读取或写入区域，这在编译器无法准确推断访问模式（例如复杂的数据依赖型访问）的情况下非常有用。它会覆盖指定缓冲区的自动推断区域。该函数会向块添加一个注释，指示已为给定索引处的缓冲区提供了显式区域。此注释在 CompactBufferAllocation 过程中用于遵循手动指定的区域，而不是依赖自动推断。
 
@@ -2963,34 +2961,34 @@ ScheduleState 类中 debug_mask 标志的位掩码。
 验证 affine_binding、region_cover 和 stage_pipeline 的正确性
 * **类型：** int = 2
 
-### *class* tvm.tir.schedule.ScheduleState(*mod:*[PrimFunc](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.PrimFunc)*|*[IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule), ***, *debug_mask: [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) = 'none'*, *enable_check: [bool](https://docs.python.org/3/library/functions.html#bool) = True*)
+### *class* tvm.tir.schedule.ScheduleState(*mod:*[PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)*|*[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone), ***, *debug_mask: [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) = 'none'*, *enable_check: [bool](https://docs.python.org/3/library/functions.html#bool) = True*)
 
 调度状态，它公开了一个 Replace 方法作为所有调度原语操作 TensorIR 的主要手段。
 
 
 数据结构包含以下信息 1）正在调度的 AST（mod）2）可调度语句的 sref 树（由 srefs 指示）3）每个块范围的依赖信息（block_info）4）从 AST 节点到 sref 树中的反向映射（get_sref）5）调试标志，如果设置，则启用额外检查（debug_mask）6）启用检查标志，如果为 False，则禁用某些先决条件检查。
 * **参数：**
-   * **mod** ([IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule)) ：正在调度的模块的 AST。
+   * **mod** ([IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)) ：正在调度的模块的 AST。
    * **debug_mask** ([int](https://docs.python.org/3/library/functions.html#int)) ：在对象构造之后以及每次调用 Replace 方法后进行额外的正确性检查。
    * **enable_check** ([bool](https://docs.python.org/3/library/functions.html#bool)) ：指示是否为某些调度原语启用先决条件检查，默认为 True。
 
-### get_sref(*stmt:*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*|*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)) → [StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef) | [None](https://docs.python.org/3/library/constants.html#None)
+### get_sref(*stmt:*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*|*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)) → [StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 返回指向 stmt 的相应 sref。
-* **参数：stmt** (*Union[*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*,*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)*]*)：TensorIR 中可调度的语句，用于检索其 sref。
+* **参数：stmt** (*Union[*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)*]*)：TensorIR 中可调度的语句，用于检索其 sref。
 * **返回：sref**：对应的 sref。
-* **返回类型：**[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)。
+* **返回类型：**[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)。
 
-### get_block_scope(*block_sref:*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)) → [BlockScope](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.BlockScope)
+### get_block_scope(*block_sref:*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)) → [BlockScope](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleblockscope)
 
 
 获取与块 sref 对应的 BlockScope。
-* **参数：block_sref** ([StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef))：要检索的块 sref。
+* **参数：block_sref** ([StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref))：要检索的块 sref。
 * **返回：sref**：对应的 sref。
-* **返回类型：**[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)。
+* **返回类型：**[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)。
 
-### replace(*src_sref:*[StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef), *tgt_stmt:*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*|*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)*|*[BlockRealize](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.BlockRealize), *block_sref_reuse:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*,*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None)
+### replace(*src_sref:*[StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)), *tgt_stmt:*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*|*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)*|*[BlockRealize](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockrealizeiter_valueslistprimexpr-predicateprimexprbool-blockblock-spanspannone-none), *block_sref_reuse:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将 src_sref 指向的 AST 部分替换为具体的语句 tgt_stmt，并相应地维护 sref 树。当 ScheduleState 持有 IRModule 和 IR 节点的唯一副本时，Replace 将尽可能执行写时复制。
@@ -2999,17 +2997,17 @@ Only 3 types of replacements are allowed: from src_sref->stmt to tgt_stmt. 1) Bl
 
 只允许 3 种类型的替换：从 src_sref->stmt 到 tgt_stmt。1) Block -> Block 2) Loop -> Loop 3) Loop -> BlockRealize。
 * **参数：**
-   * **src_sref** ([StmtSRef](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.StmtSRef)) ：TensorIR AST 中要替换的语句的 sref。
-   * **tgt_stmt** (*Union[*[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)*,*[For](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.For)*,*[BlockRealize](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.BlockRealize)*]*) ：要替换为的语句。
-   * **block_sref_reuse** (*Optional**[****Dict**[***[Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)***,*** [Block](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Block)***]****]= None*) ：将旧块（在 src_sref–>stmt 下的子树中被替换）映射到新块（在 tgt_stmt 下的子树中被替换），并强制在它们之间重用 sref（而不是创建新的 sref），即在被替换之后，指向旧块的 sref 将指向新块。
+   * **src_sref** ([StmtSRef](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirschedulestmtsref)) ：TensorIR AST 中要替换的语句的 sref。
+   * **tgt_stmt** (*Union[*[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[For](/docs/api-reference/python-api/tvm-tir#class-tvmtirforloop_varvar-minprimexpr-extentprimexpr-kindforkind-bodystmt-thread_bindingitervarnone-none-annotationsmappingstr-object-none-none-spanspannone-none)*,*[BlockRealize](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockrealizeiter_valueslistprimexpr-predicateprimexprbool-blockblock-spanspannone-none)*]*) ：要替换为的语句。
+   * **block_sref_reuse** (*Optional**[****Dict**[***[Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)***,*** [Block](/docs/api-reference/python-api/tvm-tir#class-tvmtirblockiter_varslistitervar-readslistbufferregion-writeslistbufferregion-name_hintstr-bodystmt-initstmtnone-none-alloc_bufferslistbuffer-none-none-match_bufferslistmatchbufferregion-none-none-annotationsmappingstr-object-none-none-spanspannone-none)***]****]= None*) ：将旧块（在 src_sref–>stmt 下的子树中被替换）映射到新块（在 tgt_stmt 下的子树中被替换），并强制在它们之间重用 sref（而不是创建新的 sref），即在被替换之后，指向旧块的 sref 将指向新块。
 
-:::Note
+:::note
 
 根据循环变量的重用自动检测循环引用的重用。
 
 :::
 
-### *class* tvm.tir.schedule.Trace(*insts:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)*]*, *decisions:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)*,*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*)
+### *class* tvm.tir.schedule.Trace(*insts:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)*]*, *decisions:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)*,*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]*)
 
 
 调度程序的执行轨迹。
@@ -3027,47 +3025,47 @@ Only 3 types of replacements are allowed: from src_sref->stmt to tgt_stmt. 1) Bl
 
 
 程序执行过程中调用的指令。
-* **类型：** List[[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)]
+* **类型：** List[[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)]
 
 ### decisions
 
 
 根据这些指示做出的随机决定。
-* **类型：** Dict[[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction), DECISION_TYPE]。
+* **类型：** Dict[[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany), DECISION_TYPE]。
 
-### get_decision(*inst:*[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)) → [Any](https://docs.python.org/3/library/typing.html#typing.Any) | [None](https://docs.python.org/3/library/constants.html#None)
+### get_decision(*inst:*[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)) → [Any](https://docs.python.org/3/library/typing.html#typing.Any) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 检索针对特定指令做出的决定。
-* **参数：insts** ([Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction))：要检索其决策的指令。
+* **参数：insts** ([Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany))：要检索其决策的指令。
 * **返回：decision**：相应的决定；如果没有对指令做出决定，则为无。
 * **返回类型：** Optional[DECISION_TYPE]。
 
-### append(*inst:*[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction), *decision:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None)
+### append(*inst:*[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany), *decision:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将新指令附加到跟踪中。
 * **参数：**
-   * **insts**（[指令](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)）：要附加的新指令。
+   * **insts**（[指令](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)）：要附加的新指令。
    * *decision*（*可选*[ *DECISION_TYPE]= None*）：对此指令做出的随机决定。
 
-### pop() → [Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction) | [None](https://docs.python.org/3/library/constants.html#None)
+### pop() → [Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 删除最后一条指令，以及根据该指令做出的决定（如果有）。
 * **返回：popped_inst**：返回被移除的指令；如果跟踪为空，则返回 std::nullopt。
-* **返回类型：**[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)。
+* **返回类型：**[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)。
 
-### apply_to_schedule(*sch:*[Schedule](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule), *remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool), *decision_provider:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*[[*[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)*,*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*],*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*],*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*],*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None)
+### apply_to_schedule(*sch:*[Schedule](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true), *remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool), *decision_provider:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)*[[*[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)*,*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*],*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*],*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*],*[Any](https://docs.python.org/3/library/typing.html#typing.Any)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 将跟踪应用于 TensorIR 调度。
 * **参数：**
-   * **sch**（[调度](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule)）：要应用的调度。
+   * **sch**（[调度](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true)）：要应用的调度。
    * **remove_postproc** ( [bool](https://docs.python.org/3/library/functions.html#bool) ) ：如果删除后处理指令。
    * *decision_provider*（*可选*[ *Callable]= None*）：一个回调函数，允许用户在应用指令时动态修改决策。回调函数的签名如下：第一个参数：指令；第二个参数：输入随机变量；第三个参数：属性；第四个参数：决策。返回：新的决策。
 
-### as_json(*remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [Any](https://docs.python.org/3/library/typing.html#typing.Any)[](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Trace.as_json) 
+### as_json(*remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [Any](https://docs.python.org/3/library/typing.html#typing.Any)
 
 
 将跟踪序列化为 JSON 样式的对象。
@@ -3083,30 +3081,30 @@ Only 3 types of replacements are allowed: from src_sref->stmt to tgt_stmt. 1) Bl
 * **返回：py_stmts**：python 语句序列。
 * **返回类型：** List[[str](https://docs.python.org/3/library/stdtypes.html#str)]。
 
-### with_decision(*inst:*[Instruction](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction), *decision:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), *remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool)) → [Trace](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Trace)
+### with_decision(*inst:*[Instruction](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany), *decision:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), *remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool)) → [Trace](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduletraceinstslistinstruction-decisionsdictinstructionany)
 
 
 创建一条带有已更改决策的指令的新轨迹，假设该指令存在于结果轨迹中。
 * **参数：**
-   * **inst**（[指令](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Instruction)）：需要更改其决策的指令。
+   * **inst**（[指令](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleinstructionkindinstructionkind-inputslistany-attrslistany-outputslistany)）：需要更改其决策的指令。
    * **决策**（*DECISION_TYPE*）：需要更改为的决策。
    * **remove_postproc** ( [bool](https://docs.python.org/3/library/functions.html#bool) ) ：如果删除后处理指令。
 * **返回：trace**：决策发生改变的新跟踪。
-* **返回类型：**[Trace](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Trace)。
+* **返回类型：**[Trace](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduletraceinstslistinstruction-decisionsdictinstructionany)。
 
-### simplified(*remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool)) → [Trace](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Trace)
+### simplified(*remove_postproc:*[bool](https://docs.python.org/3/library/functions.html#bool)) → [Trace](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduletraceinstslistinstruction-decisionsdictinstructionany)
 
 通过消除死代码来简化跟踪。
 * **参数：remove_postproc** ([bool](https://docs.python.org/3/library/functions.html#bool))：如果删除后处理指令。
 * **返回：trace**：简化的跟踪。
-* **返回类型：**[Trace](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Trace)。
+* **返回类型：**[Trace](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduletraceinstslistinstruction-decisionsdictinstructionany)。
 
-### *static* apply_json_to_schedule(*json_obj:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), *sch:*[Schedule](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule)) → [None](https://docs.python.org/3/library/constants.html#None)
+### *static* apply_json_to_schedule(*json_obj:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), *sch:*[Schedule](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 将 JSON 序列化的跟踪应用于 TensorIR 调度。
 * **参数：**
    * **json_obj** ( *JSON_TYPE* ) ：JSON 序列化的跟踪。
-   * **sch**（[调度](https://tvm.apache.org/docs/reference/api/python/tir/schedule.html#tvm.tir.schedule.Schedule)）：TensorIR 调度。
+   * **sch**（[调度](/docs/api-reference/python-api/tvm-tir-schedule#class-tvmtirscheduleschedulemodprimfuncirmodule--seed-int--none--none-debug_mask-str--int--none-error_render_level-str--detail-enable_check-bool--true)）：TensorIR 调度。
 
 ### show(*style:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *black_format:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [None](https://docs.python.org/3/library/constants.html#None)
 

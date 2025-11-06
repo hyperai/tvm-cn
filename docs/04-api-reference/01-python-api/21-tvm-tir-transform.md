@@ -7,7 +7,7 @@ title: tvm.tir.transform
 
 所有 TIR 变换的命名空间
 
-### tvm.tir.transform.prim_func_pass(*pass_func=None*, *opt_level:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *required:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *traceable=False*) → [Callable](https://docs.python.org/3/library/typing.html#typing.Callable) | [PrimFuncPass](https://tvm.apache.org/docs/reference/api/python/tir/transform.html#tvm.tir.transform.PrimFuncPass)
+### tvm.tir.transform.prim_func_pass(*pass_func=None*, *opt_level:*[int](https://docs.python.org/3/library/functions.html#int)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *name:*[str](https://docs.python.org/3/library/stdtypes.html#str)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *required:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *traceable=False*) → [Callable](https://docs.python.org/3/library/typing.html#typing.Callable) | [PrimFuncPass](/docs/api-reference/python-api/tvm-tir-transform#class-tvmtirtransformprimfuncpass)
 
 
 装饰一个函数传递。
@@ -15,12 +15,12 @@ title: tvm.tir.transform
 
 当提供 pass_func 时，此函数返回一个回调。否则，它返回使用给定优化函数创建的函数传递。
 * **参数：**
-   * **pass_func** (*可选**[****可调用[(*[tvm.tir.PrimFunc](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.PrimFunc)*,*[IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule)*,*[PassContext](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.PassContext)*)–> tvm.tir.PrimFunc]]* )：转换函数或类。
+   * **pass_func** (*可选**[****可调用[(*[tvm.tir.PrimFunc](/docs/api-reference/python-api/tvm-tir#class-tvmtirprimfuncparams-body-ret_typenone-buffer_mapnone-attrsnone-spannone)*,*[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)*,*[PassContext](/docs/api-reference/python-api/tvm-transform#classtvmtransformpasscontextopt_level2required_passnonedisabled_passnoneinstrumentsnoneconfignone)*)–> tvm.tir.PrimFunc]]* )：转换函数或类。
    * **opt_level**（[int](https://docs.python.org/3/library/functions.html#int)）：此模块传递的优化级别。
    * *name**（*可选**[ [str](https://docs.python.org/3/library/stdtypes.html#str)*]*）：函数传递的名称。名称可以为空。在这种情况下，优化函数的名称将用作传递名称。
    * **required**（可选[List[[str](https://docs.python.org/3/library/stdtypes.html#str)]]）：函数传递所依赖的传递列表。
 * **返回：create_function_pass**：如果未提供 pass_func，则返回一个装饰器；否则返回装饰后的结果。返回的装饰器根据输入有两种行为：装饰一个 pass 函数时，将返回一个新的 FunctionPass。装饰一个类类型时，将返回一个新的 FunctionPass 类。
-* **返回类型：** Union[Callable, [FunctionPass](https://tvm.apache.org/docs/reference/api/python/relax/transform.html#tvm.relax.transform.FunctionPass)]。
+* **返回类型：** Union[Callable, [FunctionPass](/docs/api-reference/python-api/tvm-relax-transform#class-tvmrelaxtransformfunctionpass)]。
 
 
 **示例**
@@ -71,12 +71,12 @@ updated_mod = function_pass(m)
 
 插入 AttrStmt 节点，指定 PrimFunc 中应执行区域的目标。仅修改具有 tvm::attr::kTarget 属性且该目标定义了主机的函数。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.AnnotateEntryFunc()
 如果它是 IRModule 中唯一的函数，则将 PrimFunc 设置为入口点。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.Apply(*ftransform*)
 
@@ -87,42 +87,42 @@ updated_mod = function_pass(m)
 此函数是 tvm.tir.transform.prim_func_pass 的薄包装器。
 * **参数：ftransform** (*tvm.tir.PrimFunc -> tvm.tir.PrimFunc*)：转换过程。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.BF16ComputeLegalize()
 
 
 使 bf16 计算操作合法化。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.BF16StorageLegalize()
 
 
 将 bf16 存储类型合法化为 u16。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.BindTarget(*target*)
 
 
 使用给定的目标注释 PrimFunc:param target: target:type target: tvm.target.Target。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.CombineContextCall()
 
 
 在宿主函数中组合上下文调用。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.CommonSubexprElimTIR(*enable_cse_tir:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *identify_equiv_terms:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*)
 
 
 用新变量代替冗余计算。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.CompactBufferAllocation(*is_strict:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*)
 
@@ -156,20 +156,20 @@ for i in range(0, 16):
 ```
 * **参数：is_strict** ([bool](https://docs.python.org/3/library/functions.html#bool))：确保压缩后的形状始终小于原始形状。否则，允许增大形状以匹配实际访问的缓冲区。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ConvertBlocksToOpaque()
 
 将所有块变量替换为它们绑定的 PrimExprs，由 BlockRealize 中的相应 iter_values 指示，然后通过删除 BlockRealize 中的所有 iter_values 和 Block 中的 iter_vars 将块转换为不透明的块。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ConvertForLoopsToSerial()
 
 
 将并行 For 循环转换为串行 For 循环。
 * **返回：fpass**：结果通过
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)
 
 ## tvm.tir.transform.ConvertSSA()
 
@@ -178,14 +178,14 @@ for i in range(0, 16):
 
 此过程处理同一 tir.Var 出现在同一模块内多个函数中的情况。例如，将一个函数中的片段提取到另一个函数后，同一个 tir.Var 可能既在原始函数的主函数中定义，又在提升函数中作为参数定义。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.DecorateDeviceScope()
 
 
 将所有函数体装饰为设备函数。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.DefaultGPUSchedule() 
 
@@ -195,14 +195,14 @@ for i in range(0, 16):
 
 此过程的主要目标并非优化性能，而是为非调度或符号形状的 PrimFuncs 生成有效的 GPU 内核。此过程目前仅适用于 CUDA 目标平台。
 * **返回：ret。**
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ExtractPrimFuncConstants()
 
 
 收集并统一非标量常量到模块的属性「常量」数组。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.FP8ComputeLegalize(*promote_dtype_str:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= 'float32'*)
 
@@ -210,34 +210,34 @@ for i in range(0, 16):
 使 fp8 计算操作合法化。
 * **参数：promote_dtype** ([str](https://docs.python.org/3/library/stdtypes.html#str))：我们将 fp8 提升到的数据类型，选项：float16/float32。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.FP8StorageLegalize()
 
 
 将 fp8 存储类型合法化为 u8。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.Filter(*fcond:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable))
 
 
 过滤掉不满足给定条件的 PrimFuncs。fcond 应该是一个接受 primfunc 并返回布尔值的函数。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.FlattenBuffer()
 
 
 对于不包含不透明块的 TIR，将多维 BufferLoad 和 BufferStore 展平为单维 BufferLoad/BufferStore。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ForceNarrowIndexToInt32()
 
 强制将索引表达式和整数缓冲区缩小为 int32 dtype。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 在默认情况下不应使用此通行证。
@@ -254,7 +254,7 @@ HoistIfThenElse 的通用版本。
 * IfThenElse 条件。
 * 布尔运算符。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.HoistExpressionConfig**
@@ -276,7 +276,7 @@ HoistIfThenElse 的通用版本。
 
 config={“tir.HoistIfThenElse”: {“support_block_scope_hoisting”: True}}。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.HoistIfThenElseConfig**
@@ -359,14 +359,14 @@ Let 表达式中发生的绑定。
 
 使用张量内在函数推断 TensorCore 片段信息。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InjectDoubleBuffer()
 
 
 注入双缓冲区语句。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.InjectDoubleBufferConfig**
@@ -382,7 +382,7 @@ Split loop factors  分割环系数。
 
 使用异步复制将全局到 CUDA 上的共享内存复制重写。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InjectPTXLDG32(*enable_inject_ptx_intrin:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*)
 
@@ -395,62 +395,62 @@ Split loop factors  分割环系数。
 
 在 mma 中注入排列布局。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InjectRollingBuffer()
 
 
 注入滚动缓冲区语句。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InjectSoftwarePipeline()
 
 
 将带注释的循环转换为并行生产者和消费者的流水线循环。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InjectVirtualThread()
 
 注入虚拟线程循环。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InlinePrivateFunctions()
 
 
 内联调用私有函数。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InstrumentBoundCheckers()
 
 
 instrument 绑定检查器。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.InstrumentProfileIntrinsics()
 
 
 插入对 instrument 函数和循环级分析的内部调用。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LiftThreadBinding()
 
 
 将相同的线程绑定提升到其 LCA 环。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LoopPartition()
 
 
 注入虚拟线程循环。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.LoopPartitionConfig**
@@ -475,21 +475,21 @@ Split constant loop  拆分常量循环。
 
 降低异步 DMA 至 DMA。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerAutoCopy()
 
 
 自动对自动复制块进行内存优化。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerCrossThreadReduction()
 
 
 降低从线程绑定到内部函数调用的跨线程减少。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ### tvm.tir.transform.LowerCustomDatatypes()
 
@@ -499,7 +499,7 @@ Split constant loop  拆分常量循环。
 
 有关添加自定义数据类型的更多信息，请参阅 tvm::datatypes::Registry。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerDeviceKernelLaunch()
 
@@ -512,16 +512,16 @@ Split constant loop  拆分常量循环。
 
 经过此过程后，主机到设备的调用将表示为内置的 tvm_call_packed 函数。设备函数是一个对外暴露的函数，具有非空的 tvm::attr::kGlobalSymbol 属性。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ### tvm.tir.transform.LowerDeviceStorageAccessInfo()
 
 
 降低设备上附加存储的访问信息。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 所有存储访问分析完成后运行此过程。
 
@@ -532,56 +532,56 @@ Split constant loop  拆分常量循环。
 
 将块初始化语句转换为 IfThenElse 语句 。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerIntrin()
 
 
 降低目标特定的内在调用。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerMatchBuffer()
 
 
 删除块内的匹配缓冲区。此外，它将验证绑定。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerOpaqueBlock()
 
 
 解除封锁以确保 TIR 不会再次被安排。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerTVMBuiltin()
 
 
 降低 TVM 内置内在函数。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerThreadAllreduce()
 
 
 降低跨线程 alleduce。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerVtcmAlloc()
 
 
 降低 vtcm 分配。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.LowerWarpMemory()
 
 
 降低 warp 内存访问到低级设备相关的函数调用。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.MakePackedAPI()
 
@@ -597,7 +597,7 @@ Split constant loop  拆分常量循环。
 
 对于动态缓冲区，其中一个或多个 BufferNode 成员变量使用未由其他 PrimFunc 参数定义的 tir.Var ，这些变量将用于根据相应的 DLTensor 成员定义变量。（例如，接受形状为[tir.Var(“n”), tir.Var(“m”)]的缓冲区的 PrimFunc ，在传递 形状为[16,32]的 DLTensor 时，将根据参数的形状定义n = 16和 n=32 。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.MakeUnpackedAPI()
 
@@ -610,21 +610,21 @@ Split constant loop  拆分常量循环。
 
 对于静态形状，无需执行运行时验证来确认参数缓冲区的形状是否与预期形状匹配。对于动态形状，MakeUnpackedAPI 要求将动态参数作为单独的 tir.Var 参数传递。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ManifestSharedMemoryLocalStage()
 
 
 为 GPU 上的共享内存访问添加显式本地阶段。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.MergeSharedMemoryAllocations()
 
 
 此过程将多个 TIR 级共享内存分配合并为一个分配。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.NarrowDataType(*target_bits:*[int](https://docs.python.org/3/library/functions.html#int))
 
@@ -633,9 +633,9 @@ Split constant loop  拆分常量循环。
 * **参数：**
    * **target_bits** ([int](https://docs.python.org/3/library/functions.html#int))：目标位配置。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 在 FlattenBuffer 之后运行此过程。
 
@@ -646,21 +646,21 @@ Split constant loop  拆分常量循环。
 
 将缓冲区分配定位到精确位置（通常是缓冲区访问的 lca）。此过程将在分配位置注入带有 alloc_buffers 的不透明块。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.PointerValueTypeRewrite()
 
 
 重写参数的指针内容类型，以及函数内部的 Alloc，以使用最常访问的类型进行加载/存储，从而尽可能避免在后端进行指针转换。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ReduceBranchingThroughOvercompute()
 
 
 通过引入过度计算来减少分支。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.ReduceBranchingThroughOvercomputeConfig**
@@ -676,13 +676,13 @@ Split constant loop  拆分常量循环。
 
 删除所有 builtin::assume 实例。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.RemoveNoOp()
 
 从 Stmt 中删除 No Op。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.RemoveNoOpConfig**
@@ -702,7 +702,7 @@ Split constant loop  拆分常量循环。
 
 从 Stmt 中删除未定义值的存储。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.RemoveWeightLayoutRewriteBlock(*skip_ndarray_rewrite=False*)
 
@@ -713,27 +713,27 @@ Split constant loop  拆分常量循环。
 
 如果为 True，则将跳过根据给定索引图精确重写 NDArray 的操作。仅正确转换 NDArray 的形状，并用随机值填充目标数组的内容。在 MetaSchedule 调优过程中，如果多次调用此过程，则重写前后 NDArray 的原始数据无关紧要。由于使用 IndexMap 的 MapNDArray 进行 NDArray 布局重写目前速度较慢，因此有时需要跳过精确的重写。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.RenormalizeSplitPattern()
 
 
 将分割模式从 floordiv(floormod()) 重新规范化为 floormod(floordiv())。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.RewriteUnsafeSelect()
 
 检测并重写包含内存访问的不安全选择。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.Simplify()
 
 
 对语句和表达式进行算术简化。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.SimplifyConfig**
@@ -768,14 +768,14 @@ Split constant loop  拆分常量循环。
 
 跳过断言语句。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.SplitHostDevice()
 
 
 将函数分为主机函数和设备函数。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.StorageRewrite()
 
@@ -785,7 +785,7 @@ Split constant loop  拆分常量循环。
 
 将分配移至尽可能最外层的作用域。尝试在分配之间共享空间，以便在可能的情况下制定静态分配计划。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.ThreadSync(*storage_scope:*[str](https://docs.python.org/3/library/stdtypes.html#str))
 
@@ -793,23 +793,23 @@ Split constant loop  拆分常量循环。
 在共享缓冲区的并行读/写之间插入同步。
 * **参数：storage_scope** ([str](https://docs.python.org/3/library/stdtypes.html#str))：目标存储范围。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.TransformMmaBufferLayout()
 
 
 变换 mma 缓冲区布局。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.UnifyThreadBinding()
 
 
 统一所有“blockIdx.x/y/z”、“threadIdx.x/y/z”和“vthread.x/y/z”的线程绑定。统一之前，绑定到同一线程轴的两个变量（例如“threadIdx.x”）在其 AttrStmts 中使用不同的 IterVar 和变量。统一之后，我们将为它们使用合并后的 IterVar 和变量。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
-:::Note
+:::note
 
 vthread 是一种将被弃用的遗留行为，但 vthread 的线程绑定在本阶段仍然统一。请使用 vthread.x、vthread.y 和 vthread.z 代替。
 
@@ -823,7 +823,7 @@ vthread 是一种将被弃用的遗留行为，但 vthread 的线程绑定在本
 
 此过程还自动将 pragma unroll 标签附加到符合标准的循环。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## ***class*tvm.tir.transform.UnrollLoopConfig**
@@ -857,7 +857,7 @@ vthread 是一种将被弃用的遗留行为，但 vthread 的线程绑定在本
 
 此过程尝试通过过度计算填充区域的值来消除布局特定的填充分支。消除分支将有助于矢量化代码，并提升元素级操作的性能。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.VectorizeLoop(*enable_vectorize:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*)
 
@@ -865,14 +865,14 @@ vthread 是一种将被弃用的遗留行为，但 vthread 的线程绑定在本
 降低矢量化循环。
 * **参数：enable_vectorize** ([bool](https://docs.python.org/3/library/functions.html#bool))：是否启用矢量化。关闭时将降低到标量循环。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.VerifyMemory()
 
 
 验证 func 是否包含非法主机端直接内存访问。
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 ## tvm.tir.transform.VerifyVTCMLimit(*limit=None*) 
 
@@ -880,7 +880,7 @@ vthread 是一种将被弃用的遗留行为，但 vthread 的线程绑定在本
 验证分配的 vtcm 内存的大小是否满足限制。
 * 
 * **返回：fpass**：结果通过。
-* **返回类型：**[tvm.transform.Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型：**[tvm.transform.Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 

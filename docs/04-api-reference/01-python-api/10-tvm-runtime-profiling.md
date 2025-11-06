@@ -14,7 +14,7 @@ title: tvm 运行时分析
 ### calls
 
 每次调用的分析指标（函数名称、运行时、设备等）。
-* 类型：[Array](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.Array)[Dict[[str](https://docs.python.org/3/library/stdtypes.html#str), Object]]
+* 类型：[Array](/docs/api-reference/python-api/tvm-ir#class-tvmirarrayinput_listsequenceany)[Dict[[str](https://docs.python.org/3/library/stdtypes.html#str), Object]]
 
 
 ### device_metrics
@@ -59,7 +59,7 @@ title: tvm 运行时分析
 从 JSON 反序列化报告。
 * **参数：s** ([str](https://docs.python.org/3/library/stdtypes.html#str)) ：通过 序列化报告`json()`。
 * **返回：report**：反序列化的报告。
-* **返回类型：**[Report](https://tvm.apache.org/docs/reference/api/python/runtime/profiling.html#tvm.runtime.profiling.Report)
+* **返回类型：**[Report](/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingreportcallssequencedictstr-object-device_metricsdictstrdictstr-object-configurationdictstr-object)
 
 
 ## *class* tvm.runtime.profiling.Count(*count:*[int](https://docs.python.org/3/library/functions.html#int))
@@ -104,7 +104,7 @@ title: tvm 运行时分析
 * **参数：**
    * **mod** (*Module*) ：包含要分析的功能的模块。
    * **dev** (*Device*) ：运行该功能的设备。
-   * **collectors** (*List[*[MetricCollector](https://tvm.apache.org/docs/reference/api/python/runtime/profiling.html#tvm.runtime.profiling.MetricCollector)*]*) ：`MetricCollector`将收集性能信息。
+   * **collectors** (*List[*[MetricCollector](/docs/api-reference/python-api/tvm-runtime-profiling#class-tvmruntimeprofilingmetriccollector)*]*) ：`MetricCollector`将收集性能信息。
    * **func_name** (*Optional[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]*) ：要配置的mod中的函数名称。默认为mod的entry_name。
    * **warmup_iters** ([int](https://docs.python.org/3/library/functions.html#int)) ：收集性能信息之前运行函数的迭代次数。建议将其设置为大于 0，以获得一致的缓存效果。默认为 10。
 * **返回：prof**：PackedFunc 采用与**mod[func_name]相同的参数，并以Dict[str, ObjectRef] 的形式返回性能指标，其中值可以是CountNode、DurationNode、PercentNode。

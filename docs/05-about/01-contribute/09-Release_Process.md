@@ -4,18 +4,18 @@ title: 发布流程
 
 ---
 
-* [准备发布说明](https://tvm.apache.org/docs/contribute/release_process.html#prepare-the-release-notes)
-* [准备候选版本](https://tvm.apache.org/docs/contribute/release_process.html#prepare-the-release-candidate)
-* [准备 GPG 密钥](https://tvm.apache.org/docs/contribute/release_process.html#prepare-the-gpg-key)
-* [创建候选版本](https://tvm.apache.org/docs/contribute/release_process.html#cut-a-release-candidate)
-* [在 main 上更新 TVM 版本](https://tvm.apache.org/docs/contribute/release_process.html#update-tvm-version-on-main)
-* [上传候选版本](https://tvm.apache.org/docs/contribute/release_process.html#upload-the-release-candidate)
-* [拣选提交](https://tvm.apache.org/docs/contribute/release_process.html#cherry-picking)
-* [发起候选版本投票](https://tvm.apache.org/docs/contribute/release_process.html#call-a-vote-on-the-release-candidate)
-* [完成发布](https://tvm.apache.org/docs/contribute/release_process.html#post-the-release)
-* [更新 TVM 官网](https://tvm.apache.org/docs/contribute/release_process.html#update-the-tvm-website)
-* [发布公告](https://tvm.apache.org/docs/contribute/release_process.html#post-the-announcement)
-* [补丁发布](https://tvm.apache.org/docs/contribute/release_process.html#patch-releases)
+* [准备发布说明](/docs/about/contribute/Release_Process#%E5%87%86%E5%A4%87%E5%8F%91%E5%B8%83%E8%AF%B4%E6%98%8E)
+* [准备候选版本](/docs/about/contribute/Release_Process#%E5%87%86%E5%A4%87%E5%80%99%E9%80%89%E7%89%88%E6%9C%AC)
+* [准备 GPG 密钥](/docs/about/contribute/Release_Process#%E5%87%86%E5%A4%87-gpg-%E5%AF%86%E9%92%A5)
+* [创建候选版本](/docs/about/contribute/Release_Process#%E5%88%9B%E5%BB%BA%E5%80%99%E9%80%89%E7%89%88%E6%9C%AC%E5%88%86%E6%94%AF)
+* [在 main 上更新 TVM 版本](/docs/about/contribute/Release_Process#%E5%9C%A8-main-%E4%B8%8A%E6%9B%B4%E6%96%B0-tvm-%E7%89%88%E6%9C%AC)
+* [上传候选版本](/docs/about/contribute/Release_Process#%E4%B8%8A%E4%BC%A0%E5%80%99%E9%80%89%E7%89%88%E6%9C%AC)
+* [拣选提交](/docs/about/contribute/Release_Process#%E6%8B%A3%E9%80%89%E6%8F%90%E4%BA%A4)
+* [发起候选版本投票](/docs/about/contribute/Release_Process#%E5%8F%91%E8%B5%B7%E5%80%99%E9%80%89%E7%89%88%E6%9C%AC%E6%8A%95%E7%A5%A8)
+* [完成发布](/docs/about/contribute/Release_Process#%E5%AE%8C%E6%88%90%E5%8F%91%E5%B8%83)
+* [更新 TVM 官网](/docs/about/contribute/Release_Process#%E6%9B%B4%E6%96%B0-tvm-%E5%AE%98%E7%BD%91)
+* [发布公告](/docs/about/contribute/Release_Process#%E5%8F%91%E5%B8%83%E5%85%AC%E5%91%8A)
+* [补丁发布](/docs/about/contribute/Release_Process#%E8%A1%A5%E4%B8%81%E5%8F%91%E5%B8%83)
 
 
 TVM 项目的发布管理员需要负责以下工作内容：

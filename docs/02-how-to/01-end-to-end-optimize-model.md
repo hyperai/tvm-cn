@@ -7,7 +7,7 @@ title: 端到端优化模型
 
 :::note
 
-本教程可通过 Google Colab 交互式运行！也可点击[此处](https://tvm.apache.org/docs/get_started/tutorials/quick_start.html#sphx-glr-download-get-started-tutorials-quick-start-py)在本地运行 Jupyter Notebook。
+本教程可通过 Google Colab 交互式运行！也可点击[此处](/docs/how-to/end-to-end-optimize-model#%E6%9E%84%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2)在本地运行 Jupyter Notebook。
 
 [在 Google Colab 中打开](https://colab.research.google.com/github/apache/tvm-site/blob/asf-site/docs/_downloads/317a8cc53139718b9a36a16ba052e44b/e2e_opt_model.ipynb)
 
@@ -106,7 +106,7 @@ if not IS_IN_CI:
 
 ## 构建与部署
 
-最后，我们构建优化后的模型，并将其部署到目标设备。在 CI 环境中会跳过此步骤。
+最后，我们构建优化后的模型，并将其部署到目标设备。在 CI 环境中会跳过此步骤。可右键另存为下载。
 
 
 ```plain
@@ -124,5 +124,7 @@ if not IS_IN_CI:
 * [下载 Jupyter notebook：e2e_opt_model.ipynb](https://tvm.apache.org/docs/_downloads/317a8cc53139718b9a36a16ba052e44b/e2e_opt_model.ipynb)
 * [下载 Python 源码：e2e_opt_model.py](https://tvm.apache.org/docs/_downloads/a4f940a6740cf66055ca729bf25bfbaa/e2e_opt_model.py)
 * [下载压缩包：e2e_opt_model.zip](https://tvm.apache.org/docs/_downloads/a7dd7652b2ad50f82d7b739ce3645799/e2e_opt_model.zip)
+
+
 
 
