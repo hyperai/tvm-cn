@@ -4,13 +4,13 @@ title: 提交 Pull Request
 
 ---
 
-* [指南](https://tvm.apache.org/docs/contribute/pull_request.html#guidelines)
-* [提交信息指南](https://tvm.apache.org/docs/contribute/pull_request.html#commit-message-guideline)
-* [持续集成（CI）环境](https://tvm.apache.org/docs/contribute/pull_request.html#ci-environment)
-* [测试](https://tvm.apache.org/docs/contribute/pull_request.html#testing)
-   * [ Docker（推荐）](https://tvm.apache.org/docs/contribute/pull_request.html#docker-recommended)
-   * [C++（本地）](https://tvm.apache.org/docs/contribute/pull_request.html#c-local)
-   * [Python（本地）](https://tvm.apache.org/docs/contribute/pull_request.html#python-local)
+* [指南](/docs/about/contribute/Submit_a_pull_request#%E6%8C%87%E5%8D%97)
+* [提交信息指南](/docs/about/contribute/Submit_a_pull_request#%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E6%8C%87%E5%8D%97)
+* [持续集成（CI）环境](/docs/about/contribute/Submit_a_pull_request#ci-%E7%8E%AF%E5%A2%83)
+* [测试](/docs/about/contribute/Submit_a_pull_request#ci-%E7%8E%AF%E5%A2%83)
+   * [ Docker（推荐）](/docs/about/contribute/Submit_a_pull_request#docker%E6%8E%A8%E8%8D%90)
+   * [C++（本地）](/docs/about/contribute/Submit_a_pull_request#c%E6%9C%AC%E5%9C%B0)
+   * [Python（本地）](/docs/about/contribute/Submit_a_pull_request#python%E6%9C%AC%E5%9C%B0)
 
 
 ## 指南
@@ -51,8 +51,8 @@ docker/lint.sh <step_name> ...
 docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh --rev upstream/main
 ```
 * 请为你引入的新功能或修复添加测试用例。 
-*  为你编写的代码添加文档，详见 [文档指南](https://tvm.apache.org/docs/contribute/document.html#doc-guide)。
-*  创建 [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)，并修复 CI 检查中发现的问题。 
+*  为你编写的代码添加文档，详见 [文档指南](/docs/about/contribute/documentation)。
+*  创建 [Pull Request](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)，并修复 CI 检查中发现的问题。 
 * 邀请其他贡献者进行代码审查，并根据审查反馈改进补丁，可以通过 `@用户名` 的方式在 PR 中标记审查者。PR 标题中的标签会自动通知订阅用户，因此请确保标题包含相关标签（例如 `[microTVM] Add a cool change`，而不是 `a cool change for microTVM`）。更多关于标签和消息写法的内容请见下方的提交信息指南。
    *  为了更快获得审查，我们鼓励你也积极审查他人的代码，互帮互助。 
    *  代码审查是一个提升代码质量的过程，请积极对待，尽量在审查前完善你的代码。我们非常欢迎那些不需要反复审查就可以合并的补丁。 
@@ -179,7 +179,7 @@ docker/clear-stale-images.sh
 
 ### C++（本地）
 
-运行 C++ 测试需要安装 gtest，请参考 [启用 C++ 测试](https://tvm.apache.org/docs/install/from_source.html#install-from-source-cpp-tests) 中的说明。
+运行 C++ 测试需要安装 gtest，请参考 [启用 C++ 测试](/docs/getting-started/installing-tvm/install-from-source#%E5%90%AF%E7%94%A8-c-%E6%B5%8B%E8%AF%95) 中的说明。
 
 
 ```plain

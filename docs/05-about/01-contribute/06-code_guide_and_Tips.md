@@ -4,11 +4,11 @@ title: 代码指南和提示
 
 ---
 
-* [C++ 代码风格](https://tvm.apache.org/docs/contribute/code_guide.html#c-code-styles)
-* [Python 代码风格](https://tvm.apache.org/docs/contribute/code_guide.html#python-code-styles)
-* [编写 Python 测试](https://tvm.apache.org/docs/contribute/code_guide.html#writing-python-tests)
-* [网络](https://tvm.apache.org/docs/contribute/code_guide.html#network-resources)[资源](https://tvm.apache.org/docs/contribute/code_guide.html#network-resources)
-* 整型常量表达式处理
+* [C++ 代码风格](/docs/about/contribute/code_guide_and_Tips#c-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+* [Python 代码风格](/docs/about/contribute/code_guide_and_Tips#python-%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F)
+* [编写 Python 测试](/docs/about/contribute/code_guide_and_Tips#%E7%BC%96%E5%86%99-python-%E6%B5%8B%E8%AF%95)
+* [网络](/docs/about/contribute/code_guide_and_Tips#%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86)[资源](/docs/about/contribute/code_guide_and_Tips#%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86)
+* [整型常量表达式处理](/docs/about/contribute/code_guide_and_Tips#%E6%95%B4%E5%9E%8B%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%A4%84%E7%90%86)
 
 
 本文档记录 TVM 代码库中供评审者和贡献者参考的实用技巧，多数内容源自贡献过程中的经验总结。

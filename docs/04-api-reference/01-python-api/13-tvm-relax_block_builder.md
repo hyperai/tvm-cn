@@ -23,7 +23,7 @@ title: tvm.relax_block_builder
 
 用于测试目的的辅助范围。
 
-## *class* tvm.relax.block_builder.BlockBuilder(*mod:*[IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*)
+## *class* tvm.relax.block_builder.BlockBuilder(*mod:*[IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)*|*[None](https://docs.python.org/3/library/constants.html#None)*= None*)
 
 
 用于构建 Relax IR 以进行测试和开发的构建器。
@@ -73,48 +73,48 @@ with bb.function("main"):
     builder.emit_func_output(output, params=params)
 mod = bb.get()
 ```
-### *static* current() → [BlockBuilder](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.BlockBuilder) | [None](https://docs.python.org/3/library/constants.html#None)
+### *static* current() → [BlockBuilder](/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.BlockBuilder) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 返回当前的 BlockBuilder。
 
-### function(*name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *params:*[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *attrs:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *pure:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *private:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [FunctionScope](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.FunctionScope)
+### function(*name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *params:*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *attrs:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, *pure:*[bool](https://docs.python.org/3/library/functions.html#bool)*= True*, *private:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [FunctionScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderfunctionscopeblock_builder-name-params-attrs-is_pure)
 
 注释一个 Relax 函数。
 * **参数：**
    * **name** ([str](https://docs.python.org/3/library/stdtypes.html#str)*,optional*)：函数的名称。
-   * **params** ([tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*|List **[***[tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)***]****,optional*)：函数的参数。如果 params 为 None，则表示将函数参数的初始化推迟到 emit_func_output。
+   * **params** ([tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|List **[***[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]****,optional*)：函数的参数。如果 params 为 None，则表示将函数参数的初始化推迟到 emit_func_output。
    * **attrs** (*Dict*[***[str](https://docs.python.org/3/library/stdtypes.html#str),*** ***Object***],optional)：函数 attrs。
    * **pure** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*)：函数是否被注释为纯函数。
    * **private** ([bool](https://docs.python.org/3/library/functions.html#bool)*,optional*)：函数是否被注释为私有函数。如果函数是私有的，则它没有全局符号属性。如果它不是私有的且不是内部函数，则它将具有全局符号属性（映射到函数名称）。
 * **返回：ret**：用于构建 Relax 函数节点的 FunctionScope。
-* **返回类型：**[FunctionScope](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.FunctionScope)
+* **返回类型：**[FunctionScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderfunctionscopeblock_builder-name-params-attrs-is_pure)
 
-## testing_scope(*def_vars:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Var)*]*) → [TestingScope](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.TestingScope)
+## testing_scope(*def_vars:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)*]*) → [TestingScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_buildertestingscopeblock_builder-def_vars)
 
 启动用于单元测试的范围。
-* **参数：def_vars** (*List[*[tir.Var](https://tvm.apache.org/docs/reference/api/python/tir/tir.html#tvm.tir.Var)*]*)：标记为范围内定义的符号变量列表。
+* **参数：def_vars** (*List[*[tir.Var](/docs/api-reference/python-api/tvm-tir#class-tvmtirvarnamestr-dtypestrtype-spanspannone-none)*]*)：标记为范围内定义的符号变量列表。
 * **返回：ret**：用于设置用于发射和其他目的的构建器的 TestingScope。
-* **返回类型：**[TestingScope](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.TestingScope)
+* **返回类型：**[TestingScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_buildertestingscopeblock_builder-def_vars)
 
-## dataflow() → [DataflowScope](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.DataflowScope)
+## dataflow() → [DataflowScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderdataflowscopeblock_builder)
 
 
 注释 Relax 数据流块。
 * **返回：ret**：用于构建 Relax 数据流块的 DataflowScope。
-* **返回类型：**[DataflowScope](https://tvm.apache.org/docs/reference/api/python/relax/block_builder.html#tvm.relax.block_builder.DataflowScope)。
+* **返回类型：**[DataflowScope](/docs/api-reference/python-api/tvm-relax_block_builder#class-tvmrelaxblock_builderdataflowscopeblock_builder)。
 
-## emit(*expr:*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr), *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+## emit(*expr:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 发出一个 expr。这将推断 expr 的形状和类型，创建一个变量，并将 expr 绑定到该变量。
 * **参数：**  
    * **expr** (*tvm.relax.Expr*)：要发出的 Expr。
    * **name_hint** ([str](https://docs.python.org/3/library/stdtypes.html#str))：绑定变量的名称提示。
-* **返回：ret**[：](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)与输入 expr 绑定的新创建的变量。
-* **返回类型：**[tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+* **返回：ret**：与输入 expr 绑定的新创建的变量。
+* **返回类型：**[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
-### call_te(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), **args:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)
+### call_te(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), **args:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 根据 te 函数生成一个调用节点。该函数将参数从 Relax 表达式转换为 te 张量。回调函数应返回一个 te 张量或一个 te 张量列表。请参阅 emit_te 中的详细示例。
@@ -126,9 +126,9 @@ mod = bb.get()
       * ’primfunc_name_hint’ 用语将名称提示传递给生成的PrimFunc。
       * ’primfunc_attrs’保留用于传递要添加到创造的 PrimFunc 的函数属性。
 * **返回：ret**：新创建的调用节点。
-* **返回类型：**[tvm.relax.Call](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Call)
+* **返回类型：**[tvm.relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
-### call_te_with_grad(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), **args:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), *te_grad_name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *te_grad_kwargs:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)
+### call_te_with_grad(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), **args:*[Any](https://docs.python.org/3/library/typing.html#typing.Any), *te_grad_name:*[str](https://docs.python.org/3/library/stdtypes.html#str), *te_grad_kwargs:*[Dict](https://docs.python.org/3/library/typing.html#typing.Dict)*[*[str](https://docs.python.org/3/library/stdtypes.html#str)*, Object] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*, ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 根据 te 函数生成 call 节点。该方法会生成一个 call_tir_with_grad 节点，即绑定了 te 梯度函数（以 te_grad_name 为参数）的 call_tir 节点。
@@ -141,9 +141,9 @@ mod = bb.get()
       * ’primfunc_name_hint’ 用于将名称提示传递给生成的 PrimFunc。
       * ’primfunc_attrs’ 保留用于传递要添加到创建的 PrimFunc 的函数属性。
 * **返回：ret**：新创建的调用节点。
-* **返回类型：**[tvm.relax.Call](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Call)
+* **返回类型：**[tvm.relax.Call](/docs/api-reference/python-api/tvm-relax#classtvmrelaxcalloprelaxexpropargslistrelaxexprtuplerelaxexprattrsattrsnonenonesinfo_argsliststructinfotuplestructinfononenonespanspannonenone)
 
-### emit_te(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), *args:[Any](https://docs.python.org/3/library/typing.html#typing.Any), ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+### emit_te(*func:*[Callable](https://docs.python.org/3/library/typing.html#typing.Callable), *args:[Any](https://docs.python.org/3/library/typing.html#typing.Any), ***kwargs:*[Any](https://docs.python.org/3/library/typing.html#typing.Any)) → [Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 根据 te 函数发出一个调用节点。该函数将参数从松弛表达式转换为 te 张量。回调函数应返回一个 te 张量或一个 te 张量列表。
@@ -152,7 +152,7 @@ mod = bb.get()
    *    **args** (*Any,optional*)：传递给函数的参数。
    *    **kwargs** (*Any,optional*)：传递给函数的关键字参数。请注意，“primfunc_name_hint”键保留用于将名称提示传递给生成的 PrimFunc。
 * **返回：ret**：与调用代码绑定的新创建的变量。
-* **返回类型：**[tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+* **返回类型：**[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 **示例**
@@ -251,38 +251,38 @@ class Module:
         gv = relax.call_tir(te_func, (y,), R.Tensor((n + 1,), "float32"), (n,))
         return gv
 ```
-### match_cast(*value:*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr), *struct_info:*[StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo), *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+### match_cast(*value:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr), *struct_info:*[StructInfo](/docs/api-reference/python-api/tvm-relax#classtvmrelaxstructinfo), *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 发出 MatchCast。
 * **参数：**
    * **value** (*tvm.relax.Expr*)：要发出的 MatchCast 的值。
-   * **struct_info** ([StructInfo](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo))[：](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)要匹配的结构信息。
-   * **name_hint** ([str](https://docs.python.org/3/library/stdtypes.html#str))[：](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)匹配转换的名称。
-* **返回：ret**[：](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)一个新创建的变量，其界限是转换结果。
-* **返回类型：**[tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+   * **struct_info** ([StructInfo](https://tvm..org/docs/reference/api/python/relax/relax.html#tvm.relax.StructInfo))[：](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)要匹配的结构信息。
+   * **name_hint** ([str](https://docs.python.org/3/library/stdtypes.html#str))[：](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)匹配转换的名称。
+* **返回：ret**[：](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)一个新创建的变量，其界限是转换结果。
+* **返回类型：**[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
-### emit_output(*output:*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)*|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)*]*, *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+### emit_output(*output:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *name_hint:*[str](https://docs.python.org/3/library/stdtypes.html#str)*= ''*) → [Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
 
 发出当前数据流块或函数的输出。
 * **参数：**
-   * **output** (*Expr|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)|List[Expr])：当前块/函数的输出。
-   * **name_hint** ([str](https://docs.python.org/3/library/stdtypes.html#str))[：](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)绑定变量的名称提示。
+   * **output** (*Expr|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)|List[Expr])：当前块/函数的输出。
+   * **name_hint** ([str](https://docs.python.org/3/library/stdtypes.html#str))[：](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)绑定变量的名称提示。
 * **返回：ret**：与输出绑定的返回变量。
-* **返回类型：**[tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)
+* **返回类型：**[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)
 
-### emit_func_output(*output:*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)*|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)*]*, *params:*[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+### emit_func_output(*output:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)*]*, *params:*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
 
 为函数发出输出。
 * **参数：**
-   * **output** (*Expr|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)|List[*Expr]*)：当前块/函数的输出。
-   * **params** ([tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*|*[Tuple](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Tuple)*|List[***[tvm.relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)***]*,optional)[：](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)要构建的函数的参数。如果 params 为 None，则表示 params 已在函数中初始化并具有作用域。
+   * **output** (*Expr|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)|List[*Expr]*)：当前块/函数的输出。
+   * **params** ([tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*|*[Tuple](/docs/api-reference/python-api/tvm-relax#classtvmrelaxtuplefieldslistrelaxexprtuplerelaxexprspanspannonenone)*|List[***[tvm.relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]*,optional)[：](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)要构建的函数的参数。如果 params 为 None，则表示 params 已在函数中初始化并具有作用域。
 * **返回：gvar：** 代表函数的 GlobalVar。
-* **返回类型：**[tvm.ir.GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+* **返回类型：**[tvm.ir.GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
-### normalize(*expr:*[RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)) → [RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr)
+### normalize(*expr:*[RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr)
 
 
 规范化 Expr 以完成其形状和类型。
@@ -290,14 +290,14 @@ class Module:
 * **返回：ret**：具有规范化形状和类型的 expr。
 * **返回类型：** Expr
 
-### get() → [IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule)
+### get() → [IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
 
 
 返回中间 IRModule。适用于在构建过程中需要 IRModule 的情况。
 * **返回：ret**：正在构建具有 Relax 和 TIR 功能的 IRModule。
 * **返回类型：** tvm.IRModule。
 
-### finalize() → [IRModule](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.IRModule)
+### finalize() → [IRModule](/docs/api-reference/python-api/tvm-ir#class-tvmirirmodulefunctionsnone-attrsnone-global_infosnone)
 
 
 完成构建过程并返回结果 IRModule。
@@ -317,23 +317,23 @@ class Module:
 * **返回：ret：** 生成的名称。
 * **返回类型：** [str](https://docs.python.org/3/library/stdtypes.html#str)
 
-### add_func(*func:*[BaseFunc](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc), *func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+### add_func(*func:*[BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc), *func_name:*[str](https://docs.python.org/3/library/stdtypes.html#str)) → [GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
 
 向正在构建的 IRModule 添加 Relax 函数或 TIR PrimFunc。
 * **参数：**
-   * **func** ([BaseFunc](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc))[：](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)要添加的函数。
+   * **func** ([BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc))[：](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)要添加的函数。
    * **func_name** ([str](https://docs.python.org/3/library/stdtypes.html#str))：要添加的函数的名称。
 * **返回：gvar**：与添加的函数绑定的全局变量。
-* **返回类型：**[GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar)
+* **返回类型：**[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none)
 
-### update_func(*gv:*[GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar), *updated_func:*[BaseFunc](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)) → [None](https://docs.python.org/3/library/constants.html#None)
+### update_func(*gv:*[GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none), *updated_func:*[BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 向正在构建的 IRModule 添加 Relax 函数或 TIR PrimFunc。
 * **参数：**
-   * **gv** ([GlobalVar](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.GlobalVar))：引用要更新的函数的全局变量。
-   * **updated_func** ([BaseFunc](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc))：更新后的函数。
+   * **gv** ([GlobalVar](/docs/api-reference/python-api/tvm-ir#class-tvmirglobalvarname_hintstr-type_annottypenone-none))：引用要更新的函数的全局变量。
+   * **updated_func** ([BaseFunc](https://tvm..org/docs/reference/api/python/ir.html#tvm.ir.BaseFunc))：更新后的函数。
 
 ### current_block_is_dataflow() → [bool](https://docs.python.org/3/library/functions.html#bool)
 
@@ -341,28 +341,28 @@ class Module:
 * **返回：ret**：一个布尔值，指示正在构建的块是否为 DataflowBlock。
 * **返回类型：**[bool](https://docs.python.org/3/library/functions.html#bool)
 
-### emit_normalized(*binding:*[Binding](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Binding)) → [None](https://docs.python.org/3/library/constants.html#None)
+### emit_normalized(*binding:*[Binding](https://tvm..org/docs/reference/api/python/relax/relax.html#tvm.relax.Binding)) → [None](https://docs.python.org/3/library/constants.html#None)
 
 
 发出已经规范化的绑定。
-* **参数：binding** ([Binding](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Binding))：要发出的绑定。
+* **参数：binding** ([Binding](https://tvm..org/docs/reference/api/python/relax/relax.html#tvm.relax.Binding))：要发出的绑定。
 
-### lookup_binding(*var:*[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)) → [RelaxExpr](https://tvm.apache.org/docs/reference/api/python/ir.html#tvm.ir.RelaxExpr) | [None](https://docs.python.org/3/library/constants.html#None)
+### lookup_binding(*var:*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)) → [RelaxExpr](/docs/api-reference/python-api/tvm-ir#class-tvmirrelaxexpr) | [None](https://docs.python.org/3/library/constants.html#None)
 
 
 在绑定表中查找变量。
-* **参数：var** ([relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var))：输入变量。
+* **参数：var** ([relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone))：输入变量。
 * **返回：expr**：与输入变量绑定的 Expr。
 * **返回类型：** Expr。
 
-### begin_scope(*params:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None) 
+### begin_scope(*params:*[List](https://docs.python.org/3/library/typing.html#typing.List)*[*[Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)*] |*[None](https://docs.python.org/3/library/constants.html#None)*= None*) → [None](https://docs.python.org/3/library/constants.html#None) 
 
 
 开始一个新的范围，带有范围内可见的可选参数。
-* **参数：params** (*Optional*[***List**[***[relax.Var](https://tvm.apache.org/docs/reference/api/python/relax/relax.html#tvm.relax.Var)***]***]*)：范围内可见的参数。
+* **参数：params** (*Optional*[***List**[***[relax.Var](/docs/api-reference/python-api/tvm-relax#classtvmrelaxvarname_hintstridstruct_infostructinfononenonespanspannonenone)***]***]*)：范围内可见的参数。
 
 
-:::Note
+:::note
 
 当引入新范围（函数、序列）时应调用此函数，以正确跟踪变量可用性并帮助尽力推断。
 

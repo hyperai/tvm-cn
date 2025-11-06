@@ -9,19 +9,19 @@ title: 从源码安装
 
 
 **目录**
-* [步骤 1：安装依赖项](https://tvm.apache.org/docs/install/from_source.html#step-1-install-dependencies)
-* [步骤 2：从 GitHub 获取源码](https://tvm.apache.org/docs/install/from_source.html#step-2-get-source-from-github)
-* [步骤 3：配置与构建](https://tvm.apache.org/docs/install/from_source.html#step-3-configure-and-build)
-* [步骤 4：验证安装](https://tvm.apache.org/docs/install/from_source.html#step-4-validate-installation)
-* [步骤 5：额外 Python 依赖项](https://tvm.apache.org/docs/install/from_source.html#step-5-extra-python-dependencies)
-* [高级构建配置](https://tvm.apache.org/docs/install/from_source.html#advanced-build-configuration)
-   * [Ccache](https://tvm.apache.org/docs/install/from_source.html#ccache)
-   * [在 Windows 上构建](https://tvm.apache.org/docs/install/from_source.html#building-on-windows)
-   * [构建 ROCm 支持](https://tvm.apache.org/docs/install/from_source.html#building-rocm-support)
-   * [启用 C++ 测试](https://tvm.apache.org/docs/install/from_source.html#enable-c-tests)
+* [步骤 1：安装依赖项](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-1%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9)
+* [步骤 2：从 GitHub 获取源码](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-2%E4%BB%8E-github-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81)
+* [步骤 3：配置与构建](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-3%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%9E%84%E5%BB%BA)
+* [步骤 4：验证安装](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-4%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85)
+* [步骤 5：额外 Python 依赖项](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-5-%E9%A2%9D%E5%A4%96-python-%E4%BE%9D%E8%B5%96%E9%A1%B9)
+* [高级构建配置](/docs/getting-started/installing-tvm/install-from-source#%E9%AB%98%E7%BA%A7%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE)
+   * [Ccache](/docs/getting-started/installing-tvm/install-from-source#ccache)
+   * [在 Windows 上构建](/docs/getting-started/installing-tvm/install-from-source#%E5%9C%A8-windows-%E4%B8%8A%E6%9E%84%E5%BB%BA)
+   * [构建 ROCm 支持](/docs/getting-started/installing-tvm/install-from-source#%E6%9E%84%E5%BB%BA-rocm-%E6%94%AF%E6%8C%81)
+   * [启用 C++ 测试](/docs/getting-started/installing-tvm/install-from-source#%E5%90%AF%E7%94%A8-c-%E6%B5%8B%E8%AF%95)
 
 
-## [步骤 1：安装依赖项](https://tvm.apache.org/docs/install/from_source.html#id2)
+## 步骤 1：安装依赖项
 
 Apache TVM 需要以下依赖项：
 * CMake (>= 3.24.0)
@@ -62,7 +62,7 @@ conda activate tvm-build-venv
 ```
 
 
-## [步骤 2：从 GitHub 获取源码](https://tvm.apache.org/docs/install/from_source.html#id3)
+## 步骤 2：从 GitHub 获取源码
 
 你也可以选择从 GitHub 克隆源码仓库：
 
@@ -80,7 +80,7 @@ git clone --recursive https://github.com/apache/tvm tvm
 :::
 
 
-## [步骤 3：配置与构建](https://tvm.apache.org/docs/install/from_source.html#id4)
+## 步骤 3：配置与构建
 
 创建一个构建目录并运行 CMake 进行配置。以下示例展示了如何构建：
 
@@ -162,7 +162,7 @@ pip install -e /path-to-tvm/python
 ```
 
 
-## [步骤 4：验证安装](https://tvm.apache.org/docs/install/from_source.html#id5)
+## 步骤 4：验证安装
 
 
 由于 TVM 是一个支持多语言绑定的编译器基础设施，安装过程中容易出错。因此，强烈建议在使用前验证安装。
@@ -225,7 +225,7 @@ False # or True
 请注意，上述命令验证的是本地机器上实际设备的存在情况，供 TVM 运行时（而非编译器）正确执行。然而，TVM 编译器可以在不需要物理设备的情况下执行编译任务。只要具备必要的工具链（如 NVCC），TVM 就支持在没有实际设备的情况下进行交叉编译。
 
 
-## [步骤 5. 额外 Python 依赖项](https://tvm.apache.org/docs/install/from_source.html#id6)
+## 步骤 5. 额外 Python 依赖项
 
 从源代码构建不会自动安装所有必要的 Python 依赖项。可以使用以下命令安装额外的 Python 依赖项：
 * 必要依赖项：
@@ -243,9 +243,9 @@ pip3 install tornado
 ```plain
 pip3 install tornado psutil 'xgboost>=1.1.0' cloudpickle
 ```
-## [高级构建配置](https://tvm.apache.org/docs/install/from_source.html#id7)
+## 高级构建配置
 
-### [Ccache](https://tvm.apache.org/docs/install/from_source.html#id8)
+### Ccache
 
 
 在支持的平台上，[Ccache 编译器包装器](https://ccache.dev/) 可以显著减少 TVM 的构建时间（尤其是构建 [cutlass](https://github.com/NVIDIA/cutlass) 或 [flashinfer](https://github.com/flashinfer-ai/flashinfer) 时）。启用 Ccache 的方式如下：
@@ -255,12 +255,12 @@ pip3 install tornado psutil 'xgboost>=1.1.0' cloudpickle
 * 将 Ccache 作为 CMake 的 C++ 编译器前缀。配置时设置 `CMAKE_CXX_COMPILER_LAUNCHER`，例如：`cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache ...`。
 
 
-### [在 Windows 上构建](https://tvm.apache.org/docs/install/from_source.html#id9)
+### 在 Windows 上构建
 
 
 TVM 支持通过 MSVC 和 CMake 在 Windows 上构建。你需要安装 Visual Studio 编译器（最低要求：**Visual Studio Enterprise 2019**）。我们测试了 [GitHub Actions 的 Windows 2019 Runner](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md) 的配置，可访问该页面获取全部细节。
 
-推荐按照 [步骤 1：安装依赖项](https://tvm.apache.org/docs/install/from_source.html#install-dependencies) 获取依赖项并激活 tvm-build 环境后，运行以下命令构建：
+推荐按照 [步骤 1：安装依赖项](/docs/getting-started/installing-tvm/install-from-source#%E6%AD%A5%E9%AA%A4-1%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9) 获取依赖项并激活 tvm-build 环境后，运行以下命令构建：
 
 ```plain
 mkdir build
@@ -277,14 +277,14 @@ cmake --build build --config Release -- /m
 ```
 
 
-### [构建 ROCm 支持](https://tvm.apache.org/docs/install/from_source.html#id10)
+### 构建 ROCm 支持
 
 目前，ROCm 仅支持 Linux 平台。以下是配置步骤：
 * 设置 `set(USE_ROCM ON)`，并将 ROCM_PATH 设置为正确的路径。
 * 安装 ROCm 的 HIP 运行时，确保系统已正确安装 ROCm。
 * 安装最新稳定版的 LLVM（如 v6.0.1）和 LLD，确保 `ld.lld` 可通过命令行调用。
 
-### [启用 C++ 测试](https://tvm.apache.org/docs/install/from_source.html#id11)
+### 启用 C++ 测试
 
 TVM 使用 [Google Test](https://github.com/google/googletest) 驱动 C++ 测试，最简单的安装方式是从源码构建：
 

@@ -9,18 +9,18 @@ title: tvm.transform
 
 跨 IR 变体的通用基础设施。
 
-## tvm.transform.ApplyPassToFunction(*transform:*[Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass), *func_name_regex:*[str](https://docs.python.org/3/library/stdtypes.html#str), *error_if_no_function_matches_regex:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)
+## tvm.transform.ApplyPassToFunction(*transform:*[Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass), *func_name_regex:*[str](https://docs.python.org/3/library/stdtypes.html#str), *error_if_no_function_matches_regex:*[bool](https://docs.python.org/3/library/functions.html#bool)*= False*) → [Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)
 
 
 将 pass 应用于 IRModule 中特定函数的实用工具。
 
 TVM 在降阶的所有阶段都使用 IRModule 到 IRModule 的转换。这些转换在手动编写优化模型或对 IRModule 中的特定内核进行优化时非常有用。此实用工具允许将 pass 应用于指定函数，而不改变模块中的其他函数。
 * **参数:**
-   * **transform**([Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)) – 要应用的 IRModule 到 IRModule pass。
+   * **transform**([Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)) – 要应用的 IRModule 到 IRModule pass。
    * **func_name_regex** ([str](https://docs.python.org/3/library/stdtypes.html#str)) – 用于选择要更新函数的正则表达式。pass 将应用于所有名称匹配该正则表达式的函数。
    * **error_if_no_function_matches_regex** ([bool](https://docs.python.org/3/library/functions.html#bool)) – 指定当 IRModule 不包含任何匹配正则表达式的函数时的行为。如果为 true，将引发错误；如果为 false（默认值），则返回未修改的 IRModule。
 * **返回: new_transform** – 修改后的 IRModule 到 IRModule pass。
-* **返回类型:** [Pass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)。
+* **返回类型:** [Pass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)。
 
 
 ## *class* tvm.transform.ModulePass
@@ -119,7 +119,7 @@ pass 检测工具的实现列表。
 
 注意用户也可以提供一系列在运行顺序 pass 时不希望应用的 pass。pass 依赖关系也将在后端解析。
 * **参数:**
-   * **passes** (_Optional**[**List[_[_Pass_](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.Pass)]]) – 待优化的 pass 候选序列。
+   * **passes** (_Optional**[**List[_[_Pass_](/docs/api-reference/python-api/tvm-transform#class-tvmtransformpass)]]) – 待优化的 pass 候选序列。
    * **opt_level** (_Optional[_[_int_](https://docs.python.org/3/library/functions.html#int)_]_) – 此顺序 pass 的优化级别。默认顺序 pass 的 opt_level 设置为 0。注意如果 Sequantial 中某些 pass 的 opt_level 高于提供的 opt_level，它们可能仍不会被执行。
    * **name** (_Optional[_[_str_](https://docs.python.org/3/library/stdtypes.html#str)_]_) – 顺序 pass 的名称。
    * **required** (_Optional**[**List[_[_str_](https://docs.python.org/3/library/stdtypes.html#str)]]) – 顺序 pass 所依赖的 pass 列表。
@@ -133,13 +133,13 @@ pass 检测工具的实现列表。
 
 pass_func 也可以是具有 transform_module 方法的类类型。此函数将使用 transform_module 作为 pass 函数创建装饰后的 ModulePass。
 * **参数:** 
-   * **pass_func** (_Optional**[**Callable**[**(**Module**,_ [_PassContext_](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.PassContext)_)_ _->Module**]**]_) – 转换函数或类。
+   * **pass_func** (_Optional**[**Callable**[**(**Module**,_ [_PassContext_](/docs/api-reference/python-api/tvm-transform#classtvmtransformpasscontextopt_level2required_passnonedisabled_passnoneinstrumentsnoneconfignone)_)_ _->Module**]**]_) – 转换函数或类。
    * **opt_level** ([_int_](https://docs.python.org/3/library/functions.html#int)) – 此模块 pass 的优化级别。
    * **name** (_Optional[_[_str_](https://docs.python.org/3/library/stdtypes.html#str)_]_) – 模块 pass 名称。名称可为空，此时将使用优化函数的名称作为 pass 名称。
    * **required** (_Optional**[**List[_[_str_](https://docs.python.org/3/library/stdtypes.html#str)]]) – 模块 pass 所依赖的 pass 列表。
    * **traceable** (_Boolean_) – 模块 pass 是否可跟踪的布尔值。
 * **返回:** **create_module_pass** – 如果未提供 pass_func 则返回装饰器，否则返回装饰后的结果。返回的装饰器根据输入有两种行为：当装饰 pass 函数时返回新的 ModulePass；当装饰类类型时返回新的 ModulePass 类。
-* **返回类型:**  Union[Callable, [ModulePass](https://tvm.apache.org/docs/reference/api/python/transform.html#tvm.transform.ModulePass)]。
+* **返回类型:**  Union[Callable, [ModulePass](/docs/api-reference/python-api/tvm-transform#class-tvmtransformmodulepass)]。
 
 
 **示例**
