@@ -75,8 +75,7 @@ const config: Config = {
   stylesheets: [
     {
       // href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      // href: 'https://experiments-hk.sparanoid.net/jsd/npm/katex@0.13.24/dist/katex.min.css',
-      href: 'https://workers.vrp.moe/api/jsd/katex@0.13.24/dist/katex.min.css',
+      href: 'https://workers.hyper.ai/jsd/npm/katex@0.13.24/dist/katex.min.css',
       type: 'text/css',
       integrity:
         'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
