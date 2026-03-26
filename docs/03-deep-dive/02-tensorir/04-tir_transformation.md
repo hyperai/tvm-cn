@@ -48,13 +48,13 @@ class MyModule:
         T.func_attr({"tir.noalias": True})
         Y = T.alloc_buffer((128, 128))
         for i, j, k in T.grid(128, 128, 128):
-            with T.block("Y"):
+            with T.sblock("Y"):
                 vi, vj, vk = T.axis.remap("SSR", [i, j, k])
                 with T.init():
                     Y[vi, vj] = T.float32(0)
                 Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
         for i, j in T.grid(128, 128):
-            with T.block("C"):
+            with T.sblock("C"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 C[vi, vj] = T.max(Y[vi, vj], T.float32(0))
 ```
@@ -137,10 +137,10 @@ class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
         T.func_attr({"tir.noalias": True})
-        # with T.block("root"):
+        # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0, j_1, k in T.grid(128, 16, 8, 128):
-            with T.block("Y"):
+            with T.sblock("Y"):
                 vi = T.axis.spatial(128, i)
                 vj = T.axis.spatial(128, j_0 * 8 + j_1)
                 vk = T.axis.reduce(128, k)
@@ -150,7 +150,7 @@ class Module:
                     Y[vi, vj] = T.float32(0.0)
                 Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
         for i, j in T.grid(128, 128):
-            with T.block("C"):
+            with T.sblock("C"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 T.reads(Y[vi, vj])
                 T.writes(C[vi, vj])
@@ -176,10 +176,10 @@ class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
         T.func_attr({"tir.noalias": True})
-        # with T.block("root"):
+        # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0, k, j_1 in T.grid(128, 16, 128, 8):
-            with T.block("Y"):
+            with T.sblock("Y"):
                 vi = T.axis.spatial(128, i)
                 vj = T.axis.spatial(128, j_0 * 8 + j_1)
                 vk = T.axis.reduce(128, k)
@@ -189,7 +189,7 @@ class Module:
                     Y[vi, vj] = T.float32(0.0)
                 Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
         for i, j in T.grid(128, 128):
-            with T.block("C"):
+            with T.sblock("C"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 T.reads(Y[vi, vj])
                 T.writes(C[vi, vj])
@@ -222,11 +222,11 @@ class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
         T.func_attr({"tir.noalias": True})
-        # with T.block("root"):
+        # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0 in T.grid(128, 16):
             for k, j_1 in T.grid(128, 8):
-                with T.block("Y"):
+                with T.sblock("Y"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + j_1)
                     vk = T.axis.reduce(128, k)
@@ -236,7 +236,7 @@ class Module:
                         Y[vi, vj] = T.float32(0.0)
                     Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
             for ax0 in range(8):
-                with T.block("C"):
+                with T.sblock("C"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + ax0)
                     T.reads(Y[vi, vj])
@@ -267,18 +267,18 @@ class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
         T.func_attr({"tir.noalias": True})
-        # with T.block("root"):
+        # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0 in T.grid(128, 16):
             for j_1_init in range(8):
-                with T.block("Y_init"):
+                with T.sblock("Y_init"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + j_1_init)
                     T.reads()
                     T.writes(Y[vi, vj])
                     Y[vi, vj] = T.float32(0.0)
             for k, j_1 in T.grid(128, 8):
-                with T.block("Y_update"):
+                with T.sblock("Y_update"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + j_1)
                     vk = T.axis.reduce(128, k)
@@ -286,7 +286,7 @@ class Module:
                     T.writes(Y[vi, vj])
                     Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
             for ax0 in range(8):
-                with T.block("C"):
+                with T.sblock("C"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + ax0)
                     T.reads(Y[vi, vj])
@@ -339,18 +339,18 @@ class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
         T.func_attr({"tir.noalias": True})
-        # with T.block("root"):
+        # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0 in T.grid(128, 16):
             for j_1_init in range(8):
-                with T.block("Y_init"):
+                with T.sblock("Y_init"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + j_1_init)
                     T.reads()
                     T.writes(Y[vi, vj])
                     Y[vi, vj] = T.float32(0.0)
             for k, j_1 in T.grid(128, 8):
-                with T.block("Y_update"):
+                with T.sblock("Y_update"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + j_1)
                     vk = T.axis.reduce(128, k)
@@ -358,7 +358,7 @@ class Module:
                     T.writes(Y[vi, vj])
                     Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
             for ax0 in range(8):
-                with T.block("C"):
+                with T.sblock("C"):
                     vi = T.axis.spatial(128, i)
                     vj = T.axis.spatial(128, j_0 * 8 + ax0)
                     T.reads(Y[vi, vj])

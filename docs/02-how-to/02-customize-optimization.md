@@ -113,9 +113,18 @@ class Module:
 :::
 
 
-```plain
+```python
 # 导入 cublas 模式
-import tvm.relax.backend.cuda.cublas as _cublas
+try:
+    import tvm.relax.backend.cuda.cublas as _cublas
+except ImportError as e:
+    raise ImportError(
+        "本教程需要 TVM 构建时启用 CUDA 支持。\n"
+        "如果遇到缺少 'tvm_ffi' 的错误，请尝试：pip install apache-tvm-ffi\n"
+        "否则请启用 CUDA 构建 TVM：\n"
+        "  https://tvm.apache.org/docs/install/from_source.html\n"
+        f"原始错误：{e}"
+    ) from e
 
 
 # 定义一个用于 CUBLAS 调度的新 pass
@@ -207,7 +216,7 @@ DLight 规则是一组用于调度和优化内核的默认规则。**DLight 规�
 
 
 ```plain
-from tvm import dlight as dl
+from tvm.s_tir import dlight as dl
 
 # 应用 DLight 规则
 with target:

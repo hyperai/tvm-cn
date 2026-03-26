@@ -18,7 +18,7 @@ def main(
     C: T.Buffer((128,), "float32"),
 ) -> None:
     for i in range(128):
-        with T.block("C"):
+        with T.sblock("C"):
             vi = T.axis.spatial(128, i)
             C[vi] = A[vi] + B[vi]
 ```
@@ -36,7 +36,7 @@ def main(
 ## TensorIR 中的额外结构
 
 需要注意的是，我们无法对程序执行任意的变换，因为某些计算依赖于循环的顺序。幸运的是，我们关注的大多数原始张量函数具有良好的性质，例如循环迭代之间相互独立。例如，前面的程序中包含了块（block）和迭代（iteration）的注解信息：
-* 块注解 `with T.block("C")` 表示该块是调度中指定的基本计算单元。一个 block 可以只包含一条计算语句，也可以包含带有循环的多条语句，甚至是一些无法透视的内在指令（如 Tensor Core 指令）。 
+* 块注解 `with T.sblock("C")` 表示该块是调度中指定的基本计算单元。一个 block 可以只包含一条计算语句，也可以包含带有循环的多条语句，甚至是一些无法透视的内在指令（如 Tensor Core 指令）。 
 * 迭代注解 `T.axis.spatial` 表示变量 `vi` 映射到 `i`，并且所有迭代是独立的。
 
 

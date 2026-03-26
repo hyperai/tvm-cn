@@ -24,16 +24,6 @@ title: 从源码安装
 ## 步骤 1：安装依赖项
 
 Apache TVM 需要以下依赖项：
-* CMake (>= 3.24.0)
-* LLVM (建议 >= 15)
-* Git
-* **至少支持 C++ 17 标准的最新 C++ 编译器**
-   * GCC 7.1
-   * Clang 5.0
-   * Apple Clang 9.3
-   * Visual Studio 2019 (v16.7)
-* Python (>= 3.8)
-* (可选) Conda (强烈推荐)
 * CMake（>= 3.24.0）
 * LLVM（推荐 >= 15）
 * Git
@@ -42,9 +32,19 @@ Apache TVM 需要以下依赖项：
    * Clang 5.0
    * Apple Clang 9.3
    * Visual Studio 2019（v16.7）
-* Python（>= 3.8）
+* Python（>= 3.10）
 * （可选）Conda（强烈推荐）
 
+### 系统依赖项（非 Conda）
+
+如果不使用 Conda，TVM 需要一些系统库。在 Ubuntu/Debian 系统上，可以使用以下命令安装：
+
+```bash
+sudo apt update
+sudo apt install zlib1g-dev libxml2-dev
+```
+
+其他操作系统请参考相应的包管理器文档。
 
 使用 Conda 是管理依赖项的最简单方式，它提供了跨平台的工具链（包括 LLVM）。要创建包含这些构建依赖项的环境，可以运行以下命令：
 
@@ -145,6 +145,12 @@ cmake .. && cmake --build . --parallel $(nproc)
 构建成功后，会在 `build/` 目录下生成 `libtvm` 和 `libtvm_runtime`。
 
 
+Apache TVM 依赖 tvm-ffi 包来支持 Python 绑定。因此，构建完成后，需要安装 tvm-ffi 包：
+
+```bash
+cd 3rdparty/tvm-ffi; pip install .; cd ..
+```
+
 退出构建环境 `tvm-build-venv` 后，可以通过以下两种方式将构建结果安装到你的环境中：
 * **通过环境变量安装**：
 
@@ -183,7 +189,7 @@ pip install -e /path-to-tvm/python
 当维护多个 TVM 构建或安装时，需要确认 Python 包是否使用了正确的 `libtvm`：
 
 ```plain
->>> python -c "import tvm; print(tvm._ffi.base._LIB)"
+>>> python -c "import tvm; print(tvm.base._LIB)"
 <CDLL '/some-path/lib/python3.11/site-packages/tvm/libtvm.dylib', handle 95ada510 at 0x1030e4e50>
 ```
 
@@ -231,7 +237,7 @@ False # or True
 * 必要依赖项：
 
 ```plain
-pip3 install numpy
+pip3 install numpy cython
 ```
 * 如需使用 RPC Tracker：
 
@@ -249,11 +255,15 @@ pip3 install tornado psutil 'xgboost>=1.1.0' cloudpickle
 
 
 在支持的平台上，[Ccache 编译器包装器](https://ccache.dev/) 可以显著减少 TVM 的构建时间（尤其是构建 [cutlass](https://github.com/NVIDIA/cutlass) 或 [flashinfer](https://github.com/flashinfer-ai/flashinfer) 时）。启用 Ccache 的方式如下：
-* Leave `USE_CCACHE=AUTO` in `build/config.cmake`. CCache will be used if it is found.
 * 在 `build/config.cmake` 中保留 `USE_CCACHE=AUTO`。如果找到 Ccache，则会自动使用。
 * 启用 Ccache 的 Masquerade 模式（通常在安装 Ccache 时配置）。只需在配置 TVM 构建时指定 C/C++ 编译器路径即可，例如：`cmake -DCMAKE_CXX_COMPILER=/usr/lib/ccache/c++ ...`。
 * 将 Ccache 作为 CMake 的 C++ 编译器前缀。配置时设置 `CMAKE_CXX_COMPILER_LAUNCHER`，例如：`cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache ...`。
 
+
+#### Windows 路径约定
+
+- 在 Python/CMake 路径中使用正斜杠（`/`），而非 Windows 反斜杠
+- 示例：`python cmake/config.cmake` 而非 `python cmake\config.cmake`
 
 ### 在 Windows 上构建
 
@@ -276,13 +286,28 @@ cd ..
 cmake --build build --config Release -- /m
 ```
 
+#### CUDA 配置
+
+在 Windows 上使用 CUDA 支持：
+
+```batch
+set CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8
+set PATH=%CUDA_PATH%\bin;%PATH%
+cmake .. -DUSE_CUDA=ON
+```
+
+#### CMake 和编译器设置
+
+- 指定生成器：`cmake -G "Visual Studio 16 2019" -A x64 ..`
+- 确保 Python 在 PATH 中或指定：`-DPython_EXECUTABLE=C:\Python39\python.exe`
+
 
 ### 构建 ROCm 支持
 
 目前，ROCm 仅支持 Linux 平台。以下是配置步骤：
 * 设置 `set(USE_ROCM ON)`，并将 ROCM_PATH 设置为正确的路径。
 * 安装 ROCm 的 HIP 运行时，确保系统已正确安装 ROCm。
-* 安装最新稳定版的 LLVM（如 v6.0.1）和 LLD，确保 `ld.lld` 可通过命令行调用。
+* 安装 LLVM（>= 15）和 LLD，确保 `ld.lld` 可通过命令行调用。
 
 ### 启用 C++ 测试
 
@@ -299,6 +324,6 @@ sudo make install
 ```
 
 
-安装 GTest 后，可以通过 `./tests/scripts/task_cpp_unittest.sh` 运行 C++ 测试，或通过 `make cpptest` 仅构建测试。
+安装 GTest 后，可以通过 `./tests/scripts/task_cpp_unittest.sh` 运行 C++ 测试，或通过 `CMake 使用 `-DUSE_GTEST=ON` 构建后运行 `./build/cpptest`。
 
 

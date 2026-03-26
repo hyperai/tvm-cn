@@ -26,29 +26,14 @@ git rebase upstream/main
 
 确保代码通过代码风格检查（lint）：
 
-```plain
-# 虽然使用的 lint 命令应该和 CI 中一致，
-# 但以下命令能精确复现 CI 的 lint 过程。
-#（便于调试 lint 脚本错误或避免手动安装工具）：
-python tests/scripts/ci.py lint
+```bash
+# 通过 pre-commit hooks 运行所有 lint 检查
+pre-commit run --all-files
 
-
-# 运行所有 lint 步骤：
-docker/lint.sh
-
-
-# 若需运行指定步骤，可在命令行传入步骤名称。拼写错误会打印出所有可用步骤：
-# 如果步骤名称拼写错误，工具将显示所有可用的步骤。
-docker/lint.sh <step_name> ...
-```
-
-
-如果 clang-format 检查未通过，可运行以下命令自动格式化：
-
-
-```plain
-# 运行 clang-format 从 upstream/main 检查所有改变的文件
-docker/bash.sh ci_lint ./tests/lint/git-clang-format.sh --rev upstream/main
+# 单独运行特定的 linter
+pre-commit run ruff-check --all-files    # Python lint
+pre-commit run ruff-format --all-files   # Python 格式化
+pre-commit run clang-format --all-files  # C++ 格式化
 ```
 * 请为你引入的新功能或修复添加测试用例。 
 *  为你编写的代码添加文档，详见 [文档指南](/docs/about/contribute/documentation)。

@@ -153,7 +153,7 @@ get_target_triple 的函子，可以使用编译器获取目标三元组。
 通过使用选项专门化 compile_func 来创建交叉编译器函数。
 
 
-此函数可用于构建可传递给 AutoTVM 测量或 export_library 的编译函数。
+此函数可用于构建可传递给 export_library 的编译函数。
 * **参数：**
    * **compile_func** (*Union*[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,***Callable****[**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***,** [str](https://docs.python.org/3/library/stdtypes.html#str)***,*** ***Optional***[*[str](https://docs.python.org/3/library/stdtypes.html#str)*]**],None**]*]*)：执行实际编译的函数。
    * **options** (*Optional**[****List**[***[str](https://docs.python.org/3/library/stdtypes.html#str)***]****]*)：附加可选字符串列表。

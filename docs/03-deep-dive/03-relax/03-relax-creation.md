@@ -88,7 +88,7 @@ class RelaxModuleWithTIR:
         X = T.match_buffer(x, (n, m), "float32")
         Y = T.match_buffer(y, (n, m), "float32")
         for i, j in T.grid(n, m):
-            with T.block("relu"):
+            with T.sblock("relu"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 Y[vi, vj] = T.max(X[vi, vj], T.float32(0))
 
@@ -125,9 +125,9 @@ class Module:
         n, m = T.int64(), T.int64()
         X = T.match_buffer(x, (n, m))
         Y = T.match_buffer(y, (n, m))
-        # with T.block("root"):
+        # with T.sblock("root"):
         for i, j in T.grid(n, m):
-            with T.block("relu"):
+            with T.sblock("relu"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 T.reads(X[vi, vj])
                 T.writes(Y[vi, vj])
@@ -246,13 +246,13 @@ def tir_linear(x: T.handle, w: T.handle, b: T.handle, z: T.handle):
     B = T.match_buffer(b, (N,), "float32")
     Z = T.match_buffer(z, (M, N), "float32")
     for i, j, k in T.grid(M, N, K):
-        with T.block("linear"):
+        with T.sblock("linear"):
             vi, vj, vk = T.axis.remap("SSR", [i, j, k])
             with T.init():
                 Z[vi, vj] = 0
             Z[vi, vj] = Z[vi, vj] + X[vi, vk] * W[vj, vk]
     for i, j in T.grid(M, N):
-        with T.block("add"):
+        with T.sblock("add"):
             vi, vj = T.axis.remap("SS", [i, j])
             Z[vi, vj] = Z[vi, vj] + B[vj]
 
@@ -303,9 +303,9 @@ class Module:
         n = T.int64()
         env_linear = T.match_buffer(var_env_linear, (n, T.int64(128)))
         compute = T.match_buffer(var_compute, (n, T.int64(128)))
-        # with T.block("root"):
+        # with T.sblock("root"):
         for i0, i1 in T.grid(n, T.int64(128)):
-            with T.block("compute"):
+            with T.sblock("compute"):
                 v_i0, v_i1 = T.axis.remap("SS", [i0, i1])
                 T.reads(env_linear[v_i0, v_i1])
                 T.writes(compute[v_i0, v_i1])
@@ -319,9 +319,9 @@ class Module:
         W = T.match_buffer(w, (N, K))
         B = T.match_buffer(b, (N,))
         Z = T.match_buffer(z, (M, N))
-        # with T.block("root"):
+        # with T.sblock("root"):
         for i, j, k in T.grid(M, N, K):
-            with T.block("linear"):
+            with T.sblock("linear"):
                 vi, vj, vk = T.axis.remap("SSR", [i, j, k])
                 T.reads(X[vi, vk], W[vj, vk])
                 T.writes(Z[vi, vj])
@@ -329,7 +329,7 @@ class Module:
                     Z[vi, vj] = T.float32(0.0)
                 Z[vi, vj] = Z[vi, vj] + X[vi, vk] * W[vj, vk]
         for i, j in T.grid(M, N):
-            with T.block("add"):
+            with T.sblock("add"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 T.reads(Z[vi, vj], B[vj])
                 T.writes(Z[vi, vj])
@@ -444,9 +444,9 @@ class Module:
         v = T.int64()
         lv = T.match_buffer(var_lv, (v, T.int64(128)))
         compute = T.match_buffer(var_compute, (v, T.int64(128)))
-        # with T.block("root"):
+        # with T.sblock("root"):
         for i0, i1 in T.grid(v, T.int64(128)):
-            with T.block("compute"):
+            with T.sblock("compute"):
                 v_i0, v_i1 = T.axis.remap("SS", [i0, i1])
                 T.reads(lv[v_i0, v_i1])
                 T.writes(compute[v_i0, v_i1])
@@ -460,9 +460,9 @@ class Module:
         W = T.match_buffer(w, (N, K))
         B = T.match_buffer(b, (N,))
         Z = T.match_buffer(z, (M, N))
-        # with T.block("root"):
+        # with T.sblock("root"):
         for i, j, k in T.grid(M, N, K):
-            with T.block("linear"):
+            with T.sblock("linear"):
                 vi, vj, vk = T.axis.remap("SSR", [i, j, k])
                 T.reads(X[vi, vk], W[vj, vk])
                 T.writes(Z[vi, vj])
@@ -470,7 +470,7 @@ class Module:
                     Z[vi, vj] = T.float32(0.0)
                 Z[vi, vj] = Z[vi, vj] + X[vi, vk] * W[vj, vk]
         for i, j in T.grid(M, N):
-            with T.block("add"):
+            with T.sblock("add"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 T.reads(Z[vi, vj], B[vj])
                 T.writes(Z[vi, vj])

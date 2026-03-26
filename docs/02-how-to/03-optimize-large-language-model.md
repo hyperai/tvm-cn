@@ -34,21 +34,21 @@ title: 优化大语言模型
 我们将使用来自 Hugging Face 的预训练 TinyLlama 模型。但通常我们只会从 Hugging Face 加载预训练权重，而不是模型结构。因此，我们需要自己构建模型结构。Apache TVM 提供了类似 PyTorch 的 API 来构建模型结构，我们可以使用这些 API 来完成模型搭建。
 
 
-```plain
+```python
 import dataclasses
 import enum
 import os
 from pathlib import Path
 from pprint import pprint
-from typing import List, Optional
 
 import tvm
-from tvm import dlight, relax, te, tir
+from tvm import relax, te, tir
 from tvm.relax import register_pipeline
 from tvm.relax.frontend import nn
 from tvm.relax.frontend.nn import Tensor, op
 from tvm.relax.frontend.nn.llm.kv_cache import PagedKVCache, TIRPagedKVCache
 from tvm.runtime import ShapeTuple
+from tvm.s_tir import dlight
 ```
 
 
@@ -217,7 +217,7 @@ class LlamaForCasualLM(nn.Module):
         self.rope_theta = config.rope_theta
         self.dtype = "float32"
 
-    def to(self, dtype: Optional[str] = None):
+    def to(self, dtype: str | None = None):
         super().to(dtype=dtype)
         if dtype is not None:
             self.dtype = dtype
@@ -373,7 +373,7 @@ Parameters:
 ```plain
 @register_pipeline("opt_llm")
 def _pipeline(  # pylint: disable=too-many-arguments
-    ext_mods: List[nn.ExternModule] = None,
+    ext_mods: list[nn.ExternModule] | None = None,
 ):
     ext_mods = ext_mods or []
 

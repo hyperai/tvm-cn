@@ -49,7 +49,7 @@ class MyModule:
                 C: T.Buffer((128, 128), "float32")):
         Y = T.alloc_buffer((128, 128), dtype="float32")
         for i, j, k in T.grid(128, 128, 128):
-            with T.block("Y"):
+            with T.sblock("Y"):
                 vi = T.axis.spatial(128, i)
                 vj = T.axis.spatial(128, j)
                 vk = T.axis.reduce(128, k)
@@ -57,7 +57,7 @@ class MyModule:
                     Y[vi, vj] = T.float32(0)
                 Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
         for i, j in T.grid(128, 128):
-            with T.block("C"):
+            with T.sblock("C"):
                 vi = T.axis.spatial(128, i)
                 vj = T.axis.spatial(128, j)
                 C[vi, vj] = T.max(Y[vi, vj], T.float32(0))
@@ -122,11 +122,11 @@ for i in range(128):
 
 ## 计算块
 
-一个重要的区别在于计算语句：TensorIR 引入了一个额外的构造，称为 `T.block`。
+一个重要的区别在于计算语句：TensorIR 引入了一个额外的构造，称为 `T.sblock`。
 
 ```plain
 # TensorIR
-with T.block("Y"):
+with T.sblock("Y"):
     vi = T.axis.spatial(128, i)
     vj = T.axis.spatial(128, j)
     vk = T.axis.reduce(128, k)
@@ -183,7 +183,7 @@ vk = T.axis.reduce(128, k)
 ```plain
 # 错误的程序，由于循环和块迭代不匹配
 for i in range(127):
-    with T.block("C"):
+    with T.sblock("C"):
         vi = T.axis.spatial(128, i)
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
         这里出现错误是因为迭代器大小不匹配
@@ -220,13 +220,13 @@ class MyModuleWithAxisRemapSugar:
                 C: T.Buffer((128, 128), "float32")):
         Y = T.alloc_buffer((128, 128), dtype="float32")
         for i, j, k in T.grid(128, 128, 128):
-            with T.block("Y"):
+            with T.sblock("Y"):
                 vi, vj, vk = T.axis.remap("SSR", [i, j, k])
                 with T.init():
                     Y[vi, vj] = T.float32(0)
                 Y[vi, vj] = Y[vi, vj] + A[vi, vk] * B[vk, vj]
         for i, j in T.grid(128, 128):
-            with T.block("C"):
+            with T.sblock("C"):
                 vi, vj = T.axis.remap("SS", [i, j])
                 C[vi, vj] = T.max(Y[vi, vj], T.float32(0))
 ```

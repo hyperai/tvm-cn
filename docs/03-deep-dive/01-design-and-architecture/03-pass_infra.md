@@ -13,7 +13,7 @@ passes），用于改进模型在特定设备上的性能指标，例如推理�
 
 例如，许多现有的生产级编译器（如 GCC 与 LLVM） 采用「传递管理器（pass manager）」来高效管理传递执行。最初传递数量较少时管理很简单，但成熟编译器可能包含数百个独立传递。外部用户往往希望添加自定义传递，并能正确调度，而无需手动修改固定顺序。
 
-类似地，现代深度学习框架（如 Pytorch 与 MXNet Gluon）也倾向于通过[Sequential](https://pytorch.org/docs/stable/nn.html?highlight=sequential#torch.nn.Sequential)和[Block](https://mxnet.apache.org/api/python/docs/api/gluon/block.html#gluon-block)实现类似「传递式」层构建机制。
+类似地，现代深度学习框架（如 PyTorch）也倾向于通过 [Sequential](https://pytorch.org/docs/stable/nn.html?highlight=sequential#torch.nn.Sequential) 实现类似「传递式」层构建机制。
 借助这些构造，框架能够轻松将模块或层添加到容器中，从而快速搭建神经网络。
 
 TVM 的传递基础设施设计灵感主要来自 LLVM 的层次化传递管理器

@@ -5,7 +5,7 @@ title: Docker 镜像
 ---
 
 
-我们提供了 Docker 实用脚本帮助开发者搭建开发环境，这些脚本也能辅助运行 TVM 的演示和教程。如需使用 CUDA，需提前安装 [docker](https://docs.docker.com/engine/installation/) 和 [nvidia-docker](https://github.com/NVIDIA/nvidia-docker/)。
+我们提供了 Docker 实用脚本帮助开发者搭建开发环境，这些脚本也能辅助运行 TVM 的演示和教程。如需使用 CUDA，需提前安装 [docker](https://docs.docker.com/engine/installation/) 和 [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)。
 
 
 通过获取 TVM 源码发行版或克隆 GitHub 仓库以获取辅助脚本：

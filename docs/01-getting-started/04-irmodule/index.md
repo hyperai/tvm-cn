@@ -565,7 +565,7 @@ print(cpu_out)
 我们使用 `DLight` 来生成 GPU 程序。本教程中不深入介绍 `DLight` 的具体细节。
 
 ```plain
-from tvm import dlight as dl
+from tvm.s_tir import dlight as dl
 
 with tvm.target.Target("cuda"):
     gpu_mod = dl.ApplyDefaultSchedule(

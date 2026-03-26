@@ -22,16 +22,16 @@ title: 代码指南和提示
 * 尽可能使用 `const` 成员函数。
 
 
-我们使用 `clang-format` 强制执行代码风格。由于不同版本的 clang-format 可能存在差异，建议使用与主版本相同的 clang-format 版本。也可以通过 docker 执行以下命令：
+我们使用 `clang-format` 强制执行代码风格。可以通过 pre-commit hooks 运行格式化检查：
 
 ```plain
 
-# 对指定文件运行 clang-format。
-docker/bash.sh ci_lint clang-format-10 [path-to-file]
+# 对所有文件运行 clang-format
+pre-commit run clang-format --all-files
 
 
-# 运行所有检查工具（包括 clang-format）。
-python tests/scripts/ci.py lint
+# 运行所有 lint 检查
+pre-commit run --all-files
 ```
 
 
@@ -70,7 +70,7 @@ void Func3() {
 
 ## Python 代码样式
 * 函数和类采用 [numpydoc](https://numpydoc.readthedocs.io/en/latest/) 格式文档。
-* 使用 `python tests/scripts/ci.py lint` 检查代码风格。
+* 使用 `pre-commit run --all-files` 检查代码风格。
 * 限定使用 Python 3.7 的语言特性。
 * 对于包含提前返回的函数：当各条件分支逻辑平行且简短时（如参数简单映射），推荐使用 `if`/`elif`/`else` 链式结构。当最终 `else` 块明显长于其他分支时（常见于流程型函数），应取消最终 `else` 的缩进。
 

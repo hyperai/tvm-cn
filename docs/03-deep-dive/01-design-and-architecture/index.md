@@ -29,8 +29,8 @@ title: 设计与架构
 
 
 **IRModule** 是整个堆栈中使用的主要数据结构。一个 IRModule（intermediate representation module）包含一组函数。目前支持两种主要的功能变体（variant）：
-* **relay::Function** 是一种高层功能程序表示。一个 relay.Function 通常对应一个端到端的模型。可将 relay.Function 视为额外支持控制流、递归和复杂数据结构的计算图。
-* **tir::PrimFunc** 是一种底层程序表示，包含循环嵌套选择、多维加载/存储、线程和向量/张量指令的元素。通常用于表示算子程序，这个程序在模型中执行一个（可融合的）层。 在编译期间，Relay 函数可降级为多个 tir::PrimFunc 函数和一个调用这些 tir::PrimFunc 函数的顶层函数。
+* **relax::Function** 是一种高层功能程序表示。一个 relax.Function 通常对应一个端到端的模型或整体模型的一个子图。可将 relax.Function 视为额外支持控制流和复杂数据结构的计算图。
+* **tir::PrimFunc** 是一种底层程序表示，包含循环嵌套选择、多维加载/存储、线程和向量/张量指令的元素。通常用于表示算子程序，这个程序在模型中执行一个（可融合的）层。
 
 
 
@@ -40,9 +40,9 @@ title: 设计与架构
 
 ### 转换
 
-前面介绍了关键数据结构，接下来讲转换。转换的目的有：
+前面介绍了关键数据结构，接下来讲转换。每种转换都服务于以下目的之一：
 * 优化：将程序转换为等效，甚至更优的版本。
-* 降级：将程序转换为更接近 target 的较低级别表示。 relay/transform 包含一组优化模型的 pass。优化包括常见的程序优化（例如常量折叠和死码消除），以及特定于张量计算的 pass（例如布局转换和 scale 因子折叠）。
+* 降级：将程序转换为更接近 target 的较低级别表示。
 
 
 #### Relax 转换
@@ -127,12 +127,12 @@ result = gmod["get_output"](0).numpy()
 ### 总结与讨论
 
 综上所述，编译流程中的关键数据结构有：
-* IRModule：包含 relay.Function 和 tir.PrimFunc
+* IRModule：包含 relax.Function 和 tir.PrimFunc
 * runtime.Module：包含 runtime.PackedFunc
 
 
 编译基本是在进行关键数据结构之间的转换。
-* relay/transform 和 tir/transform 是确定性的基于规则的转换
+* relax/transform 和 tir/transform 是确定性的基于规则的转换
 * meta-schedule 则包含基于搜索的转换
 
 
@@ -260,10 +260,10 @@ TE（Tensor Expression）是用于描述张量计算的领域专用语言（DSL�
 尽管可以使用 TIR 或 TE 为每个场景直接构造算子，但这种方式较为繁琐。为此，topi（Tensor Operator Inventory）提供了一组预定义算子，覆盖了 numpy 操作和深度学习常见操作。
 
 
-## tvm/meta_schedule
+## tvm/s_tir/meta_schedule
 
 
-MetaSchedule 是一个用于自动搜索优化程序调度的系统。它是 AutoTVM 和 AutoScheduler 的替代方案，可用于优化 TensorIR 调度。需要注意的是，MetaSchedule 目前仅支持静态形状工作负载。
+MetaSchedule 是一个基于自动搜索的程序优化系统，可用于优化 TensorIR 调度。需要注意的是，MetaSchedule 目前仅支持静态形状工作负载。
 
 
 ## tvm/dlight
