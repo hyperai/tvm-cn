@@ -34,7 +34,7 @@ title: 转换
 ```plain
 import tvm
 from tvm.script import ir as I
-from tvm.script import tir as T
+from tvm.script import tirx as T
 
 
 @I.ir_module
@@ -45,7 +45,7 @@ class MyModule:
         B: T.Buffer((128, 128), "float32"),
         C: T.Buffer((128, 128), "float32"),
     ):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         Y = T.alloc_buffer((128, 128))
         for i, j, k in T.grid(128, 128, 128):
             with T.sblock("Y"):
@@ -75,7 +75,7 @@ c_nd = tvm.runtime.tensor(np.zeros((128, 128), dtype="float32"))
 
 
 def evaluate(mod: tvm.IRModule):
-    lib = tvm.tir.build(mod, target="llvm")
+    lib = tvm.tirx.build(mod, target="llvm")
     # 检查正确性
     lib(a_nd, b_nd, c_nd)
     np.testing.assert_allclose(c_nd.numpy(), c_np, rtol=1e-5)
@@ -100,7 +100,7 @@ Execution time summary:
 我们通过创建一个 Schedule 辅助类，并将提供的 MyModule 作为输入，来启动代码转换的过程：
 
 ```plain
-sch = tvm.tir.Schedule(MyModule)
+sch = tvm.s_tir.Schedule(MyModule)
 ```
 
 
@@ -130,13 +130,13 @@ sch.mod.show()
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0, j_1, k in T.grid(128, 16, 8, 128):
@@ -169,13 +169,13 @@ evaluate(sch.mod)
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0, k, j_1 in T.grid(128, 16, 128, 8):
@@ -215,13 +215,13 @@ sch.mod.show()
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0 in T.grid(128, 16):
@@ -260,13 +260,13 @@ evaluate(sch.mod)
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0 in T.grid(128, 16):
@@ -312,7 +312,7 @@ sch.trace.show()
 ```
 输出：
 ```plain
-# from tvm import tir
+# from tvm import tirx
 def apply_trace(sch: tir.Schedule) -> None:
   b0 = sch.get_block(name="Y", func_name="main")
   l1, l2, l3 = sch.get_loops(block=b0)
@@ -332,13 +332,13 @@ sch.show()
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def main(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j_0 in T.grid(128, 16):
@@ -365,7 +365,7 @@ class Module:
                     T.writes(C[vi, vj])
                     C[vi, vj] = T.max(Y[vi, vj], T.float32(0.0))
 
-# from tvm import tir
+# from tvm import tirx
 def apply_trace(sch: tir.Schedule) -> None:
   b0 = sch.get_block(name="Y", func_name="main")
   l1, l2, l3 = sch.get_loops(block=b0)

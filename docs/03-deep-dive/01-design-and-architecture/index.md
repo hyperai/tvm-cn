@@ -30,11 +30,11 @@ title: 设计与架构
 
 **IRModule** 是整个堆栈中使用的主要数据结构。一个 IRModule（intermediate representation module）包含一组函数。目前支持两种主要的功能变体（variant）：
 * **relax::Function** 是一种高层功能程序表示。一个 relax.Function 通常对应一个端到端的模型或整体模型的一个子图。可将 relax.Function 视为额外支持控制流和复杂数据结构的计算图。
-* **tir::PrimFunc** 是一种底层程序表示，包含循环嵌套选择、多维加载/存储、线程和向量/张量指令的元素。通常用于表示算子程序，这个程序在模型中执行一个（可融合的）层。
+* **tirx::PrimFunc** 是一种底层程序表示，包含循环嵌套选择、多维加载/存储、线程和向量/张量指令的元素。通常用于表示算子程序，这个程序在模型中执行一个（可融合的）层。
 
 
 
-在编译和转换过程中，所有的 Relax 运算符都会被下沉（lower）为 `tir::PrimFunc` 或 `TVM PackedFunc`，这些函数可以直接在目标设备上执行。而对 Relax 运算符的调用，则会被下沉为对低层函数的调用（例如 `R.call_tir` 或 `R.call_dps`）。
+在编译和转换过程中，所有的 Relax 运算符都会被下沉（lower）为 `tirx::PrimFunc` 或 `TVM PackedFunc`，这些函数可以直接在目标设备上执行。而对 Relax 运算符的调用，则会被下沉为对低层函数的调用（例如 `R.call_tir` 或 `R.call_dps`）。
 
 
 
@@ -49,9 +49,9 @@ title: 设计与架构
 
 Relax 转换包括一系列应用于 Relax 函数的 Pass。优化内容包括常见的图级优化（如常量折叠、无用代码消除等），以及后端特定的优化（例如库调度）。
 
-#### tir 转换
+#### tirx 转换
 
-tir 转换包含一组应用于 tir 函数的 pass，主要包括两类：
+tirx 转换包含一组应用于 tirx 函数的 pass，主要包括两类：
 * **TensorIR 调度（TensorIR schedule）：** TensorIR 调度旨在为特定目标优化 TensorIR 函数，通常由用户指导控制目标代码的生成。对于 CPU 目标，TIR PrimFunc 即使没有调度也可以生成有效代码并在目标设备上运行，但性能较低。对于 GPU 目标，调度是生成有效线程绑定代码的关键。详情请参考 [TensorIR 转换教程](/docs/deep-dive/tensorir/tir_transformation)。此外，TVM 提供了 `MetaSchedule` 来自动搜索最优的 TensorIR 调度。 
 * **降层 Pass（Lowering Passes）：** 这些 Pass 通常在应用调度后执行，将 TIR PrimFunc 转换为功能等价但更贴近目标表示的版本。例如，有些 Pass 会将多维访问扁平化为一维指针访问，或者将中间表示中的 intrinsic 扩展为目标特定的形式，并对函数入口进行修饰以符合运行时调用约定。
 
@@ -127,12 +127,12 @@ result = gmod["get_output"](0).numpy()
 ### 总结与讨论
 
 综上所述，编译流程中的关键数据结构有：
-* IRModule：包含 relax.Function 和 tir.PrimFunc
+* IRModule：包含 relax.Function 和 tirx.PrimFunc
 * runtime.Module：包含 runtime.PackedFunc
 
 
 编译基本是在进行关键数据结构之间的转换。
-* relax/transform 和 tir/transform 是确定性的基于规则的转换
+* relax/transform 和 tirx/transform 是确定性的基于规则的转换
 * meta-schedule 则包含基于搜索的转换
 
 
@@ -178,9 +178,9 @@ node 模块在 runtime::Object 的基础上为 IR 数据结构增加了更多功
 得益于 node 模块，我们可以在 Python 中通过字段名直接访问 TVM IR 节点的任意字段：
 
 ```plain
-x = tvm.tir.Var("x", "int32")
-y = tvm.tir.Add(x, x)
-# a 和 b 是 tir.Add 节点的字段
+x = tvm.tirx.Var("x", "int32")
+y = tvm.tirx.Add(x, x)
+# a 和 b 是 tirx.Add 节点的字段
 # 可以通过字段名直接访问
 assert y.a == x
 ```
@@ -192,22 +192,22 @@ assert y.a == x
 ## tvm/ir
 
 
-tvm/ir 文件夹包含所有 IR 函数变体所共享的统一数据结构与接口。该模块中的组件被 tvm/relax 和 tvm/tir 共享，主要包括：
+tvm/ir 文件夹包含所有 IR 函数变体所共享的统一数据结构与接口。该模块中的组件被 tvm/relax 和 tvm/tirx 共享，主要包括：
 * IRModule
 * 类型
 * PassContext 和 Pass
 * Op
 
 
-不同的函数变体（如 relax.Function 和 tir.PrimFunc）可以共存于一个 IRModule 中。尽管这些变体的内容表示不同，但它们使用相同的数据结构来表示类型。因此，不同函数变体之间可以共享函数签名的表示结构。统一的类型系统使得在定义好调用约定的前提下，一个函数变体可以调用另一个，从而为跨函数变体的优化奠定了基础。
+不同的函数变体（如 relax.Function 和 tirx.PrimFunc）可以共存于一个 IRModule 中。尽管这些变体的内容表示不同，但它们使用相同的数据结构来表示类型。因此，不同函数变体之间可以共享函数签名的表示结构。统一的类型系统使得在定义好调用约定的前提下，一个函数变体可以调用另一个，从而为跨函数变体的优化奠定了基础。
 
 
 此外，我们还提供了统一的 PassContext 用于配置 Pass 行为，并提供组合 Pass 的方式构建优化流程。如下示例：
 
 
 ```plain
-# 配置 tir.UnrollLoop pass 的行为
-with tvm.transform.PassContext(config={"tir.UnrollLoop": { "auto_max_step": 10 }}):
+# 配置 tirx.UnrollLoop pass 的行为
+with tvm.transform.PassContext(config={"tirx.UnrollLoop": { "auto_max_step": 10 }}):
     # 在该上下文下执行的代码
 ```
 
@@ -232,14 +232,14 @@ target 模块包含将 IRModule 转换为目标运行时代码的所有代码生
 Relax 是用于表示模型计算图的高级 IR。多种优化过程定义在 `relax.transform` 中。需要注意的是，Relax 通常与 TensorIR 的 IRModule 协同工作，许多转换会同时作用于 Relax 和 TensorIR 函数。更多信息可参考： [Relax 深度解析](/docs/deep-dive/relax/)。
 
 
-## tvm/tir
+## tvm/tirx
 
 
-TIR 定义了低级程序表示。我们使用 tir::PrimFunc 来表示可以由 TIR Pass 转换的函数。除了 IR 数据结构，TIR 模块还包括：
-* 位于 `tir/schedule` 中的一组调度原语 
-* 位于 `tir/tensor_intrin` 中的内置指令 
-* 位于 `tir/analysis` 中的分析 Pass 
-* 位于 `tir/transform` 中的转换/优化 Pass
+TIR 定义了低级程序表示。我们使用 tirx::PrimFunc 来表示可以由 tirx Pass 转换的函数。除了 IR 数据结构，TIR 模块还包括：
+* 位于 `tirx/schedule` 中的一组调度原语 
+* 位于 `tirx/tensor_intrin` 中的内置指令 
+* 位于 `tirx/analysis` 中的分析 Pass 
+* 位于 `tirx/transform` 中的转换/优化 Pass
 
 
 更多信息请参考： [TensorIR 深度解析](/docs/deep-dive/tensorir/)。
@@ -254,7 +254,7 @@ TIR 定义了低级程序表示。我们使用 tir::PrimFunc 来表示可以由 
 ## tvm/te 和 tvm/topi
 
 
-TE（Tensor Expression）是用于描述张量计算的领域专用语言（DSL）。需要注意的是，Tensor Expression 本身并不是可以直接存储进 IRModule 的自包含函数。我们可以使用 `te.create_prim_func` 将其转换为 `tir::PrimFunc`，然后集成进 IRModule。
+TE（Tensor Expression）是用于描述张量计算的领域专用语言（DSL）。需要注意的是，Tensor Expression 本身并不是可以直接存储进 IRModule 的自包含函数。我们可以使用 `te.create_prim_func` 将其转换为 `tirx::PrimFunc`，然后集成进 IRModule。
 
 
 尽管可以使用 TIR 或 TE 为每个场景直接构造算子，但这种方式较为繁琐。为此，topi（Tensor Operator Inventory）提供了一组预定义算子，覆盖了 numpy 操作和深度学习常见操作。

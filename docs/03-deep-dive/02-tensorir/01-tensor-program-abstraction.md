@@ -9,7 +9,7 @@ title: 张量程序抽象
 
 
 ```plain
-from tvm.script import tir as T
+from tvm.script import tirx as T
 
 @T.prim_func
 def main(

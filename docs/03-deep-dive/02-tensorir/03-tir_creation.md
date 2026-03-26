@@ -45,7 +45,7 @@ title: TensorIR 创建
 import numpy as np
 import tvm
 from tvm.script import ir as I
-from tvm.script import tir as T
+from tvm.script import tirx as T
 
 
 @I.ir_module
@@ -275,13 +275,13 @@ TEModule.show()
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def mm_relu(A: T.Buffer((128, 128), "float32"), B: T.Buffer((128, 128), "float32"), C: T.Buffer((128, 128), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         Y = T.alloc_buffer((128, 128))
         for i, j, k in T.grid(128, 128, 128):
@@ -323,13 +323,13 @@ DynamicTEModule.show()
 输出：
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 
 @I.ir_module
 class Module:
     @T.prim_func
     def mm_relu(var_A: T.handle, var_B: T.handle, var_C: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         m, n = T.int32(), T.int32()
         A = T.match_buffer(var_A, (m, n))
         k = T.int32()

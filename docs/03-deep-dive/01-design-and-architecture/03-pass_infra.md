@@ -7,7 +7,7 @@ title: Pass 基础设施
 Relax 与 TVM IR 都包含一系列优化传递（optimization
 passes），用于改进模型在特定设备上的性能指标，例如推理平均时间、内存占用或功耗。这些优化包括标准优化与机器学习特定优化，如常量折叠（constant folding）、死代码消除、算子布局变换、算子融合、缓冲区处理和循环变换等。每个传递都是基于收集的分析结果进行的 IR-to-IR 转换。
 
-然而，随着 TVM 的快速发展，越来越需要一种系统化且高效的方式来管理这些传递。此外，一个通用的框架能够在 TVM 栈的不同层次（例如 Relax 和 tir）之间管理传递，这为开发者快速原型化和集成新传递铺平了道路。
+然而，随着 TVM 的快速发展，越来越需要一种系统化且高效的方式来管理这些传递。此外，一个通用的框架能够在 TVM 栈的不同层次（例如 Relax 和 tirx）之间管理传递，这为开发者快速原型化和集成新传递铺平了道路。
 
 本文档介绍了这种基础设施的设计，它结合了生产级编译器中用于管理优化传递的方式，以及现代深度学习框架用于构建层次化结构的风格。
 
@@ -103,7 +103,7 @@ typedef dmlc::ThreadLocalStore<PassContextThreadLocalEntry>
 
 #### Pass 构造
 
-传递（Pass）基础设施以分层结构设计，可在 Relax/tir
+传递（Pass）基础设施以分层结构设计，可在 Relax/tirx
 程序的不同粒度上工作。 系统定义了一个纯虚类`PassNode`，作为各种优化传递的基类。此类包含多个必须在子类中实现的虚函数，适用于模块级、函数级或顺序传递级别。
 
 
@@ -138,9 +138,9 @@ class ModulePassNode : PassNode {
 
 ### 函数级传递
 
-函数级传递用于实现 Relax/tir 模块中函数内的优化。它一次提取模块中的一个函数进行优化，输出优化后的 Relax `Function` 或 tir `PrimFunc`。多数优化都属于此类，如 Relax 的公共子表达式消除、推理简化，或 tir 的向量化与内存扁平化。
+函数级传递用于实现 Relax/tirx 模块中函数内的优化。它一次提取模块中的一个函数进行优化，输出优化后的 Relax `Function` 或 tir `PrimFunc`。多数优化都属于此类，如 Relax 的公共子表达式消除、推理简化，或 tirx 的向量化与内存扁平化。
 
-函数级传递仅作用于单个函数（Relax 或 tir），因此无法通过此类传递添加或删除函数，因为其不具备全局信息。
+函数级传递仅作用于单个函数（Relax 或 tirx），因此无法通过此类传递添加或删除函数，因为其不具备全局信息。
 
 ``` c++
 class FunctionPassNode : PassNode {
@@ -408,10 +408,10 @@ class PassContext(tvm.runtime.Object):
 `PassContext`用于配置编译选项（优化级别、必需/禁用传递等），并可传入配置字典，以便不同传递读取需要的数据（如回退设备信息、循环展开步数/深度等）。若要从 `config` 中获取某项配置，其键名需通过`TVM_REGISTER_PASS_CONFIG_OPTION` 注册，例如循环展开传递：
 
 ``` c++
-TVM_REGISTER_PASS_CONFIG_OPTION("tir.UnrollLoop", UnrollLoopConfig);
+TVM_REGISTER_PASS_CONFIG_OPTION("tirx.UnrollLoop", UnrollLoopConfig);
 ```
 
-详见[src/tir/transforms/unroll_loop.cc](https://github.com/apache/tvm/blob/main/src/tir/transforms/unroll_loop.cc)。
+详见[src/tirx/transform/unroll_loop.cc](https://github.com/apache/tvm/blob/main/src/tirx/transform/unroll_loop.cc)。
 
 #### Python 中的传递检测 
 

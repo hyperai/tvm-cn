@@ -144,7 +144,7 @@ python tests/scripts/ci.py cpu --unittest
 
 
 # 快速迭代：运行特定测试并跳过每次重建。
-python tests/scripts/ci.py cpu --skip-build --tests tests/python/tir-transform/test_tir_transform_inject_rolling_buffer.py::test_upscale
+python tests/scripts/ci.py cpu --skip-build --tests tests/python/tirx-transform/test_tir_transform_inject_rolling_buffer.py::test_upscale
 
 
 # 在容器中运行 CPU 构建并进入交互式 shell。

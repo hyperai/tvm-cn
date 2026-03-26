@@ -241,7 +241,7 @@ mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
@@ -249,7 +249,7 @@ class Module:
     I.module_attrs({"external_mods": [metadata["ffi.Module"][0]]})
     @T.prim_func(private=True)
     def matmul(lv: T.Buffer((T.int64(1), T.int64(256)), "float32"), permute_dims1: T.Buffer((T.int64(256), T.int64(10)), "float32"), matmul: T.Buffer((T.int64(1), T.int64(10)), "float32")):
-        T.func_attr({"op_pattern": 4, "tir.is_scheduled": True, "tir.noalias": True})
+        T.func_attr({"op_pattern": 4, "tirx.is_scheduled": True, "tirx.noalias": True})
         # with T.block("root"):
         matmul_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(10)), scope="local")
         for ax0_fused_0 in T.thread_binding(T.int64(1), thread="blockIdx.x"):
@@ -281,7 +281,7 @@ class Module:
 
     @T.prim_func(private=True)
     def transpose(fc2_weight: T.Buffer((T.int64(10), T.int64(256)), "float32"), T_transpose: T.Buffer((T.int64(256), T.int64(10)), "float32")):
-        T.func_attr({"op_pattern": 2, "tir.is_scheduled": True, "tir.noalias": True})
+        T.func_attr({"op_pattern": 2, "tirx.is_scheduled": True, "tirx.noalias": True})
         # with T.block("root"):
         for ax0_ax1_fused_0 in T.thread_binding(T.int64(3), thread="blockIdx.x"):
             for ax0_ax1_fused_1 in T.thread_binding(T.int64(1024), thread="threadIdx.x"):

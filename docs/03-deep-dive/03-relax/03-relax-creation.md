@@ -29,7 +29,7 @@ TVMScript 是一个用于表示 Apache TVM 中间表示（IR）的领域特定�
 from tvm import relax, topi
 from tvm.script import ir as I
 from tvm.script import relax as R
-from tvm.script import tir as T
+from tvm.script import tirx as T
 
 
 @I.ir_module
@@ -55,7 +55,7 @@ RelaxModule.show()
 输出:
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
@@ -115,7 +115,7 @@ RelaxModuleWithTIR.show()
 输出:
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
@@ -211,7 +211,7 @@ mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
@@ -292,14 +292,14 @@ mod.show()
 输出:
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
 class Module:
     @T.prim_func(private=True)
     def relu(var_env_linear: T.handle, var_compute: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         env_linear = T.match_buffer(var_env_linear, (n, T.int64(128)))
         compute = T.match_buffer(var_compute, (n, T.int64(128)))
@@ -377,7 +377,7 @@ mod.show()
 输出:
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
@@ -433,14 +433,14 @@ mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
 class Module:
     @T.prim_func(private=True)
     def relu(var_lv: T.handle, var_compute: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         v = T.int64()
         lv = T.match_buffer(var_lv, (v, T.int64(128)))
         compute = T.match_buffer(var_compute, (v, T.int64(128)))

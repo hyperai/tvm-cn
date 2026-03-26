@@ -172,7 +172,7 @@ TVM_FFI_STATIC_INIT_BLOCK() { IntImmNode::RegisterReflection(); }
 ``` python
 import tvm
 
-x = tvm.tir.IntImm("int32", 1)
+x = tvm.tirx.IntImm("int32", 1)
 # access the value field of IntImmNode
 print(x.value)
 ```

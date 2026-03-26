@@ -49,7 +49,7 @@ origin_mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
@@ -86,14 +86,14 @@ mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
 class Module:
     @T.prim_func(private=True)
     def add(var_matmul: T.handle, fc1_bias: T.Buffer((T.int64(128),), "float32"), var_T_add: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         matmul = T.match_buffer(var_matmul, (n, T.int64(128)))
         T_add = T.match_buffer(var_T_add, (n, T.int64(128)))
@@ -107,7 +107,7 @@ class Module:
 
     @T.prim_func(private=True)
     def add1(var_matmul1: T.handle, fc2_bias: T.Buffer((T.int64(10),), "float32"), var_T_add: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         matmul1 = T.match_buffer(var_matmul1, (n, T.int64(10)))
         T_add = T.match_buffer(var_T_add, (n, T.int64(10)))
@@ -121,7 +121,7 @@ class Module:
 
     @T.prim_func(private=True)
     def matmul(var_x: T.handle, permute_dims: T.Buffer((T.int64(784), T.int64(128)), "float32"), var_matmul: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         x = T.match_buffer(var_x, (n, T.int64(784)))
         matmul = T.match_buffer(var_matmul, (n, T.int64(128)))
@@ -137,7 +137,7 @@ class Module:
 
     @T.prim_func(private=True)
     def matmul1(var_relu: T.handle, permute_dims1: T.Buffer((T.int64(128), T.int64(10)), "float32"), var_matmul: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         relu = T.match_buffer(var_relu, (n, T.int64(128)))
         matmul = T.match_buffer(var_matmul, (n, T.int64(10)))
@@ -153,7 +153,7 @@ class Module:
 
     @T.prim_func(private=True)
     def relu(var_add: T.handle, var_compute: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         add = T.match_buffer(var_add, (n, T.int64(128)))
         compute = T.match_buffer(var_compute, (n, T.int64(128)))
@@ -167,7 +167,7 @@ class Module:
 
     @T.prim_func(private=True)
     def transpose(fc1_weight: T.Buffer((T.int64(128), T.int64(784)), "float32"), T_transpose: T.Buffer((T.int64(784), T.int64(128)), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         for ax0, ax1 in T.grid(T.int64(784), T.int64(128)):
             with T.sblock("T_transpose"):
@@ -178,7 +178,7 @@ class Module:
 
     @T.prim_func(private=True)
     def transpose1(fc2_weight: T.Buffer((T.int64(10), T.int64(128)), "float32"), T_transpose: T.Buffer((T.int64(128), T.int64(10)), "float32")):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         # with T.sblock("root"):
         for ax0, ax1 in T.grid(T.int64(128), T.int64(10)):
             with T.sblock("T_transpose"):
@@ -227,14 +227,14 @@ mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
 class Module:
     @T.prim_func(private=True)
     def fused_matmul1_add1(p_relu: T.handle, permute_dims1: T.Buffer((T.int64(128), T.int64(10)), "float32"), fc2_bias: T.Buffer((T.int64(10),), "float32"), p_output0: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         relu = T.match_buffer(p_relu, (n, T.int64(128)))
         T_add_intermediate = T.match_buffer(p_output0, (n, T.int64(10)))
@@ -257,7 +257,7 @@ class Module:
 
     @T.prim_func(private=True)
     def fused_matmul_add_relu(p_x: T.handle, permute_dims: T.Buffer((T.int64(784), T.int64(128)), "float32"), fc1_bias: T.Buffer((T.int64(128),), "float32"), p_output0: T.handle):
-        T.func_attr({"tir.noalias": True})
+        T.func_attr({"tirx.noalias": True})
         n = T.int64()
         x = T.match_buffer(p_x, (n, T.int64(784)))
         compute_intermediate = T.match_buffer(p_output0, (n, T.int64(128)))
@@ -287,7 +287,7 @@ class Module:
 
     @T.prim_func(private=True)
     def transpose(fc1_weight: T.Buffer((T.int64(128), T.int64(784)), "float32"), T_transpose: T.Buffer((T.int64(784), T.int64(128)), "float32")):
-        T.func_attr({"op_pattern": 2, "tir.noalias": True})
+        T.func_attr({"op_pattern": 2, "tirx.noalias": True})
         # with T.sblock("root"):
         for ax0, ax1 in T.grid(T.int64(784), T.int64(128)):
             with T.sblock("T_transpose"):
@@ -298,7 +298,7 @@ class Module:
 
     @T.prim_func(private=True)
     def transpose1(fc2_weight: T.Buffer((T.int64(10), T.int64(128)), "float32"), T_transpose: T.Buffer((T.int64(128), T.int64(10)), "float32")):
-        T.func_attr({"op_pattern": 2, "tir.noalias": True})
+        T.func_attr({"op_pattern": 2, "tirx.noalias": True})
         # with T.sblock("root"):
         for ax0, ax1 in T.grid(T.int64(128), T.int64(10)):
             with T.sblock("T_transpose"):
@@ -378,7 +378,7 @@ mod.show()
 
 ```plain
 # from tvm.script import ir as I
-# from tvm.script import tir as T
+# from tvm.script import tirx as T
 # from tvm.script import relax as R
 
 @I.ir_module
