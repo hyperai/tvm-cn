@@ -324,6 +324,6 @@ sudo make install
 ```
 
 
-安装 GTest 后，可以通过 `./tests/scripts/task_cpp_unittest.sh` 运行 C++ 测试，或通过 `CMake 使用 `-DUSE_GTEST=ON` 构建后运行 `./build/cpptest`。
+安装 GTest 后，可以通过 `./tests/scripts/task_cpp_unittest.sh` 运行 C++ 测试，或通过 CMake 使用 `-DUSE_GTEST=ON` 构建后运行 `./build/cpptest`。
 
 
