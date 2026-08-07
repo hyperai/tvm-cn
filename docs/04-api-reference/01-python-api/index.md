@@ -1,6 +1,6 @@
 ---
 
-title: Pyhon API
+title: Python API
 
 ---
 
