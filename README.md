@@ -61,3 +61,12 @@ pnpm run docusaurus docs:version 0.12.0
 ```
 
 然后编辑 `docusaurus.config.ts` 中 `versions.current.label` 为最新版本 `0.13.0`
+
+
+## Typo
+
+This section provides operational guidelines and configuration details addressing #290.
+
+### Usage & Setup
+- Verify environment setup and package requirements.
+- Follow standard execution patterns as documented in the repository.
